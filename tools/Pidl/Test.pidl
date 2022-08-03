@@ -1,0 +1,47 @@
+﻿// Test PIDL file
+
+#include "../a/b/c.h"
+#include "../a/b/c"
+
+#include "a/b/c.h"
+#include "a.h"
+
+#include "a/b/c.cpp"
+#include "a.cpp"
+
+#include "a/b/c"
+#include "a"
+
+#include <a.h>
+#include <a>
+
+import (as) X.Y;
+import (java)x.y;
+
+rename cs(XXX,YYY);
+rename cs(Proud::CFastArray, List);
+//rename cs(FAC<YAC>, PAC);
+
+using(cs) System.XXX;
+
+[marshaler(as)=A.B,marshaler(cs)=C.D,access=public]
+global Test 111
+{
+    [id = 2211] Foo([in] int x,[in]int id);
+    Goo([in] int x);
+    Hoo([in] Proud::CFastArray<int> x);
+    Ioo([in] Proud::CFastMap<int,float> y);
+}
+
+global Test2::Test3 222
+{
+    Foo();
+    Hoo([in] Proud::CFastArray<int> x);
+}
+
+global Test4.Test5 333
+{
+    Aoo([in] char a, [in] float b, [in,byval] int c, [in] long d);
+    Foo();
+    Hoo([in] Proud::CFastArray<int> x);
+}
