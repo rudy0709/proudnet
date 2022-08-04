@@ -18,13 +18,14 @@ namespace PIDL
             None,
             OutDir,
             ImplExt,
+            IncDir,
         }
 
         static int Main(string[] args)
         {
             if (args.Length == 0)
             {
-                Console.Write("ProudNet Remote Method Invocation Interface Definition Language Compiler\n(c) Nettetion Inc.\n");
+                Console.Write("ProudNet Remote Method Invocation Interface Definition Language Compiler\n");
                 Console.Write("Version " + PNVersion.g_versionText + "\n");
                 Console.Write("(c) Nettetion Inc. All rights reserved.\n");
                 Console.Write("Check out http://help.nettention.com => PIDL compiler for details.\n");
@@ -42,6 +43,7 @@ namespace PIDL
                 string errorTypeFileFullPath = null; // ErrorType.yaml의 전체 파일 이름
 
                 string outDir = null;
+                string incDir = null;
                 App.g_lang = Lang.CPP;
 
                 for (int c = 0; c < args.Length; c++)
@@ -59,6 +61,10 @@ namespace PIDL
                             {
                                 // 출력 디렉터리를 판독
                                 ahead = Ahead.OutDir;
+                            }
+                            else if (v.ToLower() == "-incdir")
+                            {
+                                ahead = Ahead.IncDir;
                             }
                             else if (v.Length > 0 && v[0] == '-')
                             {
@@ -97,6 +103,10 @@ namespace PIDL
                             App.m_implExt = v;
                             ahead = Ahead.None;
                             break;
+                        case Ahead.IncDir:
+                            incDir = Util.GetDirectoryName(v);
+                            ahead = Ahead.None;
+                            break;
                     }
                 }
 
@@ -105,7 +115,7 @@ namespace PIDL
                 // 그래서 PIDL 툴에서 한다.
                 if(errorTypeFileFullPath != null)
                 {
-                    if(ProcessErrorTypeFile(errorTypeFileFullPath) != 0)
+                    if (ProcessErrorTypeFile(errorTypeFileFullPath, incDir, outDir) != 0)
                         return 1;
                     return 0;
                 }
@@ -144,11 +154,8 @@ namespace PIDL
                 if (outDir != null)
                 {
                     // 출력 파일이 저장될 디렉터리를 만든다. 없으면.
-                    if (outDir != null)
-                    {
-                        if (!Directory.Exists(outDir))
-                            Directory.CreateDirectory(outDir);
-                    }
+                    if (!Directory.Exists(outDir))
+                        Directory.CreateDirectory(outDir);
                     outDirP = outDir;
                 }
                 else

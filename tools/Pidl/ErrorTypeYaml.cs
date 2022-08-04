@@ -30,9 +30,22 @@ namespace PIDL
     {
         // ErrorType.yaml을 처리한다.
         // 내부용이고, ErrorType.yaml 소스파일의 상대경로에서 일을 해야 하므로, 추가 파라메터없이 가자.
-        private static int ProcessErrorTypeFile(string errorTypeFileFullPath)
+        private static int ProcessErrorTypeFile(string errorTypeFileFullPath, string incDir, string outDir)
         {
             string cppSourceDir = Path.GetDirectoryName(errorTypeFileFullPath);
+
+            if (incDir == null) {
+                incDir = Path.Combine(cppSourceDir, @"..\include");
+            }
+            if (outDir == null)
+            {
+                outDir = cppSourceDir;
+            }
+            else
+            {
+                if (!Directory.Exists(outDir))
+                    Directory.CreateDirectory(outDir);
+            }
 
             // yaml 읽기
             var fileContents = File.ReadAllText(errorTypeFileFullPath);
@@ -46,13 +59,13 @@ namespace PIDL
             var cppHText = new ErrorTypeH().TransformText();
 
             Console.WriteLine("Generating ErrorType.h...");
-            File.WriteAllText(Path.Combine(cppSourceDir, @"..\include\ErrorType.h".Replace('\\', Path.DirectorySeparatorChar)), cppHText, Encoding.UTF8);
+            File.WriteAllText(Path.Combine(incDir, @"ErrorType.h".Replace('\\', Path.DirectorySeparatorChar)), cppHText, Encoding.UTF8);
 
             Console.WriteLine("Generating ErrorTypeOldSpec.h...");
-            File.WriteAllText(Path.Combine(cppSourceDir, @"..\include\ErrorTypeOldSpec.h".Replace('\\', Path.DirectorySeparatorChar)), new ErrorTypeHOldSpec().TransformText(), Encoding.UTF8);
+            File.WriteAllText(Path.Combine(incDir, @"ErrorTypeOldSpec.h".Replace('\\', Path.DirectorySeparatorChar)), new ErrorTypeHOldSpec().TransformText(), Encoding.UTF8);
 
             Console.WriteLine("Generating ErrorType.inl...");
-            File.WriteAllText(Path.Combine(cppSourceDir, @"ErrorType.inl"), new ErrorTypeInlH().TransformText(), Encoding.UTF8);
+            File.WriteAllText(Path.Combine(outDir, @"ErrorType.inl"), new ErrorTypeInlH().TransformText(), Encoding.UTF8);
 
             return 0;
         }
