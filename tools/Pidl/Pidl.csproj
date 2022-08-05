@@ -148,7 +148,7 @@
     <Compile Include="PidlSpec.g4.parser.cs">
       <DependentUpon>PidlSpec.g4</DependentUpon>
     </Compile>
-    <Compile Include="PNVersion.cs" />
+    <Compile Include="PnVersion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />

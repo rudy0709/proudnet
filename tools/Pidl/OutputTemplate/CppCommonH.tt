@@ -105,4 +105,3 @@ foreach(var classObj in App.g_parsed.m_classes)
     Write(App.GetCppNestedNamespaceDefinitionEnd(classObj.m_name, true));
 }
 #>
-

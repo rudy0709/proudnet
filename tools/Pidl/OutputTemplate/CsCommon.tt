@@ -89,6 +89,3 @@ foreach(var classObj in App.g_parsed.m_classes)
 <#
 }
 #>
-
-
-

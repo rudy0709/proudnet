@@ -26,7 +26,7 @@ namespace PIDL
             if (args.Length == 0)
             {
                 Console.Write("ProudNet Remote Method Invocation Interface Definition Language Compiler\n");
-                Console.Write("Version " + PNVersion.g_versionText + "\n");
+                Console.Write("Version " + PnVersion.g_versionText + "\n");
                 Console.Write("(c) Nettetion Inc. All rights reserved.\n");
                 Console.Write("Check out http://help.nettention.com => PIDL compiler for details.\n");
                 return 1;
@@ -320,5 +320,4 @@ namespace PIDL
         }
 
     }
-
 }

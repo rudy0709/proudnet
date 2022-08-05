@@ -75,4 +75,3 @@ package <#=App.g_parsed.m_package.m_name#>;
         }
     }
 #>
-
