@@ -58,13 +58,13 @@ namespace PIDL
             // 읽은 것을 토대로 파일 출력을 한다.
             var cppHText = new ErrorTypeH().TransformText();
 
-            Console.WriteLine("Generating ErrorType.h...");
+            //Console.WriteLine("Generating ErrorType.h...");
             File.WriteAllText(Path.Combine(incDir, @"ErrorType.h".Replace('\\', Path.DirectorySeparatorChar)), cppHText, Encoding.UTF8);
 
-            Console.WriteLine("Generating ErrorTypeOldSpec.h...");
+            //Console.WriteLine("Generating ErrorTypeOldSpec.h...");
             File.WriteAllText(Path.Combine(incDir, @"ErrorTypeOldSpec.h".Replace('\\', Path.DirectorySeparatorChar)), new ErrorTypeHOldSpec().TransformText(), Encoding.UTF8);
 
-            Console.WriteLine("Generating ErrorType.inl...");
+            //Console.WriteLine("Generating ErrorType.inl...");
             File.WriteAllText(Path.Combine(outDir, @"ErrorType.inl"), new ErrorTypeInlH().TransformText(), Encoding.UTF8);
 
             return 0;
