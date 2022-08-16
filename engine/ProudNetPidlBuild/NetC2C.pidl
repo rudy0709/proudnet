@@ -1,0 +1,32 @@
+﻿/* c++를 위한 설정들 */
+#include "CompactFieldMap.h"
+
+/* cs version을 위한 설정 */
+rename cs(int64_t,long);
+
+/* java version을 위한 설정 */
+package com.nettention.proud;
+rename java(int64_t, long);
+
+// 각 RMI는 fieldMap을 가진다. 모바일 시대에서 요구하는 하위호환성 때문에 활용하기 위함.
+
+/* 본문 */
+global ProudC2C 65000
+{
+	HolsterP2PHolepunchTrial([in] CompactFieldMap fieldMap);
+	ReportUdpMessageCount([in] int udpSuccessCount, [in] CompactFieldMap fieldMap);
+
+	//ReportServerTimeAndFrameRateAndPing( [in] int64_t clientLocalTime, [in] double recentFrameRate,
+	//	[in] CompactFieldMap fieldMap);
+
+	// CSPacketLossPercent: 자신과 서버와의 UDP packet loss율. X와 자기가 릴레이 P2P인 경우, X와의 릴레이 패킷 로스율을 얻기 위해서 사용된다.
+	//ReportServerTimeAndFrameRateAndPong( [in] int64_t clientOldLocalTime,  [in] int64_t serverLocalTime, [in] int serverUdpRecentPing, [in] double recentFrameRate, [in] int CSPacketLossPercent, [in] CompactFieldMap fieldMap);
+
+	// StartRoundTripLatencyTest, StopRoundTripLatencyTestMs, GetRoundTripLatency 함수를 사용자가 사용할때,
+	// RoundTripLatency를 구하려고 클라이언트가 보내는 핑이다.
+	RoundTripLatencyPing([in] int32_t pingTime);
+
+	// StartRoundTripLatencyTest, StopRoundTripLatencyTestMs, GetRoundTripLatency 함수를 사용자가 사용할때,
+	// RoundTripLatency를 구하려고 클라이언트가 보내는 핑에 대한 다른 클라이언트의 퐁이다.
+	RoundTripLatencyPong([in] int32_t pingTime);
+}

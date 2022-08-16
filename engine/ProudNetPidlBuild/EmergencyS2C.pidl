@@ -1,0 +1,4 @@
+﻿global EmergencyS2C 750
+{
+	EmergencyLogData_AckComplete();
+}

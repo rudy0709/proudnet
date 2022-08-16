@@ -1,0 +1,365 @@
+﻿# C++, C# 소스, 주석 도움말로 생성되는 에러코드들입니다.
+# 사용법:
+# ErrorType.h, inl, cs를 수정하지 마십시오. 이 소스파일을 수정하십시오.
+# ErrorType ID값은 기존 것은 가급적 건드리지 마십시오. 불가피하게 변경을 가하는 경우, 사용자 입장에서는 NetClient-NetServer간 프로토콜 하위호환을 깹니다. 
+# 그때에는 InternalNetVersion을 변경하셔야 하고, 사용자에게 NetClient,NetServer모두 동일 버전으로 업데이트하라고 공지해야 합니다.
+# ErrorType을 새로 추가하거나 기존의 것을 삭제하는 것은 프로토콜 하위호환을 깨지는 않습니다.
+
+
+items:
+  - ID: 0
+    Name: Ok
+    Kor: 성공. 문제 없음.
+    Eng: Success. No problem. 
+    Chn: 成功。没有问题。
+    Jpn: 成功。問題なし。
+
+  - ID: 1
+    Name: Unexpected
+    Kor: 의도되지 않은 상황이 발생했습니다.
+    Eng: Exception occurred.
+    Chn: 发生例外情况。
+    Jpn: 例外状況発生。
+
+  - ID: 2
+    Name: AlreadyConnected
+    Kor: 이미 연결되어 있음.
+    Eng: Already connected.
+    Chn: 已经是连接状态。
+    Jpn: 既に接続されています。
+
+  - ID: 3
+    Name: TCPConnectFailure
+    Kor: TCP 연결 실패
+    Eng: TCP connection failed
+    Chn: TCP 连接失败。
+    Jpn: TCP接続失敗
+
+  - ID: 4
+    Name: InvalidSessionKey 
+    Kor: 잘못된 대칭키 
+    Eng: Wrong matching key
+    Chn: 错误的对称key。
+    Jpn: 間違った対称キー
+
+  - ID: 5
+    Name:  EncryptFail
+    Kor:  암호화가 실패했음
+    Eng: Encoding failed
+    Chn: 加密失败。
+    Jpn: 暗号化が失敗しました。
+
+  - ID: 6
+    Name: DecryptFail 
+    Kor:  해커가 깨진 데이터를 전송했거나 복호화가 실패했음
+    Eng: Either the hacker transmitted corrupt data or decoding failed.
+    Chn: 黑客可能传送了乱码数据，或者是解码失败。
+    Jpn: ハッカーが壊れたデータを転送したか復号化に失敗しました。
+
+  - ID: 7
+    Name:  ConnectServerTimeout
+    Kor: 서버 연결 과정이 너무 오래 걸려서 실패 처리됨 
+    Eng: Processed as failure since the server connection process took too much time.
+    Chn: 因服务器连接时间过长而失败。
+    Jpn: サーバー接続過程がとてもかかり過ぎて失敗処理になりました。
+
+  - ID: 8
+    Name: ProtocolVersionMismatch 
+    Kor:  서버 연결을 위한 프로토콜 버전이 다름
+    Eng: Protocol version for server connection is different
+    Chn: 服务器连接的网络协议版本不同。
+    Jpn: サーバー接続のためのプロトコルバージョンが違います。
+
+  - ID: 9
+    Name:  InvalidLicense
+    Kor:  서버 쪽 인증에 문제가 있음.
+    Eng: Problem occured while license validation task.
+    Chn: Problem occured while license validation task.
+    Jpn: Problem occured while license validation task.
+
+  - ID: 10
+    Name:  NotifyServerDeniedConnection
+    Kor:  서버가 연결을 의도적으로 거부했음
+    Eng: Server intentionally rejected connection
+    Chn: 服务器故意拒绝连接。
+    Jpn: サーバーが接続を意図的に拒否しました。
+
+  - ID: 11
+    Name:  Reserved01
+    Kor: 서버 연결 성공! 
+    Eng: Server connection success!
+    Chn: 服务器连接成功！
+    Jpn: サーバー接続成功！
+
+  - ID: 12
+    Name: DisconnectFromRemote 
+    Kor:  상대측 호스트에서 연결을 해제했음
+    Eng: The correspondent host removed the connection
+    Chn: 对方主机解除了连接。
+    Jpn: 相手側のホストが接続を解除しました。
+    
+  - ID: 13
+    Name:  DisconnectFromLocal
+    Kor:  이쪽 호스트에서 연결을 해제했음
+    Eng: This side host removed the connection
+    Chn: 这边主机解除了连接。
+    Jpn: 内側のホストが接続を解除しました。
+
+  - ID: 14
+    Name:  Reserved02
+    Kor:  위험한 상황을 불러올 수 있는 인자가 있음
+    Eng: There is a factor that can cause a dangerous situation
+    Chn: 存在可能引起危险状况的因素。
+    Jpn: 危険な状況を引き起こす可能性のある因子があります。
+
+  - ID: 15
+    Name:  UnknownAddrPort
+    Kor:  알 수 없는 인터넷 주소
+    Eng: Unknown internet address
+    Chn: 未知的互联网地址。
+    Jpn: 知られていないインターネットアドレス
+
+  - ID: 16
+    Name:  Reserved03
+    Kor:  서버 준비 부족
+    Eng: Insufficient server readiness
+    Chn: 服务器准备不足。
+    Jpn: サーバー準備不足
+
+  - ID: 17
+    Name:  ServerPortListenFailure
+    Kor:  서버 소켓의 listen을 시작할 수 없습니다. TCP 또는 UDP 소켓이 이미 사용중인 포트인지 확인하십시오.
+    Eng: You cannot start listen of the server socket. Please check whether either the TCP or UDP socket is a port already being used. 
+    Chn: 无法开始玩家socket的listen或者准备UDP。请确认TCP或者UDP socket端口是否已在使用中还是有限量在每个process的socket数量。
+    Jpn: サーバーソケットのlistenを開始することができません。TCPまたはUDPソケットが既に使用中であるポートなのかを確認してください。
+
+  - ID: 18
+    Name:  AlreadyExists
+    Kor:  이미 개체가 존재합니다.
+    Eng: Already an object exists.
+    Chn: 对象已存在。
+    Jpn: 既に個体が存在します。
+
+  - ID: 19
+    Name:  PermissionDenied
+    Kor:  접근이 거부되었습니다. <a target="_blank" href="http://guide.nettention.com/cpp_ko#dbc2_nonexclusive_overview" >비독점적 데이터 접근하기</a> 기능에서, DB cache server가 비독점적 접근 기능을 쓰지 않겠다는 설정이 되어 있으면 발생할 수 있습니다. 윈도우 비스타이상의 OS에서 관리자권한이 없이 CNetUtil::EnableTcpOffload( bool enable ) 함수가 호출되면 발생할 수 있습니다.
+    Eng: Access denied. At <a target="_blank" href="http://guide.nettention.com/cpp_en#dbc2_nonexclusive_overview" >Accessing non-exclusive data</a> function, it could occur if a function that DB cache server does not use exclusive access function has been set. At OS over window vista, It could occur when CNetUtil::EnableTcpOffload( bool enable ) function is called without administration authority.
+    Chn: 接近被拒绝。在<a target="_blank" href="http://guide.nettention.com/cpp_zh#dbc2_nonexclusive_overview" >访问共享性数据</a>%功能上，如果DB cache server被设置成不使用共享接近功能的话便会发生此状况。在window，vista 以上的OS中，没有管理员权限呼出 CNetUtil::EnableTcpOffload ( bool enable )函数的话，可能会发生此状况。
+    Jpn: 接近が拒否されました。<a target="_blank" href="http://guide.nettention.com/cpp_jp#dbc2_nonexclusive_overview" >Accessing non-exclusive data</a> 機能で, DB cache serverが非独占的接近機能を使用しないと設定されていると発生する可能性があります。Window Vista以上のOSで管理者権限なしに CNetUtil::EnableTcpOffload( bool enable ) 関数が呼び出されると発生する可能性があります。
+
+  - ID: 20
+    Name:  BadSessionGuid
+    Kor: 잘못된 session Guid입니다. 
+    Eng: This is a wrong session Guid
+    Chn: 错误的session Guid。
+    Jpn: 間違ったSession Guidです。
+
+  - ID: 21
+    Name:  InvalidCredential
+    Kor:  잘못된 credential입니다.
+    Eng: This is a wrong credential.
+    Chn: 错误的credential。
+    Jpn: 間違ったCredentialです。
+
+  - ID: 22
+    Name:  InvalidHeroName
+    Kor:  잘못된 hero name입니다.
+    Eng: This is a wrong hero name.
+    Chn: 错误的hero name。
+    Jpn: 間違ったHero nameです。
+
+  - ID: 23
+    Name:  Reserved06
+    Kor:  로딩 과정이 unlock 후 lock 한 후 꼬임이 발생했다
+    Eng: After the loading is locked after being unlocked, a problem occurred. 
+    Chn: 加载过程unlock以后，lock 后发生云集。
+    Jpn: ローディング過程がアンロック後にロックし、ねじれが発生しました。
+
+  - ID: 24
+    Name:  Reserved07
+    Kor:  출력 파라메터 AdjustedGamerIDNotFilled가 채워지지 않았습니다.
+    Eng: The output parameter AdjustedGamerIDNotFilled has not been filled. 
+    Chn: 输出参数AdjustedGamerIDNotFilled没有被填充。
+    Jpn: 出力パラメーターのAdjustedGamerIDNotFilledが満たされていません。
+
+  - ID: 25
+    Name:  Reserved08
+    Kor: 플레이어 캐릭터가 존재하지 않습니다.  
+    Eng:  The player character does not exist.
+    Chn: 玩家角色不存在。
+    Jpn: プレーヤーキャラクターが存在しません。
+
+  - ID: 26
+    Name:  UnitTestFailed
+    Kor:  유닛 테스트 실패
+    Eng: Unit test failed. 
+    Chn: 单元测试失败。
+    Jpn: ユニットテスト失敗
+
+  - ID: 27
+    Name:  P2PUdpFailed
+    Kor:  peer-to-peer UDP 통신이 막혔습니다.
+    Eng: Peer-to-peer UDP communication is blocked. 
+    Chn: peer-to-peer UDP 通信堵塞。
+    Jpn: peer-to-peer UDP通信が詰まりました。
+
+  - ID: 28
+    Name:  ReliableUdpFailed
+    Kor: P2P reliable UDP가 실패했습니다. 
+    Eng: P2P reliable UDP failed. 
+    Chn: P2P reliable UDP失败。
+    Jpn: P2P reliable UDPが失敗しました。
+
+  - ID: 29
+    Name:  ServerUdpFailed
+    Kor:  클라이언트-서버 UDP 통신이 막혔습니다.
+    Eng: Client-server UDP communication is blocked. 
+    Chn: 玩家-服务器的UDP通信堵塞。
+    Jpn: クライアントサーバーUDP通信が詰まりました。
+
+  - ID: 30
+    Name:  NoP2PGroupRelation
+    Kor:  더 이상 같이 소속된 P2P 그룹이 없습니다.
+    Eng: There is no longer a P2P group that belongs together.
+    Chn: 再没有一同所属的P2P组。
+    Jpn: これ以上一緒に所属されたP2Pグループはありません。
+
+  - ID: 31
+    Name: ExceptionFromUserFunction 
+    Kor:  사용자 정의 함수(RMI 수신 루틴 혹은 이벤트 핸들러)에서 exception이 throw되었습니다.
+    Eng: An exception is thrown in the user defined function (an RMI receiving routine or an event handler).
+    Chn: 从用户定义函数（RMI 收信例程或者事件handler）exception 被throw。
+    Jpn: ユーザー定義関数(RMI受信ルーチンまたはイベントハンドラー)でexceptionがthrowされました。
+
+  - ID: 32
+    Name:  UserRequested
+    Kor:  사용자의 요청에 의한 실패입니다.
+    Eng: This is a failure due to a user request.
+    Chn: 用户邀请造成的失败。
+    Jpn: ユーザーの要請による失敗です。
+
+  - ID: 33
+    Name:  InvalidPacketFormat
+    Kor:  잘못된 패킷 형식입니다. 상대측 호스트가 해킹되었거나 버그일 수 있습니다.
+    Eng: This is a wrong packet type. Either the correspondent host is hacked or it is a bug.
+    Chn: 错误的数据包形式。可能是对方主机被黑或者是存在漏洞。
+    Jpn: 間違ったパケット形式です。相手側のホストがハッキングされたか、バグである可能性があります。
+
+  - ID: 34
+    Name:  TooLargeMessageDetected
+    Kor:  너무 큰 크기의 메시징이 시도되었습니다. 기술지원부에 문의하십시오. 필요시 <a target="_blank" href="http://guide.nettention.com/cpp_ko#message_length" >통신 메시지의 크기 제한</a>  를 참고하십시오.
+    Eng: A messaging with too big size has been attempted. Please contact the technical support team. If necessary, refer to \ref message_length
+    Chn: 试图使用了过大的messaging。请咨询技术支援部。必要时请参考<a target="_blank" href="http://guide.nettention.com/cpp_zh#message_length" >限制通信信息大小</a>%。
+    Jpn: あまりにも大きいサイズのメッセージングが試されました。技術支援部までお問合せください。必要によって、\ref message_lengthをご参照ください。
+
+  - ID: 35
+    Name:  NoNeedWebSocketEncryption
+    Kor:  websocket 메세지는 encrypt 할수 없습니다.
+    Eng: You cannot encrypt an websocket message. 
+    Chn: websocket 信息不能encrypt。
+    Jpn: websocketメッセージはencryptできません。
+
+  - ID: 36
+    Name: ValueNotExist
+    Kor:  존재하지 않는 값입니다. 
+    Eng:   This value does not exist
+    Chn:  不存在的值。
+    Jpn:  存在しない値です。
+
+  - ID: 37
+    Name:  TimeOut
+    Kor: 타임아웃 입니다. 
+    Eng: This is a time-out. 
+    Chn: 超时。
+    Jpn: タイムアウトです。
+
+  - ID: 38
+    Name:  LoadedDataNotFound
+    Kor:  로드된 데이터를 찾을수 없습니다.
+    Eng: The loaded data cannot be located. 
+    Chn: 无法找到加载的数据。
+    Jpn: ロードされたデータが見つかりません。
+
+  - ID: 39
+    Name:  SendQueueIsHeavy
+    Kor:  <a target="_blank" href="http://guide.nettention.com/cpp_ko#send_queue_heavy" >송신량 과다시 경고 발생 기능</a>. 송신 queue가 지나치게 커졌습니다.
+    Eng: <a target="_blank" href="http://guide.nettention.com/cpp_en#send_queue_heavy" >Warning function for traffic overload</a> \ref send_queue_heavy. Transmission queue became too big.
+    Chn: <a target="_blank" href="http://guide.nettention.com/cpp_zh#send_queue_heavy" >送信量过多时发生警告的功能</a>。传送queue过大。
+    Jpn: \ref send_queue_heavy . 送信キューがあまりにも大き過ぎです。 
+
+  - ID: 40
+    Name:  TooSlowHeartbeatWarning
+    Kor:  Heartbeat가 평균적으로 너무 느림
+    Eng: The heartbeat is too slow on average. 
+    Chn: Heartbeat 平均太慢。
+    Jpn: Heartbeatが平均的にとても遅いです。
+
+  - ID: 41
+    Name:  CompressFail
+    Kor:  메시지 압축이 실패 하였습니다.
+    Eng: The message compression has failed. 
+    Chn: 信息压缩失败。
+    Jpn: メッセージ圧縮に失敗しました。
+
+  - ID: 42
+    Name:  LocalSocketCreationFailed
+    Kor:  클라이언트 소켓의 listen 혹은 UDP 준비를 할 수 없습니다. TCP 또는 UDP 소켓이 이미 사용중인 포트인지, 프로세스당 소켓 갯수 제한이 있는지 확인하십시오.
+    Eng: Unable to listen client socket or prepare UDP. Must check if there is limitation in number of socket per process or if either TCP or UDP socket is already in use.
+    Chn: 无法开始玩家socket的listen或者准备UDP。请确认TCP或者UDP socket端口是否已在使用中还是有限量在每个process的socket数量。
+    Jpn: クライアントソケットのlistenを開始することができません。TCPまたはUDPソケットが既に使用中であるポートなのかをご確認ください。
+
+  - ID: 43
+    Name:  NoneAvailableInPortPool
+    Kor:  Socket을 생성할 때 Port Pool 내 port number로의 bind가 실패했습니다. 대신 임의의 port number가 사용되었습니다. Port Pool의 갯수가 충분한지 확인하십시요.
+    Eng: Failed binding to local port that defined in Port Pool. Please check number of values in Port Pool are sufficient.
+    Chn: 生成socket的时候往Port Pool内port number的bind失败。任意port number被代替使用。请确认Port Pool的个数是否充分。
+    Jpn: Socketを生成する時、Port Pool内のPort Numberへのバインドに失敗しました。代わりに任意のPort Numberが使われました。Port Poolの数が十分なのかをご確認ください。
+
+  - ID: 44
+    Name:  InvalidPortPool
+    Kor:  Port pool 내 값들 중 하나 이상이 잘못되었습니다. 포트를 0(임의 포트 바인딩)으로 하거나 중복되지 않았는지 확인하십시요.
+    Eng: Range of user defined port is wrong. Set port to 0(random port binding) or check if it is overlaped.
+    Chn: Port pool 中一个以上的内值出错。确认把端口设为0（任意端口binding）或者是否重复。
+    Jpn: Port pool内の値のうち一つ以上が間違っています。ポートを0(任意ポートバインディング)にするか重複されていないかをご確認ください。
+
+  - ID: 45
+    Name:  InvalidHostID
+    Kor:  유효하지 않은 HostID 값입니다.
+    Eng: Invalid HostID.
+    Chn: 无效的HostID。
+    Jpn: 有効ではないHostID値です。
+
+  - ID: 46
+    Name:  MessageOverload
+    Kor:  사용자가 소화하는 메시지 처리 속도보다 내부적으로 쌓이는 메시지의 속도가 더 높습니다. 지나치게 너무 많은 메시지를 송신하려고 했는지, 혹은 사용자의 메시지 수신 함수가 지나치게 느리게 작동하고 있는지 확인하십시오.
+    Eng: The speed of stacking messages are higher than the speed of processing them. Check that you are sending too many messages, or your message processing routines are running too slowly.
+    Chn: 消息的堆叠速度高于处理它们的速度。检查您要发送的邮件太多，或消息处理程序运行过慢。
+    Jpn: ユーザーが消化するメッセージ処理速度より内部的に積もるメッセージの速度がもっと速いです。あまりにも多過ぎるメッセージを送信しようとしていないか、またはユーザーのメッセージ受信関数があまりにも遅く作動してはいないかを確認してください。
+
+  - ID: 47
+    Name:  DatabaseAccessFailed
+    Kor:  Accessing database failed. For example, query statement execution failed. You may see the details from comment variable.
+    Eng: Accessing database failed. For example, query statement execution failed. You may see the details from comment variable.
+    Chn: Accessing database failed. For example, query statement execution failed. You may see the details from comment variable.
+    Jpn: Accessing database failed. For example, query statement execution failed. You may see the details from comment variable.
+
+  - ID: 48
+    Name: OutOfMemory
+    Kor: 메모리가 부족합니다.
+    Eng: Out of memory.
+    Chn: 内存不足.
+    Jpn: メモリーが足りません。
+
+  - ID: 49
+    Name: AutoConnectionRecoveryFailed
+    Kor: 서버와의 연결이 끊어져서 연결 복구 기능이 가동되었지만, 이것 마저도 실패했습니다.
+    Eng: 서버와의 연결이 끊어져서 연결 복구 기능이 가동되었지만, 이것 마저도 실패했습니다.
+    Chn: 서버와의 연결이 끊어져서 연결 복구 기능이 가동되었지만, 이것 마저도 실패했습니다.
+    Jpn: 서버와의 연결이 끊어져서 연결 복구 기능이 가동되었지만, 이것 마저도 실패했습니다.
+
+  - ID: 50
+    Name: NotImplementedRmi
+    Kor: RMI 함수를 호출 했지만, 함수 구현부가 없습니다.
+    Eng: RMI 함수를 호출 했지만, 함수 구현부가 없습니다.
+    Chn: RMI 함수를 호출 했지만, 함수 구현부가 없습니다.
+    Jpn: RMI 함수를 호출 했지만, 함수 구현부가 없습니다.

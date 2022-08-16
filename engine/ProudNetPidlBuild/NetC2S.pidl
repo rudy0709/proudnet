@@ -1,0 +1,110 @@
+﻿// client to server invocation을 하는 전역 RMI 메서드들을 정의한다.
+// ClientToServer라는 이름으로 시작하는 proxy, stub class를 생성한다.
+
+/* c++를 위한 설정들 */
+#include "CompactFieldMap.h"
+
+/* java version을 위한 설정들 */
+package com.nettention.proud;
+import(java) java.net.InetSocketAddress;
+rename java(Proud::ByteArray,ByteArray);
+rename java(Proud::TraceID,TraceID);
+rename java(Proud::LogCategory,LogCategory);
+rename java(StringA, String);
+rename java(bool,boolean);
+rename java(AddrPort,InetSocketAddress);
+rename java(HostID,int);
+rename java(int64_t,long);
+
+/* cs version을 위한 설정들 */
+rename cs(HostID,Nettention.Proud.HostID);
+rename cs(ErrorType,Nettention.Proud.ErrorType);
+rename cs(AddrPort,IPEndPoint);
+rename cs(Proud::ByteArray,Nettention.Proud.ByteArray);
+rename cs(Proud::TraceID,Nettention.Proud.TraceID);
+rename cs(Proud::LogCategory,Nettention.Proud.LogCategory);
+rename cs(int64_t,long);
+rename cs(StringA, String);
+
+/* 본문 */
+
+// 각 RMI는 fieldMap을 가진다. 모바일 시대에서 요구하는 하위호환성 때문에 활용하기 위함.
+
+global ProudC2S 64000
+{
+	ReliablePing([in] double recentFrameRate, [in] int localTimeMs, [in] int messageID, [in] int lastReliablePingMs,
+		[in] CompactFieldMap fieldMap);
+	
+	// 두 Peer간 P2P 직접 연결이 끊어져서 relay mode로 전환해야 하는 상황이면 알려지는 RMI
+	P2P_NotifyDirectP2PDisconnected([in] HostID remotePeerHostID,[in] ErrorType reason,
+		[in] CompactFieldMap fieldMap);
+
+	// 홀펀칭 증발을 알림
+	NotifyUdpToTcpFallbackByClient([in] CompactFieldMap fieldMap);
+
+	// P2PGroup_MemberJoin RMI에 대해 바로 에코되는 메시지. 
+	// "나는 P2P 그룹 G에 들어간 것이 확인되었고 P2P 연결 M의 존재를 확인하였음"
+	P2PGroup_MemberJoin_Ack( 
+		[in] HostID groupHostID, // G
+		[in] HostID addedMemberHostID, // M
+		[in] int eventID,
+		[in] CompactFieldMap fieldMap);
+
+	// 홀펀칭 실험이 성공했다. 그 결과를 서버에게 통보한다.
+	// 홀펀칭 재사용 케이스는 포함 안된다.
+	NotifyP2PHolepunchSuccess(
+		[in] HostID A, 
+		[in] HostID B, 
+		[in] AddrPort ABSendAddr, 
+		[in] AddrPort ABRecvAddr, 
+		[in] AddrPort BASendAddr, 
+		[in] AddrPort BARecvAddr,
+		[in] int reliableRTT, // P2P간 직접 측정된 레이턴시
+		[in] int unreliableRTT, // P2P간 직접 측정된 레이턴시
+		[in] CompactFieldMap fieldMap);
+
+	// 클라에서 서버와의 연결을 끊기 위한 요청을 한다. TCP shutdown()보다 더 우리가 제어하기 쉬우므로 이런 방식을 취한다.
+	ShutdownTcp([in] Proud::ByteArray comment,
+		[in] CompactFieldMap fieldMap);	
+	
+	// ShutdownTcpHandshake(); 서버에서 TCP를 닫으면 TIME_WAIT가 쌓인다. 따라서 클라에서 닫으며, 이 RMI는 퇴역.
+	
+	NotifyLog([in] int logLevel, [in] Proud::LogCategory logCategory, [in] HostID logHostID, [in] String logMessage, [in] String logFunction, [in] int logLine,
+		[in] CompactFieldMap fieldMap);
+
+	NotifyLogHolepunchFreqFail([in] int rank,[in] String text, [in] CompactFieldMap fieldMap);	
+	
+	NotifyNatDeviceName([in] String deviceName, [in] CompactFieldMap fieldMap);
+	
+	/* 클라이언트에서 P2P 통신 혹은 피어간 핑을 얻기 위한 시도를 했을때, 
+	그런데 아직 홀펀칭하지 않은 경우에, 서버에게 홀펀칭 해야 하냐고 물어야 한다. 
+	그 역할을 하는 함수다. */
+	NotifyJitDirectP2PTriggered([in] HostID peerB_ID, [in] CompactFieldMap fieldMap);
+	
+	NotifyNatDeviceNameDetected([in] String natDeviceName, [in] CompactFieldMap fieldMap);
+	
+	NotifySendSpeed([in] double speed, [in] CompactFieldMap fieldMap);
+	
+	ReportP2PPeerPing([in] HostID peerID, [in] int recentPing, [in] CompactFieldMap fieldMap);  
+	
+	// 클라-서버간 UDP는 JIT로 시행한다. 즉, 클라간 서버는 무조건 UDP 포트매핑을 하지 않는다. 
+	// 클라-서버간 unreliable send를 위한 기능이다.
+	// 그래서, 클라-서버간 unreliable 메시징을 시도하면, 클라쪽에서 UDP 소켓을 생성 후, 서버에게 UDP 소켓을 생성하라고 요청한다.
+	// (S2C라는 prefix를 붙여야, 개발자가 실수로 stub을 콜하는 실수를 예방)
+	C2S_RequestCreateUdpSocket([in] CompactFieldMap fieldMap);
+	
+	// C2S_RequestCreateUdpSocket의 반대.
+	// 클라-서버간 unreliable send를 위한 기능이다.
+	// (S2C라는 prefix를 붙여야, 개발자가 실수로 stub을 콜하는 실수를 예방)
+	C2S_CreateUdpSocketAck([in] bool succeed, [in] CompactFieldMap fieldMap);
+	
+	// 일정 시간 마다 한번씩 클라간 udp packet count를 서버에 보고한다.
+	ReportC2CUdpMessageCount([in] HostID peer, [in] int udpMessageTrialCount, [in] int udpMessageSuccessCount, [in] CompactFieldMap fieldMap);
+	
+	// 서버에게 서버로 보낸 udp Count를 보고한다.
+	ReportC2SUdpMessageTrialCount([in] int toServerUdpTrialCount, [in] CompactFieldMap fieldMap);
+
+	// StartRoundTripLatencyTest, StopRoundTripLatencyTestMs, GetRoundTripLatency 함수를 사용자가 사용할때,
+	// RoundTripLatency를 구하려고 클라이언트가 보내는 핑이다.
+	RoundTripLatencyPing([in] int32_t pingTime);
+}

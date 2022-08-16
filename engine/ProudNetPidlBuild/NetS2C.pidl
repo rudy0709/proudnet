@@ -1,0 +1,126 @@
+﻿/* c++를 위한 설정들 */
+#include "CompactFieldMap.h"
+
+/* java version 을 위한 설정들*/
+package com.nettention.proud;
+import(java) java.net.InetSocketAddress;
+rename java(WORD,char);
+rename java(Proud::ByteArray,ByteArray);
+rename java(AddrPort,InetSocketAddress);
+rename java(bool,boolean);
+rename java(HostID,int);
+
+/* cs version 을 위한 설정들*/
+rename cs(HostID,Nettention.Proud.HostID);
+rename cs(ErrorType,Nettention.Proud.ErrorType);
+rename cs(WORD,ushort);
+rename cs(AddrPort,IPEndPoint);
+rename cs(Proud::Guid, System.Guid);
+rename cs(ByteArray,Nettention.Proud.ByteArray);
+rename cs(NamedAddrPort,Nettention.Proud.NamedAddrPort);
+
+// 각 RMI는 fieldMap을 가진다. 모바일 시대에서 요구하는 하위호환성 때문에 활용하기 위함.
+
+/* 본문 */
+
+global ProudS2C 63000
+{
+	/* P2P 그룹 생성/member join 요청을 받으면 이것이 호출된다.
+	클라 로컬호스트에 대해서도 호출된다.
+	클라는 이것을 받으면 바로 RemotePeer를 생성한다. 
+	P2PGroup_MemberJoin => P2PGroup_MemberJoin_Ack 순으로 실행된다.
+	각각 
+	- RemotePeer를 받아들여라. 단, 홀펀칭 재사용 가능한가 응답하라.
+	- RemotePeer 객체를 생성했으며 홀펀칭 재사용 가능한지 여부에 대한 답장이다. 서버는 상대 피어도 홀펀칭 재사용 가능한지 여부를 응답하라.
+	- 상대도 홀펀칭 재사용을 성공했으니 직접 피투피로 강행하라. 혹은 홀펀칭 재사용이 쌍방 성공하지는 못했으므로 릴레이 모드로 있되, 홀펀칭 시도를 이제 시작하라.
+
+	==> 홀펀칭 재사용을 위한 RMI 파라메터가 오가는건 전혀 없다. 단지 클라쪽에서는 과거 썼던 UDP socket을 버리지 않고 재사용하고,
+	이후부터는 종전 홀펀칭 과정을 모두 시행한다.
+	"최근에 홀펀칭 주고 받았으니 수십초간은 계속 살아있겠지"라는 가정은 위험. 어차피 피어간 주고받기를 해서 검증을 해주는게 완벽하다.
+	그럴거면 그냥 홀펀칭 주고 받는게 맞음.
+
+	P2P pair가 재사용될때는 암호키를 양 클라가 갖고 있으므로 또 보내지 않는다. 자주 join-leave를 할 경우 서버의 부하 줄인다.
+	*/
+	P2PGroup_MemberJoin(
+		[in] HostID groupHostID,
+		[in] HostID memberHostID, 
+		[in] ByteArray message,
+		[in] int eventID,
+		[in] ByteArray p2pAESSessionKey,		// 비어있으면 P2P 암호화 기능 비활성화 혹은 이미 갖고 있으니 보내지 않음을 의미
+		[in] ByteArray p2pFastSessionKey,		// 비어있으면 P2P 암호화 기능 비활성화 혹은 이미 갖고 있으니 보내지 않음을 의미
+		[in] int p2pFirstFrameNumber,    // 0인 경우 "클라는 reset하지 말 것"을 의미. 암호화가 안되더라도 괜찮다. 어차피 다음 주고받을 때 해커한테 다 보이는 값이다.
+		[in] Proud::Guid connectionMagicNumber, // 0인 경우 "갱신하지 말 것"을 의미. 암호화가 안되더라도 괜찮다. 어차피 다음 주고받을 때 해커한테 다 보이는 값이다.
+		[in] bool allowDirectP2P,		// 사용자가 direct P2P를 막으면 false.
+		[in] bool pairRecycled, // false이면, 클라가 remote peer를 inactive 상태로라도 갖고 있더라도, 홀펀칭과 암호키를 재사용하지 말란 뜻이다.
+		[in] int reliableRTT,		// TCP RTT 값. memberHostID peer와 서버간의 latency이다. 아직은 홀펀칭이 안되어 있을테니까.
+		[in] int unreliableRTT,		// UDP RTT 값. memberHostID peer와 서버간의 latency이다. 아직은 홀펀칭이 안되어 있을테니까.
+		[in] CompactFieldMap fieldMap);	
+
+	// remote peer의 내부,외부 주소를 주면서, peer P2P 홀펀칭을 지시.
+	RequestP2PHolepunch([in] HostID remotePeerID,[in] AddrPort internalAddr,[in] AddrPort externalAddr, [in] CompactFieldMap fieldMap);
+
+	// P2P_NotifyDirectP2PDisconnected의 ack
+	P2P_NotifyDirectP2PDisconnected2([in] HostID remotePeerHostID,[in] ErrorType reason, [in] CompactFieldMap fieldMap);
+
+	// ACR 연결을 진행중이라 메롱인지를 노티
+	P2P_NotifyP2PMemberOffline([in] HostID remotePeerHostID, [in] CompactFieldMap fieldMap);
+	P2P_NotifyP2PMemberOnline([in] HostID remotePeerHostID, [in] CompactFieldMap fieldMap);
+
+	// 1개의 peer가 P2P group에서 빠져나가게 신호함.
+	P2PGroup_MemberLeave([in] HostID memberHostID,[in] HostID groupHostID, [in] CompactFieldMap fieldMap);
+
+	//P2P_AcceptAdvertise([in] HostID advertiserHostID,[in] AddrPort advertiserIP, [in] CompactFieldMap fieldMap);
+
+	// 두 피어간의 홀펀칭이 최종 성공했음을 양쪽 클라에게 통보한다.
+	// 홀펀칭 재사용 케이스는 예외.
+	NotifyDirectP2PEstablish(
+		[in] HostID aPeer,
+		[in] HostID bPeer,
+		[in] AddrPort X0,
+		[in] AddrPort Y0,
+		[in] AddrPort Z0,
+		[in] AddrPort W0,
+		[in] int reliableRTT,
+		[in] int unreliableRTT,
+		[in] CompactFieldMap fieldMap);
+
+	ReliablePong([in] int localTimeMs, [in] int messageID, [in] CompactFieldMap fieldMap);
+	
+//	HolsterP2PHolepunchTrial([in] HostID remotePeerID, [in] CompactFieldMap fieldMap);
+	
+	EnableLog([in] CompactFieldMap fieldMap);
+	DisableLog([in] CompactFieldMap fieldMap);
+	
+	NotifyUdpToTcpFallbackByServer([in] CompactFieldMap fieldMap);
+	
+	NotifySpeedHackDetectorEnabled([in] bool enable);
+	
+	ShutdownTcpAck([in] CompactFieldMap fieldMap);
+	
+	RequestAutoPrune([in] CompactFieldMap fieldMap);
+	
+	// remote peer를 상대로 P2P 홀펀칭을 시작하라는 명령을 던진다.
+	NewDirectP2PConnection([in] HostID remotePeerID);
+	
+	RequestMeasureSendSpeed([in] bool enable);
+		
+	// Client에게 UDP Socket을 생성하겠다는것을 요청.
+	// 클라-서버간 unreliable send를 위한 기능이다.
+	// (S2C라는 prefix를 붙여야, 개발자가 실수로 stub을 콜하는 실수를 예방)
+	S2C_RequestCreateUdpSocket([in] NamedAddrPort serverUdpAddr);
+	
+	// Client에서 UDP Socket을 생성했다는 것을 확인
+	// 클라-서버간 unreliable send를 위한 기능이다.
+	// (S2C라는 prefix를 붙여야, 개발자가 실수로 stub을 콜하는 실수를 예방)
+	S2C_CreateUdpSocketAck([in] bool succeed,[in] NamedAddrPort serverudpaddr);
+
+	// 클라이언트에게 timeout time 이 변경 되었음을 알린다.
+	NotifyChangedTimeoutTime([in] int32_t val);
+
+	// 클라이언트에게 ACR timeout time 이 변경 되었음을 알린다.
+	NotifyChangedAutoConnectionRecoveryTimeoutTimeMs([in] int32_t val);
+
+	// StartRoundTripLatencyTest, StopRoundTripLatencyTestMs, GetRoundTripLatency 함수를 사용자가 사용할때,
+	// RoundTripLatency를 구하려고 클라이언트가 보내는 핑에 대한 서버의 퐁이다.
+	RoundTripLatencyPong([in] int32_t pingTime);
+}

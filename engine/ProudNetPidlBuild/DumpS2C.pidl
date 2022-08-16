@@ -1,0 +1,4 @@
+﻿global DumpS2C 650
+{
+	Dump_ChunkAck();
+}
