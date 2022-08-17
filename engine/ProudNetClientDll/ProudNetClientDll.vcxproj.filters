@@ -22,65 +22,17 @@
     <Filter Include="Open Source Libraries\libiconv">
       <UniqueIdentifier>{db7a7000-c1b5-44cd-bf91-56ed4840fcc6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Open Source Libraries\zlib">
-      <UniqueIdentifier>{6865074f-6abd-4694-ad92-bc9f3e7e1e43}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Open Source Libraries\libtomcrypt">
       <UniqueIdentifier>{2680984c-1ec2-4779-9e5f-aa6b1195ba92}</UniqueIdentifier>
     </Filter>
     <Filter Include="Open Source Libraries\libtommath">
       <UniqueIdentifier>{2df74441-037e-4bab-b3e8-178823c6fb60}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Open Source Libraries\zlib">
+      <UniqueIdentifier>{6865074f-6abd-4694-ad92-bc9f3e7e1e43}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild001.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild002.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild003.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild004.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild005.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild006.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild007.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild008.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild009.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild010.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild011.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild012.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild013.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild014.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild015.cpp">
-      <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\dllmain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\OpenSources\libiconv-v1.14\iconv.c">
       <Filter>Open Source Libraries\libiconv</Filter>
     </ClCompile>
@@ -89,51 +41,6 @@
     </ClCompile>
     <ClCompile Include="..\OpenSources\libiconv-v1.14\relocatable.c">
       <Filter>Open Source Libraries\libiconv</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\adler32.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\compress.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\crc32.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\deflate.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\gzclose.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\gzlib.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\gzread.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\gzwrite.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\infback.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\inffast.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\inflate.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\inftrees.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\trees.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\uncompr.c">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib-v1.2.8\zutil.c">
-      <Filter>Open Source Libraries\zlib</Filter>
     </ClCompile>
     <ClCompile Include="..\OpenSources\libtomcrypt\ciphers\aes\aes.c">
       <Filter>Open Source Libraries\libtomcrypt</Filter>
@@ -195,7 +102,7 @@
     <ClCompile Include="..\OpenSources\libtomcrypt\ciphers\xtea.c">
       <Filter>Open Source Libraries\libtomcrypt</Filter>
     </ClCompile>
-    <ClCompile Include="..\OpenSources\libtomcrypt\encauth\ccm\ccm_memory.c">
+        <ClCompile Include="..\OpenSources\libtomcrypt\encauth\ccm\ccm_memory.c">
       <Filter>Open Source Libraries\libtomcrypt</Filter>
     </ClCompile>
     <ClCompile Include="..\OpenSources\libtomcrypt\encauth\ccm\ccm_test.c">
@@ -1392,8 +1299,96 @@
     <ClCompile Include="..\OpenSources\libtommath\bncore.c">
       <Filter>Open Source Libraries\libtommath</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\adler32.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\compress.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\crc32.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\deflate.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\gzclose.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\gzlib.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\gzread.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\gzwrite.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\infback.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\inffast.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\inflate.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\inftrees.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\trees.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\uncompr.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib-v1.2.8\zutil.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild001.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild002.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild003.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild004.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild005.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild006.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild007.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild008.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild009.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild010.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild011.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild012.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild013.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild014.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ClientUnityBuild015.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
     <None Include="..\src\acrimpl.cpp">
       <Filter>Source Files</Filter>
     </None>
@@ -1880,46 +1875,16 @@
     <None Include="..\src\VizMessageSummary.cpp">
       <Filter>Source Files</Filter>
     </None>
+    <ClCompile Include="..\src\dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\OpenSources\zlib-v1.2.8\zconf.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\OpenSources\libiconv-v1.14\localcharset.h">
       <Filter>Open Source Libraries\libiconv</Filter>
     </ClInclude>
     <ClInclude Include="..\OpenSources\libiconv-v1.14\relocatable.h">
       <Filter>Open Source Libraries\libiconv</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\zlib-v1.2.8\crc32.h">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\zlib-v1.2.8\deflate.h">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\zlib-v1.2.8\gzguts.h">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\zlib-v1.2.8\inffast.h">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\zlib-v1.2.8\inffixed.h">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\zlib-v1.2.8\inflate.h">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\zlib-v1.2.8\inftrees.h">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\zlib-v1.2.8\trees.h">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\zlib-v1.2.8\zlib.h">
-      <Filter>Open Source Libraries\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\zlib-v1.2.8\zutil.h">
-      <Filter>Open Source Libraries\zlib</Filter>
     </ClInclude>
     <ClInclude Include="..\OpenSources\libtomcrypt\headers\ProudTomCrypto.h">
       <Filter>Open Source Libraries\libtomcrypt</Filter>
@@ -1974,6 +1939,39 @@
     </ClInclude>
     <ClInclude Include="..\OpenSources\libtommath\tommath_superclass.h">
       <Filter>Open Source Libraries\libtommath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\zlib-v1.2.8\zconf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\zlib-v1.2.8\crc32.h">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\zlib-v1.2.8\deflate.h">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\zlib-v1.2.8\gzguts.h">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\zlib-v1.2.8\inffast.h">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\zlib-v1.2.8\inffixed.h">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\zlib-v1.2.8\inflate.h">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\zlib-v1.2.8\inftrees.h">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\zlib-v1.2.8\trees.h">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\zlib-v1.2.8\zlib.h">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\zlib-v1.2.8\zutil.h">
+      <Filter>Open Source Libraries\zlib</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Base64.inl">
       <Filter>Header Files</Filter>
