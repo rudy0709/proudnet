@@ -26,6 +26,7 @@
 
 # Temporary files
 *.bak
+*.aps
 *.user
 .vs/
 obj/
