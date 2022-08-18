@@ -31,6 +31,8 @@
 .vs/
 obj/
 bin/
+tmp/
+out/
 Debug*/
 Release*/
 packages/

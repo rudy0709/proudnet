@@ -102,7 +102,7 @@
     <ClCompile Include="..\OpenSources\libtomcrypt\ciphers\xtea.c">
       <Filter>Open Source Libraries\libtomcrypt</Filter>
     </ClCompile>
-        <ClCompile Include="..\OpenSources\libtomcrypt\encauth\ccm\ccm_memory.c">
+    <ClCompile Include="..\OpenSources\libtomcrypt\encauth\ccm\ccm_memory.c">
       <Filter>Open Source Libraries\libtomcrypt</Filter>
     </ClCompile>
     <ClCompile Include="..\OpenSources\libtomcrypt\encauth\ccm\ccm_test.c">
@@ -1779,9 +1779,6 @@
     <None Include="..\src\stacktrace-win32.cpp">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="..\src\stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </None>
     <None Include="..\src\StreamQueue.cpp">
       <Filter>Source Files</Filter>
     </None>
@@ -1876,6 +1873,9 @@
       <Filter>Source Files</Filter>
     </None>
     <ClCompile Include="..\src\dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
