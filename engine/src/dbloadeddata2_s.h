@@ -4,10 +4,10 @@
 #include "../include/AdoWrap.h"
 #include "../include/IRMIProxy.h"
 #include "../include/IRMIStub.h"
+#include "pidl/DB_stub.h"
+#include "pidl/DB_proxy.h"
 #include "DbCacheObject.h"
 #include "marshaler-private.h"
-#include "DB_stub.h"
-#include "DB_proxy.h"
 #include "FastList2.h"
 
 namespace Proud

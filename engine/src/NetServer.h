@@ -73,8 +73,8 @@ ProudNet
 #endif
 
 using namespace Proud;
-#include "NetC2S_stub.h"
-#include "NetS2C_proxy.h"
+#include "pidl/NetC2S_stub.h"
+#include "pidl/NetS2C_proxy.h"
 
 #define ASSERT_OR_HACKED(x) { if(!(x)) { EnqueueHackSuspectEvent(rc,#x,HackType_PacketRig); } }
 

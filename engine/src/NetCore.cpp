@@ -33,9 +33,9 @@
 
 //#include "./zlib/compress.c"
 
-#include "NetS2C_common.cpp"
-#include "NetC2S_common.cpp"
-#include "NetC2C_common.cpp"
+#include "pidl/NetS2C_common.cpp"
+#include "pidl/NetC2S_common.cpp"
+#include "pidl/NetC2C_common.cpp"
 
 // #include "LanS2C_common.cpp"
 // #include "LanC2S_common.cpp"

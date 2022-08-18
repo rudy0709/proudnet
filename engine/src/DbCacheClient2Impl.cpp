@@ -13,9 +13,9 @@
 #include "DbCacheClient2Impl.h"
 #include "dbconfig.h"
 #include "RmiContextImpl.h"
-#include "DB_common.cpp"
-#include "DB_stub.cpp"
-#include "DB_proxy.cpp"
+#include "pidl/DB_common.cpp"
+#include "pidl/DB_stub.cpp"
+#include "pidl/DB_proxy.cpp"
 #include "CriticalSectImpl.h"
 
 

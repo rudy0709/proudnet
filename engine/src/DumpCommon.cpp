@@ -10,9 +10,9 @@
 #include "stdafx.h"
 #include "../include/dumpcommon.h"
 #include "../include/Enums.h"
-#include "DumpC2S_common.cpp"
-#include "DumpS2C_common.cpp"
 #include "../include/pnguid.h"
+#include "pidl/DumpC2S_common.cpp"
+#include "pidl/DumpS2C_common.cpp"
 
 namespace Proud {
     

@@ -47,10 +47,10 @@
 #include "ReusableLocalVar.h"
 #include <typeinfo>
 
-#include "NetS2C_stub.cpp"
-#include "NetC2C_stub.cpp"
-#include "NetC2S_proxy.cpp"
-#include "NetC2C_proxy.cpp"
+#include "pidl/NetS2C_stub.cpp"
+#include "pidl/NetC2C_stub.cpp"
+#include "pidl/NetC2S_proxy.cpp"
+#include "pidl/NetC2C_proxy.cpp"
 #include "LeanDynamicCast.h"
 #include "SendFragRefs.h"
 #include "../include/ClassBehavior.h"

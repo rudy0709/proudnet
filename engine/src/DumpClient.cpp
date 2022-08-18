@@ -13,8 +13,8 @@
 
 #if defined(_WIN32)
     #include "RmiContextImpl.h"
-	#include "dumps2c_stub.cpp"
-	#include "dumpc2s_proxy.cpp"
+	#include "pidl/dumps2c_stub.cpp"
+	#include "pidl/dumpc2s_proxy.cpp"
 #endif
 
 

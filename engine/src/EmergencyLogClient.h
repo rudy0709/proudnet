@@ -5,8 +5,8 @@
 #include "../include/NetClientInterface.h"
 #include "../include/EmergencyLogCommon.h"
 #include "EmergencyLogData.h"
-#include "EmergencyC2S_proxy.h"
-#include "EmergencyS2C_stub.h"
+#include "pidl/EmergencyC2S_proxy.h"
+#include "pidl/EmergencyS2C_stub.h"
 
 namespace Proud
 {

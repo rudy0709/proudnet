@@ -43,8 +43,8 @@
 #include "ReportError.h"
 #include <typeinfo>
 
-#include "NetC2S_stub.cpp"
-#include "NetS2C_proxy.cpp"
+#include "pidl/NetC2S_stub.cpp"
+#include "pidl/NetS2C_proxy.cpp"
 
 #include "CollUtil.h"
 //#include "LowContextSwitchingLoop.h"

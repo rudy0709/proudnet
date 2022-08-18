@@ -1,9 +1,9 @@
 ﻿#include "stdafx.h"
 #include "DBCacheJob.h"
 #include "DbCacheServer2Impl.h"
-#include "DB_proxy.h"
 #include "marshaler-private.h"
-#include "DB_stub.h"
+#include "pidl/DB_proxy.h"
+#include "pidl/DB_stub.h"
 namespace Proud
 {
 
