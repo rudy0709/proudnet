@@ -183,7 +183,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AdditionalIncludeDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Debug\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Debug\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -207,7 +207,7 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Debug\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Debug\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -233,7 +233,7 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AdditionalIncludeDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -262,7 +262,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -287,7 +287,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AdditionalIncludeDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Debug\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Debug\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -311,7 +311,7 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Debug\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Debug\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -337,7 +337,7 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AdditionalIncludeDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -366,7 +366,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

@@ -57,7 +57,7 @@
     <ClCompile Include="..\src\dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\stdafx.cpp">
+    <ClCompile Include="..\src\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -257,147 +257,147 @@
     <None Include="..\src\WebSocket.cpp">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="..\src\crypto.hpp">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\dbcacheclient2blocked.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\DbCacheClient2Impl.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\DBCacheJob.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\DbCacheObject.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\DbCacheServer2Impl.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\DbConfig.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\dbloadeddata2_s.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\DbLogWriterImpl.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\DumpServer.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\EmergencyLogServer.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FallbackableUdpLayer_S.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FavoriteLV_S.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\HlaEntityImpl_S.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\HlaSessionHostImpl_S.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\HlaSpaceImpl_S.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\HostIDFactory.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\IVizAgentDg.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\LoopbackHost_S.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\NetServer.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\NetServer_WebSocket.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\NetServerImpl.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\OdbcCommandImpl.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\OdbcConnectionImpl.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\OdbcErrorCheck.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\OdbcHandle.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\OdbcRecordsetImpl.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\P2PGroup_S.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\P2PPair.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\P2PPair_S.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\PooledObjects_C.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\PooledObjects_S.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\RCPair.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\ReaderWriterMonitorTester.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\RemoteClient.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\SendDest_S.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\server_ws.hpp">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\server_wss.hpp">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\stdafx.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\SuperPeer_S.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\TcpLayer_S.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\TestUdpConnReset.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\ThreadPoolImpl.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\UdpSocket_S.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\UserTask.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\WebSocket.h">
-      <Filter>Header Files</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\NetServerImpl.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\NetServer_WebSocket.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\crypto.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\dbcacheclient2blocked.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DbCacheClient2Impl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DBCacheJob.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DbCacheObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DbCacheServer2Impl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DbConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\dbloadeddata2_s.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DbLogWriterImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DumpServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\EmergencyLogServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\FallbackableUdpLayer_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\FavoriteLV_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HlaEntityImpl_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HlaSessionHostImpl_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HlaSpaceImpl_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HostIDFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\IVizAgentDg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\LoopbackHost_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\NetServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OdbcCommandImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OdbcConnectionImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OdbcErrorCheck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OdbcHandle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OdbcRecordsetImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\P2PGroup_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\P2PPair.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\P2PPair_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PooledObjects_C.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PooledObjects_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\RCPair.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ReaderWriterMonitorTester.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\RemoteClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SendDest_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\server_ws.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\server_wss.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SuperPeer_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TcpLayer_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TestUdpConnReset.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ThreadPoolImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UdpSocket_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UserTask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\WebSocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
