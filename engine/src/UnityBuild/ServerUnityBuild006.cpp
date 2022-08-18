@@ -1,0 +1,5 @@
+﻿#include "stdafx.h"
+#include "../P2PPair_S.cpp"
+#include "../ServerParam.cpp"
+#include "../SuperPeer_S.cpp"
+#include "../WebSocket.cpp"

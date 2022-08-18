@@ -1,0 +1,7 @@
+﻿#include "stdafx.h"
+#include  "../VizAgent.cpp"
+#include  "../NetServerAccept.cpp"
+#include  "../NetServerEvent.cpp"
+#include  "../NetServerSend.cpp"
+#include  "../NetServerStartup.cpp"
+#include  "../NetServerStartup_WebSocket.cpp"
