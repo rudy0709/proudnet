@@ -26,39 +26,39 @@
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
@@ -69,33 +69,33 @@ endlocal
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
     </CustomBuild>
     <CustomBuild Include="DB.PIDL">
       <FileType>Document</FileType>
@@ -104,33 +104,33 @@ endlocal
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
     </CustomBuild>
     <CustomBuild Include="DumpC2S.pidl">
       <FileType>Document</FileType>
@@ -139,33 +139,33 @@ endlocal
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
     </CustomBuild>
     <CustomBuild Include="DumpS2C.pidl">
       <FileType>Document</FileType>
@@ -174,33 +174,33 @@ endlocal
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
     </CustomBuild>
     <CustomBuild Include="EmergencyC2S.pidl">
       <FileType>Document</FileType>
@@ -209,33 +209,33 @@ endlocal
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
     </CustomBuild>
     <CustomBuild Include="EmergencyS2C.pidl">
       <FileType>Document</FileType>
@@ -244,33 +244,33 @@ endlocal
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
     </CustomBuild>
     <CustomBuild Include="NetC2C.pidl">
       <FileType>Document</FileType>
@@ -279,33 +279,33 @@ endlocal
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
     </CustomBuild>
     <CustomBuild Include="NetC2S.pidl">
       <FileType>Document</FileType>
@@ -314,33 +314,33 @@ endlocal
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
     </CustomBuild>
     <CustomBuild Include="NetS2C.pidl">
       <FileType>Document</FileType>
@@ -349,33 +349,33 @@ endlocal
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
     </CustomBuild>
     <CustomBuild Include="Viz.pidl">
       <FileType>Document</FileType>
@@ -384,33 +384,33 @@ endlocal
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath)
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating %(Filename)_common.cpp, %(Filename)_common.h, %(Filename)_proxy.cpp, %(Filename)_proxy.h, %(Filename)_stub.cpp, %(Filename)_stub.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputPath)%(Filename)_common.cpp;$(OutputPath)%(Filename)_common.h;$(OutputPath)%(Filename)_proxy.cpp;$(OutputPath)%(Filename)_proxy.h;$(OutputPath)%(Filename)_stub.cpp;$(OutputPath)%(Filename)_stub.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)_common.cpp;%(Filename)_common.h;%(Filename)_proxy.cpp;%(Filename)_proxy.h;%(Filename)_stub.cpp;%(Filename)_stub.h</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -421,33 +421,33 @@ endlocal
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath) -incdir $(ProjectDir)..\include\
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\ -incdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating %(Filename).inl</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputPath)%(Filename).inl</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).inl</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath) -incdir $(ProjectDir)..\include\
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\ -incdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating %(Filename).inl</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputPath)%(Filename).inl</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename).inl</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath) -incdir $(ProjectDir)..\include\
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\ -incdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating %(Filename).inl</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputPath)%(Filename).inl</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).inl</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir $(OutDirFullPath) -incdir $(ProjectDir)..\include\
+..\..\tools\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir out\$(Configuration)-x86_$(PlatformArchitecture)\ -incdir out\$(Configuration)-x86_$(PlatformArchitecture)\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating %(Filename).inl</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputPath)%(Filename).inl</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).inl</Outputs>
     </CustomBuild>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -455,7 +455,7 @@ endlocal
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{65853479-3cbe-42e6-8b54-1b7d4355dac6}</ProjectGuid>
     <RootNamespace>ProudNetPidlBuild</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -503,20 +503,20 @@ endlocal
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <OutDir>out\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>tmp\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <OutDir>out\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>tmp\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <OutDir>out\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>tmp\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <OutDir>out\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>tmp\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
