@@ -181,8 +181,6 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <MultiProcessorCompilation>
-      </MultiProcessorCompilation>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
     </ClCompile>
@@ -203,8 +201,6 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <MultiProcessorCompilation>
-      </MultiProcessorCompilation>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -220,8 +216,6 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level1</WarningLevel>
-      <FunctionLevelLinking>
-      </FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;UNICODE;_UNICODE;_USRDLL;PROUDNETCLIENT_EXPORTS;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -239,8 +233,6 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <LinkTimeCodeGeneration>
-      </LinkTimeCodeGeneration>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -249,8 +241,6 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-Static|Win32'">
     <ClCompile>
       <WarningLevel>Level1</WarningLevel>
-      <FunctionLevelLinking>
-      </FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;UNICODE;_UNICODE;_USRDLL;PROUDNETCLIENT_EXPORTS;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -269,8 +259,6 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <LinkTimeCodeGeneration>
-      </LinkTimeCodeGeneration>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -285,8 +273,6 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <MultiProcessorCompilation>
-      </MultiProcessorCompilation>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
     </ClCompile>
@@ -307,8 +293,6 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <MultiProcessorCompilation>
-      </MultiProcessorCompilation>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -324,8 +308,6 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level1</WarningLevel>
-      <FunctionLevelLinking>
-      </FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;UNICODE;_UNICODE;_USRDLL;PROUDNETCLIENT_EXPORTS;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -343,8 +325,6 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <LinkTimeCodeGeneration>
-      </LinkTimeCodeGeneration>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -353,8 +333,6 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-Static|x64'">
     <ClCompile>
       <WarningLevel>Level1</WarningLevel>
-      <FunctionLevelLinking>
-      </FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;UNICODE;_UNICODE;_USRDLL;PROUDNETCLIENT_EXPORTS;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -373,8 +351,6 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <LinkTimeCodeGeneration>
-      </LinkTimeCodeGeneration>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -834,6 +810,7 @@
     <ClCompile Include="..\src\UnityBuild\ClientUnityBuild014.cpp" />
     <ClCompile Include="..\src\UnityBuild\ClientUnityBuild015.cpp" />
     <ClCompile Include="..\src\dllmain.cpp" />
+    <ClCompile Include="..\src\stdafx.cpp" />
     <None Include="..\src\acrimpl.cpp" />
     <None Include="..\src\acrimpl_c.cpp" />
     <None Include="..\src\AddrPort.cpp" />
@@ -964,7 +941,6 @@
     <None Include="..\src\SocketUtil.cpp" />
     <None Include="..\src\stacktrace.cpp" />
     <None Include="..\src\stacktrace-win32.cpp" />
-    <None Include="..\src\stdafx.cpp" />
     <None Include="..\src\StreamQueue.cpp" />
     <None Include="..\src\StringEncorder.cpp" />
     <None Include="..\src\strpool.cpp" />
