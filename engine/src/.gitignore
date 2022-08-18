@@ -1,6 +1,7 @@
 # PIDL files
 AgentC2S_*.*
 AgentS2C_*.*
+DB_*.*
 DumpC2S_*.*
 DumpS2C_*.*
 EmergencyC2S_*.*
