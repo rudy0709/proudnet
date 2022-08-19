@@ -7,8 +7,8 @@
 #ifdef SUPPORTS_WEBGL
 
 #include "server_ws.hpp"
-#include <asio/ssl.hpp>
-#include <openssl/ssl.h>
+#include "asio/ssl.hpp"
+#include "openssl/ssl.h"
 
 namespace Proud {
     typedef asio::ssl::stream<asio::ip::tcp::socket> WSS;    
