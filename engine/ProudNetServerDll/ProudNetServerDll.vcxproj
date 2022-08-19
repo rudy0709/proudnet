@@ -125,50 +125,50 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(Configuration)-x86_$(PlatformArchitecture).Bin\</OutDir>
-    <IntDir>$(Configuration)-x86_$(PlatformArchitecture).Obj\</IntDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>ProudNetServer</TargetName>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Static|Win32'">
-    <OutDir>$(Configuration)-x86_$(PlatformArchitecture).Bin\</OutDir>
-    <IntDir>$(Configuration)-x86_$(PlatformArchitecture).Obj\</IntDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>ProudNetServer</TargetName>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(Configuration)-x86_$(PlatformArchitecture).Bin\</OutDir>
-    <IntDir>$(Configuration)-x86_$(PlatformArchitecture).Obj\</IntDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>ProudNetServer</TargetName>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Static|Win32'">
-    <OutDir>$(Configuration)-x86_$(PlatformArchitecture).Bin\</OutDir>
-    <IntDir>$(Configuration)-x86_$(PlatformArchitecture).Obj\</IntDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>ProudNetServer</TargetName>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(Configuration)-x86_$(PlatformArchitecture).Bin\</OutDir>
-    <IntDir>$(Configuration)-x86_$(PlatformArchitecture).Obj\</IntDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>ProudNetServer</TargetName>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Static|x64'">
-    <OutDir>$(Configuration)-x86_$(PlatformArchitecture).Bin\</OutDir>
-    <IntDir>$(Configuration)-x86_$(PlatformArchitecture).Obj\</IntDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>ProudNetServer</TargetName>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(Configuration)-x86_$(PlatformArchitecture).Bin\</OutDir>
-    <IntDir>$(Configuration)-x86_$(PlatformArchitecture).Obj\</IntDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>ProudNetServer</TargetName>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Static|x64'">
-    <OutDir>$(Configuration)-x86_$(PlatformArchitecture).Bin\</OutDir>
-    <IntDir>$(Configuration)-x86_$(PlatformArchitecture).Obj\</IntDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>ProudNetServer</TargetName>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
@@ -184,11 +184,12 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -207,11 +208,12 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -238,7 +240,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -266,7 +268,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -284,11 +286,12 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -307,11 +310,12 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -338,7 +342,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -366,7 +370,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
