@@ -183,13 +183,12 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Debug\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\lib\libcrypto.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -207,13 +206,12 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Debug\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\lib\libcrypto.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -233,15 +231,14 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\lib\libcrypto.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -262,15 +259,14 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\lib\libcrypto.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\Win32\Release\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -287,13 +283,12 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Debug\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\lib\libcrypto.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -311,13 +306,12 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Debug\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\lib\libcrypto.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -337,15 +331,14 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\lib\libcrypto.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -366,15 +359,14 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\include;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\StandAloneAsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\lib\libcrypto.lib;D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Projects\proudnet\pn1.bak\R2\ProudNet\src\Libs\OpenSSL-1.1.1d-shared\x64\Release\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\ProudNetClientDll\$(Configuration)-x86_$(PlatformArchitecture).Bin\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
