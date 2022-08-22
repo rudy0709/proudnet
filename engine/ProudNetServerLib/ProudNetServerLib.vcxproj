@@ -190,7 +190,7 @@
       <EnableUAC>true</EnableUAC>
     </Link>
     <Lib>
-      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientLib\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -215,7 +215,7 @@
       <EnableUAC>true</EnableUAC>
     </Link>
     <Lib>
-      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientLib\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -244,7 +244,7 @@
       <EnableUAC>true</EnableUAC>
     </Link>
     <Lib>
-      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientLib\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -274,7 +274,7 @@
       <EnableUAC>true</EnableUAC>
     </Link>
     <Lib>
-      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientLib\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -298,7 +298,7 @@
       <EnableUAC>true</EnableUAC>
     </Link>
     <Lib>
-      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientLib\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -323,7 +323,7 @@
       <EnableUAC>true</EnableUAC>
     </Link>
     <Lib>
-      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientLib\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -352,7 +352,7 @@
       <EnableUAC>true</EnableUAC>
     </Link>
     <Lib>
-      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientLib\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -382,7 +382,7 @@
       <EnableUAC>true</EnableUAC>
     </Link>
     <Lib>
-      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientLib\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
