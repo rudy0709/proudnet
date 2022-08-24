@@ -249,9 +249,6 @@
     <None Include="..\src\WebSocket.cpp">
       <Filter>Source Files</Filter>
     </None>
-    <ClCompile Include="..\src\dllmain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

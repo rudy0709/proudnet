@@ -176,7 +176,7 @@
     <ClCompile>
       <WarningLevel>Level1</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;DEBUG;_DEBUG;_WINDOWS;UNICODE;_UNICODE;_USRDLL;USE_PROUDNET_DLL;PROUDNETSERVER_EXPORTS;PRIVATE;PROUDSRCCOPY;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;_DEBUG;WIN32;_WINDOWS;UNICODE;_UNICODE;_USRDLL;USE_PROUDNET_DLL;PROUDNETSERVER_EXPORTS;PRIVATE;PROUDSRCCOPY;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -186,6 +186,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
       <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -198,7 +199,7 @@
     <ClCompile>
       <WarningLevel>Level1</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;DEBUG;_DEBUG;_WINDOWS;UNICODE;_UNICODE;_USRDLL;USE_PROUDNET_DLL;PROUDNETSERVER_EXPORTS;PRIVATE;PROUDSRCCOPY;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;_DEBUG;WIN32;_WINDOWS;UNICODE;_UNICODE;_USRDLL;USE_PROUDNET_DLL;PROUDNETSERVER_EXPORTS;PRIVATE;PROUDSRCCOPY;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -209,6 +210,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
       <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -222,7 +224,7 @@
       <WarningLevel>Level1</WarningLevel>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;UNICODE;_UNICODE;_USRDLL;USE_PROUDNET_DLL;PROUDNETSERVER_EXPORTS;PRIVATE;PROUDSRCCOPY;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;UNICODE;_UNICODE;_USRDLL;USE_PROUDNET_DLL;PROUDNETSERVER_EXPORTS;PRIVATE;PROUDSRCCOPY;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -234,6 +236,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
     </ClCompile>
     <Link>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -249,7 +252,7 @@
       <WarningLevel>Level1</WarningLevel>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;UNICODE;_UNICODE;_USRDLL;USE_PROUDNET_DLL;PROUDNETSERVER_EXPORTS;PRIVATE;PROUDSRCCOPY;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;UNICODE;_UNICODE;_USRDLL;USE_PROUDNET_DLL;PROUDNETSERVER_EXPORTS;PRIVATE;PROUDSRCCOPY;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -262,6 +265,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
     </ClCompile>
     <Link>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -286,6 +290,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
       <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MD.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MD.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -309,6 +314,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
       <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libcrypto$(PlatformArchitecture)MT.lib;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\lib\libssl$(PlatformArchitecture)MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -334,6 +340,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
     </ClCompile>
     <Link>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -362,6 +369,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
     </ClCompile>
     <Link>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
