@@ -15,6 +15,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,10 +39,12 @@
   <ItemGroup>
     <Reference Include="Antlr4.Runtime, Version=4.6.0.0, Culture=neutral, PublicKeyToken=09abb75b9ed49849, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Antlr4.Runtime.4.6.6\lib\net45\Antlr4.Runtime.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="YamlDotNet, Version=12.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
       <HintPath>..\..\packages\YamlDotNet.12.0.0\lib\net47\YamlDotNet.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -160,7 +163,6 @@
     <None Include="OutputTemplate\CsHelper.ttinclude" />
     <None Include="OutputTemplate\JavaHelper.ttinclude" />
     <None Include="OutputTemplate\UcHelper.ttinclude" />
-    <None Include="packages.config" />
     <Antlr4 Include="PidlSpec.g4">
       <Generator>MSBuild:Compile</Generator>
       <CustomToolNamespace>PIDL</CustomToolNamespace>
@@ -168,6 +170,7 @@
       <Visitor>False</Visitor>
       <TargetLanguage>CSharp</TargetLanguage>
     </Antlr4>
+    <None Include="packages.config" />
     <None Include="Test.pidl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
