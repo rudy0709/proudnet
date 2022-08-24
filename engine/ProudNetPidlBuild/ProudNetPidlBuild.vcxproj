@@ -534,9 +534,9 @@ endlocal
     </Link>
     <PostBuildEvent>
       <Command>mkdir out\pidl\
-copy $(OutputPath)*.cpp out\pidl\
-copy $(OutputPath)*.h out\pidl\
-copy $(OutputPath)*.inl out\pidl\</Command>
+xcopy /y /q $(OutputPath)*.cpp out\pidl\
+xcopy /y /q $(OutputPath)*.h out\pidl\
+xcopy /y /q $(OutputPath)*.inl out\pidl\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -559,9 +559,9 @@ copy $(OutputPath)*.inl out\pidl\</Command>
     </Link>
     <PostBuildEvent>
       <Command>mkdir out\pidl\
-copy $(OutputPath)*.cpp out\pidl\
-copy $(OutputPath)*.h out\pidl\
-copy $(OutputPath)*.inl out\pidl\</Command>
+xcopy /y /q $(OutputPath)*.cpp out\pidl\
+xcopy /y /q $(OutputPath)*.h out\pidl\
+xcopy /y /q $(OutputPath)*.inl out\pidl\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -580,9 +580,9 @@ copy $(OutputPath)*.inl out\pidl\</Command>
     </Link>
     <PostBuildEvent>
       <Command>mkdir out\pidl\
-copy $(OutputPath)*.cpp out\pidl\
-copy $(OutputPath)*.h out\pidl\
-copy $(OutputPath)*.inl out\pidl\</Command>
+xcopy /y /q $(OutputPath)*.cpp out\pidl\
+xcopy /y /q $(OutputPath)*.h out\pidl\
+xcopy /y /q $(OutputPath)*.inl out\pidl\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -605,9 +605,9 @@ copy $(OutputPath)*.inl out\pidl\</Command>
     </Link>
     <PostBuildEvent>
       <Command>mkdir out\pidl\
-copy $(OutputPath)*.cpp out\pidl\
-copy $(OutputPath)*.h out\pidl\
-copy $(OutputPath)*.inl out\pidl\</Command>
+xcopy /y /q $(OutputPath)*.cpp out\pidl\
+xcopy /y /q $(OutputPath)*.h out\pidl\
+xcopy /y /q $(OutputPath)*.inl out\pidl\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
