@@ -8,12 +8,24 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetPidlBuild", "engine\ProudNetPidlBuild\ProudNetPidlBuild.vcxproj", "{65853479-3CBE-42E6-8B54-1B7D4355DAC6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetClientDll", "engine\ProudNetClientDll\ProudNetClientDll.vcxproj", "{D31ACB83-D887-4821-8D9C-8819235029B4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{65853479-3CBE-42E6-8B54-1B7D4355DAC6} = {65853479-3CBE-42E6-8B54-1B7D4355DAC6}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetClientLib", "engine\ProudNetClientLib\ProudNetClientLib.vcxproj", "{3EAD07B6-DB72-4207-9A0E-DC4E23394977}"
+	ProjectSection(ProjectDependencies) = postProject
+		{65853479-3CBE-42E6-8B54-1B7D4355DAC6} = {65853479-3CBE-42E6-8B54-1B7D4355DAC6}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetServerDll", "engine\ProudNetServerDll\ProudNetServerDll.vcxproj", "{F231294D-F071-4DFD-A8B2-51F7C7C26A7A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D31ACB83-D887-4821-8D9C-8819235029B4} = {D31ACB83-D887-4821-8D9C-8819235029B4}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetServerLib", "engine\ProudNetServerLib\ProudNetServerLib.vcxproj", "{8C04DD30-36A3-46B5-8C8D-14F953AFADF4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3EAD07B6-DB72-4207-9A0E-DC4E23394977} = {3EAD07B6-DB72-4207-9A0E-DC4E23394977}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetClientPlugin", "engine\ProudNetClientPlugin\ProudNetClientPlugin.vcxproj", "{47ED82A1-A950-4E70-A687-D96882849079}"
 EndProject
