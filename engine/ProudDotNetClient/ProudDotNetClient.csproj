@@ -45,166 +45,166 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\AddrPort.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\AddrPort.cs">
       <Link>NetClient\Swig\AddrPort.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ApplicationHint.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ApplicationHint.cs">
       <Link>NetClient\Swig\ApplicationHint.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ClientWorkerInfo.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ClientWorkerInfo.cs">
       <Link>NetClient\Swig\ClientWorkerInfo.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\CompressMode.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\CompressMode.cs">
       <Link>NetClient\Swig\CompressMode.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ConnectionState.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ConnectionState.cs">
       <Link>NetClient\Swig\ConnectionState.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\DirectP2PInfo.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\DirectP2PInfo.cs">
       <Link>NetClient\Swig\DirectP2PInfo.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\DirectP2PStartCondition.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\DirectP2PStartCondition.cs">
       <Link>NetClient\Swig\DirectP2PStartCondition.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\DisconnectArgs.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\DisconnectArgs.cs">
       <Link>NetClient\Swig\DisconnectArgs.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\EncryptLevel.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\EncryptLevel.cs">
       <Link>NetClient\Swig\EncryptLevel.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\EncryptMode.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\EncryptMode.cs">
       <Link>NetClient\Swig\EncryptMode.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ErrorInfo.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ErrorInfo.cs">
       <Link>NetClient\Swig\ErrorInfo.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ErrorReaction.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ErrorReaction.cs">
       <Link>NetClient\Swig\ErrorReaction.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ErrorType.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ErrorType.cs">
       <Link>NetClient\Swig\ErrorType.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ExceptionType.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ExceptionType.cs">
       <Link>NetClient\Swig\ExceptionType.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\FallbackMethod.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\FallbackMethod.cs">
       <Link>NetClient\Swig\FallbackMethod.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\FastEncryptLevel.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\FastEncryptLevel.cs">
       <Link>NetClient\Swig\FastEncryptLevel.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\FrameMoveResult.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\FrameMoveResult.cs">
       <Link>NetClient\Swig\FrameMoveResult.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\GrowPolicy.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\GrowPolicy.cs">
       <Link>NetClient\Swig\GrowPolicy.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\Guid.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\Guid.cs">
       <Link>NetClient\Swig\Guid.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\HackType.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\HackType.cs">
       <Link>NetClient\Swig\HackType.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\HostID.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\HostID.cs">
       <Link>NetClient\Swig\HostID.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\HostIDGenerationPolicy.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\HostIDGenerationPolicy.cs">
       <Link>NetClient\Swig\HostIDGenerationPolicy.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\HostType.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\HostType.cs">
       <Link>NetClient\Swig\HostType.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\IntArray.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\IntArray.cs">
       <Link>NetClient\Swig\IntArray.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\LogCategory.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\LogCategory.cs">
       <Link>NetClient\Swig\LogCategory.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\MessagePriority.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\MessagePriority.cs">
       <Link>NetClient\Swig\MessagePriority.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\MessageReliability.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\MessageReliability.cs">
       <Link>NetClient\Swig\MessageReliability.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NamedAddrPort.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NamedAddrPort.cs">
       <Link>NetClient\Swig\NamedAddrPort.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NativeByteArray.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NativeByteArray.cs">
       <Link>NetClient\Swig\NativeByteArray.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NativeException.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NativeException.cs">
       <Link>NetClient\Swig\NativeException.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NativeHostIDArray.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NativeHostIDArray.cs">
       <Link>NetClient\Swig\NativeHostIDArray.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NativeNetClient.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NativeNetClient.cs">
       <Link>NetClient\Swig\NativeNetClient.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NativeNetUtil.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NativeNetUtil.cs">
       <Link>NetClient\Swig\NativeNetUtil.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NativeReceivedMessage.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NativeReceivedMessage.cs">
       <Link>NetClient\Swig\NativeReceivedMessage.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NativeRmiContext.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NativeRmiContext.cs">
       <Link>NetClient\Swig\NativeRmiContext.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NativeThreadPool.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NativeThreadPool.cs">
       <Link>NetClient\Swig\NativeThreadPool.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NetClientConfig.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NetClientConfig.cs">
       <Link>NetClient\Swig\NetClientConfig.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NetClientStats.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NetClientStats.cs">
       <Link>NetClient\Swig\NetClientStats.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NetConnectionParam.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NetConnectionParam.cs">
       <Link>NetClient\Swig\NetConnectionParam.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NetCoreStats.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NetCoreStats.cs">
       <Link>NetClient\Swig\NetCoreStats.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\NetPeerInfo.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\NetPeerInfo.cs">
       <Link>NetClient\Swig\NetPeerInfo.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ProudNetClientPlugin.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ProudNetClientPlugin.cs">
       <Link>NetClient\Swig\ProudNetClientPlugin.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ProudNetClientPluginPINVOKE.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ProudNetClientPluginPINVOKE.cs">
       <Link>NetClient\Swig\ProudNetClientPluginPINVOKE.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ReliableUdpHostStats.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ReliableUdpHostStats.cs">
       <Link>NetClient\Swig\ReliableUdpHostStats.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\RemoteOfflineEventArgs.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\RemoteOfflineEventArgs.cs">
       <Link>NetClient\Swig\RemoteOfflineEventArgs.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\RemoteOnlineEventArgs.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\RemoteOnlineEventArgs.cs">
       <Link>NetClient\Swig\RemoteOnlineEventArgs.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\RmiID.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\RmiID.cs">
       <Link>NetClient\Swig\RmiID.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\RoundTripLatencyTestResult.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\RoundTripLatencyTestResult.cs">
       <Link>NetClient\Swig\RoundTripLatencyTestResult.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ServerConnectionState.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ServerConnectionState.cs">
       <Link>NetClient\Swig\ServerConnectionState.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\SocketInfo.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\SocketInfo.cs">
       <Link>NetClient\Swig\SocketInfo.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\StartRoundTripLatencyTestParameter.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\StartRoundTripLatencyTestParameter.cs">
       <Link>NetClient\Swig\StartRoundTripLatencyTestParameter.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ThreadModel.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ThreadModel.cs">
       <Link>NetClient\Swig\ThreadModel.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ValueCompareType.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ValueCompareType.cs">
       <Link>NetClient\Swig\ValueCompareType.cs</Link>
     </Compile>
-    <Compile Include="..\ProudNetClientPlugin\out\swig\ValueOperType.cs">
+    <Compile Include="..\ProudNetClientPluginDll\out\swig\ValueOperType.cs">
       <Link>NetClient\Swig\ValueOperType.cs</Link>
     </Compile>
     <Compile Include="..\src_csharp\Common\CompactScalarValue.cs">
