@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug-Static|Win32">
       <Configuration>Debug-Static</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug-Static|x64">
-      <Configuration>Debug-Static</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release-Static|Win32">
       <Configuration>Release-Static</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release-Static|x64">
-      <Configuration>Release-Static</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug-Static|x64">
+      <Configuration>Debug-Static</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release-Static|x64">
+      <Configuration>Release-Static</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
@@ -38,7 +38,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{c2650121-bed6-4d60-898c-65150065c9fc}</ProjectGuid>
-    <RootNamespace>ProudNetServerPlugin</RootNamespace>
+    <RootNamespace>ProudNetServerPluginDll</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,50 +127,50 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <LinkIncremental>false</LinkIncremental>
     <TargetName>ProudNetServerPlugin</TargetName>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Static|Win32'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <LinkIncremental>false</LinkIncremental>
     <TargetName>ProudNetServerPlugin</TargetName>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <LinkIncremental>false</LinkIncremental>
     <TargetName>ProudNetServerPlugin</TargetName>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Static|Win32'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <LinkIncremental>false</LinkIncremental>
     <TargetName>ProudNetServerPlugin</TargetName>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <LinkIncremental>false</LinkIncremental>
     <TargetName>ProudNetServerPlugin</TargetName>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Static|x64'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <LinkIncremental>false</LinkIncremental>
     <TargetName>ProudNetServerPlugin</TargetName>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <LinkIncremental>false</LinkIncremental>
     <TargetName>ProudNetServerPlugin</TargetName>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Static|x64'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <LinkIncremental>false</LinkIncremental>
     <TargetName>ProudNetServerPlugin</TargetName>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -180,21 +180,25 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
+      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
     <PreBuildEvent>
-      <Command>echo "---------- Post-Build Event - ProudNetServerPlugin - Start ------------------------------"
+      <Command>echo "---------- Post-Build Event - ProudNetServerPluginDll - Start ------------------------------"
 mkdir out\swig\
 swig.exe -outdir out\swig\ -c++ -csharp -namespace Nettention.Proud ProudNetServerPlugin.i
-echo "---------- Post-Build Event - ProudNetServerPlugin - Finish ------------------------------"
+echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish ------------------------------"
 </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -206,40 +210,43 @@ echo "---------- Post-Build Event - ProudNetServerPlugin - Finish --------------
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
+      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
     <PreBuildEvent>
-      <Command>echo "---------- Post-Build Event - ProudNetServerPlugin - Start ------------------------------"
+      <Command>echo "---------- Post-Build Event - ProudNetServerPluginDll - Start ------------------------------"
 mkdir out\swig\
 swig.exe -outdir out\swig\ -c++ -csharp -namespace Nettention.Proud ProudNetServerPlugin.i
-echo "---------- Post-Build Event - ProudNetServerPlugin - Finish ------------------------------"
+echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish ------------------------------"
 </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;WINDOWSPLUGIN_EXPORTS;USE_PROUDNET_DLL;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -247,31 +254,34 @@ echo "---------- Post-Build Event - ProudNetServerPlugin - Finish --------------
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
+      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
     <PreBuildEvent>
-      <Command>echo "---------- Post-Build Event - ProudNetServerPlugin - Start ------------------------------"
+      <Command>echo "---------- Post-Build Event - ProudNetServerPluginDll - Start ------------------------------"
 mkdir out\swig\
 swig.exe -outdir out\swig\ -c++ -csharp -namespace Nettention.Proud ProudNetServerPlugin.i
-echo "---------- Post-Build Event - ProudNetServerPlugin - Finish ------------------------------"
+echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish ------------------------------"
 </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-Static|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;WINDOWSPLUGIN_EXPORTS;USE_PROUDNET_DLL;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -279,12 +289,16 @@ echo "---------- Post-Build Event - ProudNetServerPlugin - Finish --------------
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
+      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
     <PreBuildEvent>
-      <Command>echo "---------- Post-Build Event - ProudNetServerPlugin - Start ------------------------------"
+      <Command>echo "---------- Post-Build Event - ProudNetServerPluginDll - Start ------------------------------"
 mkdir out\swig\
 swig.exe -outdir out\swig\ -c++ -csharp -namespace Nettention.Proud ProudNetServerPlugin.i
-echo "---------- Post-Build Event - ProudNetServerPlugin - Finish ------------------------------"
+echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish ------------------------------"
 </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -296,21 +310,25 @@ echo "---------- Post-Build Event - ProudNetServerPlugin - Finish --------------
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
+      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
     <PreBuildEvent>
-      <Command>echo "---------- Post-Build Event - ProudNetServerPlugin - Start ------------------------------"
+      <Command>echo "---------- Post-Build Event - ProudNetServerPluginDll - Start ------------------------------"
 mkdir out\swig\
 swig.exe -outdir out\swig\ -c++ -csharp -namespace Nettention.Proud ProudNetServerPlugin.i
-echo "---------- Post-Build Event - ProudNetServerPlugin - Finish ------------------------------"
+echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish ------------------------------"
 </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -322,40 +340,43 @@ echo "---------- Post-Build Event - ProudNetServerPlugin - Finish --------------
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
+      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
     <PreBuildEvent>
-      <Command>echo "---------- Post-Build Event - ProudNetServerPlugin - Start ------------------------------"
+      <Command>echo "---------- Post-Build Event - ProudNetServerPluginDll - Start ------------------------------"
 mkdir out\swig\
 swig.exe -outdir out\swig\ -c++ -csharp -namespace Nettention.Proud ProudNetServerPlugin.i
-echo "---------- Post-Build Event - ProudNetServerPlugin - Finish ------------------------------"
+echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish ------------------------------"
 </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;WINDOWSPLUGIN_EXPORTS;USE_PROUDNET_DLL;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -363,31 +384,34 @@ echo "---------- Post-Build Event - ProudNetServerPlugin - Finish --------------
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
+      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
     <PreBuildEvent>
-      <Command>echo "---------- Post-Build Event - ProudNetServerPlugin - Start ------------------------------"
+      <Command>echo "---------- Post-Build Event - ProudNetServerPluginDll - Start ------------------------------"
 mkdir out\swig\
 swig.exe -outdir out\swig\ -c++ -csharp -namespace Nettention.Proud ProudNetServerPlugin.i
-echo "---------- Post-Build Event - ProudNetServerPlugin - Finish ------------------------------"
+echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish ------------------------------"
 </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-Static|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;WINDOWSPLUGIN_EXPORTS;USE_PROUDNET_DLL;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -395,23 +419,19 @@ echo "---------- Post-Build Event - ProudNetServerPlugin - Finish --------------
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
+      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
     <PreBuildEvent>
-      <Command>echo "---------- Post-Build Event - ProudNetServerPlugin - Start ------------------------------"
+      <Command>echo "---------- Post-Build Event - ProudNetServerPluginDll - Start ------------------------------"
 mkdir out\swig\
 swig.exe -outdir out\swig\ -c++ -csharp -namespace Nettention.Proud ProudNetServerPlugin.i
-echo "---------- Post-Build Event - ProudNetServerPlugin - Finish ------------------------------"
+echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish ------------------------------"
 </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProudNetClientDll\ProudNetClientDll.vcxproj">
-      <Project>{d31acb83-d887-4821-8d9c-8819235029b4}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\ProudNetServerDll\ProudNetServerDll.vcxproj">
-      <Project>{f231294d-f071-4dfd-a8b2-51f7c7c26a7a}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NativeType.h" />
     <ClInclude Include="ProudNetServerPlugin.h" />
