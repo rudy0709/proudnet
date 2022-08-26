@@ -40,9 +40,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\src_swig_interface\ProudCatchAllException.i">
-      <Filter>Swig Files\interface</Filter>
-    </None>
     <None Include="..\src_swig_interface\ProudNetTypeMaps.i">
       <Filter>Swig Files\interface</Filter>
     </None>
@@ -119,9 +116,6 @@
       <Filter>Swig Files\interface\core</Filter>
     </None>
     <None Include="..\src_swig_interface\pn_netserverevent.i">
-      <Filter>Swig Files\interface\core</Filter>
-    </None>
-    <None Include="..\src_swig_interface\pn_netstatus.i">
       <Filter>Swig Files\interface\core</Filter>
     </None>
     <None Include="..\src_swig_interface\pn_receivedmessage.i">

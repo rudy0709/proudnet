@@ -189,7 +189,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -220,7 +220,7 @@ echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish -----------
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -243,7 +243,6 @@ echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish -----------
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -254,7 +253,7 @@ echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish -----------
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -277,7 +276,6 @@ echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish -----------
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -289,7 +287,7 @@ echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish -----------
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -319,7 +317,7 @@ echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish -----------
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -350,7 +348,7 @@ echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish -----------
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -373,7 +371,6 @@ echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish -----------
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <AdditionalIncludeDirectories>..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -384,7 +381,7 @@ echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish -----------
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -407,7 +404,6 @@ echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish -----------
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -419,7 +415,7 @@ echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish -----------
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalDependencies>..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ProudNetClientDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\ProudNetServerDll\bin\$(Configuration)-x86_$(PlatformArchitecture)\ProudNetServer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -465,7 +461,6 @@ echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish -----------
     <None Include="..\src_swig_interface\pn_netpeerinfo.i" />
     <None Include="..\src_swig_interface\pn_netserver.i" />
     <None Include="..\src_swig_interface\pn_netserverevent.i" />
-    <None Include="..\src_swig_interface\pn_netstatus.i" />
     <None Include="..\src_swig_interface\pn_receivedmessage.i" />
     <None Include="..\src_swig_interface\pn_rmicontext.i" />
     <None Include="..\src_swig_interface\pn_rmiproxy.i" />
@@ -474,7 +469,6 @@ echo "---------- Post-Build Event - ProudNetServerPluginDll - Finish -----------
     <None Include="..\src_swig_interface\pn_socketinfo.i" />
     <None Include="..\src_swig_interface\pn_string.i" />
     <None Include="..\src_swig_interface\pn_threadpool.i" />
-    <None Include="..\src_swig_interface\ProudCatchAllException.i" />
     <None Include="..\src_swig_interface\ProudNetServer.i" />
     <None Include="..\src_swig_interface\ProudNetServerCPlusIncludes.i" />
     <None Include="..\src_swig_interface\ProudNetTypeMaps.i" />
