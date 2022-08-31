@@ -21,7 +21,7 @@
 namespace Proud
 {
 	CAgentConnector* CAgentConnector::Create(IAgentConnectorDelegate* dg)
-	{		
+	{
 		return new CAgentConnectorImpl(dg);
 	}
 
@@ -63,28 +63,28 @@ namespace Proud
 	bool CAgentConnectorImpl::Start()
 	{
 		CNetConnectionParam param;
-		
+
 		// Agent가 CreateProcess할때 넣은 환경변수를 구하기
 		char szport[128], szcookie[128];
 		uint32_t ret1 = GetEnvironmentVariableA("agent_port", szport, 128);
 		uint32_t ret2 = GetEnvironmentVariableA("agent_cookie", szcookie, 128);
 
- 		if(ret1 == 0 || ret2 == 0)
- 		{
+		if(ret1 == 0 || ret2 == 0)
+		{
 			NTTNTRACE("GetEnvironmentVariable is failed. GetLastError : %u\n", GetLastError());
- 			return false;
- 		}
+			return false;
+		}
 
 		m_cookie = atoi(szcookie);
 		param.m_serverPort = static_cast<uint16_t>(atoi(szport));
 		param.m_serverIP = _PNT("localhost"); // ipv4,6 모두 같이 써야 하니까. 127.0.0.1이나 ::1 쓰지 말자.
-		
+
 		m_client = CNetClient::Create();
 
 		m_client->SetEventSink(this);
 		m_client->AttachProxy(&m_proxy);
 		m_client->AttachStub(this);
-		
+
 		m_lastTryConnectTime = CFakeWin32::GetTickCount();
 
 		ErrorInfoPtr outError;
@@ -109,7 +109,7 @@ namespace Proud
 		if(reportStatus.m_statusText.GetLength() == 0)
 		{
 			m_dg->OnWarning(ErrorInfo::From(ErrorType_Unexpected, HostID_None, _PNT("An Empty String Entered in Agent SendReportStatus.")));
-	
+
 			m_proxy.ReportStatusBegin(HostID_Server, RmiContext::ReliableSend, (byte)CReportStatus::StatusType_Warning, _PNT("Please Enter Status Information in reportStatus"));
 			m_proxy.ReportStatusEnd(HostID_Server, RmiContext::ReliableSend);
 			return false;
@@ -169,7 +169,7 @@ namespace Proud
 		return true;
 	}
 
-	void CAgentConnectorImpl::FrameMove() 
+	void CAgentConnectorImpl::FrameMove()
 	{
 		if(m_client == NULL)
 		{
@@ -195,26 +195,26 @@ namespace Proud
 			float cpuUserTime;
 			float cpuKernelTime;
 			GetCpuTime(cpuUserTime, cpuKernelTime);
-			
+
 			PROCESS_MEMORY_COUNTERS_EX memoryInfo;
 			memset(&memoryInfo, 0, sizeof(PROCESS_MEMORY_COUNTERS_EX));
 			memoryInfo.cb = sizeof(PROCESS_MEMORY_COUNTERS_EX);
 
 			GetProcessMemoryInfo(GetCurrentProcess(), (PROCESS_MEMORY_COUNTERS*)&memoryInfo, sizeof(PROCESS_MEMORY_COUNTERS_EX));
 			uint32_t memorySize = (uint32_t)memoryInfo.WorkingSetSize;
-			
+
 			m_proxy.ReportServerAppState(HostID_Server, RmiContext::ReliableSend, cpuUserTime, cpuKernelTime, memorySize);
 
 			m_lastSendStatusTime = CFakeWin32::GetTickCount();
 
-// 			String txt;
-// 			txt.Format(_PNT("userTime:%f, cpuKernelTime:%f memorySize:%u AppMemorySize:%u"), cpuUserTime, cpuKernelTime, memoryInfo.WorkingSetSize, memoryInfo.PrivateUsage);
-// 			OutputDebugStringW(txt);
+//			String txt;
+//			txt.Format(_PNT("userTime:%f, cpuKernelTime:%f memorySize:%u AppMemorySize:%u"), cpuUserTime, cpuKernelTime, memoryInfo.WorkingSetSize, memoryInfo.PrivateUsage);
+//			OutputDebugStringW(txt);
 
 		}
 	}
 
-	void CAgentConnectorImpl::SetDelayTimeAboutSendAgentStatus( uint32_t delay ) 
+	void CAgentConnectorImpl::SetDelayTimeAboutSendAgentStatus( uint32_t delay )
 	{
 		m_delayTimeAboutSendAgentStatus = delay;
 	}
@@ -223,7 +223,7 @@ namespace Proud
 	void CAgentConnectorImpl::GetCpuTime(float &outUserTime, float &outKernelTime)
 	{
 		__declspec(align(8)) int64_t currTimeMs = GetPreciseCurrentTimeMs(); // align이 붙은 이유: http://msdn.microsoft.com/en-us/library/windows/desktop/ms724284(v=vs.85).aspx
-		
+
 		FILETIME creationTime,exitTime,kernelTime,userTime;
 		::GetProcessTimes(GetCurrentProcess(),&creationTime,&exitTime,&kernelTime,&userTime);
 
@@ -255,8 +255,5 @@ namespace Proud
 			outUserTime = 0;
 			outKernelTime = 0;
 		}
-		
 	}
-
 }
-

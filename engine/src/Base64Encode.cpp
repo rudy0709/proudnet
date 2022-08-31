@@ -13,7 +13,7 @@ namespace Proud
 	{
 		Base64::Encode(binary, binaryLength, outText);
 	}
-	
+
 	void Base64Encoder::Decode(const StringA& text, ByteArray& outBinary)
 	{
 		Base64::Decode<ByteArray>(text, outBinary);
@@ -27,5 +27,4 @@ namespace Proud
 	{
 		Base64::Decode<ByteArrayPtr>(text, outBinary);
 	}
-
 }

@@ -10,7 +10,7 @@ namespace Proud
 	bool Message_ReadVariant_Raw(CMessage& msg, NetVariant& var)
 	{
 		// 값 본체를 읽는다.
-		T v1; // 이렇게 별도 변수로 읽어들이자. 
+		T v1; // 이렇게 별도 변수로 읽어들이자.
 		if (!msg.Read(v1))
 			return false;
 
@@ -23,7 +23,7 @@ namespace Proud
 	bool Message_ReadVariant_String(CMessage& msg, NetVariant& var)
 	{
 		// 값 본체를 읽는다.
-		String v1; // 이렇게 별도 변수로 읽어들이자. 
+		String v1; // 이렇게 별도 변수로 읽어들이자.
 		if (!msg.ReadString(v1))
 			return false;
 
@@ -36,7 +36,7 @@ namespace Proud
 	bool Message_ReadVariant_Binary(CMessage& msg, NetVariant& var)
 	{
 		// 값 본체를 읽는다.
-		ByteArray v1; // 이렇게 별도 변수로 읽어들이자. 
+		ByteArray v1; // 이렇게 별도 변수로 읽어들이자.
 		if (!msg.Read(v1))
 			return false;
 
@@ -262,5 +262,4 @@ namespace Proud
 			break;
 		}
 	}
-
 }

@@ -15,7 +15,7 @@ namespace Proud
 {
 	PNGUID guidDbConfigProtocolVersion = { 0x402ca5ed, 0x889, 0x4bbd, { 0xba, 0xc0, 0x9d, 0xdb, 0x92, 0xec, 0xd5, 0x7e } };
 	Guid CDbConfig::ProtocolVersion = Guid(guidDbConfigProtocolVersion);
-	
+
 	// 지나치게 많으면 되레 비의도된 DB lock 발생이 우려됨.
 
 	//modify by rekfkno1 - DBServerCacheServer 이 쓰레드 세이프 하지않아..일단 1개로 세팅.
@@ -26,7 +26,7 @@ namespace Proud
 	int64_t CDbConfig::FrameMoveIntervalMs=50;
 	int64_t CDbConfig::DefaultUnloadRequestTimeoutTimeMs = 10000;
 
-	// 기존에는 4MB였으나 
+	// 기존에는 4MB였으나
 	// 복수데이터 로드 기능이 추가되면서 메시지 크기가 커질 수 있으므로 늘림.
 	int CDbConfig::MesssageMaxLength = 1024 * 1024 * 1024;	// 1 GB
 }

@@ -2,7 +2,7 @@
 #include "VizMessageSummary.h"
 #include "../include/Marshaler.h"
 
-namespace Proud 
+namespace Proud
 {
 #ifdef VIZAGENT
 	CMessage& operator<<(CMessage& msg, const VizMessageSummary& a)

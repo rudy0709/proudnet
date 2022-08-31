@@ -15,7 +15,7 @@
 
 #include "stacktrace-unix.h"
 
-namespace Proud 
+namespace Proud
 {
 	/** Print a demangled stack backtrace of the caller function to FILE* out. */
 	void GetStackTrace_Unix(CFastArray<StringA>& output)
@@ -106,7 +106,6 @@ namespace Proud
 		output.Add("<StackTrace does not work in Orbis.>");
 #endif //#if !defined(__ORBIS__)
 	}
-
 }
 
 #endif

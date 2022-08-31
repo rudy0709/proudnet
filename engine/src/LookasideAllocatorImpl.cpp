@@ -24,17 +24,17 @@
 namespace Proud
 {
 	uint32_t CLookasideAllocatorImpl::m_cpuCount = 0;// GetNoofProcessors();여기서 이걸 호출할 경우 CLookasideAllocator를 static member로 쓰는 곳 때문에 CLookasideAllocatorImpl 생성이 먼저 일어나는 문제가 있다. 따라서 여기서는 함수 호출을 하지 않고 초기값만 넣어주도록 한다.
-	
-	/* 생성만 하고 free는 하지 않는다. 
-	비록 메모리 누수겠지만, 프로세스 종료시 전까지만 쓰이므로 무시하자. 
-	여기서 이걸 호출할 경우 CLookasideAllocator를 static member로 쓰는 곳 때문에 
-	CLookasideAllocatorImpl 생성이 먼저 일어나는 문제가 있다. 
+
+	/* 생성만 하고 free는 하지 않는다.
+	비록 메모리 누수겠지만, 프로세스 종료시 전까지만 쓰이므로 무시하자.
+	여기서 이걸 호출할 경우 CLookasideAllocator를 static member로 쓰는 곳 때문에
+	CLookasideAllocatorImpl 생성이 먼저 일어나는 문제가 있다.
 	따라서 여기서는 함수 호출을 하지 않고 초기값만 넣어주도록 한다. */
 	intptr_t CLookasideAllocatorImpl::m_cpuIndexTlsIndex;
 
-	/* ptherad_key_t는 invalid 값이라는 것이 명시된 바가 없다. 
+	/* ptherad_key_t는 invalid 값이라는 것이 명시된 바가 없다.
 	따라서 이 변수로 key 여부를 검사해야 한다. */
-	bool CLookasideAllocatorImpl::m_cpuIndexTlsIndexValid = false; 
+	bool CLookasideAllocatorImpl::m_cpuIndexTlsIndexValid = false;
 
 	void* CLookasideAllocatorImpl::CPerCpu::Alloc( size_t size )
 	{
@@ -109,7 +109,7 @@ namespace Proud
 #endif
 		CriticalSectionLock lock(m_cs, m_owner->m_settings.m_accessMode != FastHeapAccessMode_UnsafeSingleThread);
 		m_inUse = true;
-		m_owner->CheckCritSecLockageOnUnsafeModeCase();			
+		m_owner->CheckCritSecLockageOnUnsafeModeCase();
 
 		// 제거하려는 항목을 free list에 반환한다.
 		if (block->m_nextFreeNode != NULL)
@@ -218,8 +218,8 @@ namespace Proud
 
 	void CLookasideAllocatorImpl::CPerCpu::AssureValidBlock(CLookasideAllocatorImpl::BlockHeader* block)
 	{
-		if (block->m_splitter != BlockSplitter 
-			|| block->m_nextFreeNode == (CLookasideAllocatorImpl::BlockHeader*)MarkData 
+		if (block->m_splitter != BlockSplitter
+			|| block->m_nextFreeNode == (CLookasideAllocatorImpl::BlockHeader*)MarkData
 			|| block->m_payloadLength != m_fixedBlockSize)
 		{
 			throw Exception("Invalid Lookaside block is detected!");
@@ -227,12 +227,12 @@ namespace Proud
 	}
 
 	void CLookasideAllocatorImpl::CheckCritSecLockageOnUnsafeModeCase()
-	{ 
+	{
 #if defined(_WIN32)
 		/* TODO: 이상한 콜스택.txt 상황떄문에, 이를 릴리즈 빌드에서는 무효하게 해야 하나? */
-		if(m_settings.m_accessMode == FastHeapAccessMode_UnsafeSingleThread 
-           && m_settings.m_debugSafetyCheckCritSec != NULL
-		   && !m_settings.m_debugSafetyCheckCritSec->IsLockedByCurrentThread())
+		if(m_settings.m_accessMode == FastHeapAccessMode_UnsafeSingleThread
+			&& m_settings.m_debugSafetyCheckCritSec != NULL
+			&& !m_settings.m_debugSafetyCheckCritSec->IsLockedByCurrentThread())
 		{
 			ShowUserMisuseError(_PNT("Unsafe heap accessor with thread unsafety is detected!"));
 		}
@@ -337,7 +337,7 @@ namespace Proud
 		{
 			if(!m_cpuIndexTlsIndexValid)
 			{
-				m_cpuIndexTlsIndex = Proud::TlsAlloc(); // TlsFree()를 하는 곳이 없어서 메모리 누수겠지만, 프로세스 종료시 전까지만 쓰이므로 무시하자. 
+				m_cpuIndexTlsIndex = Proud::TlsAlloc(); // TlsFree()를 하는 곳이 없어서 메모리 누수겠지만, 프로세스 종료시 전까지만 쓰이므로 무시하자.
 				m_cpuIndexTlsIndexValid = true;
 			}
 		}

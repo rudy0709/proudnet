@@ -30,10 +30,10 @@ namespace Proud
 
 	/* 처음 resend할 때까지 대기하는 시간
 	300ms는 인간이 크게 느끼지 못하는 텀이다. 따라서 이정도면 충분하다.
-	너무 짧게 잡으면 ack를 저쪽에서 보냈지만 랙 때문에(먼거리 등) 늦는 경우에도 엄한 재송신이 있을 것이므로 즐. 특히 resend 폭주는 왕 즐 
+	너무 짧게 잡으면 ack를 저쪽에서 보냈지만 랙 때문에(먼거리 등) 늦는 경우에도 엄한 재송신이 있을 것이므로 즐. 특히 resend 폭주는 왕 즐
 	어차피 첫 핑 나오면 줄여지므로 크게 잡아도 된다.
 	윈도 TCP는 3초가 기본이다. http://support.microsoft.com/kb/170359/en-us/ */
-	int64_t ReliableUdpConfig::FirstResendCoolTimeMs = 2000; 
+	int64_t ReliableUdpConfig::FirstResendCoolTimeMs = 2000;
 
 	/* 이 값이 true이면 RTT 값에 의해 RTO가 동적으로 변경된다.
 	만약 resend과다로 트래픽 소모가 심함이 의심되면 시험삼아 이 값을 false로 바꿔보자. */
@@ -91,10 +91,10 @@ namespace Proud
 	// 그래서 resend양을 조절합니다.
 	int ReliableUdpConfig::ResendLimitRatio = 10;
 
-	// 1개의 호스트가 초당 보낼 수 있는 총 frame의 갯수.  
+	// 1개의 호스트가 초당 보낼 수 있는 총 frame의 갯수.
 	int ReliableUdpConfig::MinResendLimitCount = 1000;
 
-	// 1개의 호스트가 초당 보낼 수 있는 총 frame의 갯수.  
+	// 1개의 호스트가 초당 보낼 수 있는 총 frame의 갯수.
 	int ReliableUdpConfig::MaxResendLimitCount = 3000;
 
 	// slow start 를 재시작하기 위한 최소 임계치 값(밀리초)

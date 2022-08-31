@@ -1,6 +1,6 @@
-﻿#pragma once 
+﻿#pragma once
 
-namespace Proud 
+namespace Proud
 {
 	class CNetServer;
 

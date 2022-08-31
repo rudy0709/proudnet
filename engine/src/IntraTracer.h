@@ -1,10 +1,10 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/Enums.h"
 #include "../include/Singleton.h"
 #include "FastMap2.h"
 
-namespace Proud 
+namespace Proud
 {
 
 #ifdef _DEBUG
@@ -35,5 +35,4 @@ namespace Proud
 	};
 
 	void Trace(LogCategory logCategory, const char* format, ...);
-
 }

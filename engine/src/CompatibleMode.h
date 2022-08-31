@@ -12,6 +12,6 @@ namespace Proud
 		// P2P피어의 Platform, value는 int이다
 		FieldType_RuntimePlatform,
 		// 서버의 외부주소 즉 public 주소
-		FieldType_ServerAddrAtClient, 
+		FieldType_ServerAddrAtClient,
 	};
 }

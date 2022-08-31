@@ -33,7 +33,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 ** 注意：著作物に関する上記の明示を除去しないでください。
 
 */
-#pragma once 
+#pragma once
 
 #include "SendFragRefs.h"
 
@@ -44,5 +44,4 @@ namespace Proud
 		for (int i = 0; i < fragments.GetFragmentCount(); i++)
 			msg.m_msgBuffer.AddRange(fragments[i].GetData(), fragments[i].GetLength());
 	}
-
 }

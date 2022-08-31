@@ -383,7 +383,5 @@ namespace Proud
 #else
 #error You must include WCHAR_LENGTH definition!
 #endif
-
 	}
-
 }

@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/BasicTypes.h"
 
@@ -27,7 +27,7 @@ namespace Proud
 	public:
 		CWebSocket(CNetCoreImpl *owner, shared_ptr<WsServer::Connection> connection);
 		CWebSocket(CNetCoreImpl *owner, shared_ptr<WssServer::Connection> connection);
-		
+
 		// 둘 중에 하나만 사용된다.
 		shared_ptr<WsServer::Connection> m_webSocket;
 		shared_ptr<WssServer::Connection> m_webSocketSecured;

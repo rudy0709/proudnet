@@ -39,7 +39,7 @@ namespace Proud
 				return true;
 			}
 			return false;
-		} 
+		}
 		else
 		{
 			Reset(currentTime);

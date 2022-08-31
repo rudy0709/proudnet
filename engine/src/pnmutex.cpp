@@ -23,7 +23,7 @@ namespace Proud
 		int ret1 = pthread_mutexattr_init(&attr);
 		int ret2 = pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
 #if defined(__ANDROID__) || defined(__APPLE__) || defined(__MACH__)
-		int ret3 = 0; // 미지원 API니까 이렇게 처리 
+		int ret3 = 0; // 미지원 API니까 이렇게 처리
 #else
 		int ret3 = pthread_mutexattr_setrobust(&attr, PTHREAD_MUTEX_ROBUST);	// owning thread가 unlock 안하고 종료시, 다른 스레드의 mutex lock 시도시 에러가 감지되게 한다.
 #endif
@@ -90,7 +90,7 @@ namespace Proud
 				// iOS에서 timed lock이 존재하지 않는다.
 				// 일단 임시로 에러 처리
 				//ret = pthread_mutex_timedlock(&m_mutexHandle, timeout);
-                ShowUserMisuseError(_PNT("Sorry... mutex timed lock for iOS is not implemented yet."));
+				ShowUserMisuseError(_PNT("Sorry... mutex timed lock for iOS is not implemented yet."));
 			}
 			switch (ret)
 			{

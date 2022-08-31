@@ -356,14 +356,14 @@ namespace Proud
 								}
 
 								if ((ret = SQLBindParameter(
-									m_hstmt->GetHandle(), 
+									m_hstmt->GetHandle(),
 									(SQLSMALLINT)(loop + 1),
 									param->m_paramType,
-									cType, 
-									sqlType, 
+									cType,
+									sqlType,
 									columnSize,
-									scale, 
-									valPtr, 
+									scale,
+									valPtr,
 									valLen,
 									&param->m_indicators)) != SQL_SUCCESS)
 								{
@@ -383,7 +383,7 @@ namespace Proud
 
 		if ((ret = SQLExecute(m_hstmt->GetHandle())) != SQL_SUCCESS)
 			CheckError(ret, m_hstmt, odbcWarnings);
-		
+
 		if ((ret = SQLRowCount(m_hstmt->GetHandle(), &rowCount)) != SQL_SUCCESS)
 			CheckError(ret, m_hstmt);
 

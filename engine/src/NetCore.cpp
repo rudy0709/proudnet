@@ -223,7 +223,7 @@ namespace Proud
 			{
 				String errorText;
 				errorText.Format(_PNT("Packet compression failed! Error code=%d"), compressResult);
-				EnqueError(ErrorInfo::From(ErrorType_CompressFail, *sendTo, errorText.GetString() ));				
+				EnqueError(ErrorInfo::From(ErrorType_CompressFail, *sendTo, errorText.GetString() ));
 
 				// FillSendFailListOnNeed를 건너뛰자. 압축 안하고 보내긴 할테니까.
 				goto L1;
@@ -378,11 +378,11 @@ L1:
 					if (sendContext.m_reliability == MessageReliability_Reliable)
 					{
 						CryptCount encryptCount = 0; // #DECRYPT_COUNT_DISABLED
-// 						if (!NextEncryptCount(sendDest, encryptCount))
-// 						{
-// 							EnqueError(ErrorInfo::From(ErrorType_EncryptFail, sendDest, _PNT("Failed to Gain NextEncryptCount!!")));
-// 							return false;
-// 						}
+//						if (!NextEncryptCount(sendDest, encryptCount))
+//						{
+//							EnqueError(ErrorInfo::From(ErrorType_EncryptFail, sendDest, _PNT("Failed to Gain NextEncryptCount!!")));
+//							return false;
+//						}
 						encryptedPayload.Write(encryptCount);
 					}
 					Message_AppendFragments(encryptedPayload, *realPayload);
@@ -484,7 +484,7 @@ L1:
 						}
 						else
 						{
-							EnqueWarning(ErrorInfo::From(ErrorType_NoNeedWebSocketEncryption, sendDest, 
+							EnqueWarning(ErrorInfo::From(ErrorType_NoNeedWebSocketEncryption, sendDest,
 								_PNT("No need to encrypt Websocket message. Use wss protocol.")));
 						}
 
@@ -532,7 +532,7 @@ L1:
 		int orgReadOffset = msg.GetReadOffset();
 
 		// modify by ulelio : 이제 decrypt를 할때 mainlock이 필요치 않음.
-		// 복호화를 한다.				  
+		// 복호화를 한다.
 		String errorOut;
 		LogLevel outLogLevel = LogLevel_Ok;
 		shared_ptr<CSessionKey> sessionKey;
@@ -611,35 +611,35 @@ L1:
 				return false;
 			}
 			// #DECRYPT_COUNT_DISABLED
-// 			if(!GetExpectedDecryptCount(receivedInfo.m_remoteHostID, decryptCount2) )
-// 			{
-// // 				CriticalSectionLock clk(GetCriticalSection(),true);
+//			if(!GetExpectedDecryptCount(receivedInfo.m_remoteHostID, decryptCount2) )
+//			{
+// //				CriticalSectionLock clk(GetCriticalSection(),true);
 // //
-// // 				CHECK_CRITICALSECTION_DEADLOCK(this);
+// //				CHECK_CRITICALSECTION_DEADLOCK(this);
 // //
-// // 				String errtxt;
-// // 				errtxt.Format(_PNT("GetExpectedDecryptCount failed!!"));
-// // 				EnqueError(ErrorInfo::From(ErrorType_DecryptFail, receivedInfo.m_remoteHostID, errtxt));
-// 				// 암호화된 메시지를 받았으나 그것을 처리할 remote 가 없는 경우.
-// 				// 비암호화 메시지의 경우도 remote 객체가 이미 사라졌는데 받는 경우가 있을 수 있다. 그때는 무시하고 있다.
-// 				decryptedOutput.SetReadOffset(orgReadOffset);
-// 				return false;
-// 			}
-// 			if (decryptCount1 != decryptCount2)
-// 			{
-// 				CriticalSectionLock clk(GetCriticalSection(),true);
+// //				String errtxt;
+// //				errtxt.Format(_PNT("GetExpectedDecryptCount failed!!"));
+// //				EnqueError(ErrorInfo::From(ErrorType_DecryptFail, receivedInfo.m_remoteHostID, errtxt));
+//				// 암호화된 메시지를 받았으나 그것을 처리할 remote 가 없는 경우.
+//				// 비암호화 메시지의 경우도 remote 객체가 이미 사라졌는데 받는 경우가 있을 수 있다. 그때는 무시하고 있다.
+//				decryptedOutput.SetReadOffset(orgReadOffset);
+//				return false;
+//			}
+//			if (decryptCount1 != decryptCount2)
+//			{
+//				CriticalSectionLock clk(GetCriticalSection(),true);
 //
-// 				CHECK_CRITICALSECTION_DEADLOCK(this);
+//				CHECK_CRITICALSECTION_DEADLOCK(this);
 //
-// 				String errtxt;
-// 				errtxt.Format(_PNT("decryptCount1(%d) != decryptCount2(%d)"), (int)decryptCount1, (int)decryptCount2); // 이 에러가 떴을 경우, 사용자가 패킷 캡처&복제 테스트를 하고 있거나, 해커가 같은 수작을 부리거나.
-// 				EnqueError(ErrorInfo::From(ErrorType_DecryptFail, receivedInfo.m_remoteHostID, errtxt));
-// 				decryptedOutput.SetReadOffset(orgReadOffset);
-// 				return false;
-// 			}
+//				String errtxt;
+//				errtxt.Format(_PNT("decryptCount1(%d) != decryptCount2(%d)"), (int)decryptCount1, (int)decryptCount2); // 이 에러가 떴을 경우, 사용자가 패킷 캡처&복제 테스트를 하고 있거나, 해커가 같은 수작을 부리거나.
+//				EnqueError(ErrorInfo::From(ErrorType_DecryptFail, receivedInfo.m_remoteHostID, errtxt));
+//				decryptedOutput.SetReadOffset(orgReadOffset);
+//				return false;
+//			}
 //
-// 			// 시리얼 값 이동 ( 내부에서 mainlock검 )
-// 			NextDecryptCount(receivedInfo.m_remoteHostID);
+//			// 시리얼 값 이동 ( 내부에서 mainlock검 )
+//			NextDecryptCount(receivedInfo.m_remoteHostID);
 
 		}
 
@@ -739,10 +739,10 @@ L1:
 
 		int compressedPayloadLength = 0;
 		SendOpt sendOpt = SendOpt::CreateFromRmiContextAndClearRmiContextSendFailedRemotes(rmiContext); // callee에서 변경을 일으킬 수 있으므로 이렇게 복사를 하는게 안전.
-		bool ret = Send(fragRefs, 
-			sendOpt, 
-			remotes, 
-			remoteCount, 
+		bool ret = Send(fragRefs,
+			sendOpt,
+			remotes,
+			remoteCount,
 			compressedPayloadLength);
 
 		// 사용자 정의 메시지를 호출했다는 이벤트를 콜백한다.
@@ -850,9 +850,9 @@ L1:
 				//			IssueFirstRecv();
 				//			break;
 				//#endif
-				// 		case CustomValueEvent_End:
-				// 			EndCompletion();
-				// 			break;
+				//		case CustomValueEvent_End:
+				//			EndCompletion();
+				//			break;
 			default:
 				//assert(0);
 				break;
@@ -912,8 +912,8 @@ L1:
 		if (CASChecker.GetReturnValue() == 0)
 		{
 			// TODO: 주석 기재하기.
- 			if (m_lastIssueSendOnNeedTimeMs == currTime)
- 				return false;
+			if (m_lastIssueSendOnNeedTimeMs == currTime)
+				return false;
 
 			m_lastIssueSendOnNeedTimeMs = currTime;
 
@@ -975,7 +975,7 @@ L1:
 		{
 #ifdef _WIN32
 			m_netThreadPool->m_completionPort->PostCompletionStatus();
-#else 
+#else
 			// #UNIX_POST_EVENT
 			_pn_unused(issueSendNow); // clang warning fix
 			throw Exception("Unsupported yet!"); // 이게 되려면 eventfd or socketpair로 작동하게 해야 한다. PS4에서는 socketpair가 없어서 다른 방법을 써야 한다. 나중에 구현하도록 하자.
@@ -1053,22 +1053,22 @@ L1:
 			else
 			{
 //  #ifdef _WIN32
-//  				// 방어 코딩 취지로, 행여나 뒤늦게 overlapped i/o를 건 것이 있으면 모두 취소시켜서 non issued가 될 수 있게 유도한다.
-//  				if (iSocket->m_fastSocket)
-//  				{
-//  					iSocket->m_fastSocket->CancelEveryIo();
-// //   					if (err == 1168 && currTime - iSocket->StopIoRequested_GetTime() > 6000)
-// //   					{
-// //   						// issue 상태가 아닐 때 나오는 에러이다.
-// //   						// 이때 flag가 'issue중'이라는 상태이면, 강제로 'not issue중'이라고 변경해버리자.
-// //   						// Q: stale 문제가 있지 않을까요?
-// //   						// A: cancel io를 했는데도 completion이 3초 이상 안오는 막장 상황에서는 stale 걱정이 없습니다.
-// //   						AtomicCompareAndSwap32(IoState_Working, IoState_NoMoreWorkGuaranteed, &iSocket->m_recvIssued);
-// //   						AtomicCompareAndSwap32(IoState_Working, IoState_NoMoreWorkGuaranteed, &iSocket->m_sendIssued);
+//				// 방어 코딩 취지로, 행여나 뒤늦게 overlapped i/o를 건 것이 있으면 모두 취소시켜서 non issued가 될 수 있게 유도한다.
+//				if (iSocket->m_fastSocket)
+//				{
+//					iSocket->m_fastSocket->CancelEveryIo();
+// //					if (err == 1168 && currTime - iSocket->StopIoRequested_GetTime() > 6000)
+// //					{
+// //						// issue 상태가 아닐 때 나오는 에러이다.
+// //						// 이때 flag가 'issue중'이라는 상태이면, 강제로 'not issue중'이라고 변경해버리자.
+// //						// Q: stale 문제가 있지 않을까요?
+// //						// A: cancel io를 했는데도 completion이 3초 이상 안오는 막장 상황에서는 stale 걱정이 없습니다.
+// //						AtomicCompareAndSwap32(IoState_Working, IoState_NoMoreWorkGuaranteed, &iSocket->m_recvIssued);
+// //						AtomicCompareAndSwap32(IoState_Working, IoState_NoMoreWorkGuaranteed, &iSocket->m_sendIssued);
 // //
 // //
-// //   					}
-//  				}
+// //					}
+//				}
 //  #endif
 				i++;
 			}
@@ -1167,11 +1167,11 @@ L1:
 		}
 	}
 
-	void CNetCoreImpl::SetTag(void* value) 
+	void CNetCoreImpl::SetTag(void* value)
 	{
 		m_tag = value;
 	}
-	void* CNetCoreImpl::GetTag() 
+	void* CNetCoreImpl::GetTag()
 	{
 		return m_tag;
 	}
@@ -1331,8 +1331,8 @@ L1:
 	{
 		AssertIsNotLockedByCurrentThread();
 
-		// 		if (m_owner->IsValidHostID(UWI.Internal().m_unsafeMessage.m_remoteHostID) == false) IsValidHostID_NOLOCK caller 참고
-		// 			return;
+		//		if (m_owner->IsValidHostID(UWI.Internal().m_unsafeMessage.m_remoteHostID) == false) IsValidHostID_NOLOCK caller 참고
+		//			return;
 		UWI.Internal().m_unsafeMessage.m_unsafeMessage.SetSimplePacketMode(IsSimplePacketMode());
 
 		CMessage& msgContent = UWI.Internal().m_unsafeMessage.m_unsafeMessage;
@@ -1341,7 +1341,7 @@ L1:
 		if (!(oldReadPointer == 0))
 			EnqueueHackSuspectEvent(subject, __FUNCTION__, HackType_PacketRig);
 
-		
+
 		//CReaderLock_NORECURSE clk(m_owner->m_callbackMon, true);
 
 		RmiID rmiID = RmiID_None;
@@ -1566,32 +1566,32 @@ L1:
 		if (!(oldReadPointer == 0))
 			EnqueueHackSuspectEvent(shared_ptr<CHostBase>(), __FUNCTION__, HackType_PacketRig);
 //
-// 		if (m_hlaSessionHostImpl != nullptr)
-// 			m_hlaSessionHostImpl->ProcessMessage(UWI.Internal().m_unsafeMessage);
+//		if (m_hlaSessionHostImpl != nullptr)
+//			m_hlaSessionHostImpl->ProcessMessage(UWI.Internal().m_unsafeMessage);
 	}
 
 
 //#ifdef _WIN32
-// 	void CNetCoreImpl::IssueFirstRecv()
-// 	{
-// 		CriticalSectionLock lock(GetCriticalSection(), true);
+//	void CNetCoreImpl::IssueFirstRecv()
+//	{
+//		CriticalSectionLock lock(GetCriticalSection(), true);
 //
-// 		for (CSuperSocketArray::iterator i = m_issueFirstRecvNeededSockets.begin(); i != m_issueFirstRecvNeededSockets.end(); i++)
-// 		{
-// 			CSuperSocket* s = *i;
-// 			s->IssueRecv();
-// 		}
+//		for (CSuperSocketArray::iterator i = m_issueFirstRecvNeededSockets.begin(); i != m_issueFirstRecvNeededSockets.end(); i++)
+//		{
+//			CSuperSocket* s = *i;
+//			s->IssueRecv();
+//		}
 //
-// 		// 다 처리했으므로 청소!
-// 		m_issueFirstRecvNeededSockets.Clear();
-// 	}
+//		// 다 처리했으므로 청소!
+//		m_issueFirstRecvNeededSockets.Clear();
+//	}
 
-// 	void CNetCoreImpl::IssueFirstRecvNeededSocket_Set(shared_ptr<CSuperSocket> s)
-// 	{
-// 		CriticalSectionLock lock(GetCriticalSection(), true);
+//	void CNetCoreImpl::IssueFirstRecvNeededSocket_Set(shared_ptr<CSuperSocket> s)
+//	{
+//		CriticalSectionLock lock(GetCriticalSection(), true);
 //
-// 		m_issueFirstRecvNeededSockets.Add(s);
-// 	}
+//		m_issueFirstRecvNeededSockets.Add(s);
+//	}
 //#endif
 
 	void CNetCoreImpl::EnqueueHackSuspectEvent(const shared_ptr<CHostBase>& rc, const char* statement, HackType hackType)
@@ -1683,17 +1683,17 @@ L1:
 		cout << "GS count=" << m_garbagedHosts.GetCount() << endl;
 		cout << "R count=" << m_recycles.GetCount() << endl;
 
- 		int maxLoop = 0; // 출력에 너무 오래 걸려서 100개까지만 찍는다.
- 		for (GarbagedSockets::iterator i = m_garbagedSockets.begin(); i != m_garbagedSockets.end(); i++)
- 		{
- 			maxLoop++;
- 			i->GetSecond()->CanDeleteNow_DumpStatus();
+		int maxLoop = 0; // 출력에 너무 오래 걸려서 100개까지만 찍는다.
+		for (GarbagedSockets::iterator i = m_garbagedSockets.begin(); i != m_garbagedSockets.end(); i++)
+		{
+			maxLoop++;
+			i->GetSecond()->CanDeleteNow_DumpStatus();
 			if (maxLoop > 100)
 			{
 				cout << "There are more to print, but we stop for saving your time.";
 				break;
 			}
- 		}
+		}
 
 	}
 
@@ -1709,7 +1709,7 @@ L1:
 		AssertIsLockedByCurrentThread();
 
 		// 만약 netcore가 셧다운 중인 경우에는 이벤트를 안 쌓는다.
-		if (m_netThreadPool != nullptr)  
+		if (m_netThreadPool != nullptr)
 		{
 			CFinalUserWorkItem ri(e);
 			TryGetReferrerHeart(ri.Internal().m_netCoreReferrerHeart);
@@ -1768,7 +1768,7 @@ L1:
 
 		/* Q: socket task, user task의 fairness를 위해서, 하나만 처리해야 하지 않나요?
 		   A: PQCS or eventfd.write는 syscall을 유발합니다.
-		      단순 핑퐁 서버의 경우 처리 댓가가 큽니다.
+			  단순 핑퐁 서버의 경우 처리 댓가가 큽니다.
 			  그러한 경우에서도 속도가 나오려면 do until no more를 할 수밖에 없습니다.
 		*/
 		while (true)
@@ -1889,7 +1889,7 @@ L1:
 	// socket이 존재하면 result를 업데이트한다. 존재 안하면 업데이트 안한다.
 	// 업데이트는, last received time out이냐에 따라서.
 	void CNetCoreImpl::UpdateSocketLastReceivedTimeOutState(
-		const shared_ptr<CSuperSocket>& socket, 
+		const shared_ptr<CSuperSocket>& socket,
 		int64_t currTime,
 		int timeOut,
 		SocketResult* result)
@@ -1944,5 +1944,4 @@ L1:
 		if (sendOpt.m_reliability == MessageReliability_Reliable)
 			sendOpt.m_uniqueID.m_value = 0;
 	}
-
 }

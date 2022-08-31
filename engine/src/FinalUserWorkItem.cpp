@@ -14,7 +14,7 @@
 #include "MessagePrivateImpl.h"
 
 
-namespace Proud 
+namespace Proud
 {
 	// 메시지의 맨 껍데기 헤더를 분석해서 RMI, 사용자 정의 메시지, 아니면 뭔지 체크한다.
 	FinalUserWorkItemType GetWorkTypeFromMessageHeader( CMessage& msg )
@@ -22,8 +22,8 @@ namespace Proud
 		CMessage reader;
 		reader.UseExternalBuffer(msg.GetData(),msg.GetLength());
 		reader.SetLength(msg.GetLength());
-		
-		MessageType msgType; 
+
+		MessageType msgType;
 		if(Message_Read(reader, msgType))
 		{
 			switch((int)msgType)
@@ -31,37 +31,37 @@ namespace Proud
 			case MessageType_Rmi:
 				return UWI_RMI;
 			case MessageType_UserMessage:
-				return UWI_UserMessage;			
+				return UWI_UserMessage;
 			case MessageType_Hla:
-				return UWI_Hla;			
+				return UWI_Hla;
 			}
 		}
 		// 못찾겠다꾀꼬리
 		return UWI_LAST;
 	}
-// 
-// 	// Loopback일 경우에 사용합니다.
-// 	CFinalUserWorkItem::CFinalUserWorkItem(CReceivedMessage& msg, FinalUserWorkItemType type, bool stripMessageTypeHeader /*= false*/) 
-// 	{
-// 		CFinalUserWorkItem_Internal& substance = Internal();
-// 		substance.m_unsafeMessage = msg;
-// 
-// 		// loop back 메시지의 경우 메시지 헤더를 제거해 주어야 한다. (_MessageType enum 제거.)
-// 		if (stripMessageTypeHeader 
-// 			&& substance.m_unsafeMessage.m_unsafeMessage.m_msgBuffer.GetCount() >= MessageTypeFieldLength)
-// 		{
-// 			substance.m_unsafeMessage.m_unsafeMessage.m_msgBuffer.RemoveRange(0, MessageTypeFieldLength);
-// 		}
-// 		substance.m_type = type;
-// 	}
-// 
- 	// 인자로 LocalEvent를 받은 생성자.
- 	CFinalUserWorkItem::CFinalUserWorkItem(LocalEvent& e) 
- 	{
- 		CFinalUserWorkItem_Internal& substance = Internal();
- 		substance.m_type = UWI_LocalEvent;
- 		substance.m_event = shared_ptr<LocalEvent>(new LocalEvent(e));
- 	}
+//
+//	// Loopback일 경우에 사용합니다.
+//	CFinalUserWorkItem::CFinalUserWorkItem(CReceivedMessage& msg, FinalUserWorkItemType type, bool stripMessageTypeHeader /*= false*/)
+//	{
+//		CFinalUserWorkItem_Internal& substance = Internal();
+//		substance.m_unsafeMessage = msg;
+//
+//		// loop back 메시지의 경우 메시지 헤더를 제거해 주어야 한다. (_MessageType enum 제거.)
+//		if (stripMessageTypeHeader
+//			&& substance.m_unsafeMessage.m_unsafeMessage.m_msgBuffer.GetCount() >= MessageTypeFieldLength)
+//		{
+//			substance.m_unsafeMessage.m_unsafeMessage.m_msgBuffer.RemoveRange(0, MessageTypeFieldLength);
+//		}
+//		substance.m_type = type;
+//	}
+//
+	// 인자로 LocalEvent를 받은 생성자.
+	CFinalUserWorkItem::CFinalUserWorkItem(LocalEvent& e)
+	{
+		CFinalUserWorkItem_Internal& substance = Internal();
+		substance.m_type = UWI_LocalEvent;
+		substance.m_event = shared_ptr<LocalEvent>(new LocalEvent(e));
+	}
 
 	BiasManagedPointer_IMPLEMENT_TOMBSTONE(CFinalUserWorkItem_Internal, true);
 
@@ -76,7 +76,5 @@ namespace Proud
 		{
 			m_unsafeMessage.m_unsafeMessage.m_msgBuffer.RemoveRange(0, MessageTypeFieldLength);
 		}
-
 	}
-
 }

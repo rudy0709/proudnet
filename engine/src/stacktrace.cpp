@@ -2,7 +2,7 @@
 #include "../include/stacktrace.h"
 #ifdef _WIN32
 #include "stacktrace-win32.h"
-#else 
+#else
 #include "stacktrace-unix.h"
 #endif
 
@@ -18,4 +18,3 @@ namespace Proud
 #endif
 	}
 }
-

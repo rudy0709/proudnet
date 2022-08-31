@@ -2,7 +2,7 @@
 #include "UseZlib.h"
 #include "../include/ProcHeap.h"
 
-namespace Proud 
+namespace Proud
 {
 	voidpf Zlib_calloc(voidpf /*opaque*/, unsigned items, unsigned size)
 	{
@@ -85,5 +85,4 @@ namespace Proud
 		err = inflateEnd(&stream);
 		return err;
 	}
-
 }

@@ -15,8 +15,6 @@
 
 namespace Proud
 {
-
-
 	CRefCountHeap::CRefCountHeap()
 	{
 		m_heap=CLookasideAllocator::New();

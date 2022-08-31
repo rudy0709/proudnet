@@ -90,7 +90,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		 static unsigned short Crc16(const uint8_t* data, unsigned int length);
+		static unsigned short Crc16(const uint8_t* data, unsigned int length);
 
 		/**
 		\~korean
@@ -110,7 +110,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		 static unsigned short CrcCcitt(const uint8_t* data, unsigned int length);
+		static unsigned short CrcCcitt(const uint8_t* data, unsigned int length);
 
 		/**
 		\~korean
@@ -130,7 +130,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		 static unsigned int  Crc32(const uint8_t* data, unsigned int length);
+		static unsigned int  Crc32(const uint8_t* data, unsigned int length);
 
 	private:
 		static const unsigned short Crc16Table[256];
@@ -146,6 +146,5 @@ namespace Proud
 //#pragma managed(pop)
 #endif
 }
-
 
 //#pragma pack(pop)

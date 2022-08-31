@@ -109,7 +109,7 @@ namespace Proud
 
 	//class ReceivedMessage_C
 	//{
-	//    AddrPort m_from = AddrPort::Unassigned;
+	//	AddrPort m_from = AddrPort::Unassigned;
 	//}
 
 	enum RefreshServerAddrInfoState
@@ -130,7 +130,7 @@ namespace Proud
 		CNetClientImpl* m_netClient;
 	};
 
-	class CNetClientImpl : 
+	class CNetClientImpl :
 		public CNetCoreImpl,
 		public CNetClient,
 		public IVizAgentDg
@@ -153,7 +153,7 @@ namespace Proud
 	private:
 		// Heartbeat_IssueConnect는 한 번만 실행되지만 Heartbeat_Disconnecting는 여러번 호출 될 수도 있다. 한 번만 instanceCount를 더하고 빼기 위해
 		bool	m_addedToClientInstanceCount;
-		
+
 	public:
 		shared_ptr<CSessionKey> m_selfP2PSessionKey;
 	private:
@@ -326,7 +326,7 @@ namespace Proud
 		//사용하지 않는 기능이므로 제거.
 		//double m_minExtraPing, m_extraPingVariance;
 
-	
+
 
 
 		//CHeldPtr<CFastSocket> m_socket;
@@ -423,8 +423,8 @@ namespace Proud
 			DECRMI_ProudC2C_ReportUdpMessageCount;
 			DECRMI_ProudC2C_RoundTripLatencyPong;
 			DECRMI_ProudC2C_RoundTripLatencyPing;
-			// 			DECRMI_ProudC2C_ReportServerTimeAndFrameRateAndPing;
-			// 			DECRMI_ProudC2C_ReportServerTimeAndFrameRateAndPong;
+			//			DECRMI_ProudC2C_ReportServerTimeAndFrameRateAndPing;
+			//			DECRMI_ProudC2C_ReportServerTimeAndFrameRateAndPong;
 		};
 		C2CProxy m_c2cProxy;
 		C2CStub m_c2cStub;
@@ -656,41 +656,41 @@ namespace Proud
 			//
 			//{
 			//CriticalSectionLock clk(m_critSecPtr, true);
-			//    // NTTNTRACE를 안쓰고 1회의 OutputDebugString으로 때려버린다.
-			//    // 이러면 여러 프로세스의 trace line이 겹쳐서 나오는 문제가 해결될라나?
+			//	// NTTNTRACE를 안쓰고 1회의 OutputDebugString으로 때려버린다.
+			//	// 이러면 여러 프로세스의 trace line이 겹쳐서 나오는 문제가 해결될라나?
 
-			//    String a;
-			//    ret += "=======================\n";
-			//    //ret+="======================="; a.Format(" -- Time=%s\n",CT2A(CTime::GetCurrentTime().Format())); ret+=a;
+			//	String a;
+			//	ret += "=======================\n";
+			//	//ret+="======================="; a.Format(" -- Time=%s\n",CT2A(CTime::GetCurrentTime().Format())); ret+=a;
 
-			//    foreach (CRemotePeerPtr_C p in m_remotePeers.Values)
-			//    {
-			//        a.Format("*    peer=%d(%s)\n", p->m_HostID, ToString(p->m_externalID));
-			//        ret += a;
+			//	foreach (CRemotePeerPtr_C p in m_remotePeers.Values)
+			//	{
+			//		a.Format("*    peer=%d(%s)\n", p->m_HostID, ToString(p->m_externalID));
+			//		ret += a;
 
-			//        a.Format("*        indirect server time diff=%f\n", p->m_indirectServerTimeDiff);
-			//        ret += a;
+			//		a.Format("*        indirect server time diff=%f\n", p->m_indirectServerTimeDiff);
+			//		ret += a;
 
-			//        for (CHostIDSet::iterator j = p->m_joinedP2PGroups.begin(); j != p->m_joinedP2PGroups.end(); j++)
-			//        {
-			//            a.Format("*        joined P2P group=%d\n", *j);
-			//            ret += a;
-			//        }
-			//    }
+			//		for (CHostIDSet::iterator j = p->m_joinedP2PGroups.begin(); j != p->m_joinedP2PGroups.end(); j++)
+			//		{
+			//			a.Format("*        joined P2P group=%d\n", *j);
+			//			ret += a;
+			//		}
+			//	}
 
-			//    for (CP2PGroups::iterator i = m_P2PGroups.begin(); i != m_P2PGroups.end(); i++)
-			//    {
-			//        CP2PGroupPtr GP = i->second;
-			//        a.Format("*    P2PGroup=%d\n", GP->m_groupHostID);
-			//        ret += a;
-			//        for (CHostIDSet::iterator j = GP->m_members.begin(); j != GP->m_members.end(); j++)
-			//        {
-			//            a.Format("*        member=%d\n", *j);
-			//            ret += a;
-			//        }
-			//    }
-			//    a.Format("=======================\n");
-			//    ret += a;
+			//	for (CP2PGroups::iterator i = m_P2PGroups.begin(); i != m_P2PGroups.end(); i++)
+			//	{
+			//		CP2PGroupPtr GP = i->second;
+			//		a.Format("*    P2PGroup=%d\n", GP->m_groupHostID);
+			//		ret += a;
+			//		for (CHostIDSet::iterator j = GP->m_members.begin(); j != GP->m_members.end(); j++)
+			//		{
+			//			a.Format("*        member=%d\n", *j);
+			//			ret += a;
+			//		}
+			//	}
+			//	a.Format("=======================\n");
+			//	ret += a;
 			//}
 			return ret;
 		}
@@ -752,7 +752,7 @@ namespace Proud
 		bool RunAsyncInternal(HostID taskOwner, LambdaBase_Param0<void>* func) PN_OVERRIDE
 		{ return CNetCoreImpl::RunAsyncInternal(taskOwner, func); }
 
-		virtual HasCoreEventFunctionObjects& Get_HasCoreEventFunctionObjects() PN_OVERRIDE 
+		virtual HasCoreEventFunctionObjects& Get_HasCoreEventFunctionObjects() PN_OVERRIDE
 		{ return *this;  }
 
 		void HlaFrameMove() PN_OVERRIDE;
@@ -821,10 +821,10 @@ namespace Proud
 		String GetTrafficStatText();
 		virtual String TEST_GetDebugText() PN_OVERRIDE;
 
-		// 		// worker thread에서 더 이상 사용하지 않음을 보장하는 변수
+		//		// worker thread에서 더 이상 사용하지 않음을 보장하는 변수
 
-		// 		volatile bool m_tcpSendStopAcked,m_tcpRecvStopAcked;
-		// 		volatile bool m_udpSendStopAcked,m_udpRecvStopAcked;
+		//		volatile bool m_tcpSendStopAcked,m_tcpRecvStopAcked;
+		//		volatile bool m_udpSendStopAcked,m_udpRecvStopAcked;
 		//volatile bool m_heartbeatStopAcked;
 
 		virtual void GetUserWorkerThreadInfo(CFastArray<CThreadInfo> &output) PN_OVERRIDE;
@@ -870,7 +870,7 @@ namespace Proud
 
 		virtual void HolsterMoreCallbackUntilNextFrameMove() PN_OVERRIDE
 		{
-			/* 이 함수가 정상 작동하려면 사용자는 FrameMove에서만 유저 콜백이 실행되게 해야 한다. 
+			/* 이 함수가 정상 작동하려면 사용자는 FrameMove에서만 유저 콜백이 실행되게 해야 한다.
 			즉 user thread pool is single threaded이어야 한다. */
 			if(m_userThreadPool->m_workerThreads.IsEmpty())
 				m_HolsterMoreCallbackUntilNextProcessCall_flagged = true;
@@ -1078,5 +1078,4 @@ private:
 		ZeroThreadPoolUsageMarker(CNetClientImpl* nc);
 		~ZeroThreadPoolUsageMarker();
 	};
-
 }

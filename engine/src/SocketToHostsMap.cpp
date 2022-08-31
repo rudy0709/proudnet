@@ -83,6 +83,4 @@ namespace Proud
 	{
 		// TODO: 2개 이상의 host를 가리키는 것이 없는지 체크하자.
 	}
-
-
 }

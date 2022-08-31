@@ -83,9 +83,9 @@ typedef unsigned short ucs2char;
  * IwUTF8.h
  */
 int IwWideCharToUTF8(   const ucs2char * wideString,
-                        int wideStringLength,
-                        char * utf8Buffer,
-                        unsigned int utf8BufferSize );
+						int wideStringLength,
+						char * utf8Buffer,
+						unsigned int utf8BufferSize );
 
 /**
  * Converts a UTF-8 encoded string into a Windows-style
@@ -123,9 +123,9 @@ int IwWideCharToUTF8(   const ucs2char * wideString,
  * IwUTF8.h
  */
 int IwUTF8ToWideChar(   const char * utf8String,
-                        int utf8StringSize,
-                        ucs2char * wideBuffer,
-                        unsigned int wideBufferSize );
+						int utf8StringSize,
+						ucs2char * wideBuffer,
+						unsigned int wideBufferSize );
 
 
 #endif /* !IW_UTF8_H */

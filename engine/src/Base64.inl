@@ -28,7 +28,7 @@ namespace Proud
 		// TODO: 이렇게 하지 말고, 명시적으로 에러코드를 콜러에게 주어서, 나머지를 책임감있게 처리하게 하자.
 		if (c != CRYPT_OK)
 			outText = StringA();
-	}	
+	}
 
 	// 위 함수의 반대. base64로 표현된 문자열을 binary로 바꾼다.
 	// ByteArrayT에는 ByteArray or ByteArrayPtr 등을 쓰자.
@@ -46,5 +46,4 @@ namespace Proud
 		else
 			outBinary.SetCount(0);
 	}
-
 }

@@ -3,9 +3,8 @@
 #include "HlaCritSec.h"
 #include "../include/Exception.h"
 
-namespace Proud 
+namespace Proud
 {
-
 	CHlaCritSecLock::CHlaCritSecLock( IHlaDelegate_Common* lockee, bool initLock /*= false*/ )
 	{
 		m_lockee = lockee;
@@ -40,5 +39,4 @@ namespace Proud
 			m_lockee->HlaOnUnlockCriticalSection();
 		}
 	}
-
 }

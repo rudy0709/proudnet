@@ -116,8 +116,6 @@ namespace Proud
 
 		m_candidateHosts.Add(rc.get(), rc);
 	}
-
 }
 
 #endif
-

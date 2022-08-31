@@ -16,13 +16,10 @@
 
 namespace Proud
 {
-	
-
 	void AppendTextOut(String& output, const CSendFragRefs& v)
 	{
 		String t;
 		t.Format(_PNT("Data(%d bytes)\n"), v.GetTotalLength());
 		output += t;
 	}
-
 }

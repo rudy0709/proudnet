@@ -11,8 +11,8 @@ namespace Proud
 {
 	CAutoConnectionRecoveryContext::CAutoConnectionRecoveryContext(CNetClientImpl* owner)
 	{
-		m_owner = owner;		
-		
+		m_owner = owner;
+
 		m_waitingForNetworkAddressAvailable = true;
 
 		int64_t x = GetPreciseCurrentTimeMs() + m_owner->m_autoConnectionRecoveryDelayMs;
@@ -258,7 +258,7 @@ namespace Proud
 
 		// Credential만 +1.
 		ByteArray_IncreaseEveryByte(m_credentialBlock);
-		
+
 		ByteArray encryptedCredential;
 
 		// 기존 공개키로 암호화해서 보내자.
@@ -327,7 +327,7 @@ namespace Proud
 			// tempRemoteServer 를 가져오지 못했다.
 			// 심각한 문제 일단 assert!
 			assert(0);
-			
+
 			// 연결 복원이 성공했는데 정작 클라쪽에서 상태가 깨졌다.
 			// 따라서 그냥 연결 실패 처리를 해야.
 			EnqueueDisconnectionEvent(ErrorType_AutoConnectionRecoveryFailed);
@@ -660,7 +660,7 @@ namespace Proud
 			m_RefreshServerAddrInfoState = RefreshServerAddrInfoState_NotWorking;
 		}
 		else
-		{	
+		{
 			CFakeWin32::OutputDebugStringA("ITCOPAF_ failed.");
 
 			// 그 외의 상황 (가령 RefreshServerAddrInfo가 실패했다든지)

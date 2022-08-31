@@ -28,7 +28,7 @@ namespace Proud
 		// 서버에 ExclusiveLoad Field-Value를 요청
 		m_c2sProxy.RequestExclusiveLoadDataByFieldNameAndValue(HostID_Server, g_ReliableSendForPN, rootTableName, fieldName, cmpValue, (int64_t)tag, message);
 	}
-	
+
 	// #RequestExclusiveLoadDataByGuid 1 클라는 RequestExclusiveLoadDataByGuid 함수를 호출
 	void CDbCacheClient2Impl::RequestExclusiveLoadDataByGuid(String rootTableName, Guid rootUUID, intptr_t tag, const ByteArray& message)
 	{
@@ -97,7 +97,7 @@ namespace Proud
 			if ( isExclusive )
 				lock.Lock();
 
-			// 성공 목록 
+			// 성공 목록
 			for ( i = 0; i < successCount; ++i )
 			{
 				// 데이터 추출
@@ -240,7 +240,7 @@ namespace Proud
 			m_loadedDataList.Remove(object->RootUUID);
 			m_loadedDataListBySession.Remove(sessionGuid);
 
-			// 이제 이 sessionGuid는 볼일이 없으므로 
+			// 이제 이 sessionGuid는 볼일이 없으므로
 			// 언로드 요청 목록에서 모두 제거해준다.
 			m_unloadRequests.Remove(sessionGuid);
 		}
@@ -305,5 +305,4 @@ namespace Proud
 	{
 		m_c2sProxy.RequestForceCompleteUnload(HostID_Server, g_ReliableSendForPN, rootUUID);
 	}
-
 }

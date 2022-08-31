@@ -227,7 +227,7 @@ namespace Proud
 
 	void CNetServerImpl::ElectSuperPeer()
 	{
-		//	try	
+		//	try
 		{
 			CriticalSectionLock lock(GetCriticalSection(), true);
 			CHECK_CRITICALSECTION_DEADLOCK(this);
@@ -238,14 +238,14 @@ namespace Proud
 				P2PGroup_RefreshMostSuperPeerSuitableClientID(group);
 			}
 		}
-		// 		catch (...)사용자 정의 루틴을 콜 하는 곳이 없으므로 주석화
-		// 		{
-		// 			if(m_logWriter)
-		// 			{				
-		// 				m_logWriter->WriteLine(TID_System, _PNT("FATAL ** Unhandled Exception at PurgeTooOldUnmatureClient!"));
-		// 			}
-		// 			throw;
-		// 		}
+		//		catch (...)사용자 정의 루틴을 콜 하는 곳이 없으므로 주석화
+		//		{
+		//			if(m_logWriter)
+		//			{
+		//				m_logWriter->WriteLine(TID_System, _PNT("FATAL ** Unhandled Exception at PurgeTooOldUnmatureClient!"));
+		//			}
+		//			throw;
+		//		}
 	}
 
 	int CNetServerImpl::GetSuitableSuperPeerRankListInGroup(HostID groupID, SuperPeerRating* ratings, int ratingsBufferCount, const CSuperPeerSelectionPolicy& policy, const CFastArray<HostID> &excludees)
@@ -292,7 +292,7 @@ namespace Proud
 			}
 			catch (std::bad_cast& e)
 			{
-				// 절대 이러한 상황으로 올 일이 없어야 한다. 
+				// 절대 이러한 상황으로 올 일이 없어야 한다.
 				CFakeWin32::OutputDebugStringT(StringA2T(e.what()).GetString());
 				CauseAccessViolation();
 			}
@@ -362,5 +362,4 @@ namespace Proud
 		else
 			return rc->m_SuperPeerRating;
 	}
-
 }

@@ -11,7 +11,7 @@
 	#include <unistd.h>
 #endif
 
-namespace Proud 
+namespace Proud
 {
 	void Sleep(int sleepTimeMs)
 	{
@@ -21,5 +21,4 @@ namespace Proud
 		::usleep(sleepTimeMs * 1000);
 #endif
 	}
-
 }

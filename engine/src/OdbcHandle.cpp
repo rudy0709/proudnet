@@ -46,5 +46,4 @@ namespace Proud
 	{
 		return m_handleType;
 	}
-
 }

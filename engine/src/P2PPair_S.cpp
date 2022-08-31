@@ -165,7 +165,7 @@ namespace Proud
 					pair_f->m_p2pConnectionPairs.Remove(pair.get());
 					pair_s->m_p2pConnectionPairs.Remove(pair.get());
 
-					// 홀펀칭 정보나 세션키를 재사용하기 위해, 
+					// 홀펀칭 정보나 세션키를 재사용하기 위해,
 					// 완전히 없애지 않고 일단 recyclable pair로 일정 시간 보관하도록 한다.
 					// 서로간 홀펀칭을 아직 안했더라도, 클라간의 P2P 세션키를 또 재발급하지 말고 재사용하기 위해, 굳이 보관을 한다.
 					// (홀펀칭 재사용을 아직 해야 하는 상황이므로 이건 안함 => pair->SetRelayed(true); )
@@ -223,7 +223,7 @@ namespace Proud
 			P2PConnectionStatePtr val = i->GetSecond();
 			assert(val->m_releaseTimeMs > 0);
 
-			if (val->m_releaseTimeMs 
+			if (val->m_releaseTimeMs
 				&& absTime - val->m_releaseTimeMs > CNetConfig::RecyclePairReuseTimeMs)
 			{
 				// 아마도 이미 다 해제된 후로 들어가니까 안해도 될거다.
@@ -255,9 +255,9 @@ namespace Proud
 
 		int64_t currTime = GetPreciseCurrentTimeMs();
 		// 꺼내왔지만 너무 오래됐으면 역시 버린다.
-		// Q: 이게 필요해요? 
+		// Q: 이게 필요해요?
 		// A: 몇 초마다 오래된 것을 지우지만 재수없게도 그 몇 초가 오차로 발생할 수 있으므로.
-		if (ret->m_releaseTimeMs 
+		if (ret->m_releaseTimeMs
 			&& currTime - ret->m_releaseTimeMs > CNetConfig::RecyclePairReuseTimeMs)
 		{
 			return P2PConnectionStatePtr();
@@ -289,6 +289,4 @@ namespace Proud
 		out2 = i;
 		return true;
 	}
-
-
 }

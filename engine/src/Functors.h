@@ -9,16 +9,16 @@
 
 #include "SuperSocket.h"
 
-namespace Proud 
+namespace Proud
 {
 	using namespace std;
-	
+
 	/* 다음을 low context swith loop안에서 수행한다.
 	(try)lock -> issue send -> unlock -> dec use count */
 	template<typename MAIN>
 	struct IssueSendFunctor
 	{
-		// lambda expression이 지원되면 람다 캡처로 간단히 해결될 것들이, 
+		// lambda expression이 지원되면 람다 캡처로 간단히 해결될 것들이,
 		// 이렇게 멤버 변수 선언과 생성자 함수 만들기 노가다를 떠야 한다... 끙.
 		MAIN* m_main;
 
@@ -37,7 +37,7 @@ namespace Proud
 		inline bool DoElementAndUnlock(const shared_ptr<CSuperSocket>& object, CriticalSectionLock& solock)
 		{
 			assert(solock.IsLocked());
-			
+
 			bool finished = true;
 #if defined (_WIN32)
 			// try-lock이 성공되면 여기에 온다. 따라서 두번째 인자가 true이어야.
@@ -55,5 +55,4 @@ namespace Proud
 			return finished;
 		}
 	};
-
 }

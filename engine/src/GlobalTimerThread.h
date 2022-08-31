@@ -9,7 +9,7 @@
 #include "FreeList.h"
 #include "SpinLock.h"
 
-#ifndef PN_USE_CHRONO  
+#ifndef PN_USE_CHRONO
 #error PN_USE_CHRONO is not defined!
 #endif
 
@@ -59,7 +59,7 @@ namespace Proud
 	배경
 	- timeGetTime,timeSetEvent는 win32전용이라 멀티플랫폼에서 곤란.
 	- timeGetTime,timeSetEvent는 내부적으로 per-process thread를 하나 암묵적으로 만들어 거기서 실행된다. 이를 따라 만들면 된다.
-	- timeGetTime의 정밀도는 5ms인데, 1ms heartbeat에서 시간을 얻기에는 정밀도 불충분. 
+	- timeGetTime의 정밀도는 5ms인데, 1ms heartbeat에서 시간을 얻기에는 정밀도 불충분.
 	  정밀도를 높이기 위해 timeBeginPeriod를 쓰더라도 결국 이 클래스처럼 스레드 하나 만들어 콜백되는 구조로 귀결됨.
 	- QPC/QPF가 정밀도, 호출 시간은 최고지만, CPU0에서만 호출해야 함(BIOS 버그때문)
 	- 1ms 정밀도의 timeSetEvent가 heartbeat 등에서 사용되지만, 안타깝게도 비 win32에서는 그러한 것이 없기 때문에 자체 개발해야 함
@@ -78,7 +78,7 @@ namespace Proud
 	*/
 	class CGlobalTimerThread:public CSingleton<CGlobalTimerThread>
 	{
-		class CTask 
+		class CTask
 		{
 		public:
 			int64_t m_timeToDo; // 등록된 task를 실행할 미래 시간
@@ -93,7 +93,7 @@ namespace Proud
 
 		// CPU 0 affinity.
 		// m_tasks들을 뒤지면서 수행할 것들을 찾아 처리한다.
-		Thread m_thread; 
+		Thread m_thread;
 		volatile bool m_stopThread;
 
 		//////////////////////////////////////////////////////////////////////////
@@ -114,8 +114,8 @@ namespace Proud
 
 		// 측정된 시간. 이 값은 GetPreciseCurrentTimeMs()에 의해 사용된다. 프로세스 시작 시간이 0이다.
 		// 코트 프로필링 결과 꽤 잦게 사용된다.
-		// atomic op이 부담스러울 정도로도 나온다. 
-		// 따라서 volatile로만 선언하고 값을 수시로 가져오도록 한다. 
+		// atomic op이 부담스러울 정도로도 나온다.
+		// 따라서 volatile로만 선언하고 값을 수시로 가져오도록 한다.
 		static volatile int64_t m_measuredTimeMs;
 	private:
 
@@ -130,10 +130,10 @@ namespace Proud
 	public:
 		void GetAbsoluteTimeSpec(timespec* ts);
 #endif
-		
+
 #if PN_USE_CHRONO==0
 
-		// 이것이 존재하는 이유: thread가 시작도 하기 전에 사용자가 시간을 얻으려고 하는 경우 0이 리턴되어야 하며, 
+		// 이것이 존재하는 이유: thread가 시작도 하기 전에 사용자가 시간을 얻으려고 하는 경우 0이 리턴되어야 하며,
 		// 직후 얻는 시간값은 0을 기준으로 시작해야 하기 때문이다.
 		// 게다가 ios에서는 아예 음수로 시작하기도 하므로 이렇게 한다. 이것보다는 위의 이유가 더 중요.
 		volatile int64_t m_baseTimeMs;

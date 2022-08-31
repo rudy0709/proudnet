@@ -1,13 +1,13 @@
-﻿#pragma once 
+﻿#pragma once
 
-/* 
+/*
 // 리눅스 static lib에서 boost를 의존하는 경우 문제가 된다.
 // 리눅스에서 c++17에서나 가능한 std::filesystem을 쓸 수 있게 되면 그때 여기 자체구현을 대체하도록 하자.
 
 *****************************
 
 #if (_MSC_VER >= 1900)  // std filesystem은 VS2013부터 지원합니다. VS2010 이하에서는 이것에 의존하는 함수들을 다 preprocessor if로 막아버려도 됩니다. => VS2015부터 지원하기로 함. VS2013이 실제로 안되는 경우가 있는 듯.
-#include <filesystem>  
+#include <filesystem>
 namespace fs = std::experimental::filesystem::v1;
 typedef std::error_code u_error_code;
 

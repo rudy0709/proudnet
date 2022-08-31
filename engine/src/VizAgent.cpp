@@ -14,7 +14,7 @@
 //#include "NetServer.h"
 #include "RmiContextImpl.h"
 
-namespace Proud 
+namespace Proud
 {
 #ifdef VIZAGENT
 	static PNGUID v = { 0x9b5e4767, 0x3b4f, 0x4f74, { 0x9b, 0xb, 0xfe, 0x23, 0xfa, 0x67, 0x61, 0xdf } };
@@ -90,7 +90,7 @@ namespace Proud
 
 	void CVizAgent::Heartbeat_ConnectingCase()
 	{
-		
+
 	}
 
 	void CVizAgent::Heartbeat_ConnectedCase()
@@ -98,10 +98,10 @@ namespace Proud
 
 	}
 
-	void CVizAgent::OnJoinServerComplete( ErrorInfo *info, const ByteArray &replyFromServer ) 
+	void CVizAgent::OnJoinServerComplete( ErrorInfo *info, const ByteArray &replyFromServer )
 	{
 		CriticalSectionLock lock(m_cs,true);
-		
+
 		// 서버 연결 결과에 따라 상태 천이
 		if(info->m_errorType == ErrorType_Ok)
 		{
@@ -116,10 +116,10 @@ namespace Proud
 		}
 	}
 
-	void CVizAgent::OnLeaveServer( ErrorInfo *errorInfo ) 
+	void CVizAgent::OnLeaveServer( ErrorInfo *errorInfo )
 	{
 		CriticalSectionLock lock(m_cs,true);
-		
+
 		m_state = Disconnected;
 	}
 

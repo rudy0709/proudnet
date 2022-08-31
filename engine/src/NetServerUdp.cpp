@@ -535,6 +535,4 @@ namespace Proud
 		*outputPercent = nPercent;
 		return ErrorType_Ok;
 	}
-
-
 }

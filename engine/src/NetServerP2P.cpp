@@ -402,14 +402,14 @@ namespace Proud
 	{
 		AssertIsLockedByCurrentThread();
 
-		// #ifndef XXXXXXXXXXXXXXX
-		// 	printf("MakeP2PRouteLinks 입력: ");
-		// 	for(int i=0;i<tgt.GetCount();i++)
-		// 	{
-		// 		printf("%d ",tgt[i].mHostID);
-		// 	}
-		// 	printf("\n");
-		// #endif
+		//#ifndef XXXXXXXXXXXXXXX
+		//	printf("MakeP2PRouteLinks 입력: ");
+		//	for(int i=0;i<tgt.GetCount();i++)
+		//	{
+		//		printf("%d ",tgt[i].mHostID);
+		//	}
+		//	printf("\n");
+		//#endif
 
 		// 이럴경우 link할 필요가 없다. 아래 로직은 많은 연산량을 요구하므로.
 		if (unreliableS2CRoutedMulticastMaxCount == 0)
@@ -543,21 +543,21 @@ namespace Proud
 			}
 		}
 
-		// #ifndef XXXXXXXXXXXXXXX
-		// 	printf("MakeP2PRouteLinks 출력: ");
-		// 	for(int i=0;i<tgt.GetCount();i++)
-		// 	{
-		// 		printf("%d:",tgt[i].mHostID);
-		// 		SendDestInfo* p=tgt[i].mP2PRouteNextLink;
-		// 		while(p)
-		// 		{
-		// 			printf("->%d",p->mHostID);
-		// 			p=p->mP2PRouteNextLink;
-		// 		}
-		// 		printf(" , ");
-		// 	}
-		// 	printf("\n");
-		// #endif
+		//#ifndef XXXXXXXXXXXXXXX
+		//	printf("MakeP2PRouteLinks 출력: ");
+		//	for(int i=0;i<tgt.GetCount();i++)
+		//	{
+		//		printf("%d:",tgt[i].mHostID);
+		//		SendDestInfo* p=tgt[i].mP2PRouteNextLink;
+		//		while(p)
+		//		{
+		//			printf("->%d",p->mHostID);
+		//			p=p->mP2PRouteNextLink;
+		//		}
+		//		printf(" , ");
+		//	}
+		//	printf("\n");
+		//#endif
 
 		// 쓰고 남은거 정리
 		m_connectionInfoList.Clear();
@@ -592,18 +592,18 @@ namespace Proud
 			throw Exception("Cannot set AllowEmptyP2PGroup after the server has started.");
 		}
 
-		// 		if(!enable && m_startCreateP2PGroup && nullptr == dynamic_cast<CAssignHostIDFactory*>(m_HostIDFactory.m_p))
-		// 		{
-		// 			throw Exception("Cannot set false after create P2PGroup when started");
-		// 		}
+		//		if(!enable && m_startCreateP2PGroup && nullptr == dynamic_cast<CAssignHostIDFactory*>(m_HostIDFactory.m_p))
+		//		{
+		//			throw Exception("Cannot set false after create P2PGroup when started");
+		//		}
 
 		m_allowEmptyP2PGroup = enable;
 	}
 
-    bool CNetServerImpl::IsEmptyP2PGroupAllowed() const
-    {
-        return m_allowEmptyP2PGroup;
-    }
+	bool CNetServerImpl::IsEmptyP2PGroupAllowed() const
+	{
+		return m_allowEmptyP2PGroup;
+	}
 
 	bool P2PConnectionState::ContainsHostID(HostID PeerID)
 	{
@@ -836,8 +836,8 @@ namespace Proud
 
 		//이하는 메인 lock하에 진행.
 		AssertIsLockedByCurrentThread();
-		// 		CriticalSectionLock clk(GetCriticalSection(), true);
-		// 		CHECK_CRITICALSECTION_DEADLOCK(this);
+		//		CriticalSectionLock clk(GetCriticalSection(), true);
+		//		CHECK_CRITICALSECTION_DEADLOCK(this);
 
 		if (m_logWriter)
 		{
@@ -1230,7 +1230,7 @@ namespace Proud
 					}
 				}
 
-				// 암호화 성공하거나 건너뛰었다면 tcp send를 하고 
+				// 암호화 성공하거나 건너뛰었다면 tcp send를 하고
 				dest.tcpSocket->AddToSendQueueWithSplitterAndSignal_Copy(
 					dest.tcpSocket,
 					fragList, SendOpt(), m_simplePacketMode);
@@ -1289,8 +1289,8 @@ namespace Proud
 		rc->AssertIsSocketNotLockedByCurrentThread();
 		// rc를 얻어내야 하기때문에 mainlock이 필요하다.
 		AssertIsLockedByCurrentThread();
-		// 		CriticalSectionLock mainlock(GetCriticalSection(), true);
-		// 		CHECK_CRITICALSECTION_DEADLOCK(this);
+		//		CriticalSectionLock mainlock(GetCriticalSection(), true);
+		//		CHECK_CRITICALSECTION_DEADLOCK(this);
 
 		HostID remote = rc->GetHostID();
 
@@ -1363,8 +1363,8 @@ namespace Proud
 		rc->AssertIsSocketNotLockedByCurrentThread();
 
 		AssertIsLockedByCurrentThread();
-		// 		CriticalSectionLock clk(GetCriticalSection(), true);
-		// 		CHECK_CRITICALSECTION_DEADLOCK(this);
+		//		CriticalSectionLock clk(GetCriticalSection(), true);
+		//		CHECK_CRITICALSECTION_DEADLOCK(this);
 
 		// find relevant mature or unmature client by magic number
 		if (rc->m_ToClientUdp_Fallbackable.m_holePunchMagicNumber == magicNumber && rc->m_ToClientUdp_Fallbackable.m_realUdpEnabled == false)
@@ -1432,8 +1432,8 @@ namespace Proud
 		rc->AssertIsSocketNotLockedByCurrentThread();
 
 		AssertIsLockedByCurrentThread();
-		// 		CriticalSectionLock clk(GetCriticalSection(), true);
-		// 		CHECK_CRITICALSECTION_DEADLOCK(this);
+		//		CriticalSectionLock clk(GetCriticalSection(), true);
+		//		CHECK_CRITICALSECTION_DEADLOCK(this);
 
 		shared_ptr<CRemoteClient_S> rc2 = GetAuthedClientByHostID_NOLOCK(remotePeerID);
 		if (rc2 == nullptr)
@@ -1604,6 +1604,4 @@ namespace Proud
 				EnqueAddMemberAckCompleteEvent(group->m_groupHostID, joiningMember, reason);
 		}
 	}
-
-
 }

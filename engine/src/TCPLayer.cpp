@@ -28,7 +28,7 @@
 namespace Proud
 {
 	StringA firstRequestText = "<policy-file-request/>";
-	
+
 
 	CTcpSendQueue::CTcpSendQueue()
 	{
@@ -90,14 +90,14 @@ namespace Proud
 	{
 		// 오래된 메시지 솎아내기
 		// unique ID 솎아내기
-		// 옮기기		
+		// 옮기기
 
 		int64_t curTime = GetPreciseCurrentTimeMs();
 
 		if (m_nextNormalizeWorkTime == 0)
 			m_nextNormalizeWorkTime = curTime;
-	
-		// UDP 통신이 안되는 경우 Unreliable 패킷은 TCP를 통해서 전송됩니다, 
+
+		// UDP 통신이 안되는 경우 Unreliable 패킷은 TCP를 통해서 전송됩니다,
 		// ring 0 or 1가 아닌 Unreliable 패킷에 대해서 오래된 패킷을 버립니다. 이 검사는 5초마다 시행합니다.
 		if (curTime > m_nextNormalizeWorkTime)
 		{
@@ -156,10 +156,10 @@ namespace Proud
 
 					alreadyExist = true;
 				}
-// 				else
-// 				{
-// 						m_uniqueIDToPacketMap.Add(headPacket->m_uniqueID, m_thinnedQueue.GetTailPosition() + 1);
-// 				}
+//				else
+//				{
+//						m_uniqueIDToPacketMap.Add(headPacket->m_uniqueID, m_thinnedQueue.GetTailPosition() + 1);
+//				}
 			}
 
 			if (!alreadyExist)

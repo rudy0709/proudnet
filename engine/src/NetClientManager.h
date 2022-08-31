@@ -27,11 +27,11 @@ namespace Proud
 #endif
 
 		//CRefCountHeap::PtrType m_dependRefCountHeap;
-		//CByteArrayPtrManager::PtrType m_pooledObjects; // ByteArrayPtr의 manager가 먼저 파괴되지 못하게 함
-		CGlobalTimerThread::PtrType m_globalTimer;	   // GetPreciseCurrentTime 때문에
+		//CByteArrayPtrManager::PtrType m_pooledObjects;	// ByteArrayPtr의 manager가 먼저 파괴되지 못하게 함
+		CGlobalTimerThread::PtrType m_globalTimer;			// GetPreciseCurrentTime 때문에
 
-		// 		CByteArrayHolderAlloc::PtrType m_dependsByteArrayAllocator;
-		// 		CFastHeapForArray::PtrType m_dependsFastArrayAllocator;
+		//		CByteArrayHolderAlloc::PtrType m_dependsByteArrayAllocator;
+		//		CFastHeapForArray::PtrType m_dependsFastArrayAllocator;
 	public:
 		void OnCustomValueEvent(const ThreadPoolProcessParam& param, CWorkResult* workResult, CustomValueEvent customValue);
 
@@ -84,9 +84,9 @@ namespace Proud
 		Thread m_workerThread;
 
 		// #if !defined(_WIN32)
-		//         pthread_t m_workerThreadID;
+		//		pthread_t m_workerThreadID;
 		// #else
-		// 		uint32_t m_workerThreadID;
+		//		uint32_t m_workerThreadID;
 		// #endif
 	public:
 		int m_disconnectInvokeCount;
@@ -100,10 +100,10 @@ namespace Proud
 
 		//
 		// #if defined(_WIN32)
-		// 		// CompletionPort class는 fake mode를 지원하므로 safe.
-		// 		CAutoPtr<CompletionPort> m_completionPort;
+		//		// CompletionPort class는 fake mode를 지원하므로 safe.
+		//		CAutoPtr<CompletionPort> m_completionPort;
 		// #else	// Android/IOS
-		// 		CHeldPtr<CIoEventReactor>	m_reactor;
+		//		CHeldPtr<CIoEventReactor>	m_reactor;
 		// #endif
 
 		CNetClientManager();
@@ -112,29 +112,29 @@ namespace Proud
 		//void GetThreadInfos(CFastArray<CThreadInfo>& output);
 
 // #if !defined(_WIN32)
-// 		inline pthread_t GetWorkerThreadID()
-// 		{
-// 			return m_workerThreadID;
-// 		}
+//		inline pthread_t GetWorkerThreadID()
+//		{
+//			return m_workerThreadID;
+//		}
 // #else
-// 		inline uint32_t GetWorkerThreadID()
-// 		{
-// 			return m_workerThreadID;
-// 		}
+//		inline uint32_t GetWorkerThreadID()
+//		{
+//			return m_workerThreadID;
+//		}
 // #endif
 //
 // #if defined(_WIN32)
-// 		inline HANDLE GetWorkerThreadHandle()
-// 		{
-// 			return m_workerThread->Handle;
-// 		}
+//		inline HANDLE GetWorkerThreadHandle()
+//		{
+//			return m_workerThread->Handle;
+//		}
 // #endif
 
-		// 		int64_t GetCachedTime();
-		// 		inline int64_t GetCachedElapsedTime()
-		// 		{
-		// 			return GetPreciseCurrentTimeMs();
-		// 		}
+		//		int64_t GetCachedTime();
+		//		inline int64_t GetCachedElapsedTime()
+		//		{
+		//			return GetPreciseCurrentTimeMs();
+		//		}
 
 		//void SendReadyInstances_Add(CNetClientImpl* inst);
 
@@ -148,5 +148,4 @@ namespace Proud
 	};
 
 	DECLARE_DLL_SINGLETON(PROUD_API, CNetClientManager);
-
 }

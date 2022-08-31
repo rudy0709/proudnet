@@ -10,7 +10,7 @@
 
 #include "stdafx.h"
 #ifndef _WIN32
-    #include <sys/time.h>
+	#include <sys/time.h>
 #endif
 
 #include "../include/TimeUtil.h"
@@ -23,11 +23,11 @@ namespace Proud
 	// 시스템 현재 시간
 	void TimeGetAbsolute(timespec* ts)
 	{
-// 		timeval tv;
-// 		gettimeofday(&tv, NULL);
-// 
-// 		ts->tv_sec = tv.tv_sec;
-// 		ts->tv_nsec = (tv.tv_usec % 1000) * 1000;
+//		timeval tv;
+//		gettimeofday(&tv, NULL);
+//
+//		ts->tv_sec = tv.tv_sec;
+//		ts->tv_nsec = (tv.tv_usec % 1000) * 1000;
 
 		CGlobalTimerThread::GetUnsafeRef().GetAbsoluteTimeSpec(ts);
 	}

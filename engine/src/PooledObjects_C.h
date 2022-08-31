@@ -45,7 +45,7 @@ namespace Proud
 	class SendDestInfoArray;
 	class SendDestInfoPtrArray;
 	class RemoteArray;
-    
+
 	DECLARE_DLL_SINGLETON_ClassObjectPool(PROUD_API, WSABUF_Array);
 	DECLARE_DLL_SINGLETON_ClassObjectPool(PROUD_API, CSendFragRefs);
 	DECLARE_DLL_SINGLETON_ClassObjectPool(PROUD_API, DefraggingPacket);
@@ -64,6 +64,4 @@ namespace Proud
 	DECLARE_DLL_SINGLETON_ClassObjectPool(PROUD_API, SendDestInfoArray);
 	DECLARE_DLL_SINGLETON_ClassObjectPool(PROUD_API, SendDestInfoPtrArray);
 	DECLARE_DLL_SINGLETON_ClassObjectPool(PROUD_API, RemoteArray);
-
-
 }

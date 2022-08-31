@@ -12,12 +12,12 @@ namespace Proud
 {
 
 	// Net 또는 Lan클라이언트가 의도치않게 종료되었을때의 Log를 보내기 위한 client
-	class CEmergencyLogClient : 
+	class CEmergencyLogClient :
 		public EmergencyS2C::Stub,
 		public INetClientEvent
 	{
 		CHeldPtr<CNetClient> m_client;
-	
+
 		EmergencyC2S::Proxy m_c2sProxy;
 		CEmergencyLogData* m_logData;
 	private:

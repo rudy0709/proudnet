@@ -34,7 +34,7 @@ namespace Proud
 		// std::map은 red-black tree + tune variation으로 구현되기 마련이다.
 		// 따라서 iterator++은 O(1)~O(n)의 시간복잡도를 가진다.
 		// 게임개발 특성상 iteration이 잦은 상황에서는 이는 불리하다.
-		// 따라서 tree node간에 linked list를 만들어 두자. 그러면 iteration을 O(1)에 끝내게 된다.		
+		// 따라서 tree node간에 linked list를 만들어 두자. 그러면 iteration을 O(1)에 끝내게 된다.
 		class ValueNode :public CListNode<ValueNode>
 		{
 		public:
@@ -65,7 +65,7 @@ namespace Proud
 
 			iterator() :m_pOwner(nullptr) {}
 
-			// linked list setup을 하는 메인 함수다. insert 함수에 의해 호출된다. 
+			// linked list setup을 하는 메인 함수다. insert 함수에 의해 호출된다.
 			// 생성자가 일을 많이 하면 나쁘다는 코딩규칙에는 위배되지만, 이렇게 해야 사용자가 입력하는 key-value 중 value의 assign 연산을 최소화한다. 자세한건 콜러(add, find 함수 등) 참고.
 			// stdIter: insert 함수에 의해 지금 막 추가된 key를 가리킨다.
 			// pOwner: 소유자
@@ -454,7 +454,7 @@ namespace Proud
 			auto stdMapInsertResult = m_stdMap.insert(StdMap::value_type(key, ValueNode(value)));
 
 			auto& stdIter = stdMapInsertResult.first;
-			if (stdMapInsertResult.second == true)	 // if newly added
+			if (stdMapInsertResult.second == true)	// if newly added
 			{
 				stdIter->second.m_stdIter = stdIter;		// ValueNode가 first를 가리키는 iterator를 멤버변수로 가지는데, 그걸 업데이트한다. 괴상하긴 하지만 이걸 여기저기서 사용한다. 아 글쎄, 궁극적인 방법은 우리가 자체적으로 sorted map을 구현하는 것이라니까요.
 

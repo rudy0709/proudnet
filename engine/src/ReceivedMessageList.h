@@ -33,7 +33,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 ** 注意：著作物に関する上記の明示を除去しないでください。
 
 */
-#pragma once 
+#pragma once
 
 #include "FastList2.h"
 #include "../include/ReceivedMessage.h"
@@ -54,10 +54,9 @@ namespace Proud
 		inline CReceivedMessageList() {}
 
 		// called by CObjectPool.
-		void SuspendShrink() 
+		void SuspendShrink()
 		{
 			// do nothing. CFastList2 itself has a object pool already.
 		}
 	};
-
 }

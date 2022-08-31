@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/Enums.h"
 #include "../include/FastMap.h"
@@ -36,7 +36,7 @@ namespace Proud
 
 		// HostID Recycle Off일때 쓰임
 		// 첫 한바퀴때는 m_issuedHostIDMap을 검사할 필요가 없으므로 해당 변수를 만듬
-		// HostID가 INT_MAX를 넘어서서 HostID_None으로 돌아왔을때 true로 변하여 
+		// HostID가 INT_MAX를 넘어서서 HostID_None으로 돌아왔을때 true로 변하여
 		// 새로 발급할때마다 m_issuedHostIDMap을 검사함
 		// best effort를 위한 변수
 		bool m_isCycledIssueHostID;
@@ -60,20 +60,19 @@ namespace Proud
 
 		HostID ExploreNewHostID();
 
-		// FastList2가 복사대입 불가능한 객체이므로 GCC에서 컴파일 오류 발생. 
+		// FastList2가 복사대입 불가능한 객체이므로 GCC에서 컴파일 오류 발생.
 		CHostIDFactory(const CHostIDFactory&);
 		CHostIDFactory& operator=(const CHostIDFactory&);
 
 	public:
-		PROUDSRV_API 		 CHostIDFactory(int64_t issueValidTime, const bool isHostIDRecycle = true);
-		PROUDSRV_API 		 virtual ~CHostIDFactory();
+		PROUDSRV_API CHostIDFactory(int64_t issueValidTime, const bool isHostIDRecycle = true);
+		PROUDSRV_API virtual ~CHostIDFactory();
 
-		PROUDSRV_API 		 HostID Create(HostID assignedHostID = HostID_None);
-		PROUDSRV_API 		 void Drop(HostID dropID);
-		PROUDSRV_API 		 uint32_t GetRecycleCount(HostID hostID);
-		PROUDSRV_API 		 void SetReservedList(HostID reservedStartHostID, int reservedHostIDCount = true);
+		PROUDSRV_API HostID Create(HostID assignedHostID = HostID_None);
+		PROUDSRV_API void Drop(HostID dropID);
+		PROUDSRV_API uint32_t GetRecycleCount(HostID hostID);
+		PROUDSRV_API void SetReservedList(HostID reservedStartHostID, int reservedHostIDCount = true);
 
-		PROUDSRV_API 		 bool IsDroppedRecently(HostID hostID);
+		PROUDSRV_API bool IsDroppedRecently(HostID hostID);
 	};
-
 }

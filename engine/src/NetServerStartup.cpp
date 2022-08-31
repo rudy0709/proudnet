@@ -175,11 +175,11 @@ namespace Proud
 		//m_completionPort.Attach(new CompletionPort(this, true));  //AcceptEx때문에 무조건 true
 		//m_TcpAcceptCompletionPort.Attach(new CompletionPort(this, 1));
 
-		// 		if(m_timer != NULL)
-		// 		{
-		// 			m_timer.Free();
-		// 		}
-		// 		m_timer.Attach(CMilisecTimer::New(param.m_useTimerType));
+		//		if(m_timer != NULL)
+		//		{
+		//			m_timer.Free();
+		//		}
+		//		m_timer.Attach(CMilisecTimer::New(param.m_useTimerType));
 		// 시작
 		//m_timer->Start();
 
@@ -381,8 +381,8 @@ namespace Proud
 		m_fregFailNeed = 0;
 
 		// NS,LS.Start()에서는 m_authedHosts에 루프백 즉 (HostID_Server, new CLoopbackHost)를 add합시다.
-		// 		m_loopbackHost = new CLoopbackHost(HostID_Server, LeanType_CNetServer);
-		// 		m_authedHosts.Add(HostID_Server, m_loopbackHost);
+		//		m_loopbackHost = new CLoopbackHost(HostID_Server, LeanType_CNetServer);
+		//		m_authedHosts.Add(HostID_Server, m_loopbackHost);
 
 		// TCP, UDP를 받아 처리하는 스레드 풀을 만든다.
 		m_listening = true;
@@ -802,7 +802,7 @@ namespace Proud
 
 				m_TcpListenSockets.Add(tcpListenSocket);
 				// #ifdef _WIN32
-				// 				IssueFirstRecvNeededSocket_Set(tcpListenSocket);
+				//				IssueFirstRecvNeededSocket_Set(tcpListenSocket);
 				// #endif
 				// NOTE: Start함수의 끝자락에서 first AcceptEx를 시전하는 custom value event를 post한다.
 			}
@@ -873,7 +873,7 @@ namespace Proud
 			}
 			m_staticAssignedUdpSockets.Add(udpSocket);
 			// #ifdef _WIN32
-			// 			IssueFirstRecvNeededSocket_Set(udpSocket);
+			//			IssueFirstRecvNeededSocket_Set(udpSocket);
 			// #endif
 
 //			m_localAddrToUdpSocketMap.Add(udpSocket->GetLocalAddr(), udpSocket);
@@ -893,7 +893,7 @@ namespace Proud
 
 			// CSuperSocket::Bind 내부에서 처리하기때문에 불필요
 			// #ifdef ALLOW_ZERO_COPY_SEND // zero copy send는 빠르지만 너무 많은 nonpaged를 유발 위험. 따라서 이걸로 막자. 막으니 성능도 더 나은데?
-			// 			udpSocket->m_socket->SetSendBufferSize(0);
+			//			udpSocket->m_socket->SetSendBufferSize(0);
 			// #endif // ALLOW_ZERO_COPY_SEND
 
 			/* 소켓 갯수가 너무 적다면 UDP 소켓당 버퍼 갯수를 충분히 키우자.
@@ -913,7 +913,4 @@ namespace Proud
 		}
 		return SocketErrorCode_Ok;
 	}
-
 }
-
-

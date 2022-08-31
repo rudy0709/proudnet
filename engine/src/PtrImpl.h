@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/Ptr.h"
 #include "../include/Singleton.h"
@@ -15,5 +15,4 @@ namespace Proud
 		CRefCountHeap();
 		~CRefCountHeap();
 	};
-
 }

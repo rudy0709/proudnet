@@ -119,8 +119,8 @@ namespace Proud
 
 		//CCachedTimes m_cachedTimes;
 
-        // 이제 이 함수는 쓰지 말자. GetPreciseCurrentTimeMs로 대체하자.
-		int64_t GetCachedServerTimeMs()         
+		// 이제 이 함수는 쓰지 말자. GetPreciseCurrentTimeMs로 대체하자.
+		int64_t GetCachedServerTimeMs()
 		{
 			return GetPreciseCurrentTimeMs();
 			//return m_cachedTimes.GetTimeMs();
@@ -159,20 +159,20 @@ namespace Proud
 		// UDP 주소->클라 객체 인덱스
 
 		// UDP 수신시 고속 검색을 위해 필요하다.
-		// 		class CUdpAddrPortToRemoteClientIndex : public CFastMap2<AddrPort, shared_ptr<CRemoteClient_S>,int>
-		// 		{
-		// 		public:
-		// 			CUdpAddrPortToRemoteClientIndex();
-		// 		};
-		// 		CUdpAddrPortToRemoteClientIndex m_UdpAddrPortToRemoteClientIndex;
+		//		class CUdpAddrPortToRemoteClientIndex : public CFastMap2<AddrPort, shared_ptr<CRemoteClient_S>,int>
+		//		{
+		//		public:
+		//			CUdpAddrPortToRemoteClientIndex();
+		//		};
+		//		CUdpAddrPortToRemoteClientIndex m_UdpAddrPortToRemoteClientIndex;
 
 		// TCP listening을 하고 있는 중인지?
 		// false이면 더 이상의 연결을 받는 처리를 안한다.
 		bool m_listening;
 
 		//이 변수들과 변수를 사용하는 부분을 모두 CNetCoreImpl로 옮기자. 같은 이름의 변수가 NS,NC,LS,LC에 있는데 마찬가지로.
-		// 		volatile bool m_netThreadPoolUnregistered;
-		// 		volatile bool m_userThreadPoolUnregistered;
+		//		volatile bool m_netThreadPoolUnregistered;
+		//		volatile bool m_userThreadPoolUnregistered;
 		//여기까지.
 
 		Guid m_protocolVersion;
@@ -189,7 +189,7 @@ namespace Proud
 		shared_ptr<CLoopbackHost_S> m_loopbackHost;
 
 #ifdef SUPPORTS_WEBGL
-		// Websocket server가 사용하는 스레드. 
+		// Websocket server가 사용하는 스레드.
 		// 현재 버전은 Networker thread와 통합되어 있지 않다. 그게 더 낫지만.
 		// 추후에 websocket server의 i/o event와 기존 i/o event poller (iocp or epoll)이 서로 연결될 수 있게 만들면, 그때는 이걸 없애도록 하자.
 		std::thread m_webSocketServerThread;
@@ -282,9 +282,9 @@ namespace Proud
 		send queue에 뭔가가 들어가는 순간, issue send = F인 것들이 여기에 등록된다.
 		issue send = T가 되는 순간 여기서 빠진다.
 		UDP 소켓을 굉장히 많이 둔 경우 모든 UDP socket에 대해 루프를 돌면 비효율적이므로 이것이 필요 */
-		// 		CSendReadyList* m_sendReadyList;
-		// 		//이 변수와 이 변수를 다루는 함수들 (SendReadyList_Add,
-		// 		//SendReadyList에 대한 생성/파괴)을 CNetCoreImpl로 옮기자.
+		//		CSendReadyList* m_sendReadyList;
+		//		//이 변수와 이 변수를 다루는 함수들 (SendReadyList_Add,
+		//		//SendReadyList에 대한 생성/파괴)을 CNetCoreImpl로 옮기자.
 
 
 		/* 위 m_sendReadyList는 main lock 없이 접근된다.
@@ -732,7 +732,7 @@ namespace Proud
 
 		void SetDefaultTimeoutTimeMs(int newValInMs) PN_OVERRIDE;
 		void SetTimeoutTimeMs(HostID host, int newValInMs) PN_OVERRIDE;
-				
+
 		SocketResult GetAllSocketsLastReceivedTimeOutState(int64_t currTime, const shared_ptr<CRemoteClient_S>& rc);
 
 		void SetDefaultAutoConnectionRecoveryTimeoutTimeMs(int newValInMs) PN_OVERRIDE;
@@ -813,10 +813,10 @@ namespace Proud
 		//		void EnqueueHackSuspectEvent(const shared_ptr<CRemoteClient_S>& rc,const char* statement,HackType hackType);
 		void EnqueueP2PGroupRemoveEvent( HostID groupHostID );
 
-		// 		double GetSpeedHackLongDetectMinInterval();
-		// 		double GetSpeedHackLongDeviationRatio();
-		// 		double GetSpeedHackDeviationThreshold();
-		// 		int GetSpeedHackDetectorSeriesLength();
+		//		double GetSpeedHackLongDetectMinInterval();
+		//		double GetSpeedHackLongDeviationRatio();
+		//		double GetSpeedHackDeviationThreshold();
+		//		int GetSpeedHackDetectorSeriesLength();
 
 		int m_SpeedHackDetectorReckRatio; // 0~100
 
@@ -870,7 +870,7 @@ namespace Proud
 		bool m_startCreateP2PGroup;
 	public:
 		virtual void AllowEmptyP2PGroup(bool enable) PN_OVERRIDE;
-        virtual bool IsEmptyP2PGroupAllowed() const PN_OVERRIDE;
+		virtual bool IsEmptyP2PGroupAllowed() const PN_OVERRIDE;
 	private:
 		//void TestReliableUdpFrame();
 		void TestSendBrake();
@@ -981,7 +981,7 @@ namespace Proud
 		void Heartbeat_AcrSendMessageIDAckOnNeed(const shared_ptr<CRemoteClient_S>& rc);
 
 #ifndef PROUDSRCCOPY
-		// 이 멤버 변수는 이 클래스의 맨 마지막에 선언되어야 한다. RetainedServer는 CNetServerImpl을 바로 액세스하는데, 
+		// 이 멤버 변수는 이 클래스의 맨 마지막에 선언되어야 한다. RetainedServer는 CNetServerImpl을 바로 액세스하는데,
 		// 이게 맨 뒤가 아니면 멤버들 offset이 하나씩 밀려버린다.
 		void* m_lic;
 #endif

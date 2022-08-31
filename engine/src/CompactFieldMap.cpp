@@ -3,7 +3,7 @@
 #include "CompactFieldMap.h"
 #include "marshaler-private.h"
 
-namespace Proud 
+namespace Proud
 {
 	// fieldName이 가리키는 field의 value를 가져오되, POD type으로 썡으로 가져온다.
 	// 잘 가져왔으면 true를 리턴한다.
@@ -60,7 +60,7 @@ namespace Proud
 	void Message_Write(CMessage& msg, const CompactFieldMap &fieldMap)
 	{
 		// 가지고 있는 필드들을 순서대로 저장한다.
-		// 하위호환성을 위해, 알 수 없는 타입의 필드가 건너뛸 수 있도록 serialize 후 
+		// 하위호환성을 위해, 알 수 없는 타입의 필드가 건너뛸 수 있도록 serialize 후
 		// 데이터 크기를 넣는다.
 		msg.Write((int)(fieldMap.GetFieldCount()));
 
@@ -112,5 +112,4 @@ namespace Proud
 	{
 		a += String::NewFormat(_PNT("FieldCount:%d"), b.GetFieldCount());
 	}
-
 }

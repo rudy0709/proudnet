@@ -23,11 +23,11 @@ namespace Proud
 	CFastHeapImpl::CFastHeapImpl( size_t AccelBlockSizeLimit, const CFastHeapSettings& settings)
 	{
 		m_firstHeap = CFirstHeapImpl::GetSharedPtr();
-	
+
 		if (AccelBlockSizeLimit < BucketCount)
-        {
+		{
 			throw Exception("bad AccelBlockSizeLimit value");
-        }
+		}
 
 		if(m_settings.m_pHeap == NULL)
 		{
@@ -172,7 +172,7 @@ namespace Proud
 					// 구 내용물을 복사
 					// ikpil.choi 2016-11-07 : memcpy_s 로 변경, destSize(2번째 인자) 값이 항상 올바른 값이여야 합니다.
 					//UnsafeFastMemcpy(newBlock, oldBlock, sizeof(BlockHeader) + PNMIN(oldBlock->mBlockLength, groundSize));
-					memcpy_s(newBlock, sizeof(BlockHeader) + groundSize, 
+					memcpy_s(newBlock, sizeof(BlockHeader) + groundSize,
 						oldBlock, sizeof(BlockHeader) + PNMIN(oldBlock->mBlockLength, groundSize));
 
 					assert(oldBlock->mSplitter==(SplitterType)SplitterValue);
@@ -203,7 +203,7 @@ namespace Proud
 					// 구 내용물을 복사
 					// ikpil.choi 2016-11-07 : memcpy_s 로 변경, destSize(2번째 인자) 값이 항상 올바른 값이여야 합니다.
 					//UnsafeFastMemcpy(newBlock, oldBlock, sizeof(BlockHeader) + PNMIN(oldBlock->mBlockLength, size));
-					memcpy_s(newBlock, sizeof(BlockHeader) + groundSize, 
+					memcpy_s(newBlock, sizeof(BlockHeader) + groundSize,
 						oldBlock, sizeof(BlockHeader) + PNMIN(oldBlock->mBlockLength, groundSize));
 
 					assert(oldBlock->mSplitter==(SplitterType)SplitterValue);
@@ -238,7 +238,7 @@ namespace Proud
 						// 구 내용물을 복사
 						// ikpil.choi 2016-11-07 : memcpy_s 로 변경, destSize(2번째 인자) 값이 항상 올바른 값이여야 합니다.
 						//UnsafeFastMemcpy(newBlock, oldBlock, sizeof(BlockHeader) + PNMIN(oldBlock->mBlockLength, groundSize));
-						memcpy_s(newBlock, sizeof(BlockHeader) + groundSize, 
+						memcpy_s(newBlock, sizeof(BlockHeader) + groundSize,
 							oldBlock, sizeof(BlockHeader) + PNMIN(oldBlock->mBlockLength, groundSize));
 
 						assert(oldBlock->mSplitter==(SplitterType)SplitterValue);
@@ -308,7 +308,7 @@ namespace Proud
 			return NULL;
 
 		size_t index = (groundSize - 1) / GetGranularity();
-#if defined(_WIN32)	
+#if defined(_WIN32)
 		BoundCheckUInt32(index, __FUNCTION__);
 #endif
 
@@ -378,23 +378,23 @@ namespace Proud
 	}
 
 #if !defined(_WIN32)
-    CMemoryHeap* CMemoryHeap::NewFromHeapHandle()
+	CMemoryHeap* CMemoryHeap::NewFromHeapHandle()
 	{
 		return CMemoryHeapImpl::NewFromHeapHandle();
 	}
-    
+
 	CMemoryHeap* CMemoryHeap::NewHeap()
 	{
 		return CMemoryHeapImpl::NewHeap();
 	}
-    
-    
+
+
 	CMemoryHeapImpl* CMemoryHeapImpl::NewFromHeapHandle()
 	{
 		CMemoryHeapImpl* ret = new CMemoryHeapImpl;
 		return ret;
 	}
-    
+
 	CMemoryHeapImpl* CMemoryHeapImpl::NewHeap()
 	{
 		CMemoryHeapImpl* ret = new CMemoryHeapImpl;
@@ -477,9 +477,9 @@ namespace Proud
 		CFastHeapImpl::BlockHeader *hdr = (CFastHeapImpl::BlockHeader*)block;
 		hdr--; // 바로 앞으로 옮기기
 		if(hdr->mSplitter!=(CFastHeapImpl::SplitterType)CFastHeapImpl::SplitterValue)
-        {
+		{
 			throw Exception("Not a fastheap allocated block!");
-        }
+		}
 #endif // ENABLE_FAST_HEAP
 	}
 

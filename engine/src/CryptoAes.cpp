@@ -27,7 +27,7 @@ namespace Proud
 	}
 
 	//Expand a user-supplied key material into a session key.
-	// key        - The 128/192/256-bit user-key to use.
+	// key		- The 128/192/256-bit user-key to use.
 	// keylength  - 16, 24 or 32 bytes
 	// blockSize  - The block size in bytes of this Rijndael (16, 24 or 32 bytes).
 	bool CCryptoAes::ExpandFrom(CCryptoAesKey &outKey, const uint8_t* const key, int keyLength, int blockSize)
@@ -82,7 +82,7 @@ namespace Proud
 				outKey.m_kd[i][j] = 0;
 			}
 		}
-		// 라운드 키의 수 : Nr +1 
+		// 라운드 키의 수 : Nr +1
 		int roundKeyCount = (outKey.m_rounds + 1) * bc;
 		int kc = keyLength / 4;
 
@@ -220,20 +220,20 @@ namespace Proud
 		// input 데이터를 output 에 복사합니다.
 		memcpy_s(
 			output,
-			outputLength, 
-			input, 
+			outputLength,
+			input,
 			inputLength);
 
 		// padding 을 포함한 끝 부분에 crc, padding 를 넣습니다.
 		memcpy_s(
-			output + inputLength + paddingSize, 
-			outputLength - (inputLength + paddingSize), 
-			&crc, 
-			sizeof(crc)); 
+			output + inputLength + paddingSize,
+			outputLength - (inputLength + paddingSize),
+			&crc,
+			sizeof(crc));
 		memcpy_s(
-			output + inputLength + paddingSize + sizeof(crc), 
+			output + inputLength + paddingSize + sizeof(crc),
 			outputLength - (inputLength + paddingSize + sizeof(crc)),
-			&paddingSize, 
+			&paddingSize,
 			sizeof(paddingSize));
 
 		// 이제 암호화를 시작합니다.
@@ -315,16 +315,16 @@ namespace Proud
 		return true;
 	}
 
-  bool CCryptoAes::Decrypt(
-	  const CCryptoAesKey &key, 
-	  const uint8_t* const input,
-	  int inputLength, 
-	  uint8_t *output,
-	  int &outputLength, 
-	  uint8_t * initializationVector /*= NULL*/,
-	  int initializationVectorLength /*= 0*/, 
-	  EncryptMode encryptMode /*= ECB*/
-	  )
+	bool CCryptoAes::Decrypt(
+		const CCryptoAesKey &key,
+		const uint8_t* const input,
+		int inputLength,
+		uint8_t *output,
+		int &outputLength,
+		uint8_t * initializationVector /*= NULL*/,
+		int initializationVectorLength /*= 0*/,
+		EncryptMode encryptMode /*= ECB*/
+	)
 	{
 		if (key.GetBlockSize() == 0)
 		{
@@ -365,12 +365,12 @@ namespace Proud
 			// CBC mode, using the Chain
 		{
 					uint8_t temp[MAX_BLOCK_SIZE] = { 0, };
- 					if (initializationVector != NULL && initializationVectorLength > 0)
- 					{
+					if (initializationVector != NULL && initializationVectorLength > 0)
+					{
 						// ikpil.choi 2016-11-10 : memcpy_s 로 변경, destSize(2번째 인자) 값이 항상 올바른 값이여야 합니다.
 						//memcpy(temp, initializationVector, PNMIN(MAX_BLOCK_SIZE, initializationVectorLength));
 						memcpy_s(temp, ArrayByteSize(temp), initializationVector, PNMIN(MAX_BLOCK_SIZE, initializationVectorLength));
- 					}
+					}
 
 			// FIXME 초기 chain값을 조정 가능
 			for (int i = 0; i < total; i++)
@@ -436,28 +436,28 @@ namespace Proud
 		return true;
 	}
 
-  bool CCryptoAes::EncryptByteArray(
-	  const CCryptoAesKey &key, 
-	  const ByteArray &input, 
-	  ByteArray &output, 
-	  uint8_t * initializationVector /*= NULL*/,
-	  int initializationVectorLength /*= 0*/, 
-	  EncryptMode encryptMode /*= ECB*/
-	  )
+	bool CCryptoAes::EncryptByteArray(
+		const CCryptoAesKey &key,
+		const ByteArray &input,
+		ByteArray &output,
+		uint8_t * initializationVector /*= NULL*/,
+		int initializationVectorLength /*= 0*/,
+		EncryptMode encryptMode /*= ECB*/
+	)
 	{
 		int outputLength = CCryptoAes::GetEncryptSize(key, (int)input.GetCount());
 		output.SetCount(outputLength);
 		return CCryptoAes::Encrypt(key, input.GetData(), (int)input.GetCount(), output.GetData(), outputLength, initializationVector, initializationVectorLength, encryptMode);
 	}
 
-  bool CCryptoAes::DecryptByteArray(
-	  const CCryptoAesKey &key, 
-	  const ByteArray &input, 
-	  ByteArray &output, 
-	  uint8_t * initializationVector /*= NULL*/,
-	  int initializationVectorLength /*= 0*/, 
-	  EncryptMode encryptMode /*= ECB*/
-	  )
+	bool CCryptoAes::DecryptByteArray(
+		const CCryptoAesKey &key,
+		const ByteArray &input,
+		ByteArray &output,
+		uint8_t * initializationVector /*= NULL*/,
+		int initializationVectorLength /*= 0*/,
+		EncryptMode encryptMode /*= ECB*/
+	)
 	{
 		int outputLength = (int)input.GetCount();
 		output.SetCount(outputLength);
@@ -469,15 +469,15 @@ namespace Proud
 		return true;
 	}
 
-  bool CCryptoAes::EncryptMessage(
-	  const CCryptoAesKey &key, 
-	  const CMessage &input, 
-	  CMessage &output, 
-	  int offset, 
-	  uint8_t * initializationVector /*= NULL*/,
-	  int initializationVectorLength /*= 0*/, 
-	  EncryptMode encryptMode /*= ECB*/
-	  )
+	bool CCryptoAes::EncryptMessage(
+		const CCryptoAesKey &key,
+		const CMessage &input,
+		CMessage &output,
+		int offset,
+		uint8_t * initializationVector /*= NULL*/,
+		int initializationVectorLength /*= 0*/,
+		EncryptMode encryptMode /*= ECB*/
+	)
 	{
 		if (input.GetLength() - offset <= 0)
 		{
@@ -490,15 +490,15 @@ namespace Proud
 		return CCryptoAes::Encrypt(key, input.GetData() + offset, input.GetLength() - offset, output.GetData(), outputLength, initializationVector, initializationVectorLength, encryptMode);
 	}
 
-  bool CCryptoAes::DecryptMessage(
-	  const CCryptoAesKey &key, 
-	  const CMessage &input, 
-	  CMessage &output, 
-	  int offset, 
-	  uint8_t * initializationVector /*= NULL*/,
-	  int initializationVectorLength /*= 0*/, 
-	  EncryptMode encryptMode /*= ECB*/
-	  )
+	bool CCryptoAes::DecryptMessage(
+		const CCryptoAesKey &key,
+		const CMessage &input,
+		CMessage &output,
+		int offset,
+		uint8_t * initializationVector /*= NULL*/,
+		int initializationVectorLength /*= 0*/,
+		EncryptMode encryptMode /*= ECB*/
+	)
 	{
 		int outputLength = input.GetLength() - offset;
 		if (outputLength <= 0)
@@ -549,8 +549,8 @@ namespace Proud
 
 	// Convenience method to encrypt exactly one block of plaintext, assuming
 	// Rijndael's default block size (128-bit).
-	// in         - The plaintext
-	// result     - The ciphertext generated from a plaintext using the key
+	// in		- The plaintext
+	// result	- The ciphertext generated from a plaintext using the key
 	bool CCryptoAes::DefaultEncryptBlock(const CCryptoAesKey &key, const uint8_t* in, uint8_t *result)
 	{
 		if (key.KeyExists() == false)
@@ -630,8 +630,8 @@ namespace Proud
 
 	// Convenience method to decrypt exactly one block of plaintext, assuming
 	// Rijndael's default block size (128-bit).
-	// in         - The ciphertext.
-	// result     - The plaintext generated from a ciphertext using the session key.
+	// in		- The ciphertext.
+	// result	- The plaintext generated from a ciphertext using the session key.
 	bool CCryptoAes::DefaultDecryptBlock(const CCryptoAesKey &key, const uint8_t* in, uint8_t *result)
 	{
 		if (key.KeyExists() == false)
@@ -709,8 +709,8 @@ namespace Proud
 	}
 
 	//Encrypt exactly one block of plaintext.
-	// in           - The plaintext.
-	// result       - The ciphertext generated from a plaintext using the key.
+	// in		- The plaintext.
+	// result	- The ciphertext generated from a plaintext using the key.
 	bool CCryptoAes::EncryptBlock(const CCryptoAesKey &key, const uint8_t* in, uint8_t *result)
 	{
 		if (key.KeyExists() == false)
@@ -776,8 +776,8 @@ namespace Proud
 	}
 
 	//Decrypt exactly one block of ciphertext.
-	// in         - The ciphertext.
-	// result     - The plaintext generated from a ciphertext using the session key.
+	// in		- The ciphertext.
+	// result	- The plaintext generated from a ciphertext using the session key.
 	bool CCryptoAes::DecryptBlock(const CCryptoAesKey &key, const uint8_t* in, uint8_t *result)
 	{
 		if (key.KeyExists() == false)
@@ -1805,7 +1805,4 @@ namespace Proud
 		{ { 0, 0 }, { 1, 5 }, { 2, 4 }, { 3, 3 } },
 		{ { 0, 0 }, { 1, 7 }, { 3, 5 }, { 4, 4 } }
 	};
-
-
-
 }

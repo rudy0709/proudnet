@@ -42,11 +42,11 @@ namespace Proud
 
 		/** 서버가 종료해야 하는 상황(유저의 요청 등)이면 이 함수가 true를 리턴하면 된다. */
 		virtual bool MustStopNow() = 0;
-		
+
 		/** Critical section 객체를 리턴한다. 개발자는 이 함수를 통해 이미 서버가 사용중인 critical section이나
 		별도로 준비한 critical section 객체를 공급해야 한다. */
 		virtual CriticalSection* GetCriticalSection() = 0;
-		
+
 		/** 서버 시작이 완료됐음을 알리는 이벤트
 		- \param err 서버 시작이 성공했으면 NULL이, 그렇지 않으면 ErrorInfo 객체가 들어있다. */
 		virtual void OnServerStartComplete(Proud::ErrorInfo *err) = 0;
@@ -79,6 +79,5 @@ namespace Proud
 #pragma managed(pop)
 #endif
 }
-
 
 //#pragma pack(pop)

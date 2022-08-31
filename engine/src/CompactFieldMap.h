@@ -9,8 +9,8 @@ namespace Proud
 	class CMessage;
 	class CompactFieldMap;
 
-	 PROUD_API void Message_Write(CMessage& msg, const CompactFieldMap &fieldMap);
-	 PROUD_API bool Message_Read(CMessage& msg, CompactFieldMap &fieldMap);
+	PROUD_API void Message_Write(CMessage& msg, const CompactFieldMap &fieldMap);
+	PROUD_API bool Message_Read(CMessage& msg, CompactFieldMap &fieldMap);
 
 	// 프넷 내부에서 주고받는 RMI나 Message는 이제 하위 호환성을 갖추어야 한다.
 	// Google Play, AppStore들은 잦은 앱 업데이트를 부정한다. 이 때문에 서로 다른 버전의 클라이언트가 서버에 접속하더라도 잘 되어야 한다.
@@ -42,6 +42,4 @@ namespace Proud
 
 		*/
 	};
-
-
 }

@@ -23,7 +23,7 @@ namespace Proud
 		// 관련된 데이터의 UUID
 		Guid m_uuid;
 
-		// 실패 사유. 
+		// 실패 사유.
 		// 사용자는 요청의 성공/실패 여부를 이 값으로 확인합니다.
 		ErrorType m_reason;
 
@@ -56,28 +56,28 @@ namespace Proud
 	// 데이터 로딩의 주체(db cache client)가 요청한 내용들
 	// 데이터 로딩 요청 뿐만 아니라 언로드 요청에서도 공통으로 쓰이는 구조체
 	//   ※ 독점로드 시 CLoadRequest객체의 생명주기
-	//    1. 로드 요청 시 생성 (new CLoadRequest). m_waitForUnloadCount의 초기값은 0
-	//    2. 로드하려는 데이터들 중 독점된 것이 전혀 없으면 바로 3번 수행, 아니면 2-1 ~ 2-3을 수행
-	//      2-1. 독점된 데이터의 개수만큼 m_waitForUnloadCount값을 증가시키고 독점자들에게 Unload 요청
-	//      2-2. 독점자가 Unload 또는 Deny를 하면 m_waitForUnloadCount값 감소
-	//      2-1. 독점자가 Unload요청에 반응이 없으면 타임아웃 처리되면서 m_waitForUnloadCount값 감소
-	//    3. m_waitForUnloadCount가 0이면 응답 후 소멸 (delete CLoadRequest)
+	//	1. 로드 요청 시 생성 (new CLoadRequest). m_waitForUnloadCount의 초기값은 0
+	//	2. 로드하려는 데이터들 중 독점된 것이 전혀 없으면 바로 3번 수행, 아니면 2-1 ~ 2-3을 수행
+	//	  2-1. 독점된 데이터의 개수만큼 m_waitForUnloadCount값을 증가시키고 독점자들에게 Unload 요청
+	//	  2-2. 독점자가 Unload 또는 Deny를 하면 m_waitForUnloadCount값 감소
+	//	  2-1. 독점자가 Unload요청에 반응이 없으면 타임아웃 처리되면서 m_waitForUnloadCount값 감소
+	//	3. m_waitForUnloadCount가 0이면 응답 후 소멸 (delete CLoadRequest)
 	class CLoadRequest
 	{
 	public:
 		// 독점 로드 요청인지 여부
 		const bool m_isExclusiveRequest;
 
-		// 요청한 호스트 
+		// 요청한 호스트
 		const HostID m_requester;
 
-		// 사용자가 입력한 태그 
+		// 사용자가 입력한 태그
 		const int64_t m_tag;
 
 		// 실패한 데이터들 정보
 		FailInfoList_S m_failList;
 
-		// 로드 성공한 목록 
+		// 로드 성공한 목록
 		SuccessInfoList_S m_successList;
 
 		// 기존 독점자들에게 보낼 메시지
@@ -86,7 +86,7 @@ namespace Proud
 		// 요청한 시간
 		const int64_t m_requestTimeMs;
 
-		// 독점 로드를 하려는 데이터들 중 
+		// 독점 로드를 하려는 데이터들 중
 		// 이미 독점되어 있어서 기존 독점자에게 Unload요청을 보냈고, 그 응답을 기다리는 데이터의 개수
 		int m_waitForUnloadCount;
 
@@ -138,7 +138,7 @@ namespace Proud
 	public:
 		enum LoadState
 		{
-			// 메모리에 로드되어있으나 아무도 독점중이지 않은 상태. 
+			// 메모리에 로드되어있으나 아무도 독점중이지 않은 상태.
 			LoadState_None,
 
 			// 메모리에 로드되었고 현재 독점 요청이 진행 중인 상태.
@@ -147,7 +147,7 @@ namespace Proud
 			// NotifyLoadDataComplete을 받지도 못한 독점요청자가 NotifyDataUnloadRequested를 받는 상황을 피하기 위함.
 			LoadState_Requested,
 
-			// 독점이 완료되었고 해당 독점자는 NotifyLoadDataComplete까지 받은 상태. 
+			// 독점이 완료되었고 해당 독점자는 NotifyLoadDataComplete까지 받은 상태.
 			LoadState_Exclusive
 		};
 
@@ -198,5 +198,4 @@ namespace Proud
 		// m_data안의 모든 지울 node를 writependlist에 추가한다.
 		void AddWritePendListFromRemoveNodes(HostID dbClientID, Guid removeUUID = Guid(), IDbWriteDoneNotifyPtr doneNotify = IDbWriteDoneNotifyPtr());
 	};
-
 }

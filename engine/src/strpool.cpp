@@ -2,7 +2,7 @@
 #include "../include/strpool.h"
 
 
-namespace Proud 
+namespace Proud
 {
 
 	CStringPool::CStringPool()
@@ -40,7 +40,7 @@ namespace Proud
 	}
 
 	const String CStringPool::GetString( const Proud::String &str )
-	{		
+	{
 		CriticalSectionLock lock(m_cs,true);
 
 		MapType::CPair* pNode = m_map.Lookup(str);

@@ -20,7 +20,7 @@
 namespace Proud
 {
 	using namespace std;
-	
+
 	class CRemotePeer_C;
 
 	// 릴레이 되는 메시지에 들어가는, '릴레이 최종 수신자 리스트'의 각 항목
@@ -43,7 +43,7 @@ namespace Proud
 		HostIDArray m_includeeHostIDList;			// 어떠한 p2p 그룹에도 등록되어 있지 않은 개별 host id list
 
 		void AddSubset(const HostIDArray& subsetGroupHostID, HostID hostID);	// 제외되어야할 hostid list에 추가한다.
-		void AddIndividual(HostID hostID);							    // individual list에 추가한다.
+		void AddIndividual(HostID hostID);								// individual list에 추가한다.
 		int GetAllHostIDCount();						// 모든 HostID의 갯수 ( 그룹 호스트ID까지 포함됨 )
 
 		CompressedRelayDestList_C();
@@ -81,5 +81,4 @@ namespace Proud
 	public:
 		void ToSerializable(RelayDestList& ret);
 	};
-
 }

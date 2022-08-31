@@ -9,7 +9,6 @@
 
 namespace Proud
 {
-
 	// 이미 socket fd가 만들어진 상태이고, 이 생성자 함수에서는 fail case가 전혀 없다.
 	// 따라서 public 생성자 함수로 고고고. CSuperSocket.New와 달리.
 	CWebSocket::CWebSocket(CNetCoreImpl *owner, shared_ptr<WsServer::Connection> connection)
@@ -53,17 +52,17 @@ namespace Proud
 
 				shared_ptr<WsServer::SendStream> sendStream = make_shared<WsServer::SendStream>();
 				sendStream->write(strEncoded.GetString(), strEncoded.GetLength());
-			
+
 				int doneBytes = sendStream->size();
 				shared_ptr<CSuperSocket> this_ptr = shared_from_this();
-				
+
 				svr->m_webSocketServer->send(wsConnection, sendStream, [this_ptr, doneBytes, svr, wsConnection](const error_code& ec) {
-				if (ec)	// 보내기가 실패할 경우 해당 연결을 제거한다.
-					svr->m_webSocketServer->close_connection(wsConnection, svr->m_webSocketParam.endpoint, ec);
-				else
-					this_ptr->m_owner->OnMessageSent(doneBytes, SocketType_WebSocket);
-			});
-		}
+					if (ec)	// 보내기가 실패할 경우 해당 연결을 제거한다.
+						svr->m_webSocketServer->close_connection(wsConnection, svr->m_webSocketParam.endpoint, ec);
+					else
+						this_ptr->m_owner->OnMessageSent(doneBytes, SocketType_WebSocket);
+				});
+			}
 		}
 		else if (svr->m_webSocketParam.webSocketType == WebSocket_Wss)
 		{
@@ -80,14 +79,14 @@ namespace Proud
 				shared_ptr<CSuperSocket> this_ptr = shared_from_this();
 
 				svr->m_webSocketServerSecured->send(wssConnection, sendStream, [this_ptr, doneBytes, svr, wssConnection](const error_code& ec) {
-				if (ec)	// 보내기가 실패할 경우 해당 연결을 제거한다.
-					svr->m_webSocketServerSecured->close_connection(wssConnection, svr->m_webSocketParam.endpoint, ec);
-				else
-					this_ptr->m_owner->OnMessageSent(doneBytes, SocketType_WebSocket);
-			});
+					if (ec)	// 보내기가 실패할 경우 해당 연결을 제거한다.
+						svr->m_webSocketServerSecured->close_connection(wssConnection, svr->m_webSocketParam.endpoint, ec);
+					else
+						this_ptr->m_owner->OnMessageSent(doneBytes, SocketType_WebSocket);
+				});
+			}
 		}
 	}
-}
 }
 
 #endif

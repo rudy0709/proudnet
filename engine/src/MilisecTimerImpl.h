@@ -10,11 +10,11 @@ ProudNet
 
 ProudNet
 
-This program is soley copyrighted by Nettention. 
+This program is soley copyrighted by Nettention.
 Any use, correction, and distribution of this program are subject to the terms and conditions of the License Agreement.
 Any violated use of this program is prohibited and will be cause of immediate termination according to the License Agreement.
 
-** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE. 
+** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE.
 
 */
 
@@ -39,22 +39,22 @@ namespace Proud
 		virtual ~CMilisecTimerImpl(){}
 
 		// 타이머를 초기화한다.
-		void Reset(); 
+		void Reset();
 		// 타이머를 시작한다.
-		void Start(); 
+		void Start();
 		// 타이머를 일시 정지한다.
-		void Stop();  
+		void Stop();
 		// 타이머를 0.1초만큼 진행되게 한다.
-		void Advance(); 
+		void Advance();
 
 		//퇴역
 		//double GetAbsoluteTime();
 
-		int64_t GetTimeMs(); 
-		
-		int64_t GetElapsedTimeMs(); 
+		int64_t GetTimeMs();
 
-		bool IsStopped(); 
+		int64_t GetElapsedTimeMs();
+
+		bool IsStopped();
 
 	protected:
 		bool m_bTimerStopped;
@@ -63,9 +63,6 @@ namespace Proud
 		int64_t m_llLastElapsedTime;
 		int64_t m_llBaseTime;
 	};
-
-
-
 
 	/**  @} */
 #if (_MSC_VER>=1400)

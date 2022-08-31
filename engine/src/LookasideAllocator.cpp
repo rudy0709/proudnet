@@ -29,5 +29,4 @@ namespace Proud
 	{
 		//  no impl
 	}
-	
 }

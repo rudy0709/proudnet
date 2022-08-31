@@ -19,8 +19,6 @@ namespace Proud
 		template<typename ByteArrayT>
 		inline static void Decode(const StringA &text, ByteArrayT& outBinary);
 	};
-
 }
-
 
 #include "Base64.inl"

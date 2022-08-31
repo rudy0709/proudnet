@@ -22,7 +22,6 @@
 
 namespace Proud
 {
-
 	CEmergencyLogClient::CEmergencyLogClient(void)
 	{
 		m_logData = NULL;
@@ -100,7 +99,7 @@ namespace Proud
 
 	}
 
-	
+
 	void CEmergencyLogClient::OnException( const Exception &e )
 	{
 		_pn_unused(e);

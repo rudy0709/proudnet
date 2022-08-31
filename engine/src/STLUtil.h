@@ -68,7 +68,7 @@ namespace Proud
 	//};
 	//
 
-#if defined(_WIN32)    
+#if defined(_WIN32)
 	/** 편의 함수로,map에 추가한다. */
 	template<typename A, typename B>
 	inline typename map<A, B>::iterator map_insert(map<A, B> &m, const A& a, const B& b)
@@ -124,17 +124,17 @@ namespace Proud
 		}
 	}
 
-	// 
-	// template<typename V,AllocType AllocT>
-	// inline void smartptrvector_clone(vector<RefCount<V> > &to, vector<RefCount<V> > &from)
-	// {
-	// 	to.clear();
-	// 	for (vector<RefCount<V> >::iterator i = from.begin();i != from.end();i++)
-	// 	{
-	// 		RefCount<V> cloned = (*i)->Clone();
-	// 		to.push_back(cloned);
-	// 	}
-	// }
+	//
+	//template<typename V,AllocType AllocT>
+	//inline void smartptrvector_clone(vector<RefCount<V> > &to, vector<RefCount<V> > &from)
+	//{
+	//	to.clear();
+	//	for (vector<RefCount<V> >::iterator i = from.begin();i != from.end();i++)
+	//	{
+	//		RefCount<V> cloned = (*i)->Clone();
+	//		to.push_back(cloned);
+	//	}
+	//}
 
 
 	template<typename K, typename V>
@@ -217,33 +217,33 @@ namespace Proud
 	// vector, list 등 단일체(unary)의 collection에 대한 루프 편의 매크로
 	//#define FOREACH_UNARY(i,c) for(i._Mybase)???
 
-// 	/** vector에 몇 가지 기능이 추가되고 오버라이드된 객체 */
-// 	template<typename T>
-// 	class ext_vector: public std::vector<T>
-// 	{
-// 	public:
-// 		inline void insert(const T &item)
-// 		{
-// 			push_back(item);
-// 		}
-// 
-// 		iterator find(const T &item)
-// 		{
-// 			return ::find(begin(), end(), item);
-// 		}
-// 
-// 		// 배열에서, 맨 뒤의 것을 i가 가리키는 곳으로 옮기고 맨 뒤의 것을 제거한다.
-// 		inline void eraseAndPullLast(iterator i)
-// 		{
-// 			if (size() == 1)
-// 				erase(i);
-// 			else
-// 			{
-// 				*i = back();
-// 				resize(size() - 1);
-// 			}
-// 		}
-// 	};
+//	/** vector에 몇 가지 기능이 추가되고 오버라이드된 객체 */
+//	template<typename T>
+//	class ext_vector: public std::vector<T>
+//	{
+//	public:
+//		inline void insert(const T &item)
+//		{
+//			push_back(item);
+//		}
+//
+//		iterator find(const T &item)
+//		{
+//			return ::find(begin(), end(), item);
+//		}
+//
+//		// 배열에서, 맨 뒤의 것을 i가 가리키는 곳으로 옮기고 맨 뒤의 것을 제거한다.
+//		inline void eraseAndPullLast(iterator i)
+//		{
+//			if (size() == 1)
+//				erase(i);
+//			else
+//			{
+//				*i = back();
+//				resize(size() - 1);
+//			}
+//		}
+//	};
 
 	/** collection이 텅 빌때까지 첫 항목에 대한 delete를 한다.
 	이건 collection item이 파괴될 때 self unregister를 하는 경우에 유용하다. */
@@ -279,17 +279,17 @@ namespace Proud
 	}
 
 	// 맵이 항목을 갖고 있으면 true
-	// 주의: value를 루프 돌면서 찾으므로 느리다. 
- 	template<typename T, typename V>
- 	bool ContainsValue(const T& map, const V& value)
- 	{
- 		for (typename T::const_iterator i = map.begin(); i != map.end(); i++)
- 		{
- 			if (i->GetSecond() == value)
- 				return true;
- 		}
- 		return false;
- 	}
+	// 주의: value를 루프 돌면서 찾으므로 느리다.
+	template<typename T, typename V>
+	bool ContainsValue(const T& map, const V& value)
+	{
+		for (typename T::const_iterator i = map.begin(); i != map.end(); i++)
+		{
+			if (i->GetSecond() == value)
+				return true;
+		}
+		return false;
+	}
 
 	/* vs2003, non-vs를 위해서 있는 매크로
 
@@ -300,7 +300,4 @@ namespace Proud
 	}
 	*/
 #define PN_FOREACH(TYPE, VAR, i) for(TYPE::iterator i=VAR.begin();i!=VAR.end();i++)
-
-	
-
-	}
+}

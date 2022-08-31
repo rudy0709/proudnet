@@ -23,6 +23,6 @@ extern	int pnvsnwprintf(wchar_t *buf, size_t cnt, const wchar_t *fmt, va_list ar
 
 #if defined(__cplusplus)
 }
-#endif	
+#endif
 
 #endif //defined(__linux__) || defined(__MARMALADE__) && defined(__GNUC__)  // marmalade ARM GCC

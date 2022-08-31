@@ -17,20 +17,20 @@
 #include "URI.h"
 #include "SocketUtil.h"
 
-namespace Proud 
+namespace Proud
 {
 #ifdef _WIN32
 	const PNTCHAR* CErrorReporter_Indeed::LogServerName=_PNT("www.nettention.com");
 	int CErrorReporter_Indeed::LogServerPort=80;
 	const char* CErrorReporter_Indeed::LogHttpMsgFmt = "GET /PNReport/ReportError.php?Text=";
-	const char* CErrorReporter_Indeed::LogHttpMsgFmt2 = " HTTP/1.1\r\n" 
-		"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/0.3.154.9 Safari/525.19\r\n" 
-		"Accept-Language: ko-KR,ko,en-US,en\r\n" 
-		"Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5\r\n" 
-		"Cache-Control: max-age=0\r\n" 
-		"Accept-Charset: EUC-KR,*,utf-8\r\n" 
-		"Accept-Encoding: gzip,deflate,bzip2\r\n" 
-		"Host: %s\r\n" 
+	const char* CErrorReporter_Indeed::LogHttpMsgFmt2 = " HTTP/1.1\r\n"
+		"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/0.3.154.9 Safari/525.19\r\n"
+		"Accept-Language: ko-KR,ko,en-US,en\r\n"
+		"Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5\r\n"
+		"Cache-Control: max-age=0\r\n"
+		"Accept-Charset: EUC-KR,*,utf-8\r\n"
+		"Accept-Encoding: gzip,deflate,bzip2\r\n"
+		"Host: %s\r\n"
 		"Connection: Keep-Alive\r\n\r\n";
 
 	void CErrorReporter_Indeed::Heartbeat_LogSocket()
@@ -121,9 +121,9 @@ namespace Proud
 				cannedText.SetUrlPath((const PNTCHAR*)&m_text);
 				cannedText.Canonicalize();
 
-				// 				CUrl cannedText;
-				// 				cannedText.SetUrlPath(m_text);
-				// 				cannedText.Canonicalize();
+				//				CUrl cannedText;
+				//				cannedText.SetUrlPath(m_text);
+				//				cannedText.Canonicalize();
 				m_text = _PNT(""); //이래야 다음 로그 요청도 받는다.
 
 				StringA s1 = LogHttpMsgFmt;
@@ -169,7 +169,7 @@ namespace Proud
 		{
 			return false;
 		}
-			
+
 		return true;
 	}
 
@@ -207,7 +207,7 @@ namespace Proud
 
 	void CErrorReporter_Indeed::Heartbeat_LogSocket_IssueSend()
 	{
-		if(!AtomicCompareAndSwap32(0,1,&m_sendIoFlag)) 
+		if(!AtomicCompareAndSwap32(0,1,&m_sendIoFlag))
 		{
 			return;
 		}
@@ -228,11 +228,11 @@ namespace Proud
 		m_lastReportedTime = 0;
 		m_logSocketState = LSS_Finished;
 		m_stopThread = false;
-		
+
 		m_worker.Start();
 	}
 
-	// 항상 받아들이면 곤란. 
+	// 항상 받아들이면 곤란.
 	void CErrorReporter_Indeed::RequestReport( const String &text )
 	{
 		// CriticalSectionLock.Lock 자체가 error report를 유발할 수 있으므로, 무한호출을 막기 위해서
@@ -293,7 +293,7 @@ namespace Proud
 		CFakeWin32::OutputDebugStringT(text.GetString());
 #endif
 	}
-	
+
 
 #ifdef _WIN32
 	CErrorReporter_Indeed::~CErrorReporter_Indeed()

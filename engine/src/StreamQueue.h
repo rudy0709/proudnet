@@ -56,6 +56,5 @@ namespace Proud
 		{
 			return PopFront(GetLength());
 		}
-
 	};
 }

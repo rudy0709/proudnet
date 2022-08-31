@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/FakeClr.h"
 #include "../include/FastList.h"
@@ -42,10 +42,10 @@ namespace Proud
 		// 지금 보내는 datagram에 해당하는 packet의 총 크기.
 		// 이 fragment뿐만 아니라 모든 fragment의 총합이다.
 		int packetLength;
-		
+
 		// 지금 보내는 datagram 즉 fragment의 packet ID
 		PacketIDType packetID;
-		
+
 		// fragment ID. 0이면 맨 앞이다. 최대값은 (fragmentID / MTU) 쯤이다.
 		int fragmentID;
 	};
@@ -63,12 +63,12 @@ namespace Proud
 		// *** TODO: 이 변수는 제거해서 수신자 구별 없이 unique하게 하던지,
 		// 수신자 구별할 수 있도록 final send dest hostID의 의미를 가지게 하던지,
 		// 결정하자. 지금은 안 쓰이는 변수다.
-		// 당연히 타 언어도 같이 수정해야. 
+		// 당연히 타 언어도 같이 수정해야.
 
 		// P2P relay나 routed multicast되는 메시지의 경우(이하 릴레이로 통칭)
 		// 릴레이 메시지와 서버에게 주는 메시지가 겹쳐서 hostID 와 unique ID 를 모두 검사해야 한다.
 		// 안그러면, 서버한테 받아야 할 unreliable 메시지와 피어가 받아야 할 unreliable 메시지의 unique ID가 같을 경우
-		// 둘 중 하나가 증발해 버리는 문제가 생긴다. 
+		// 둘 중 하나가 증발해 버리는 문제가 생긴다.
 		// unique ID는 최종 수신 대상이 다른 경우 서로 영향을 주지 말아야 하는데 말이다.
 		// 따라서 unique ID와 relay 2 message가 수신될 최종 클라의 HostID를 넣는다.
 		// 릴레이되지 않으면 이 값은 none을 넣어야 한다.
@@ -90,12 +90,12 @@ namespace Proud
 		// 보낼 패킷. MTU보다 클 수 있다.
 		ByteArray m_packet;
 
-		// 이 송신큐에 들어간 시간. 
-		// 오래된 unreliable 메시지인 경우 보내지 말고 폐기하기 위함. 
+		// 이 송신큐에 들어간 시간.
+		// 오래된 unreliable 메시지인 경우 보내지 말고 폐기하기 위함.
 		// 혼잡 제어=>송신 지연=>메모리 증가=>서버 혹은 모바일폰 다운 예방차.
 		int64_t m_enquedTime;
 
-		// 이 패킷의 TTL 값. 
+		// 이 패킷의 TTL 값.
 		// 인접해 있는 보낼 패킷의 TTL과 서로 다른 경우 서로 다른 sendto()를 호출해야 하므로 이 값을 쓴다.
 		int m_ttl;
 
@@ -335,19 +335,19 @@ namespace Proud
 
 			//도마 위에 올라간 메시지들의 총 길이(byte)
 			int m_fragBoardTotalBytes;
-			
+
 			// 다음 pop fragment 함수가 실행될 때 썰려져 나올 fragment가 가질 ID. 0부터 시작한다.
 			int m_destFragID;
-			
+
 			// 도마 위에 올라간 메시지들 중에 썰려지고 있는 메시지 안에서 현재까지 썰어진 byte 위치. 도마의 첫번째 메시지들 중 맨 앞을 0으로 기준으로 한다.
 			int m_globalOffsetInFragBoard;
-			
+
 			// 도마 위에 올라간 메시지들 중에 썰려지고 있는 메시지 안에서 현재까지 썰어진 byte 위치. 썰리고 있는 메시지의 앞을 0으로 기준으로 한다.
 			int m_localOffsetInFragBoard;
-			
+
 			// 도마 위에 올라간 메시지들(총 크기: MTU이하) 중에 썰려지고 있는 메시지의 인덱스. m_fragBoardedPackets 안에 있는 것들 중 말이다.
 			int m_srcIndexInFragBoard;
-			
+
 			// 도마 위에서 썰어지지 않고 전송되는 full packet의 packet ID. m_nextFragmentedPacketID과 별개로 지속적으로 증가한다.
 			PacketIDType m_lastFullPacketID;
 
@@ -491,7 +491,7 @@ namespace Proud
 
 		inline DefraggingPacket()
 			: m_fragFilledCount(0)
-			, m_createdTime(0) 
+			, m_createdTime(0)
 		{
 		}
 
@@ -588,7 +588,7 @@ namespace Proud
 	{
 		CSuperSocket* m_owner;
 
-		// 2중 맵이다. 첫번째는 AddrPort, 두번째는 PacketID이다. 
+		// 2중 맵이다. 첫번째는 AddrPort, 두번째는 PacketID이다.
 		// 2중 맵으로 굳이 되어있는 이유: AddrPort별 최근 수신 속도 산출을 위해.
 		class AddrPortToDefraggingPacketsMap :public CFastMap2<AddrPort, DefraggingPacketMap*, int>
 		{

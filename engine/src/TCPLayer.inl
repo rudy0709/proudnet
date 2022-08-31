@@ -285,42 +285,42 @@ namespace Proud
 
 		// 같은 uniqueID를 가지는 것을 찾아서 중복 처리한다. 단 0은 제외!
 		// #ifdef ALLOW_UNIQUEID_FOR_TCP
-		// 		if(packet.m_uniqueID != 0)
-		// 		{
-		// 			for(QueueType::iterator i=m_queue.begin();i!=m_queue.end();i++)
-		// 			{
-		// 				TcpPacketCtx& e = *i;
-		// 				if(e.m_uniqueID == packet.m_uniqueID)
-		// 				{
-		// 					m_totalLength -= e.m_packet.GetCount();
-		// 					e = packet;
-		// 					m_totalLength += e.m_packet.GetCount();
-		// 					goto L1;
-		// 				}
-		// 			}
-		// 		}
+		//		if(packet.m_uniqueID != 0)
+		//		{
+		//			for(QueueType::iterator i=m_queue.begin();i!=m_queue.end();i++)
+		//			{
+		//				TcpPacketCtx& e = *i;
+		//				if(e.m_uniqueID == packet.m_uniqueID)
+		//				{
+		//					m_totalLength -= e.m_packet.GetCount();
+		//					e = packet;
+		//					m_totalLength += e.m_packet.GetCount();
+		//					goto L1;
+		//				}
+		//			}
+		//		}
 		// #endif // ALLOW_UNIQUEID_FOR_TCP
 		//
-		// 		// 비중복. 그냥 끝에 넣기.
-		// 		m_queue.AddTail(packet);
-		// 		m_totalLength += (int)packet->m_packet.GetCount();
+		//		// 비중복. 그냥 끝에 넣기.
+		//		m_queue.AddTail(packet);
+		//		m_totalLength += (int)packet->m_packet.GetCount();
 		// #ifdef ALLOW_UNIQUEID_FOR_TCP
 		// L1:
 		// #endif // ALLOW_UNIQUEID_FOR_TCP
 		//		CheckConsist();
 	}
 
-	// #PacketGarble splitter 범위에 따라 범위 내 난수를 만든다. 
+	// #PacketGarble splitter 범위에 따라 범위 내 난수를 만든다.
 	short CTcpLayer_Common::SplitterToRandom(short splitter)
 	{
 		if (splitter == SimpleSplitter)
 			return SimpleSplitter;  // 안 바꾼다. 유저가 판독 가능한 패킷 포맷이어야 하니.
-	
+
 		// 첫 바이트를 채울 랜덤값을 구한다.
 		uint8_t rand = NextRandom();
-		// SimpleSplitter는 0x0909이다. 첫 바이트가 ascii 범위이다. 따라서 랜덤값을 얻더라도 
+		// SimpleSplitter는 0x0909이다. 첫 바이트가 ascii 범위이다. 따라서 랜덤값을 얻더라도
 		// non-ascii로 바꾸어야 한다.
-		uint8_t ch0 = NonAscii(rand); 
+		uint8_t ch0 = NonAscii(rand);
 
 		// 두번째 바이트용 난수
 		uint8_t rand2 = NextRandom();
@@ -334,7 +334,7 @@ namespace Proud
 		return (short)ret;
 	}
 
-	// #PacketGarble 난수의 범위에 따라 splitter 값을 리턴한다. 
+	// #PacketGarble 난수의 범위에 따라 splitter 값을 리턴한다.
 	// 위 함수와 정반대로 작동한다.
 	// 비해당이면 0을 리턴.
 	short CTcpLayer_Common::RandomToSplitter(short randomSplitter)
@@ -351,6 +351,4 @@ namespace Proud
 		short splitter = FrontBitsToSplitter(front);
 		return splitter;
 	}
-
-
 }

@@ -3,7 +3,7 @@
 #include "HeartbeatWork.h"
 #include "../include/sysutil.h"
 
-namespace Proud 
+namespace Proud
 {
 #ifndef __GNUC__
 	CHeartbeatWorkThread::CHeartbeatWorkThread(void)
@@ -50,7 +50,7 @@ namespace Proud
 		WorkData *wk = new WorkData;
 		wk->m_obj = obj;
 		wk->m_interval = intervalMilisec;
-		
+
 		obj->m_owner = this;
 
 		m_workList.PushBack(wk);

@@ -28,7 +28,7 @@ namespace Proud
 	// 인공위성 통신에서는 RTT가 매우 길어서 sender window초기값은 3이어야 한다.
 	const int SenderWindowInitMaxLength = 3;
 
-	// slow-start threshold는 아무리 낮아도 이 값 이하로 떨어지지 않는다. 
+	// slow-start threshold는 아무리 낮아도 이 값 이하로 떨어지지 않는다.
 	// sender window가 지나치게 바닥으로 낮아지는 현상을 막기 위함
 	const int MinimumSSThreshHold = SenderWindowInitMaxLength + 2;
 
@@ -40,7 +40,7 @@ namespace Proud
 	}
 
 	// 객체를 생성하자마자 상대와의 연결이 된 것으로 간주한다. 이미 초기 프레임 값이 서로 맞춰진 셈이니까.
-	ReliableUdpHost::ReliableUdpHost( CRemotePeer_C *OwnerRemotePeer, int firstFrameNumber ) 
+	ReliableUdpHost::ReliableUdpHost( CRemotePeer_C *OwnerRemotePeer, int firstFrameNumber )
 		:m_sendStream(CNetConfig::StreamGrowBy)
 		,m_receivedStream(CNetConfig::StreamGrowBy)
 	{
@@ -70,7 +70,7 @@ namespace Proud
 
 		m_dupAckReceivedCount = 0;
 		m_dupDataReceivedCount = 0;
-		m_preventSpuriousRto = false; 
+		m_preventSpuriousRto = false;
 		m_dupDataReceivedCount_LastClearTimeMs = 0;
 
 		m_ownerRemotePeer = OwnerRemotePeer;
@@ -121,17 +121,17 @@ namespace Proud
 	void ReliableUdpHost::Heartbeat()
 	{
 		assert(m_senderWindowMaxLength >= 1);
-		int64_t currTime = GetPreciseCurrentTimeMs();	
+		int64_t currTime = GetPreciseCurrentTimeMs();
 
 		// 몇 초마다, '받았는데 또 데이터 프레임을 받네 젠장' 카운트를 클리어한다.
-		if(currTime - m_dupDataReceivedCount_LastClearTimeMs > 4300) 
+		if(currTime - m_dupDataReceivedCount_LastClearTimeMs > 4300)
 		{
 			m_dupDataReceivedCount_LastClearTimeMs = currTime;
 			m_dupDataReceivedCount = 0;
 		}
 
-		/* 만약 relay mode라면, stream에 있는 것을 1개의 long frame으로 만들어 sender window에 옮긴 후, 
-		sender window에 있는 것들을 지금 즉시 모두 전송해 버리고, ack를 이미 받은 것처럼 처리해버린다. 
+		/* 만약 relay mode라면, stream에 있는 것을 1개의 long frame으로 만들어 sender window에 옮긴 후,
+		sender window에 있는 것들을 지금 즉시 모두 전송해 버리고, ack를 이미 받은 것처럼 처리해버린다.
 		relay이면 TCP로 전송되므로 혼잡 제어는 걱정 하지 않아도 된다. 즉 여기서 모든 sender window를 한번에 flush해버려도 된다. */
 		if(m_ownerRemotePeer->IsRelayedP2P())
 		{
@@ -139,7 +139,7 @@ namespace Proud
 
 			// relay mode인 경우, reliable udp failure 상태였을 수 있다. 이를 리셋하는 역할을 여기서 해야 한다.
 			m_maxResendElapsedTimeMs = 0;
-			m_senderWindowMaxLength = SenderWindowInitMaxLength;	// slow start 알고리즘을 처음부터 시작			
+			m_senderWindowMaxLength = SenderWindowInitMaxLength;	// slow start 알고리즘을 처음부터 시작
 
 			InitSSThresh();		// Sliding Window 관련 초기화 루틴
 		}
@@ -147,12 +147,12 @@ namespace Proud
 		// relay mode이면 TCP를 통해 이미 전송 요청이 다 된 상태이므로, 송신할 것이 완전히 비어 있어야 한다.
 		if(m_ownerRemotePeer->IsRelayedP2P())
 		{
-			assert(m_sendStream.GetLength() == 0);	
+			assert(m_sendStream.GetLength() == 0);
 			assert(m_senderWindow.GetCount() == 0);
 		}
 
 		// coalesce타임마다, stream을 sender window로 옮긴다. 단, 혼잡 제어를 위해 sender window의 크기를 제한한다.
-		if(m_streamToSenderWindowLastTimeMs == 0 
+		if(m_streamToSenderWindowLastTimeMs == 0
 			|| currTime - m_streamToSenderWindowLastTimeMs > m_ownerRemotePeer->m_owner->m_StreamToSenderWindowCoalesceInterval_USE) // 참고: 여기를 주석 처리하면 성능이 왕창 올라감. 아래 delayed ack는 별 영향을 안줌.
 		{
 			m_streamToSenderWindowLastTimeMs = currTime;
@@ -168,7 +168,7 @@ namespace Proud
 
 			if (frame.m_sentCount == 0)	// 초송신 만족? (주의: 시간으로 검사하지 말자. int 버전으로 추후 바꿀 경우 0일 수 있으니)
 			{
-				frame.m_lastSentTimeMs = currTime; 
+				frame.m_lastSentTimeMs = currTime;
 				frame.m_firstSentTimeMs = currTime;
 				frame.m_resendCoolTimeMs = GetRetransmissionTimeout();
 				frame.m_sentCount++;
@@ -221,17 +221,17 @@ namespace Proud
 
 		// data frame에 piggybag할 기회도 없었고, delayed ack를 위해 충분히 기다렸다면, ack 정보만 있는 frame을 별도로 보내자.
 		// 단, relay mode이라면 예외
-		if(currTime - m_delayAckSentLastTimeMs > ReliableUdpConfig::DelayedAckIntervalMs 	// NOTE: 여기를 주석화해도 성능상 별 차이는 없다. 위 first or re-send 쪽을 주석화하면 확 차이남.
+		if(currTime - m_delayAckSentLastTimeMs > ReliableUdpConfig::DelayedAckIntervalMs	// NOTE: 여기를 주석화해도 성능상 별 차이는 없다. 위 first or re-send 쪽을 주석화하면 확 차이남.
 			&& m_mustSendAck
 			&& !m_ownerRemotePeer->IsRelayedP2P())
 		{
 			// ack만 들어있는 frame 송신
 			ReliableUdpFrame frame;
 			frame.m_type = ReliableUdpFrameType_Ack;
-			frame.m_ackFrameNumber = m_expectedFrameNumberToReceive;	 
+			frame.m_ackFrameNumber = m_expectedFrameNumberToReceive;
 			frame.m_maySpuriousRto = MaySpuriousRto();
 			m_mustSendAck = false;
-			m_delayAckSentLastTimeMs = currTime;	
+			m_delayAckSentLastTimeMs = currTime;
 			m_ownerRemotePeer->m_ToPeerReliableUdp.SendOneFrame(frame);
 
 			// 통계
@@ -277,7 +277,7 @@ namespace Proud
 	}
 
 	/* 만약 다른 reliable send 경로를 통해 reliable UDP frame을 보낼 방도가 있다면 그쪽으로 이미 성공적으로 보내졌음을
-	가정해서 이번에 보낼 frame number를 양보하고 그 번호를 유저에게 건네준다. 
+	가정해서 이번에 보낼 frame number를 양보하고 그 번호를 유저에게 건네준다.
 	단, stream에 있는 것들을 모두 sender window로 옮긴 후 시행한다. 게다가 sender window 크기 제한도 무시한다.
 	(어차피 TCP로 릴레이되는데 TCP는 혼잡 제어 기능이 있다. 따라서 이래도 안전하다.)
 
@@ -295,17 +295,17 @@ namespace Proud
 	// data frame을 보내니, 이참에 ack도 piggybag하자.
 	void ReliableUdpHost::DataFrame_PiggybagAck( SenderFrame &frame, int64_t currTime )
 	{
-		/* piggybag할 때는 용량을 걱정 안해도 된다. 어차피 보내는 것 까짓거 덤으로 더 보내도 된다. 
+		/* piggybag할 때는 용량을 걱정 안해도 된다. 어차피 보내는 것 까짓거 덤으로 더 보내도 된다.
 		하지만. 의도치 않은 fast retransmit이 자주 발생하면 안되니까, 그리고 아직 상대방으로 아무런 data frame도 안 받은 경우
 		(예: 사용자가 의도적으로 단방향으로만 메시징하는 앱) 엄한 frame number 0에 대한 ack를 보내면 안된다. 없는건 없는거다.
 		그래서 hasAck 플래그가 있는거임. */
 		if(m_mustSendAck)
 		{
 			frame.m_hasAck = true;
-			frame.m_ackFrameNumber = m_expectedFrameNumberToReceive;	
+			frame.m_ackFrameNumber = m_expectedFrameNumberToReceive;
 			frame.m_maySpuriousRto = MaySpuriousRto();
 
-			m_delayAckSentLastTimeMs = currTime;	// piggybag했으니 
+			m_delayAckSentLastTimeMs = currTime;	// piggybag했으니
 			m_mustSendAck = false; // piggybag했으니
 		}
 	}
@@ -338,7 +338,7 @@ namespace Proud
 			// (기하급수인 이유: cwnd를 늘리면 ack가 증가하는 속도가 같이 증가하게 되기 때문)
 			m_senderWindowMaxLength += float(removedCount);
 		}
-		else 
+		else
 		{
 			// ssthresh 크기 이후부터는 ack 를 받아도 완만하게 증가시킨다.
 			// 마스터링 TCP/IP에 의하면, 기존 cwnd 크기에 반비례시키면 된다.
@@ -353,7 +353,7 @@ namespace Proud
 		}
 
 		// TCP fast retransmit처럼, 몇 번 중복으로 같은 번호의 ack를 받으면 head frame을 즉시 resend한다.
-		// 만약 받은 ack 번호에 대응하는 frame을 지울 것이 없다는 것은, 
+		// 만약 받은 ack 번호에 대응하는 frame을 지울 것이 없다는 것은,
 		if(removedCount == 0)
 		{
 			m_dupAckReceivedCount++;
@@ -372,7 +372,7 @@ namespace Proud
 			{
 				SenderFrame& sf = m_senderWindow.GetHead();
 				sf.m_needFastRetransmit = true;
-			}	
+			}
 
 			// fast retransmit이 발생할 때는 cwnd를 반으로 줄여야 한다.
 			// (근거: 마스터링 TCP/IP 책)
@@ -397,7 +397,7 @@ namespace Proud
 				m_senderWindow.RemoveHeadNoReturn();
 				removedCount++;
 			}
-			else 
+			else
 			{
 				// 이제 현재 것이나 미래 것이면 더 이상 탐색 중지. 어차피 정렬된 상태이므로 안전.
 				break;
@@ -529,8 +529,8 @@ namespace Proud
 		m_senderWindow.Clear();
 	}
 
-	// stream에 있는 것을 sender window에 넣는다. 
-	// ignoreSenderWindowMaxLength: true이면 sender window 최대크기를 무시하고 다 때려넣는다. 	
+	// stream에 있는 것을 sender window에 넣는다.
+	// ignoreSenderWindowMaxLength: true이면 sender window 최대크기를 무시하고 다 때려넣는다.
 	// ignoreSenderWindowMaxLength: false이면 sender window 최대크기를 준수해서 넣는다. stream에 있는게 다 sender window에 들어가지 않을 수 있다.
 	void ReliableUdpHost::StreamToSenderWindow(bool ignoreSenderWindowMaxLength)
 	{
@@ -541,7 +541,7 @@ namespace Proud
 				break;
 			}
 
-			if (ignoreSenderWindowMaxLength == false 
+			if (ignoreSenderWindowMaxLength == false
 				&& m_senderWindow.GetCount() >= m_senderWindowMaxLength)
 			{
 				break;
@@ -585,19 +585,19 @@ namespace Proud
 		}
 
 		int64_t ret = recentPingMs * 4 + ReliableUdpConfig::DelayedAckIntervalMs; // RTT보다는 충분히 커야 ack가 올 수 있는데도 resend를 하는 불상사를 막음
-		
+
 
 		// int64_t ret = recentPingMs * 4; 밑에 있을 시 의미가 없어 지는 것 같습니다. 확인 부탁 드립니다.
 		// spurious RTO를 송신자가 신고했다면,
 		// 1.3초라는 충분히 큰 레이턴시를 더해서 spurious RTO를 방지해 버리자.
-		if(m_preventSpuriousRto)	
-			ret += 1300;	
+		if(m_preventSpuriousRto)
+			ret += 1300;
 
 
 		// RTO가 너무 짧으면 패킷 로스 발생이 조금이라도 나면 트래픽이 팍 오름.
 		// 따라서 하한선을 둬야.
 		// (더하지 않음! 위에서 *4를 했는데 WAN이면 충분히 큰 값이 나오니까)
-		ret = PNMAX(ret, ReliableUdpConfig::MinResendCoolTimeMs);				
+		ret = PNMAX(ret, ReliableUdpConfig::MinResendCoolTimeMs);
 
 		// 그래도 상한선은 지키도록 하자. 핑 시간이 잘못 측정된 경우를 위해.
 		ret = PNMIN(ret, ReliableUdpConfig::MaxResendCoolTimeMs);
@@ -610,8 +610,8 @@ namespace Proud
 		// obj-pool는 성능은 좋지만 안 쓰는 잔여 메모리는 주기적으로 정리해 주어야 함.
 		m_sendStream.Shrink();
 		m_receivedStream.Shrink();
-		// 		m_senderWindow.Shrink(); 언젠가, 이것들도 shrink하는 기능이 모바일 버전에서 필요할지도.
-		// 		m_receiverWindow.ShrinkOnNeed();
+		//		m_senderWindow.Shrink(); 언젠가, 이것들도 shrink하는 기능이 모바일 버전에서 필요할지도.
+		//		m_receiverWindow.ShrinkOnNeed();
 	}
 
 	int64_t ReliableUdpHost::GetMaxResendElapsedTimeMs()
@@ -626,6 +626,4 @@ namespace Proud
 		return (m_dupDataReceivedCount > 100) && (m_lastHeartbeatTimeMs - m_dupDataReceivedCount_LastClearTimeMs < 1100);
 
 	}
-
-
 }

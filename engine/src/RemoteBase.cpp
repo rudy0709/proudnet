@@ -59,7 +59,7 @@ namespace Proud
 			|| host->m_UserTaskQueueUseOnly_finalUserWorkItemList.GetCount() > 0;
 	}
 
-	
+
 	bool CHostBase::MessageOverloadChecking(int64_t currentTime)
 	{
 		//LockMain_AssertIsLockedByCurrentThread();
@@ -100,5 +100,4 @@ namespace Proud
 	{
 		m_coalesceIntervalMs = NetUtil::SetManualOrAutoCoalesceInterval(m_autoCoalesceInterval, m_recentPingMs, interval);
 	}
-
 }

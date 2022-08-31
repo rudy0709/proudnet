@@ -39,7 +39,7 @@ namespace Proud
 	public:
 
 // #ifdef _DEBUG
-// 		typedef CLookasideAllocatorInternal* SplitterType;
+//		typedef CLookasideAllocatorInternal* SplitterType;
 // #else
 		typedef uint16_t SplitterType; // 릴리즈 빌드에서는 사이즈를 줄이자.
 //#endif
@@ -62,10 +62,10 @@ namespace Proud
 		void Free( void* ptr );
 
 	private:
-		/*  
-			fast heap은 특정배수(예: 8) 단위의 크기로 memory pool을 가집니다. 사용자가 메모리 블럭을 
-			할당하고자 할 때 해당 메모리 블럭이 들어갈 pool을 찾아야 합니다. 이를 ground size라고 부릅니다. 
-			예를 들어 14바이트 메모리 블럭을 할당하고 싶으면, 이를 다룰 memory pool 즉 ground size는 
+		/*
+			fast heap은 특정배수(예: 8) 단위의 크기로 memory pool을 가집니다. 사용자가 메모리 블럭을
+			할당하고자 할 때 해당 메모리 블럭이 들어갈 pool을 찾아야 합니다. 이를 ground size라고 부릅니다.
+			예를 들어 14바이트 메모리 블럭을 할당하고 싶으면, 이를 다룰 memory pool 즉 ground size는
 			16바이트가 됩니다. 이 함수는 ground size를 계산해줍니다.
 		*/
 		size_t GetGroundSize(size_t blockSize);
@@ -131,7 +131,7 @@ namespace Proud
 				::HeapFree(m_hHeap, 0, ptr);
 #endif
 		}
-		int DebugCheckConsistency() 
+		int DebugCheckConsistency()
 		{
 #if !defined(_WIN32)
 			return _HEAPOK;
@@ -141,7 +141,7 @@ namespace Proud
 #endif
 		}
 
-		~CMemoryHeapImpl() 
+		~CMemoryHeapImpl()
 		{
 #if defined(_WIN32)
 			if(m_autoDestroy)

@@ -38,9 +38,6 @@
 
 namespace Proud
 {
-
-
-
 #ifndef _WIN32
 	const int EpollWakeupIntervalMs = 1000;
 
@@ -88,8 +85,8 @@ namespace Proud
 		}
 
 		// #ifdef _DEBUG
-		// 		bool r1 = fd_is_valid(lpEpollParam->m_nIdent);
-		// 		bool r2 = fd_is_valid(m_epfd);
+		//		bool r1 = fd_is_valid(lpEpollParam->m_nIdent);
+		//		bool r2 = fd_is_valid(m_epfd);
 		// #endif
 
 		CriticalSectionLock lock(m_cs, true);
@@ -228,9 +225,9 @@ namespace Proud
 		will modify the parameters of the original event, and not
 		result in a duplicate entry[1].  Adding an event automati-cally automatically
 		cally enables it, unless overridden by the EV_DISABLE flag.
-        라고 하지만, 실제로는 delete 후 add를 해주어야 level to edge trigger 전환이 된다.
+		라고 하지만, 실제로는 delete 후 add를 해주어야 level to edge trigger 전환이 된다.
 		*/
-        // delete
+		// delete
 		EpollParam.m_nFD = socket->m_fastSocket->m_socket;
 		EpollParam.m_nFilter = EVFILT_READ;
 		EpollParam.m_nFlags = EV_DELETE;
@@ -334,7 +331,7 @@ namespace Proud
 			CIoEventStatus status;
 			CSuperSocket* spi0;
 #if defined(__linux__)
-			spi0 = (CSuperSocket*)polledEvents[i].data.ptr; 
+			spi0 = (CSuperSocket*)polledEvents[i].data.ptr;
 #elif defined(__MACH__) || defined (__FreeBSD__)
 			spi0 = (CSuperSocket*)polledEvents[i].udata;
 #endif
@@ -372,8 +369,8 @@ namespace Proud
 				if (eventFlags & EPOLLHUP) status.m_eventFlags |= IoFlags_Hangup;
 #elif defined(__MACH__) || defined(__FreeBSD__)
 				uint32_t eventFlags = polledEvents[i].filter;
-                // EVFILT_READ,EVFILT_WRITE는 -1,-2,...값이다. 즉 bit mask가 아니다. 따라서 위에처럼 하면 안되고 아래처럼 해야 한다.
-                // 타 kqueue 사용예시도 이런식으로 짜져있다.
+				// EVFILT_READ,EVFILT_WRITE는 -1,-2,...값이다. 즉 bit mask가 아니다. 따라서 위에처럼 하면 안되고 아래처럼 해야 한다.
+				// 타 kqueue 사용예시도 이런식으로 짜져있다.
 				if (eventFlags == EVFILT_READ) status.m_eventFlags |= IoFlags_In;
 				if (eventFlags == EVFILT_WRITE) status.m_eventFlags |= IoFlags_Out;
 				if (eventFlags == EV_ERROR) status.m_eventFlags |= IoFlags_Error;
@@ -382,7 +379,7 @@ namespace Proud
 #endif
 
 				// 이제는 eventfd같은 것을 안 쓴다. 따라서 socket event가 아니면 poll list에 넣지 말자.
-				ret.Add(status); 
+				ret.Add(status);
 			}
 		}
 	}
@@ -474,6 +471,4 @@ namespace Proud
 #endif // (defined(__MACH__) || defined(__linux__))
 
 #endif // non _WIN32
-
-
 }

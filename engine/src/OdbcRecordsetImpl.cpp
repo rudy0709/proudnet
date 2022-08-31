@@ -514,7 +514,7 @@ namespace Proud
 		m_hstmt->GetHandle() = hstmt->GetHandle();
 		hstmt->GetHandle() = SQL_NULL_HSTMT;
 
-		// 모든 레코드 캐싱 상태를 청소 
+		// 모든 레코드 캐싱 상태를 청소
 		ClearAllRecordset();
 
 		if (affectedRowCount > 0)

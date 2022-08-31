@@ -7,7 +7,7 @@
 #include <math.h>
 #endif
 
-namespace Proud 
+namespace Proud
 {
 	int timespec_get_pn(::timespec *tp, int const base)
 	{
@@ -143,5 +143,4 @@ namespace Proud
 
 		return timespec_to_nanosecond(ts);
 	}
-
 }

@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/atomic.h"
 #include "../include/SysTime.h"
@@ -44,7 +44,7 @@ namespace Proud
 			m_acquireFailCount++;
 			return false;
 		}
-		
+
 		inline void Lock()
 		{
 			// acquire까지 반복한다.
@@ -67,7 +67,7 @@ namespace Proud
 					Proud::YieldThread();
 					count = 0;
 				}
-				else 
+				else
 				{
 					// 자세한 내용은 megayuchi.com의 SRWLock 관련 글 참고.
 					__UTIL_LOCK_SPIN_LOCK_PAUSE();
@@ -144,5 +144,4 @@ namespace Proud
 			Unlock();
 		}
 	};
-	
 }

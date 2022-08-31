@@ -337,5 +337,4 @@ namespace Proud
 #if (_MSC_VER>=1400)
 //#pragma managed(pop)
 #endif
-
 }

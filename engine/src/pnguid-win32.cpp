@@ -2,7 +2,7 @@
 #include "../include/pnguid-win32.h"
 #include <rpcdce.h> // UE4 비호환되므로 이것은 서버에서만 사용하도록 하자.
 
-#if defined(_WIN32)    
+#if defined(_WIN32)
 
 namespace Proud
 {

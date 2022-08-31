@@ -16,7 +16,7 @@ namespace Proud
 	void CThreadPoolImpl::RunAsync(RunAsyncType type, RunAsyncFunction func, void* context)
 	{
 		// 유지보수시 주의: 이 함수는 ProudNet 2에서 매우 자주 호출한다. 즉 성능에 민감하다. 따라서 lambda 식 버전이 아닌 이 함수는 있어야 하며 람다식 버전에 의한 성능 하락이 있어서는 안된다.
-			
+
 		// 개요: 위키'ThreadPool의 RunAsync 기능' 참고
 		CriticalSectionLock lock(m_cs, true);
 		if (type == RunAsyncType_Single) // 한 스레드만
@@ -28,7 +28,7 @@ namespace Proud
 			// IOCP에게 깨우게 시킨다.
 			// 이걸로 다른 스레드가 깨더라도, 위 고른 스레드는 CPU 타임이라는 뜻이므로, 조만간 이 일을 잘 처리할 것이다.
 			m_completionPort->PostCompletionStatus();
-#else 
+#else
 			// #UNIX_POST_EVENT 해당 스레드를 깨운다.
 			//workerThread->m_ioNotifier->PostEvent();
 #endif
@@ -59,7 +59,7 @@ namespace Proud
 				// 각 스레드가 다 깨어나야 하니 스레드 수만큼 한다.
 				m_completionPort->PostCompletionStatus();
 			}
-#else 
+#else
 			// #UNIX_POST_EVENT
 			// 각 스레드를 깨운다.
 			//for (auto i : m_workerThreads)
@@ -70,7 +70,7 @@ namespace Proud
 		}
 	}
 
-	// ThreadPool.RunAsync에 의해 추가된 RunAsync 항목에 대한 유저콜백 함수를 실행한다.	
+	// ThreadPool.RunAsync에 의해 추가된 RunAsync 항목에 대한 유저콜백 함수를 실행한다.
 	// 참고: 위키문서 'ThreadPool의 RunAsync 기능'
 	void CThreadPoolImpl::ProcessRunAsyncWorkItems(CWorkerThread* workerThread)
 	{
@@ -135,5 +135,4 @@ namespace Proud
 		CriticalSectionLock lock(m_runAsyncWorkListCritSec, true);
 		return m_runAsyncWorkList.IsEmpty();
 	}
-
 }

@@ -28,8 +28,8 @@ namespace Proud
 		m_hostTag = NULL;
 		m_recentFrameRate = 0;
 		m_hostIDRecycleCount = 0;
-        m_toServerSendUdpMessageTrialCount = 0;
-        m_toServerSendUdpMessageSuccessCount = 0;
+		m_toServerSendUdpMessageTrialCount = 0;
+		m_toServerSendUdpMessageSuccessCount = 0;
 		m_unreliableMessageRecentReceiveSpeed = 0;
 		m_TcpLocalAddrFromServer = AddrPort::Unassigned;
 	}
@@ -108,8 +108,5 @@ namespace Proud
 		// 그렇다면 Message 오가는건 된건데 문제는 그 다음이라는?
 		cout << "RS.TCP S count=" << m_remoteServer->m_ToServerTcp->m_totalSendEventCount << endl;
 		cout << "RS.TCP R count=" << m_remoteServer->m_ToServerTcp->m_totalReceiveEventCount << endl;
-
 	}
-
-
 }

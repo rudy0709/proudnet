@@ -19,7 +19,7 @@
 namespace Proud
 {
 	using namespace std;
-	
+
 	class CP2PGroup;
 
 	class CP2PGroup_C;

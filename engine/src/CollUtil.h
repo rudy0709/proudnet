@@ -10,15 +10,15 @@ ProudNet
 
 ProudNet
 
-This program is soley copyrighted by Nettention. 
+This program is soley copyrighted by Nettention.
 Any use, correction, and distribution of this program are subject to the terms and conditions of the License Agreement.
 Any violated use of this program is prohibited and will be cause of immediate termination according to the License Agreement.
 
-** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE. 
+** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE.
 
 */
 
-#pragma once 
+#pragma once
 
 #include "LowFragMemArray.h"
 #include "../include/FakeClrBase.h"
@@ -26,8 +26,8 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 /* Collection관련 유틸리티 모듈
 */
-namespace Proud 
-{	
+namespace Proud
+{
 
 	template<typename T, typename INDEXTYPE>
 	inline INDEXTYPE UnionDuplicates(T* obj, INDEXTYPE objSize)
@@ -43,9 +43,9 @@ namespace Proud
 		//QuickSort(obj.GetData(), objSize);
 		//std::sort(obj.begin(), obj.end());
 
-		// 일단 정렬을 하게 되면 중복값은 서로 인접합니다. 
+		// 일단 정렬을 하게 되면 중복값은 서로 인접합니다.
 		// 이러면 굳이 MALLOCA를 안쓰고도 배열 안에서 중복값을 쉽게 제거할 수 있습니다.
-		// 0부터 시작하는 커서를 하나 두고 배열을 끝까지 뒤지면서 커서가 가리키는 것과 다른 값이 
+		// 0부터 시작하는 커서를 하나 두고 배열을 끝까지 뒤지면서 커서가 가리키는 것과 다른 값이
 		// 발견되면 커서 바로 우측에 그 다른 값을 옮기고 커서를 한칸 옮겨주면 되죠.
 		// 이런 식으로 끝까지 돌면 커서가 가리키는 곳 바로 앞 까지가 union된 배열의 크기가 됩니다.
 		// 이러한 식으로 아래 소스를 수정 바랍니다. 즉 MALLOCA를 아예 쓸 일이 없게 만듭시다.
@@ -59,7 +59,7 @@ namespace Proud
 			{
 				if (c != i)
 				{
-					obj[c++] = MOVE_OR_COPY(obj[i]);	  // T가 shared_ptr을 가진 타입인 경우 이렇게 해주어야 속도가 빠르다. 
+					obj[c++] = MOVE_OR_COPY(obj[i]);	// T가 shared_ptr을 가진 타입인 경우 이렇게 해주어야 속도가 빠르다.
 				}
 				else
 				{
@@ -116,5 +116,4 @@ namespace Proud
 
 		return false;
 	}
-
 }

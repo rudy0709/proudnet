@@ -52,18 +52,18 @@ namespace Proud
 				{
 					return false;
 				}
-				// 
-				// 				if(msg.GetReadOffset()!=msg.GetLength()) // 이것도 넣어야 할까나?
-				// 				{
-				// 					return false;
-				// 				}
+				//
+				//				if(msg.GetReadOffset()!=msg.GetLength()) // 이것도 넣어야 할까나?
+				//				{
+				//					return false;
+				//				}
 			}
 
 			break;
 			//case ReliableUdpFrame::Type_Disconnect:
-			//    msg.Read(frame.m_frameID);
-			//    msg.Read(frame.m_data);
-			//    break;
+			//	msg.Read(frame.m_frameID);
+			//	msg.Read(frame.m_data);
+			//	break;
 		case ReliableUdpFrameType_Data:
 			//			puts("DATA FRAME DATA FRAME DATA FRAME");
 			if(!msg.Read(frame.m_frameNumber))
@@ -127,12 +127,12 @@ namespace Proud
 		{
 		case ReliableUdpFrameType_Data:
 			if(ReliableUdpConfig::HighPriorityDataFrame)
-				priority = MessagePriority_Ring1; 
+				priority = MessagePriority_Ring1;
 			break;
 		case ReliableUdpFrameType_Ack:
 			// ack는 더 높은 우선으로 쏴야 한다.
 			if(ReliableUdpConfig::HighPriorityAckFrame)
-				priority = MessagePriority_Ring1; 
+				priority = MessagePriority_Ring1;
 			break;
 		case ReliableUdpFrameType_None:
 			break;
@@ -174,16 +174,16 @@ namespace Proud
 
 					SendOpt sendOpt = SendOpt::CreateFromRmiContextAndClearRmiContextSendFailedRemotes(g_ReliableSendForPN); // 아래[1]에서 설명.
 					m_owner->m_owner->m_remoteServer->Send_ToServer_Directly_Copy(
-						m_owner->GetHostID(), 
+						m_owner->GetHostID(),
 						MessageReliability_Reliable,
-						sendData, 
-						sendOpt, 
+						sendData,
+						sendOpt,
 						m_owner->m_owner->m_simplePacketMode);
 
 					/*[1]에 대해:
-					N3785 fix를 한 후에, case 95,96 fail이 떴었다. 종전 코드가 원인이었다. SendOpt(g_UnreliableSendForPN)이었다. 
+					N3785 fix를 한 후에, case 95,96 fail이 떴었다. 종전 코드가 원인이었다. SendOpt(g_UnreliableSendForPN)이었다.
 					이것을 reliable로 바꾸고 나서 해결됐다.
-					
+
 					이유: 여기서 하는 일은 RUDP를 resend하기다.
 					즉 ACR, AMR 처리가 수반되어야 한다. SuperSocket.AddToSendQueue에서 AMR, ACR 처리가 되어야 한다.
 					거기서 이게 켜지게 하려면 reliable 설정이 되어 있어야 한다. 그래야 AMR ID가 매겨진다.
@@ -243,8 +243,8 @@ namespace Proud
 		return m_owner->m_HostID;
 	}
 
-// 	int CRemotePeerReliableUdp::GetRecentUnreliablePingMs()
-// 	{
-// 		return PNMAX(m_owner->m_recentPingMs, 0);
-// 	}
+//	int CRemotePeerReliableUdp::GetRecentUnreliablePingMs()
+//	{
+//		return PNMAX(m_owner->m_recentPingMs, 0);
+//	}
 }

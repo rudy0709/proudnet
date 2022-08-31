@@ -41,7 +41,7 @@ namespace Proud
 		bool m_upnpDetectNatDevice;
 
 		bool m_upnpTcpAddPortMapping;
-		
+
 		int m_emergencyLogLineCount;
 		bool m_enableLookaheadP2PSend;
 		bool m_enablePingTest;

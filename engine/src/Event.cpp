@@ -15,7 +15,6 @@
 
 namespace Proud
 {
-
 	bool Event::WaitOne( uint32_t timeOut )
 	{
 #if defined(_WIN32)
@@ -31,7 +30,7 @@ namespace Proud
 			{
 				throw Exception("WaitOne mutex lock failed");
 			}
-			
+
 			ret = pthread_cond_wait(&m_condVar, &m_mutex);
 
 			// lock 을 했다면 당연히 unlock
@@ -101,7 +100,7 @@ namespace Proud
 
 #elif defined(__linux__)
 		// note: 여기서 throw 하지 말 것.
-		pthread_cond_destroy(&m_condVar); 
+		pthread_cond_destroy(&m_condVar);
 		pthread_mutex_destroy(&m_mutex);
 #endif
 	}

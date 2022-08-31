@@ -29,7 +29,7 @@ namespace Proud
 		return (int)ret;
 	}
 
-	 PROUD_API void CauseAccessViolation();
+	PROUD_API void CauseAccessViolation();
 
 	// 일시적으로 atomic +1 then 파괴시 -1을 한다. 예외가 생겨도 마무리를 보장하기 위함.
 	// 로컬 변수로서 쓰인다.

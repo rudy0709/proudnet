@@ -35,7 +35,7 @@ namespace Proud
 	{
 		StringW s;
 
-      	chMsg = StringW2A(text);
+		chMsg = StringW2A(text);
 
 		m_remote = HostID_None;
 		m_exceptionType = ExceptionType_String;
@@ -47,7 +47,7 @@ namespace Proud
 
 	Exception::~Exception(void) throw()
 	{
-		
+
 	}
 
 	const char *Exception::what( ) const throw()
@@ -56,16 +56,16 @@ namespace Proud
 		return chMsg.GetString();
 	}
 
-    Exception::Exception( void )
-    {
-        m_remote = HostID_None;
-        m_exceptionType = ExceptionType_None;
+	Exception::Exception( void )
+	{
+		m_remote = HostID_None;
+		m_exceptionType = ExceptionType_None;
 		m_userCallbackName = _PNT("");
 		m_delegateObject = NULL;
 		m_pVoidSource = NULL;
 		m_pStdSource = NULL;
-		
-    }
+
+	}
 
 	Exception::Exception(std::exception& src)
 	{
@@ -75,7 +75,7 @@ namespace Proud
 		m_exceptionType = ExceptionType_Std;
 		m_userCallbackName = _PNT("");
 		m_delegateObject = NULL;
-		
+
 		//ATLTRACE("Exception 발생: %s\n", chMsg);
 	}
 
@@ -132,7 +132,7 @@ namespace Proud
 	void ThrowInvalidArgumentException()
 	{
 		throw Exception("An invalid argument is detected!");
-    }
+	}
 
 	void ThrowArrayOutOfBoundException()
 	{
@@ -178,5 +178,4 @@ namespace Proud
 		}
 #endif
 	}
-
 }

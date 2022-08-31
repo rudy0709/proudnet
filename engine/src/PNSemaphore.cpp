@@ -27,22 +27,22 @@ namespace Proud
 #else
 		m_count = initialCount;
 		m_maxCount = maxCount;
-        int ret = pthread_cond_init(&m_cond, NULL);
-        if(ret != 0)
-        {
+		int ret = pthread_cond_init(&m_cond, NULL);
+		if(ret != 0)
+		{
 			Tstringstream part;
 			part << "pthread_cond_init function is failed. errno:" << errno;
-            throw Exception(part.str().c_str());
-        }
+			throw Exception(part.str().c_str());
+		}
 #endif
-    }
+	}
 
 	bool Semaphore::WaitOne( uint32_t timeOut )
 	{
 #ifdef _WIN32
 		return WaitForSingleObject(m_sema, timeOut) == WAIT_OBJECT_0;
 #else
-        struct timespec ts;
+		struct timespec ts;
 		if(timeOut != PN_INFINITE)
 		{
 			// wait 하기 전에 mutex 를 잠근다.
@@ -87,26 +87,26 @@ namespace Proud
 		LONG prevCount = 0;
 		::ReleaseSemaphore(m_sema, releaseCount, &prevCount);
 #else
-//         if(releaseCount > 1)
-//         {
-//             // sem_post_multiple이 ios 에서 아직 미지원함. 통탄할 노릇일세.
-//             throw Exception("Semaphore.Release with >1 is not supported!");
-//         }
-        // mutex 잠금
-        CriticalSectionLock lock(m_cs, true);
+//		if(releaseCount > 1)
+//		{
+//			// sem_post_multiple이 ios 에서 아직 미지원함. 통탄할 노릇일세.
+//			throw Exception("Semaphore.Release with >1 is not supported!");
+//		}
+		// mutex 잠금
+		CriticalSectionLock lock(m_cs, true);
 
 		// 값 상향
 		m_count += releaseCount;
 		m_count = min(m_count, m_maxCount);
-        // 시그널을 발생시킨다. 그래서 대기 중이던 스레드 하나가 awake하게 한다.
-        int ret = pthread_cond_signal(&m_cond);
-        if(ret != 0)
-        {
-            lock.Unlock();
+		// 시그널을 발생시킨다. 그래서 대기 중이던 스레드 하나가 awake하게 한다.
+		int ret = pthread_cond_signal(&m_cond);
+		if(ret != 0)
+		{
+			lock.Unlock();
 			Tstringstream part;
 			part << "pthread_cond_signal functon is failed. errno:" << errno;
-            throw Exception(part.str().c_str());
-        }
+			throw Exception(part.str().c_str());
+		}
 #endif
 	}
 
@@ -115,13 +115,13 @@ namespace Proud
 #ifdef _WIN32
 		CloseHandle(m_sema);
 #else
-        int ret = pthread_cond_destroy(&m_cond);
-        if(ret != 0)
-        {
+		int ret = pthread_cond_destroy(&m_cond);
+		if(ret != 0)
+		{
 			Tstringstream part;
 			part << "pthread_cond_destroy function is failed. errno:" << errno;
-            ShowUserMisuseError(part.str().c_str());
-        }
+			ShowUserMisuseError(part.str().c_str());
+		}
 #endif
 	}
 }

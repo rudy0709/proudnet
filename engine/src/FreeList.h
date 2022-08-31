@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/BasicTypes.h"
 #include "../include/pnstdint.h"
@@ -17,7 +17,7 @@ warning: invalid access to non-static data member `main()::C::a' of NULL object
 #define pn_offsetof(s,m)  ( ((size_t)&((s*)16)->m) - 16 )
 
 
-namespace Proud 
+namespace Proud
 {
 #if (_MSC_VER>=1400)
 // 아래 주석처리된 pragma managed 전처리 구문은 C++/CLI 버전이 있었을 때에나 필요했던 것입니다.
@@ -28,7 +28,7 @@ namespace Proud
 	// We shrink memory for every 10 sec. Too short degrades object reuse efficiency.
 	const int ShrinkOnNeedIntervalMs = 10 * 1000;
 
-	 PROUD_API _Noreturn void ThrowInvalidArgumentException();
+	PROUD_API _Noreturn void ThrowInvalidArgumentException();
 
 	/*
 	ProudNet 에서 쓰이는 풀 객체는 CLookasideAllocator, CFastHeap, CObjectPool 이 있다.
@@ -52,9 +52,9 @@ namespace Proud
 	**주의** X에 대한 OnRecycle, OnDrop, SuspendShrink를 구현할 때,
 	X의 각 멤버들에 대해서도 OnRecycle, OnDrop, SuspendShrink를 호출하게 해야 한다.
 
-	예: 
-	class X { 
-		Y, Z 
+	예:
+	class X {
+		Y, Z
 		void OnRecycle()
 		{
 			Y.OnRecycle();
@@ -65,9 +65,9 @@ namespace Proud
 	**참고** X.OnDrop의 경우 일반적인 구현은 다음과 같다.
 	X 자체나 멤버가 배열인 경우: ClearAndKeepCapacity()를 한다.
 	X 자체나 멤버가 커널 리소스인 경우: 그냥 냅둔다.
-	X 자체나 멤버가 역시 pooled object type인 경우: OnDrop()을 호출한다. 즉 알아서 맡긴다. 
+	X 자체나 멤버가 역시 pooled object type인 경우: OnDrop()을 호출한다. 즉 알아서 맡긴다.
 	*/
-	template<typename T> 
+	template<typename T>
 	class CObjectPool
 	{
 		enum { TagValue = 7654 };
@@ -80,13 +80,13 @@ namespace Proud
 			T m_obj;
 			CDroppee* m_next;
 
-			inline CDroppee() 
+			inline CDroppee()
 				: m_tag(TagValue)
 				, m_next(NULL)
 			{
 			}
 
-			// object-pool에 의해 다뤄지는 것이고, UE4 FMallocBinned등에서 데드락을 일으키는 경우가 있어, 
+			// object-pool에 의해 다뤄지는 것이고, UE4 FMallocBinned등에서 데드락을 일으키는 경우가 있어,
 			// 외부 요인을 제거하기 위해 이 매크로를 추가했음.
 			DECLARE_NEW_AND_DELETE_THROWABLE
 		};
@@ -149,7 +149,7 @@ namespace Proud
 			if(m_reuableHead == NULL)
 			{
 				CDroppee* newOne = new CDroppee;
-				
+
 				// ObjectPool.ShrinkOnNeed()가 이미 있는데,
 				// pooled object 자체가 shrink 기능을 가지면,
 				// code profile 결과 heap access가 쓸데없이 증가한다.
@@ -202,14 +202,14 @@ namespace Proud
 			{
 				ThrowInvalidArgumentException();
 			}
-			
+
 			// 핸들러 호출
 			node->m_obj.OnDrop();
 
 			// node를 추가하되 head로서 넣는다.
 			node->m_next = m_reuableHead;
-			m_reuableHead = node;			
-			
+			m_reuableHead = node;
+
 			m_freeListCount++;
 
 			if (m_maxFreeListCount < m_freeListCount)

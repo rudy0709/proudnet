@@ -107,7 +107,7 @@ namespace Proud
 			return _PNT("AutoConnectionRecoveryFailed");
 				case ErrorType_NotImplementedRmi:
 			return _PNT("NotImplementedRmi");
-				default:	
+				default:
 			break;
 		}
 		return _PNT("<none>");
@@ -219,7 +219,7 @@ namespace Proud
 			return _PNT("서버와의 연결이 끊어져서 연결 복구 기능이 가동되었지만, 이것 마저도 실패했습니다.");
 				case ErrorType_NotImplementedRmi:
 			return _PNT("RMI 함수를 호출 했지만, 함수 구현부가 없습니다.");
-				default:	
+				default:
 			break;
 		}
 		return _PNT("<none>");
@@ -331,7 +331,7 @@ namespace Proud
 			return _PNT("서버와의 연결이 끊어져서 연결 복구 기능이 가동되었지만, 이것 마저도 실패했습니다.");
 				case ErrorType_NotImplementedRmi:
 			return _PNT("RMI 함수를 호출 했지만, 함수 구현부가 없습니다.");
-				default:	
+				default:
 			break;
 		}
 		return _PNT("<none>");
@@ -443,7 +443,7 @@ namespace Proud
 			return _PNT("서버와의 연결이 끊어져서 연결 복구 기능이 가동되었지만, 이것 마저도 실패했습니다.");
 				case ErrorType_NotImplementedRmi:
 			return _PNT("RMI 함수를 호출 했지만, 함수 구현부가 없습니다.");
-				default:	
+				default:
 			break;
 		}
 		return _PNT("<none>");
@@ -555,7 +555,7 @@ namespace Proud
 			return _PNT("서버와의 연결이 끊어져서 연결 복구 기능이 가동되었지만, 이것 마저도 실패했습니다.");
 				case ErrorType_NotImplementedRmi:
 			return _PNT("RMI 함수를 호출 했지만, 함수 구현부가 없습니다.");
-				default:	
+				default:
 			break;
 		}
 		return _PNT("<none>");

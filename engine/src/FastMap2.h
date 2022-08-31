@@ -36,7 +36,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 namespace Proud
 {
-	 PROUD_API extern const uint32_t FastMap_primes[];
+	PROUD_API extern const uint32_t FastMap_primes[];
 
 	/** \addtogroup util_group
 	*  @{
@@ -58,7 +58,7 @@ namespace Proud
 		typedef typename KTraits::OUTARGTYPE KOUTARGTYPE;
 		typedef typename VTraits::INARGTYPE VINARGTYPE;
 		typedef typename VTraits::OUTARGTYPE VOUTARGTYPE;
-		typedef typename CFastMap2<K,V,INDEXTYPE,KTraits,VTraits>::const_iterator ConstIterType;		
+		typedef typename CFastMap2<K,V,INDEXTYPE,KTraits,VTraits>::const_iterator ConstIterType;
 	public:
 		class CPair : public __Position
 		{
@@ -214,7 +214,7 @@ namespace Proud
 		\param value [out] = a space where the value corresponds to the key found to be stored
 		\return = returns true if key is found.
 		\~
-		 */
+		*/
 		inline bool Lookup(KINARGTYPE key, V& outValue) const
 		{
 			// 빈 것은 빨리 찾아버리자.
@@ -774,7 +774,7 @@ namespace Proud
 		\~english
 		Gets key and value of where Position points
 		\~
-		 */
+		*/
 		inline const CPair* GetAt( Proud::Position pos ) const throw()
 		{
 			assert( pos != NULL );
@@ -1117,12 +1117,12 @@ namespace Proud
 
 
 // #ifdef _DEBUG
-// 		void AssertValid() const
-// 		{
-// 			assert( m_nBins > 0 );
-// 			// non-empty map should have hash table
-// 			assert( IsEmpty() || (m_ppBins != NULL) );
-// 		}
+//		void AssertValid() const
+//		{
+//			assert( m_nBins > 0 );
+//			// non-empty map should have hash table
+//			assert( IsEmpty() || (m_ppBins != NULL) );
+//		}
 // #endif  // _DEBUG
 
 		inline void EnableSlowConsistCheck()
@@ -1136,7 +1136,7 @@ namespace Proud
 		\~english
 		Provide array that contain key of map objects
 		\~
-		 */
+		*/
 		inline void KeysToArray(CFastArray<K> &output) const
 		{
 			output.Clear();
@@ -1156,7 +1156,7 @@ namespace Proud
 		\~english
 		Provide array that contain value of map objects
 		\~
-		 */
+		*/
 		inline void ValuesToArray(CFastArray<V> &output) const
 		{
 			output.Clear();
@@ -1177,7 +1177,7 @@ namespace Proud
 		Must check if there exitst any cracked internal status
 		- Must set this as inline though its size is big in order to make noop when function is empty. (regardless of compilers)
 		\~
-		 */
+		*/
 		inline void AssertConsist() const
 		{
 			// UnitTester에서 릴리즈 빌드에서도 작동해야 하므로
@@ -1407,7 +1407,7 @@ namespace Proud
 		{
 			// hash한 값을 얻고, 적절한 bin index를 얻는다.
 			// 만약 여기서 컴파일 에러가 나면, 기존에 구현된 Hash()를 참고해서 해당 타입에 대한 Hash()를 구현하세요.
-			nHash = KTraits::Hash(key);				
+			nHash = KTraits::Hash(key);
 			iBin = nHash % m_nBins;
 
 			// 아직 bin이 없으면 즐
@@ -1566,7 +1566,7 @@ namespace Proud
 		\~english
 		CFastMap2 is an object can be copied.
 		\~
-		 */
+		*/
 		inline CFastMap2( const CFastMap2& a)
 		{
 			m_enableSlowConsistCheck = false;
@@ -1587,7 +1587,7 @@ namespace Proud
 		\~english
 		CFastMap2 is an object can be copied.
 		\~
-		 */
+		*/
 		CFastMap2& operator=(const CFastMap2& a)
 		{
 			RemoveAll();
@@ -1606,7 +1606,7 @@ namespace Proud
 		\~english
 		CFastMap2 is non-array container so it shows slower comparison operation than std.map
 		\~
-		 */
+		*/
 #if defined(_WIN32)
 		bool Equals(const CFastMap2& a) const
 		{
@@ -1634,7 +1634,7 @@ namespace Proud
 		\~english
 		Collects and gives key
 		\~
-		 */
+		*/
 		void CopyKeysTo(CFastArray<K> &dest)
 		{
 			dest.SetCount(size());
@@ -1653,7 +1653,7 @@ namespace Proud
 		Checks if there is key
 		\return If there is key then true
 		\~
-		 */
+		*/
 		inline bool ContainsKey(const K& key) const
 		{
 			const_iterator f = find(key);
@@ -1666,7 +1666,7 @@ namespace Proud
 		\~english
 		Checks if there is value
 		\~
-		 */
+		*/
 		inline bool ContainsValue(const V& val)
 		{
 			for (iterator i = begin();i!= end();i++)
@@ -1683,7 +1683,7 @@ namespace Proud
 		\~english
 		Returns true if there exist value corresponds to key
 		\~
-		 */
+		*/
 		inline bool TryGetValue(KINARGTYPE key, V& outValue) const
 		{
 			return Lookup(key, outValue);
@@ -1701,7 +1701,7 @@ namespace Proud
 		\param value = value of the clause to be added
 		\return = true if successfully entered, otherwise, returns false.
 		\~
-		 */
+		*/
 		inline bool Add(KINARGTYPE key, VINARGTYPE value)
 		{
 			// 중복 코딩이지만 워낙 자주 호출되기에 optimize off then code profile을 할 때
@@ -1753,7 +1753,7 @@ namespace Proud
 		\~english
 		Performs a role as const_iterator of STL
 		\~
-		 */
+		*/
 		class const_iterator:public value_type
 		{
 		public:
@@ -1785,15 +1785,15 @@ namespace Proud
 				return !(value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner);
 			}
 
-// 			inline const K& first() const
-// 			{
-// 				return m_owner->GetKeyAt(m_pos);
-// 			}
+//			inline const K& first() const
+//			{
+//				return m_owner->GetKeyAt(m_pos);
+//			}
 //
-// 			inline const V& second() const
-// 			{
-// 				return m_owner->GetValueAt(m_pos);
-// 			}
+//			inline const V& second() const
+//			{
+//				return m_owner->GetValueAt(m_pos);
+//			}
 
 			inline const value_type& operator*() const
 			{
@@ -1815,7 +1815,7 @@ namespace Proud
 		\~english
 		Performs a role as iterator of STL
 		\~
-		 */
+		*/
 		class const_reverse_iterator:public value_type
 		{
 		public:
@@ -1865,7 +1865,7 @@ namespace Proud
 		\~english
 		Performs a role as iterator of STL
 		\~
-		 */
+		*/
 		class iterator:public value_type
 		{
 		public:
@@ -1878,7 +1878,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL iterator
 			\~
-			 */
+			*/
 			inline bool operator==(const iterator& a) const
 			{
 				return value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner;
@@ -1890,7 +1890,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL iterator
 			\~
-			 */
+			*/
 			inline bool operator!=(const iterator& a) const
 			{
 				return !(value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner);
@@ -1902,7 +1902,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL iterator
 			\~
-			 */
+			*/
 			inline iterator& operator++()
 			{
 				// preincrement
@@ -1916,7 +1916,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL iterator
 			\~
-			 */
+			*/
 			inline iterator operator++(int)
 			{
 				// postincrement
@@ -1931,7 +1931,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL iterator
 			\~
-			 */
+			*/
 			inline iterator& operator--()
 			{
 				// preincrement
@@ -1945,7 +1945,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL iterator
 			\~
-			 */
+			*/
 			inline iterator operator--(int)
 			{
 				// predecrement
@@ -1959,7 +1959,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL iterator
 			\~
-			 */
+			*/
 			inline const value_type& operator*() const
 			{
 				return *this;
@@ -1971,7 +1971,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL iterator
 			\~
-			 */
+			*/
 			inline const value_type* operator->() const
 			{
 				return this;
@@ -1984,7 +1984,7 @@ namespace Proud
 		\~english
 		Performs a role as same name method of STL
 		\~
-		 */
+		*/
 		inline iterator begin()
 		{
 			iterator ret;
@@ -2000,7 +2000,7 @@ namespace Proud
 		\~english
 		Performs a role as same name method of STL
 		\~
-		 */
+		*/
 		inline iterator end()
 		{
 			iterator ret;
@@ -2036,7 +2036,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL reverse_iterator
 			\~
-			 */
+			*/
 			inline bool operator==(const reverse_iterator& a) const
 			{
 				return value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner;
@@ -2048,7 +2048,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL reverse_iterator
 			\~
-			 */
+			*/
 			inline bool operator!=(const reverse_iterator& a) const
 			{
 				return !(value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner);
@@ -2060,7 +2060,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL reverse_iterator
 			\~
-			 */
+			*/
 			inline reverse_iterator& operator++()
 			{
 				// preincrement
@@ -2074,7 +2074,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL reverse_iterator
 			\~
-			 */
+			*/
 			inline reverse_iterator operator++(int)
 			{
 				// postincrement
@@ -2089,7 +2089,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL reverse_iterator
 			\~
-			 */
+			*/
 			inline reverse_iterator& operator--()
 			{
 				// preincrement
@@ -2103,7 +2103,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL reverse_iterator
 			\~
-			 */
+			*/
 			inline reverse_iterator operator--(int)
 			{
 				// predecrement
@@ -2117,7 +2117,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL reverse_iterator
 			\~
-			 */
+			*/
 			inline const value_type& operator*() const
 			{
 				return *this;
@@ -2129,7 +2129,7 @@ namespace Proud
 			\~english
 			Operator Function that lets this perform a role as STL reverse_iterator
 			\~
-			 */
+			*/
 			inline const value_type* operator->() const
 			{
 				return this;
@@ -2158,7 +2158,7 @@ namespace Proud
 		\~english
 		Performs a role as same name method of STL
 		\~
-		 */
+		*/
 		inline reverse_iterator rend()
 		{
 			reverse_iterator ret;
@@ -2192,7 +2192,7 @@ namespace Proud
 		\~english
 		Performs a role as same name method of STL
 		\~
-		 */
+		*/
 		inline const_iterator end() const
 		{
 			const_iterator ret;
@@ -2228,7 +2228,7 @@ namespace Proud
 		\~english
 		Performs a role as same name method of STL
 		\~
-		 */
+		*/
 		inline reverse_iterator erase(reverse_iterator iter)
 		{
 			if(iter.m_owner!=this)
@@ -2248,7 +2248,7 @@ namespace Proud
 		\~english
 		Performs a role as same name method of STL
 		\~
-		 */
+		*/
 		inline iterator erase(iterator iter)
 		{
 			if(iter.m_owner!=this)
@@ -2267,8 +2267,8 @@ namespace Proud
 		\~english
 		Performs a role as same name method of STL
 		\~
-		 */
-		iterator find(const K& key) 
+		*/
+		iterator find(const K& key)
 		{
 			iterator ret;
 			ret.m_owner=this;
@@ -2293,7 +2293,7 @@ namespace Proud
 		\~english
 		Performs a role as same name method of STL
 		\~
-		 */
+		*/
 		inline const_iterator find(const K& key) const
 		{
 			const_iterator ret;
@@ -2313,18 +2313,18 @@ namespace Proud
 		}
 
 #endif
-// 		/** 내부 버퍼로 CFastHeap을 사용한다.  이 객체를 쓴다는 것 자체가 잦은 heap 억세스를 줄이는 것도 목표. 따라서 이 함수는 무의미.
-// 		\param heap CFastHeap포인터
-// 		*/
-// 		void UseFastHeap(CFastHeap* heap)
-// 		{
-// 			if(heap == NULL)
-// 			{
-// 				ThrowInvalidArgumentException();
-// 			}
-// 			if(GetCount() > 0)
-// 				throw Exception(CannotUseFastHeapForFilledCollectionErrorText);
-// 		}
+//		/** 내부 버퍼로 CFastHeap을 사용한다.  이 객체를 쓴다는 것 자체가 잦은 heap 억세스를 줄이는 것도 목표. 따라서 이 함수는 무의미.
+//		\param heap CFastHeap포인터
+//		*/
+//		void UseFastHeap(CFastHeap* heap)
+//		{
+//			if(heap == NULL)
+//			{
+//				ThrowInvalidArgumentException();
+//			}
+//			if(GetCount() > 0)
+//				throw Exception(CannotUseFastHeapForFilledCollectionErrorText);
+//		}
 		//inline CFastHeap* GetRefFastHeap() { return m_refHeap; }
 	};
 

@@ -204,5 +204,4 @@ namespace Proud
 			SQLCloseCursor(hstmt->GetHandle());
 		}
 	}
-
 }

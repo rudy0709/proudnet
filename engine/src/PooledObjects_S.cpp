@@ -29,5 +29,4 @@ namespace Proud
 #ifdef _WIN32
 	IMPLEMENT_DLL_SINGLETON(CNTService);
 #endif // _WIN32
-
 }

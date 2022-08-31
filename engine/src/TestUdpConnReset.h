@@ -2,7 +2,7 @@
 
 #include "FastSocket.h"
 
-namespace Proud 
+namespace Proud
 {
 	class CNetServerImpl;
 
@@ -13,10 +13,10 @@ namespace Proud
 	public:
 		CNetServerImpl* m_owner;
 
-		 PROUD_API CTestUdpConnReset(void);
-		 PROUD_API ~CTestUdpConnReset(void);
+		PROUD_API CTestUdpConnReset(void);
+		PROUD_API ~CTestUdpConnReset(void);
 
-		 PROUD_API void DoTest();
+		PROUD_API void DoTest();
 
 		virtual void OnSocketWarning(CFastSocket* /*socket*/, String msg) {}
 #ifdef _WIN32
@@ -26,5 +26,4 @@ namespace Proud
 		}
 #endif
 	};
-
 }

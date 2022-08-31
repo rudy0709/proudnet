@@ -9,75 +9,75 @@
 */
 
 #pragma once
- 
- #include "FastSocket.h"
- #include "../include/SocketInterface.h"
- #include "NumUtil.h"
- 
- //#pragma pack(push,8)
- 
- namespace Proud
- {
- #ifdef _WIN32
- 	class SocketSelectContextImpl : public SocketSelectContext
- 	{
- 		FastSocketSelectContext m_socketctx;
- 
- 	public:
- 		SocketSelectContextImpl() {}
- 
- 		void AddWriteWaiter(CSocket& socket);
- 		void AddExceptionWaiter( CSocket& socket );
- 		void Wait(uint32_t miliSec);
- 		bool GetConnectResult(CSocket& socket, SocketErrorCode& outCode);
- 	};
- #endif // _WIN32
- 
- 	class CSocketImpl :public CSocket
- 		//public IFastSocketDelegate
- 	{
- 		friend class SocketSelectContextImpl;
-  	private:
- 		// Proud FastSocket Instance
+
+#include "FastSocket.h"
+#include "../include/SocketInterface.h"
+#include "NumUtil.h"
+
+//#pragma pack(push,8)
+
+namespace Proud
+{
+#ifdef _WIN32
+	class SocketSelectContextImpl : public SocketSelectContext
+	{
+		FastSocketSelectContext m_socketctx;
+
+	public:
+		SocketSelectContextImpl() {}
+
+		void AddWriteWaiter(CSocket& socket);
+		void AddExceptionWaiter( CSocket& socket );
+		void Wait(uint32_t miliSec);
+		bool GetConnectResult(CSocket& socket, SocketErrorCode& outCode);
+	};
+#endif // _WIN32
+
+	class CSocketImpl :public CSocket
+		//public IFastSocketDelegate
+	{
+		friend class SocketSelectContextImpl;
+	private:
+		// Proud FastSocket Instance
 		SocketCreateResult m_socketCreateResult;
- 		// Socket Delegate
- 		ISocketDelegate* m_internalDg;
- 
- 		virtual void OnSocketWarning(CFastSocket* socket, String msg);
- 
- 	public:
- 		CSocketImpl(SocketType type, ISocketDelegate* dg);
- 
- 	public:
- 		bool Bind();
- 		bool Bind(int port);
- 		bool Bind( const PNTCHAR* addr, int port );
- 
- 		SocketErrorCode Connect(String hostAddr, int hostPort);
+		// Socket Delegate
+		ISocketDelegate* m_internalDg;
+
+		virtual void OnSocketWarning(CFastSocket* socket, String msg);
+
+	public:
+		CSocketImpl(SocketType type, ISocketDelegate* dg);
+
+	public:
+		bool Bind();
+		bool Bind(int port);
+		bool Bind( const PNTCHAR* addr, int port );
+
+		SocketErrorCode Connect(String hostAddr, int hostPort);
 
 #if defined(_WIN32)
- 		SocketErrorCode IssueRecvFrom(int length);
- 		SocketErrorCode IssueSendTo(uint8_t* data, int count, AddrPort sendTo);
- 		SocketErrorCode IssueRecv(int length);
- 		SocketErrorCode IssueSend(uint8_t* data, int count);
- 		bool GetRecvOverlappedResult(bool waitUntilComplete, OverlappedResult &ret);
- 		bool GetSendOverlappedResult(bool waitUntilComplete, OverlappedResult &ret);
-#endif		
+		SocketErrorCode IssueRecvFrom(int length);
+		SocketErrorCode IssueSendTo(uint8_t* data, int count, AddrPort sendTo);
+		SocketErrorCode IssueRecv(int length);
+		SocketErrorCode IssueSend(uint8_t* data, int count);
+		bool GetRecvOverlappedResult(bool waitUntilComplete, OverlappedResult &ret);
+		bool GetSendOverlappedResult(bool waitUntilComplete, OverlappedResult &ret);
+#endif
 
 		AddrPort GetSockName();
- 		AddrPort GetPeerName();
- 
- 		void SetBlockingMode(bool isBlockingMode);
- 		uint8_t* GetRecvBufferPtr();
- 
- #ifdef _WIN32
- #pragma push_macro("new")
- #undef new
- 		// 이 클래스는 ProudNet DLL 경우를 위해 커스텀 할당자를 쓰되 fast heap을 쓰지 않는다.
- 		DECLARE_NEW_AND_DELETE
- #pragma pop_macro("new")
- #endif
- 	};
- }
- 
- //#pragma pack(pop)
+		AddrPort GetPeerName();
+
+		void SetBlockingMode(bool isBlockingMode);
+		uint8_t* GetRecvBufferPtr();
+
+#ifdef _WIN32
+#pragma push_macro("new")
+#undef new
+		// 이 클래스는 ProudNet DLL 경우를 위해 커스텀 할당자를 쓰되 fast heap을 쓰지 않는다.
+		DECLARE_NEW_AND_DELETE
+#pragma pop_macro("new")
+#endif
+	};
+}
+
+//#pragma pack(pop)

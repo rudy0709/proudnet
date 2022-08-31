@@ -25,8 +25,8 @@ namespace Proud
 				return _PNT("UDP");
 			case LogCategory_P2P:
 				return _PNT("P2P");
-        default:
-            break;
+		default:
+			break;
 		}
 		return _PNT("");
 	}

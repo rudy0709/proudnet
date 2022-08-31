@@ -148,7 +148,7 @@ namespace Proud
 						if (!CUri::SetHostName(szCurrentUrl))
 							goto error;
 
-						//get the port number		
+						//get the port number
 						m_portNumber = (uint16_t)_ttoi(tmpBuf);
 
 						if (m_portNumber < 0)
@@ -974,7 +974,7 @@ namespace Proud
 							(colonPos && (dwOutPos <= colonPos + 1)))
 						{
 							//NOTE: this is to match the way that InternetCanonicalizeUrl and
-							//      InternetCombineUrl handle this case
+							//		InternetCombineUrl handle this case
 							break;
 						}
 

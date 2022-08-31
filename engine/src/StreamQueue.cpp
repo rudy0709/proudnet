@@ -25,7 +25,7 @@ namespace Proud
 		m_contentsLength = 0;
 
 		m_block.SetGrowPolicy(GrowPolicy_HighSpeed);
-		m_block.SuspendShrink(); 
+		m_block.SuspendShrink();
 	}
 
 	CStreamQueue::~CStreamQueue(void)
@@ -40,7 +40,7 @@ namespace Proud
 		// ikpil.choi 2016-11-02 : 량으로만 계산 되기 때문에, <= 조건이 맞음
 		//if (m_headIndex + m_contentsLength + length < m_block.GetCount())
 		if (m_headIndex + m_contentsLength + length <= m_block.GetCount())
-		{			
+		{
 #if defined(_WIN32)
 			BoundCheckInt32(m_headIndex+m_contentsLength,__FUNCTION__);
 #endif

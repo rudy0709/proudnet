@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/LambdaEventHandler.h"
 
@@ -7,13 +7,13 @@
 
 사용법(예: OnClientLeave):
 
-파라메터 타입 매크로를 먼저 정의한다. 이벤트 콜백 함수의 파라메터들을 채우면 된다. 
+파라메터 타입 매크로를 먼저 정의한다. 이벤트 콜백 함수의 파라메터들을 채우면 된다.
 파라메터 타입만 넣고,이름은 빼야.
 예: #define PARAM_OnClientLeave CNetClientInfo *, ErrorInfo *, const ByteArray&
 
 PN_EVENT_PREDEFINE을 클래스 바깥의 헤더 파일에 추가한다. 이때 파라메터 갯수를 숫자로도 넣는다.
 
-PN_EVENT_DECLARE를 사용자에게 노출되는 class 에 추가한다. 
+PN_EVENT_DECLARE를 사용자에게 노출되는 class 에 추가한다.
 
 PN_EVENT_DECLARE_IMPL을 비노출되는 class 즉 PIMPL의 클래스 정의 헤더 파일에 추가한다.
 
@@ -51,5 +51,4 @@ PN_EVENT_DECLARE_WITHOUT_VARIABLE
 	std::shared_ptr<NAME##_BaseParamType> m_event_##NAME;
 
 #define PN_EVENT_DECLARE_IMPL_OTHER(NAME) \
-	void Set_##NAME(NAME##_BaseParamType* handler); 
-
+	void Set_##NAME(NAME##_BaseParamType* handler);

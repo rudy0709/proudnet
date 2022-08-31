@@ -1,6 +1,6 @@
 ﻿// 성능에 민감한 함수를 inline화.
 
-#pragma once 
+#pragma once
 
 namespace Proud
 {
@@ -9,7 +9,7 @@ namespace Proud
 	inline void CNetServerImpl::HostIDArrayToHostPtrArray_NOLOCK(SendDestInfoArray& dest, HostIDArray& src, const SendOpt& sendOpt)
 	{
 		AssertIsLockedByCurrentThread();
-		
+
 		// shared_ptr의 복사 비용이 커서, 일단 한번 청소 후
 		// 클리어한 상태로 하나 준비한다.
 		dest.SetCount(0);
@@ -18,7 +18,7 @@ namespace Proud
 		// 속도 최적화
 		HostID* pSrc = src.GetData();
 		SendDestInfo* pDest = dest.GetData();
-		int srcCount = src.GetCount(); 
+		int srcCount = src.GetCount();
 
 		// FastArray.Add의 부하가 커서, 직접 배열에 채우는걸로 바뀜.
 		int c = 0;
@@ -143,6 +143,4 @@ namespace Proud
 		// 성공
 		return true;
 	}
-
-
 }

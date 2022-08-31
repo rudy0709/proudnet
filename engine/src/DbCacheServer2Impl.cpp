@@ -50,7 +50,7 @@ namespace Proud
 		m_commandTimeoutSec = 30;
 		m_allowExceptionEvent = true;
 		m_serializeRecursiveUpdateWork = false;
-		m_autoDeisolateData = true; 
+		m_autoDeisolateData = true;
 		m_delegate = &g_nullDelegate;
 
 		m_useUtf8mb4Encoding = false;
@@ -75,7 +75,7 @@ namespace Proud
 		m_serializeRecursiveUpdateWork = false;
 		m_autoDeisolateData = true;
 		m_unloadRequestTimeoutTimeMs = CDbConfig::DefaultUnloadRequestTimeoutTimeMs;
-		
+
 	}
 
 	CDbCacheServer2Impl::~CDbCacheServer2Impl(void)
@@ -129,7 +129,7 @@ namespace Proud
 		}
 
 		// table name list들을 검사하고 필요한 Stored Procedure를 생성한다.
-		//CheckTableNames안에서 OnError를 호출할수 있기 때문에 delegate가 먼저 세팅 되어야 한다. 
+		//CheckTableNames안에서 OnError를 호출할수 있기 때문에 delegate가 먼저 세팅 되어야 한다.
 		m_delegate = params.m_delegate;
 		CheckTableNames(params.m_tableNames);
 
@@ -140,13 +140,13 @@ namespace Proud
 		m_allowNonExclusiveAccess = params.m_allowNonExclusiveAccess;
 		m_saveToDbmsWorkingCount=0;
 		m_commandTimeoutTime = params.m_commandTimeoutSec;
-		// 		if(m_timer != NULL)
-		// 			m_timer.Free();
-		// 
-		// 		m_timer.Attach(CMilisecTimer::New(params.m_useTimerType));
-		// 		m_timer->Start();
+		//		if(m_timer != NULL)
+		//			m_timer.Free();
+		//
+		//		m_timer.Attach(CMilisecTimer::New(params.m_useTimerType));
+		//		m_timer->Start();
 
-		//GetPreciseCurrentTimeMs()=m_timer->GetTimeMs(); 
+		//GetPreciseCurrentTimeMs()=m_timer->GetTimeMs();
 
 		if ( m_dbJobQueue != NULL )
 		{
@@ -167,7 +167,7 @@ namespace Proud
 
 		m_serializeRecursiveUpdateWork = params.m_serializeRecursiveUpdateWork;
 
-		m_autoDeisolateData = params.m_autoDeisolateData; 
+		m_autoDeisolateData = params.m_autoDeisolateData;
 
 		m_dbmsConnectionString += m_dbmsPoolString;
 
@@ -184,7 +184,7 @@ namespace Proud
 			m_netServer->SetMessageMaxLength(CDbConfig::MesssageMaxLength, CDbConfig::MesssageMaxLength); // 서버간 통신이므로 1개의 메시지라도 대량의 전송이 가능해야 한다.
 		}
 
-		// 이전에 m_netServer가 생성되기 전에 void CDbCacheServer2Impl::SetDefaultTimeoutTimeSec(double newValInSec)를 호출한 적이 있어서 
+		// 이전에 m_netServer가 생성되기 전에 void CDbCacheServer2Impl::SetDefaultTimeoutTimeSec(double newValInSec)를 호출한 적이 있어서
 		// m_keptValForSetDefaultTimeoutTimeMs에 -1 디폴트 값이 저장되어 있다면
 		// m_netServer가 시작되고 난 직후인 지금 DefaultTimeoutTime에 keep해둔 값을 넣어준다.
 		if (m_keptValForSetDefaultTimeoutTimeMs != -1)
@@ -382,10 +382,10 @@ namespace Proud
 			Exception ext; Exception_UpdateFromComError(ext, e);
 			server->m_delegate->OnException(ext);
 		}
-		// 		catch (...) 사용자 콜백이 이 구간에서는 없으므로 처리 대상이 아님
-		// 		{
-		// 			server->m_delegate->OnUnhandledException();
-		// 		}
+		//		catch (...) 사용자 콜백이 이 구간에서는 없으므로 처리 대상이 아님
+		//		{
+		//			server->m_delegate->OnUnhandledException();
+		//		}
 	}
 
 	void CDbCacheServer2Impl::Heartbeat()
@@ -428,12 +428,12 @@ namespace Proud
 			ctx->m_server->m_delegate->OnException(ew);
 		}
 #endif // EXPOSE_CRASH_THAN_CONCEAL_EXCEPTION
-		//  		catch (...) 
-		//  		{
-		//             Exception ew;
-		//             ew.m_exceptionType = ExceptionType_Unhandled;
-		//  			ctx->m_server->m_delegate->OnException(ew);
-		//  		}
+		//		catch (...)
+		//		{
+		//			Exception ew;
+		//			ew.m_exceptionType = ExceptionType_Unhandled;
+		//			ctx->m_server->m_delegate->OnException(ew);
+		//		}
 
 		InterlockedDecrement(&ctx->m_server->m_saveToDbmsWorkingCount); // 이것 때문에 catch (...)가 필요
 
@@ -486,17 +486,17 @@ namespace Proud
 			assert(pend.m_changePropNode.m_node->UUID != Guid());
 
 			// Unilateral Update 를 하면서 access 를 false 로 바꾸도록 수정.
-			// 			//modify by rekfkno1 - ado 동작에 들어가기전에 access를 false로 바꾼다.
-			// 			if(pend.m_DoneNotify)
-			// 			{
-			// 				if(pend.m_changePropNodeArray.GetCount() == 0)
-			// 				{
-			// 					CPropNodePtr updateNode = loadee->m_data.GetNode(pend.m_changePropNode.m_node.UUID);
-			// 
-			// 					if(updateNode)
-			// 						updateNode->ClearSoftWorkIssued();
-			// 				}
-			// 			}
+			//			//modify by rekfkno1 - ado 동작에 들어가기전에 access를 false로 바꾼다.
+			//			if(pend.m_DoneNotify)
+			//			{
+			//				if(pend.m_changePropNodeArray.GetCount() == 0)
+			//				{
+			//					CPropNodePtr updateNode = loadee->m_data.GetNode(pend.m_changePropNode.m_node.UUID);
+			//
+			//					if(updateNode)
+			//						updateNode->ClearSoftWorkIssued();
+			//				}
+			//			}
 
 			lock.Unlock(); // 이제 DB에 기록할 것이므로 cs unlock을 한다.
 
@@ -613,7 +613,7 @@ namespace Proud
 							throw Exception("Update-UUID Not Found");
 
 
-						//하위 노드 DB적용. 
+						//하위 노드 DB적용.
 						if ( pend.m_changePropNodeArray.GetCount() > 1 && srcNode->RootUUID != destNode->RootUUID )
 						{
 							// srcNode->RootUUID != destNode->RootUUID 비교 구문 전에 Remove를 해버리면 다음 노드의 RootUUID와 비교하는 일이 발생한다.
@@ -791,13 +791,13 @@ namespace Proud
 							*/
 						if ( !node )
 						{
-							// DB 에 기록 하지 않았지만 그래도 기록했다는 노티는 보내주도록 해야 한다. 
-							// 즉 맨 아래 DoneNotify 어쩌고 처리를 해야 한다. 
+							// DB 에 기록 하지 않았지만 그래도 기록했다는 노티는 보내주도록 해야 한다.
+							// 즉 맨 아래 DoneNotify 어쩌고 처리를 해야 한다.
 							//따라서 continue 대신 break.
 							break;
 
-							// 							lock.Unlock();
-							// 							throw Exception("UnilateralUpdatePropNode final work not found updateData.");
+							//							lock.Unlock();
+							//							throw Exception("UnilateralUpdatePropNode final work not found updateData.");
 						}
 
 						/*
@@ -873,8 +873,8 @@ namespace Proud
 
 								continue;
 
-								// 								lock.Unlock();
-								// 								throw Exception("UnilateralUpdatePropNodeList final work not found updateData.");
+								//								lock.Unlock();
+								//								throw Exception("UnilateralUpdatePropNodeList final work not found updateData.");
 							}
 
 							/*
@@ -971,23 +971,23 @@ namespace Proud
 			m_delegate->OnException(w);
 			}*/
 			//#endif // EXPOSE_CRASH_THAN_CONCEAL_EXCEPTION
-			//             catch (...)
-			//             {
-			// 				if(pend.m_DoneNotify)
-			// 				{
-			// 					pend.m_DoneNotify->Failed(pend.m_dbClientID,_PNT("unexpected"));
-			// 				}
-			// 
-			//                 if(CNetConfig::CatchUnhandledException)
-			//                 {
-			//                     assert(0);
-			//                     Proud::Exception w;
-			//                     w.m_exceptionType = ExceptionType_Unhandled;
-			//                     m_delegate->OnException(w); // 어쨋거나 이것도 처리해야한다.
-			//                 }
-			//                 else
-			//                     throw;
-			//             }
+			//			catch (...)
+			//			{
+			//				if(pend.m_DoneNotify)
+			//				{
+			//					pend.m_DoneNotify->Failed(pend.m_dbClientID,_PNT("unexpected"));
+			//				}
+			//
+			//				if(CNetConfig::CatchUnhandledException)
+			//				{
+			//					assert(0);
+			//					Proud::Exception w;
+			//					w.m_exceptionType = ExceptionType_Unhandled;
+			//					m_delegate->OnException(w); // 어쨋거나 이것도 처리해야한다.
+			//				}
+			//				else
+			//					throw;
+			//			}
 		}
 	}
 
@@ -1139,7 +1139,7 @@ namespace Proud
 
 	void CDbCacheServer2Impl::WaitForPendedWorkFinished()
 	{
-		// 모든 미처리 DBMS 기록을 즉시 수행하도록 지정한다. 
+		// 모든 미처리 DBMS 기록을 즉시 수행하도록 지정한다.
 		{
 			CriticalSectionLock lock2(m_cs, true);
 			for ( LoadedDataList2_S::iterator i=m_loadedDataList.begin(); i != m_loadedDataList.end(); i++ )
@@ -1212,7 +1212,7 @@ namespace Proud
 				CLoadRequestPtr& req = ld->m_unloadRequests.GetHead();
 				if ( nowTime - req->m_requestTimeMs > loadTimeout )
 				{
-					// 타임아웃 처리 
+					// 타임아웃 처리
 					CFailInfo_S info;
 					info.m_uuid = ld->m_data.GetRootUUID();
 					info.m_reason = ErrorType_TimeOut;
@@ -1263,7 +1263,7 @@ namespace Proud
 			}
 
 			if ( eraseIter )
-			{			
+			{
 				NTTNTRACE("%s: Loadee hybernate to unload\n", __FUNCTION__);
 
 				// 격리된 데이터인 경우 RequestIsolateData 요청에 대한 응답을 보낸다.
@@ -1275,14 +1275,14 @@ namespace Proud
 						isolateRequest->m_requester,
 						g_ReliableSendForPN,
 						isolateRequest->m_session,
-						i->GetFirst(), 
+						i->GetFirst(),
 						isolateDataBlock
 						);
 				}
 
 				// 로드 목록에서 제거
 				i = m_loadedDataList.erase(i);
-			}	
+			}
 			else
 			{
 				++i;
@@ -1292,25 +1292,25 @@ namespace Proud
 
 	//void CDbCacheServer2Impl::EnquePendedDbmsWorksForDeletees()
 	//{
-	//       // DBMS write 비동기 큐를 처리한다.
-	//       // 단, loadee 자체를 DBMS delete를 하는 케이스를 처리한다.
-	//       CriticalSectionLock lock(m_cs,true);
+	//		// DBMS write 비동기 큐를 처리한다.
+	//		// 단, loadee 자체를 DBMS delete를 하는 케이스를 처리한다.
+	//		CriticalSectionLock lock(m_cs,true);
 
-	//       while(m_dbmsDeleteeList.GetCount()>0)
-	//       {
-	//           CLoadedData2Ptr_S ld=m_dbmsDeleteeList.begin()->second;
+	//		while(m_dbmsDeleteeList.GetCount()>0)
+	//		{
+	//			CLoadedData2Ptr_S ld=m_dbmsDeleteeList.begin()->second;
 
-	//           // per-loadee work item으로서 추가를 한다.
-	//           // 단, 이미 해당 loadee 에 대해서 처리를 하는 중이면 queue user work item을 하지 않는다.
-	//           int32_t oldCount=InterlockedIncrement(&m_saveToDbmsWorkingCount);
+	//			// per-loadee work item으로서 추가를 한다.
+	//			// 단, 이미 해당 loadee 에 대해서 처리를 하는 중이면 queue user work item을 하지 않는다.
+	//			int32_t oldCount=InterlockedIncrement(&m_saveToDbmsWorkingCount);
 
-	//           SaveToDbmsContext* saveToDbmsContext=new SaveToDbmsContext;
-	//           saveToDbmsContext->m_deleteeData = ld;
-	//           saveToDbmsContext->m_server=this;
+	//			SaveToDbmsContext* saveToDbmsContext=new SaveToDbmsContext;
+	//			saveToDbmsContext->m_deleteeData = ld;
+	//			saveToDbmsContext->m_server=this;
 
-	//           QueueUserWorkItem(StaticSaveToDbms,saveToDbmsContext,WT_EXECUTEDEFAULT);
-	//           m_dbmsDeleteeList.erase(m_dbmsDeleteeList.begin());
-	//       }
+	//			QueueUserWorkItem(StaticSaveToDbms,saveToDbmsContext,WT_EXECUTEDEFAULT);
+	//			m_dbmsDeleteeList.erase(m_dbmsDeleteeList.begin());
+	//		}
 	//}
 
 	void CDbCacheServer2Impl::SetDefaultTimeoutTimeMs(int newValInMs)
@@ -1331,7 +1331,7 @@ namespace Proud
 		SetDefaultTimeoutTimeMs(newValInMs);
 	}
 
-	void CDbCacheServer2Impl::SetUnloadRequestTimeoutTimeMs(int64_t timeoutMs) 
+	void CDbCacheServer2Impl::SetUnloadRequestTimeoutTimeMs(int64_t timeoutMs)
 	{
 		if (timeoutMs < 0)
 		{
@@ -1361,9 +1361,9 @@ namespace Proud
 				// 그 값은 서버가 구동 중인 동안 불변하는 m_unloadRequestTimeoutTimeMs의 주소값으로 한다.
 				RmiContext rmictx = g_ReliableSendForPN;
 				rmictx.m_uniqueID = (int64_t) & m_unloadRequestTimeoutTimeMs;
-				m_s2cProxy.NotifyUnloadRequestTimeoutTimeMs(clients.GetData(), 
-															clientCount, 
-															rmictx, 
+				m_s2cProxy.NotifyUnloadRequestTimeoutTimeMs(clients.GetData(),
+															clientCount,
+															rmictx,
 															(int64_t)m_unloadRequestTimeoutTimeMs);
 			}
 		}
@@ -1386,7 +1386,7 @@ namespace Proud
 
 		intptr_t rootTableCount = dbCache2Tables.GetCount();
 
-		// Root - Root 중복 체크				
+		// Root - Root 중복 체크
 		for ( intptr_t i=0; i < rootTableCount; i++ )
 		{
 			for ( intptr_t j = 0; j < rootTableCount; j++ )
@@ -1846,7 +1846,7 @@ namespace Proud
 			if ( rootNode->UUID == Guid() || rootNode->OwnerUUID == Guid() || rootNode->RootUUID == Guid() )
 				throw Exception("UserDefine Record has NULL GUID!");
 
-			// Root 테이블은 모든 UUID가 같아야한다.   
+			// Root 테이블은 모든 UUID가 같아야한다.
 			if ( rootNode->UUID == rootNode->OwnerUUID &&
 				rootNode->OwnerUUID == rootNode->RootUUID )
 			{
@@ -2383,7 +2383,7 @@ namespace Proud
 
 		CriticalSectionLock lock(m_cs, true);
 
-		//remote 유효성 검사 
+		//remote 유효성 검사
 		CDbRemoteClientPtr_S rc = GetAuthedRemoteClientByHostID(remote);
 		if ( rc == NULL )
 		{
@@ -2501,7 +2501,7 @@ namespace Proud
 
 		// Self일 때만 Notify를 보내지 않는다.
 		// Self가 아니면 Local to Local도 Notify를 받아야 되기 때문에 보내야 한다.
-		// Notify는 MoveNode가 완료된 시점에서 보내야 된다. 
+		// Notify는 MoveNode가 완료된 시점에서 보내야 된다.
 		// 또한 완료된 시점의 데이터 정보를 보내줘야 한다.
 		if ( rootUUID != destNodeUUID )
 		{
@@ -2650,7 +2650,7 @@ namespace Proud
 		if ( !m_allowNonExclusiveAccess )
 		{
 			// 비독점 접근을 허용하지 않도록 설정되어있다면
-			// 비독점 요청은 실패로 처리한다. 
+			// 비독점 요청은 실패로 처리한다.
 			CFailInfo_S failInfo;
 			failInfo.m_reason = ErrorType_PermissionDenied;
 			failInfo.m_comment = _PNT("Non-exclusive data access is denied.");
@@ -2670,7 +2670,7 @@ namespace Proud
 			return true;
 		}
 
-		// 메모리에 로드는 되어있는 경우 즉시 응답해준다. 
+		// 메모리에 로드는 되어있는 경우 즉시 응답해준다.
 		LoadDataCore_Finish(mainLock, request, NULL);
 		return true;
 	}
@@ -2758,7 +2758,7 @@ namespace Proud
 			lock.Unlock();
 
 			CLoadedData2Ptr_S loadDataCandidate;
-			if ( !LoadDataFromDbms(rootTableName, rootUUID, loadDataCandidate) )     // 로딩 중 오류가 나면 false다. 읽을 데이터가 없다고 해서 에러가 나지는 않는다.
+			if ( !LoadDataFromDbms(rootTableName, rootUUID, loadDataCandidate) )	// 로딩 중 오류가 나면 false다. 읽을 데이터가 없다고 해서 에러가 나지는 않는다.
 			{
 				m_s2cProxy.NotifyNonExclusiveAddDataFailed(remote, g_ReliableSendForPN, tag, ErrorType_Unexpected, _PNT("load from dbms Error"), 0, _PNT(""));
 				return true;
@@ -2927,7 +2927,7 @@ namespace Proud
 			lock.Unlock();
 
 			CLoadedData2Ptr_S loadDataCandidate;
-			if ( !LoadDataFromDbms(rootTableName, rootUUID, loadDataCandidate) )     // 로딩 중 오류가 나면 false다. 읽을 데이터가 없다고 해서 에러가 나지는 않는다.
+			if ( !LoadDataFromDbms(rootTableName, rootUUID, loadDataCandidate) )	// 로딩 중 오류가 나면 false다. 읽을 데이터가 없다고 해서 에러가 나지는 않는다.
 			{
 				m_s2cProxy.NotifyNonExclusiveRemoveDataFailed(remote, g_ReliableSendForPN, tag, ErrorType_Unexpected, _PNT("load from dbms Error"), 0, _PNT(""));
 				return true;
@@ -3058,7 +3058,7 @@ namespace Proud
 			lock.Unlock();
 
 			CLoadedData2Ptr_S loadDataCandidate;
-			if ( !LoadDataFromDbms(rootTableName, rootUUID, loadDataCandidate) )     // 로딩 중 오류가 나면 false다. 읽을 데이터가 없다고 해서 에러가 나지는 않는다.
+			if ( !LoadDataFromDbms(rootTableName, rootUUID, loadDataCandidate) )	// 로딩 중 오류가 나면 false다. 읽을 데이터가 없다고 해서 에러가 나지는 않는다.
 			{
 				m_s2cProxy.NotifyNonExclusiveSetValueFailed(remote, g_ReliableSendForPN, tag, ErrorType_Unexpected, _PNT("Data Not exist"), 0, _PNT(""));
 				return true;
@@ -3176,7 +3176,7 @@ namespace Proud
 			lock.Unlock();
 
 			CLoadedData2Ptr_S loadDataCandidate;
-			if ( !LoadDataFromDbms(rootTableName, rootUUID, loadDataCandidate) )     // 로딩 중 오류가 나면 false다. 읽을 데이터가 없다고 해서 에러가 나지는 않는다.
+			if ( !LoadDataFromDbms(rootTableName, rootUUID, loadDataCandidate) )	// 로딩 중 오류가 나면 false다. 읽을 데이터가 없다고 해서 에러가 나지는 않는다.
 			{
 				m_s2cProxy.NotifyNonExclusiveModifyValueFailed(remote, g_ReliableSendForPN, tag, ErrorType_Unexpected, _PNT("load from dbms Error"), 0, _PNT(""));
 				return true;
@@ -3324,7 +3324,7 @@ namespace Proud
 
 		// modifyDataList의 각 node data는 uuid 순으로 정렬되어 왔다.
 		// parent to child 순으로 들어가 있는게 아니다
-		// 따라서 modifyDataList의 각 항목을 로컬 메모리에 반영하는 중에 아직 parent가 없는 
+		// 따라서 modifyDataList의 각 항목을 로컬 메모리에 반영하는 중에 아직 parent가 없는
 		// 경우가 있는데,
 		// 이러한 경우 deserialize를 유보한다.
 
@@ -3497,7 +3497,7 @@ namespace Proud
 		if ( remoteCount <= 0 ) return false;
 
 		POOLED_LOCAL_VAR(HostIDArray, hostIdArr);
-		
+
 		hostIdArr.SetCount(remoteCount);
 		m_netServer->GetClientHostIDs(hostIdArr.GetData(), hostIdArr.GetCount());
 
@@ -3510,7 +3510,7 @@ namespace Proud
 		return true;
 	}
 
-	// LD의 마지막 갱신 시간을 설정한다. 
+	// LD의 마지막 갱신 시간을 설정한다.
 	// writeDbmsImmediately=true이면 heartbeat에서 즉시 DB write를 하게 한다.
 	void CDbCacheServer2Impl::RefreshLastModifiedTimeMs(const bool & writeDbmsImmediately, CLoadedData2Ptr_S loadedData)
 	{
@@ -3561,7 +3561,7 @@ namespace Proud
 				throw Exception("Update-UUID Not Found");
 
 			// 일단 문자열 제한이 걸리는 문제와 하나의 구문이 실패할 경우 내부적으로 몇개는 성공하나
-			// 실패한 것 때문에 실패로 처리될 가능성이 있음. 
+			// 실패한 것 때문에 실패로 처리될 가능성이 있음.
 			// 그것이 위에처럼 update 구문을 하나씩 실행하는 이유.
 		}
 	}
@@ -3579,5 +3579,4 @@ namespace Proud
 			conn.Execute(_PNT("SET character_set_connection = utf8mb4;"));
 		}
 	}
-
 }

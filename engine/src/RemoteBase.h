@@ -47,7 +47,7 @@ namespace Proud
 
 	private:
 		bool m_overloadPacketState;
-		int64_t m_overloadPacketTime;             // Packet이 overload 된 시간
+		int64_t m_overloadPacketTime;			// Packet이 overload 된 시간
 
 		// 디버깅용.
 		AddrPort m_tcpAddrPort_debug;
@@ -66,10 +66,10 @@ namespace Proud
 		class CDisposeWaiter
 		{
 		public:
-			ErrorType m_reason;  // dispose를 하는 이유
-			ErrorType m_detail;	 // dispose를 할때 detail한 사유
-			ByteArray m_comment;		// 클라에서 접속을 해제한 경우 마지막으로 날린 데이터를 의미한다.
-			int64_t m_createdTime;    // 이 객체가 생성된 시간
+			ErrorType m_reason;		// dispose를 하는 이유
+			ErrorType m_detail;		// dispose를 할때 detail한 사유
+			ByteArray m_comment;	// 클라에서 접속을 해제한 경우 마지막으로 날린 데이터를 의미한다.
+			int64_t m_createdTime;	// 이 객체가 생성된 시간
 			SocketErrorCode m_socketErrorCode; // 문제 발생시 추적을 위함
 
 			inline CDisposeWaiter()
@@ -99,7 +99,7 @@ namespace Proud
 				return false;
 
 			m_UserTaskQueueUseOnly_finalUserWorkItemList.RemoveHead(output);
-			
+
 			output.Internal().m_unsafeMessage.m_remoteHostID = GetHostID();
 
 			return true;
@@ -184,7 +184,7 @@ namespace Proud
 		return a.get() == b.get();
 	}
 
-	inline 	bool operator!= (const shared_ptr<CHostBase>& a, const shared_ptr<CHostBase>& b)
+	inline bool operator!= (const shared_ptr<CHostBase>& a, const shared_ptr<CHostBase>& b)
 	{
 		return a.get() != b.get();
 	}

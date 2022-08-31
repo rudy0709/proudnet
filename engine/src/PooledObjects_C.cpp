@@ -54,7 +54,7 @@ namespace Proud
 	IMPLEMENT_DLL_SINGLETON_ClassObjectPool(SendDestInfoArray);
 	IMPLEMENT_DLL_SINGLETON_ClassObjectPool(SendDestInfoPtrArray);
 	IMPLEMENT_DLL_SINGLETON_ClassObjectPool(RemoteArray);
-	
+
 	IMPLEMENT_DLL_SINGLETON(CStringPool);
 	IMPLEMENT_DLL_SINGLETON(CDefaultStringEncoder);
 
@@ -71,9 +71,5 @@ namespace Proud
 
 #endif // _WIN32
 
-
-
 	IMPLEMENT_DLL_SINGLETON(CNetClientManager);
-
-
 }

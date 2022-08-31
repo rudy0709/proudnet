@@ -46,7 +46,7 @@ namespace Proud
 
 	ByteArrayPtr CVariant::ToByteArrayPtr() const
 	{
-		ByteArrayPtr output; 
+		ByteArrayPtr output;
 
 		output.UseInternalBuffer();
 		VariantToByteArray(*this, output);
@@ -64,7 +64,7 @@ namespace Proud
 		SAFEARRAY FAR* psa;
 		SAFEARRAYBOUND saBound;
 
-		
+
 		saBound.cElements = (uint32_t)input.GetCount();
 		saBound.lLbound = 0;
 		psa = SafeArrayCreate(VT_UI1, 1, &saBound);
@@ -110,5 +110,4 @@ namespace Proud
 	{
 		ByteArrayToVariant(input, *this);
 	}
-
 }

@@ -28,7 +28,7 @@ namespace Proud
 #define PNASSURE(x) { if(!(x)) ShowUserMisuseError(StringA2T(#x)); }
 
 	// 2bit에 사용됨
-	const uint8_t FragSplitter = 0x01; 
+	const uint8_t FragSplitter = 0x01;
 	const uint8_t FullPacketSplitter = 0x02;
 
 	double CTestStats::TestRecentReceiveSpeed = 0;
@@ -36,7 +36,7 @@ namespace Proud
 
 	// 송신큐가 채워져 있는 아무 항목을 얻는다.
 	// 최대한 균등하게 기회를 줄 수 있어야 한다=>Pop을 한 후에는 Pop의 대상이 되는 PacketQueue 항목을 맨 뒤로 옮긴다.
-	// calledBySendCompletion: caller가 send completion인가? => send completion에서의 issue는 혼잡 제어의 제약은 받지만 
+	// calledBySendCompletion: caller가 send completion인가? => send completion에서의 issue는 혼잡 제어의 제약은 받지만
 	// coalesce의 제약을 받지는 말아야 한다.
 	bool CUdpPacketFragBoard::PopAnySendQueueFilledOneWithCoalesce(
 		CUdpPacketFragBoardOutput &output,
@@ -117,8 +117,8 @@ namespace Proud
 				}
 
 				AssertConsist();
-				
-				
+
+
 				return true;
 			}
 
@@ -160,7 +160,7 @@ namespace Proud
 			p->m_sendBrake.DoForLongInterval(curTime);
 #ifdef UPDATE_TEST_STATS
 			CTestStats::TestRecentSendSpeedAtReceiverSide = p->m_sendSpeed.GetRecentSpeed();
-#endif	
+#endif
 			/* 사용 안된지 너무 오래됐으면 추방 또는 iter to next
 			(주의: 여기서는 유령을 없애기 위한 목적이지,
 			안쓰이는 것을 없애기 위한 목적이 아니다. overlapped I/O가 아직
@@ -170,7 +170,7 @@ namespace Proud
 			{
 				if(p->GetListOwner() != NULL)
 					m_sendReadyList.Erase(p);//p->UnlinkSelf();  // 객체 자체가 파괴되는 것이 아닐 수 있으므로 existant list에서는 제외하도록 한다.
-				
+
 				delete p;
 
 				ipq = m_addrPortToQueueMap.erase(ipq);
@@ -182,15 +182,15 @@ namespace Proud
 		}
 	}
 
-	// 	void CUdpPacketFragBoard::Add( AddrPort key, PacketQueuePtr value )
-	// 	{
-	// 		m_map[key] = value;
-	// 	}
+	//	void CUdpPacketFragBoard::Add( AddrPort key, PacketQueuePtr value )
+	//	{
+	//		m_map[key] = value;
+	//	}
 
-	// 	bool CUdpPacketFragBoard::TryGetValue( AddrPort key, PacketQueuePtr& value )
-	// 	{
-	// 		return m_map.Lookup(key, value);
-	// 	}
+	//	bool CUdpPacketFragBoard::TryGetValue( AddrPort key, PacketQueuePtr& value )
+	//	{
+	//		return m_map.Lookup(key, value);
+	//	}
 
 	// 항목을 제거하되, current selection과 같은 것이면 current selection도 이동한다.
 	void CUdpPacketFragBoard::Remove( AddrPort key )
@@ -201,9 +201,9 @@ namespace Proud
 			CPacketQueue* pq = pair->m_value;
 			if(pq->GetListOwner()!= NULL)
 				m_sendReadyList.Erase(pq);//pair->m_value->UnlinkSelf(); // existant list에서 제거
-			
+
 			delete pq;
-			
+
 			m_addrPortToQueueMap.RemoveAtPos(pair);
 			m_curPacketQueue = NULL; // 이것도 빠뜨리지 말아야.
 		}
@@ -216,7 +216,7 @@ namespace Proud
 			CPacketQueue* p = ipq->GetSecond();
 			if(p->GetListOwner()!= NULL)
 				m_sendReadyList.Erase(p);//->UnlinkSelf();
-			
+
 			delete p;
 
 			ipq = m_addrPortToQueueMap.erase(ipq);
@@ -225,19 +225,19 @@ namespace Proud
 	}
 
 
-	// 	void CUdpPacketFragBoard::RemoveKeyIfEmpty( PacketQueuePtr pq )
-	// 	{
-	// 		// 아래 루틴이 막혀있으면 성능상 이익이 온다. 사실 막혀있어야 한다.
-	// 		// 만약 UDP 송신 문제가 자꾸 발생하면 아래 루틴을 풀어서 추이를 비교하자.
+	//	void CUdpPacketFragBoard::RemoveKeyIfEmpty( PacketQueuePtr pq )
+	//	{
+	//		// 아래 루틴이 막혀있으면 성능상 이익이 온다. 사실 막혀있어야 한다.
+	//		// 만약 UDP 송신 문제가 자꾸 발생하면 아래 루틴을 풀어서 추이를 비교하자.
 	// #ifdef SLOW_BUT_PRECISE_QUEUE_MAP
-	// 		// 송신큐가 완전히 비워졌으면 맵에서 제거한다.
-	// 		// 이렇게 해두어야 UDP 오버랩 송신에서 신속하게 송신큐가 든 리모트 연결을 찾아낼 수 있다.
-	// 		if (pq->Count == 0)
-	// 		{
-	// 			Remove(pq->m_remoteAddr);			
-	// 		}
+	//		// 송신큐가 완전히 비워졌으면 맵에서 제거한다.
+	//		// 이렇게 해두어야 UDP 오버랩 송신에서 신속하게 송신큐가 든 리모트 연결을 찾아낼 수 있다.
+	//		if (pq->Count == 0)
+	//		{
+	//			Remove(pq->m_remoteAddr);
+	//		}
 	// #endif
-	// 	}
+	//	}
 
 	void CUdpPacketFragBoard::InitHashTableForClient()
 	{
@@ -249,20 +249,20 @@ namespace Proud
 	int CUdpPacketFragBoard::GetTotalPacketCountOfAddr( const AddrPort &addr )
 	{
 		CPacketQueue* pq = NULL;
-		
+
 		// cache for frequent case
 		if(m_addrPortToQueueMap.GetCount() == 0)
 			return 0;
 
 		if(m_addrPortToQueueMap.TryGetValue(addr,pq))
 		{
-			return pq->GetTotalCount();				
+			return pq->GetTotalCount();
 		}
 		else
 			return 0;
 	}
 
-	/* 송신할 패킷을 추가한다. 
+	/* 송신할 패킷을 추가한다.
 	finalDestHostID: 패킷의 최종 수신 대상. relay or route 대상인 경우 실제 수신 대상과 다르므로 None을 넣어야 한다. None을 넣는 경우 UniqueID 비교가 무시된다.
 	filterTag: UDP는 제3자가 송신자 주소를 속여서 보낼 수 있다. (버그있는 2중 NAT 장치에서 속일 의도가 없어도 같은 현상이 제보된 바 있음.) 따라서 filterTag 값으로 비정상 송신자를 걸러내는 데 쓴다.
 	*/
@@ -290,7 +290,7 @@ namespace Proud
 		CPacketQueue* packetQueue = NULL;
 		if (!m_addrPortToQueueMap.TryGetValue(sendTo, packetQueue))
 		{
-			packetQueue = new CPacketQueue; // note: 객체 파괴는 ~Map에서 함.			
+			packetQueue = new CPacketQueue; // note: 객체 파괴는 ~Map에서 함.
 			packetQueue->m_owner = this;
 			packetQueue->m_remoteAddr = sendTo;
 			packetQueue->m_filterTag = filterTag;
@@ -356,7 +356,7 @@ namespace Proud
 
 		packetQueue->m_lastAccessedTime = addedTime;
 
-		// 아직 existant list에 없으면 넣도록 한다.		
+		// 아직 existant list에 없으면 넣도록 한다.
 		AddToSendReadyListOnNeed(packetQueue, addedTime);
 
 		AssertConsist();
@@ -389,10 +389,10 @@ namespace Proud
 		m_lastPopFragmentSurpressed_ValidAfterPopFragment = false;
 		m_enableSendBrake = CNetConfig::EnableSendBrake;
 		m_curPacketQueue = NULL;
-		
+
 		// 이 map 클래스는 신축폭이 매우 크다. 따라서 rehash 역치를 최대한 크게 잡아야 한다.
 		// 줄어드는 rehash는 절대 하지 말자.
-		m_addrPortToQueueMap.SetOptimalLoad(0.1f,0,2.0f); 
+		m_addrPortToQueueMap.SetOptimalLoad(0.1f,0,2.0f);
 
 	}
 
@@ -401,7 +401,7 @@ namespace Proud
 		// HasPacketAndTimeToSendReached는 heartbeat에서 사용되니까 즐
 		if(packetQueue->GetListOwner() == NULL && !packetQueue->IsEmpty())
 		{
-			m_sendReadyList.PushBack(packetQueue); 
+			m_sendReadyList.PushBack(packetQueue);
 		}
 	}
 
@@ -434,7 +434,7 @@ namespace Proud
 		CPacketQueue* pq = NULL;
 		if(m_addrPortToQueueMap.TryGetValue(addr,pq))
 		{
-			return pq->GetTotalLengthInBytes();				
+			return pq->GetTotalLengthInBytes();
 		}
 		else
 			return 0;
@@ -475,7 +475,7 @@ namespace Proud
 	PacketID, Fragment ID, Packet Length는 VLQ 기법을 응용하여 최대한의 바이트를 사용해서 저장되며,
 	FragmentID는 불필요한 경우(packet length가 MTU 크기 이하인 경우) 생략해 버린다.
 
-	헤더 구조는 FragHeader 사용량 줄이기.pptx 참고	
+	헤더 구조는 FragHeader 사용량 줄이기.pptx 참고
 	*/
 	void CUdpPacketFragBoard::WriteFragHeader(CMessage &msg, FragHeader& header)
 	{
@@ -551,10 +551,10 @@ namespace Proud
 	// 1개의 full packet을 얻는다.
 	// FragHeader의 Splitter value에 따라 full packet인지 아닌지 확인 가능.
 	void CUdpPacketFragBoard::CPacketQueue::PopFragmentOrFullPacket(
-		int64_t curTime, 
+		int64_t curTime,
 		CUdpPacketFragBoardOutput &output)
 	{
-		// frag 안할 패킷이 쌓여있으면 그냥 그것을 우선 주도록 한다. 
+		// frag 안할 패킷이 쌓여있으면 그냥 그것을 우선 주도록 한다.
 		// frag 안할 패킷이 없을 때에만 frag될 수 있는 패킷들을 처리한다.
 		for (int iPriority = 0; iPriority < MessagePriority_LAST; iPriority++)
 		{
@@ -563,8 +563,8 @@ namespace Proud
 			if (headFullPacket)
 			{
 				// rtt 를 받아오기 위해서 여러 함수에 인자 추가가 필요하여 일단 CNetConfig::CleanUpOldPacketIntervalMs 사용.
-				if (iPriority != MessagePriority_Ring0 
-					&& iPriority != MessagePriority_Ring1 
+				if (iPriority != MessagePriority_Ring0
+					&& iPriority != MessagePriority_Ring1
 					&& curTime - headFullPacket->m_enquedTime > CNetConfig::CleanUpOldPacketIntervalMs)
 				{
 					//  packet frag board에서 오래동안 묵혀진 패킷이라면 버린다.
@@ -584,7 +584,7 @@ namespace Proud
 				fragHeader.packetLength = headFullPacket->m_packet.GetCount();
 
 #ifdef TEST_WANGBA
-				if(fragHeader.packetLength <= 0) 
+				if(fragHeader.packetLength <= 0)
 					OutputDebugString("Cue A!\n");
 
 				String txt;
@@ -596,7 +596,7 @@ namespace Proud
 				fragHeader.fragmentID = 0;
 
 				// #PacketGarble 보내는 쪽 코드
-				// udp 패킷에 최초 4byte가 동일한 값일 경우 일부 공유기에서 받은 패킷을 다시 재전송하는 경우가 있다. 
+				// udp 패킷에 최초 4byte가 동일한 값일 경우 일부 공유기에서 받은 패킷을 다시 재전송하는 경우가 있다.
 				// 그러므로, 앞의 4byte(splitter & filterTag) 가 동일한 값이 가지 않도록 해야 한다.
 				// 먼저, 값이 계속 변하는 packetID로 헤더 앞단을 XOR 연산을 한다. 받는 쪽에서 defrag 시 다시 packetID로 XOR 연산을 하면 filterTag를 얻게 되고 그것으로 원본 확인을 한다.
 				fragHeader.splitterFilter |= (uint16_t)((m_filterTag ^ fragHeader.packetID) & 0x00ff);
@@ -607,7 +607,7 @@ namespace Proud
 				// TTL 채워넣기
 				output.m_ttl = headFullPacket->m_ttl;
 
-				output.m_owningPackets.Add(headFullPacket); // 소유권 이양. 이걸 콜 하려면 UDP send completion이 발생했을 터이고 그때는 
+				output.m_owningPackets.Add(headFullPacket); // 소유권 이양. 이걸 콜 하려면 UDP send completion이 발생했을 터이고 그때는
 
 				if (headFullPacket->m_uniqueIDInfo.m_uniqueID.m_value != 0)
 					perPriorityQueue.m_uniqueIDToPacketMap.RemoveKey(headFullPacket->m_uniqueIDInfo);
@@ -721,7 +721,7 @@ namespace Proud
 		fragHeader.packetID = m_lastFragmentedPacketID;
 		fragHeader.fragmentID = m_destFragID;
 
-		// udp 패킷에 최초 4byte가 동일한 값일 경우 일부 공유기에서 받은 패킷을 다시 재전송하는 경우가 있으므로 앞의 4byte(splitter & filterTag) 가 동일한 값이 가지 않도록 
+		// udp 패킷에 최초 4byte가 동일한 값일 경우 일부 공유기에서 받은 패킷을 다시 재전송하는 경우가 있으므로 앞의 4byte(splitter & filterTag) 가 동일한 값이 가지 않도록
 		// 값이 계속 변하는 packetID로 XOR 연산을 하고 defrag 시 다시 packetID로 XOR 연산을 해서 filterTag 를 비교합니다.
 		fragHeader.splitterFilter |= (uint16_t)((m_filterTag ^ fragHeader.packetID) & 0x00ff);
 
@@ -772,17 +772,17 @@ namespace Proud
 		// 헤더, 내용을 다 채웠으니 이제 frag ID 증가해도 안전
 		m_destFragID++;
 
-		// 끝까지 다 보낸 상태이면 도마에 있는 것들의 소유권을 output에 넘기고, 도마를 비운다. 
+		// 끝까지 다 보낸 상태이면 도마에 있는 것들의 소유권을 output에 넘기고, 도마를 비운다.
 		if (m_globalOffsetInFragBoard == m_fragBoardTotalBytes)
 		{
 			// 소유권을 output 객체가 가지게 한다.
 			// 이제 콜러가 갖고 있다가 udp send completion이 발생하면 이 메서드를 또 콜할 것이다. 콜 하면서 m_owningPackets도 다 증발할 것이다.
 			output.m_owningPackets.AddRange(m_fragBoardedPackets.GetData(), m_fragBoardedPackets.GetCount());
 			m_fragBoardedPackets.ClearAndKeepCapacity();
-			// 			if(a)
-			// 			{
-			// 				assert(m_fragBoardedPackets.GetCapacity() > 0); // clear 호출시 버퍼를 완전히 청소하고 있다면 성능 저하가 크므로 즐
-			// 			}
+			//			if(a)
+			//			{
+			//				assert(m_fragBoardedPackets.GetCapacity() > 0); // clear 호출시 버퍼를 완전히 청소하고 있다면 성능 저하가 크므로 즐
+			//			}
 		}
 
 		/* 이작업을 이제 sendcompletion에서 하자.
@@ -823,7 +823,7 @@ namespace Proud
 		CMessage msg;
 		if(output.m_ctx.m_packet.IsNull())
 		{
-			msg.UseUnsafeInternalBuffer(m_unsafeHeap);		
+			msg.UseUnsafeInternalBuffer(m_unsafeHeap);
 			output.m_ctx.m_packet = msg.m_msgBuffer;
 		}
 		else
@@ -904,7 +904,7 @@ namespace Proud
 		{
 			m_priorities[i].m_owner = this;
 		}
-		
+
 		m_owner = NULL;
 		m_lastAccessedTime = 0;
 		m_nextTimeToCoalescedSend = 0;
@@ -926,12 +926,12 @@ namespace Proud
 	// 송신큐가 안 비어있어도, 보낼 타임이 아니면(send brake or coalece에 의해) false를 리턴한다.
 	bool CUdpPacketFragBoard::CPacketQueue::HasPacketAndTimeToSendReached( int64_t currTime, bool calledBySendCompletion )
 	{
-		// 보낼 패킷이 전혀 없으면 
+		// 보낼 패킷이 전혀 없으면
 		if(IsEmpty())
 			return false;
 
 		// 딜레이가 발생해서는 안되는 ProudNet ping packet 등은 무조건 즉시 보내야 하므로
-		if(!m_priorities[MessagePriority_Ring0].IsEmpty() 
+		if(!m_priorities[MessagePriority_Ring0].IsEmpty()
 			|| !m_priorities[MessagePriority_Ring1].IsEmpty() )
 		{
 			return true;
@@ -947,8 +947,8 @@ namespace Proud
 		이때는 coalesce에 의한 통제가 된다.
 		NOTE: 다음 coalesced send를 할 시간이 갱신되는 조건은, pop 직후 패킷큐가 비어버릴때 뿐이다.
 		즉, pop을 한 후 empty가 되면 now+coal intv.
-		next time을 여기서는 바꾸면 안된다. reactor model에서는 한 턴에서 여러 
-		pop을 수행하게 되는데, 여기서 바꿀 경우 각 턴에서 단 1개의 fragment밖에 못 뽑아오는 
+		next time을 여기서는 바꾸면 안된다. reactor model에서는 한 턴에서 여러
+		pop을 수행하게 되는데, 여기서 바꿀 경우 각 턴에서 단 1개의 fragment밖에 못 뽑아오는
 		불상사로 이어지기 때문이다. */
 		if(!calledBySendCompletion && currTime < m_nextTimeToCoalescedSend)
 			return false;
@@ -1007,7 +1007,7 @@ namespace Proud
 		// packet frag board에 막 올라온 full packet이 단 1개의 MTU크기 이하 메시지면
 		if(m_fragBoardedPackets.GetCount() == 1 && m_fragBoardTotalBytes <= CNetConfig::MtuLength)
 		{
-			// Splitter를 TinySplitter로 바꾸고 Splitter 바로 뒤의 message payload length를 제거하자.			
+			// Splitter를 TinySplitter로 바꾸고 Splitter 바로 뒤의 message payload length를 제거하자.
 			UdpPacketCtx* packet = m_fragBoardedPackets[m_srcIndexInFragBoard];
 
 			assert(m_fragBoardTotalBytes == packet->m_packet.GetCount()); // 당연하겠지?
@@ -1022,7 +1022,7 @@ namespace Proud
 			if(reader.Read(randomSplitter)  // 잘 읽었고
 				&& CTcpLayer_Common::RandomToSplitter(randomSplitter) == CTcpLayer_Common::Splitter // splitter 확실하고
 				&& reader.ReadScalar(payloadLength)) // message 크기를 잘 얻었으면
-			{	
+			{
 				// 원래 크기: Splitter+Scalar(1~3바이트) => read offset으로 알 수 있음
 				// 수정 후 크기: TinySplitter+0바이트
 				int diffLength = reader.GetReadOffset() - sizeof(short);
@@ -1031,7 +1031,7 @@ namespace Proud
 				*((short*)(packet->m_packet.GetData())) = CTcpLayer_Common::SplitterToRandom(CTcpLayer_Common::TinySplitter); // Splitter를 TinySplitter로 교체(NOTE: C#에서는 little-endian으로 1바이트씩 교체하도록 하자)
 
 				m_fragBoardTotalBytes -= diffLength;
-			}				
+			}
 		}
 	}
 
@@ -1070,7 +1070,7 @@ namespace Proud
 		int64_t curTime,
 		bool removeOldPacket)
 	{
-		// 아래 오래된 패킷 제거는 5초마다 해야 하지만, unique id 최종것만 남기기는 
+		// 아래 오래된 패킷 제거는 5초마다 해야 하지만, unique id 최종것만 남기기는
 		// 매 issue send or nonblock send에서 항상 수행한다.
 		// ring 0 or 1가 아니라면 오래된 패킷을 검사하여 버린다.
 		if (removeOldPacket)
@@ -1115,8 +1115,8 @@ namespace Proud
 
 					alreadyExist = true;
 				}
-// 				else
-// 					uniqueIDMap->Add(&checkPacket->m_uniqueIDInfo, checkPacket);
+//				else
+//					uniqueIDMap->Add(&checkPacket->m_uniqueIDInfo, checkPacket);
 			}
 
 			if (!alreadyExist)
@@ -1131,7 +1131,7 @@ namespace Proud
 
 	// 수신한 fragment를 수신큐에 넣은 후 완전히 조립된 1개의 packet을 얻는다.
 	// NOTE: 1개의 packet은 1개 이상의 추출 가능한 message들이다.
-	AssembledPacketError CUdpPacketDefragBoard::PushFragmentAndPopAssembledPacket( 
+	AssembledPacketError CUdpPacketDefragBoard::PushFragmentAndPopAssembledPacket(
 		uint8_t* fragData,  // fragment
 		int fragLength,  // length of fragment
 		AddrPort senderAddr,  // 수신된 UDP datagram에 있던 송신자 주소
@@ -1176,7 +1176,7 @@ namespace Proud
 		// filter tag 체크
 		HostID p1 = volatileSrcHostID;
 		HostID p2 = m_owner->m_owner->GetVolatileLocalHostID();
-		// #PacketGarble 받는 쪽 코드 
+		// #PacketGarble 받는 쪽 코드
 		// filterTag 는 packetID 로 XOR연산이 되어 있으므로 원본값으로 다시 돌립니다.
 		uint8_t readFiltertag = (uint8_t)(fragHeader.splitterFilter & 0x00ff);//하위 8비트
 		readFiltertag ^= (uint8_t)(fragHeader.packetID & 0x000000ff);
@@ -1191,7 +1191,7 @@ namespace Proud
 		{
 			assert(CNetConfig::MtuLength > 0);
 
-			if(fragHeader.packetLength <= 0 || (int)fragHeader.packetLength > m_owner->GetMessageMaxLength() || 
+			if(fragHeader.packetLength <= 0 || (int)fragHeader.packetLength > m_owner->GetMessageMaxLength() ||
 				fragHeader.fragmentID < 0 || fragHeader.fragmentID > fragHeader.packetLength / CNetConfig::MtuLength)
 			{
 				outError.Format(_PNT("UDP frag length is wrong #1! packetlength=%d, maxlength=%d, fragID=%d"),
@@ -1218,7 +1218,7 @@ namespace Proud
 			}
 		}
 
-		// fragID가 마지막을 가리키느냐 여부에 따라 fragLength가 매치되어야 한다.		
+		// fragID가 마지막을 가리키느냐 여부에 따라 fragLength가 매치되어야 한다.
 		int fragOffset = CNetConfig::MtuLength * fragHeader.fragmentID;
 		int desiredFragLength = PNMIN(CNetConfig::MtuLength, (int)fragHeader.packetLength - fragOffset);
 		int fragPayloadLength = msg.GetLength() - msg.GetReadOffset();
@@ -1283,11 +1283,11 @@ namespace Proud
 						packet->m_assembledData.GetCount(), fragHeader.packetLength);
 					//m_owner->m_owner->EnquePacketDefragWarning(senderAddr, _PNT("UDP frag length is wrong #3 !"));
 
-					// 				// 롤백 => 이게 왜 있지? 그냥 무시하고 버려도 될 듯 한데?
-					// 				if(packets->Count == 0)
-					// 				{
-					// 					m_addrPortToDefraggingPacketsMap.RemoveAtPos(iPackets);
-					// 				}
+					//				// 롤백 => 이게 왜 있지? 그냥 무시하고 버려도 될 듯 한데?
+					//				if(packets->Count == 0)
+					//				{
+					//					m_addrPortToDefraggingPacketsMap.RemoveAtPos(iPackets);
+					//				}
 
 					// 기 갖고있던 defrag중 상황을 버린다. 옛것이라고 간주된 경우일 수 있으므로.
 					packets->RemoveAtPos(iPacket);
@@ -1523,8 +1523,8 @@ namespace Proud
 		{
 			return packets->m_unreliableMessageLossRatio.GetUnreliableMessagingLossRatioPercent();
 		}
-		
-		return 0;	
+
+		return 0;
 	}
 
 	int CUdpPacketFragBoard::CPacketQueue::CPerPriorityQueue::GetTotalLengthInBytes()
@@ -1557,7 +1557,7 @@ namespace Proud
 	CUdpPacketFragBoard::CPacketQueue::CPerPriorityQueue::~CPerPriorityQueue()
 	{
 		// 소유권을 이게 가진 packet 들을 모두 메모리 해제
-		// 이게 콜 되는 동안에는 packet free list가 유효해야 한다. 
+		// 이게 콜 되는 동안에는 packet free list가 유효해야 한다.
 		while(true)
 		{
 			UdpPacketCtx* p = m_fraggableUdpPacketList.GetFirst();
@@ -1636,7 +1636,7 @@ namespace Proud
 	}
 
 	void CUdpPacketFragBoardOutput::ResetForReuse()
-	{		
+	{
 		if(m_source)
 		{
 			intptr_t cnt = m_owningPackets.GetCount();
@@ -1672,5 +1672,4 @@ namespace Proud
 		// 풀에 다시 넣기
 		CClassObjectPool<DefraggingPacket>::GetUnsafeRef().Drop(this);
 	}
-
 }

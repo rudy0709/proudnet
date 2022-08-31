@@ -84,7 +84,7 @@ namespace Proud
 #ifdef _WIN32
 //		m_upnp.Free();
 // #else
-// 		m_reactor.Free();
+//		m_reactor.Free();
 #endif
 
 		//m_netWorkerThread->UnregisterReferrer(this);
@@ -129,21 +129,21 @@ namespace Proud
 			Sleep(100);
 		}
 	}
-	// 	void CNetClientManager::SendReadyInstances_Add( CNetClientImpl* inst)
-	// 	{
-	// 		CriticalSectionLock	lock(m_cs,true);
+	//	void CNetClientManager::SendReadyInstances_Add( CNetClientImpl* inst)
+	//	{
+	//		CriticalSectionLock	lock(m_cs,true);
 	//
-	// 		// 리스트에 아직 미등록임에 한해 등록.
-	// 		if(!inst->GetListOwner())
-	// 		{
-	// 			m_sendReadyInstances.PushBack(inst);
-	// 		}
-	// 	}
+	//		// 리스트에 아직 미등록임에 한해 등록.
+	//		if(!inst->GetListOwner())
+	//		{
+	//			m_sendReadyInstances.PushBack(inst);
+	//		}
+	//	}
 
-// 	void CNetClientManager::DoGarbageFree()
-// 	{
-// 		//지우자
-// 	}
+//	void CNetClientManager::DoGarbageFree()
+//	{
+//		//지우자
+//	}
 
 	//void CNetClientManager::OnCompletionPortWarning(CompletionPort* /*port*/, const PNTCHAR* /*msg*/)
 	//{
@@ -159,7 +159,7 @@ namespace Proud
 		// 나중에는 각 NC마다 critsec을 가지게 한 후 NC 개수에 따라 스레드 수를 늘려야 할거다.
 		CriticalSectionLock lock(m_critSec, true);
 		int num = 1;
-		
+
 		if (m_instanceCount > 0)	// NetWorkerThreadModel을 Multi로 설정한 클라이언트가 하나라도 있으면
 		{
 
@@ -176,9 +176,8 @@ namespace Proud
 		m_netWorkerMultiThreadPool->SetDesiredThreadCount(num);
 	}
 
-// 	void CNetClientManager::GetThreadInfos(CFastArray<CThreadInfo>& output)
-// 	{
-// 		m_netWorkerThread->GetThreadInfos(output);
-// 	}
-
+//	void CNetClientManager::GetThreadInfos(CFastArray<CThreadInfo>& output)
+//	{
+//		m_netWorkerThread->GetThreadInfos(output);
+//	}
 }

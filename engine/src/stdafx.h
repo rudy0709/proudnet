@@ -23,11 +23,11 @@
 #endif
 
 #if defined(_WIN32)
-    #include <objbase.h>
-    #include <WinSock2.h>
-    #include <mswsock.h>
-    #include <conio.h> // win32에만 있는 헤더파일
-    //#include <comdef.h> // 서버에서만 쓰자. UE4 때문에 클라는 쓰면 안됨.
+	#include <objbase.h>
+	#include <WinSock2.h>
+	#include <mswsock.h>
+	#include <conio.h> // win32에만 있는 헤더파일
+	//#include <comdef.h> // 서버에서만 쓰자. UE4 때문에 클라는 쓰면 안됨.
 #else
 
 #if defined(__MACH__)
@@ -35,9 +35,9 @@
 #define __APPLE_USE_RFC_2292
 #endif
 
-    #include <sys/socket.h>
-    #include <netinet/in.h>
-    #include <arpa/inet.h>
+	#include <sys/socket.h>
+	#include <netinet/in.h>
+	#include <arpa/inet.h>
 #endif
 
 #include <algorithm>
@@ -80,9 +80,9 @@ using namespace std;
 #endif
 
 #ifdef USE_PARALLEL_FOR
-    #if (_MSC_VER>=1400)
-    #include <omp.h>
-    #endif
+	#if (_MSC_VER>=1400)
+	#include <omp.h>
+	#endif
 #endif
 
 #include "../include/OrbisIPv6.h"

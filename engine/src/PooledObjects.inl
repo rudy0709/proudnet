@@ -1,11 +1,11 @@
-﻿#pragma once 
+﻿#pragma once
 #include "LowContextSwitchingLoop.h"
 
 namespace Proud
 {
 	template <typename T>
 	void CClassObjectPool<T>::ShrinkOnNeed()
-	{		
+	{
 		assert(m_subPoolCount <= MaxCpuCoreCount);
 
 		ShrinkOnNeed_Functor f(this);
@@ -15,5 +15,4 @@ namespace Proud
 		// 이정도 부하를 댓가로 critsec보다 2배 빠른 atomic op의 효과를 볼 수 있으니, 감수하자.
 		LowContextSwitchingLoop(f.m_subPools, f.m_subPoolCount, f);
 	}
-
 }

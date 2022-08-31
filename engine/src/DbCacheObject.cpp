@@ -155,8 +155,8 @@ namespace Proud
 		if ( removeData )
 		{
 			//이런 상황이면 대략 난감이다...
-			// 			m_owner->m_s2cProxy.NotifyDbmsAccessError(requester,g_ReliableSendForPN,m_waitTicket,ByteArray(),_PNT("Remove Final but LocalMemory Not Found"));
-			// 			throw Exception("AccessError: Dbms Write Success but Remove Final LocalMemory Not Found");
+			//			m_owner->m_s2cProxy.NotifyDbmsAccessError(requester,g_ReliableSendForPN,m_waitTicket,ByteArray(),_PNT("Remove Final but LocalMemory Not Found"));
+			//			throw Exception("AccessError: Dbms Write Success but Remove Final LocalMemory Not Found");
 
 			// 실제 로컬 메모리에서 삭제수행. 이미 DB에서 삭제되었기 때문에 removePropNodeList에 추가하지 않는다.
 			loadData->m_data.RemoveNode(removeData, false);

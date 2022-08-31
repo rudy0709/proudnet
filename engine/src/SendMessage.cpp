@@ -2,6 +2,6 @@
 #include "SendMessage.h"
 #include "SocketUtil.h"
 
-namespace Proud 
+namespace Proud
 {
 }

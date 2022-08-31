@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "../include/NetServerStats.h"
 
-namespace Proud 
+namespace Proud
 {
 	CNetServerStats::CNetServerStats()
 	{
@@ -17,6 +17,4 @@ namespace Proud
 		return String::NewFormat(_PNT("P2P connections=%d, P2P direct connections=%d, Clients=%d, UDP alive clients=d, Used UDP ports=%d"),
 			m_p2pConnectionPairCount, m_p2pDirectConnectionPairCount, m_clientCount, m_realUdpEnabledClientCount, m_occupiedUdpPortCount);
 	}
-
 }
-

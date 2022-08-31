@@ -24,14 +24,14 @@ namespace Proud
 		static void PosterProc(void* context);
 		void PosterProc2();
 	public:
-		 PROUD_API CThreadPoolPeriodicPoster(
+		PROUD_API CThreadPoolPeriodicPoster(
 			IThreadReferrer* threadPoolReferrer,
 			CustomValueEvent postType,
 			CThreadPoolImpl* threadpool,
 			int64_t postTime);
 
-		 PROUD_API ~CThreadPoolPeriodicPoster();
+		PROUD_API ~CThreadPoolPeriodicPoster();
 
-		 void SetPostInterval(const int64_t &newInterval);
+		void SetPostInterval(const int64_t &newInterval);
 	};
 }

@@ -136,7 +136,7 @@ namespace Proud
 			int64_t currTime = GetPreciseCurrentTimeMs();
 #else
 			int64_t currTime = UpdateCachedTime(true);
-#endif		
+#endif
 			{
 				CriticalSectionLock lock(m_critSec, true);
 				// 매우 짧은 시간 동안 쉰다.
@@ -222,7 +222,7 @@ namespace Proud
 
 	//////////////////////////////////////////////////////////////////////////
 	// For compilers where there is no std.chrono.
-	// platform-specific highres time getting feature is slow, so we get the time for each millisecond. 
+	// platform-specific highres time getting feature is slow, so we get the time for each millisecond.
 	// Of course, this is far more costly than std.chrono where RDTSC is used.
 
 #if (PN_USE_CHRONO==0)
@@ -265,6 +265,4 @@ namespace Proud
 	volatile int64_t CGlobalTimerThread::m_measuredTimeMs = 0;
 
 #endif // PN_USE_CHRONO==0
-
-
 }

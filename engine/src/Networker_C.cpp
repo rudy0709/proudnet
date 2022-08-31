@@ -264,9 +264,9 @@ namespace Proud
 			{
 				if ( rp->m_garbaged )
 					continue;
-				// 			//add by rekfkno1 - 위에 있던 로직 합침. => CNetClientImpl::IssueSendOnNeed 로 옮기면서 주석화
-				// 			if(rp->m_udpSocket != nullptr)
-				// 				rp->m_udpSocket->IssueSendOnNeed_IfPossible();
+				//			//add by rekfkno1 - 위에 있던 로직 합침. => CNetClientImpl::IssueSendOnNeed 로 옮기면서 주석화
+				//			if(rp->m_udpSocket != nullptr)
+				//				rp->m_udpSocket->IssueSendOnNeed_IfPossible();
 
 				rp->Heartbeat(currTime);
 
@@ -560,7 +560,7 @@ namespace Proud
 	}
 
 	void CNetClientWorker::ProcessMessage_ReliableUdp_Frame(
-		const shared_ptr<CSuperSocket>& udpSocket, 
+		const shared_ptr<CSuperSocket>& udpSocket,
 		CReceivedMessage& ri)
 	{
 		//puts("CNetClientWorker::ProcessMessage_ReliableUdp_Frame");
@@ -632,7 +632,7 @@ namespace Proud
 		if ( msg.Read(magicNumber) == false )
 			return;
 		if (msg.Read(addrOfHereAtServer) == false)
-		{ 
+		{
 			return;
 		}
 
@@ -684,10 +684,10 @@ namespace Proud
 	void CNetClientWorker::ProcessMessage_PeerUdp_ServerHolepunchAck(CReceivedMessage& ri)
 	{
 		// #ifdef LOG_RESTORE_UDP
-		// 		if(m_owner->m_logRestoreUdp)
-		// 		{
-		// 			NTTNTRACE("LOG_RESTORE_UDP: 서버와의 홀펀칭 ACK가 도착했음.\n");
-		// 		}
+		//		if(m_owner->m_logRestoreUdp)
+		//		{
+		//			NTTNTRACE("LOG_RESTORE_UDP: 서버와의 홀펀칭 ACK가 도착했음.\n");
+		//		}
 		// #endif
 
 		// ignore unknown magic number
@@ -722,7 +722,7 @@ namespace Proud
 	// hostIDArray를 얻어서 바로 Data를 Sending 해 준다.
 	// 서버로 부터 넘어온 메세지를 피어간 릴레이를 하기 위해서 설정
 	bool CNetClientWorker::ProcessMessage_S2CRoutedMulticast1(
-		const shared_ptr<CSuperSocket>& udpSocket, 
+		const shared_ptr<CSuperSocket>& udpSocket,
 		CReceivedMessage& ri)
 	{
 		CMessage &msg = ri.m_unsafeMessage;
@@ -1055,7 +1055,7 @@ namespace Proud
 		sendMsg.Write(m_owner->m_connectionParam.m_userData);
 		sendMsg.Write(m_owner->m_connectionParam.m_protocolVersion);
 		sendMsg.Write(m_owner->m_internalVersion);
-		
+
 
 		m_owner->m_remoteServer->m_ToServerTcp->AddToSendQueueWithSplitterAndSignal_Copy(
 			m_owner->m_remoteServer->m_ToServerTcp,
@@ -1087,8 +1087,8 @@ namespace Proud
 		int C2SNextMessageID = 0, S2CNextMessageID = 0;
 
 		// set local HostID: connect established! but TCP fallback mode yet
-		if (!msg.Read(localHostID) 
-			|| !msg.Read(userData) 
+		if (!msg.Read(localHostID)
+			|| !msg.Read(userData)
 			|| !msg.Read(localAddrAtServer))
 		{
 			ProcessReadPacketFailed();
@@ -1127,7 +1127,7 @@ namespace Proud
 				m_owner->ServerUdpPing_UpdateValues(pingPongTime);
 			}
 
-			// #GetServerTime 서버 로컬 타임을 얻었다. 거기에 레이턴시 더해서 server Time diff를 얻자. 
+			// #GetServerTime 서버 로컬 타임을 얻었다. 거기에 레이턴시 더해서 server Time diff를 얻자.
 			CompactFieldMap fieldMap;
 			if (!Message_Read(msg, fieldMap))
 			{
@@ -1273,7 +1273,7 @@ namespace Proud
 	}
 
 	void CNetClientWorker::ProcessMessage_UnreliableRelay2(
-		const shared_ptr<CSuperSocket>& socket, 
+		const shared_ptr<CSuperSocket>& socket,
 		CReceivedMessage& receivedInfo)
 	{
 		CMessage& msg = receivedInfo.GetReadOnlyMessage();
@@ -1472,7 +1472,7 @@ namespace Proud
 	{
 		return receivedInfo.GetRemoteHostID() != HostID_Server &&
 			receivedInfo.GetRemoteHostID() != HostID_None;
-	}	
+	}
 
 	// connection param 의 serverIP, port 정보를 토대로 m_serverAddrPort를 갱신한다.
 	// 서버의 주소 정보 갱신에 성공하면 SocketErrorCode_Ok를 리턴하면, 실패하면, 그 외의 값을 리턴한다.
@@ -1685,9 +1685,9 @@ namespace Proud
 		// NOTE: Socket 생성 후, (bind를 하더라도) Hang-up이 발생하여 Connect 호출 이후에 kqueue나 epoll에 Socket을 등록하는 것으로 변경하였습니다.
 		// 비 윈도우 환경에서는 non-blocking Connect를 시도하기 때문에 Connect 이후에 kqeue나 epoll에 해당 Socket을 등록합니다.
 		// [1] #iOS_ENOTCONN_issue : iOS에서는 가끔 아직 connecting socket인데도 write avail event가 옴에도 불구하고 0 byte send가 여전히 ENOTCONN를 내는 경우가 있다.
-		// 그렇다고 edge trigger를 해 버리면 iOS에서 그런 상황에서 또 write avail event가 온다는 보장이 없다. 
-		// 한편 TCP connecting socket이면, connected가 되기 전까지는 write or read avail event가 올 수 없다. 
-		// 이 점을 이용하여 TCP connecting socket일 때는 level trigger로 시작. connected가 되면 edge trigger로 변신. 
+		// 그렇다고 edge trigger를 해 버리면 iOS에서 그런 상황에서 또 write avail event가 온다는 보장이 없다.
+		// 한편 TCP connecting socket이면, connected가 되기 전까지는 write or read avail event가 올 수 없다.
+		// 이 점을 이용하여 TCP connecting socket일 때는 level trigger로 시작. connected가 되면 edge trigger로 변신.
 		m_netThreadPool->AssociateSocket(m_remoteServer->m_ToServerTcp, false/*[1]*/);
 #endif
 
@@ -2308,5 +2308,4 @@ namespace Proud
 		SetState(Disconnecting);
 		return;
 	}
-
 }

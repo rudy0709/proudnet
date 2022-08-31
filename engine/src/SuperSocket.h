@@ -55,7 +55,7 @@ namespace Proud
 		String errorText;
 	};
 
-	// 소켓 본연의 기능 뿐만 아니라 여러 프로토콜이나 송수신 데이터 처리 로직등이 
+	// 소켓 본연의 기능 뿐만 아니라 여러 프로토콜이나 송수신 데이터 처리 로직등이
 	// 들어간 덩치 큰 클래스. 덩치가 큰 놈이라 하여 super라는 이름이 붙었다.
 	// socket, event 등의 객체가 같은 lifetime을 가지므로 이렇게 뜯어냈다.
 	// listen socket의 역할도 함.
@@ -123,7 +123,7 @@ namespace Proud
 		int64_t m_timeToGarbage;
 
 		CNetCoreImpl *m_owner;
-		
+
 //		CThreadPoolImpl* m_ownerThreadPool;
 
 		// 이것에 대해 별도로 close를 호출하게 하지 말고,
@@ -147,7 +147,7 @@ namespace Proud
 
 
 	public:
-		 PROUD_API AddrPort GetSocketName();
+		PROUD_API AddrPort GetSocketName();
 	private:
 		// Win32: AcceptEx를 호출할 때 동원되는 socket. AcceptEx의 sAcceptSocket에 준함.
 		// AcceptEx의 completion이 발생하면 이것에 대해 FinalizeAcceptEx로 마무리되어야 한다.
@@ -168,7 +168,7 @@ namespace Proud
 
 		inline IoQueueType* GetAssociatedIoQueue() { return m_associatedIoQueue_accessByAssociatedSocketsOnly; }
 
-		 CriticalSection* GetAssociatedIoQueueCritSec();
+		CriticalSection* GetAssociatedIoQueueCritSec();
 
 	public:
 #ifdef _WIN32
@@ -201,12 +201,12 @@ namespace Proud
 		volatile IoState m_stopIoRequested_USE_FUNCTION;
 
 // #ifdef _WIN32
-// 		// 마지막으로 issue send를 건 시간. completion이 오면 0으로 바뀜에 주의.
-// 		volatile int64_t m_lastSendIssuedTime;
-// 		volatile int64_t m_lastRecvIssuedTime;
+//		// 마지막으로 issue send를 건 시간. completion이 오면 0으로 바뀜에 주의.
+//		volatile int64_t m_lastSendIssuedTime;
+//		volatile int64_t m_lastRecvIssuedTime;
 //
-// 		volatile int64_t m_lastRecvissueWarningTime;
-// 		volatile int64_t m_lastSendIssueWarningTime;
+//		volatile int64_t m_lastRecvissueWarningTime;
+//		volatile int64_t m_lastSendIssueWarningTime;
 // #endif // _WIN32
 
 	public:
@@ -252,7 +252,7 @@ namespace Proud
 
 		//////////////////////////////////////////////////////////////////////////
 		// CSendReadyList에 의해서만 액세스된다. 다른 곳에서는 액세스 금지!
-		
+
 		// pos in list. much faster than map.
 		Position m_ACCESSED_ONLY_BY_SendReadySockets_PositionInList;
 		// 검사용
@@ -323,22 +323,22 @@ namespace Proud
 		CFastMap2<AddrPort, HostID, int> m_receivedAddrPortToVolatileHostIDMap;
 
 	public:
-		 PROUD_API CSuperSocket(CNetCoreImpl *owner, SocketType socketType/*CThreadPoolImpl* ownerThreadPool, AddrPort remoteAddr*/);
-		 PROUD_API ~CSuperSocket();
+		PROUD_API CSuperSocket(CNetCoreImpl *owner, SocketType socketType/*CThreadPoolImpl* ownerThreadPool, AddrPort remoteAddr*/);
+		PROUD_API ~CSuperSocket();
 
-		 PROUD_API static SuperSocketCreateResult New(CNetCoreImpl* owner, const shared_ptr<CFastSocket>& fastSocket, SocketType socketType);
-		 PROUD_API static SuperSocketCreateResult New(CNetCoreImpl* owner, SocketType socketType);
+		PROUD_API static SuperSocketCreateResult New(CNetCoreImpl* owner, const shared_ptr<CFastSocket>& fastSocket, SocketType socketType);
+		PROUD_API static SuperSocketCreateResult New(CNetCoreImpl* owner, SocketType socketType);
 
 		PROUD_API void SetEnableNagleAlgorithm(bool enableNagleAlgorithm);
 		PROUD_API  void AddToSendQueueWithoutSplitterAndSignal_Copy(
 			const shared_ptr<CSuperSocket>& param_shared_from_this,
 			const CSendFragRefs &sendData);
-		 PROUD_API void AddToSendQueueWithSplitterAndSignal_Copy(
+		PROUD_API void AddToSendQueueWithSplitterAndSignal_Copy(
 			const shared_ptr<CSuperSocket>& param_shared_from_this,
 			const CSendFragRefs &sendData,
 			const SendOpt& sendOpt,
 			bool simplePacketMode = false);
-		 PROUD_API void AddToSendQueueWithSplitterAndSignal_Copy(
+		PROUD_API void AddToSendQueueWithSplitterAndSignal_Copy(
 			const shared_ptr<CSuperSocket>& param_shared_from_this,
 			HostID finalDestHostID,
 			FilterTag::Type filterTag,
@@ -346,7 +346,7 @@ namespace Proud
 			const CSendFragRefs &sendData,
 			int64_t addedTime,
 			const SendOpt &sendOpt);
-		 PROUD_API void AddToSendQueueWithSplitterAndSignal_Copy(
+		PROUD_API void AddToSendQueueWithSplitterAndSignal_Copy(
 			const shared_ptr<CSuperSocket>& param_shared_from_this,
 			HostID finalDestHostID,
 			FilterTag::Type filterTag,
@@ -356,7 +356,7 @@ namespace Proud
 			const SendOpt &sendOpt);
 
 		// this가 server side websocket인 경우에 한해서 호출된다.
-		 PROUD_API virtual void AddToSendQueueWithoutSplitterAndSignal_Copy_WebSocket(
+		PROUD_API virtual void AddToSendQueueWithoutSplitterAndSignal_Copy_WebSocket(
 			const CSendFragRefs& /*sendData*/) {  // 보낼 데이터
 			assert(0); // 상속 함수에서나 호출해야 함
 		}
@@ -475,10 +475,10 @@ namespace Proud
 		PROUD_API void UdpPacketFragBoard_Remove(AddrPort addrPort);
 		PROUD_API void UdpPacketDefragBoard_Remove(AddrPort addrPort);
 
-		 PROUD_API SocketErrorCode Bind();
-		 PROUD_API SocketErrorCode Bind(int port);
-		 PROUD_API SocketErrorCode Bind(const PNTCHAR* addr, int port);
-		 PROUD_API SocketErrorCode Bind(AddrPort localAddr);
+		PROUD_API SocketErrorCode Bind();
+		PROUD_API SocketErrorCode Bind(int port);
+		PROUD_API SocketErrorCode Bind(const PNTCHAR* addr, int port);
+		PROUD_API SocketErrorCode Bind(AddrPort localAddr);
 	private:
 
 		ProcessType GetNextProcessType_AfterRecv(const CIoEventStatus& comp);
@@ -532,15 +532,15 @@ namespace Proud
 		// Send Queue에만 데이터가 계속 쌓이게 된다.
 		//************************************
 		static bool m_test_isSendQueueLock;
-		
+
 		/* RequestStopIo를 호출한 시간.
 		unix에서 RMI 3003 문제 해결하기, 즉 "최후의 스레드가 액세스하고 나면 그제서야 socket을 지운다. fd값이 재사용되는 문제를 막기 위해"를
-		해결하기 위해, Garbaged socket은 바로 close socket을 하지 않아 왔다. 
+		해결하기 위해, Garbaged socket은 바로 close socket을 하지 않아 왔다.
 		하지만 만일에 버그로 인해 이것이 영원히 socket을 안 닫을 경우, 최악의 경우 socket fd가 계속 누적되는 상황이 될 수 있다.
 		이에 대한 방어코드 목적으로, 10초같은 매우 큰 시간동안 garbaged socket이 안 닫히면 강제로 닫는다.
 		이를 위해서 사용된다. */
 		int64_t m_requestStopIoTime;
-		
+
 		bool m_warnTooLongGarbage;
 
 #ifndef _WIN32
@@ -605,5 +605,4 @@ namespace Proud
 		return a.get() != b.get();
 	}
 #endif
-
 }

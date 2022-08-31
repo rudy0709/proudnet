@@ -13,12 +13,12 @@
 //#include "../include/errorinfo.h"
 #include "UnreliableMessageLossMeasurer.h"
 
-namespace Proud 
+namespace Proud
 {
 	int CUnreliableMessageLossMeasurer::GetUnreliableMessagingLossRatioPercent() const
 	{
 		// 패킷 로스율은, 최근 받은 패킷들의 packet ID들의 범위 중에서 이빨이 빠진 것들을 체크하면 된다.
-		
+
 		if (!m_hasReceivedUnreliablePacket)
 			return 0;
 
@@ -29,14 +29,14 @@ namespace Proud
 		// 캐릭터 위치를 초당 5회 미만으로 보내는 저용량 게임에서는 30도 크다.
 		// 그리고 로스율이 조금이라도 있으면 TFRC 불문율상 트래픽을 확 줄이는 것이 통례.
 		// 따라서 10으로 하향했다.
-		if (nMinMaxDiffPacketIDValue < 10)	
+		if (nMinMaxDiffPacketIDValue < 10)
 		{
 			// 너무 적은 샘플링으로는 로스율을 얻지 못하므로 무조건 0
 			return 0;
 		}
 
 		int x = 100 - ((100 * m_recentAssemblyingPacketIDs.GetCount()) / nMinMaxDiffPacketIDValue);
-		
+
 		x = min(x,100);
 		x = max(x,0);
 
@@ -69,5 +69,4 @@ namespace Proud
 	{
 		return m_recentAssemblyingPacketIDs.Add(nPacketID, 0);
 	}
-
 }

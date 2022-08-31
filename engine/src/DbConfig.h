@@ -17,5 +17,4 @@ namespace Proud
 	};
 
 	const int64_t OneSecond = 1000;
-
 }

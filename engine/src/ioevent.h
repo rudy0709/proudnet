@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "LeanType.h"
 #include "../include/AddrPort.h"
@@ -7,9 +7,9 @@
 namespace Proud
 {
 	using namespace std;
-	
-	// 너무 키우지 말자. 너무 크면 스택 오버플로 위험. 
-	// 로컬변수로 fixed length array의 크기로 쓰이기 때문임. 
+
+	// 너무 키우지 말자. 너무 크면 스택 오버플로 위험.
+	// 로컬변수로 fixed length array의 크기로 쓰이기 때문임.
 	// 크면 클수록 좋지만 512 * 20 정도면 10KB니까, 조금은 부담스럽네. 그리고 한 context switch에서 512개의 소켓을 처리하는 상황이면 엄청난 동접이니까 enough.
 	// 2048로 했을 경우 PS4에서 문제가 발생하니까 함부로 건드리지 말 것...
 	// Win32에서는 이 한계가 설령 없지만, CIoEventStatusList가 지나치게 커지면서 resize cost가 막대해지면 안되므로 이 한계를 그대로 쓰도록 하자.
@@ -19,7 +19,7 @@ namespace Proud
 	class CIoEventStatus;
 
 	/* iocp,epoll,kqueue에 associate될 수 있는, 즉 socket or file descriptor를 가리킨다.
-	
+
 	iocp에서 i/o completion 혹은 epoll에서 i/o available에 대한 event 및 socket의 i/o state를 가지고 있어야 한다.
 	CSuperSocket 등 뭔가 큰 것을 가지는 것이 이 인터페이스를 구현해야 한다.
 	*/
@@ -31,7 +31,7 @@ namespace Proud
 		/* param_shared_from_this에 대해:
 		code profile 결과 shared_from_this for CSuperSocket이 느린 것으로 파악됨.
 		따라서 S->Func() 대신 S->Func(S)가 더 나음.
-		그러나 IIoFileDescriptor는 S의 실제 타입을 모름. 
+		그러나 IIoFileDescriptor는 S의 실제 타입을 모름.
 		따라서 shared_ptr 객체 자체의 주소를 void*로 강제 캐스팅 후, 실 구현 측에서 역 캐스팅해서 사용하자.
 		*/
 #if defined(_WIN32)
@@ -46,7 +46,7 @@ namespace Proud
 		// "non block으로 send or recv를 성공적으로 할 수 있는 상태이다"를 의미
 		// epoll, poll, kqueue의 경우에 한함.
 		virtual void OnSocketIoAvail(
-			void* param_shared_from_this_ptr, 
+			void* param_shared_from_this_ptr,
 			CIoEventStatus &comp ) = 0;
 #endif
 	};

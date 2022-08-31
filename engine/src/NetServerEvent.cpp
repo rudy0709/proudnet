@@ -2,7 +2,7 @@
 #include "NetServer.h"
 
 // 원칙적으로는 PN client dll에서 이것을 export해야 한다.
-// 그러나 그래봤자 해커만 좋아한다. 
+// 그러나 그래봤자 해커만 좋아한다.
 // 따라서 그냥 이렇게 중복 include한다.
 #ifdef PROUDNETSERVER_EXPORTS
 #include "pidl/NetS2C_common.cpp"
@@ -20,7 +20,7 @@ namespace Proud
 		// 서버가 종료 상태이면 당연히...
 		if (!m_netThreadPool)
 			return true;
-		
+
 		throw Exception("Not implemented yet!");
 		return false;
 	}

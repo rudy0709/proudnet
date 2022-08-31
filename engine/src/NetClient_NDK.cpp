@@ -30,7 +30,7 @@ extern "C" {
 	 * Signature: (JLcom/nettention/proud/FrameMoveResult;)V
 	 */
 	JNIEXPORT void JNICALL Java_com_nettention_proud_NetClient_nativeFrameMove(JNIEnv *env, jobject obj, jlong netClient, jobject outResult)
-	{		
+	{
 		((CNetClient *)netClient)->FrameMove();
 	}
 
@@ -63,7 +63,7 @@ extern "C" {
 	{
 		((CNetClient *)netClient)->DetachProxy((IRmiProxy*)proxy);
 	}
-	
+
 	/*
 	 * Class:     com_nettention_proud_NetClient
 	 * Method:    nativeAttachStub
@@ -73,7 +73,7 @@ extern "C" {
 	{
 		((CNetClient *)netClient)->AttachStub((IRmiStub*)stub);
 	}
-	
+
 	/*
 	* Class:     com_nettention_proud_NetClient
 	* Method:    nativeDetachStub
@@ -128,7 +128,7 @@ extern "C" {
 
 		return ((CNetClient *)netClient)->Connect(para);;
 	}
-	
+
 	/*
 	* Class:     com_nettention_proud_NetClient
 	* Method:    nativeDisconnect
@@ -146,28 +146,28 @@ extern "C" {
 	*/
 	JNIEXPORT void JNICALL Java_com_nettention_proud_NetClient_nativeDisconnectA(JNIEnv *env, jobject obj, jlong netClient, jdouble gracefulDisconnectTimeout, jobject comment)
 	{
-		
-		 jclass ByteArrayClass = env->FindClass("com/nettention/proud/ByteArray");
-		
-		 jfieldID lengthFieldID = env->GetFieldID(ByteArrayClass, "length", "I");
-		
-		 jint length = env->GetIntField(comment, lengthFieldID);
-		
-		 jfieldID dataFieldID = env->GetFieldID(ByteArrayClass, "data", "[B");
-		
-		 jbyteArray data = (jbyteArray) env->GetObjectField(comment, dataFieldID);
-		
-		 ByteArray tmp;
-		 if (data != NULL)
-		 {
-			 
-			 jbyte *data_jbyte = env->GetByteArrayElements(data, NULL);
-			 for(int i=0; i < length; i++)
-			 {			
-				 tmp.Add((unsigned char)data_jbyte[i]);
-			 }
-		 }
-			 
+
+		jclass ByteArrayClass = env->FindClass("com/nettention/proud/ByteArray");
+
+		jfieldID lengthFieldID = env->GetFieldID(ByteArrayClass, "length", "I");
+
+		jint length = env->GetIntField(comment, lengthFieldID);
+
+		jfieldID dataFieldID = env->GetFieldID(ByteArrayClass, "data", "[B");
+
+		jbyteArray data = (jbyteArray) env->GetObjectField(comment, dataFieldID);
+
+		ByteArray tmp;
+		if (data != NULL)
+		{
+
+			jbyte *data_jbyte = env->GetByteArrayElements(data, NULL);
+			for(int i=0; i < length; i++)
+			{
+				tmp.Add((unsigned char)data_jbyte[i]);
+			}
+		}
+
 		((CNetClient *)netClient)->Disconnect(gracefulDisconnectTimeout, tmp);
 	}
 
@@ -182,11 +182,11 @@ extern "C" {
 		jclass InetSocketAddressClass = env->FindClass("java/net/InetSocketAddress");
 
 		jmethodID InetSocketAddressConstructor = env->GetMethodID(InetSocketAddressClass, "<init>", "(Ljava/lang/String;I)V");
-		
+
 		jfieldID localUdpSocketAddrFieldID = env->GetFieldID(DirectP2PInfoClass, "localUdpSocketAddr", "Lcom/nettention/proud/DirectP2PInfo;");
 		jfieldID localToRemoteAddrFieldID = env->GetFieldID(DirectP2PInfoClass, "localToRemoteAddr", "Lcom/nettention/proud/DirectP2PInfo;");
 		jfieldID remoteToLocalAddrFieldID = env->GetFieldID(DirectP2PInfoClass, "remoteToLocalAddr", "Lcom/nettention/proud/DirectP2PInfo;");
-		
+
 		CDirectP2PInfo output;;
 		jboolean ret = ((CNetClient *)netClient)->GetDirectP2PInfo((HostID)remotePeerID, output);
 
@@ -196,14 +196,14 @@ extern "C" {
 		jint localUdpSocketAddr_port = output.m_localUdpSocketAddr.m_port;
 		jobject localUdpSocketAddr_obj = env->NewObject(InetSocketAddressClass, InetSocketAddressConstructor, localUdpSocketAddr_jstr, localUdpSocketAddr_port);
 		env->SetObjectField(outDirectP2PInfo, localUdpSocketAddrFieldID, localUdpSocketAddr_obj);
-		
+
 		/* localToRemoteAddr */
 		const char * localToRemoteAddr_str = StringW2A(output.m_localToRemoteAddr.IPToString());
 		jstring localToRemoteAddr_jstr = env->NewStringUTF(localToRemoteAddr_str);
 		jint localToRemoteAddr_port = output.m_localToRemoteAddr.m_port;
 		jobject localToRemoteAddr_obj = env->NewObject(InetSocketAddressClass, InetSocketAddressConstructor, localToRemoteAddr_jstr, localToRemoteAddr_port);
 		env->SetObjectField(outDirectP2PInfo, localToRemoteAddrFieldID, localToRemoteAddr_obj);
-		
+
 		/* remoteToLocalAddr */
 		const char * remoteToLocalAddr_str = StringW2A(output.m_remoteToLocalAddr.IPToString());
 		jstring remoteToLocalAddr_jstr = env->NewStringUTF(remoteToLocalAddr_str);
@@ -221,13 +221,13 @@ extern "C" {
 	*/
 	JNIEXPORT void JNICALL Java_com_nettention_proud_NetClient_nativeGetGroupMembers(JNIEnv *env, jobject obj, jlong netClient, jint groupHostID, jobject outHostArray)
 	{
-		jclass HostIDArrayClass = env->FindClass("com/nettention/proud/HostIDArray");		
-		
-		jmethodID add = env->GetMethodID(HostIDArrayClass, "add", "(Ljava/lang/Integer);");		
+		jclass HostIDArrayClass = env->FindClass("com/nettention/proud/HostIDArray");
+
+		jmethodID add = env->GetMethodID(HostIDArrayClass, "add", "(Ljava/lang/Integer);");
 
 		jclass IntegerClass = env->FindClass("java/lang/Integer");
 		jmethodID IntegerContructor = env->GetMethodID(IntegerClass, "<init>", "(I)V");
-				
+
 		HostIDArray groupMembers;
 
 		((CNetClient*)netClient)->GetGroupMembers((HostID)groupHostID, groupMembers);
@@ -287,9 +287,9 @@ extern "C" {
 	*/
 	JNIEXPORT void JNICALL Java_com_nettention_proud_NetClient_nativeGetLocalJoinedP2PGroups(JNIEnv *env, jobject obj, jlong netClient, jobject outHostIDArray)
 	{
-		jclass HostIDArrayClass = env->FindClass("com/nettention/proud/HostIDArray");		
+		jclass HostIDArrayClass = env->FindClass("com/nettention/proud/HostIDArray");
 
-		jmethodID add = env->GetMethodID(HostIDArrayClass, "add", "(Ljava/lang/Integer);");		
+		jmethodID add = env->GetMethodID(HostIDArrayClass, "add", "(Ljava/lang/Integer);");
 
 		jclass IntegerClass = env->FindClass("java/lang/Integer");
 		jmethodID IntegerContructor = env->GetMethodID(IntegerClass, "<init>", "(I)V");
@@ -369,7 +369,7 @@ extern "C" {
 
 		CNetPeerInfo tmp;
 		jboolean ret = ((CNetClient*)netClient)->GetPeerInfo((HostID)peerHostID, tmp);
-		
+
 		/* udpAddrFromServer */
 		const char * udpAddrFromServer_str = StringW2A(tmp.m_UdpAddrFromServer.IPToString());
 		jstring udpAddrFromServer_jstr = env->NewStringUTF(udpAddrFromServer_str);
@@ -397,7 +397,7 @@ extern "C" {
 		env->SetLongField(outNetPeerInfo, toRemotePeerSendUdpMessageTrialCountFieldID, (jlong)tmp.m_toRemotePeerSendUdpMessageTrialCount);
 		env->SetLongField(outNetPeerInfo, toRemotePeerSendUdpMessageSuccessCountFieldID, (jlong)tmp.m_toRemotePeerSendUdpMessageSuccessCount);
 
-		return ret;		
+		return ret;
 	}
 
 	/*
@@ -408,7 +408,7 @@ extern "C" {
 	JNIEXPORT jboolean JNICALL Java_com_nettention_proud_NetClient_nativeGetPeerReliableUdpStats(JNIEnv *env, jobject obj, jlong netClient, jint peerID, jobject outReliableUdpHostStats)
 	{
 		jclass ReliableUdpHostStatsClass = env->FindClass("com/nettention/proud/ReliableUdpHostStats");
-		
+
 		jfieldID receivedFrameCountFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "receivedFrameCount", "I");
 		jfieldID receivedStreamCountFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "receivedStreamCount", "I");
 		jfieldID totalReceivedStreamLengthFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "totalReceivedStreamLength", "I");
@@ -420,18 +420,18 @@ extern "C" {
 		jfieldID sendStreamCountFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "sendStreamCount", "I");
 		jfieldID firstSendFrameCountFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "firstSendFrameCount", "I");
 		jfieldID resendFrameCountFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "resendFrameCount", "I");
-		
+
 		jfieldID totalSendStreamLengthFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "totalSendStreamLength", "I");
 		jfieldID totalResendCountFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "totalResendCount", "I");
 		jfieldID totalFirstSendCountFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "totalFirstSendCount", "I");
 		jfieldID recentSendFrameToUdpSpeedFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "recentSendFrameToUdpSpeed", "I");
 		jfieldID sendSpeedLimitFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "sendSpeedLimit", "I");
-		
+
 		jfieldID firstSenderWindowLastFrameFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "firstSenderWindowLastFrame", "I");
 		jfieldID resendWindowLastFrameFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "resendWindowLastFrame", "I");
 		jfieldID lastExpectedFrameNumberAtSenderFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "lastExpectedFrameNumberAtSender", "I");
 		jfieldID totalReceiveDataCountFieldID = env->GetFieldID(ReliableUdpHostStatsClass, "totalReceiveDataCount", "I");
-		
+
 
 		ReliableUdpHostStats tmp;
 		jboolean ret = ((CNetClient*)netClient)->GetPeerReliableUdpStats((HostID)peerID, tmp);
@@ -505,7 +505,7 @@ extern "C" {
 		jfieldID realUdpEnabledFieldID = env->GetFieldID(ServerConnectionStateClass, "realUdpEnabled", "Z");
 
 		CServerConnectionState tmp;
- 		ConnectionState tmp2 = ((CNetClient*)netClient)->GetServerConnectionState(tmp);
+		ConnectionState tmp2 = ((CNetClient*)netClient)->GetServerConnectionState(tmp);
 
 		env->SetBooleanField(outServerConnectionState, realUdpEnabledFieldID, (jboolean)tmp.m_realUdpEnabled);
 		jobject ret;
@@ -527,7 +527,7 @@ extern "C" {
 		case ConnectionState_Disconnecting :
 			ConnectionStateFieldID = env->GetStaticFieldID(ConnctionStateClass, "Disconnecting", "Lcom/nettention/proud/ServerConnectionState;");
 			ret = env->GetStaticObjectField(ConnctionStateClass, ConnectionStateFieldID);
-			break;		
+			break;
 		}
 
 		return ret;
@@ -570,7 +570,7 @@ extern "C" {
 		jfieldID remotePeerCountFieldID = env->GetFieldID(NetClientStatsClass, "remotePeerCount", "I");
 		jfieldID serverUdpEnabledFieldID = env->GetFieldID(NetClientStatsClass, "serverUdpEnabled", "Z");
 		jfieldID directP2PEnabledPeerCountFieldID = env->GetFieldID(NetClientStatsClass, "directP2PEnabledPeerCount", "I");
-				
+
 		CNetClientStats tmp;
 		((CNetClient*)netClient)->GetStats(tmp);
 
@@ -613,7 +613,7 @@ extern "C" {
 
 		CDirectP2PInfo tmp;
 		jboolean ret = ((CNetClient*)netClient)->InvalidateUdpSocket((HostID)peerID, tmp);
-		
+
 		/* localRemoteAddr */
 		String localToRemoteAddr_str = tmp.m_localToRemoteAddr.IPToString();
 		const char * localToRemoteAddr_cstr = StringW2A(localToRemoteAddr_str);
@@ -622,7 +622,7 @@ extern "C" {
 
 		jobject localToRemoteAddr_obj = env->NewObject(InetSocketAddressClass, InetSocketAddressContructor, localToRemoteAddr_jstr, localToRemoteAddr_port);
 		env->SetObjectField(outDirectoryP2PInfo, localToRemoteAddr, localToRemoteAddr_obj);
-		
+
 		/* localUdpSocketAddr */
 		String localUdpSocketAddr_str = tmp.m_localUdpSocketAddr.IPToString();
 		const char * localUdpSocketAddr_cstr = StringW2A(localUdpSocketAddr_str);
@@ -653,8 +653,6 @@ extern "C" {
 	{
 		CNetClient::UseNetworkerThread_EveryInstance(value);
 	}
-
-
 
 #ifdef __cplusplus
 }

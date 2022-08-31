@@ -10,7 +10,7 @@
 #include "stacktrace-win32.h"
 #include "..\include\sysutil.h"
 
-namespace Proud 
+namespace Proud
 {
 	// SymInitialize를 최초 1회 하는 역할을 한다.
 	class SymbolInit:public CSingleton<SymbolInit>

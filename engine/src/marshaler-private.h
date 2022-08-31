@@ -33,7 +33,7 @@ namespace Proud
 		return a;
 	}
 
-	 PROUD_API void AppendTextOut(String &a, HostIDArray &b);
+	PROUD_API void AppendTextOut(String &a, HostIDArray &b);
 
 	inline CMessage& operator>>(CMessage &a, LogCategory &b)
 	{
@@ -65,7 +65,7 @@ namespace Proud
 		return a;
 	}
 
-	 PROUD_API void AppendTextOut(String &a, const CompactFieldMap &b);
+	PROUD_API void AppendTextOut(String &a, const CompactFieldMap &b);
 
 	inline CMessage& operator >> (CMessage &a, CompactFieldName &b)
 	{
@@ -83,5 +83,4 @@ namespace Proud
 	{
 		a += String::NewFormat(_PNT("FieldType:%d"), b);
 	}
-
 }

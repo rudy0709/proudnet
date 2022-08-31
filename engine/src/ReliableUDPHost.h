@@ -27,7 +27,7 @@ namespace Proud
 	- 먼저 IReliableUdpHostDelegate를 구현한다. 그리고 ReliableUdpHost 객체에 연결한다.
 	- UDP에서 받은 것을 처리: UDP frame인지 먼저 확인 후 ReliableUdpHost.TakeReceivedFrame()에 넣는다.
 	- UDP로 보내기: ReliableUdpHost에 의해, IReliableUdpHostDelegate의 SendOneFrameToUdp() 호출된다. 이를 구현하라.
-	- 일정 시간마다: ReliableUdpHost.FrameMove() 호출하라. DoForLongInterval은 매 몇초마다 콜 해야 하고. 
+	- 일정 시간마다: ReliableUdpHost.FrameMove() 호출하라. DoForLongInterval은 매 몇초마다 콜 해야 하고.
 	- relay로 보내는 메시지는: AllStreamToSenderWindowAndYieldFrameNumberForRelayedLongFrame로 그 메시지의 frame number를 얻어야 한다. TCP로 전송되므로 long frame으로서 전송되면 된다.
 
 	Reliable UDP를 통해 메시지 주고받는 방법
@@ -57,7 +57,7 @@ namespace Proud
 
 		// sender window의 최대 크기. 혼잡 제어를 위함. 커질수록 좋은 네트워크 회선을 의미. cwnd or congestion window와 같은 의미다.
 		// 절대 1 이상이어야.
-		// float인 이유: ssthresh 이후부터는 cwnd가 1 미만 값으로도 증가하기 때문이다. 
+		// float인 이유: ssthresh 이후부터는 cwnd가 1 미만 값으로도 증가하기 때문이다.
 		// int이면 1미만이 절삭되어서 증가가 제대로 안되는 문제 발생.
 		float m_senderWindowMaxLength;
 
@@ -85,7 +85,7 @@ namespace Proud
 		// 데이터 수신을 위해 쓰이는 것들
 
 		// data frame들로부터 stream으로 조립된 결과물. 이 안에 메시지들이 들어있다.
-		CStreamQueue m_receivedStream;	
+		CStreamQueue m_receivedStream;
 
 		// UDP socket에서 꺼내긴 했지만 아직 스트림으로 조립되지 않고 대기중인 프레임들. 즉 receiver window이다.
 		CFastList2<ReliableUdpFrame, int, CPNElementTraits<ReliableUdpFrame> > m_receiverWindow;
@@ -102,7 +102,7 @@ namespace Proud
 		//////////////////////////////////////////////////////////////////////////
 		// 통계
 
-		// 수신 윈도에 들어있는 프레임 갯수, 아직 뽑아내지 않은 스트림 크기, 
+		// 수신 윈도에 들어있는 프레임 갯수, 아직 뽑아내지 않은 스트림 크기,
 		int m_receivedFrameCount, m_receivedStreamCount;
 
 		// 총 ack 받은 횟수
@@ -130,7 +130,7 @@ namespace Proud
 		};
 		CFastArray<m_ackLog> m_lastReceivedAckNumbers;
 
-		struct DataLog 
+		struct DataLog
 		{
 		int m_number;
 		double m_time;

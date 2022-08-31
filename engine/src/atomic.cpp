@@ -73,5 +73,4 @@ namespace Proud
 
 		return a;
 	}
-
 }

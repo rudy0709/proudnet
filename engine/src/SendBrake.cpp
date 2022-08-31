@@ -46,13 +46,13 @@ namespace Proud
 		}
 
 		// 속도 무제한이면 항상 0
-		// 		if (m_controlledMaxSendSpeed == INT64_MAX)
-		// 		{
-		// 			m_sendBrakeGauge = 0;
-		// 		}
-		// 		else  //속도 유제한이면
-		// 		{
-		// 지난 시간만큼 send brake gauge를 감소시킨다. 
+		//		if (m_controlledMaxSendSpeed == INT64_MAX)
+		//		{
+		//			m_sendBrakeGauge = 0;
+		//		}
+		//		else  //속도 유제한이면
+		//		{
+		// 지난 시간만큼 send brake gauge를 감소시킨다.
 		// 시간은 밀리초 단위이므로 속도를 곱한 후 만들어지는 큰 값을 먼저 구한다. 이 값이 int64_max의 1/1000이 되려면
 		// 현존 인터넷보다 훨씬 빠른 인터넷이 나와야 하므로 오버플로우는 걱정 말자.
 		int64_t lastInterval = curTime - m_lastLongIntervalWorkTime;
@@ -170,7 +170,7 @@ namespace Proud
 				m_controlledMaxSendSpeed = INT64_MAX;
 			}
 
-			// 최소 송신속도는 유지하도록 한다. 
+			// 최소 송신속도는 유지하도록 한다.
 			m_controlledMaxSendSpeed = PNMAX(CNetConfig::MinSendSpeed, m_controlledMaxSendSpeed);
 		}
 		else // 혼잡 아니면
@@ -181,8 +181,8 @@ namespace Proud
 				m_controlledMaxSendSpeed = PNMAX(m_controlledMaxSendSpeed, m_recentReceiveSpeed);
 
 				/* 대략 주기가 4초, 한번에 4배로 뛰도록 하자.
-				pow를 쓰면 로직이 단순해 지지만 
-				일부 서버 VM에서 SSE 명령어가 크래시를 일으키므로 pow()를 쓰지 않는다. */				
+				pow를 쓰면 로직이 단순해 지지만
+				일부 서버 VM에서 SSE 명령어가 크래시를 일으키므로 pow()를 쓰지 않는다. */
 				double interval = (double)(curTime - *lastSetValueTime) / 1000;
 
 				// Mac or iOS or android math.h에는 pow template 함수가 없습니다.
@@ -227,5 +227,4 @@ namespace Proud
 	{
 		return (curTime - m_lastAccumulateTime > CNetConfig::UnreliablePingIntervalMs * 3);
 	}
-
 }

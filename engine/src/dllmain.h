@@ -1,9 +1,9 @@
-﻿#pragma once 
+﻿#pragma once
 
 //222-원본: #include "../../include/BasicTypes.h"
 #include "../include/BasicTypes.h"
 
-namespace Proud 
+namespace Proud
 {
-	 extern volatile bool g_ProudDllsAreUnloading;
-} 
+	extern volatile bool g_ProudDllsAreUnloading;
+}

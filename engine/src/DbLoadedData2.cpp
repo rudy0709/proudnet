@@ -19,13 +19,12 @@
 
 namespace Proud
 {
-    CLoadedData2::CLoadedData2():
+	CLoadedData2::CLoadedData2():
 		m_Root(),
 		m_propNodeMap()
-    {
+	{
+	}
 
-    }
-    
 	CLoadedData2::CLoadedData2(const CLoadedData2& from)
 	{
 		m_propNodeMap.Clear();
@@ -37,11 +36,11 @@ namespace Proud
 		m_removePropNodeList.AddTailList(&from.m_removePropNodeList);
 	}
 
-    CLoadedData2::~CLoadedData2()
-    {
+	CLoadedData2::~CLoadedData2()
+	{
 		m_propNodeMap.Clear();
 		m_removePropNodeList.Clear();
-    }
+	}
 
 	CLoadedData2 & CLoadedData2::operator=(const CLoadedData2& from)
 	{
@@ -56,15 +55,15 @@ namespace Proud
 		return *this;
 	}
 
-    void CLoadedData2::AssertThreadID( eAccessMode eMode ) const
-    {
-        m_RWAccessChecker.AssertThreadID(eMode);
-    }
+	void CLoadedData2::AssertThreadID( eAccessMode eMode ) const
+	{
+		m_RWAccessChecker.AssertThreadID(eMode);
+	}
 
-    void CLoadedData2::ClearThreadID() const
-    {
-        m_RWAccessChecker.ClearThreadID();
-    }
+	void CLoadedData2::ClearThreadID() const
+	{
+		m_RWAccessChecker.ClearThreadID();
+	}
 
 	// node를 받는다.
 	Proud::ErrorType CLoadedData2::MovePropNode(CLoadedData2& destForest, CPropNodePtr nodeToMove, CPropNodePtr destParentNode)
@@ -76,7 +75,7 @@ namespace Proud
 		// nodeToMove, destForest, destParentNode
 		Proud::ErrorType ret = _INTERNAL_NOACCESSMODE_MovePropNode(nodeToMove, destForest, destParentNode);
 		ClearThreadID();
-		
+
 		return ret;
 	}
 
@@ -117,7 +116,7 @@ namespace Proud
 		if (nodeToMove->m_parent->m_child->m_endSibling == nodeToMove)
 			isEndNode = true;		// 마지막 노드
 
-		// 현재 Forest에서 기존의 노드들의 연결을 끊는다.		
+		// 현재 Forest에서 기존의 노드들의 연결을 끊는다.
 		if (isFirstNode)
 		{
 			nodeToMove->m_parent->m_child = nodeToMove->m_sibling;
@@ -125,8 +124,8 @@ namespace Proud
 			{
 				nodeToMove->m_sibling->m_endSibling = nodeToMove->m_endSibling;
 			}
-			// 			if (nodeToMove->m_sibling != NULL)
-			// 				nodeToMove->m_sibling->m_endSibling = nodeToMove->m_endSibling;
+			//			if (nodeToMove->m_sibling != NULL)
+			//				nodeToMove->m_sibling->m_endSibling = nodeToMove->m_endSibling;
 
 		}
 		else
@@ -134,7 +133,7 @@ namespace Proud
 			// 해당 노드를 검색
 			CPropNode* prevNode = nodeToMove->m_parent->m_child;
 
-			// 일정이 급박하여 추후에 수정하는 것으로.... - by KJSA 
+			// 일정이 급박하여 추후에 수정하는 것으로.... - by KJSA
 			// 추후 수정이지만, 잔여 마무리를 냅두지 않는 것이 좋겠습니다. 가급적이면 다음 스플린트에서 다룰 수 있도록 트렐로 카드로 남겨주세요.
 			// 엔진팀에서 사원급에서 해볼 수 있는 업무일지도.
 			/*CPropNode.m_leftSibling이라는 멤버를 추가하게 되면, 이러한 루프를 삭제할 수 있을텐데요, 어때요? 너무 많이 고칠라나...
@@ -169,7 +168,7 @@ namespace Proud
 		ErrorType ret = ErrorType_Ok;
 		if ( isSelfMove )
 		{
-			// 현재 트리 내에서 이동하는 경우는 m_propNodeMap을 건드릴 필요가 없다.	
+			// 현재 트리 내에서 이동하는 경우는 m_propNodeMap을 건드릴 필요가 없다.
 			// nodeToMove의 하위노드들도 건드릴 필요가 없다.
 
 			// _INTERNAL_NOACCESSMODE_InsertChild로부터 복사해온 루틴.
@@ -269,15 +268,15 @@ namespace Proud
 		return ErrorType_Ok;
 	}
 
-    Proud::ErrorType CLoadedData2::InsertChild( CPropNodePtr parent, CPropNodePtr newNode )
-    {
-        //guid발급
-        if(newNode->UUID == Guid())
-            newNode->m_UUID = Win32Guid::NewGuid();
+	Proud::ErrorType CLoadedData2::InsertChild( CPropNodePtr parent, CPropNodePtr newNode )
+	{
+		//guid발급
+		if(newNode->UUID == Guid())
+			newNode->m_UUID = Win32Guid::NewGuid();
 
 		if(newNode->RootUUID == Guid())
 		{
-			 AssertThreadID(eAccessMode_Read);
+			AssertThreadID(eAccessMode_Read);
 
 			if(GetRootNode())
 				newNode->m_RootUUID = RootUUID;
@@ -287,16 +286,16 @@ namespace Proud
 			ClearThreadID();
 		}
 
-        AssertThreadID(eAccessMode_Write);
+		AssertThreadID(eAccessMode_Write);
 
-        Proud::ErrorType ret;
+		Proud::ErrorType ret;
 		if ((ret = _INTERNAL_NOACCESSMODE_InsertChild(parent, newNode)) == ErrorType_Ok)
-            newNode->m_dirtyFlag = true;
+			newNode->m_dirtyFlag = true;
 
-        ClearThreadID();
+		ClearThreadID();
 
-        return ret;
-    }
+		return ret;
+	}
 
 	Proud::ErrorType CLoadedData2::_INTERNAL_NOACCESSMODE_InsertChild(CPropNodePtr parent, CPropNodePtr newNode)
 	{
@@ -407,15 +406,15 @@ namespace Proud
 		return CPropNodePtr();
 	}
 
-    Proud::ErrorType CLoadedData2::RemoveNode( CPropNodePtr node , bool addremovelist)
-    {
-        AssertThreadID(eAccessMode_Write);
+	Proud::ErrorType CLoadedData2::RemoveNode( CPropNodePtr node , bool addremovelist)
+	{
+		AssertThreadID(eAccessMode_Write);
 		Proud::ErrorType ret = _INTERNAL_NOACCESSMODE_RemoveNode(node, addremovelist);
-        ClearThreadID();
+		ClearThreadID();
 
-        return ret;
-    }
-	
+		return ret;
+	}
+
 	Proud::ErrorType CLoadedData2::RemoveNode( Proud::Guid removeUUID, bool addremovelist )
 	{
 		CPropNodePtr removeNode = GetNode(removeUUID);
@@ -547,7 +546,7 @@ namespace Proud
 				node->m_endSibling = NULL;
 			}
 		}
-		
+
 		CFastList2<CPropNodePtr, int> stack;
 		stack.AddTail(_INTERNAL_NOACCESSMODE_GetNode(node->m_UUID));
 
@@ -578,13 +577,13 @@ namespace Proud
 		return ErrorType_Ok;
 	}
 
-    CPropNodePtr CLoadedData2::GetNode( const Guid& guid )
-    {
-        AssertThreadID(eAccessMode_Read);
+	CPropNodePtr CLoadedData2::GetNode( const Guid& guid )
+	{
+		AssertThreadID(eAccessMode_Read);
 		CPropNodePtr ret = _INTERNAL_NOACCESSMODE_GetNode(guid);
-        ClearThreadID();
-        return ret;
-    }
+		ClearThreadID();
+		return ret;
+	}
 
 	CPropNodePtr CLoadedData2::_INTERNAL_NOACCESSMODE_GetNode(const Guid& guid)
 	{
@@ -620,13 +619,13 @@ namespace Proud
 		return CPropNodePtr();
 	}
 
-    CPropNodePtr CLoadedData2::GetRootNode()
-    {
+	CPropNodePtr CLoadedData2::GetRootNode()
+	{
 		if (m_Root == NULL)
 			return CPropNodePtr();
 
 		return _INTERNAL_NOACCESSMODE_GetNode(m_Root->UUID);
-    }
+	}
 
 	void CLoadedData2::_INTERNAL_ChangeToByteArray( ByteArray& outArray )
 	{
@@ -767,140 +766,140 @@ namespace Proud
 		}
 	}
 
-// 	Proud::ErrorType CLoadedData2::_INTERNAL_NOACCESSMODE_InsertSiblingBefore(CPropNodePtr sibling, CPropNodePtr newNode)
-// 	{
-// 		ErrorType ret = _INTERNAL_NOACCESSMODE_CheckNode(newNode);
-// 		if (ret != ErrorType_Ok)
-// 			return ret;
-// 
-// 
-// 
-// 		PropNodeMap::iterator itr = m_propNodeMap.find(newNode->m_UUID);
-// 
-// 		if (itr != m_propNodeMap.end())
-// 		{
-// 
-// 			return ErrorType_BadSessionGuid;
-// 		}
-// 
-// 		if (m_Root == NULL)
-// 		{
-// 			if (sibling == NULL)
-// 			{
-// 				m_Root = newNode;
-// 				m_Root->m_parent = CPropNodePtr();
-// 				m_Root->m_ownerUUID = m_Root->m_RootUUID;
-// 
-// 				m_propNodeMap.Add(newNode->m_UUID, newNode);
-// 
-// 				return ErrorType_Ok;
-// 			}
-// 
-// 			return ErrorType_Unexpected;
-// 		}
-// 
-// 		if (sibling == NULL)
-// 		{
-// 			newNode->m_parent = CPropNodePtr();;
-// 			newNode->m_sibling = m_Root;
-// 			m_Root = newNode;
-// 			m_Root->m_ownerUUID = m_Root->m_RootUUID;
-// 		}
-// 		else
-// 		{
-// 			if (ErrorType_Ok != (ret = _INTERNAL_NOACCESSMODE_CheckNode(sibling)))
-// 			{
-// 				return ret;
-// 			}
-// 
-// 			itr = m_propNodeMap.find(sibling->m_UUID);
-// 
-// 			if (itr == m_propNodeMap.end())
-// 			{
-// 				return ErrorType_BadSessionGuid;
-// 			}
-// 
-// 			newNode->m_sibling = sibling;
-// 			newNode->m_parent = sibling->m_parent;
-// 
-// 			if (newNode->m_parent != NULL)
-// 			{
-// 				newNode->m_ownerUUID = newNode->m_parent->m_UUID;
-// 				newNode->m_parent->m_child = newNode;
-// 			}
-// 			else
-// 				newNode->m_ownerUUID = newNode->m_RootUUID;
-// 
-// 			//만일 sibling가 root라면 루트 변경
-// 			if (m_Root->m_UUID == sibling->m_UUID)
-// 			{
-// 				newNode->m_parent = CPropNodePtr();;
-// 				m_Root = newNode;
-// 			}
-// 		}
-// 
-// 		m_propNodeMap.Add(newNode->m_UUID, newNode);
-// 
-// 		return ErrorType_Ok;
-// 	}
+//	Proud::ErrorType CLoadedData2::_INTERNAL_NOACCESSMODE_InsertSiblingBefore(CPropNodePtr sibling, CPropNodePtr newNode)
+//	{
+//		ErrorType ret = _INTERNAL_NOACCESSMODE_CheckNode(newNode);
+//		if (ret != ErrorType_Ok)
+//			return ret;
+//
+//
+//
+//		PropNodeMap::iterator itr = m_propNodeMap.find(newNode->m_UUID);
+//
+//		if (itr != m_propNodeMap.end())
+//		{
+//
+//			return ErrorType_BadSessionGuid;
+//		}
+//
+//		if (m_Root == NULL)
+//		{
+//			if (sibling == NULL)
+//			{
+//				m_Root = newNode;
+//				m_Root->m_parent = CPropNodePtr();
+//				m_Root->m_ownerUUID = m_Root->m_RootUUID;
+//
+//				m_propNodeMap.Add(newNode->m_UUID, newNode);
+//
+//				return ErrorType_Ok;
+//			}
+//
+//			return ErrorType_Unexpected;
+//		}
+//
+//		if (sibling == NULL)
+//		{
+//			newNode->m_parent = CPropNodePtr();;
+//			newNode->m_sibling = m_Root;
+//			m_Root = newNode;
+//			m_Root->m_ownerUUID = m_Root->m_RootUUID;
+//		}
+//		else
+//		{
+//			if (ErrorType_Ok != (ret = _INTERNAL_NOACCESSMODE_CheckNode(sibling)))
+//			{
+//				return ret;
+//			}
+//
+//			itr = m_propNodeMap.find(sibling->m_UUID);
+//
+//			if (itr == m_propNodeMap.end())
+//			{
+//				return ErrorType_BadSessionGuid;
+//			}
+//
+//			newNode->m_sibling = sibling;
+//			newNode->m_parent = sibling->m_parent;
+//
+//			if (newNode->m_parent != NULL)
+//			{
+//				newNode->m_ownerUUID = newNode->m_parent->m_UUID;
+//				newNode->m_parent->m_child = newNode;
+//			}
+//			else
+//				newNode->m_ownerUUID = newNode->m_RootUUID;
+//
+//			//만일 sibling가 root라면 루트 변경
+//			if (m_Root->m_UUID == sibling->m_UUID)
+//			{
+//				newNode->m_parent = CPropNodePtr();;
+//				m_Root = newNode;
+//			}
+//		}
+//
+//		m_propNodeMap.Add(newNode->m_UUID, newNode);
+//
+//		return ErrorType_Ok;
+//	}
 
 
-    void CLoadedData2::Serialize( CMessage& msg,bool isReading )
-    {
-        if(isReading)
-        {
-            AssertThreadID(eAccessMode_Write);
+	void CLoadedData2::Serialize( CMessage& msg,bool isReading )
+	{
+		if(isReading)
+		{
+			AssertThreadID(eAccessMode_Write);
 
 			_INTERNAL_NOACCESSMODE_DeleteAll();
 
-            int nCount = 0;
-            msg >>nCount;
+			int nCount = 0;
+			msg >>nCount;
 
-            CFastList2<CPropNodePtr,int> TempList;
+			CFastList2<CPropNodePtr,int> TempList;
 
-            for(int i=0;i<nCount;++i)
-            {
-                CPropNodePtr prop = CPropNodePtr(new CPropNode(_PNT("")));
-                msg >> *prop;
+			for(int i=0;i<nCount;++i)
+			{
+				CPropNodePtr prop = CPropNodePtr(new CPropNode(_PNT("")));
+				msg >> *prop;
 
-                // Root인경우
-                if(prop->UUID == prop->RootUUID)
+				// Root인경우
+				if(prop->UUID == prop->RootUUID)
 					_INTERNAL_NOACCESSMODE_InsertChild(CPropNodePtr(), prop);
-                else
-                {
-                    CPropNodePtr pFind  = _INTERNAL_NOACCESSMODE_GetNode(prop->m_ownerUUID);
+				else
+				{
+					CPropNodePtr pFind  = _INTERNAL_NOACCESSMODE_GetNode(prop->m_ownerUUID);
 
-                    if(pFind)
-                        _INTERNAL_NOACCESSMODE_InsertChild(pFind,prop);
-                    else
-                        TempList.AddTail(prop);
-                }
-            }
+					if(pFind)
+						_INTERNAL_NOACCESSMODE_InsertChild(pFind,prop);
+					else
+						TempList.AddTail(prop);
+				}
+			}
 
-            //무한루프 방지를 위한 안전장치
-            nCount = (int)TempList.GetCount();
-            while(TempList.GetCount() >0)
-            {
-                CPropNodePtr node	= TempList.RemoveHead();
+			//무한루프 방지를 위한 안전장치
+			nCount = (int)TempList.GetCount();
+			while(TempList.GetCount() >0)
+			{
+				CPropNodePtr node	= TempList.RemoveHead();
 
-                CPropNodePtr find = _INTERNAL_NOACCESSMODE_GetNode(node->m_ownerUUID);
+				CPropNodePtr find = _INTERNAL_NOACCESSMODE_GetNode(node->m_ownerUUID);
 
-                if(find)
-                {
+				if(find)
+				{
 					_INTERNAL_NOACCESSMODE_InsertChild(find, node);
-                    nCount = (int)TempList.GetCount();
-                }
-                else
-                {
-                    TempList.AddTail(node);
-                    --nCount;
+					nCount = (int)TempList.GetCount();
+				}
+				else
+				{
+					TempList.AddTail(node);
+					--nCount;
 
-                    if(nCount <=0)
-                        break;
-                }
-            }
+					if(nCount <=0)
+						break;
+				}
+			}
 
-            ClearThreadID();
+			ClearThreadID();
 
 			if (TempList.GetCount() > 0)
 			{
@@ -908,106 +907,106 @@ namespace Proud
 				ss << "Exception from " << __FUNCTION__;
 				throw Exception(ss.str().c_str());
 			}
-        }
-        else
-        {
-            AssertThreadID(eAccessMode_Read);
+		}
+		else
+		{
+			AssertThreadID(eAccessMode_Read);
 
-            int nCount = (int)m_propNodeMap.GetCount();
-            msg << nCount;
+			int nCount = (int)m_propNodeMap.GetCount();
+			msg << nCount;
 			PropNodeMap::const_iterator itr = m_propNodeMap.begin();
 
 			for (; itr != m_propNodeMap.end(); ++itr)
-            {	
+			{
 				msg << *(itr->GetSecond());
-            }
+			}
 
-            ClearThreadID();
-        }
-    }
+			ClearThreadID();
+		}
+	}
 
-// 	Proud::ErrorType CLoadedData2::_INTERNAL_NOACCESSMODE_InsertSiblingAfter(CPropNodePtr sibling, CPropNodePtr newNode)
-// 	{
-// 		ErrorType ret = _INTERNAL_NOACCESSMODE_CheckNode(newNode);
-// 		if (ret != ErrorType_Ok)
-// 			return ret;
-// 
-// 		PropNodeMap::iterator itr = m_propNodeMap.find(newNode->m_UUID);
-// 
-// 		if (itr != m_propNodeMap.end())
-// 		{
-// 			return ErrorType_BadSessionGuid;
-// 		}
-// 
-// 		if (m_Root == NULL)
-// 		{
-// 			if (sibling == NULL)
-// 			{
-// 				m_Root = newNode;
-// 				m_Root->m_parent = CPropNodePtr();;
-// 				m_Root->m_ownerUUID = m_Root->m_RootUUID;
-// 
-// 				m_propNodeMap.Add(newNode->m_UUID, newNode);
-// 
-// 				return ErrorType_Ok;
-// 			}
-// 
-// 			return ErrorType_Unexpected;
-// 		}
-// 
-// 		if (sibling == NULL)
-// 		{
-// 			CPropNode* pEnd = _INTERNAL_NOACCESSMODE_GetEndSibling(m_Root);
-// 			if (pEnd == NULL)
-// 			{
-// 
-// 				return ErrorType_Unexpected;
-// 			}
-// 
-// 			newNode->m_parent = CPropNodePtr();
-// 			pEnd->m_sibling = newNode;
-// 			newNode->m_ownerUUID = newNode->m_RootUUID;
-// 		}
-// 		else
-// 		{
-// 			if (ErrorType_Ok != (ret = _INTERNAL_NOACCESSMODE_CheckNode(sibling)))
-// 			{
-// 
-// 				return ret;
-// 			}
-// 
-// 			itr = m_propNodeMap.find(sibling->m_UUID);
-// 
-// 			if (itr == m_propNodeMap.end())
-// 			{
-// 
-// 				return ErrorType_BadSessionGuid;
-// 			}
-// 
-// 			if (sibling->m_sibling != NULL)
-// 			{
-// 				CPropNode* pEnd = _INTERNAL_NOACCESSMODE_GetEndSibling(sibling);
-// 				if (pEnd == NULL) return ErrorType_Unexpected;
-// 
-// 				pEnd->m_sibling = newNode;
-// 				newNode->m_parent = pEnd->m_parent;
-// 			}
-// 			else
-// 			{
-// 				sibling->m_sibling = newNode;
-// 				newNode->m_parent = sibling->m_parent;
-// 			}
-// 
-// 			if (newNode->m_parent != NULL)
-// 				newNode->m_ownerUUID = newNode->m_parent->m_UUID;
-// 			else
-// 				newNode->m_ownerUUID = newNode->m_RootUUID;
-// 		}
-// 
-// 		m_propNodeMap.Add(newNode->m_UUID, newNode);
-// 
-// 		return ErrorType_Ok;
-// 	}
+//	Proud::ErrorType CLoadedData2::_INTERNAL_NOACCESSMODE_InsertSiblingAfter(CPropNodePtr sibling, CPropNodePtr newNode)
+//	{
+//		ErrorType ret = _INTERNAL_NOACCESSMODE_CheckNode(newNode);
+//		if (ret != ErrorType_Ok)
+//			return ret;
+//
+//		PropNodeMap::iterator itr = m_propNodeMap.find(newNode->m_UUID);
+//
+//		if (itr != m_propNodeMap.end())
+//		{
+//			return ErrorType_BadSessionGuid;
+//		}
+//
+//		if (m_Root == NULL)
+//		{
+//			if (sibling == NULL)
+//			{
+//				m_Root = newNode;
+//				m_Root->m_parent = CPropNodePtr();;
+//				m_Root->m_ownerUUID = m_Root->m_RootUUID;
+//
+//				m_propNodeMap.Add(newNode->m_UUID, newNode);
+//
+//				return ErrorType_Ok;
+//			}
+//
+//			return ErrorType_Unexpected;
+//		}
+//
+//		if (sibling == NULL)
+//		{
+//			CPropNode* pEnd = _INTERNAL_NOACCESSMODE_GetEndSibling(m_Root);
+//			if (pEnd == NULL)
+//			{
+//
+//				return ErrorType_Unexpected;
+//			}
+//
+//			newNode->m_parent = CPropNodePtr();
+//			pEnd->m_sibling = newNode;
+//			newNode->m_ownerUUID = newNode->m_RootUUID;
+//		}
+//		else
+//		{
+//			if (ErrorType_Ok != (ret = _INTERNAL_NOACCESSMODE_CheckNode(sibling)))
+//			{
+//
+//				return ret;
+//			}
+//
+//			itr = m_propNodeMap.find(sibling->m_UUID);
+//
+//			if (itr == m_propNodeMap.end())
+//			{
+//
+//				return ErrorType_BadSessionGuid;
+//			}
+//
+//			if (sibling->m_sibling != NULL)
+//			{
+//				CPropNode* pEnd = _INTERNAL_NOACCESSMODE_GetEndSibling(sibling);
+//				if (pEnd == NULL) return ErrorType_Unexpected;
+//
+//				pEnd->m_sibling = newNode;
+//				newNode->m_parent = pEnd->m_parent;
+//			}
+//			else
+//			{
+//				sibling->m_sibling = newNode;
+//				newNode->m_parent = sibling->m_parent;
+//			}
+//
+//			if (newNode->m_parent != NULL)
+//				newNode->m_ownerUUID = newNode->m_parent->m_UUID;
+//			else
+//				newNode->m_ownerUUID = newNode->m_RootUUID;
+//		}
+//
+//		m_propNodeMap.Add(newNode->m_UUID, newNode);
+//
+//		return ErrorType_Ok;
+//	}
 
 	void CLoadedData2::_INTERNAL_NOACCESSMODE_DeleteAll()
 	{
@@ -1016,14 +1015,14 @@ namespace Proud
 		m_Root = CPropNodePtr();
 	}
 
-    void CLoadedData2::CopyTo_NoChildren( CLoadedData2* output )
-    {
-        AssertThreadID(eAccessMode_Read);
+	void CLoadedData2::CopyTo_NoChildren( CLoadedData2* output )
+	{
+		AssertThreadID(eAccessMode_Read);
 
 		_INTERNAL_NOACCESSMODE_CopyTo(*output);
 
-        ClearThreadID();
-    }
+		ClearThreadID();
+	}
 
 	void CLoadedData2::_INTERNAL_NOACCESSMODE_CopyTo(CLoadedData2& to)
 	{
@@ -1081,26 +1080,26 @@ namespace Proud
 		}
 	}
 
-    void CLoadedData2::ToByteArray( ByteArray& output )
-    {
-        CMessage msg;
-        msg.UseInternalBuffer();
-        Serialize(msg,false);
-        msg.CopyTo(output);
-    }
+	void CLoadedData2::ToByteArray( ByteArray& output )
+	{
+		CMessage msg;
+		msg.UseInternalBuffer();
+		Serialize(msg,false);
+		msg.CopyTo(output);
+	}
 
-    void CLoadedData2::FromByteArray( const ByteArray& input )
-    {
-        CMessage msg;
-        msg.UseExternalBuffer((uint8_t*)input.GetData(),(int)input.GetCount());
-        msg.SetLength((int)input.GetCount());
-        Serialize(msg,true);
+	void CLoadedData2::FromByteArray( const ByteArray& input )
+	{
+		CMessage msg;
+		msg.UseExternalBuffer((uint8_t*)input.GetData(),(int)input.GetCount());
+		msg.SetLength((int)input.GetCount());
+		Serialize(msg,true);
 
-        if(msg.GetReadOffset()!=msg.GetLength())
-        {
-            throw Exception("Could Not Read until the End of the Data! A bug Suspected");
-        }
-    }
+		if(msg.GetReadOffset()!=msg.GetLength())
+		{
+			throw Exception("Could Not Read until the End of the Data! A bug Suspected");
+		}
+	}
 
 	Guid CLoadedData2::GetRootUUID()
 	{
@@ -1303,7 +1302,7 @@ namespace Proud
 			{
 				tempQueue.AddTail(_INTERNAL_NOACCESSMODE_GetNode(head->m_child->UUID));
 			}
-						
+
 			// 여기서 링크를 삭제하면 실제 데이터 삭제시 m_propNodeMap에서 삭제가 안되는 문제 발생
 			//head->m_sibling = NULL;
 			//head->m_child = NULL;

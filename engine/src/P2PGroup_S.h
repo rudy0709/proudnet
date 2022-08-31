@@ -21,7 +21,7 @@
 namespace Proud
 {
 	using namespace std;
-	
+
 	class CP2PGroup;
 	class CRemoteClient_S;
 	class CP2PGroup_S;
@@ -52,7 +52,7 @@ namespace Proud
 
 	struct P2PGroupMember_S
 	{
-		int64_t m_joinedTime; 
+		int64_t m_joinedTime;
 		weak_ptr<CP2PGroupMemberBase_S> m_ptr;
 	};
 
@@ -71,7 +71,7 @@ namespace Proud
 		class AddMemberAckWaiter
 		{
 		public:
-			HostID m_joiningMemberHostID; 
+			HostID m_joiningMemberHostID;
 			HostID m_oldMemberHostID; // 이 피어에서 새 멤버에 대한 OnP2PMemberJoin 콜백이 있어야 한다.
 			uint32_t m_eventID;
 			int64_t m_eventTime; // 너무 오랫동안 보유되면 제거하기 위함
@@ -125,5 +125,4 @@ namespace Proud
 	};
 
 	class P2PGroupSubsetList :public CFastArray<P2PGroupSubset_S> {};
-
 }

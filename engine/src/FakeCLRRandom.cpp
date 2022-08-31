@@ -14,8 +14,6 @@
 
 namespace Proud
 {
-
-
 	double Random::NextDouble()
 	{
 		uint32_t d1 = (uint32_t)m_rand.GetInt();

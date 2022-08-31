@@ -85,7 +85,7 @@ namespace Proud
 			// singleton lost.
 		}
 	}
-	
+
 	void CNTService::WinMain(int argc, wchar_t* argv[], wchar_t** /*envp[]*/, CNTServiceStartParameter &param)
 	{
 		RefCount<CNTService> core = CNTService::GetSharedPtr();
@@ -113,12 +113,12 @@ namespace Proud
 
 		m_internal->m_actualService = true;
 
-		// StartServiceCtrlDispatcher가 성공하면, 이것을 호출하는 프로세스는 SCM에 연결되고 프로세스가 SERVICE_STOPPED 상태로 진입할 때까지 리턴하지 않는다. 
+		// StartServiceCtrlDispatcher가 성공하면, 이것을 호출하는 프로세스는 SCM에 연결되고 프로세스가 SERVICE_STOPPED 상태로 진입할 때까지 리턴하지 않는다.
 		if (!::StartServiceCtrlDispatcher(st))
 		{
 			DWORD dw = GetLastError();
 			m_internal->m_actualService = false;
-			
+
 			String text;
 			// ERROR_FAILED_SERVICE_CONTROLLER_CONNECT 1063 이 에러는 콘솔 응용프로그램에서 서비스 모드를 실행하였을 때 나는 에러이다.
 			if(dw == 1063L)
@@ -255,7 +255,7 @@ namespace Proud
 		return false;
 	}
 
-	/** 프라우드넷에서 사용하는 arg들을 제외한 나머지 arg들을 합쳐서 뽑아준다. 
+	/** 프라우드넷에서 사용하는 arg들을 제외한 나머지 arg들을 합쳐서 뽑아준다.
 	*/
 	Proud::String CNTService::CreateArg()
 	{
@@ -323,7 +323,7 @@ namespace Proud
 		if (hSCM == NULL)
 		{
 			// 유니코드를 wprintf하여 한글이 출력되기 위해서는 _wsetlocale(LC_ALL, L"korean"); 되어 있어야 한다.
-			cout << StringT2A(m_internal->m_name).GetString() << 
+			cout << StringT2A(m_internal->m_name).GetString() <<
 				": Cannot open Service Control Manager. Please run this app in Administrator Mode.";
 			return FALSE;
 		}
@@ -332,7 +332,7 @@ namespace Proud
 		PNTCHAR szFilePath[LongMaxPath];
 		::GetModuleFileName(NULL, szFilePath, LongMaxPath);
 
-		String binarypathname = String(szFilePath) + _PNT(" ") + CreateArg(); 
+		String binarypathname = String(szFilePath) + _PNT(" ") + CreateArg();
 
 		SC_HANDLE hService = ::CreateService(
 			hSCM, m_internal->m_name,  m_internal->m_name,
@@ -349,7 +349,7 @@ namespace Proud
 			::CloseServiceHandle(hSCM);
 			String str;
 			cout << "Error: Cannot register " <<
-				StringT2A(m_internal->m_name).GetString() << 
+				StringT2A(m_internal->m_name).GetString() <<
 				"as Windows Service. GetLastError=" << GetLastError() << ".\n";
 
 			return FALSE;
@@ -438,7 +438,7 @@ namespace Proud
 
 		cout << StringT2A(m_internal->m_name).GetString() <<
 			": Service could not be deleted.";
-		
+
 		return FALSE;
 	}
 
@@ -497,15 +497,15 @@ namespace Proud
 		return m_internal->m_name;
 	}
 
-// 	int CNTService::GetArgcFromSCM_Internal()
-// 	{
-// 		return m_internal->m_argsFromScm.GetCount();
-// 	}
+//	int CNTService::GetArgcFromSCM_Internal()
+//	{
+//		return m_internal->m_argsFromScm.GetCount();
+//	}
 
-// 	int CNTService::GetArgc_Internal()
-// 	{
-// 		return m_internal->m_args.GetCount();
-// 	}
+//	int CNTService::GetArgc_Internal()
+//	{
+//		return m_internal->m_args.GetCount();
+//	}
 
 	void CNTService::GetArgvFromSCM_Internal(CFastArray<String>& output)
 	{
@@ -593,6 +593,4 @@ namespace Proud
 		RefCount<CNTService> core = CNTService::GetSharedPtr();
 		core->GetArgvFromSCM_Internal(output);
 	}
-
 }
-

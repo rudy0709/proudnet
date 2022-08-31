@@ -130,7 +130,7 @@ namespace Proud
 	bool Guid::ConvertUUIDToBracketString(const Guid &uuid, String &uuidStr)
 	{
 		// UuidToString() not used Win32 API for multi platforms
-		// {...} string format 
+		// {...} string format
 		String v;
 		ConvertUUIDToString(uuid, v);
 		uuidStr = _PNT("{") + v + _PNT("}");
@@ -158,6 +158,4 @@ namespace Proud
 		else
 			a += _PNT("<BAD>");
 	}
-
-
 }

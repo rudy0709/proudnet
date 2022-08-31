@@ -64,4 +64,3 @@ namespace Proud
 		return *this;
 	}
 }
-

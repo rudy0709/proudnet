@@ -10,11 +10,11 @@ ProudNet
 
 ProudNet
 
-This program is soley copyrighted by Nettention. 
+This program is soley copyrighted by Nettention.
 Any use, correction, and distribution of this program are subject to the terms and conditions of the License Agreement.
 Any violated use of this program is prohibited and will be cause of immediate termination according to the License Agreement.
 
-** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE. 
+** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE.
 
 */
 
@@ -34,19 +34,19 @@ namespace Proud
 //#pragma managed(push,off)
 #endif
 
-	/** 
+	/**
 	\~korean
 	DbLogWriter.h 파일을 Include해야 합니다.
 	DBMS에 로그를 기록합니다. ( <a target="_blank" href="http://guide.nettention.com/cpp_ko#logwriter_db" >데이터베이스에 로그를 기록하기</a> 참고)
 
 	일반적 용도
 	- CDbLogWriter를 사용하기 전에 ProudNet/Sample/DbmsSchema/LogTable.sql 을 실행하여 DbLog 테이블을 생성해야 합니다.
-	- CDbLogWriter.New를 써서 이 객체를 생성합니다. 
+	- CDbLogWriter.New를 써서 이 객체를 생성합니다.
 	- WriteLine, WriteLine를 써서 로그를 기록합니다. 저장된 로그는 비동기로 저장됩니다.
 	- 기본적으로 LoggerName, LogText, DateTime 이 기록됩니다. 유저가 원하는 컬럼을 넣으려면 WriteLine의 CPropNode를 사용하면 됩니다.
-	+ 
+	+
 	\~english
-	 Write log to DBMS (Please refer to <a target="_blank" href="http://guide.nettention.com/cpp_en#logwriter_db" >Recording a log in database</a>)
+	Write log to DBMS (Please refer to <a target="_blank" href="http://guide.nettention.com/cpp_en#logwriter_db" >Recording a log in database</a>)
 
 	General usage
 	- Before using CDbLogWriter, you must create Dblog table by running ProudNet/Sample/DbmsSchema/LogTable.sql
@@ -57,7 +57,7 @@ namespace Proud
 	*/
 	class CDbLogWriterImpl : public CDbLogWriter
 	{
-		
+
 		// mutex
 		CriticalSection m_CS;
 
@@ -83,7 +83,7 @@ namespace Proud
 			String m_LogText;
 			CProperty m_properties;
 		};
-		
+
 		typedef CFastList2<LogData*, intptr_t> LogList;
 		LogList m_LogList;
 

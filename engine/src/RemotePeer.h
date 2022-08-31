@@ -382,5 +382,4 @@ namespace Proud
 		return a.get() != b.get();
 	}
 #endif
-
 }

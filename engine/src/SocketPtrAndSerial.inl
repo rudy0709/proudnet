@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "SuperSocket.h"
 
@@ -41,5 +41,4 @@ namespace Proud
 		}
 		return false;
 	}
-
 }

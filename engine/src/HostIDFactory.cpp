@@ -1,10 +1,10 @@
 ﻿#include "stdafx.h"
 #include "HostIDFactory.h"
- 
+
 
 namespace Proud
 {
-	CHostIDFactory::CHostIDFactory(int64_t issueValidTime, const bool isHostIDRecycle) 
+	CHostIDFactory::CHostIDFactory(int64_t issueValidTime, const bool isHostIDRecycle)
 		: m_isHostIDRecycle(isHostIDRecycle)
 		, m_issueValidTime(issueValidTime)
 	{
@@ -79,8 +79,8 @@ namespace Proud
 		// 해당 코드는 INT_MAX를 넘어설수 없다는 가정하에 쓰면 좋은 코드
 		// 하지만 무결성이 깨짐
 		// 이유 - m_issuedHostIDMap 자체를 검사할 필요가 없음
-		// 		if (m_isHostIDRecycle == false)
-		// 			return;
+		//		if (m_isHostIDRecycle == false)
+		//			return;
 		int64_t curTime = GetPreciseCurrentTimeMs();
 
 		//assigned된 HostID인지 판단.
@@ -171,5 +171,4 @@ namespace Proud
 
 		return false;
 	}
-
 }

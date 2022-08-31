@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #ifdef SUPPORTS_WEBGL
 
@@ -60,11 +60,11 @@ namespace Proud
 			// m_webSocketConnToClientMapCritSec lock 후에
 			CriticalSectionLock lock2(m_webSocketConnToClientMapCritSec, true);
 
-			// websocket to SuperSocket map에서 lookup하자. 
+			// websocket to SuperSocket map에서 lookup하자.
 			auto iter = connectionMap.find(connection);
 			if (iter != connectionMap.end())
 			{
-				// lookup 후 결과물은 shared_ptr이므로 로컬 변수로 갖고 있는다. 따라서 
+				// lookup 후 결과물은 shared_ptr이므로 로컬 변수로 갖고 있는다. 따라서
 				// m_webSocketConnToClientMapCritSec는 unlock 해놔도 된다.
 				lock2.Unlock();
 
@@ -76,7 +76,7 @@ namespace Proud
 				CReceivedMessage& ri = msgList.GetTail();
 				ri.m_unsafeMessage.UseInternalBuffer();
 				ri.m_unsafeMessage.Write((const uint8_t*)msg.c_str(), msg.size());
-				
+
 				OnMessageReceived(msg.length(), msgList, iter->second->m_tcpLayer);
 			}
 		};

@@ -14,7 +14,7 @@
 #include "SendFragRefs.h"
 #include "MessagePrivateImpl.h"
 
-namespace Proud 
+namespace Proud
 {
 	// P2P reliable 메시징에서 사용될 data frame 패킷들의 최초 값을 생성한다.
 	// simple protocol mode에서는, 패킷 캡처-복제 더미 테스트가 가능해야 하므로, 항상 동일한 값을 리턴한다.
@@ -25,11 +25,11 @@ namespace Proud
 			return 100;
 		}
 		else
-     	{
-    		// 디버깅하기 편하려면 처음 시작하는 난수 값은 끝 두자리가 십진수로 0이어야 한다.
-     		// 음수이면 디버깅할때 버그로 오인하므로 양수로 하자. 어차피 그래도 해킹당하기 어렵다.
+		{
+			// 디버깅하기 편하려면 처음 시작하는 난수 값은 끝 두자리가 십진수로 0이어야 한다.
+			// 음수이면 디버깅할때 버그로 오인하므로 양수로 하자. 어차피 그래도 해킹당하기 어렵다.
 			int a = random.Next(INT_MAX);
-			if(a<0) 
+			if(a<0)
 				a = -a;
 			a/=100;
 			a*=100;
@@ -60,9 +60,9 @@ namespace Proud
 //			puts("SENDACKSENDACKSENDACKSENDACK");
 			break;
 			//case ReliableUdpFrame::Type_Disconnect:
-			//    msg.Write(frame.m_frameID);
-			//    msg.Write(frame.m_data);
-			//    break;
+			//	msg.Write(frame.m_frameID);
+			//	msg.Write(frame.m_data);
+			//	break;
 		case ReliableUdpFrameType_None:
 			assert(false);
 			break;
@@ -90,5 +90,4 @@ namespace Proud
 		ret.m_data.UseInternalBuffer();
 		content.CopyTo(ret.m_data); // copied!
 	}
-
 }

@@ -13,7 +13,7 @@
 #include "../include/sysutil.h"
 #include "FastMap2.h"
 
-namespace Proud 
+namespace Proud
 {
 	/* 패킷 로스율을 얻는 역할을 수행한다.
 	덤으로, UDP 패킷 복제 해킹을 감지하기 위해 '최근 수신한 패킷 ID들'을 보관하는 역할도 한다.

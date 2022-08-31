@@ -32,8 +32,8 @@ namespace Proud
 	const char* AlreadyHasUnsafeInternalBufferError = "Cannot use unsafe internal buffer because the other typed buffer already exists. Consider using UninitBuffer().";
 
 	// Unreal Engine에서는 throw 키워드 사용 불가. 따라서 유저에게 공개되는 API에서는 throw 키워드를 쓰지 않는다.
-	void ThrowArrayIsNullError() 
-	{		
+	void ThrowArrayIsNullError()
+	{
 #if defined(_WIN32)
 		String fn = GetProcessName();
 		fn += _PNT(".dmp");
@@ -57,6 +57,4 @@ namespace Proud
 		typedef  BiasManagedPointer<ByteArray, true>::Tombstone TombstoneType;
 		CClassObjectPool<TombstoneType>::GetUnsafeRef().Drop((TombstoneType*)tombstone);
 	}
-
-
 }

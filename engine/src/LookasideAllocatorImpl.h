@@ -36,9 +36,9 @@ namespace Proud
 
 		enum { BlockSplitter = 4321 };
 
-		typedef uint32_t ChunkSplitterType; 
-		typedef uint16_t SplitterType; 
-		
+		typedef uint32_t ChunkSplitterType;
+		typedef uint16_t SplitterType;
+
 		static uint32_t m_cpuCount;
 		static intptr_t m_cpuIndexTlsIndex;
 		static bool m_cpuIndexTlsIndexValid;
@@ -62,7 +62,7 @@ namespace Proud
 			size_t m_fixedBlockSize;
 
 			CriticalSection m_cs;
-			
+
 			volatile bool m_inUse;
 
 			// 주어진 블록에 대한 block header 값을 얻는다.
@@ -106,10 +106,10 @@ namespace Proud
 			SplitterType m_splitter;
 
 			// Free list의 항목들은 어떤 lookaside allocator로 귀속되어도 상관없다. 하지만 서로 다른 크기의 블록이 free list에 들어갈 수는 없다. 이 멤버의 존재 이유.
-			size_t m_payloadLength;    
-			
+			size_t m_payloadLength;
+
 			// 이 블록이 사용중이면 NULL이다.
-			BlockHeader* m_nextFreeNode; 
+			BlockHeader* m_nextFreeNode;
 			uint16_t m_allocCpuIndex;
 
 			inline BlockHeader()
@@ -162,6 +162,4 @@ namespace Proud
 		virtual int DebugCheckConsistency();
 
 	};
-
-
 }

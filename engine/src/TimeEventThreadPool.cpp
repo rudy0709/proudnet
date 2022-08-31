@@ -11,7 +11,7 @@ namespace Proud
 		m_globalTimerThread->TimerMiniTask_SetInterval(m_timerEventHandle, newInterval);
 	}
 
-	// 일정 시간마다 IThreadPoolReferrer를 위한 custom event가 
+	// 일정 시간마다 IThreadPoolReferrer를 위한 custom event가
 	// 발생하게 한다.
 	CThreadPoolPeriodicPoster::CThreadPoolPeriodicPoster(
 		IThreadReferrer* threadPoolReferrer,
@@ -49,5 +49,4 @@ namespace Proud
 	{
 		m_globalTimerThread->TimerMiniTask_Remove(m_timerEventHandle);
 	}
-
 }

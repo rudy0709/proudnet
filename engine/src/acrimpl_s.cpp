@@ -101,7 +101,7 @@ namespace Proud
 		{
 			shared_ptr<P2PConnectionState> pair = i.GetSecond();
 			shared_ptr<CRemoteClient_S> rc2 = pair->GetOppositePeer(rc);
-			m_s2cProxy.P2P_NotifyP2PMemberOffline(rc2->m_HostID, g_ReliableSendForPN, rc->m_HostID, 
+			m_s2cProxy.P2P_NotifyP2PMemberOffline(rc2->m_HostID, g_ReliableSendForPN, rc->m_HostID,
 				CompactFieldMap());
 		}
 
@@ -134,13 +134,13 @@ namespace Proud
 	// 재접속을 시도한 TCP 연결로부터 받는다.
 	void CNetServerImpl::IoCompletion_ProcessMessage_RequestAutoConnectionRecovery(
 		CMessage &msg
-		, const shared_ptr<CRemoteClient_S>& rc         // ACR 성공 후 rc의 내용은 orgRC로 넘어가고 rc는 버려진다.
+		, const shared_ptr<CRemoteClient_S>& rc		// ACR 성공 후 rc의 내용은 orgRC로 넘어가고 rc는 버려진다.
 		, const shared_ptr<CSuperSocket>& candidateSocket)
 	{
 		// 코딩시 주의사항:
 		// 재접속 시도하는 클라는, 서버가 아직 remote나 old remote의 상태가 준비중인데 시도하는 경우도 있다.
 		// 이러한 경우 잠시 뒤 클라는 재시도할 것이다. 그런데 여기서 '실패했으니 TCP 끊음'을 해버리면
-		// 그 재시도 기회를 날려버리게 된다. 
+		// 그 재시도 기회를 날려버리게 된다.
 		// 상대가 해커이거나 도저히 뭔가 안되는 상황에서만 GarbageSocket을 호출할 것.
 
 		CriticalSectionLock clk(GetCriticalSection(), true);
@@ -355,22 +355,22 @@ namespace Proud
 			_PNT("ACR candidate connection has been handed over to the original connection."),
 			SocketErrorCode_Ok);
 
-        // 클라로 부터 받은 인증키로 변경. copy.
-        orgRC->m_credentialBlock = newCredentialBlock;
+		// 클라로 부터 받은 인증키로 변경. copy.
+		orgRC->m_credentialBlock = newCredentialBlock;
 
-        // NOTE: AES session key +1만 한 후 인증을 하므로, 불필요하게 fast key를 갖고 그럴 필요는 없다.
-        // 괜히 RSA decrypt 연산량만 낭비다.
-        // 따라서 fast key에 대해서는 갱신할 것이 없다.
+		// NOTE: AES session key +1만 한 후 인증을 하므로, 불필요하게 fast key를 갖고 그럴 필요는 없다.
+		// 괜히 RSA decrypt 연산량만 낭비다.
+		// 따라서 fast key에 대해서는 갱신할 것이 없다.
 
-        // ACR 재연결 받기가 성공했으므로 시한부를 해제하자.
-        orgRC->m_autoConnectionRecoveryWaitBeginTime = 0;
+		// ACR 재연결 받기가 성공했으므로 시한부를 해제하자.
+		orgRC->m_autoConnectionRecoveryWaitBeginTime = 0;
 
-        // orgRC의 스피드핵 감지 기능이 있었다면 초기화하자. 재접속을 하느라 메롱 상태였던 orgRC에게 스피드핵 기능은 별 의미가 없다.
-        if (orgRC->m_speedHackDetector != nullptr)
-        {
-            orgRC->m_speedHackDetector.Free();
-            orgRC->m_speedHackDetector.Attach(new CSpeedHackDetector);
-        }
+		// orgRC의 스피드핵 감지 기능이 있었다면 초기화하자. 재접속을 하느라 메롱 상태였던 orgRC에게 스피드핵 기능은 별 의미가 없다.
+		if (orgRC->m_speedHackDetector != nullptr)
+		{
+			orgRC->m_speedHackDetector.Free();
+			orgRC->m_speedHackDetector.Attach(new CSpeedHackDetector);
+		}
 
 		// heartbeat에서 candidate 이양 처리를 하라고 지시.
 		//rc->m_acrCandidateID = candidateClientID;
@@ -422,19 +422,19 @@ namespace Proud
 		// 해당 부분은 RMI C2S Ping - Pong 에 구현 되어 있다. 참고 바람
 		// by. hyeonmin.yoon
 
-// 		int ackID;
-// 		if (rc->m_tcpLayer && rc->m_tcpLayer->AcrMessageRecovery_PeekMessageIDToAck(&ackID))
-// 		{
-// 			CMessage header;
-// 			header.UseInternalBuffer();
-// 			Message_Write(header, MessageType_MessageIDAck);
-// 			header.Write(ackID);
+//		int ackID;
+//		if (rc->m_tcpLayer && rc->m_tcpLayer->AcrMessageRecovery_PeekMessageIDToAck(&ackID))
+//		{
+//			CMessage header;
+//			header.UseInternalBuffer();
+//			Message_Write(header, MessageType_MessageIDAck);
+//			header.Write(ackID);
 //
-// 			CSendFragRefs sd;
-// 			sd.Add(header);
+//			CSendFragRefs sd;
+//			sd.Add(header);
 //
-// 			rc->m_tcpLayer->AddToSendQueueWithSplitterAndSignal_Copy(sd, SendOpt());
-// 		}
+//			rc->m_tcpLayer->AddToSendQueueWithSplitterAndSignal_Copy(sd, SendOpt());
+//		}
 	}
 
 	void CNetServerImpl::SetDefaultAutoConnectionRecoveryTimeoutTimeMs(int newValInMs)

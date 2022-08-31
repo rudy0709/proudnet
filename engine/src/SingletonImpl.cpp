@@ -11,6 +11,6 @@
 #include "stdafx.h"
 #include "../include/Singleton.h"
 
-namespace Proud 
+namespace Proud
 {
 }

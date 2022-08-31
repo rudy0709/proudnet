@@ -6,10 +6,10 @@
 #include "../include/NetPeerInfo.h"
 #include "FastList2.h"
 
-namespace Proud 
+namespace Proud
 {
 	using namespace std;
-	
+
 	class CReferrerHeart;
 
 	enum FinalUserWorkItemType
@@ -50,7 +50,7 @@ namespace Proud
 		//////////////////////////////////////////////////////////////////////////
 		// called by BiasManagedPointer
 
-		void Clear() 
+		void Clear()
 		{
 			m_event.reset();
 			m_type = UWI_LAST;
@@ -64,11 +64,11 @@ namespace Proud
 			// do nothing
 		}
 
-		void OnRecycle() 
+		void OnRecycle()
 		{
 			m_unsafeMessage.Clear();
 		}
-		
+
 		void OnDrop()
 		{
 			Clear();
@@ -81,11 +81,11 @@ namespace Proud
 	class CFinalUserWorkItem :public BiasManagedPointer<CFinalUserWorkItem_Internal, true>
 	{
 	public:
- 		inline CFinalUserWorkItem() {}
- 		CFinalUserWorkItem(LocalEvent& e);
+		inline CFinalUserWorkItem() {}
+		CFinalUserWorkItem(LocalEvent& e);
 
 		/* 구 코드를 쉽게 변화하기 위해 추가된 함수.
-		내부 실체 내용물이 처음에는 할당조차 안 되어 있는데, 
+		내부 실체 내용물이 처음에는 할당조차 안 되어 있는데,
 		이를 액세스하려고 하면, 최초 1회 생성을 한 후
 		그것의 리퍼런스를 리턴하는 역할을 한다. */
 		inline CFinalUserWorkItem_Internal& Internal()
@@ -102,7 +102,7 @@ namespace Proud
 				&& GetTombstone()->m_substance.m_netCoreReferrerHeart;
 		}
 
-		
+
 	};
 
 	typedef CFinalUserWorkItem::Tombstone CFinalUserWorkItem_Tombstone;

@@ -1,6 +1,4 @@
-﻿
-
-namespace Proud
+﻿namespace Proud
 {
 	/* socket에 대응하는 remote를 찾는다.
 	대응하는 것이 없으면 null 리턴.
@@ -31,9 +29,7 @@ namespace Proud
 
 		if (!value->TryGetValue(recvAddrPort, output, outIsWildcard))
 			return false;
-		
+
 		return true;
 	}
-
-
 }

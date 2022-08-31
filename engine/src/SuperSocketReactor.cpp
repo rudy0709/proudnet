@@ -273,12 +273,12 @@ namespace Proud
 			m_owner->OnConnectSuccess(param_shared_from_this);
 			// TCP 연결 성공. 이 함수를 반복 호출할게 아니다. 따라서 true를 리턴.
 
-			// #iOS_ENOTCONN_issue TCP connecting일때만 level trigger였고, 이제 edge trigger로 바꾸자. 
+			// #iOS_ENOTCONN_issue TCP connecting일때만 level trigger였고, 이제 edge trigger로 바꾸자.
 			// 그래야 write or read avail event가 대량 발생하지 않는다.
 			AssertIsNotLockedByCurrentThread(m_cs);
 			AssertIsNotLockedByCurrentThread(m_sendQueueCS);
 			m_associatedIoQueue_accessByAssociatedSocketsOnly->AssociatedSocket_ChangeToEdgeTrigger(param_shared_from_this);
-			
+
 			// 더 이상 할 일이 없으므로.
 			break;
 		}
@@ -358,7 +358,7 @@ namespace Proud
 					SocketCreateResult r = m_fastSocket->Accept(comp.m_errorCode);
 					if (!r.socket)
 					{
-						// 무슨 이유에서인지 소켓 생성 실패. 
+						// 무슨 이유에서인지 소켓 생성 실패.
 						// 그냥 not yet accepted 처리하자.
 						// => EWOULDBLOCK이 오는 경우도 있다. 왜냐하면 accept until would block이니까.
 						// 그런 경우면 그냥 무시하자.
@@ -381,7 +381,7 @@ namespace Proud
 			}
 			//if (m_isConnectingSocket)
 			//{
-			//	// 있을 수 있는 상황이 아니다. => m_isConnectingSocket 추적 결과, 무시해도 된다. 
+			//	// 있을 수 있는 상황이 아니다. => m_isConnectingSocket 추적 결과, 무시해도 된다.
 			//	printf("[assert - ProudNetClient] active close at : %s\n", __FUNCTION__);
 			//	assert(false);
 			//}
@@ -392,7 +392,7 @@ namespace Proud
 				break;
 
 			// 2016.3.7 linux 서버에 window 클라이언트가 접속 후 클라이언트의 종료 시 linux 서버에 OnClientLeave 콜백이 호출되지 않는 문제 수정
-			// 서버에서 Disconnet 메시지를 받은 후 errorno 104에 해당하는 ECONNRESET가 발생하므로 해당 에러코드를 이용하여 
+			// 서버에서 Disconnet 메시지를 받은 후 errorno 104에 해당하는 ECONNRESET가 발생하므로 해당 에러코드를 이용하여
 			// GetNextProcessType_AfterRecv 함수에서 처리해주도록 하기 위해
 			if (comp.m_errorCode != SocketErrorCode_Ok && comp.m_errorCode != SocketErrorCode_ConnectResetByRemote) // would block도 포함
 				break;
@@ -531,16 +531,16 @@ namespace Proud
 			return;
 		}
 
-		// 		/* 블러킹 없는 수신 및 수신 데이터 처리를 한다. 받은 데이터가 없다면 그냥 무시.
-		// 		이 함수는 io available signal이 오면 콜됨.
-		// 		io call <-> event wait 횟수를 줄이기 위해,
-		// 		이 함수 안에서 would block error가 날 때까지 recv or recvfrom를 반복해야. */
-		// 		virtual void NonBlockRecvAndProcessUntilWouldBlock() = 0;
+		//		/* 블러킹 없는 수신 및 수신 데이터 처리를 한다. 받은 데이터가 없다면 그냥 무시.
+		//		이 함수는 io available signal이 오면 콜됨.
+		//		io call <-> event wait 횟수를 줄이기 위해,
+		//		이 함수 안에서 would block error가 날 때까지 recv or recvfrom를 반복해야. */
+		//		virtual void NonBlockRecvAndProcessUntilWouldBlock() = 0;
 		//
-		// 		/* 보낼게 있다면, 블러킹 없는 송신을 한다.
-		// 		이 함수는 io available signal이 오면 콜됨.
-		// 		io call <-> event wait 횟수를 줄이기 위해 */
-		// 		virtual void NonBlockSendUntilWouldBlock() = 0;
+		//		/* 보낼게 있다면, 블러킹 없는 송신을 한다.
+		//		이 함수는 io available signal이 오면 콜됨.
+		//		io call <-> event wait 횟수를 줄이기 위해 */
+		//		virtual void NonBlockSendUntilWouldBlock() = 0;
 
 		if ((comp.m_eventFlags & IoFlags_In)
 			|| (comp.m_eventFlags & IoFlags_Hangup)
@@ -580,5 +580,4 @@ namespace Proud
 	}
 
 #endif
-
 }

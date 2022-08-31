@@ -22,7 +22,6 @@
 #include "SocketUtil.h"
 //#include "networker_c.h"
 
-
 namespace Proud
 {
 #if defined(_WIN32)
@@ -216,7 +215,7 @@ namespace Proud
 		Proud::AssertIsLockedByCurrentThread(m_cs);
 
 		ssdp->m_sendIssued = true;
-		
+
 
 		SocketErrorCode e = ssdp->m_ssdpSocket->IssueSendTo((uint8_t*)(const char*)ssdpRequest.GetString(), ssdpRequest.GetLength() + 1, ssdpRequestTo);
 		if(e!=SocketErrorCode_Ok && e!=SocketErrorCode_IoPending)
@@ -525,7 +524,7 @@ namespace Proud
 
 		dev->IncCurrentStateWorkCount();
 L1:
-	 	;
+		;
 	}
 
 	Proud::StringA CUpnp::GetXmlNodeValue(const StringA &xmlDoc, const StringA &nodeName)
@@ -984,11 +983,11 @@ L1:
 		ret.Format("PrNet_%u", GetTickCount());
 		return ret;
 
-		// 		String uuidStr;
-		// 		Guid::ConvertUUIDToString(Win32Guid::NewGuid(), uuidStr);
+		//		String uuidStr;
+		//		Guid::ConvertUUIDToString(Win32Guid::NewGuid(), uuidStr);
 		//
-		// 		StringA ret = "PrNet_" + StringT2A(uuidStr);
-		// 		return ret;
+		//		StringA ret = "PrNet_" + StringT2A(uuidStr);
+		//		return ret;
 	}
 
 	void CUpnp::DeleteTcpPortMapping( AddrPort lanAddr, AddrPort wanAddr, bool isTcp )
@@ -1046,9 +1045,9 @@ L1:
 		m_startTime = 0;
 		m_deletePortMappingTaskCount = 0;
 
- 		m_discoveringNatDevices.Clear();
- 		m_discoveredNatDevices.Clear();
- 		m_ssdpContexts.Clear();
+		m_discoveringNatDevices.Clear();
+		m_discoveredNatDevices.Clear();
+		m_ssdpContexts.Clear();
 	}
 
 	bool CDiscoveringNatDevice::TakeResponse( StringA response )
@@ -1334,5 +1333,3 @@ L1:
 	}
 #endif
 }
-
-

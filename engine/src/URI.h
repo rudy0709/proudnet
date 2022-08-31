@@ -13,26 +13,26 @@
 
 namespace Proud
 {
-#if defined(_WIN32) 
+#if defined(_WIN32)
 	class CUri // Unique Resource Identifier
 	{
 	public:
 		enum
 		{ // The same values with defined on atlutil.h/CUrl
 			INVALID_PORT_NUMBER = 0,
-			DEFAULT_FTP_PORT = 21,          // default for FTP servers
-			DEFAULT_GOPHER_PORT = 70,          //    "     "  gopher "
-			DEFAULT_HTTP_PORT = 80,          //    "     "  HTTP   "
-			DEFAULT_HTTPS_PORT = 443,         //    "     "  HTTPS  "
-			DEFAULT_SOCKS_PORT = 1080,        // default for SOCKS firewall servers.
+			DEFAULT_FTP_PORT = 21,			// default for FTP servers
+			DEFAULT_GOPHER_PORT = 70,		//	"     "  gopher "
+			DEFAULT_HTTP_PORT = 80,			//	"     "  HTTP   "
+			DEFAULT_HTTPS_PORT = 443,		//	"     "  HTTPS  "
+			DEFAULT_SOCKS_PORT = 1080,		// default for SOCKS firewall servers.
 
 			MAX_HOST_NAME_LENGTH = 256,
 			MAX_USER_NAME_LENGTH = 128,
 			MAX_PASSWORD_LENGTH = 128,
-			MAX_PORT_NUMBER_LENGTH = 5,           // ATL_URL_PORT is unsigned short
-			MAX_PORT_NUMBER_VALUE = 65535,       // maximum unsigned short value
+			MAX_PORT_NUMBER_LENGTH = 5,			// ATL_URL_PORT is unsigned short
+			MAX_PORT_NUMBER_VALUE = 65535,		// maximum unsigned short value
 			MAX_PATH_LENGTH = 2048,
-			MAX_SCHEME_LENGTH = 32,          // longest protocol name length
+			MAX_SCHEME_LENGTH = 32,				// longest protocol name length
 			MAX_SCHEME_SIZE = 8,
 			MAX_URL_LENGTH = (MAX_SCHEME_LENGTH + sizeof("://") + MAX_PATH_LENGTH),
 		};
@@ -104,9 +104,9 @@ namespace Proud
 		~CUri();
 
 		CUri& operator=(const CUri& url);
-		
+
 	private:
-		PNTCHAR m_schemeName[CUri::MAX_SCHEME_LENGTH + 1]; //scheme names cannot contain escape/unsafe characters		
+		PNTCHAR m_schemeName[CUri::MAX_SCHEME_LENGTH + 1]; //scheme names cannot contain escape/unsafe characters
 		PNTCHAR m_hostName[CUri::MAX_HOST_NAME_LENGTH + 1]; //host names cannot contain escape/unsafe characters
 		PNTCHAR m_userName[CUri::MAX_USER_NAME_LENGTH + 1];
 		PNTCHAR m_password[CUri::MAX_PASSWORD_LENGTH + 1];

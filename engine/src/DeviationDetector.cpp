@@ -17,7 +17,6 @@
 
 namespace Proud
 {
-
 	CDeviationDetector::~CDeviationDetector(void)
 	{
 	}
@@ -29,7 +28,7 @@ namespace Proud
 		double seriesAvgSoFar=m_seriesSum/m_seriesCount;
 		m_seriesSum+=value;
 		m_seriesCount++;
-		
+
 		if (m_seriesCount > m_seriesMaxLength)
 			m_seriesSum-=seriesAvgSoFar;
 	}

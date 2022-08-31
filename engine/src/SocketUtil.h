@@ -48,7 +48,7 @@ namespace Proud
 	ipv4,6 모두에 대해 값을 저장할 수 있는 union 객체.
 
 	Q: AddrPort에 있는 것과 중복 아닌가요?
-	A: AddrPort에 있는 것은, 순수 ipv4 or ipv6 주소값이고, 그건 platform independent합니다. 
+	A: AddrPort에 있는 것은, 순수 ipv4 or ipv6 주소값이고, 그건 platform independent합니다.
 	sockaddr_xx 내부 구조는 platform dependent하므로 신뢰할 수 없음. */
 	struct ExtendSockAddr
 	{
@@ -58,7 +58,7 @@ namespace Proud
 		// 참고: IPv4 socket으로 만들어진 경우에는 u.v4를 사용할 것.sockAddr 구조체 자체가 아니라.
 		// ex) sizeof(sockaddr.u.v4) // 이런 식으로 사용할 것
 
-		union 
+		union
 		{
 			sockaddr s;
 			sockaddr_in v4;
@@ -79,7 +79,7 @@ namespace Proud
 	SocketErrorCode DnsForwardLookup(const PNTCHAR* hostName, uint16_t port, CFastArray<AddrInfo>& outParam);
 	SocketErrorCode DnsForwardLookupAndGetPrimaryAddress(const PNTCHAR* hostName, uint16_t port, AddrInfo& out);
 	SocketErrorCode ResolveAddress(const String& remoteHost, uint16_t remotePort, const String& publicDomainName1, const String& publicDomainName2, AddrPort &outAddrPort, String& outErrorText);
-	
+
 
 	bool IsIPv4Literal(String str);
 
@@ -103,7 +103,4 @@ namespace Proud
 #endif
 
 	void AssertCloseSocketWillReturnImmediately(SOCKET s);
-
-   
 }
-

@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/CriticalSect.h"
 #include "../include/Enums.h"
@@ -19,16 +19,16 @@ namespace Proud
 		왜냐하면 이 함수가 값을 리턴한 객체 자체도 main lock이 유지된 상태로 다뤄지기 때문이다.
 
 		파생 클래스에서 이 함수를 impl하는 예시는 다음과 같다.
-		
+
 		NetClient의 경우, 자기자신의 hostID이면 CLoopbackHost_C 객체.
 		HostID_Server이면, CRemoteServer_C 객체.
 		P2P peer이면, CRemotePeer_C 객체.
 		NetServer의 경우, HostID_Server이면 CLoopbackHost_S 객체.
 
 		NetServer의 경우, HostID_Server => CLoopbackHost_S 객체.
-		클라 ID이면 => CRemoteClient_S 객체. 
-		
-		CUS or CUC의 경우, CUC HostID 값에 따라 
+		클라 ID이면 => CRemoteClient_S 객체.
+
+		CUS or CUC의 경우, CUC HostID 값에 따라
 		ClusterRemoteServer, ClusterRemotePeer, ClusterRemoteClient, ClusterLoopback 객체 계열 중 하나를 리턴한다. */
 		virtual shared_ptr<CHostBase> GetTaskSubjectByHostID_NOLOCK(HostID hostID) = 0;
 
@@ -74,7 +74,7 @@ namespace Proud
 		그렇게 하기 위한 데이터 구조이다. */
 		CFastList2<shared_ptr<CHostBase>, int> m_workReadyList;
 
-		// 어딘가에서 popped task에 대한 처리를 하고 있는 상태인 것들. 
+		// 어딘가에서 popped task에 대한 처리를 하고 있는 상태인 것들.
 		// Proud.CHostBase.m_UserTaskQueueUseOnly_InWorkingList와 일관성을 유지한다.
 		// task subject는 work ready list와 working list 중 하나에만 들어간다. 즉 교집합은 비어있다.
 		CFastList2<shared_ptr<CHostBase>, int> m_workingList;
@@ -92,8 +92,6 @@ namespace Proud
 
 		inline void ResetTaskRunningFlag(const shared_ptr<CHostBase>& subject);
 	};
-
 }
-
 
 #include "UserTaskQueue.inl"

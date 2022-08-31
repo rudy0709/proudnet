@@ -112,7 +112,7 @@ namespace Proud
 				issueSendOnNeed = true;
 				break;
 			}
-			case ProcessType_OnConnectStillInProgress:				
+			case ProcessType_OnConnectStillInProgress:
 			{
 				assert(false); // 윈도에서는 여기 올 일이 없다!
 				break;
@@ -230,7 +230,7 @@ namespace Proud
 				{
 					m_owner->ProcessDisconnecting(param_shared_from_this, *errorinfo);
 				}
-				
+
 				// 이 상태에서는 더 이상 issue-recv를 해봤자 즉시 GQCS with failure가 뜬다. 그럼 또 issue recv 걸고 삽질 반복.
 				// 그냥 여기서 정리해 버리자.
 				// 게다가 이러한 경우가 왜 발생하는지 모르곘지만 이를 막기 위해서도 여기서 이걸 한다.
@@ -505,11 +505,11 @@ namespace Proud
 		{
 			// UDP case
 
-			// 			if (???) // 혼잡제어로 인해 지금은 보낼 때가 아니라면 <= R2.2로부터 병합할 때 여기 넣을 것!
-			// 			{
-			// 				AtomicCompareAndSwap32(1, 0, &m_sendIssued);
-			// 				return;
-			// 			}
+			//			if (???) // 혼잡제어로 인해 지금은 보낼 때가 아니라면 <= R2.2로부터 병합할 때 여기 넣을 것!
+			//			{
+			//				AtomicCompareAndSwap32(1, 0, &m_sendIssued);
+			//				return;
+			//			}
 
 			{
 				CriticalSectionLock sendQueueLock(m_sendQueueCS, true);
@@ -598,7 +598,7 @@ namespace Proud
 			/* Q: caller에서 not working 체크 안하나요?
 			A: recv의 경우 working <-> not working 변화를 하지 않고, 항상 working 상태를 유지한 채로 issue recv <-> recv completion 순환을 합니다.
 			만약 recv가 중간에 실패하면 그제서야 다른 것으로 바뀌게 되어 있습니다.
-			방어 코딩 취지로, not working 상태가 되는 순간을 완전히 없앴습니다. 
+			방어 코딩 취지로, not working 상태가 되는 순간을 완전히 없앴습니다.
 			그래야 socket을 그만 쓰는 상황 직전(StopIoAcked)까지 socket을 지우는 일이 전혀 없게 하니까요.  */
 
 			// 기존 behavior를 유지하기 위해 남긴 if문.
@@ -649,7 +649,7 @@ namespace Proud
 			if ( m_socketType == SocketType_Tcp )
 			{
 				socketLock.Unlock();
-				AssertIsNotLockedByCurrentThread(m_cs); 
+				AssertIsNotLockedByCurrentThread(m_cs);
 
 				if (RequestStopIo())
 				{

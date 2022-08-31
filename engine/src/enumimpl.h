@@ -9,7 +9,7 @@ namespace Proud
 	{
 		MessageType_None = 0,
 
-		MessageType_Rmi = 1,            // 통상 보내는 RMI
+		MessageType_Rmi = 1,			// 통상 보내는 RMI
 		MessageType_UserMessage,		// 엔진 사용자가 정의하는 자유로운 메시지
 
 		MessageType_Hla, // HLA 계열 메시지들
@@ -108,10 +108,10 @@ namespace Proud
 		// 압축 계층
 		MessageType_Compressed,
 		//
-		// 		// 수신측에서 계속 산출해왔던 '수신 속도'를 송신측에서 받고자 함 및 리플. C2S,S2C,P2P 모두.
-		// 		// 더 이상 안쓰이지만 프로토콜 버전 바뀌는 것 두려워서 아직 안 제거함.
-		// 		MessageType_RequestReceiveSpeedAtReceiverSide_NoRelay_DEPRECATED,
-		// 		MessageType_ReplyReceiveSpeedAtReceiverSide_NoRelay_DEPRECATED,
+		//		// 수신측에서 계속 산출해왔던 '수신 속도'를 송신측에서 받고자 함 및 리플. C2S,S2C,P2P 모두.
+		//		// 더 이상 안쓰이지만 프로토콜 버전 바뀌는 것 두려워서 아직 안 제거함.
+		//		MessageType_RequestReceiveSpeedAtReceiverSide_NoRelay_DEPRECATED,
+		//		MessageType_ReplyReceiveSpeedAtReceiverSide_NoRelay_DEPRECATED,
 
 		// P2P 연결된 Peer에게 인증관련 데이터를 보낸다.
 		MessageType_NotifyConnectionPeerRequestData,
@@ -152,14 +152,14 @@ namespace Proud
 		LocalEventType_ClientServerDisconnect, // HostID도 유효한, 즉 연결 잘 된 상태 후 중도 C/S 해제됐음
 		LocalEventType_ClientJoinCandidate,
 		LocalEventType_ClientJoinApproved,
-		LocalEventType_ClientLeaveAfterDispose,            // 서버에 연결되어있던 클라이언트 1개가 나갔음
+		LocalEventType_ClientLeaveAfterDispose,			// 서버에 연결되어있던 클라이언트 1개가 나갔음
 
 		// ACR
-		LocalEventType_ClientOffline,     // remote client가 TCP가 증발했고 ACR을 진행중인 상태.
+		LocalEventType_ClientOffline,	// remote client가 TCP가 증발했고 ACR을 진행중인 상태.
 		LocalEventType_ClientOnline,
-		LocalEventType_ServerOffline,     // 넷클라에서 server와의 TCP가 증발했고 ACR을 진행중인 상태.
+		LocalEventType_ServerOffline,	// 넷클라에서 server와의 TCP가 증발했고 ACR을 진행중인 상태.
 		LocalEventType_ServerOnline,
-		LocalEventType_P2PMemberOffline,     // 넷클라에서 remote peer가 TCP가 증발했고 ACR을 진행중인 상태.
+		LocalEventType_P2PMemberOffline,	// 넷클라에서 remote peer가 TCP가 증발했고 ACR을 진행중인 상태.
 		LocalEventType_P2PMemberOnline,
 
 		LocalEventType_AddMemberAckComplete,
@@ -189,7 +189,7 @@ namespace Proud
 		//CustomValueEvent_NewPeerAccepted = -3, // 새로운 peer가 접속했다.
 		//CustomValueEvent_Heartbeat = -4, // 일정 시간마다 PN 내부 처리를 한다.
 		CustomValueEvent_OnTick = -5, // 일정 시간마다 사용자 코드 실행을 한다.
-		//CustomValueEvent_DoUserTask = -6, 
+		//CustomValueEvent_DoUserTask = -6,
 		//CustomValueEvent_End = -7, //호스트 종료. completion에 종료를 알린다.
 		// static assigned UDP socket이 처음 만들어질 때 net worker thread에서 최초의 issue recv를 걸기 위함.
 		CustomValueEvent_IssueFirstRecv = -8,
@@ -228,12 +228,12 @@ namespace Proud
 	};
 
 	//이 함수는 custom value queue가 따로 있는 이상 더 이상 호출할 일 없다. 지우자.
-	// 	inline bool CustomValueEventInRange(intptr_t value)
-	// 	{
-	// 		// Overlapped Handle 값이 -값이 나올 수 있다.
-	// 		// 따라서 여기서 Custom Value 범위값을 체그 해야한다.
-	// 		return CustomValueEvent_Last < value && value < 0;
-	// 	}
+	//	inline bool CustomValueEventInRange(intptr_t value)
+	//	{
+	//		// Overlapped Handle 값이 -값이 나올 수 있다.
+	//		// 따라서 여기서 Custom Value 범위값을 체그 해야한다.
+	//		return CustomValueEvent_Last < value && value < 0;
+	//	}
 
 	inline bool MessageType_IsEncrypted(MessageType t)
 	{

@@ -1,6 +1,6 @@
-﻿#pragma once 
+﻿#pragma once
 
-namespace Proud 
+namespace Proud
 {
 	class CNetClientImpl;
 	class CNetServerImpl;
@@ -8,7 +8,7 @@ namespace Proud
 	{
 	public:
 		virtual ~IVizAgentDg() {}
-		
+
 		virtual CNetClientImpl* QueryNetClient() = 0;
 		virtual CNetServerImpl* QueryNetServer() = 0;
 	};

@@ -55,7 +55,7 @@ namespace Proud
 	{
 		m_realUdpEnabled = false;
 		m_clientUdpReadyWaiting = false;
-		
+
 		m_createUdpSocketHasBeenFailed = false;
 
 		m_UdpAddrFromHere_USE_OTHER = AddrPort::Unassigned;
@@ -66,11 +66,11 @@ namespace Proud
 	}
 
 	// remote client에게 UDP로 보내되 여의치 않으면 TCP로 보낸다.
-	// 이함수 호출 전에 main lock이 걸려있어야함.  
+	// 이함수 호출 전에 main lock이 걸려있어야함.
 	void CFallbackableUdpLayer_S::AddToSendQueueWithSplitterAndSignal_Copy(HostID sendHostID, const CSendFragRefs& sendData,const SendOpt &sendOpt)
 	{
 		//m_owner->LockMain_AssertIsLockedByCurrentThread(); // m_realUdpEnabled is stale이라는 문제가 있으나, main lock cost가 더 우선.
-		if (m_realUdpEnabled) 
+		if (m_realUdpEnabled)
 		{
 			if (m_udpSocket != NULL)
 			{
@@ -94,14 +94,14 @@ namespace Proud
 				m_owner->m_tcpLayer->AddToSendQueueWithSplitterAndSignal_Copy(
 					m_owner->m_tcpLayer,
 					sendData, sendOpt, m_owner->m_owner->m_simplePacketMode);
-			}			
+			}
 		}
 	}
 
-// 	CTcpLayer_S & CFallbackableUdpLayer_S::GetFallbackTcpLayer()
-// 	{
-// 		return *(m_owner->m_tcpLayer);
-// 	}
+//	CTcpLayer_S & CFallbackableUdpLayer_S::GetFallbackTcpLayer()
+//	{
+//		return *(m_owner->m_tcpLayer);
+//	}
 
 	/* UDP 소켓이 재사용될 경우 앞서 사용했던 packet frag 버퍼링이 새 UDP peer에게 갈 경우 문제가 있을 수 있다.
 	따라서 그것들을 모두 초기화해버린다. */
@@ -114,10 +114,10 @@ namespace Proud
 			// 아래 지운 소스가 과거에는 왜 m_UdpAddrFromHere_USE_OTHER를 사용했는지 정확히 파악하시기 바랍니다.
 			// 미리 리뷰해서 잘못된거 수정 안하면 디버깅할때 훨씬 많은 시간 들여 버그 잡아야 함. 그런 재앙 오지 않게 하세요.
 			// 다른 소스도 싹 찾아서 잘못 짠 곳 있으면 수정 바랍니다.
-			// 우리가 하는 일은 서버입니다. 실수하면 피해가 큽니다. 
-			
+			// 우리가 하는 일은 서버입니다. 실수하면 피해가 큽니다.
+
 			Proud::AssertIsLockedByCurrentThread(m_udpSocket->m_cs);
-	
+
 			{
 				Proud::AssertIsLockedByCurrentThread(m_udpSocket->GetSendQueueCriticalSection());
 				// 주의! 여기서 FragBoard lock을 걸게되면 dispose에서 순서가 꼬이게 됨. (미리 걸고들어오는걸로 변경)

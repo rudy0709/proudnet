@@ -20,5 +20,4 @@ namespace Proud
 		m_totalWebSocketSendCount = 0;
 		m_totalWebSocketSendBytes = 0;
 	}
-
 }

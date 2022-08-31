@@ -72,7 +72,7 @@ namespace Proud
 		int32_t a = InterlockedIncrement(&m_hitCount);
 		if (a > 1)
 			return EXCEPTION_CONTINUE_SEARCH;
-		
+
 		if (CreateProcessAndWaitForExit(g_ProudNet_CrashDumpArgText, m_parameter.m_miniDumpType, pExceptionInfo) == 0)
 		{
 			// CreateProcess 실패
@@ -144,7 +144,7 @@ namespace Proud
 		}
 	}
 
-	int GetCurrentThreadExecutionPoint(unsigned int /*code*/, _EXCEPTION_POINTERS *ep,HANDLE hFile) 
+	int GetCurrentThreadExecutionPoint(unsigned int /*code*/, _EXCEPTION_POINTERS *ep,HANDLE hFile)
 	{
 		_MINIDUMP_EXCEPTION_INFORMATION ExInfo;
 		ExInfo.ThreadId = ::GetCurrentThreadId();
@@ -206,7 +206,7 @@ namespace Proud
 	}
 
 	/* 새로운 프로세스를 생성하고 종료될 때까지 대기한다.	*/
-	 uint32_t CMiniDumper::CreateProcessAndWaitForExit(
+	uint32_t CMiniDumper::CreateProcessAndWaitForExit(
 		const PNTCHAR *args, MINIDUMP_TYPE miniDumpType, _EXCEPTION_POINTERS *pExceptionInfo)
 	{
 		// WERS(Windows Error Reporting Service)이 실행 중일 경우에 덤프 프로세스를 생성하기 전에 SetErrorMode(SEM_NOGPFAULTERRORBOX) 호출을 해야  WerFault.exe를 띄우지 않습니다.
@@ -221,7 +221,7 @@ namespace Proud
 		String cmdLine;
 		cmdLine.Format(_PNT("\"%s\" %s %d \"%s\" %d %d %p"), moduleFileName, args, ::GetCurrentProcessId(), m_parameter.m_dumpFileName.GetBuffer(), miniDumpType, ::GetCurrentThreadId(), pExceptionInfo);
 
-		// 64bit의 경우 32bit와는 다르게 stackoverflow가 발생 한 후 CreateProcess 함수를 실행하면 CreateProcess 함수 내부에서 사용하는 
+		// 64bit의 경우 32bit와는 다르게 stackoverflow가 발생 한 후 CreateProcess 함수를 실행하면 CreateProcess 함수 내부에서 사용하는
 		// stack 메모리가 부족해 추가적으로 exception이 발생해서 덤프 과정이 실행이 되지 않습니다. 덤프 생성용 스레드를 별도로 생성하도록 합니다.
 		Proud::Thread createProcessThread(CreateDumpProcessDelegate, &cmdLine);
 		createProcessThread.Start();
@@ -279,7 +279,7 @@ namespace Proud
 
 			// 네번 째 인자로부터 MINIDUMP_TYPE으로 변환한다.
 			MINIDUMP_TYPE miniDumpType = (MINIDUMP_TYPE)_ttoi(tokenArray[3].GetString());
-			
+
 			// 다섯 째 인자로 부터 예외가 발생된 thread id를 변환한다.
 			const uint32_t excepThreadId = _ttoi(tokenArray[4].GetString());
 
@@ -321,33 +321,33 @@ namespace Proud
 		SetUnhandledExceptionHandler();
 		return MiniDumpAction_None;
 	}
-	// 	void CMiniDumper::WriteDumpAtExceptionThrower( LPCWSTR fileName, bool fullDump )
-	// 	{
-	// 		// 덤프 파일을 일단 쌓기 시작하면 굳이 오류 창을 표시하게 할 필요가 없다. 따라서 막아버린다.
-	// 		SetErrorMode(SEM_NOGPFAULTERRORBOX);
-	// 
-	// 		// create the file
-	// 		HANDLE hFile = ::CreateFile( fileName, GENERIC_WRITE, FILE_SHARE_WRITE, NULL, CREATE_ALWAYS,
-	// 			FILE_ATTRIBUTE_NORMAL, NULL );
-	// 
-	// 		if (hFile != INVALID_HANDLE_VALUE)
-	// 		{
-	// 			_MINIDUMP_EXCEPTION_INFORMATION ExInfo;
-	// 			ExInfo.ThreadId = ::GetCurrentThreadId();
-	// 			ExInfo.ClientPointers = NULL;
-	// 
-	// 			ExInfo.ExceptionPointers = GetExceptionInformation();
-	// 
-	// 			// write the dump
-	// 			BOOL bOK = MiniDumpWriteDump( GetCurrentProcess(),
-	// 				GetCurrentProcessId(), hFile,
-	// 				MiniDumpNormal,
-	// 				&ExInfo, NULL, NULL );
-	// 
-	// 			::CloseHandle(hFile);
-	// 		}
-	// 
-	// 	}
+	//	void CMiniDumper::WriteDumpAtExceptionThrower( LPCWSTR fileName, bool fullDump )
+	//	{
+	//		// 덤프 파일을 일단 쌓기 시작하면 굳이 오류 창을 표시하게 할 필요가 없다. 따라서 막아버린다.
+	//		SetErrorMode(SEM_NOGPFAULTERRORBOX);
+	//
+	//		// create the file
+	//		HANDLE hFile = ::CreateFile( fileName, GENERIC_WRITE, FILE_SHARE_WRITE, NULL, CREATE_ALWAYS,
+	//			FILE_ATTRIBUTE_NORMAL, NULL );
+	//
+	//		if (hFile != INVALID_HANDLE_VALUE)
+	//		{
+	//			_MINIDUMP_EXCEPTION_INFORMATION ExInfo;
+	//			ExInfo.ThreadId = ::GetCurrentThreadId();
+	//			ExInfo.ClientPointers = NULL;
+	//
+	//			ExInfo.ExceptionPointers = GetExceptionInformation();
+	//
+	//			// write the dump
+	//			BOOL bOK = MiniDumpWriteDump( GetCurrentProcess(),
+	//				GetCurrentProcessId(), hFile,
+	//				MiniDumpNormal,
+	//				&ExInfo, NULL, NULL );
+	//
+	//			::CloseHandle(hFile);
+	//		}
+	//
+	//	}
 
 	LONG CALLBACK CExceptionLogger::ExceptionLoggerProc(PEXCEPTION_POINTERS pExceptionInfo)
 	{
@@ -362,7 +362,7 @@ namespace Proud
 			return EXCEPTION_CONTINUE_SEARCH;
 		}
 	}
-		
+
 	// 현재 시간을 file name으로 표현하는 프로세스 덤프 파일을 남긴다.
 	LONG CExceptionLogger::ExceptionLoggerProc_(PEXCEPTION_POINTERS pExceptionInfo)
 	{
@@ -412,11 +412,11 @@ namespace Proud
 				<< _PNT("\\")
 				<< m_dumpName.GetString()
 				<< strDumpTime.GetString()
-				<< m_dumpSerial 
+				<< m_dumpSerial
 				<< _PNT(".DMP");
 
 			String dmpFilePath = ss.str().c_str();
-			
+
 			// create the file
 			HANDLE hFile = ::CreateFile( dmpFilePath.GetString(), GENERIC_WRITE, FILE_SHARE_WRITE, NULL, CREATE_ALWAYS,
 				FILE_ATTRIBUTE_NORMAL, NULL );

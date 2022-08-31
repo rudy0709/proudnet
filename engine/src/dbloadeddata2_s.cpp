@@ -46,7 +46,7 @@ namespace Proud
 	data에 있는 것이 rs에 들어간다.
 	updatePropertiesOnly=true이면, 3가지 필수 필드는 건드리지 않는다.
 	대부분의 경우 이것이 갱신될 필요가 없으며 이미 같은값이더라도 문제가 된다.
-	참고 http://ndn.nettention.com/general/support/view/?siidx=2200 */ 
+	참고 http://ndn.nettention.com/general/support/view/?siidx=2200 */
 	void CLoadedData2_S::DbmsSave(CAdoRecordset &rs, CPropNode& data, bool updatePropertiesOnly)
 	{
 		CProperty::MapType::iterator i;
@@ -144,7 +144,4 @@ namespace Proud
 			}
 		}
 	}
-
-
 }
-

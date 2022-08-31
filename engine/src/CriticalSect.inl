@@ -1,10 +1,9 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/BasicTypes.h"
 
 namespace Proud
 {
-
 	inline void AssertIsLockedByCurrentThread(const CriticalSection &cs)
 	{
 		_pn_unused(cs);
@@ -13,7 +12,7 @@ namespace Proud
 #ifdef PN_LOCK_OWNER_SHOWN
 		assert(IsCriticalSectionLockedByCurrentThread(cs));
 #endif
-#endif 
+#endif
 	}
 
 	inline void AssertIsNotLockedByCurrentThread(const CriticalSection &cs)
@@ -24,7 +23,6 @@ namespace Proud
 #ifdef PN_LOCK_OWNER_SHOWN
 		assert(!IsCriticalSectionLockedByCurrentThread(cs));
 #endif
-#endif 
+#endif
 	}
-
 }

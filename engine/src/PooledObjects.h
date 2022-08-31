@@ -29,7 +29,7 @@ namespace Proud
 			/* 굉장히 자주 액세스되지만 spin count가 있는 lock이므로 대부분 CPU time에서 끝난다. 즉 락프리에 준함.
 			critical section lock은 CAS보다 2배 차이. 큰 차이는 아니지만, 여기는 사용 빈도가 극도로 높기 때문에,
 			sub pool을 두어 이렇게 하는 것이 차라리 낫다. contention이 거의 발생하지 않는다.
-			
+
 			그러나 CObjectPool 안에서 낮은 확률로나마 malloc or free를 하고 있다. 가령 free list가 없거나 ShrinkOnNeed에 의해서.
 			이런 경우 spin lock은 부적절하다. 짧은 시간안에의 완료가 not primising이기 때문이다.
 			따라서 spin lock을 쓰지 말도록 하자. */
@@ -37,7 +37,7 @@ namespace Proud
 
 			CObjectPool<T> m_pool;
 		};
-	
+
 		// 최대 8개의 스레드가 돌테니, 이를 위한 sub object pool 배열.
 		SubPool* m_subPools;
 		// 위 배열의 크기. 액세스 속도에 민감하므로 non-template type.
@@ -88,7 +88,7 @@ namespace Proud
 		// 대략적인 로컬스택 주소를 리턴한다. 저질 랜덤값을 빠르게 리턴하는 용도로 쓴다.
 		inline intptr_t getApproximateStackPointer()
 		{
-			// 그냥 로컬 변수 하나 만들고 그것의 주소값을 리턴하면 된다. 
+			// 그냥 로컬 변수 하나 만들고 그것의 주소값을 리턴하면 된다.
 			int a;
 			return (intptr_t)&a;
 		}
@@ -109,7 +109,7 @@ namespace Proud
 		// +1
 		// contention 확률을 줄여서 CPU 사용량을 줄인다.
 		// 이건 쓰지 말자. StressTest 예제로, 메모리 사용량이 크다. 그래도 기록 취지로 남겨두자.
-		inline int getUniformlySelectedNextSubPoolIndex() 
+		inline int getUniformlySelectedNextSubPoolIndex()
 		{
 			int sel = m_lastSubPoolSelection;
 			sel++;
@@ -127,7 +127,7 @@ namespace Proud
 			// 따라서 여기서는 다음 것부터 시도를 하자.
 			// 다른 스레드에서도 다음 것을 시도하더라도 같은 것을 시도하면, contention이 여전히 높을 것이다.
 			// 따라서 랜덤값으로서 stackPointer값을 쓰도록 하자. 다만 64bit에서는 8의 배수일테니 >>3을 해서 /8 연산을 해버리자.
-			//0-3-4-7-0-3-4-7-...을 반복한다. 다른 방법 없을까? =>어쩌면 나쁜 방법이 아닐지도! =>이거 적용하니까 메모리가 계속 느는거같은데? 빼보고 다시 체크해보자. 
+			//0-3-4-7-0-3-4-7-...을 반복한다. 다른 방법 없을까? =>어쩌면 나쁜 방법이 아닐지도! =>이거 적용하니까 메모리가 계속 느는거같은데? 빼보고 다시 체크해보자.
 			int randomValue = (0x0fffffff & getApproximateStackPointer()) >> 3;
 
 			int sel = (m_lastSubPoolSelection + 1/*getStackPointer가 0을 리턴해도 next를 가리키게 하기 위함 */ + randomValue) % m_subPoolCount;
@@ -146,7 +146,7 @@ namespace Proud
 			// 그래서 지금은 그렇게 안한다.
 			// => 한 변수에만 몰아서 검사하면, 똑같은 atomic op이라도 contention으로 더 느려진다고.
 			// 따라서 여러 Sub pool을 다룬다.
-			
+
 			// 사실상 랜덤값이다. 여러 곳에서 마구잡이로 접근되니까.
 
 			int sel = getCurrentAsNextSubPoolIndex();
@@ -189,7 +189,7 @@ namespace Proud
 			m_lastSubPoolSelection = 0;
 
 			int c = GetNoofProcessors();
-			
+
 			m_subPools = new SubPool[c];
 			m_subPoolCount = c;
 
@@ -232,7 +232,7 @@ namespace Proud
 			// 만약 여기서 컴파일 에러간 나면
 			// void GetClassObjectPool(CClassObjectPool<T>** output)
 			// 이 함수를 구현하세요. 구현하는 함수는 PROUD_API나 PROUDSRV_API 속성이어야 합니다.
-			GetClassObjectPoolInDll(&ret);			
+			GetClassObjectPoolInDll(&ret);
 			return *ret;
 		}
 	};
@@ -243,7 +243,7 @@ namespace Proud
 	// 로컬 변수로만 이 객체의 인스턴스를 만들 것.
 	// 배열 객체 등이 효과적. resize cost가 시간이 지나면서 사라지니까.
 	// 이 클래스를 쓰면 알아서 ShrinkOnNeed도 자동으로 호출되므로 당신에게 좋을거임.
-	// 주의: 배열 객체를 풀링하는 것이라면 내용물이 남아있으므로 쓰기 전에 가령 ClearAndKeepCapacity를 호출한다던지 해야. 
+	// 주의: 배열 객체를 풀링하는 것이라면 내용물이 남아있으므로 쓰기 전에 가령 ClearAndKeepCapacity를 호출한다던지 해야.
 	// 주의: NetCore보다 나중에 파괴되는 객체에 이것을 쓰지 말것. NetCore보다 나중에 파괴됨이 보장되긴 하지만.
 	template<typename T>
 	class CPooledObjectAsLocalVar
@@ -272,16 +272,16 @@ namespace Proud
 }
 
 /* ProudNet client DLL이 존재하는한 이것을 관리하는 singleton이 유지된다.
- 
+
 로컬 변수로서 object pooling을 할 때 사용하는 매크로. 로컬 변수 선언시 쓴다.
 가급적이면 이 매크로를 쓰자. 두번째 줄에서 &를 빠뜨리는 사고도 있었으니까.
 
-Q: 그냥 각 메인 객체가 object pool을 가지면 되지, 굳이 이렇게 singleton을 두나요? 
+Q: 그냥 각 메인 객체가 object pool을 가지면 되지, 굳이 이렇게 singleton을 두나요?
 A: 메인A에서 생성하고 메인B에서 버리는 객체가 잦으면, A와 B가 각각 object pool을 가지면 안됩니다. 그런데 A부터 Z까지 있다고 칩시다.
 프로그램 덩치가 커지게 되면 pool은 가급적 단일화되어야 합니다. 그래서 singleton을 둡니다.
 물론 singleton은 dll unload시 전역변수의 파괴 순서를 지키기 위한 추가 코딩 등 번거롭긴 합니다. 그럼에도 불구하고요.
 
-사용법: 
+사용법:
 로컬 변수 선언으로써 POOLED_LOCAL_VAR(T, varName) 를 그냥 쓰면 된다.
 
 사전 준비:
@@ -312,6 +312,3 @@ T가 ProudNet 클라&서버 공통이면 CFavoritePooledObject_Client에다가, 
 	}
 
 #include "PooledObjects.inl"
-
-
-

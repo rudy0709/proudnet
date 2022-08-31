@@ -162,7 +162,7 @@ namespace Proud
 				memberRP->m_joinedP2PGroups.Add(GP->m_groupHostID, GP);
 				GP->m_members.Add(memberHostID, memberRP);
 
-				// remote peer가 홀펀칭을 유지하고 있다면 
+				// remote peer가 홀펀칭을 유지하고 있다면
 				if(!memberRP->IsRelayedP2P())
 				{
 					// last received time을 현재 시간으로 바꾸도록 한다.
@@ -172,7 +172,7 @@ namespace Proud
 
 				// 피어의 runtimePlatform 저장
 				memberRP->m_runtimePlatform = runtimePlatform;
-			
+
 
 			} // P2P 멤버가 타 클라인 경우
 
@@ -790,8 +790,8 @@ namespace Proud
 		CP2PGroupPtr_C group = GetP2PGroupByHostID_Internal(groupHostID);
 		if (group != nullptr)
 		{
-			// 			if(m_timer == nullptr)
-			// 				return -1;
+			//			if(m_timer == nullptr)
+			//				return -1;
 
 			for (CP2PGroup_C::P2PGroupMembers::iterator i = group->m_members.begin(); i != group->m_members.end(); i++)
 			{
@@ -807,7 +807,7 @@ namespace Proud
 					else
 					{
 						// P2P member가, 서버다.
-						diffSum += GetServerTimeDiffMs(); 
+						diffSum += GetServerTimeDiffMs();
 						count++;
 					}
 				}
@@ -894,8 +894,8 @@ namespace Proud
 	{
 		CriticalSectionLock clk(GetCriticalSection(), true);
 
-		// 		if(m_timer == nullptr)
-		// 			return -1;
+		//		if(m_timer == nullptr)
+		//			return -1;
 
 		int64_t clientTime = GetPreciseCurrentTimeMs();
 
@@ -940,7 +940,7 @@ namespace Proud
 
 		CriticalSectionLock clk(GetCriticalSection(), true);
 
-		if (HostID_None != GetVolatileLocalHostID() 
+		if (HostID_None != GetVolatileLocalHostID()
 			&& GetPreciseCurrentTimeMs() - m_ReportUdpCountTime_timeToDo > 0)
 		{
 			m_ReportUdpCountTime_timeToDo = GetPreciseCurrentTimeMs() + CNetConfig::ReportRealUdpCountIntervalMs;
@@ -1364,15 +1364,15 @@ namespace Proud
 	}
 
 	// 패킷양이 많은지 판단
-	// 	bool CNetClientImpl::CheckMessageOverloadAmount()
-	// 	{
-	// 		if(GetFinalUserWotkItemCount()
-	// 			>= CNetConfig::MessageOverloadWarningLimit)
-	// 		{
-	// 			return true;
-	// 		}
-	// 		return false;
-	// 	}
+	//	bool CNetClientImpl::CheckMessageOverloadAmount()
+	//	{
+	//		if(GetFinalUserWotkItemCount()
+	//			>= CNetConfig::MessageOverloadWarningLimit)
+	//		{
+	//			return true;
+	//		}
+	//		return false;
+	//	}
 
 	ErrorType CNetClientImpl::ForceP2PRelay(HostID remotePeerID, bool enable)
 	{
@@ -1392,6 +1392,4 @@ namespace Proud
 
 		return ErrorType_InvalidHostID;
 	}
-
-
 }

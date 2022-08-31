@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/BasicTypes.h"
 
@@ -26,8 +26,8 @@ namespace Proud
 		이러한 경우 보내는 쪽에서는 구별해서 보내줄 필요가 있다.
 
 		따라서 사용자는 unique ID를 넣더라도 내부적으로 그것에 대한 추가적인 식별 값을 넣어주어야 한다.
-		이는 그러한 목적으로 사용된다. 
-		
+		이는 그러한 목적으로 사용된다.
+
 		UniqueID_RelayerSeparator_XXX 중 하나가 쓰인다. */
 		char m_relayerSeparator;
 
@@ -86,6 +86,4 @@ namespace Proud
 			}
 		}
 	};
-
-
 }

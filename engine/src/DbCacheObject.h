@@ -10,23 +10,23 @@
 namespace Proud
 {
 	// 한개의 노드에 적용되는 PendType 구조체
-    struct DbmsWritePropNodePend
-    {
-        DbmsWritePropNodePendType m_type;
-        Guid		m_UUID;
+	struct DbmsWritePropNodePend
+	{
+		DbmsWritePropNodePendType m_type;
+		Guid		m_UUID;
 		// 이 객체는 copy가 자주 발생한다. 따라서 smart ptr로 바꾸어야 복사 부하 절감.
 		CPropNodePtr m_node;
 
-        DbmsWritePropNodePend():
-        m_type(DWPNPT_None),
-            m_UUID(),
+		DbmsWritePropNodePend():
+		m_type(DWPNPT_None),
+			m_UUID(),
 			m_node(CPropNodePtr())
-        {
+		{
 
-        }
-    };
+		}
+	};
 
-	// UpdateList를 사용시 사용되는 PendType 구조체. 
+	// UpdateList를 사용시 사용되는 PendType 구조체.
 	// 즉 1개 이상의 propNode를 한꺼번에 변경할 시.
 	struct DbmsWritePropNodeListPend
 	{
@@ -44,24 +44,24 @@ namespace Proud
 	};
 
 	typedef CFastArray<DbmsWritePropNodeListPend> DbmsWritePropNodeListPendArray;
-    
-    // Db Remote Client
-    class CDbRemoteClient_S
-    {
-    public:
-        HostID m_HostID;
-		// 인증 완료 된 시간
-        int64_t m_logonTime;
 
-        CDbRemoteClient_S()
-        {
-            m_logonTime = 0;
-        }
-        bool IsLoggedOn();
-    };
-    
-    typedef RefCount<CDbRemoteClient_S> CDbRemoteClientPtr_S;
-    typedef CFastMap2<HostID,CDbRemoteClientPtr_S,int> DbRemoteClients;
+	// Db Remote Client
+	class CDbRemoteClient_S
+	{
+	public:
+		HostID m_HostID;
+		// 인증 완료 된 시간
+		int64_t m_logonTime;
+
+		CDbRemoteClient_S()
+		{
+			m_logonTime = 0;
+		}
+		bool IsLoggedOn();
+	};
+
+	typedef RefCount<CDbRemoteClient_S> CDbRemoteClientPtr_S;
+	typedef CFastMap2<HostID,CDbRemoteClientPtr_S,int> DbRemoteClients;
 
 	class IDbWriteDoneNotify
 	{
@@ -74,7 +74,7 @@ namespace Proud
 	};
 
 	typedef RefCount<IDbWriteDoneNotify> IDbWriteDoneNotifyPtr;
-	
+
 	class CDbWriteDoneAddNotify: public IDbWriteDoneNotify
 	{
 	private:
@@ -230,4 +230,3 @@ namespace Proud
 		DbmsWritePend2();
 	};
 }
-

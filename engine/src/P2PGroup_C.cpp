@@ -15,8 +15,6 @@
 
 namespace Proud
 {
-
-
 	void CP2PGroup_C::ToInfo( CP2PGroup &ret )
 	{
 		for (P2PGroupMembers::iterator im = m_members.begin();im != m_members.end();im++)

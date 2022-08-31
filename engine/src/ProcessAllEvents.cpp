@@ -11,16 +11,16 @@ namespace Proud
 	서버에서 syscall의 횟수를 줄이기 위해, 200us 정도의 인터벌마다 event를 처리하고, 모두 넌블러킹으로 처리한다.
 	자세한 것은 optimize PQCS and GQCS.pptx에.
 
-	selectedReferrer: 
-	null이면 모든 referrer에 대해 issue send on need and heartbeat을 한다. 
+	selectedReferrer:
+	null이면 모든 referrer에 대해 issue send on need and heartbeat을 한다.
 	not null이면 지정한 것 하나의 referrer에 대해 한다.
 
 	enableUserCallback가 false이면 pop은 하지만 custom event에 대한 이벤트 콜백은 하지 않는다. */
 	void CThreadPoolImpl::ProcessAllEvents(
 		IThreadReferrer* selectedReferrer,
-		CWorkerThread* workerThread, 
+		CWorkerThread* workerThread,
 		CWorkResult* workResult,
-		int maxWaitTimeMs, 
+		int maxWaitTimeMs,
 		const ThreadPoolProcessParam& param)
 	{
 		/* 주의: 만약 이 함수를 추후 waitable 성질을 갖게 수정할 경우, 다음을 주의할 것.
@@ -175,7 +175,7 @@ namespace Proud
 			{
 				// supersocket에 대한 이벤트 처리를 수행한다.
 				// shared_ptr이므로 비파괴 보장되고 있다.
-				// 그리고 이 함수 안에서도 m_accessHeart에 대한 weak to shared ptr access를 시도한다. 
+				// 그리고 이 함수 안에서도 m_accessHeart에 대한 weak to shared ptr access를 시도한다.
 				// 따라서 역시 안전.
 				event.m_superSocket->OnSocketIoAvail((void*)&event.m_superSocket, event); // process socket event
 
@@ -183,9 +183,6 @@ namespace Proud
 				++workerThread->m_ioNotifier->m_epollWorkCountPerSec;
 			}
 #endif
-
 		}
 	}
-
-
 }

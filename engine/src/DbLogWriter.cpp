@@ -25,7 +25,6 @@ namespace Proud
 		ret->m_workerThread.Start();
 		return (CDbLogWriter*)ret;
 	}
-
 }
 
 #endif // _WIN32

@@ -69,7 +69,7 @@
 #include "IncludeFileSystem.h"
 #include "../include/PNPath.h"
 
-#ifdef _MSC_VER 
+#ifdef _MSC_VER
 #pragma warning(disable:4996)
 #endif
 
@@ -248,47 +248,47 @@ namespace Proud
 			found = FindNextFile(finder, &wfd);
 		}
 		FindClose(finder);
-#else 
- 		int ret;
- 		int num;
- 
- 		glob_t globbuf;
- 		globbuf.gl_pathc = 0;
- 		globbuf.gl_pathv = NULL;
- 		globbuf.gl_offs = 0;
- 		ret = glob(fileNameWithWildcard.c_str(), GLOB_DOOFFS | GLOB_MARK, NULL, &globbuf);
- 
- 		if (ret != 0 && ret != GLOB_NOMATCH)
- 			return;
- 
- 		if (ret == GLOB_NOMATCH)
- 			num = 0;
- 		else
- 			num = globbuf.gl_pathc;
- 
- 		for (int i = 0; i < num; i++)
- 		{
- 			string fileName;
- 			string tempListArray = (char*)((globbuf.gl_pathv)[i]);
- 
- 			size_t pos = tempListArray.find_last_of('/');
- 			if (pos != string::npos)
- 			{
- 				fileName = tempListArray.substr(pos + 1);
- 				output.push_back(Path::Combine(directory, fileName));
- 			}
- 			else
- 			{
- 				output.push_back(Path::Combine(directory, tempListArray));
- 			}
- 		}
- 
- 		//frees the dynamically allocated storage for glob
- 		globfree(&globbuf);
+#else
+		int ret;
+		int num;
+
+		glob_t globbuf;
+		globbuf.gl_pathc = 0;
+		globbuf.gl_pathv = NULL;
+		globbuf.gl_offs = 0;
+		ret = glob(fileNameWithWildcard.c_str(), GLOB_DOOFFS | GLOB_MARK, NULL, &globbuf);
+
+		if (ret != 0 && ret != GLOB_NOMATCH)
+			return;
+
+		if (ret == GLOB_NOMATCH)
+			num = 0;
+		else
+			num = globbuf.gl_pathc;
+
+		for (int i = 0; i < num; i++)
+		{
+			string fileName;
+			string tempListArray = (char*)((globbuf.gl_pathv)[i]);
+
+			size_t pos = tempListArray.find_last_of('/');
+			if (pos != string::npos)
+			{
+				fileName = tempListArray.substr(pos + 1);
+				output.push_back(Path::Combine(directory, fileName));
+			}
+			else
+			{
+				output.push_back(Path::Combine(directory, tempListArray));
+			}
+		}
+
+		//frees the dynamically allocated storage for glob
+		globfree(&globbuf);
 #endif
 	}
 #endif
-	
+
 	uint32_t GetNoofProcessors()
 	{
 #ifdef _WIN32
@@ -382,7 +382,7 @@ namespace Proud
 	StringA UntabifyText(const StringA& text)
 	{
 		StringA ret = text;
-		ret.Replace("\t", "    ");
+		ret.Replace("\t", "	");
 		return ret;
 	}
 
@@ -392,7 +392,7 @@ namespace Proud
 	{
 		PNTCHAR tempDir2[20000];
 #ifdef _WIN32
-        PNTCHAR tempDir[20000];
+		PNTCHAR tempDir[20000];
 		GetTempPath(20000, tempDir);
 		GetTempFileName(tempDir, prefix, 0, tempDir2);
 #else
@@ -422,9 +422,9 @@ namespace Proud
 		// 리눅스 static lib에서 boost를 의존하는 경우 문제가 된다.
 		// 리눅스에서 c++17에서나 가능한 std::filesystem을 쓸 수 있게 되면 그때 여기 자체구현을 대체하도록 하자.
 // #ifdef USE_STD_FILESYSTEM
-// 		return fs::exists(fs::path(StringT2A(fileName).GetString()));
+//		return fs::exists(fs::path(StringT2A(fileName).GetString()));
 // #else
-// 		throw Exception("Not supported. Use newer compiler.");
+//		throw Exception("Not supported. Use newer compiler.");
 // #endif
 	}
 #endif // #if !defined(__ORBIS__)
@@ -494,7 +494,7 @@ namespace Proud
 		_tmakepath(path, drive, dir, _PNT(""), _PNT(""));
 #endif
 		return path;
-#else 
+#else
 		char exePath[10000];
 		readlink("/proc/self/exe", exePath, 9999);
 		String ret = Path::GetDirectoryName(exePath);
@@ -506,7 +506,7 @@ namespace Proud
 	{
 #ifdef _WIN32
 		return ::SetCurrentDirectory(directoryName);
-#else 
+#else
 		if (chdir(directoryName) == 0)
 			return 0;
 		else
@@ -535,7 +535,7 @@ namespace Proud
 			output = s.st_mtime;
 			return true;
 		}
-		else 
+		else
 			return false;
 	}
 
@@ -556,7 +556,7 @@ namespace Proud
 					sizeof(HeapFragValue));
 			}
 		}
-		
+
 		return true;
 	}
 
@@ -584,7 +584,7 @@ namespace Proud
 		return CKernel32Api::Instance().GetQueuedCompletionStatusEx != NULL;
 	}
 
-	 uint32_t CountSetBits(uintptr_t bitMask)
+	uint32_t CountSetBits(uintptr_t bitMask)
 	{
 		uint32_t LSHIFT = sizeof(uintptr_t) * 8 - 1;
 		uint32_t bitSetCount = 0;
@@ -729,11 +729,11 @@ namespace Proud
 		PNTCHAR path[LongMaxPath];
 		::GetCurrentDirectory(LongMaxPath, path);
 		return path;
-#else 
+#else
 		char path[LongMaxPath];
 		if (getcwd(path, sizeof(path)) == NULL)
 			return "";
-		else 
+		else
 			return path;
 #endif
 	}
@@ -820,11 +820,11 @@ namespace Proud
 
 		/*		switch( m_languageID )
 		{
-		case 82:        // KOR(대한민국)
-		case 1:        // USA(미국)
-		case 7:        // RUS(러시아)
-		case 81:        // 일본
-		case 86:        // 중국
+		case 82:		// KOR(대한민국)
+		case 1:		// USA(미국)
+		case 7:		// RUS(러시아)
+		case 81:		// 일본
+		case 86:		// 중국
 		break;
 		}*/
 
@@ -1001,11 +1001,4 @@ namespace Proud
 		return fcntl(fd, F_GETFL) != -1 || errno != EBADF;
 	}
 #endif
-
-
 }
-
-
-
-
-

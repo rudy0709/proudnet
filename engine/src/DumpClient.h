@@ -1,12 +1,12 @@
 ﻿#pragma once
 
 #if defined(_WIN32)
-    #include "../include/ProudNetClient.h"
+#include "../include/ProudNetClient.h"
 
-    #include "../include/dumpcommon.h"
-    #include "../include/DumpClient.h"
-    #include "pidl/dumps2c_stub.h"
-    #include "pidl/dumpc2s_proxy.h"
+#include "../include/dumpcommon.h"
+#include "../include/DumpClient.h"
+#include "pidl/dumps2c_stub.h"
+#include "pidl/dumpc2s_proxy.h"
 
 namespace Proud
 {
@@ -54,7 +54,7 @@ namespace Proud
 		State GetState();
 		int GetSendProgress();
 		int GetSendTotal();
-	};    
+	};
 }
 
 #endif

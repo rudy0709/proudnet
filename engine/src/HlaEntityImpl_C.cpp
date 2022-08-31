@@ -1,12 +1,12 @@
 ﻿#include "stdafx.h"
 #include "HlaEntityImpl_C.h"
 #if !defined(_WIN32)
-    #include <new>
+	#include <new>
 #endif
 
 namespace Proud
 {
-	CHlaEntity_C::CHlaEntity_C() 
+	CHlaEntity_C::CHlaEntity_C()
 	{
 		m_internal = new CHlaEntityInternal_C;
 	}
@@ -33,5 +33,4 @@ namespace Proud
 	{
 		m_internal->m_classID = val;
 	}
-
 }

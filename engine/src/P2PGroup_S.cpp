@@ -47,7 +47,7 @@ namespace Proud
 	CP2PGroup_S::CP2PGroup_S()
 	{
 		m_groupHostID = HostID_None;
-		m_superPeerSelectionPolicy = CSuperPeerSelectionPolicy::GetNull();		
+		m_superPeerSelectionPolicy = CSuperPeerSelectionPolicy::GetNull();
 		m_superPeerSelectionPolicyIsValid = false;
 	}
 
@@ -96,5 +96,4 @@ namespace Proud
 		}
 		return false;
 	}
-
 }

@@ -228,10 +228,10 @@ namespace Proud
 							if (!rp->m_forceRelayP2P)
 								rp->m_jitDirectP2PNeeded = true;
 						}
-					}				
+					}
 				}
 			}
-			else 
+			else
 			{
 				FillSendFailListOnNeed(sendContext, &individualDestList[i], 1, ErrorType_InvalidHostID);
 				ret = false;
@@ -422,10 +422,10 @@ namespace Proud
 		// ACR 도 안켜고 이 함수 호출 하면 "미정의 작동" 이 발생할 수 있으므로
 		// 여기서 Exception 을 던져 에러를 노출 시킨다.
 		// 2016.4.4 테스트 케이스 99 번을 위하여 아래 throw 로직 제거
-		// 		if (m_connectionParam.m_enableAutoConnectionRecovery == false)
-		// 		{
-		// 			throw Exception();
-		// 		}
+		//		if (m_connectionParam.m_enableAutoConnectionRecovery == false)
+		//		{
+		//			throw Exception();
+		//		}
 
 		// 연결 불통이 확실하려면 모든 UDP, TCP 통신에 대해서 다 막아야 한다.
 		TurnOffSendAndReceive(m_remoteServer->m_ToServerTcp);
@@ -445,8 +445,6 @@ namespace Proud
 	void CNetClientImpl::TurnOffSendAndReceive(const shared_ptr<CSuperSocket>& socket)
 	{
 		if (socket)
-			socket->m_turnOffSendAndReceive = true; 
+			socket->m_turnOffSendAndReceive = true;
 	}
-
-
 }

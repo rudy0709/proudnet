@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "stdafx.h"
 #include "../include/BasicTypes.h"
@@ -12,7 +12,7 @@ namespace Proud
 	// 이를 StringA2W,W2A에서 통합하고자 하는 용도임.
 	class CDefaultStringEncoder : public DllSingleton<CDefaultStringEncoder>
 	{
-	public:		
+	public:
 		CStringEncoder* m_A2WStringEncoder;
 		CStringEncoder* m_W2AStringEncoder;
 
@@ -25,11 +25,10 @@ namespace Proud
 		// CMessage에서는 문자열이 utf16으로 다루어지기 때문.
 		CStringEncoder* m_UTF32LEtoUTF16LEEncoder;
 		CStringEncoder* m_UTF16LEtoUTF32LEEncoder;
-	#endif	
+	#endif
 		CDefaultStringEncoder();
 		~CDefaultStringEncoder();
-	};	
+	};
 
 	DECLARE_DLL_SINGLETON(PROUD_API, CDefaultStringEncoder);
-
 }

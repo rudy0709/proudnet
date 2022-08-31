@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/Singleton.h"
 #include "../include/FastArray.h"
@@ -7,7 +7,7 @@
 #include "FastList2.h"
 #include "../include/PNSemaphore.h"
 
-namespace Proud 
+namespace Proud
 {
 	class CDbCacheJobQueue
 	{
@@ -75,7 +75,7 @@ namespace Proud
 		JobList				m_listJob;
 		Semaphore			m_jobSemaphore;
 	};
-	
+
 	class CDbCacheServer2Impl;
 	class CDBCacheWorker
 	{

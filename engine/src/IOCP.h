@@ -25,10 +25,10 @@ namespace Proud
 	class CIoEventStatus;
 
 #if defined(_WIN32)
-	
+
 	class CompletionPort;
 
-	// NOTE: CompletionStatus 객체는 CIoEventStatus로 개명됐음.	
+	// NOTE: CompletionStatus 객체는 CIoEventStatus로 개명됐음.
 
 	// IOCP wrapper.
 	// 사용법: Socket.SetCompletionContext=>Completion.AssociateSocket=>Socket.Issue* or Socket.AcceptEx
@@ -58,4 +58,3 @@ namespace Proud
 
 #endif
 }
-

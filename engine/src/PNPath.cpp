@@ -50,24 +50,24 @@ namespace Proud
 // 가급적이면 자체 구현을 선호한다. VS2013 이하에서는 안 작동하는데 혹시 모르니까.
 
 // #ifdef USE_STD_FILESYSTEM
-// 		return StringA2T(fs::path(StringT2A(fileName).GetString()).filename().string());
+//		return StringA2T(fs::path(StringT2A(fileName).GetString()).filename().string());
 // #else
-// 		throw Exception("Not supported. Use newer compiler.");
+//		throw Exception("Not supported. Use newer compiler.");
 // #endif
-		
+
 		// 백슬래시나 슬래시를 발견하고 그 앞을 다 지워버린다.
- 		// 없으면 그냥 리턴.
- 		String fileName2(fileName);
- 
- 		int index = fileName2.FindFromLast('/');
- 		if (index >= 0)
- 			return fileName2.GetString() + index + 1;
- 
- 		index = fileName2.FindFromLast('\\');
- 		if (index >= 0)
- 			return fileName2.GetString() + index + 1;
- 
- 		return fileName2;
+		// 없으면 그냥 리턴.
+		String fileName2(fileName);
+
+		int index = fileName2.FindFromLast('/');
+		if (index >= 0)
+			return fileName2.GetString() + index + 1;
+
+		index = fileName2.FindFromLast('\\');
+		if (index >= 0)
+			return fileName2.GetString() + index + 1;
+
+		return fileName2;
 	}
 
 	String Path::ChangeExtension(const String& fileName, const PNTCHAR* fileExtensionWithDot)
@@ -97,11 +97,10 @@ namespace Proud
 		// 리눅스에서 c++17에서나 가능한 std::filesystem을 쓸 수 있게 되면 그때 여기 자체구현을 대체하도록 하자.
 
 		// #ifdef USE_STD_FILESYSTEM
-// 		fs::path p(fileName);
-// 		return (p.parent_path().c_str());
+//		fs::path p(fileName);
+//		return (p.parent_path().c_str());
 // #else
-// 		throw Exception("Not supported. Use newer compiler.");
+//		throw Exception("Not supported. Use newer compiler.");
 // #endif
 	}
-
 }

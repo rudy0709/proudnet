@@ -163,8 +163,8 @@ namespace Proud
 		void ToAssembledByteArray(ByteArrayT &output) const;
 
 		//		CMessage ToAssembledMessage() const;
-		// 		void AddRangeToByteArray(ByteArrayPtr target) const;
-		// 		void AddRangeToByteArray(ByteArray &target) const;
+		//		void AddRangeToByteArray(ByteArrayPtr target) const;
+		//		void AddRangeToByteArray(ByteArray &target) const;
 
 	};
 

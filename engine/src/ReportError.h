@@ -3,7 +3,7 @@
 #include "../include/Singleton.h"
 #include "FastSocket.h"
 
-namespace Proud 
+namespace Proud
 {
 #ifdef _WIN32
 	class CReportSocketDg//:public IFastSocketDelegate
@@ -58,7 +58,7 @@ namespace Proud
 		volatile bool m_stopThread;
 
 		void RequestReport(const String &text);
-		
+
 		Thread m_worker;
 		volatile int32_t m_sendIoFlag; // 0:no issued, 1: issued, 2:stop acked
 		static void StaticWorkerProc(void* ctx);
@@ -69,7 +69,7 @@ namespace Proud
 
 		void Heartbeat_LogSocket();
 #endif // _WIN32
-	
+
 	public:
 		PROUD_API static void Report( String text );
 	};
@@ -77,15 +77,15 @@ namespace Proud
 	class CErrorReporter_Dummy:public CSingleton<CErrorReporter_Dummy>
 	{
 	public:
-		static void Report( String text ) 
+		static void Report( String text )
 		{
-			// do nothing 
+			// do nothing
 		}
 	};
 
-    #ifdef NO_USE_ERROR_REPORTER
-        typedef CErrorReporter_Dummy CErrorReporter;
-    #else
-        typedef CErrorReporter_Indeed CErrorReporter;
-    #endif
+	#ifdef NO_USE_ERROR_REPORTER
+		typedef CErrorReporter_Dummy CErrorReporter;
+	#else
+		typedef CErrorReporter_Indeed CErrorReporter;
+	#endif
 }

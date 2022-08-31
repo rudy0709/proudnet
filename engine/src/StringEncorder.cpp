@@ -5,7 +5,7 @@
 #include "PnIconv.h"
 
 namespace Proud
-{	
+{
 	class CStringEncoderImpl
 	{
 	public:
@@ -31,7 +31,7 @@ namespace Proud
 	};
 
 	/* KJSA : 2013.06.26
-	*  Pimpl 패턴을 이용하여 캡슐화 한 객체를 생성자에서 생성한다.	
+	*  Pimpl 패턴을 이용하여 캡슐화 한 객체를 생성자에서 생성한다.
 	*/
 	CStringEncoder::CStringEncoder(const char* srcCodepage, const char* destCodepage)
 	{
@@ -48,7 +48,7 @@ namespace Proud
 
 	/* CObjectPool에서 CPnIconv 객체 하나를 리턴한다.
 	Pool에 사용 가능한 객체가 없을 경우 객체를 생성하고 초기화 시킨다.
-	초기화 중 에러가 발생할 경우 Exception을 throw한다. 
+	초기화 중 에러가 발생할 경우 Exception을 throw한다.
 	쓰고 나서는 ReleaseIconv로 반환되어야 한다.
 	*/
 	CPnIconv* CStringEncoder::GetIconv()
@@ -67,12 +67,12 @@ namespace Proud
 	}
 
 	/* KJSA : 2013.06.26
-	*  사용한 CPnIconv 객체를 반납한다.	
+	*  사용한 CPnIconv 객체를 반납한다.
 	*/
 	void CStringEncoder::ReleaseIconv(CPnIconv *obj)
 	{
 		CriticalSectionLock lock(m_pimpl->m_cdPoolCritSec, true);
-		
+
 		m_pimpl->m_converterPool.Drop(obj);
 	}
 
@@ -83,5 +83,4 @@ namespace Proud
 	{
 		return new CStringEncoder(srcCodepage, destCodepage);
 	}
-
 }

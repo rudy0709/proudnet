@@ -1,8 +1,8 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/MessageSummary.h"
 
-namespace Proud 
+namespace Proud
 {
 #ifdef VIZAGENT
 	// MessageSummary와 별개로 쓴다. m_rmiName이 성능을 먹으므로.

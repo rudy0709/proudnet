@@ -53,7 +53,7 @@ namespace Proud
 		// 따라서 여러 스레드에서 이걸 호출하면 같은 값이 연속해서 나오거나 두번 건너뛴 값이 나오겠지만, 개의치 말자.
 		// 속도가 더 중요하니까 atomic op으로 시간 크게 깎아먹지 말자. 수십배 느려질거다.
 		// 초기값 25이고 매번 117씩 더하는데 오버플로되어서 다시 작은 값이 될거다.
-		// 이 랜덤값은 금방 0~255 범위를 다 채운다. 이를 테스트하는 프로그램은 
+		// 이 랜덤값은 금방 0~255 범위를 다 채운다. 이를 테스트하는 프로그램은
 		// Test/SimpleRandomNumberTest 에 있으므로 참고하세요.
 		static volatile uint8_t m_randomNumber;
 		inline static uint8_t NextRandom() {
@@ -64,7 +64,7 @@ namespace Proud
 		// 영문,숫자 범위 외 글자로 변환하다. garble의 시작이다.
 		inline static uint8_t NonAscii(uint8_t ch)
 		{
-			return ch | 0x80; 
+			return ch | 0x80;
 		}
 
 		// 상위 4비트를 채운 상태로 리턴한다.
@@ -245,7 +245,7 @@ namespace Proud
 		void OnDrop()
 		{
 			m_packet.OnDrop();
-			
+
 			m_uniqueID = UniqueID();
 			m_enquedTime = 0;
 			m_reliability = MessageReliability_LAST;
@@ -253,10 +253,10 @@ namespace Proud
 		}
 	};
 
-	/* 본 명세는 
-	http://waterwall:8090/pages/viewpage.action?pageId=3049009 
-	에 있습니다. 
-	
+	/* 본 명세는
+	http://waterwall:8090/pages/viewpage.action?pageId=3049009
+	에 있습니다.
+
 	reliable send 자체는 우선순위가 모순이다. 따라서 아예 지원하지 않는다.
 	송신 속도 조절기도 포함됨
 	*/

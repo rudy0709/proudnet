@@ -112,6 +112,4 @@ namespace Proud
 		}
 #endif // ALLOW_CATCH_UNHANDLED_EVEN_FOR_USER_ROUTINE
 	}
-
-
 }

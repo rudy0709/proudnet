@@ -26,7 +26,7 @@ namespace Proud
 		m_allowExceptionEvent = true;
 		m_enableAutoConnectionRecovery = false;
 
-		// true인 경우, 클라-서버간 TCP 연결에서 핑퐁 타임아웃이 발생하면 연결 해제(#TCP_KEEP_ALIVE)를 한다. 
+		// true인 경우, 클라-서버간 TCP 연결에서 핑퐁 타임아웃이 발생하면 연결 해제(#TCP_KEEP_ALIVE)를 한다.
 		// 기본적으로 true이다. false가 맞으나 하위호환성 때문이다.
 		// 이걸 끈 이유: 별별 상황에서 TCP는 살아있는데 정작 어플이 죽은걸로 오탐하는 경우가 있다. 이를 피하고자 한다.
 		// 어차피 이거 필요없다. TCP에서 몇 초에 한번씩만 상대에게 송신을 1바이트라도 하면 retransmission timeout으로 10053 에러를 일으키니까.

@@ -15,7 +15,6 @@
 
 namespace Proud
 {
-
 	void ReliableUdpFrame::CloneTo( ReliableUdpFrame &dest)
 	{
 		dest.m_type = m_type;

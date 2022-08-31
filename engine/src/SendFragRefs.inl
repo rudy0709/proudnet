@@ -33,7 +33,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 ** 注意：著作物に関する上記の明示を除去しないでください。
 
 */
-#pragma once 
+#pragma once
 
 #include "FavoriteLV.h"
 #include "PooledObjects_C.h"
@@ -132,30 +132,30 @@ namespace Proud
 
 	// void CSendFragRefs::AddRangeToByteArray( ByteArrayPtr target ) const
 	// {
-	// 	if (GetFragmentCount() == 0)
-	// 		return;
-	// 
-	// 	if (target.IsNull())
-	// 		target.UseInternalBuffer();
-	// 
-	// 	for (int i = 0;i < GetFragmentCount();i++)
-	// 	{
-	// 		if (((*this)[i]).GetData() != NULL)
-	// 		{
-	// 			target.AddRange(((*this)[i]).GetData(), ((*this)[i]).GetLength());
-	// 		}
-	// 	}
+	//	if (GetFragmentCount() == 0)
+	//		return;
+	//
+	//	if (target.IsNull())
+	//		target.UseInternalBuffer();
+	//
+	//	for (int i = 0;i < GetFragmentCount();i++)
+	//	{
+	//		if (((*this)[i]).GetData() != NULL)
+	//		{
+	//			target.AddRange(((*this)[i]).GetData(), ((*this)[i]).GetLength());
+	//		}
+	//	}
 	// }
-	// 
+	//
 	// void CSendFragRefs::AddRangeToByteArray( ByteArray &target ) const
 	// {
-	// 	for (int i = 0;i < GetFragmentCount();i++)
-	// 	{
-	// 		if (((*this)[i]).GetData() != NULL)
-	// 		{
-	// 			target.AddRange(((*this)[i]).GetData(), ((*this)[i]).GetLength());
-	// 		}
-	// 	}
+	//	for (int i = 0;i < GetFragmentCount();i++)
+	//	{
+	//		if (((*this)[i]).GetData() != NULL)
+	//		{
+	//			target.AddRange(((*this)[i]).GetData(), ((*this)[i]).GetLength());
+	//		}
+	//	}
 	// }
 
 	inline int CSendFragRefs::GetTotalLength() const
@@ -176,6 +176,4 @@ namespace Proud
 	{
 		CSendFragRefs_ToByteArrayT(*this, output);
 	}
-
-
 }

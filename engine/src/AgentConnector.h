@@ -7,7 +7,7 @@
 
 namespace Proud
 {
-	class CAgentConnectorImpl : 
+	class CAgentConnectorImpl :
 		public CAgentConnector,
 		public INetClientEvent,
 		public AgentS2C::Stub
@@ -31,10 +31,10 @@ namespace Proud
 
 		virtual void OnJoinServerComplete(ErrorInfo *info, const ByteArray &replyFromServer) PN_OVERRIDE;
 		virtual void OnLeaveServer(ErrorInfo *errorInfo) PN_OVERRIDE;
-		
+
 		virtual void OnP2PMemberJoin(HostID /*memberHostID*/, HostID /*groupHostID*/, int /*memberCount*/, const ByteArray& /*message*/)  PN_OVERRIDE {}
 		virtual void OnP2PMemberLeave(HostID /*memberHostID*/, HostID /*groupHostID*/, int /*memberCount*/)  PN_OVERRIDE {}
-		
+
 		virtual void OnSynchronizeServerTime()  PN_OVERRIDE {}
 		virtual void OnChangeP2PRelayState(HostID /*remoteHostID*/, ErrorType /*reason*/) PN_OVERRIDE{}
 		virtual void OnError(ErrorInfo* /*errorInfo*/) PN_OVERRIDE {}

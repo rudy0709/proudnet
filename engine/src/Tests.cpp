@@ -2,11 +2,10 @@
 #include "Tests.h"
 #include "NetServer.h"
 
-namespace Proud 
+namespace Proud
 {
 	void Test_SomeUnitTests( CNetServer* srv )
 	{
 		((CNetServerImpl*)srv)->TEST_SomeUnitTests();
-
 	}
 }

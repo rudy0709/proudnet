@@ -19,6 +19,4 @@
 namespace Proud
 {
 	class CNetCoreImpl;
-
 }
-

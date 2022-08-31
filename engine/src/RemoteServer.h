@@ -64,10 +64,10 @@ namespace Proud
 		};
 
 		typedef shared_ptr<CFallbackableUdpLayer_C> CFallbackableUdpLayerPtr_C;
-// 		to - server의 final user work item을 위해 :
-// 		NC, LC.Connect()에서는 m_candidateHosts에 new CRemoteServer_C or CLanRemoteServer_C를 add합시다.
-// 			그리고 서버로부터 HostID를 발급받으면 m_candidateHosts로부터 m_authedHosts로 그걸 옮기면 됩니다.
-//		 m_toServerTcp, m_toServerUdp_Fallbackable이 여기로 옮겨져야 하겠죠.
+//		to - server의 final user work item을 위해 :
+//		NC, LC.Connect()에서는 m_candidateHosts에 new CRemoteServer_C or CLanRemoteServer_C를 add합시다.
+//			그리고 서버로부터 HostID를 발급받으면 m_candidateHosts로부터 m_authedHosts로 그걸 옮기면 됩니다.
+//		m_toServerTcp, m_toServerUdp_Fallbackable이 여기로 옮겨져야 하겠죠.
 	public:
 		CNetClientImpl* m_owner;
 		virtual CriticalSection& GetOwnerCriticalSection() PN_OVERRIDE;
@@ -153,5 +153,4 @@ namespace Proud
 		return a.get() != b.get();
 	}
 #endif
-
 }

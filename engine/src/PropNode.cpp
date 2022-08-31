@@ -33,7 +33,7 @@ namespace Proud
 	BOOL PutBinaryIntoVariant(CComVariant * ovData, uint8_t * pBuf,
 		unsigned long cBufLen);
 
-	CProperty::operator _variant_t() const 
+	CProperty::operator _variant_t() const
 	{
 		CMessage pk;
 		pk.UseInternalBuffer();
@@ -43,7 +43,7 @@ namespace Proud
 		return r;
 	}
 
-	CProperty::operator ByteArrayPtr() const 
+	CProperty::operator ByteArrayPtr() const
 	{
 		CMessage pk;
 		pk.UseInternalBuffer();
@@ -186,7 +186,7 @@ namespace Proud
 		AssertThreadID(eAccessMode_Read);
 
 		MapType::const_iterator i = m_map.find(String(name).MakeUpper());
-		
+
 		if(i!=m_map.end())
 		{
 			ClearThreadID();
@@ -205,12 +205,12 @@ namespace Proud
 		MapType::iterator i=m_map.find(pszName);
 
 		if(i==m_map.end())
-		{	
+		{
 			m_map.Add(pszName,value);
 			ClearThreadID();
 			return;
 		}
-		
+
 		i->SetSecond(value);
 		ClearThreadID();
 	}
@@ -222,7 +222,7 @@ namespace Proud
 		ClearThreadID();
 	}
 
-	CProperty::CProperty()		
+	CProperty::CProperty()
 	{
 #ifdef _DEBUG
 		m_RWAccessChecker = RefCount<CReaderWriterAccessChecker>(new CReaderWriterAccessChecker);
@@ -262,7 +262,7 @@ namespace Proud
 		ClearThreadID();
 	}
 
-	
+
 	Proud::String CProperty::GetDumpedText()
 	{
 		AssertThreadID(eAccessMode_Read);
@@ -281,7 +281,7 @@ namespace Proud
 
 			ret+=fmt;
 		}
-		
+
 		ClearThreadID();
 		return ret;
 	}
@@ -311,7 +311,7 @@ namespace Proud
 		int sz=(int)rhs.GetCount();
 		packet<<sz;
 
-		for (CProperty::const_iterator i=rhs.begin();i!=rhs.end();i++)		
+		for (CProperty::const_iterator i=rhs.begin();i!=rhs.end();i++)
 		{
 			String key = String(i.Key);
 			packet << key;
@@ -329,9 +329,9 @@ namespace Proud
 		String s;
 		CVariant v;
 		rhs.AssertThreadID(eAccessMode_Write);
-		
+
 		rhs.Clear();
-		
+
 		for(int i=0;i<sz;i++)
 		{
 			packet>>s;
@@ -340,11 +340,11 @@ namespace Proud
 		}
 
 		rhs.ClearThreadID();
-		
+
 		return packet;
 	}
 
-	
+
 
 	//////////////////////////////////////////////////////////////////////////
 	// CPropNode
@@ -383,7 +383,7 @@ namespace Proud
 
 	CPropNode::~CPropNode()
 	{
-	
+
 	}
 
 	void CPropNode::ToByteArray( ByteArray &output )
@@ -462,7 +462,7 @@ namespace Proud
 	void CPropNode::SetField( const String &name,const CVariant &value )
 	{
 		AssertThreadID(eAccessMode_Write);
-		m_dirtyFlag = true; 
+		m_dirtyFlag = true;
 		ClearThreadID();
 		__super::SetField(name, value);
 	}
@@ -489,7 +489,7 @@ namespace Proud
 	}
 
 	CMessage& operator<<( CMessage& packet,CPropNode &rhs )
-	{	
+	{
 		rhs.AssertThreadID(eAccessMode_Read);
 		packet<<String(rhs.m_INTERNAL_TypeName);
 		packet<<rhs.m_UUID;
@@ -514,6 +514,5 @@ namespace Proud
 		packet >> *(static_cast<CProperty*>(&rhs));
 		return packet;
 	}
-
 }
 #endif // _WIN32

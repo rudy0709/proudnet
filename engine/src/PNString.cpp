@@ -17,7 +17,7 @@
 
 #if !defined(_WIN32)
 #include <wchar.h>
-#include <cwctype>    
+#include <cwctype>
 #include "swprintf.h"
 #else
 #include <mbstring.h>
@@ -133,7 +133,7 @@ namespace Proud
 #endif
 	}
 
-#if defined(_WIN32)    // std string 을 쓸수있는 방법을 찾아야할듯.. 일단 막는다.
+#if defined(_WIN32)	// std string 을 쓸수있는 방법을 찾아야할듯.. 일단 막는다.
 
 #if !defined(_WIN32)
 	struct ToLower
@@ -350,7 +350,7 @@ namespace Proud
 
 	int __cdecl AnsiStrTraits::StringSpanIncluding(const char* pszBlock, const char* pszSet) throw()
 	{
-#if !defined(_WIN32)        
+#if !defined(_WIN32)
 		return (int)strspn(pszBlock, pszSet);
 #else
 		return (int)_mbsspn(reinterpret_cast<const unsigned char*>(pszBlock), reinterpret_cast<const unsigned char*>(pszSet));
@@ -359,11 +359,11 @@ namespace Proud
 
 	int __cdecl AnsiStrTraits::StringSpanExcluding(const char* pszBlock, const char* pszSet) throw()
 	{
-#if !defined(_WIN32)        
+#if !defined(_WIN32)
 		return (int)strcspn(pszBlock, pszSet);
 #else
 		return (int)_mbscspn(reinterpret_cast<const unsigned char*>(pszBlock), reinterpret_cast<const unsigned char*>(pszSet));
-#endif		
+#endif
 	}
 
 	char* __cdecl AnsiStrTraits::CharNext(const char* p) throw()
@@ -471,6 +471,4 @@ namespace Proud
 
 		return str;
 	}
-
-	
 }

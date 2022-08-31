@@ -60,5 +60,4 @@ namespace Proud
 		virtual CriticalSection& GetOwnerCriticalSection();
 
 	};
-
 }

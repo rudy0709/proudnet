@@ -13,11 +13,11 @@
 #include "NetServer.h"
 #include "sysutil-private.h"
 
-namespace Proud 
+namespace Proud
 {
 #if defined (_WIN32)
 	// $$$; == > 본 작업이 완료되면 반드시 ifdef를 제거해주시기 바랍니다.0
-	// dev003에서 흘러온 것임. 이승철님 선에서 해결되어야. 
+	// dev003에서 흘러온 것임. 이승철님 선에서 해결되어야.
 	void CReaderWriterMonitorTest::RunTest()
 	{
 		// 난잡 접근 스레드를 여럿 생성
@@ -25,7 +25,7 @@ namespace Proud
 		{
 			m_workers.Add(ThreadPtr(new Thread(StaticWorkerProc,this)));
 		}
-		
+
 		for(int i=0;i<WorkerCount;i++)
 		{
 			m_workers[i]->Start();
@@ -79,7 +79,7 @@ namespace Proud
 			double ratio = tlsRandom.NextDouble();
 
 			TestPlan plan = TP_Read;
-			if(ratio>0.9)  // 10%의 확률로만 writer lock을 하게 한다. 그래야 다중 reader lock 확률이 생기므로! 
+			if(ratio>0.9)  // 10%의 확률로만 writer lock을 하게 한다. 그래야 다중 reader lock 확률이 생기므로!
 			{
 				plan = TP_Write;
 			}
@@ -99,7 +99,7 @@ namespace Proud
 						m_stopThreads = true;
 						return;
 					}
-				}				
+				}
 			}
 			else
 			{
@@ -108,12 +108,12 @@ namespace Proud
 				int val = m_array[0];
 				for(int i=0;i<ArrayLength;i++)
 				{
-					 if(val != m_array[i])
-					 {
-						 m_main->EnqueueUnitTestFailEvent(_PNT("During the Approach of Reader lock, the Writer Lock is in Use in Other Places. "));
-						 m_stopThreads = true;
-						 return;
-					 }
+					if(val != m_array[i])
+					{
+						m_main->EnqueueUnitTestFailEvent(_PNT("During the Approach of Reader lock, the Writer Lock is in Use in Other Places. "));
+						m_stopThreads = true;
+						return;
+					}
 				}
 
 				if(lock.GetMultipleReaderCount() > 1)

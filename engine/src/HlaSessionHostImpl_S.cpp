@@ -78,7 +78,7 @@ namespace Proud
 	void CHlaSessionHostImpl_S::CreateViewer( IHlaViewer_S * rc )
 	{
 		CHlaCritSecLock lock(m_userDg, true);
-	
+
 		if(m_viewers.ContainsKey(rc->GetHostID()))
 		{
 			ThrowInvalidArgumentException();
@@ -136,7 +136,7 @@ namespace Proud
 		if(entity == NULL)
 			return NULL;
 
-		entity->m_internal->m_instanceID = m_entityIDGen.Create(m_implDg->GetTimeMs());		
+		entity->m_internal->m_instanceID = m_entityIDGen.Create(m_implDg->GetTimeMs());
 		entity->m_internal->m_ownerSessionHost = this;
 		m_entities.Add(entity->m_internal->m_instanceID, entity);
 
@@ -176,14 +176,14 @@ namespace Proud
 
 		// space 내 entity들의 등장을 노티
 		// TODO: 수신자는 동일한데 메시지는 여럿. 헤더를 뭉칠까? 그래봤자 3바이트인데.
-		
+
 		CFastSet<CHlaEntity_S*>::iterator iter = space->m_internal->m_entities.begin();
 		for(;iter != space->m_internal->m_entities.end();++iter)
 		{
 			SendAppearMessage(&viewerID, 1, *iter);
 		}
 
-		// view 쌍방 등록 
+		// view 쌍방 등록
 		space->m_internal->m_viewers.insert(map<HostID, IHlaViewer_S*>::value_type(viewerID, viewer));
 		viewer->GetViewingSpaces().Add(space);
 	}
@@ -210,7 +210,7 @@ namespace Proud
 			SendDisappearMessage(&viewerID, 1, (*iter)->m_internal->m_instanceID);
 		}
 
-		// view 쌍방 등록 
+		// view 쌍방 등록
 		space->m_internal->m_viewers.erase(iViewer);
 		viewer->GetViewingSpaces().Remove(space);
 	}
@@ -237,11 +237,11 @@ namespace Proud
 
 		POOLED_LOCAL_VAR(HostIDArray, appearSendTo);
 		POOLED_LOCAL_VAR(HostIDArray, disappearSendTo);
-		
+
 		size_t capacity = PNMAX(oldViewers.size(), newViewers.size());
 		appearSendTo.SetMinCapacity(capacity);
 		disappearSendTo.SetMinCapacity(capacity);
-		
+
 		while(1)
 		{
 			// 양쪽 다 루프 다 돌았으면 루프 쫑
@@ -263,7 +263,7 @@ namespace Proud
 
 			HostID ov1h = ov1->first;
 			HostID ov2h = ov2->first;
-			
+
 			if(ov1h == ov2h) // 두 값이 같으면 appear,disappear가 동시에 가는 셈이나 다름없으므로 아무것도 보내지 말아야
 			{
 				ov1++;
@@ -284,7 +284,7 @@ namespace Proud
 		// 멀티캐스트
 		SendAppearMessage(appearSendTo.GetData(), appearSendTo.GetCount(), entity);
 		SendDisappearMessage(disappearSendTo.GetData(), disappearSendTo.GetCount(), entity->m_internal->m_instanceID);
-		
+
 		// 새 값 갱신
 		if(oldSpace != NULL)
 			oldSpace->m_internal->m_entities.Remove(entity);
@@ -310,8 +310,8 @@ namespace Proud
 		// 헤더 만들기
 		CSmallStackAllocMessage header;
 		Message_Write(header, MessageType_Hla);
-		header.WriteScalar(HlaMessageType_Appear);		
-		header.WriteScalar(entity->m_internal->m_instanceID);		
+		header.WriteScalar(HlaMessageType_Appear);
+		header.WriteScalar(entity->m_internal->m_instanceID);
 		header.WriteScalar(entity->m_internal->m_classID);
 
 		CSendFragRefs fragRefs;
@@ -379,8 +379,8 @@ namespace Proud
 				// 헤더 만들기
 				CSmallStackAllocMessage header;
 				Message_Write(header, MessageType_Hla);
-				header.WriteScalar(HlaMessageType_NotifyChange);		
-				header.WriteScalar(e->m_internal->m_instanceID);		
+				header.WriteScalar(HlaMessageType_NotifyChange);
+				header.WriteScalar(e->m_internal->m_instanceID);
 
 				CSendFragRefs fragRefs;
 				fragRefs.Add(header);
@@ -406,7 +406,7 @@ namespace Proud
 
 	void CHlaSessionHostImpl_S::HlaSetDelegate( IHlaDelegate_S* dg )
 	{
-		m_userDg = dg;	
+		m_userDg = dg;
 	}
 
 }

@@ -3,7 +3,7 @@
 #include "../include/atomic.h"
 #include "../include/BasicTypes.h"
 
-namespace Proud 
+namespace Proud
 {
 	class CAsyncWork;
 

@@ -72,5 +72,4 @@ namespace Proud
 			delete pJob;
 		}
 	}
-
 }

@@ -22,8 +22,8 @@
 #if defined(_ISOLATE_PROUDNET_HEAP)
 #if !defined(_WIN32)
 #error Cannot use ISOLATE_PROUDNET_HEAP in non-Windows.
-#endif 
-#endif 
+#endif
+#endif
 
 #if defined(_ISOLATE_PROUDNET_HEAP)
 #include <mutex>
@@ -79,9 +79,9 @@ namespace Proud
 		// NOTE: Windows 에서 HeapAlloc deadlock 현상 발생때문에
 		//		 Windows 도 C Runtime function 을 사용하도록 변경
 // #if !defined(_WIN32)
-//         return malloc(size ? size : 1);
+//		return malloc(size ? size : 1);
 // #else
-// 		return ::HeapAlloc(GetProcessHeap(), 0,size?size:1 );
+//		return ::HeapAlloc(GetProcessHeap(), 0,size?size:1 );
 // #endif
 
 #if defined(_ISOLATE_PROUDNET_HEAP)
@@ -96,9 +96,9 @@ namespace Proud
 		// NOTE: Windows 에서 HeapAlloc deadlock 현상 발생때문에
 		//		 Windows 도 C Runtime function 을 사용하도록 변경
 // #if !defined(_WIN32)
-//         free(ptr);
+//		free(ptr);
 // #else
-// 		::HeapFree(GetProcessHeap(), 0, ptr);
+//		::HeapFree(GetProcessHeap(), 0, ptr);
 // #endif
 
 #if defined(_ISOLATE_PROUDNET_HEAP)
@@ -113,9 +113,9 @@ namespace Proud
 		// NOTE: Windows 에서 HeapAlloc deadlock 현상 발생때문에
 		//		 Windows 도 C Runtime function 을 사용하도록 변경
 // #if !defined(_WIN32)
-//         return realloc(ptr, size ? size : 1);
+//		return realloc(ptr, size ? size : 1);
 // #else
-// 		return ::HeapReAlloc(GetProcessHeap(), 0, ptr, size ? size : 1 );
+//		return ::HeapReAlloc(GetProcessHeap(), 0, ptr, size ? size : 1 );
 // #endif
 
 #if defined(_ISOLATE_PROUDNET_HEAP)

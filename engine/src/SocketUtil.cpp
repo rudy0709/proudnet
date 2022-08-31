@@ -41,7 +41,7 @@
 #include <sys/ioctl.h>
 #include <arpa/inet.h>
 
-#endif 
+#endif
 
 #include "../include/ProudNetCommon.h"
 #include "SocketUtil.h"
@@ -202,7 +202,7 @@ namespace Proud
 #endif
 		// backlog는 너무 작으면 동시다발로 접속이 들어오는 클라이언트를 처리 못한다. 가령 스트레스테스트 클라이언트가 메롱한다.
 		static_assert(backLog >= 64, "wrong listen backlog."); // windows에서 잘못된 winsock header include를 하는걸 방지하기 위해.
-		
+
 		int r = ::listen(hSocket, backLog);
 		if (r == 0)
 			return SocketErrorCode_Ok;
@@ -320,7 +320,7 @@ namespace Proud
 	failed:
 		return 0;
 	}
-#endif 
+#endif
 
 	/** host 이름, 가령 www.xxx.com을 입력하면 거기에 대응하는 IP address를 리턴한다. */
 	uint32_t DnsForwardLookup_IPv4(String name)
@@ -444,7 +444,7 @@ namespace Proud
 		// 사용자가 입력한 서버 주소 문자열이 ipv4 literal (11.22.33.44) 형식이면,
 		// NAT64 뒤에 있는 클라 기기인 경우, 서버의 주소를 ::ffff:11.22.33.44로 얻는다.
 		// 그러나 이 주소는 NAT64에 있는 클라 기기에서는 사용할 수 없는 주소다.
-		// 필요한 주소는 수동으로 얻어내는 synthesize 된 주소이어야 한다. 
+		// 필요한 주소는 수동으로 얻어내는 synthesize 된 주소이어야 한다.
 		//*/
 
 		//// IPv4 to IPv6 synthesize를 시작.
@@ -520,7 +520,7 @@ namespace Proud
 		//*/
 		//if (false == publicDomain1AddrPort.IsIPv4MappedIPv6Addr() && false == publicDomain2AddrPort.IsIPv4MappedIPv6Addr())
 		//{
-		//	// 앞단 12바이트가 동일한지 체크한다. 
+		//	// 앞단 12바이트가 동일한지 체크한다.
 		//	// TODO: 아직은 위 주석의 96bit prefix만 지원한다. 나머지 prefix type도 지원하게 하려면 여기를 손대야 할거다.
 		//	if (memcmp(publicDomain1AddrPort.m_addr.v6Byte, publicDomain2AddrPort.m_addr.v6Byte, 12) == 0)
 		//	{
@@ -533,12 +533,12 @@ namespace Proud
 		//return SocketErrorCode_Ok;
 	}
 
-	/* 
+	/*
 	hostname:port가 가리키는 주소 중 대표 주소를 얻는다.
-	우선순위는 getaddrinfo 로 얻은 것들 중 
+	우선순위는 getaddrinfo 로 얻은 것들 중
 	1. ipv4 or ipv6 중 제일 처음 걸리는 것
 	2. 1번에서 못얻었다면, 제일 처음 것
-	성공하면 Ok를, 실패하면 socket error code가 리턴된다. 
+	성공하면 Ok를, 실패하면 socket error code가 리턴된다.
 	*/
 	SocketErrorCode DnsForwardLookupAndGetPrimaryAddress(const PNTCHAR* hostName, uint16_t port, AddrInfo& out)
 	{
@@ -1069,9 +1069,9 @@ namespace Proud
 		}
 #else
 		{
-			// unix에서는 fcntl을 쓰라고 권유하고 있다. 그러나, 
+			// unix에서는 fcntl을 쓰라고 권유하고 있다. 그러나,
 			// fcntl()를 사용하면 GCC ARM에서 nonblock 임에도 불구하고 조금씩 block현상이 생김
-			// 그리고 추가적으로 fcntl()을 사용시 connect가 안되는 현상이 발생 
+			// 그리고 추가적으로 fcntl()을 사용시 connect가 안되는 현상이 발생
 			// fcntl() -> ioctl()로  수정함 modify by kdh
 			//int flag = fcntl(m_socket, F_GETFL, 0);
 			u_long argp = isBlockingMode ? 0 : 1;
@@ -1083,20 +1083,20 @@ namespace Proud
 				return (SocketErrorCode)errno;
 		}
 
-		//  		int newFlag;
-		//  		if(isBlockingMode)
-		//  			newFlag = flag & ~O_NONBLOCK;
-		//  		else
-		//  			newFlag = flag | O_NONBLOCK;
-		//  
-		//          int ret = fcntl(m_socket, F_SETFL, newFlag );
-		//  	
-		//          if(ret == -1)
-		//          {
-		//  			assert(0); // 있어서는 안되는 상황
-		//              //PostSocketWarning(errno, _PNT("SetBlockingMode : fcntl set error"));
-		//  			PostSocketWarning(errno, _PNT("SetBlockingMode : ioctl get error"));
-		//          }
+		//		int newFlag;
+		//		if(isBlockingMode)
+		//			newFlag = flag & ~O_NONBLOCK;
+		//		else
+		//			newFlag = flag | O_NONBLOCK;
+		//
+		//		int ret = fcntl(m_socket, F_SETFL, newFlag );
+		//
+		//		if(ret == -1)
+		//		{
+		//			assert(0); // 있어서는 안되는 상황
+		//			//PostSocketWarning(errno, _PNT("SetBlockingMode : fcntl set error"));
+		//			PostSocketWarning(errno, _PNT("SetBlockingMode : ioctl get error"));
+		//		}
 #endif
 	}
 
@@ -1122,11 +1122,11 @@ namespace Proud
 #if 0 // 이 함수는 아직 쓸일이 없다. 따라서 막았다.
 	// 잘 작동하는 코드이지만 여기로 그냥 옮겨왔다. 쓰려면 마무리하고 쓰자.
 
-	// PS4는 socketpair()가 없지만, 
+	// PS4는 socketpair()가 없지만,
 	// 직접 두 socket을 만들면 된다.
 	// 어차피 클라에서만 작동하는 OS이므로 아주 짧은 순간에 다른 TCP connection이
 	// 그것도 localhost에 있는 것으로부터 연결 들어올 가능성은 희박하다.
-	// 실패하면 throw한다. 
+	// 실패하면 throw한다.
 	void FakeCreateSocketPair(int* socketPairArray)
 	{
 		// TODO: 매우 짧은 순간에 두 socket을 만들어 서로 연결시키므로 빈도는 매우 작겠지만,
@@ -1190,7 +1190,6 @@ namespace Proud
 
 			Proud::Sleep(1);
 		}
-
 	}
 #endif
 }

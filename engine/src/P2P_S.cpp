@@ -4,7 +4,7 @@
 #include "RmiContextImpl.h"
 #include "LeanDynamicCast.h"
 
-namespace Proud 
+namespace Proud
 {
 	bool CNetServerImpl::JoinP2PGroup_Internal(HostID newMemberHostID,
 		HostID groupHostID,
@@ -139,7 +139,7 @@ namespace Proud
 						}
 						else
 						{
-							// 재사용 성공. 
+							// 재사용 성공.
 							// 홀펀칭은 재사용가능하거나 아닐 수 있고, 세션키는 반드시 재사용된다.
 							pairRecycled = true;
 						}
@@ -239,7 +239,7 @@ namespace Proud
 				} // P2P 멤버가 remote client인 경우
 				else // P2P 멤버가 서버인 경우
 				{
-					// member join을 클라에게 알리는 정보가 대부분 무의미하다. 
+					// member join을 클라에게 알리는 정보가 대부분 무의미하다.
 					// custom field, ack key serial 등 몇개만 빼고.
 					pairRecycled = false;
 
@@ -357,7 +357,7 @@ namespace Proud
 #endif
 		}
 
-		// 두 피어의 연결 정보를 얻는다. 
+		// 두 피어의 연결 정보를 얻는다.
 		P2PConnectionStatePtr state = m_owner->m_p2pConnectionPairList.GetPair(remote, addedMemberHostID);
 
 		if (state == NULL)
@@ -373,7 +373,7 @@ namespace Proud
 
 		// 양 클라는 P2P용 UDP는 닫지 않고 일정 시간 냅두며, 서버도 이를 안다.
 		// 그래서 서버는 같은 피어간 P2P가 짧은 시간(수십초)안에 재개될 때 홀펀칭을 생략하고 바로 통신한다.
-		// 그러나 예상치 못한 상황 가령 
+		// 그러나 예상치 못한 상황 가령
 		if (state->m_memberJoinAndAckInProgress)
 		{
 			state->MemberJoin_Acked(remote);
@@ -471,7 +471,7 @@ namespace Proud
 		}
 		else
 		{
-			// 멤버가 모두 나갔어도 P2P group을 파괴하지는 않는다. 이는 명시적으로 파괴되는 것이 정책이다. 
+			// 멤버가 모두 나갔어도 P2P group을 파괴하지는 않는다. 이는 명시적으로 파괴되는 것이 정책이다.
 			P2PGroup_RefreshMostSuperPeerSuitableClientID(g);
 			P2PGroup_CheckConsistency();
 		}
@@ -527,7 +527,7 @@ namespace Proud
 			LeaveP2PGroup((g->m_members.begin())->first, g->m_groupHostID);
 		}
 
-		// 다 끝났다. 이제 P2P 그룹 자체를 파괴해버린다. 
+		// 다 끝났다. 이제 P2P 그룹 자체를 파괴해버린다.
 		if (m_P2PGroups.Remove(groupHostID))
 		{
 			//add by rekfkno1 - hostid를 drop한다.재사용을 위해.
@@ -616,7 +616,4 @@ namespace Proud
 		CHECK_CRITICALSECTION_DEADLOCK(this);
 		return JoinP2PGroup_Internal(memberHostID, groupHostID, message, ++m_joinP2PGroupKeyGen);
 	}
-
-
-
 }

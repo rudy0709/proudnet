@@ -15,7 +15,7 @@
 
 namespace Proud
 {
-	
+
 
 	CDisconnectArgs::CDisconnectArgs()
 	{
@@ -58,5 +58,4 @@ namespace Proud
 		}
 		NOTHROW_FUNCTION_CATCH_ALL
 	}
-
 }

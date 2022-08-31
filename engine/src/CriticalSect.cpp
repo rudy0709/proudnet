@@ -69,7 +69,7 @@ namespace Proud
 	{
 		m_lastLockedThreadID = 0;
 		m_standard = new CriticalSection_Standard;
-		
+
 #if !defined(_WIN32)
 		if (settings.m_bottleneckWarningThresholdMs > 0)
 		{
@@ -94,7 +94,7 @@ namespace Proud
 			// Windows Vista 이후이면, 가장 최신 API를 쓰자.
 			if (CKernel32Api::Instance().InitializeCriticalSectionEx) // 반드시 이걸 나중에 체크해야 한다. Instance를 접근하는 순간 critsec을 접근하므로!
 			{
-				// [1]처럼 해놔도, OwningThread는 제대로 된 값이 나온다. 따라서 [1]을 켜자. 
+				// [1]처럼 해놔도, OwningThread는 제대로 된 값이 나온다. 따라서 [1]을 켜자.
 				if (!CKernel32Api::Instance().InitializeCriticalSectionEx(
 					&m_standard->m_cs,
 					settings.m_spinCount,
@@ -141,8 +141,8 @@ namespace Proud
 			m_standard->m_mutex = new Mutex;
 #endif
 		}
-		
-		
+
+
 #ifdef _WIN32
 		m_platformSpecificObject = &m_standard->m_cs;
 #else
@@ -314,7 +314,7 @@ namespace Proud
 			}
 
 #else
-            ShowUserMisuseError(_PNT("Sorry... bottleneck detector for unix is not implemented yet."));
+			ShowUserMisuseError(_PNT("Sorry... bottleneck detector for unix is not implemented yet."));
 #endif
 		}
 		else
@@ -463,21 +463,21 @@ namespace Proud
 		 * 위 구글 NDK r16 bionic C 소스 페이지에서 다음과 같은 구조체 형태를 참고해서 수정하였습니다.
 		 * 32비트일 경우 기존 코드와 호환됩니다.
 		struct pthread_mutex_internal_t {
-          _Atomic(uint16_t) state;
-        #if defined(__LP64__)
-          uint16_t __pad;
-          atomic_int owner_tid;
-          char __reserved[32];
-        #else
-          _Atomic(uint16_t) owner_tid;
-        #endif
-        } __attribute__((aligned(4)));
+		  _Atomic(uint16_t) state;
+		#if defined(__LP64__)
+		  uint16_t __pad;
+		  atomic_int owner_tid;
+		  char __reserved[32];
+		#else
+		  _Atomic(uint16_t) owner_tid;
+		#endif
+		} __attribute__((aligned(4)));
 		*/
 #if defined(__LP64__)
-        // atomic_int owner_tid에 해당하는 부분만 남기게 비트 연산을 한뒤 앞의 빈 32비트만큼을 쉬프트 연산으로 땡깁니다.
-        return (uint64_t)( ( *(uint64_t*)&mutex & 0x0000ffff00000000 ) >> 32 ) == (uint64_t)gettid();
+		// atomic_int owner_tid에 해당하는 부분만 남기게 비트 연산을 한뒤 앞의 빈 32비트만큼을 쉬프트 연산으로 땡깁니다.
+		return (uint64_t)( ( *(uint64_t*)&mutex & 0x0000ffff00000000 ) >> 32 ) == (uint64_t)gettid();
 #else //__LP64__
-        // owner_tid에 해당하는 부분만 남기게 비트 연산을 한뒤 앞의 빈 16비트만큼을 쉬프트 연산으로 땡깁니다.
+		// owner_tid에 해당하는 부분만 남기게 비트 연산을 한뒤 앞의 빈 16비트만큼을 쉬프트 연산으로 땡깁니다.
 		return (uint32_t)( ( *(uint32_t*)&mutex & 0xffff0000 ) >> 16 ) == (uint32_t)gettid();
 #endif //__LP64__
 #elif defined(__MACH__)
@@ -501,16 +501,16 @@ namespace Proud
 #elif defined(__ANDROID__)
 		/* a mutex is implemented as a 16-bit integer holding the following fields
 		*
-		* bits:     name     description
-		* 15-14     type     mutex type
-		* 13        shared   process-shared flag
-		* 12-2      counter  counter of recursive mutexes
-		* 1-0       state    lock state (0, 1 or 2)
+		* bits:	 name	 description
+		* 15-14	 type	 mutex type
+		* 13		shared   process-shared flag
+		* 12-2	  counter  counter of recursive mutexes
+		* 1-0	   state	lock state (0, 1 or 2)
 		*/
 #if defined(__LP64__)
-        return (uint64_t)( *(uint64_t*)&mutex & 0x0000000000000001 ) != (uint64_t)0;
+		return (uint64_t)( *(uint64_t*)&mutex & 0x0000000000000001 ) != (uint64_t)0;
 #else //__LP64__
-        return (uint32_t)( *(uint32_t*)&mutex & 0x00000001 ) != (uint32_t)0;
+		return (uint32_t)( *(uint32_t*)&mutex & 0x00000001 ) != (uint32_t)0;
 #endif //__LP64__
 #elif defined(__MACH__)
 		uint64_t tid;
@@ -629,6 +629,4 @@ namespace Proud
 			ShowUserMisuseError(_PNT("Cannot enter critical section which has been already destroyed! NOTE: This may be solved by deleting CNetClient instance before your WinMain() finishes working."));
 		}
 	}
-
-
 }

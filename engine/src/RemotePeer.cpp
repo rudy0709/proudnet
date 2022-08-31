@@ -254,20 +254,20 @@ namespace Proud
 		ABRecvAddr
 		*/
 
-		// #ifdef PER_PEER_SOCKET_DEBUG
-		// 	if(rp->m_UdpAddrInternal==AddrPort::Unassigned)
-		// 	{
-		// 		ShowErrorBox(_PNT("rp->m_UdpAddrInternal!=AddrPort::Unassigned"));
-		// 	}
-		// 	if(rp->m_UdpAddrFromServer==AddrPort::Unassigned)
-		// 	{
-		// 		ShowErrorBox(_PNT("rp->m_UdpAddrFromServer==AddrPort::Unassigned"));
-		// 	}
-		// 	if(ri.m_remoteAddr_onlyUdp==AddrPort::Unassigned)
-		// 	{
-		// 		ShowErrorBox(_PNT("ri.m_remoteAddr_onlyUdp"));
-		// 	}
-		// #endif
+		//#ifdef PER_PEER_SOCKET_DEBUG
+		//	if(rp->m_UdpAddrInternal==AddrPort::Unassigned)
+		//	{
+		//		ShowErrorBox(_PNT("rp->m_UdpAddrInternal!=AddrPort::Unassigned"));
+		//	}
+		//	if(rp->m_UdpAddrFromServer==AddrPort::Unassigned)
+		//	{
+		//		ShowErrorBox(_PNT("rp->m_UdpAddrFromServer==AddrPort::Unassigned"));
+		//	}
+		//	if(ri.m_remoteAddr_onlyUdp==AddrPort::Unassigned)
+		//	{
+		//		ShowErrorBox(_PNT("ri.m_remoteAddr_onlyUdp"));
+		//	}
+		//#endif
 
 		//		assert(rp->m_udpSocket->m_socket->GetSockName().IsUnicastEndpoint());
 
@@ -534,10 +534,10 @@ namespace Proud
 				SendOpt(MessagePriority_Holepunch, true));
 		}
 
-		// 	if (GetClient()->m_enableLog)
-		// 	{
-		// 		GetClient()->Log(TID_Holepunch, _PNT("Client %d(%s)에게 PeerHolePunch 쏨"), m_owner->m_HostID, ABSendAddr.ToString().GetString());
-		// 	}
+		//	if (GetClient()->m_enableLog)
+		//	{
+		//		GetClient()->Log(TID_Holepunch, _PNT("Client %d(%s)에게 PeerHolePunch 쏨"), m_owner->m_HostID, ABSendAddr.ToString().GetString());
+		//	}
 	}
 
 	void CP2PConnectionTrialContext::SendPeerHolepunchAck(AddrPort BASendAddr, Guid magicNumber, AddrPort ABSendAddr, AddrPort ABRecvAddr, int holepunchPingTimeMs)
@@ -624,7 +624,7 @@ namespace Proud
 
 	CRemotePeer_C::~CRemotePeer_C()
 	{
-		// 여기서 owner를 접근하지 말 것. 
+		// 여기서 owner를 접근하지 말 것.
 		// PopUserTask 후 RAII로 인해 no main lock 상태에서 여기가 호출될 수 있다.
 		// 정리해야 할게 있으면 여기가 아니라 OnHostGarbageCollected or OnHostGarbaged에 구현할 것.
 
@@ -641,8 +641,8 @@ namespace Proud
 		m_jitDirectP2PNeeded = (owner->m_settings.m_directP2PStartCondition == DirectP2PStartCondition_Always);
 		m_jitDirectP2PTriggered = false;
 
-		// 	m_sendStopAcked = false;
-		// 	m_recvStopAcked = false;
+		//	m_sendStopAcked = false;
+		//	m_recvStopAcked = false;
 
 		m_p2pConnectionTrialContext = CP2PConnectionTrialContextPtr();
 
@@ -666,10 +666,10 @@ namespace Proud
 													 CNetConfig::ReliablePingIntervalMs,
 													 (int64_t)m_owner->m_random.Next(256),
 													 (int64_t)256);
-// 		owner->Log(0,
-// 				   LogCategory_P2P,
-// 				   String::NewFormat(_PNT("Setting ReliablePingDiffTime %d.\n"),
-// 				   m_ReliablePingDiffTimeMs));
+//		owner->Log(0,
+//				   LogCategory_P2P,
+//				   String::NewFormat(_PNT("Setting ReliablePingDiffTime %d.\n"),
+//				   m_ReliablePingDiffTimeMs));
 
 		m_UnreliablePingDiffTimeMs = curtime + LerpInt(CNetConfig::UnreliablePingIntervalMs / 2,
 													   CNetConfig::UnreliablePingIntervalMs,
@@ -755,13 +755,13 @@ namespace Proud
 		}
 
 		// add by ulelio : 일정 시간 마다 클라간에 서버 시간 및 FrameRate 및 Ping을 동기화 하자.
-		// 		if(currTime - m_ToPeerReportServerTimeAndPingLastTimeMs > CNetConfig::ReportServerTimeAndPingIntervalMs)
-		// 		{
-		// 			CApplicationHint hint;
-		// 			m_owner->GetApplicationHint(hint);
-		// 			m_owner->m_c2cProxy.ReportServerTimeAndFrameRateAndPing(m_HostID, g_ReliableSendForPN, GetPreciseCurrentTimeMs(), hint.m_recentFrameRate);
-		// 			m_ToPeerReportServerTimeAndPingLastTimeMs = currTime;
-		// 		}
+		//		if(currTime - m_ToPeerReportServerTimeAndPingLastTimeMs > CNetConfig::ReportServerTimeAndPingIntervalMs)
+		//		{
+		//			CApplicationHint hint;
+		//			m_owner->GetApplicationHint(hint);
+		//			m_owner->m_c2cProxy.ReportServerTimeAndFrameRateAndPing(m_HostID, g_ReliableSendForPN, GetPreciseCurrentTimeMs(), hint.m_recentFrameRate);
+		//			m_ToPeerReportServerTimeAndPingLastTimeMs = currTime;
+		//		}
 
 		// 일정 시간내로 UDP 패킷을 전혀 받지 못하면 디스로 간주한다.
 		// P2P unreliable ping이 있기 때문에 UDP 패킷을 너무 오래 받는 것이 false positive일리는 없음.
@@ -825,7 +825,7 @@ namespace Proud
 		return m_indirectServerTimeDiff;
 	}
 
-	// 홀펀칭 P2P를 릴레이로 전환한다. 
+	// 홀펀칭 P2P를 릴레이로 전환한다.
 	// 홀펀칭 증발 등의 이유로 호출되는 함수다.
 	// firstChance=true이면 서버에게도 알리고 로그도 남긴다.
 	void CRemotePeer_C::FallbackP2PToRelay(const FallbackParam &param)
@@ -908,13 +908,13 @@ namespace Proud
 		}
 
 		// 아래는 불필요. 이미 이것이 호출될 때는 c/s TCP fallback이 필요하다면 이미 된 상태이니.
-		// 	if (firstChance && m_owner->m_ToServerUdp_fallbackable->m_realUdpEnabled == true)
-		// 	{
-		// 		if(reason == ErrorType_ServerUdpFailed)
-		// 			m_owner->FallbackServerUdpToTcp(false, ErrorType_Ok);
-		// // 		else if(reason == ErrorType_P2PUdpFailed) 과잉진압이다. 불필요.
-		// // 			m_owner->FallbackServerUdpToTcp();
-		// 	}
+		//	if (firstChance && m_owner->m_ToServerUdp_fallbackable->m_realUdpEnabled == true)
+		//	{
+		//		if(reason == ErrorType_ServerUdpFailed)
+		//			m_owner->FallbackServerUdpToTcp(false, ErrorType_Ok);
+		// //		else if(reason == ErrorType_P2PUdpFailed) 과잉진압이다. 불필요.
+		// //			m_owner->FallbackServerUdpToTcp();
+		//	}
 	}
 
 	void CRemotePeer_C::CUdpLayer::SendWithSplitter_Copy(const CSendFragRefs &sendData, const SendOpt &sendOpt)
@@ -1083,8 +1083,8 @@ namespace Proud
 
 				SuperSocketCreateResult r;
 				bool ignoreUdpSocketCreationFailWarning = false;
-				
-				if (m_owner->m_authedHostMap.GetCount() - 2 > m_owner->m_perPeerUdpSocketCountLimit) 
+
+				if (m_owner->m_authedHostMap.GetCount() - 2 > m_owner->m_perPeerUdpSocketCountLimit)
 				{
 					// UDP 소켓을 의도적으로 제한한다. PS4 테스트때문에.
 					// 2개는, loopback and remoteServer를 지칭.

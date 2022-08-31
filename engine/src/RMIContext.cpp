@@ -19,24 +19,24 @@
 namespace Proud
 {
 	// Reliable UDP의 resend starvation을 막으려면 이건 우선순위가 unreliable보다 높아야 한다.
-	RmiContext RmiContext::ReliableSend (MessagePriority_High, MessageReliability_Reliable, 0, EM_None);  
+	RmiContext RmiContext::ReliableSend (MessagePriority_High, MessageReliability_Reliable, 0, EM_None);
 	RmiContext RmiContext::UnreliableSend (MessagePriority_Medium, MessageReliability_Unreliable, 0, EM_None);
-	
-	RmiContext RmiContext::FastEncryptedReliableSend (MessagePriority_High, MessageReliability_Reliable, 0, EM_Fast);  
+
+	RmiContext RmiContext::FastEncryptedReliableSend (MessagePriority_High, MessageReliability_Reliable, 0, EM_Fast);
 	RmiContext RmiContext::FastEncryptedUnreliableSend (MessagePriority_Medium, MessageReliability_Unreliable, 0, EM_Fast);
-	
-	RmiContext RmiContext::SecureReliableSend (MessagePriority_High, MessageReliability_Reliable, 0, EM_Secure);  
+
+	RmiContext RmiContext::SecureReliableSend (MessagePriority_High, MessageReliability_Reliable, 0, EM_Secure);
 	RmiContext RmiContext::SecureUnreliableSend (MessagePriority_Medium, MessageReliability_Unreliable, 0, EM_Secure);
 
 	RmiContext RmiContext::UnreliableS2CRoutedMulticast (MessagePriority_Medium, MessageReliability_Unreliable, CNetConfig::MaxS2CMulticastRouteCount);
 
 
-	RmiContext GetReliableSendForPN(EncryptMode encryptMode = EM_None) 
+	RmiContext GetReliableSendForPN(EncryptMode encryptMode = EM_None)
 	{
 		RmiContext ret(MessagePriority_High, MessageReliability_Reliable, 0, encryptMode);
 		ret.m_enableP2PJitTrigger = false;
 		ret.m_INTERNAL_USE_isProudNetSpecificRmi = true;
-		
+
 		return ret;
 	}
 	RmiContext GetUnreliableSendForPN(EncryptMode encryptMode = EM_None)
@@ -50,7 +50,7 @@ namespace Proud
 
 	RmiContext g_ReliableSendForPN = GetReliableSendForPN();
 	RmiContext g_UnreliableSendForPN = GetUnreliableSendForPN();
-	
+
 	RmiContext g_SecureReliableSendForPN = GetReliableSendForPN(EM_None);
 	RmiContext g_SecureUnreliableSendForPN = GetUnreliableSendForPN(EM_None);
 
@@ -65,10 +65,9 @@ namespace Proud
 				/*char exceptonStr[200];
 				sprintf_s(exceptonStr, "RMI messaging cannot have Engine level priority! (m_priority : %d)", (int)m_priority);
 				::OutputDebugStringA(exceptonStr);
-				
+
 				throw Exception(exceptonStr);*/
 			}
 		}
 	}
-
 }

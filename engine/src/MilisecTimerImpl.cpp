@@ -162,7 +162,7 @@ namespace Proud
 		return new CMilisecTimerImpl();
 	}
 
-#if (PN_USE_CHRONO==1)  
+#if (PN_USE_CHRONO==1)
 	// #FAST_REACTION  C++11을 지원할 경우 이걸 쓰도록 한다. 이게 훨씬 성능이 좋다.
 	// 예전에는 함수 안에 local static var였으나, 리눅스에서 DLL로 사용되는 경우 이것이 크래시를 일으키는 것도 있고,
 	// gcc에서는 local static var의 JIT creation으로 인한 속도저하로 인해,
@@ -172,7 +172,7 @@ namespace Proud
 
 	int64_t GetPreciseCurrentTimeMs()
 	{
-#if (PN_USE_CHRONO==1)   
+#if (PN_USE_CHRONO==1)
 		return chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - g_GetPreciseCurrentTimeMs_firstTime).count();
 #else
 
@@ -187,11 +187,10 @@ namespace Proud
 
 	int64_t GetEpochTimeMs()
 	{
-#if (PN_USE_CHRONO==1)   
+#if (PN_USE_CHRONO==1)
 		return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 #else
 		throw Exception(__FUNCTION__" requires newer compiler.");
 #endif
 	}
-	
 }

@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "../include/HlaField.h"
 #if !defined(_WIN32)
-    #include <new>
+	#include <new>
 #endif
 
 namespace Proud
@@ -21,5 +21,4 @@ namespace Proud
 
 		return false;
 	}
-
 }

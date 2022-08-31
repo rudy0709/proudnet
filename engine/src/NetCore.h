@@ -51,14 +51,14 @@ namespace Proud
 		,public IThreadReferrer // custom value event를 처리하기 위해
 	{
 	protected:
-		 bool Send_SecureLayer(
-			const CSendFragRefs& payload, 
-			const CSendFragRefs* compressedPayload, 
-			const SendOpt& sendContext, 
-			const HostID* sendTo, 
+		bool Send_SecureLayer(
+			const CSendFragRefs& payload,
+			const CSendFragRefs* compressedPayload,
+			const SendOpt& sendContext,
+			const HostID* sendTo,
 			int numberOfsendTo);
 
-		 PROUD_API bool Send_CompressLayer(
+		PROUD_API bool Send_CompressLayer(
 			const CSendFragRefs &payload,
 			const SendOpt& sendContext,
 			const HostID *sendTo,
@@ -77,7 +77,7 @@ namespace Proud
 		virtual void ExpandHostIDArray(int numberOfsendTo, const HostID* sendTo, HostIDArray& output) = 0;
 
 	protected:
-		 PROUD_API virtual bool RunAsyncInternal(HostID taskOwner, LambdaBase_Param0<void>* func) PN_OVERRIDE;
+		PROUD_API virtual bool RunAsyncInternal(HostID taskOwner, LambdaBase_Param0<void>* func) PN_OVERRIDE;
 
 		// 다이아몬드 상속을 쓰는게 ambiguous 어쩌고 빌드 에러를 유발.
 		// 따라서 이렇게 query interface를 하자.
@@ -95,8 +95,8 @@ namespace Proud
 		CriticalSection m_preventOutOfMemoryCritSec;
 		void* m_preventOutOfMemoryDisconnectError;
 
-		 void AllocPreventOutOfMemory();
-		 PROUD_API void FreePreventOutOfMemory();
+		void AllocPreventOutOfMemory();
+		PROUD_API void FreePreventOutOfMemory();
 	public:
 		virtual void EnqueError( ErrorInfoPtr info ) = 0;
 		virtual void EnqueWarning( ErrorInfoPtr info ) = 0;
@@ -121,8 +121,8 @@ namespace Proud
 		void* m_tag;
 
 	public:
-		 PROUD_API void SetTag(void* value) PN_OVERRIDE;
-		 PROUD_API void* GetTag() PN_OVERRIDE;
+		PROUD_API void SetTag(void* value) PN_OVERRIDE;
+		PROUD_API void* GetTag() PN_OVERRIDE;
 	public:
 
 		virtual bool NextEncryptCount(HostID remote, CryptCount &output) = 0;
@@ -130,7 +130,7 @@ namespace Proud
 		virtual bool GetExpectedDecryptCount(HostID remote, CryptCount &output) = 0;
 		virtual bool NextDecryptCount(HostID remote) = 0;
 
-		 PROUD_API void DoUserTask(const ThreadPoolProcessParam& param, CWorkResult* workResult, bool& holstered) PN_OVERRIDE;
+		PROUD_API void DoUserTask(const ThreadPoolProcessParam& param, CWorkResult* workResult, bool& holstered) PN_OVERRIDE;
 
 		// 처리해야 하는 것이 local event인 경우 이것이 실행된다.
 		// NC,NS등에서 이를 구현해야 한다.
@@ -144,7 +144,7 @@ namespace Proud
 		virtual bool TryGetCryptSessionKey(HostID remote, shared_ptr<CSessionKey>& output, String &errorOut, LogLevel& outLogLevel) = 0;
 
 #ifdef _DEBUG
-		 PROUD_API void CheckCriticalsectionDeadLock(const PNTCHAR* functionName);
+		PROUD_API void CheckCriticalsectionDeadLock(const PNTCHAR* functionName);
 #define CHECK_CRITICALSECTION_DEADLOCK(netCore) { netCore->CheckCriticalsectionDeadLock(__FUNCTIONT__);}
 #else
 #define CHECK_CRITICALSECTION_DEADLOCK(netCore) __noop
@@ -184,21 +184,21 @@ namespace Proud
 		bool m_destructorIsRunning;
 
 	public:
-		 PROUD_API virtual void ShowError_NOCSLOCK(ErrorInfoPtr errorInfo) PN_OVERRIDE;
-		 PROUD_API virtual void ShowNotImplementedRmiWarning(const PNTCHAR* RMIName) PN_OVERRIDE;
-		 PROUD_API virtual void PostCheckReadMessage(CMessage &msg, const PNTCHAR* RMIName) PN_OVERRIDE;
+		PROUD_API virtual void ShowError_NOCSLOCK(ErrorInfoPtr errorInfo) PN_OVERRIDE;
+		PROUD_API virtual void ShowNotImplementedRmiWarning(const PNTCHAR* RMIName) PN_OVERRIDE;
+		PROUD_API virtual void PostCheckReadMessage(CMessage &msg, const PNTCHAR* RMIName) PN_OVERRIDE;
 
-		 PROUD_API bool ProcessMessage_Encrypted( MessageType msgType, CReceivedMessage& receivedInfo, CMessage& decryptedOutput );
-		 PROUD_API bool ProcessMessage_Compressed( CReceivedMessage& receivedInfo, CMessage& decryptedOutput );
+		PROUD_API bool ProcessMessage_Encrypted( MessageType msgType, CReceivedMessage& receivedInfo, CMessage& decryptedOutput );
+		PROUD_API bool ProcessMessage_Compressed( CReceivedMessage& receivedInfo, CMessage& decryptedOutput );
 
-		 PROUD_API bool SendUserMessage(const HostID* remotes, int remoteCount, RmiContext &rmiContext, uint8_t* payload, int payloadLength);
+		PROUD_API bool SendUserMessage(const HostID* remotes, int remoteCount, RmiContext &rmiContext, uint8_t* payload, int payloadLength);
 
-		 PROUD_API CNetCoreImpl();
-		 PROUD_API virtual ~CNetCoreImpl();
+		PROUD_API CNetCoreImpl();
+		PROUD_API virtual ~CNetCoreImpl();
 
-		 PROUD_API void CleanupEveryProxyAndStub();
+		PROUD_API void CleanupEveryProxyAndStub();
 
-		 int GetFinalUserWotkItemCount();
+		int GetFinalUserWotkItemCount();
 
 		/* 우선, CNetCoreImpl.m_UdpAddrPortToRemoteClientIndex 를 NetCore로 옮깁시다.
 			CNetCoreImpl.m_UdpAddrPortToRemoteClientIndex 즉 X는 UDP로 데이터그램을 받을 때 확인되는 송신자의 주소 즉 recvfrom의 출력 인자를 key로, 그리고 대응하는 remote 객체의 hostID를 value로 하는 맵입니다.
@@ -284,8 +284,8 @@ namespace Proud
 		remote는 superSocket과 일시적으로 1:1 관계를 어길 수 있어야 한다.
 		연결유지기능 때문임.
 		*/
-// 		typedef CFastMap2<std::pair<CSuperSocket*, intptr_t>, CHostBase*, int> SocketToHostMap;
-// 		SocketToHostMap m_socketToHostMap; // 직접 억세스하지 말고 SocketToHostMap_Get을 사용할 것
+//		typedef CFastMap2<std::pair<CSuperSocket*, intptr_t>, CHostBase*, int> SocketToHostMap;
+//		SocketToHostMap m_socketToHostMap; // 직접 억세스하지 말고 SocketToHostMap_Get을 사용할 것
 
 		// UDP로 수신된 주소를 근거로 host를 찾는 맵.
 		// static-assigned UDP socket인 경우에나 맵이 사용되며, per-remote인 경우에는 맵이 무시된다.
@@ -395,7 +395,7 @@ namespace Proud
 			SocketErrorCode socketErrorCode);
 
 		void UngarbageHost(const shared_ptr<CHostBase>& r);
-		
+
 		// 있나?
 		bool IsGarbaged(const shared_ptr<CHostBase> &host) const
 		{
@@ -508,9 +508,9 @@ namespace Proud
 		// C/S or P2P 최근 홀펀칭 재사용을 위해 다시 활용될 수 있음.
 		CFastMap2<HostID, shared_ptr<CSuperSocket>, int> m_recycles;
 
-		 PROUD_API void UdpSocketToRecycleBin(HostID hostID, const shared_ptr<CSuperSocket>& udpSocket, int garbageDelayMs);
-		 PROUD_API void GarbageTooOldRecyclableUdpSockets();
-		 PROUD_API void AllClearRecycleToGarbage();
+		PROUD_API void UdpSocketToRecycleBin(HostID hostID, const shared_ptr<CSuperSocket>& udpSocket, int garbageDelayMs);
+		PROUD_API void GarbageTooOldRecyclableUdpSockets();
+		PROUD_API void AllClearRecycleToGarbage();
 
 		// task queue
 		// 실제로는 task subject(remote 혹은 local)의 queue이고
@@ -527,10 +527,10 @@ namespace Proud
 		// 사용자가 호출하는 OnTick에 전달되는 사용자 정의 인자
 		void*  m_timerCallbackContext;
 
-		 PROUD_API void SetTimerCallbackParameter(uint32_t interval, int32_t maxCount, void* context);
+		PROUD_API void SetTimerCallbackParameter(uint32_t interval, int32_t maxCount, void* context);
 
-		 PROUD_API void EnqueueHackSuspectEvent(const shared_ptr<CHostBase>& rc, const char* statement, HackType hackType);
-		 PROUD_API void EnqueLocalEvent(LocalEvent& e, const shared_ptr<CHostBase>& rc);
+		PROUD_API void EnqueueHackSuspectEvent(const shared_ptr<CHostBase>& rc, const char* statement, HackType hackType);
+		PROUD_API void EnqueLocalEvent(LocalEvent& e, const shared_ptr<CHostBase>& rc);
 
 		// 사용자 정의 루틴 OnTick을 처리하기 위한 custom event를 thread pool에 던지는 역할
 		CHeldPtr<CThreadPoolPeriodicPoster> m_periodicPoster_Tick;
@@ -590,13 +590,13 @@ namespace Proud
 		virtual void BadAllocException(Exception& ex) = 0;
 
 	public:
-		 PROUD_API void GarbageSocket(const shared_ptr<CSuperSocket>& socket);
-		 PROUD_API void DoGarbageCollect();
+		PROUD_API void GarbageSocket(const shared_ptr<CSuperSocket>& socket);
+		PROUD_API void DoGarbageCollect();
 	private:
 		// 마지막으로 DoGarbageCollect의 내부 실 로직을 한 시간.
 		int64_t m_DoGarbageCollect_lastTime;
 	public:
-		 const int GetGarbagedSocketsAndHostsCount_NOLOCK();
+		const int GetGarbagedSocketsAndHostsCount_NOLOCK();
 
 	private:
 		void DoGarbageCollect_Socket();
@@ -606,13 +606,13 @@ namespace Proud
 		//void EndCompletion();
 	public:
 		virtual bool Stub_ProcessReceiveMessage(IRmiStub* stub, CReceivedMessage& receivedMessage, void* hostTag, CWorkResult* workResult) = 0;
-		 void UserWork_FinalReceiveRmi(CFinalUserWorkItem& UWI, const shared_ptr<CHostBase>& subject, CWorkResult* workResult);
-		 void UserWork_FinalReceiveUserMessage(CFinalUserWorkItem& UWI, const shared_ptr<CHostBase>& subject, CWorkResult* workResult);
-		 void UserWork_FinalReceiveHla(CFinalUserWorkItem& UWI, const  shared_ptr<CHostBase>& subject, CWorkResult* workResult);
-		 void UserWork_FinalReceiveUserFunction(CFinalUserWorkItem& UWI, const shared_ptr<CHostBase>& subject, CWorkResult* workResult);
+		void UserWork_FinalReceiveRmi(CFinalUserWorkItem& UWI, const shared_ptr<CHostBase>& subject, CWorkResult* workResult);
+		void UserWork_FinalReceiveUserMessage(CFinalUserWorkItem& UWI, const shared_ptr<CHostBase>& subject, CWorkResult* workResult);
+		void UserWork_FinalReceiveHla(CFinalUserWorkItem& UWI, const  shared_ptr<CHostBase>& subject, CWorkResult* workResult);
+		void UserWork_FinalReceiveUserFunction(CFinalUserWorkItem& UWI, const shared_ptr<CHostBase>& subject, CWorkResult* workResult);
 
-		 void UserWork_LocalEvent(CFinalUserWorkItem &UWI, const shared_ptr<CHostBase>& subject, CWorkResult* workResult);
-		 void SetTimerCallbackIntervalMs(int newVal);
+		void UserWork_LocalEvent(CFinalUserWorkItem &UWI, const shared_ptr<CHostBase>& subject, CWorkResult* workResult);
+		void SetTimerCallbackIntervalMs(int newVal);
 
 	public:
 		//////////////////////////////////////////////////////////////////////////
@@ -683,7 +683,7 @@ namespace Proud
 		// LC,LS는 UDP를 안 다루므로 이것을 빈 함수로 두자.
 		virtual void EnquePacketDefragWarning(shared_ptr<CSuperSocket> superSocket, AddrPort addrPort, const String& text) = 0;
 
-		 PROUD_API void ProcessCustomValueEvent(const ThreadPoolProcessParam& param, CWorkResult* workResult, CustomValueEvent customValue);
+		PROUD_API void ProcessCustomValueEvent(const ThreadPoolProcessParam& param, CWorkResult* workResult, CustomValueEvent customValue);
 
 
 		PROUD_API virtual void SendReadyList_Add(const shared_ptr<CSuperSocket>& socket, bool issueSendNow);
@@ -693,14 +693,14 @@ namespace Proud
 		virtual void LockMain_AssertIsLockedByCurrentThreadImpl() = 0;
 		virtual void LockMain_AssertIsNotLockedByCurrentThreadImpl() = 0;
 
-		inline void LockMain_AssertIsLockedByCurrentThread() 
+		inline void LockMain_AssertIsLockedByCurrentThread()
 		{
 #ifdef DEBUG
 			LockMain_AssertIsLockedByCurrentThreadImpl();
 #endif
 		}
 
-		inline void LockMain_AssertIsNotLockedByCurrentThread() 
+		inline void LockMain_AssertIsNotLockedByCurrentThread()
 		{
 #ifdef DEBUG
 			LockMain_AssertIsNotLockedByCurrentThreadImpl();
@@ -715,8 +715,8 @@ namespace Proud
 		/* 잠금 없이 HostID를 얻어온다.
 		for filter tag.
 		packet frag board에서 per-socket send queue lock을 한 상태에서
-		main lock을 하면 deadlock이 생기니까. 
-		
+		main lock을 하면 deadlock이 생기니까.
+
 		주의: 웬만하면 이거 대신 GetLocalHostID를 쓰자.
 		*/
 		virtual HostID GetVolatileLocalHostID() const = 0;
@@ -746,7 +746,7 @@ namespace Proud
 
 		// 받은 메시지를 PN 레벨에서 직접 처리하거나 user worker thread로 던진다.
 		virtual void ProcessMessageOrMoveToFinalRecvQueue(
-			const shared_ptr<CSuperSocket>& socket, 
+			const shared_ptr<CSuperSocket>& socket,
 			CReceivedMessageList &extractedMessages) = 0;
 
 

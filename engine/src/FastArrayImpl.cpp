@@ -18,7 +18,7 @@
 
 
 namespace Proud
-{	
+{
 
 	String ByteArray::ToHexString()
 	{
@@ -63,7 +63,7 @@ namespace Proud
 	}
 #endif
 
-/*	// "new ByteArray" 자체를 성능 강화하기 위함 
+/*	// "new ByteArray" 자체를 성능 강화하기 위함
 	// => 이제 이건 쓰지 말자. ByteArrayPtr 자체가 obj-pool을 하니.
 	void* ByteArray::LookasideAllocator_Alloc(size_t length)
 	{
@@ -78,7 +78,5 @@ namespace Proud
 
 	ByteArray::~ByteArray()
 	{
-
 	}
-
 }

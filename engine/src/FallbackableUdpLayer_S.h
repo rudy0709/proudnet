@@ -56,5 +56,4 @@ namespace Proud
 	private:
 //		CTcpLayer_S &GetFallbackTcpLayer();
 	};
-
 }

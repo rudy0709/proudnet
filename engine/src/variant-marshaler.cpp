@@ -4,7 +4,7 @@
 
 namespace Proud
 {
-#if defined(_WIN32)    
+#if defined(_WIN32)
 	CMessage& operator<<(CMessage &a, const CVariant &b)
 	{
 		a.Write((uint16_t)b.m_val.vt);

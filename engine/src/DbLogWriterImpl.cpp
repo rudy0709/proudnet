@@ -18,10 +18,8 @@
 #pragma warning(disable:4840)
 #endif
 
-
 namespace Proud
 {
-
 	void CDbLogWriterImpl::StaticThreadProc( void* ctx )
 	{
 		CDbLogWriterImpl* obj = (CDbLogWriterImpl*)ctx;
@@ -38,7 +36,7 @@ namespace Proud
 		try
 		{
 			conn.Open(m_logParameter.m_dbmsConnectionString, m_logParameter.m_dbmsType);
-			String query;		
+			String query;
 			const PNTCHAR* queryStr;
 			switch(m_logParameter.m_dbmsType)
 			{
@@ -62,7 +60,7 @@ namespace Proud
 			const PNTCHAR* p2 = e.ErrorMessage();
 			if(!p2)
 				p2 = _PNT("");
-			txt.Format(_PNT("%s %s %s"), (const PNTCHAR*)e.Description(), p2, (const PNTCHAR*)e.Source());		
+			txt.Format(_PNT("%s %s %s"), (const PNTCHAR*)e.Description(), p2, (const PNTCHAR*)e.Source());
 
 			AdoException except(txt.GetString(), e);
 
@@ -78,7 +76,7 @@ namespace Proud
 		}
 
 		if(MsSql == m_logParameter.m_dbmsType)
-		{		
+		{
 			do{
 				if(m_writeSemaphore.WaitOne(300))
 				{
@@ -126,7 +124,7 @@ namespace Proud
 							const PNTCHAR* p2 = e.ErrorMessage();
 							if(!p2)
 								p2 = _PNT("");
-							txt.Format(_PNT("%s %s %s"), (const PNTCHAR*)e.Description(), p2, (const PNTCHAR*)e.Source());		
+							txt.Format(_PNT("%s %s %s"), (const PNTCHAR*)e.Description(), p2, (const PNTCHAR*)e.Source());
 
 							AdoException except(txt.GetString(), e);
 							m_delegate->OnLogWriterException(except);
@@ -174,7 +172,7 @@ namespace Proud
 
 							CProperty prop = logData->m_properties;
 							if(prop.GetCount()>0)
-							{		
+							{
 								for(int i=0;i<rec->Fields->Count;i++)
 								{
 									String fieldName=(const PNTCHAR*)(_bstr_t)rec.FieldNames[i];
@@ -205,7 +203,7 @@ namespace Proud
 				const PNTCHAR* p2 = e.ErrorMessage();
 				if(!p2)
 					p2 = _PNT("");
-				txt.Format(_PNT("%s %s %s"), (const PNTCHAR*)e.Description(), p2, (const PNTCHAR*)e.Source());		
+				txt.Format(_PNT("%s %s %s"), (const PNTCHAR*)e.Description(), p2, (const PNTCHAR*)e.Source());
 
 				AdoException except(txt.GetString(), e);
 				m_delegate->OnLogWriterException(except);
@@ -347,13 +345,11 @@ namespace Proud
 		conn.Execute(strQuery);
 	}
 
-
 	CDbLogParameter::CDbLogParameter() :
-		// 		m_dbmsConnectionString(_PNT("")),
-		// 		m_loggerName(_PNT("")),
+		//		m_dbmsConnectionString(_PNT("")),
+		//		m_loggerName(_PNT("")),
 		m_dbLogTableName(_PNT("DbLog")),
 		m_dbmsType(MsSql)
 	{
-
 	}
 }

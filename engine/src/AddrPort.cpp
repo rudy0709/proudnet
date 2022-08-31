@@ -40,7 +40,7 @@ namespace Proud
 	{
 		outErrorInfo.m_errorType = ErrorType_Ok;
 
-		// 이 클래스는 ipv4 or v6 상관없이 공용으로 사용된다. 
+		// 이 클래스는 ipv4 or v6 상관없이 공용으로 사용된다.
 		// 따라서, IPv6 주소지만, any or loopback이면 IPv4에 해당하는 주소로 변환하여 리턴한다.
 		if (Is0000Address())
 		{
@@ -66,7 +66,7 @@ namespace Proud
 
 			return true;
 		}
-		
+
 		if (IsIPv4MappedIPv6Addr() == false)
 		{
 			// 변환 실패. errorInfo를 채운다.
@@ -77,10 +77,10 @@ namespace Proud
 			// 에러를 출력하도록 한다.
 			outErrorInfo.m_errorType = ErrorType_UnknownAddrPort;
 			outErrorInfo.m_comment = ss.str().c_str();
-			
+
 			return false;
 		}
-		
+
 		// 성공
 		output.u.v4.sin_port = htons(m_port);
 		output.u.v4.sin_addr.s_addr = m_addr.v4;
@@ -389,19 +389,19 @@ namespace Proud
 // PS4에서는 IPv4 socket만 사용 가능하므로
 #ifndef __ORBIS__
 		if (m_addr.v6Byte[0] == 0x00 &&
-		 	m_addr.v6Byte[1] == 0x00 &&
-		 	m_addr.v6Byte[2] == 0x00 &&
-		 	m_addr.v6Byte[3] == 0x00 &&
-		 	m_addr.v6Byte[4] == 0x00 &&
-		 	m_addr.v6Byte[5] == 0x00 &&
-		 	m_addr.v6Byte[6] == 0x00 &&
-		 	m_addr.v6Byte[7] == 0x00 &&
-		 	m_addr.v6Byte[8] == 0x00 &&
+			m_addr.v6Byte[1] == 0x00 &&
+			m_addr.v6Byte[2] == 0x00 &&
+			m_addr.v6Byte[3] == 0x00 &&
+			m_addr.v6Byte[4] == 0x00 &&
+			m_addr.v6Byte[5] == 0x00 &&
+			m_addr.v6Byte[6] == 0x00 &&
+			m_addr.v6Byte[7] == 0x00 &&
+			m_addr.v6Byte[8] == 0x00 &&
 			m_addr.v6Byte[9] == 0x00 &&
-		 	m_addr.v6Byte[10] == 0xFF &&
-		 	m_addr.v6Byte[11] == 0xFF)
+			m_addr.v6Byte[10] == 0xFF &&
+			m_addr.v6Byte[11] == 0xFF)
 		{
-		 	return true;
+			return true;
 		}
 
 		return false;
@@ -441,8 +441,8 @@ namespace Proud
 	void AddrPort::Synthesize(const uint8_t* pref, const size_t prefLength, const uint32_t v4BinaryAddress)
 	{
 		// 해당 함수는 가변길이의 pref64 를 synthesize 하기 위한 함수이므로 아래의 validation 체크는 무의미 합니다.
-// 		if (prefLength > PN_IPV6_ADDR_LENGTH)
-// 			throw Exception("Invalid parameter at AddrPort.Synthesize!");
+//		if (prefLength > PN_IPV6_ADDR_LENGTH)
+//			throw Exception("Invalid parameter at AddrPort.Synthesize!");
 
 		// ikpil.choi 2016-11-10 : memcpy_s 로 변경, destSize(2번째 인자) 값이 항상 올바른 값이여야 합니다.
 		//memset(&m_addr, 0, sizeof(m_addr));

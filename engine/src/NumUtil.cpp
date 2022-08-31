@@ -39,5 +39,4 @@ namespace Proud
 		int *a = 0;
 		*a = 1;
 	}
-
 }

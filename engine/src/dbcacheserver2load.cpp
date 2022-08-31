@@ -86,7 +86,7 @@ namespace Proud
 				if (newNode->UUID == Guid() || newNode->OwnerUUID == Guid() || newNode->RootUUID == Guid())
 					throw Exception("low table Record has NULL GUID!");
 
-				// 새노드의 owner노드를 찾는다.   
+				// 새노드의 owner노드를 찾는다.
 				CPropNodePtr owner = data->GetNode(newNode->OwnerUUID);
 				if (owner)
 				{
@@ -102,7 +102,7 @@ namespace Proud
 
 			childTableName++;
 
-			// 해당 비교 구문이 없으면 MySql에서 MoveNextRecordset 호출시 에러 발생 
+			// 해당 비교 구문이 없으면 MySql에서 MoveNextRecordset 호출시 에러 발생
 			if (childTableName == m_tableNames[rootTableNum].m_childTableNames.end())
 				break;
 
@@ -236,7 +236,7 @@ namespace Proud
 	DEFRMI_DB2C2S_RequestExclusiveLoadDataByGuid(CDbCacheServer2Impl)
 	{
 		// #RequestExclusiveLoadDataByGuid 3 별도 스레드에서 처리하게 작업 큐에 저장
-		// 여기서 바로 처리하지 않는다. DB 처리를 전담하는 스레드에서 처리할 수 있도록 작업 큐에 쌓는다.		
+		// 여기서 바로 처리하지 않는다. DB 처리를 전담하는 스레드에서 처리할 수 있도록 작업 큐에 쌓는다.
 		RequestExclusiveLoadDataByGuid_Param* params = new RequestExclusiveLoadDataByGuid_Param(
 			this,
 			remote,
@@ -313,7 +313,7 @@ namespace Proud
 		)
 	{
 		//#RequestExclusiveLoadDataByGuid 4 작업 큐에서 꺼내서 처리
-		
+
 		CLoadRequestPtr request(new CLoadRequest(true, remote, tag, message, GetPreciseCurrentTimeMs()));
 		LoadedDataList unloadRequestList;
 		CriticalSectionLock mainLock(m_cs, true);
@@ -338,7 +338,7 @@ namespace Proud
 			return true;
 		}
 
-		// 이제, 메모리에 로드는 되었다. 
+		// 이제, 메모리에 로드는 되었다.
 
 		// Unload요청이 필요하면 요청하고 즉시 응답 가능하면 응답한다.
 		LoadDataCore_Finish(mainLock, request, &unloadRequestList);
@@ -562,12 +562,12 @@ namespace Proud
 
 		//이게 온다면 모두 실패.
 		//onclientleave에서 처리하고 있으므로, requester을 검사하는 로직은 필요 없다.
-		// 		while ( data->m_unloadRequests.GetCount() > 0 )
-		// 		{
-		// 			LoadDataUnloadRequestPair& req = data->m_unloadRequests.RemoveHead();
-		// 			data->m_unloadRequestsMap.Remove(req.m_requester);
-		// 			m_s2cProxy.NotifyExclusiveLoadDataFailed(req.m_requester.m_hostID, g_ReliableSendForPN, req.m_requester.m_sessionGuid, ErrorType_PermissionDenied, String(), req.m_value.m_tag, messageToRequester);
-		// 		}
+		//		while ( data->m_unloadRequests.GetCount() > 0 )
+		//		{
+		//			LoadDataUnloadRequestPair& req = data->m_unloadRequests.RemoveHead();
+		//			data->m_unloadRequestsMap.Remove(req.m_requester);
+		//			m_s2cProxy.NotifyExclusiveLoadDataFailed(req.m_requester.m_hostID, g_ReliableSendForPN, req.m_requester.m_sessionGuid, ErrorType_PermissionDenied, String(), req.m_value.m_tag, messageToRequester);
+		//		}
 
 		CFailInfo_S info;
 		info.m_uuid = data->m_data.GetRootUUID();
@@ -575,7 +575,7 @@ namespace Proud
 		info.m_message = messageToRequester;
 		info.m_comment = _PNT("Current loaded data owner as DB cache client denied the handover.");
 
-		DenyUnloadDataProc(data, info, false); 
+		DenyUnloadDataProc(data, info, false);
 		return true;
 	}
 
@@ -658,7 +658,7 @@ namespace Proud
 	void CDbCacheServer2Impl::DenyUnloadDataProc(CLoadedData2Ptr_S data, CFailInfo_S& info, bool denyAll)
 	{
 		// denyAll=true인 경우, 모든 requester에 대해 실패 처리를 한다.
-		// false인 경우 첫 requester에 대해 실패 처리를 한다. 
+		// false인 경우 첫 requester에 대해 실패 처리를 한다.
 		// 또 다른 requester가 있는 경우 그 requester에게 unload request를 보낸다.
 		// 그러면 거기서 deny or unload를 하겠고.
 		while (data->m_unloadRequests.GetCount() > 0)
@@ -707,7 +707,7 @@ namespace Proud
 		// 새로운 세션을 만들고 로드
 		RegisterLoadedData(data, req->m_requester, NewSessionGuid());
 
-		// 성공 목록에 추가 
+		// 성공 목록에 추가
 		CSuccessInfo_S info;
 		info.m_data = data;
 		info.m_message = messageToNextLoader;
@@ -718,7 +718,7 @@ namespace Proud
 
 	bool CDbCacheServer2Impl::HasNoChildTable(const String& rootTableName)
 	{
-		// Child가 전혀 없으면 true 리턴 
+		// Child가 전혀 없으면 true 리턴
 		for (CFastArray<CCachedTableName>::iterator it = m_tableNames.begin(); it != m_tableNames.end(); ++it)
 		{
 			if ((*it).m_rootTableName == rootTableName)
@@ -759,7 +759,7 @@ namespace Proud
 	{
 		AssertIsLockedByCurrentThread(m_cs);
 
-		// 아직 Unload 여부를 기다려야 하는 데이터가 있으면 실패 
+		// 아직 Unload 여부를 기다려야 하는 데이터가 있으면 실패
 		if (request->m_waitForUnloadCount != 0)
 		{
 			return false;
@@ -767,7 +767,7 @@ namespace Proud
 
 		// 릭 체크.
 		// LoadDataCore_Finish에서 OnWarning 콜백 중
-		// EnquePendedDbmsWorksForActiveLoadees가 실행되면 
+		// EnquePendedDbmsWorksForActiveLoadees가 실행되면
 		// 최대 2가 될 수 있다.
 		assert(request.GetRefCount() <= 2);
 
@@ -793,7 +793,7 @@ namespace Proud
 		failList_hresult.SetCapacity(fail);
 		failList_message.SetCapacity(fail);
 
-		// 성공 목록	
+		// 성공 목록
 		bool isExclusiveRequest = request->m_isExclusiveRequest;
 		for (SuccessInfoList_S::iterator it = request->m_successList.begin(); it != request->m_successList.end(); ++it)
 		{
@@ -852,10 +852,10 @@ namespace Proud
 		if (sessionList.GetCount() > 0)
 		{
 			m_s2cProxy.NotifyDataUnloadRequested(
-				request->m_requester, 
-				g_ReliableSendForPN, 
-				sessionList, 
-				messageList, 
+				request->m_requester,
+				g_ReliableSendForPN,
+				sessionList,
+				messageList,
 				false,
 				(int64_t)m_unloadRequestTimeoutTimeMs);
 		}
@@ -879,7 +879,7 @@ namespace Proud
 	void CDbCacheServer2Impl::RegisterLoadedData(CLoadedData2Ptr_S& loadedData)
 	{
 		// 메모리에 로드만 하고 독점은 하지 않는다.
-		// 비독점 요청에서 사용 
+		// 비독점 요청에서 사용
 		loadedData->MarkUnload();
 		m_loadedDataList.Add(loadedData->m_data.GetRootUUID(), loadedData);
 	}
@@ -908,7 +908,7 @@ namespace Proud
 		// 메모리에 로드된 데이터가 있는가
 		CLoadedData2Ptr_S loadedData = GetLoadedDataByRootGuid(rootUUID);
 		if (loadedData == NULL)
-			return loadedData; // 없으면 NULL 
+			return loadedData; // 없으면 NULL
 
 		// 로드된 데이터가 존재함.
 		// 성공 처리가 가능하면 처리한다.
@@ -961,7 +961,7 @@ namespace Proud
 		CLoadRequestPtr request(new CLoadRequest(true, remote, tag, ByteArray(), GetPreciseCurrentTimeMs()));
 		CFailInfo_S failInfo;
 
-		// 파라미터 유효성 검사 
+		// 파라미터 유효성 검사
 		CriticalSectionLock mainLock(m_cs, true);
 		if (GetAuthedRemoteClientByHostID(remote) == NULL)
 		{
@@ -1066,7 +1066,7 @@ namespace Proud
 		CLoadedData2Ptr_S loadedData = GetLoadedDataByRootGuid(addData->UUID);
 		if (loadedData != NULL)
 		{
-			// 그 사이 해당 데이터가 로드되었다면 실패처리  
+			// 그 사이 해당 데이터가 로드되었다면 실패처리
 			failInfo.m_reason = ErrorType_AlreadyExists;
 			failInfo.m_comment = _PNT("이미 존재하는 데이터를 로드할때는 ExclusiveLoadNewData를 사용 할 수 없습니다.");
 
@@ -1080,7 +1080,7 @@ namespace Proud
 		loadedData->m_data.InsertChild(CPropNodePtr(), addData);
 		loadedData->m_data._INTERNAL_ClearChangeNode();
 
-		// 독점 로드 
+		// 독점 로드
 		RegisterLoadedData(loadedData, remote, NewSessionGuid());
 
 		// 성공 처리
@@ -1094,9 +1094,9 @@ namespace Proud
 	void CDbCacheServer2Impl::LoadDataCore(
 		CriticalSectionLock&	mainLock,
 		const HostID&			remote,			// 요청자
-		const String&			rootTableName,	// 테이블명 
-		const String&			queryString,	// 검색 조건 
-		CLoadRequestPtr&		request			// 요청 객체 
+		const String&			rootTableName,	// 테이블명
+		const String&			queryString,	// 검색 조건
+		CLoadRequestPtr&		request			// 요청 객체
 		)
 	{
 		//#RequestExclusiveLoadDataByGuid 6 DB에 없으면 로딩
@@ -1107,13 +1107,13 @@ namespace Proud
 		// 유효성 검사.
 		if (GetAuthedRemoteClientByHostID(remote) == NULL)
 		{
-			// 잘못된 HostID 
+			// 잘못된 HostID
 			return;
 		}
 		if (!m_allowNonExclusiveAccess && !request->m_isExclusiveRequest)
 		{
 			// 비독점 접근을 허용하지 않도록 설정되어있다면
-			// 비독점 요청은 실패로 처리한다. 
+			// 비독점 요청은 실패로 처리한다.
 			CFailInfo_S failInfo;
 			failInfo.m_reason = ErrorType_PermissionDenied;
 			failInfo.m_comment = _PNT("Non-exclusive data access is denied.");
@@ -1124,7 +1124,7 @@ namespace Proud
 		}
 		if (IsValidRootTable(rootTableName) == false)
 		{
-			// 잘못된 루트 테이블명 
+			// 잘못된 루트 테이블명
 			CFailInfo_S failInfo;
 			failInfo.m_reason = ErrorType_UserRequested;
 			failInfo.m_comment = _PNT("Invalid root table name.");
@@ -1140,7 +1140,7 @@ namespace Proud
 		// 이미 독점로딩된 데이터들을 모아뒀다가 한번에 요청하기 위함.
 		LoadedDataList unloadRequestList;
 
-		// 루트 로드 
+		// 루트 로드
 		LoadDataCore_LoadRoot(mainLock, request, rootTableName, queryString, candidateList, unloadRequestList);
 	}
 
@@ -1208,10 +1208,10 @@ SetAdditionalEncodingSettings(conn);
 				Guid rootUUID;
 				try
 				{
-					// 새로 추가될 데이터 
+					// 새로 추가될 데이터
 					rootUUID = rs.GetFieldValue(_PNT("UUID"));
 
-					// Isolate 여부 검사. 
+					// Isolate 여부 검사.
 					// Isolate 상태인 데이터는 비독점 조회도 불허한다.
 					if (CheckIsolateDataList(rootUUID))
 					{
@@ -1228,10 +1228,10 @@ SetAdditionalEncodingSettings(conn);
 					CLoadedData2Ptr_S loadedData = CheckLoadedDataAndProcessRequest(rootUUID, request, unloadRequestList);
 					if (loadedData == NULL)
 					{
-						// 전혀 로드되지 않은 데이터인 경우 
+						// 전혀 로드되지 않은 데이터인 경우
 						// 후보 목록에 추가한다.
 
-						// 데이터 생성  
+						// 데이터 생성
 						CPropNodePtr rootNode = CPropNodePtr(new CPropNode(rootTableName));
 						loadedData = CLoadedData2Ptr_S(new CLoadedData2_S(this));
 						CLoadedData2_S::DbmsLoad(rs, *rootNode);
@@ -1247,7 +1247,7 @@ SetAdditionalEncodingSettings(conn);
 							continue;
 						}
 
-						// 루트 완성 
+						// 루트 완성
 						loadedData->m_data.InsertChild(CPropNodePtr(), rootNode);
 						loadedData->m_data._INTERNAL_ClearChangeNode();
 						candidateList.AddTail(loadedData);
@@ -1265,8 +1265,8 @@ SetAdditionalEncodingSettings(conn);
 				}
 				catch (Exception& e)
 				{
-					// 잘못된 UUID인 경우 
-					// 실패 목록에 추가 
+					// 잘못된 UUID인 경우
+					// 실패 목록에 추가
 					CFailInfo_S info;
 					info.m_reason = ErrorType_Unexpected;
 					info.m_comment = StringA2T(e.what());
@@ -1355,7 +1355,7 @@ SetAdditionalEncodingSettings(conn);
 			CLoadedData2Ptr_S& candidateData = *it;
 			CLoadedData2Ptr_S loadedData(NULL);
 
-			// 하위 테이블이 존재하는가 
+			// 하위 테이블이 존재하는가
 			if (HasNoChildTable(rootTableName) == false)
 			{
 				// 모든 하위노드들을 DB에서 로딩한다.
@@ -1372,9 +1372,9 @@ SetAdditionalEncodingSettings(conn);
 					conn.Open(m_dbmsConnectionString, m_dbmsType);
 					SetAdditionalEncodingSettings(conn);
 					loadSuccess = LoadDataForChildTablesFromDbms(
-						conn, 
-						rootTableName, 
-						candidateData->m_data.GetRootUUID(), 
+						conn,
+						rootTableName,
+						candidateData->m_data.GetRootUUID(),
 						candidateData->GetData()
 						);
 				}
@@ -1411,7 +1411,7 @@ SetAdditionalEncodingSettings(conn);
 
 			if (loadedData == NULL)
 			{
-				// 다른 쓰레드에서 로드가 일어나지 않은 경우 
+				// 다른 쓰레드에서 로드가 일어나지 않은 경우
 				// 해당 후보를 로드시키고 성공 목록에 추가
 				if (request->m_isExclusiveRequest)
 				{
@@ -1505,7 +1505,7 @@ SetAdditionalEncodingSettings(conn);
 			CFastArray<Guid>& sessionList = it->GetSecond();
 			if (sessionList.GetCount() > 0)
 			{
-				// 있는 경우 요청 
+				// 있는 경우 요청
 				m_s2cProxy.NotifyDataUnloadRequested(
 					toHost,
 					g_ReliableSendForPN,
@@ -1522,7 +1522,7 @@ SetAdditionalEncodingSettings(conn);
 	{
 		for (LoadedDataList2_S::iterator i = m_loadedDataList.begin(); i != m_loadedDataList.end(); i++)
 		{
-			// 이 데이터에 대한 모든 Unload Request에서 해당 HostID에 대한 요청을 제거한다. 
+			// 이 데이터에 대한 모든 Unload Request에서 해당 HostID에 대한 요청을 제거한다.
 			// 나가는 db cache client이므로.
 			CLoadedData2Ptr_S& loadedData = i->GetSecond();
 			CFastList2<CLoadRequestPtr, int>::iterator unloadReqIter = loadedData->m_unloadRequests.begin();
@@ -1539,7 +1539,7 @@ SetAdditionalEncodingSettings(conn);
 				}
 			}
 
-			// 종료 중인 클라이언트가 소유자인 경우 
+			// 종료 중인 클라이언트가 소유자인 경우
 			if (loadedData->GetLoaderClientHostID() == clientID)
 			{
 				//독점권을 다른 클라에게 이양한다.
@@ -1559,4 +1559,3 @@ SetAdditionalEncodingSettings(conn);
 		}
 	}
 }
-

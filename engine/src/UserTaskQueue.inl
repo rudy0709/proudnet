@@ -33,9 +33,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 ** 注意：著作物に関する上記の明示を除去しないでください。
 
 */
-#pragma once 
-
-
+#pragma once
 
 #include "CriticalSectImpl.h"
 #include "../include/MilisecTimer.h"
@@ -153,7 +151,7 @@ namespace Proud
 		{
 			// 처리할 것이 없으면 working list에서 제거한다.
 			m_workingList.RemoveAt(subject->m_UserTaskQueueUseOnly_iterInWorkingList); // fast remove
-			
+
 			subject->m_UserTaskQueueUseOnly_WorkState = CHostBase::NotInWorkList;
 		}
 	}
@@ -169,5 +167,4 @@ namespace Proud
 		m_owner = NULL;
 		m_taskSubject.reset();
 	}
-
 }

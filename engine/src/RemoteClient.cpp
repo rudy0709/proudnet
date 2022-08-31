@@ -68,7 +68,7 @@ namespace Proud
 		m_sendQueuedAmountInBytes = 0;
 		m_owner = owner;
 		m_createdTime = createdTime;
-        
+
 		m_safeTimes.Set_arbitraryUdpTouchedTime(createdTime);
 
 		m_encryptCount = m_decryptCount = 0;
@@ -83,14 +83,14 @@ namespace Proud
 		m_lastApplicationHint.m_recentFrameRate = 0;
 
 		m_safeTimes.Set_requestAutoPruneStartTime(0);
-		
+
 		m_toRemotePeerSendUdpMessageSuccessCount = 0;
 		m_toRemotePeerSendUdpMessageTrialCount = 0;
 		m_toServerSendUdpMessageSuccessCount = 0;
 		m_toServerSendUdpMessageTrialCount = 0;
 
 		m_safeTimes.Set_sendQueueWarningStartTime(0);
-		
+
 		m_unreliableRecentReceivedSpeed = 0;
 
 #ifndef PROUDSRCCOPY
@@ -136,7 +136,7 @@ namespace Proud
 		ret.m_recentPingMs = m_recentPingMs;
 		ret.m_sendQueuedAmountInBytes = m_sendQueuedAmountInBytes;
 		ret.m_realUdpEnabled = m_ToClientUdp_Fallbackable.m_realUdpEnabled;
-		
+
 		for (JoinedP2PGroups_S::iterator ig = m_joinedP2PGroups.begin();ig != m_joinedP2PGroups.end();ig++)
 		{
 			ret.m_joinedP2PGroups.Add(ig->GetFirst());
@@ -173,15 +173,15 @@ namespace Proud
 		return ret;
 	}
 
-// 	bool CRemoteClient_S::IsFinalReceiveQueueEmpty()
-// 	{
-// 		m_owner->AssertIsLockedByCurrentThread();
-// 		return m_finalUserWorkItemList.GetCount() == 0;
-// 	}
-// 
+//	bool CRemoteClient_S::IsFinalReceiveQueueEmpty()
+//	{
+//		m_owner->AssertIsLockedByCurrentThread();
+//		return m_finalUserWorkItemList.GetCount() == 0;
+//	}
+//
 	CRemoteClient_S::~CRemoteClient_S()
 	{
-		// 여기서 owner를 접근하지 말 것. 
+		// 여기서 owner를 접근하지 말 것.
 		// PopUserTask 후 RAII로 인해 no main lock 상태에서 여기가 호출될 수 있다.
 		// 정리해야 할게 있으면 여기가 아니라 OnHostGarbageCollected or OnHostGarbaged에 구현할 것.
 
@@ -191,62 +191,62 @@ namespace Proud
 	}
 
 	void CRemoteClient_S::DetectSpeedHack()
-    {
-        m_owner->AssertIsLockedByCurrentThread();
+	{
+		m_owner->AssertIsLockedByCurrentThread();
 
-        if (m_speedHackDetector == nullptr)
-            return;
+		if (m_speedHackDetector == nullptr)
+			return;
 
-        // 아직 HostID가 없으면, 초기 접속을 시도중이거나, ACR 접속이 시도중인거다.
-        // 초기 접속이 시도중인데 스핵감지 핑(MessageType_SpeedHackDetectorPing)이 오면 해커의 소행이거나 ACR 완료 후 AMR에 의한 대량 핑일 수 있다.
-        // 이런건 다 버리자.
-        if (m_HostID == HostID_None)
-            return;
-        
-        // 여러가지 필터아웃 끝
-        // 이제 본작업 시작.
+		// 아직 HostID가 없으면, 초기 접속을 시도중이거나, ACR 접속이 시도중인거다.
+		// 초기 접속이 시도중인데 스핵감지 핑(MessageType_SpeedHackDetectorPing)이 오면 해커의 소행이거나 ACR 완료 후 AMR에 의한 대량 핑일 수 있다.
+		// 이런건 다 버리자.
+		if (m_HostID == HostID_None)
+			return;
 
-        int64_t lastPing = m_speedHackDetector->m_lastPingReceivedTimeMs;
-        int64_t currPing = GetPreciseCurrentTimeMs();
+		// 여러가지 필터아웃 끝
+		// 이제 본작업 시작.
 
-        if (m_speedHackDetector->m_firstPingReceivedTimeMs == 0)
-        {
-            // 처음에는 그냥 넘어간다.
-            m_speedHackDetector->m_firstPingReceivedTimeMs = currPing;
-            m_speedHackDetector->m_lastPingReceivedTimeMs = currPing;
-        }
-        else if (m_speedHackDetector->m_hackSuspected == false)
-        {
-            //if (m_autoConnectionRecoverySuccessTime != 0)
-            //{
-            //    int a = 1;
-            //}
+		int64_t lastPing = m_speedHackDetector->m_lastPingReceivedTimeMs;
+		int64_t currPing = GetPreciseCurrentTimeMs();
 
-            int reckness = min(90, m_owner->m_SpeedHackDetectorReckRatio);
-            reckness = max(20, reckness);
+		if (m_speedHackDetector->m_firstPingReceivedTimeMs == 0)
+		{
+			// 처음에는 그냥 넘어간다.
+			m_speedHackDetector->m_firstPingReceivedTimeMs = currPing;
+			m_speedHackDetector->m_lastPingReceivedTimeMs = currPing;
+		}
+		else if (m_speedHackDetector->m_hackSuspected == false)
+		{
+			//if (m_autoConnectionRecoverySuccessTime != 0)
+			//{
+			//	int a = 1;
+			//}
 
-            m_speedHackDetector->m_recentPingIntervalMs = LerpInt(currPing - lastPing, m_speedHackDetector->m_recentPingIntervalMs, (int64_t)reckness, (int64_t)100);
-            //NTTNTRACE("RECENT PING INTERVAL = %f\n",m_speedHackDetector->m_recentPingInterval);
+			int reckness = min(90, m_owner->m_SpeedHackDetectorReckRatio);
+			reckness = max(20, reckness);
 
-            // 클라 생성 후 충분한 시간이 지났으며
+			m_speedHackDetector->m_recentPingIntervalMs = LerpInt(currPing - lastPing, m_speedHackDetector->m_recentPingIntervalMs, (int64_t)reckness, (int64_t)100);
+			//NTTNTRACE("RECENT PING INTERVAL = %f\n",m_speedHackDetector->m_recentPingInterval);
+
+			// 클라 생성 후 충분한 시간이 지났으며
 
 
-            // 현재 스핵은 주기가 짧아지는 경우만 체크한다. 주기가 긴 경우는 TCP fallback의 의심 상황일 수 있으므로 넘어간다.
-            if (currPing - m_speedHackDetector->m_firstPingReceivedTimeMs > CNetConfig::SpeedHackDetectorPingIntervalMs * 10)
-            {
-                if (m_speedHackDetector->m_recentPingIntervalMs < (CNetConfig::SpeedHackDetectorPingIntervalMs * 7) / 10)
-                    m_speedHackDetector->m_hackSuspected = true;
-            }
-            //디스를 시키는건 오인에 민감하다. 따라서 경고만 날린다. 디스를 시키거나 통계를 수집하는건 엔진 유저의 몫이다.
-            // 단, 1회만 날린다.
-            if (m_speedHackDetector->m_hackSuspected)
-            {
-                m_owner->EnqueueHackSuspectEvent(shared_from_this(), "Speedhack", HackType_SpeedHack);
-            }
+			// 현재 스핵은 주기가 짧아지는 경우만 체크한다. 주기가 긴 경우는 TCP fallback의 의심 상황일 수 있으므로 넘어간다.
+			if (currPing - m_speedHackDetector->m_firstPingReceivedTimeMs > CNetConfig::SpeedHackDetectorPingIntervalMs * 10)
+			{
+				if (m_speedHackDetector->m_recentPingIntervalMs < (CNetConfig::SpeedHackDetectorPingIntervalMs * 7) / 10)
+					m_speedHackDetector->m_hackSuspected = true;
+			}
+			//디스를 시키는건 오인에 민감하다. 따라서 경고만 날린다. 디스를 시키거나 통계를 수집하는건 엔진 유저의 몫이다.
+			// 단, 1회만 날린다.
+			if (m_speedHackDetector->m_hackSuspected)
+			{
+				m_owner->EnqueueHackSuspectEvent(shared_from_this(), "Speedhack", HackType_SpeedHack);
+			}
 
-            m_speedHackDetector->m_lastPingReceivedTimeMs = currPing;
-        }
-    }
+			m_speedHackDetector->m_lastPingReceivedTimeMs = currPing;
+		}
+	}
 
 	void CRemoteClient_S::WarnTooShortDisposal(const PNTCHAR* funcWhere)
 	{
@@ -289,7 +289,7 @@ namespace Proud
 		int unknownCount = 0;
 		for (P2PGroupMembers_S::iterator iMember = group->m_members.begin(); iMember != group->m_members.end(); iMember++)
 		{
-			int ping = m_owner->GetRecentUnreliablePingMs(iMember->first); 
+			int ping = m_owner->GetRecentUnreliablePingMs(iMember->first);
 
 /*	이게 맞지만 dev003에서는 일단 이렇게 냅두자
 문제 더 있다: 이걸 얻는데 너무 많은 시간이 걸린다. ReportP2PPeerPing RMI를 통해서 받는데, 이게 양이 많음.
@@ -300,7 +300,7 @@ namespace Proud
 			P2PConnectionStatePtr P2PPair = m_owner->m_p2pConnectionPairList.GetPair(m_HostID, iMember->first);
 			if(P2PPair)
 			ping = P2PPair->m_recentPingMs;
-			else 
+			else
 			ping =-1;
 */
 
@@ -328,20 +328,20 @@ namespace Proud
 		return (m_disposeWaiter != NULL);
 	}
 
-// 	void CRemoteClient_S::IssueDispose(ErrorType errorType, ErrorType detailType, const ByteArray& comment, const PNTCHAR* where, SocketErrorCode socketErrorCode)
-// 	{
-// 		m_owner->GarbageHost(this,errorType,detailType,comment,where,socketErrorCode);
-// 	}
-// 
+//	void CRemoteClient_S::IssueDispose(ErrorType errorType, ErrorType detailType, const ByteArray& comment, const PNTCHAR* where, SocketErrorCode socketErrorCode)
+//	{
+//		m_owner->GarbageHost(this,errorType,detailType,comment,where,socketErrorCode);
+//	}
+//
 	bool CRemoteClient_S::IsValidEnd()
 	{
 		return (m_owner->m_TcpListenSockets.GetCount() > 0);
 	}
 
-// 	void CRemoteClient_S::IssueSendOnNeed(int64_t currTime)
-// 	{
-// 		m_tcpLayer->IssueSendOnNeed(currTime);
-// 	}
+//	void CRemoteClient_S::IssueSendOnNeed(int64_t currTime)
+//	{
+//		m_tcpLayer->IssueSendOnNeed(currTime);
+//	}
 #ifdef USE_HLA
 
 	CFastSet<CHlaSpace_S*>& CRemoteClient_S::GetViewingSpaces()
@@ -356,45 +356,45 @@ namespace Proud
 			return false;
 
 		// 일부라도 잠겼으면 true 리턴
-		return (m_tcpLayer->IsLockedByCurrentThread() || m_tcpLayer->IsSendQueueLockedByCurrentThread());	
+		return (m_tcpLayer->IsLockedByCurrentThread() || m_tcpLayer->IsSendQueueLockedByCurrentThread());
 	}
 
-// 	void CRemoteClient_S::CheckTcpInDanger( int64_t currTime )
-// 	{
-// 		m_owner->AssertIsLockedByCurrentThread();
-// 
-// 		if(m_ownedUdpSocket)
-// 		{
-// 			if(m_ownedUdpSocket->m_lastUdpSendIssueStopTime == 0)
-// 			{
-// 				int64_t tcpLastSendIssuedTime = m_tcpLayer->m_lastSendIssuedTime;
-// 				//tcp sendissue가 5초이상 completion이 되지 않았다면,
-// 				if(tcpLastSendIssuedTime != 0 
-// 					&& currTime - tcpLastSendIssuedTime > CNetConfig::TcpInDangerThresholdMs)
-// 				{
-// 					m_owner->EnqueWarning(ErrorInfo::From(ErrorType_TcpCrisisDetected, m_HostID));
-// 					m_ownedUdpSocket->m_lastUdpSendIssueStopTime = currTime; // 지금부터 UDP를 일시 정지하자.
-// 				}
-// 			}
-// 			else
-// 			{
-// 				// 2초 이상 UDP 송신을 일시정지했다면 이제 풀어주자.
-// 				if(currTime - m_ownedUdpSocket->m_lastUdpSendIssueStopTime >= CNetConfig::PauseUdpSendDurationOnTcpInDangerMs)
-// 					m_ownedUdpSocket->m_lastUdpSendIssueStopTime = 0;
-// 			}
-// 		}
-// 	}
+//	void CRemoteClient_S::CheckTcpInDanger( int64_t currTime )
+//	{
+//		m_owner->AssertIsLockedByCurrentThread();
+//
+//		if(m_ownedUdpSocket)
+//		{
+//			if(m_ownedUdpSocket->m_lastUdpSendIssueStopTime == 0)
+//			{
+//				int64_t tcpLastSendIssuedTime = m_tcpLayer->m_lastSendIssuedTime;
+//				//tcp sendissue가 5초이상 completion이 되지 않았다면,
+//				if(tcpLastSendIssuedTime != 0
+//					&& currTime - tcpLastSendIssuedTime > CNetConfig::TcpInDangerThresholdMs)
+//				{
+//					m_owner->EnqueWarning(ErrorInfo::From(ErrorType_TcpCrisisDetected, m_HostID));
+//					m_ownedUdpSocket->m_lastUdpSendIssueStopTime = currTime; // 지금부터 UDP를 일시 정지하자.
+//				}
+//			}
+//			else
+//			{
+//				// 2초 이상 UDP 송신을 일시정지했다면 이제 풀어주자.
+//				if(currTime - m_ownedUdpSocket->m_lastUdpSendIssueStopTime >= CNetConfig::PauseUdpSendDurationOnTcpInDangerMs)
+//					m_ownedUdpSocket->m_lastUdpSendIssueStopTime = 0;
+//			}
+//		}
+//	}
 
 	// 패킷양이 많은지 판단
-// 	bool CRemoteClient_S::CheckMessageOverloadAmount()
-// 	{
-// 		if(m_finalUserWorkItemList.GetCount()
-// 			>= CNetConfig::MessageOverloadWarningLimit)
-// 		{
-// 			return true;
-// 		}
-// 		return false;
-// 	}
+//	bool CRemoteClient_S::CheckMessageOverloadAmount()
+//	{
+//		if(m_finalUserWorkItemList.GetCount()
+//			>= CNetConfig::MessageOverloadWarningLimit)
+//		{
+//			return true;
+//		}
+//		return false;
+//	}
 
 	// SuperSocket 뿐만 아니라 remote도 자체적인 doForLongInterval이 있다.
 	void CRemoteClient_S::DoForLongInterval(int64_t /*currTime*/)
@@ -427,14 +427,12 @@ namespace Proud
 		ret.OverwriteHostNameIfExists(m_owner->m_serverAddrAlias); // 만약 서버용 공인 주소가 따로 있으면 그것을 우선해서 쓰도록 한다.
 
 // GetOneLocalAddress 사용 자체가 NIC 하나만 있다는 가정이므로 형편에 안 맞음.
-// 		if (!ret.IsUnicastEndpoint())
-// 		{
-// 			//assert(0); // 드물지만 있더라. 어쨌거나 어설션 즐
-// 			ret.m_addr = CNetUtil::GetOneLocalAddress();
-// 		}
+//		if (!ret.IsUnicastEndpoint())
+//		{
+//			//assert(0); // 드물지만 있더라. 어쨌거나 어설션 즐
+//			ret.m_addr = CNetUtil::GetOneLocalAddress();
+//		}
 
 		return ret;
 	}
-
-
 }

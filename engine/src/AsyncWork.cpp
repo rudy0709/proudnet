@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "AsyncWork.h"
 
-namespace Proud 
+namespace Proud
 {
 	CAsyncWork::CAsyncWork( CAsyncWorksOwner* owner)
 	{
@@ -24,5 +24,4 @@ namespace Proud
 	{
 		return m_asyncWorkCount == 0;
 	}
-
 }

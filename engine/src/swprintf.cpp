@@ -14,12 +14,12 @@ extern "C" {
 #define LARGE	64		/* use 'ABCDEF' instead of 'abcdef' */
 
 
-	int do_div(long long &n,int base) 
-	{	
-		int __res; 
-		__res = ((unsigned long long) n) % (unsigned) base; 
-		n = ((unsigned long long) n) / (unsigned) base; 
-		return __res; 
+	int do_div(long long &n,int base)
+	{
+		int __res;
+		__res = ((unsigned long long) n) % (unsigned) base;
+		n = ((unsigned long long) n) / (unsigned) base;
+		return __res;
 	}
 
 
@@ -51,27 +51,27 @@ extern "C" {
 		c = (type & ZEROPAD) ? L'0' : L' ';
 		sign = 0;
 
-		if (type & SIGN) 
+		if (type & SIGN)
 		{
-			if (num < 0) 
+			if (num < 0)
 			{
 				sign = L'-';
 				num = -num;
 				size--;
-			} 
-			else if (type & PLUS) 
+			}
+			else if (type & PLUS)
 			{
 				sign = L'+';
 				size--;
-			} 
-			else if (type & SPACE) 
+			}
+			else if (type & SPACE)
 			{
 				sign = L' ';
 				size--;
 			}
 		}
 
-		if (type & SPECIAL) 
+		if (type & SPECIAL)
 		{
 			if (base == 16)
 				size -= 2;
@@ -98,7 +98,7 @@ extern "C" {
 			{
 				*str++ = L'0';
 			}
-			else if (base==16) 
+			else if (base==16)
 			{
 				*str++ = L'0';
 				*str++ = digits[33];
@@ -168,7 +168,7 @@ repeat:
 			/* get the precision */
 			precision = -1;
 			if (*fmt == L'.') {
-				++fmt;	
+				++fmt;
 				if (iswdigit(*fmt))
 					precision = skip_atoi(&fmt);
 				else if (*fmt == L'*') {
@@ -256,13 +256,13 @@ repeat:
 				}
 				continue;
 
- 			case L'f':
- 				{
+			case L'f':
+				{
 					char temp[100];
 					wchar_t tempw[100];
- 					double f;
- 					/* print float value */
- 					f = va_arg(args, double );
+					double f;
+					/* print float value */
+					f = va_arg(args, double );
 
 					sprintf(temp,"%f",f);
 
@@ -271,8 +271,8 @@ repeat:
 					mbstowcs(tempw,temp,100);
 					wcscpy(str,tempw);
 					str+=wcslen(tempw);
- 				}
- 				continue;
+				}
+				continue;
 
 			case L'S':
 				if (qualifier == 'l' || qualifier == 'w') {
@@ -312,31 +312,31 @@ repeat:
 				}
 				continue;
 
-				// 		case L'Z':
-				// 			if (qualifier == 'h') {
-				// 				/* print counted ascii string */
-				// 				PANSI_STRING pus = va_arg(args, PANSI_STRING);
-				// 				if ((pus == NULL) || (pus->Buffer == NULL)) {
-				// 					sw = L"<NULL>";
-				// 					while ((*sw) != 0)
-				// 						*str++ = *sw++;
-				// 				} else {
-				// 					for (i = 0; pus->Buffer[i] && i < pus->Length; i++)
-				// 						*str++ = (wchar_t)(pus->Buffer[i]);
-				// 				}
-				// 			} else {
-				// 				/* print counted unicode string */
-				// 				PUNICODE_STRING pus = va_arg(args, PUNICODE_STRING);
-				// 				if ((pus == NULL) || (pus->Buffer == NULL)) {
-				// 					sw = L"<NULL>";
-				// 					while ((*sw) != 0)
-				// 						*str++ = *sw++;
-				// 				} else {
-				// 					for (i = 0; pus->Buffer[i] && i < pus->Length / sizeof(WCHAR); i++)
-				// 						*str++ = pus->Buffer[i];
-				// 				}
-				// 			}
-				// 			continue;
+				//		case L'Z':
+				//			if (qualifier == 'h') {
+				//				/* print counted ascii string */
+				//				PANSI_STRING pus = va_arg(args, PANSI_STRING);
+				//				if ((pus == NULL) || (pus->Buffer == NULL)) {
+				//					sw = L"<NULL>";
+				//					while ((*sw) != 0)
+				//						*str++ = *sw++;
+				//				} else {
+				//					for (i = 0; pus->Buffer[i] && i < pus->Length; i++)
+				//						*str++ = (wchar_t)(pus->Buffer[i]);
+				//				}
+				//			} else {
+				//				/* print counted unicode string */
+				//				PUNICODE_STRING pus = va_arg(args, PUNICODE_STRING);
+				//				if ((pus == NULL) || (pus->Buffer == NULL)) {
+				//					sw = L"<NULL>";
+				//					while ((*sw) != 0)
+				//						*str++ = *sw++;
+				//				} else {
+				//					for (i = 0; pus->Buffer[i] && i < pus->Length / sizeof(WCHAR); i++)
+				//						*str++ = pus->Buffer[i];
+				//				}
+				//			}
+				//			continue;
 
 			case L'p':
 				if (field_width == -1) {
@@ -362,7 +362,7 @@ repeat:
 			case L'o':
 				base = 8;
 				break;
-			
+
 			case L'b':
 				base = 2;
 				break;

@@ -3,7 +3,7 @@
 #include "FavoriteLV.h"
 #include "PooledObjects_C.h"
 
-namespace Proud 
+namespace Proud
 {
 	// 조립한 후의 사본을 리턴한다.
 	// WSASendTo가 없는 비 윈도에서는 어쩔 수 없이 조립된 사본을 얻는 과정이 필요하다.
@@ -62,6 +62,4 @@ namespace Proud
 
 		return r;
 	}
-
-	
 }

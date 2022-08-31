@@ -15,7 +15,7 @@
 #include "NetUtil.h"
 #include "HlaEntityImpl_C.h"
 #if !defined(_WIN32)
-    #include <new>
+	#include <new>
 #endif
 
 namespace Proud
@@ -78,17 +78,17 @@ namespace Proud
 
 		switch(type)
 		{
-            case HlaMessageType_Appear:
-                ProcessMessageType_Appear(receivedMessage);
-                break;
-            case HlaMessageType_Disappear:
-                ProcessMessageType_Disappear(receivedMessage);
-                break;
-            case HlaMessageType_NotifyChange:
-                ProcessMessageType_NotifyChange(receivedMessage);
-                break;
-            default:
-                break;
+			case HlaMessageType_Appear:
+				ProcessMessageType_Appear(receivedMessage);
+				break;
+			case HlaMessageType_Disappear:
+				ProcessMessageType_Disappear(receivedMessage);
+				break;
+			case HlaMessageType_NotifyChange:
+				ProcessMessageType_NotifyChange(receivedMessage);
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -133,7 +133,7 @@ namespace Proud
 
 		if (!msg.ReadScalar(instanceID))
 			return;
-		
+
 		CHlaEntity_C* e;
 		if(m_entities.TryGetValue(instanceID, e))
 		{
@@ -199,10 +199,10 @@ namespace Proud
 		if(m_entities.TryGetValue(entityID, e))
 		{
 			m_entities.Remove(entityID);
-						
-			/* entity를 지우는 것은 HlaOnEntityDisappear에서 사용자의 몫! 
+
+			/* entity를 지우는 것은 HlaOnEntityDisappear에서 사용자의 몫!
 			따라서 delete e; 같은걸 안한다.
-			(C# 버전이면 굳이 지울 필요는 없지만, HLA는 성능에도 민감하고, 
+			(C# 버전이면 굳이 지울 필요는 없지만, HLA는 성능에도 민감하고,
 			DB cache와 달리 값 억세스가 잦으므로, copy 비용이 매우 큰 RefCount를 안 쓴다.) */
 		}
 	}
@@ -217,7 +217,7 @@ namespace Proud
 		// entity들이 일괄 파괴되므로, 유저에게 알려줘야 한다. 그래야 파괴해주지.
 		while(!m_entities.IsEmpty())
 		{
-            CHlaEntities_C::iterator i = m_entities.begin();
+			CHlaEntities_C::iterator i = m_entities.begin();
 			CHlaEntity_C* e = i.GetSecond();
 			UnregisterEntity(e->m_internal->m_instanceID);
 			m_userDg->HlaOnEntityDisappear(e);

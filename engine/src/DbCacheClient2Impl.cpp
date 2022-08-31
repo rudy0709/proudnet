@@ -114,7 +114,7 @@ namespace Proud
 		return ret;
 
 	}
-	
+
 	void CDbCacheClient2Impl::Disconnect()
 	{
 		{
@@ -221,7 +221,7 @@ namespace Proud
 		return CLoadedData2Ptr();
 	}
 
-	void CDbCacheClient2Impl::AssureCSLock() const 
+	void CDbCacheClient2Impl::AssureCSLock() const
 	{
 		if ( !IsCriticalSectionLockedByCurrentThread(m_cs) )
 		{
@@ -424,7 +424,7 @@ namespace Proud
 
 	bool CDbCacheClient2Impl::UnilateralMoveData(String rootTableName, Guid rootUUID, Guid moveNodeUUID, Guid destRootUUID, Guid destNodeUUID, bool writeDbmsImmediately)
 	{
-		//루트 노드를 이동시키려 한다면 Error를 낸다. 
+		//루트 노드를 이동시키려 한다면 Error를 낸다.
 		if ( moveNodeUUID == rootUUID )
 			return false;
 
@@ -523,7 +523,7 @@ namespace Proud
 		if ( oldData == NULL )
 			return false;
 
-		// 서버에 요청한다.	
+		// 서버에 요청한다.
 		m_c2sProxy.RemoveData(HostID_Server, g_ReliableSendForPN, oldOwnerData->RootUUID, removeUUID, writeDbmsImmediately);
 
 		// 서버에 요청했으므로 이제 local 에서 삭제. 하지만 서버에서 처리하므로 removelist에는 추가하지 않아도 된다.
@@ -673,7 +673,7 @@ namespace Proud
 
 		intptr_t castTag = (intptr_t)tag;
 
-		// Blocked 계열 함수에 대한 응답인지 체크 
+		// Blocked 계열 함수에 대한 응답인지 체크
 		if ( blocked )
 		{
 			// Blocked의 경우 해당 이벤트를 찾아서 알림
@@ -685,7 +685,7 @@ namespace Proud
 				blockEvent->m_comment = comment;
 				blockEvent->m_hResult = (HRESULT)hresult;
 				blockEvent->m_source = source;
-				
+
 				blockEvent->m_event->Set();
 				lock.Unlock();
 			}
@@ -726,7 +726,7 @@ namespace Proud
 
 		CriticalSectionLock lock(m_cs, true);
 
-		// 받은 add 데이터를 로컬 메모리에 저장한다.		
+		// 받은 add 데이터를 로컬 메모리에 저장한다.
 		CPropNodePtr addData(new CPropNode(_PNT("")));
 		addData->FromByteArray(addDataBlock);
 
@@ -772,7 +772,7 @@ namespace Proud
 
 		intptr_t castTag = (intptr_t)tag;
 
-		// Blocked 계열 함수에 대한 응답인지 체크 
+		// Blocked 계열 함수에 대한 응답인지 체크
 		if ( blocked )
 		{
 			// Blocked의 경우 해당 이벤트를 찾아서 알림
@@ -825,7 +825,7 @@ namespace Proud
 
 		intptr_t castTag = (intptr_t)tag;
 
-		// Blocked 계열 함수에 대한 응답인지 체크 
+		// Blocked 계열 함수에 대한 응답인지 체크
 		if ( blocked )
 		{
 			// Blocked의 경우 해당 이벤트를 찾아서 알림
@@ -877,7 +877,7 @@ namespace Proud
 
 		CriticalSectionLock lock(m_cs, true);
 
-		// 받은 update 데이터를 로컬 메모리에 저장한다.		
+		// 받은 update 데이터를 로컬 메모리에 저장한다.
 		CPropNode updateData(_PNT(""));
 		updateData.FromByteArray(updataDataBlock);
 
@@ -899,7 +899,7 @@ namespace Proud
 
 		intptr_t castTag = (intptr_t)tag;
 
-		// Blocked 계열 함수에 대한 응답인지 체크 
+		// Blocked 계열 함수에 대한 응답인지 체크
 		if ( blocked )
 		{
 			// Blocked의 경우 해당 이벤트를 찾아서 알림
@@ -907,7 +907,7 @@ namespace Proud
 			if ( m_activeEvents.TryGetValue(castTag, blockEvent) )
 			{
 				blockEvent->m_success = true;
-				
+
 				blockEvent->m_event->Set();
 				lock.Unlock();
 			}
@@ -951,7 +951,7 @@ namespace Proud
 
 		intptr_t castTag = (intptr_t)tag;
 
-		// Blocked 계열 함수에 대한 응답인지 체크 
+		// Blocked 계열 함수에 대한 응답인지 체크
 		if ( blocked )
 		{
 			// Blocked의 경우 해당 이벤트를 찾아서 알림
@@ -1013,7 +1013,7 @@ namespace Proud
 
 		intptr_t castTag = (intptr_t)tag;
 
-		// Blocked 계열 함수에 대한 응답인지 체크 
+		// Blocked 계열 함수에 대한 응답인지 체크
 		if ( blocked )
 		{
 			// Blocked의 경우 해당 이벤트를 찾아서 알림
@@ -1064,7 +1064,7 @@ namespace Proud
 
 		intptr_t castTag = (intptr_t)tag;
 
-		// Blocked 계열 함수에 대한 응답인지 체크 
+		// Blocked 계열 함수에 대한 응답인지 체크
 		if ( blocked )
 		{
 			// Blocked의 경우 해당 이벤트를 찾아서 알림
@@ -1138,7 +1138,7 @@ namespace Proud
 
 		intptr_t castTag = (intptr_t)tag;
 
-		// Blocked 계열 함수에 대한 응답인지 체크 
+		// Blocked 계열 함수에 대한 응답인지 체크
 		if ( blocked )
 		{
 			// Blocked의 경우 해당 이벤트를 찾아서 알림
@@ -1167,7 +1167,7 @@ namespace Proud
 			CLoadedData2Ptr clonedData=loadData->Clone();
 			IDbCacheClientDelegate2::CCallbackArgs args;
 			args.m_items.SetCount(1);
-						
+
 			args.m_tag = castTag;
 			args.m_items[0].m_data = removeNode;
 			args.m_items[0].m_loadedData = clonedData;
@@ -1354,7 +1354,7 @@ namespace Proud
 		args.m_items[0].m_loadedData = clonedData;
 		args.m_items[0].m_sessionGuid = clonedData->sessionGuid;
 		args.m_items[0].m_rootUUID = clonedData->RootUUID;
-		
+
 		lock.Unlock();
 
 		m_delegate->OnSomeoneRemoveData(args);
@@ -1388,7 +1388,7 @@ namespace Proud
 
 		IDbCacheClientDelegate2::CCallbackArgs args;
 		args.m_items.SetCount(1);
-		
+
 		args.m_tag = (intptr_t)tag;
 		args.m_items[0].m_rootUUID = rootUUID;
 		args.m_items[0].m_data = updateData;
@@ -1453,9 +1453,9 @@ namespace Proud
 		_pn_unused(remote);
 		_pn_unused(rmiContext);
 
-		IDbCacheClientDelegate2::CCallbackArgs args; 
+		IDbCacheClientDelegate2::CCallbackArgs args;
 		args.m_items.SetCount(1);
-		
+
 		args.m_tag = (intptr_t)tag;
 		args.m_items[0].m_reason = reason;
 		args.m_items[0].m_comment = comment;
@@ -1473,7 +1473,7 @@ namespace Proud
 		CPropNodePtr updateData = CPropNodePtr(new CPropNode(_PNT("")));
 		updateData->FromByteArray(updateDataBlock);
 
-		IDbCacheClientDelegate2::CCallbackArgs args; 
+		IDbCacheClientDelegate2::CCallbackArgs args;
 		args.m_items.SetCount(1);
 
 		args.m_tag = (intptr_t)tag;
@@ -1549,7 +1549,7 @@ namespace Proud
 
 		IDbCacheClientDelegate2::CCallbackArgs args;
 		args.m_tag = (intptr_t)tag;
-		
+
 		args.m_items.SetCount(1);
 		args.m_items[0].m_message = message;
 		args.m_items[0].m_comment = comment;
@@ -1645,9 +1645,9 @@ namespace Proud
 		ProcessUnloadRequestTimeout2(warnings);
 	}
 
-	// 서버로부터 받은 Unload 요청들 중 
+	// 서버로부터 받은 Unload 요청들 중
 	// 오랫동안 처리되지 않은 세션들을 outWarnings로 옮긴다.
-	// 타임아웃의 기준을 서버의 설정값으로 처리하므로 
+	// 타임아웃의 기준을 서버의 설정값으로 처리하므로
 	// 여기서 타임아웃 처리된 세션은 서버에서도 타임아웃 되었을 가능성이 높다.
 	void CDbCacheClient2Impl::ProcessUnloadRequestTimeout1(UnloadRequests& outWarnings)
 	{
@@ -1693,8 +1693,8 @@ namespace Proud
 		AssertIsNotLockedByCurrentThread(m_cs);
 
 		for ( UnloadRequests::iterator it = warnings.begin();
-			 it != warnings.end();
-			 ++it )
+			it != warnings.end();
+			++it )
 		{
 			const Guid& session = it.GetFirst();
 			RequestedTimeQueue& reqs = it.GetSecond();
@@ -1713,12 +1713,12 @@ namespace Proud
 	IDbCacheClientDelegate2::CCallbackArgs::CCallbackArgs()
 	{
 		m_tag = NULL;
-// 		m_sessionGuid = Guid();
-// 		m_rootUUID = Guid();
-// 		m_loadedData = CLoadedData2Ptr();
-// 		m_data = CPropNodePtr();
-// 		m_reason = ErrorType_Ok;
-// 		m_hResult = S_OK;
+//		m_sessionGuid = Guid();
+//		m_rootUUID = Guid();
+//		m_loadedData = CLoadedData2Ptr();
+//		m_data = CPropNodePtr();
+//		m_reason = ErrorType_Ok;
+//		m_hResult = S_OK;
 	}
 
 	IDbCacheClientDelegate2::CCallbackArgs::CItem::CItem()
@@ -1726,5 +1726,4 @@ namespace Proud
 		m_reason = ErrorType_Ok;
 		m_hResult = 0;
 	}
-
 }

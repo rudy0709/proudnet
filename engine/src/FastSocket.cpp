@@ -32,7 +32,7 @@
 namespace Proud
 {
 	volatile int32_t g_msgSizeErrorCount = 0;		// WSAEMSGSIZE 에러난 횟수
-	volatile int32_t g_intrErrorCount = 0;         // WSAEINTR 에러난 횟수
+	volatile int32_t g_intrErrorCount = 0;			// WSAEINTR 에러난 횟수
 	volatile int32_t g_netResetErrorCount = 0;		// WSAENETRESET(10052) 에러난 횟수
 	volatile int32_t g_connResetErrorCount = 0;	// WSAECONNRESET(10054) 에러난 횟수
 
@@ -87,8 +87,8 @@ namespace Proud
 	}
 #endif
 
- 	// 테스트로 추가한 변수이다. 나중에 삭제하자.
- 	String g_TEST_CloseSocketOnly_CallStack;
+	// 테스트로 추가한 변수이다. 나중에 삭제하자.
+	String g_TEST_CloseSocketOnly_CallStack;
 
 	void TEST_CaptureCallStack()
 	{
@@ -268,7 +268,7 @@ namespace Proud
 		// 소켓 생성
 		ret.socket->m_socket = CreateDualStackSocketOrIPv4Socket(type, /*out*/ ret.socket->m_addrFamily);
 
- 		if (!IsValidSocket(ret.socket->m_socket))
+		if (!IsValidSocket(ret.socket->m_socket))
 		{
 			auto getLastErrorResult = WSAGetLastError();
 
@@ -569,7 +569,7 @@ namespace Proud
 		{
 			int err = errno;
 
-			if (!CFastSocket::IsWouldBlockError((SocketErrorCode)err)) 
+			if (!CFastSocket::IsWouldBlockError((SocketErrorCode)err))
 				PostSocketWarning(err, _PNT("FS.ST"));
 
 			// 오류 처리를 내도 복원은 선결해야.
@@ -891,8 +891,8 @@ namespace Proud
 		if (sendBuffer.GetLength() <= 0)
 			return SocketErrorCode_InvalidArgument;// 0 이하의 수신 자체는 무의미한데다 socket 오동작을 유발하므로
 
-		// 		m_sendBuffer.SetCount(count);
-		// 		memcpy(m_sendBuffer.GetData(), data, count);
+		//		m_sendBuffer.SetCount(count);
+		//		memcpy(m_sendBuffer.GetData(), data, count);
 
 		DWORD flags = 0;
 
@@ -1175,12 +1175,12 @@ namespace Proud
 		//m_iocpAssocCount_TTTEST = 0;
 
 		// 대량의 클라를 일시에 파괴시 lookaside allocator free에서 에러가 나길래 fast heap 미사용!
-		//  		m_sendBuffer.UseFastHeap(false);
-		//  		m_recvBuffer.UseFastHeap(false);
+		//		m_sendBuffer.UseFastHeap(false);
+		//		m_recvBuffer.UseFastHeap(false);
 
-		// 		memset(&m_recvOverlapped, 0, sizeof(m_recvOverlapped));
-		// 		memset(&m_sendOverlapped, 0, sizeof(m_sendOverlapped));
-		// 		memset(&m_AcceptExOverlapped, 0, sizeof(m_AcceptExOverlapped));
+		//		memset(&m_recvOverlapped, 0, sizeof(m_recvOverlapped));
+		//		memset(&m_sendOverlapped, 0, sizeof(m_sendOverlapped));
+		//		memset(&m_AcceptExOverlapped, 0, sizeof(m_AcceptExOverlapped));
 
 		// 이 값은 overlapped recvfrom이 완료될 때 채워지므로 유효하게 유지해야 한다.
 		memset(&m_recvedFrom, 0, sizeof(m_recvedFrom));
@@ -1197,7 +1197,7 @@ namespace Proud
 		m_sendBuffer.SuspendShrink();
 		m_recvBuffer.SuspendShrink();
 
-		/*     //3003!!!혹시 resize가 문제?
+		/*	//3003!!!혹시 resize가 문제?
 		m_recvBuffer.SetCount(100 * 1024);
 		m_recvBuffer.SetCount(0); */
 	}
@@ -1308,15 +1308,15 @@ namespace Proud
 		}
 	}
 
-	// 	void Socket::SetSendCompletionEvent( Event* event )
-	// 	{
-	// 		m_sendCompletionEvent = event;
-	// 	}
+	//	void Socket::SetSendCompletionEvent( Event* event )
+	//	{
+	//		m_sendCompletionEvent = event;
+	//	}
 	//
-	// 	void Socket::SetRecvCompletionEvent( Event* event )
-	// 	{
-	// 		m_recvCompletionEvent = event;
-	// 	}
+	//	void Socket::SetRecvCompletionEvent( Event* event )
+	//	{
+	//		m_recvCompletionEvent = event;
+	//	}
 
 	int CFastSocket::SetSocketReuseAddress(bool enable)
 	{
@@ -1743,10 +1743,10 @@ namespace Proud
 		return m_recvBuffer.GetData();
 	}
 
-	// 	BYTE* Socket::GetSendBufferPtr()
-	// 	{
-	// 		return m_sendBuffer.GetData();
-	// 	}
+	//	BYTE* Socket::GetSendBufferPtr()
+	//	{
+	//		return m_sendBuffer.GetData();
+	//	}
 
 	SocketErrorCode CFastSocket::EnableBroadcastOption(bool enable)
 	{
@@ -2039,10 +2039,10 @@ namespace Proud
 		CloseSocketOnly();
 #endif
 
-// 		// 이 함수는 최초 호출할 때 빼고는 immutable이므로, if구문 안에서 한다.
-// 		// 일정 시간마다 DoGarbageCollect에서 이 함수를 지속 호출하므로 최초 1회만 해도 괜찮다.
-// 		CancelEveryIo();
-// 		// NOTE: linux에서는 아래 associatedIoQueue.RemoveSocket을 수행.
+//		// 이 함수는 최초 호출할 때 빼고는 immutable이므로, if구문 안에서 한다.
+//		// 일정 시간마다 DoGarbageCollect에서 이 함수를 지속 호출하므로 최초 1회만 해도 괜찮다.
+//		CancelEveryIo();
+//		// NOTE: linux에서는 아래 associatedIoQueue.RemoveSocket을 수행.
 	}
 
 #ifdef _WIN32
@@ -2115,7 +2115,4 @@ namespace Proud
 		Socket_CleanUp();
 #endif
 	}
-
-
-
 }

@@ -73,7 +73,7 @@ namespace Proud
 			ret = m_core->Send(fragRefs,
 				sendOpt,
 				remotes, remoteCount,compressedPayloadLength);
-			
+
 			// RMI를 호출했다는 이벤트를 콜백한다.
 			if(!m_internalUse)
 			{
@@ -91,7 +91,7 @@ namespace Proud
 				}
 				// m_core->Viz_NotifySendByProxy(remotes, remoteCount, msgSumm, rmiContext);
 			}
-			
+
 			return ret;
 		}
 	}

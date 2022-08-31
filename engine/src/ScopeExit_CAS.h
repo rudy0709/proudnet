@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/atomic.h"
 
@@ -12,11 +12,10 @@ namespace Proud
 	public:
 		ScopeExit_AtomicCompareAndSwap32(int v1, int v2, volatile int32_t* target)
 			: m_target(target), m_v1(v1), m_v2(v2) {}
-		
+
 		~ScopeExit_AtomicCompareAndSwap32()
 		{
 			AtomicCompareAndSwap32(m_v1, m_v2, m_target);
 		}
 	};
-
 }

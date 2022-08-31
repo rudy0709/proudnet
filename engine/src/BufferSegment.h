@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/ByteArrayPtr.h"
 #include "LowFragMemArray.h"
@@ -10,8 +10,8 @@ namespace Proud
 #ifndef _WIN32
 	struct WSABUF  // fake win32
 	{
-		int len;     /* the length of the buffer */
-		char *buf; /* the pointer to the buffer */
+		int len;	/* the length of the buffer */
+		char *buf;	/* the pointer to the buffer */
 	};
 #endif
 
@@ -20,7 +20,7 @@ namespace Proud
 	// WSABUF array의 wrap. 데이터 버퍼를 직접 소유하지 않고 외부의 것을 참조한다.
 	class CFragmentedBuffer
 	{
-	private: 
+	private:
 		NO_COPYABLE(CFragmentedBuffer)
 	private:
 		// segment들의 바이트 총합
@@ -28,7 +28,7 @@ namespace Proud
 
 	private:
 
-		/* (예전에는 CLowFragMemArray<100, WSABUF, WSABUF&, true> 였지만, 
+		/* (예전에는 CLowFragMemArray<100, WSABUF, WSABUF&, true> 였지만,
 		TCP send queue에서 빼올 때 100을 넘는 경우가 흔하며, 이때는 상당한 realloc & copy 로 인해 성능상 이익이 불투명.
 		따라서 class object pool을 쓴다.
 		*/

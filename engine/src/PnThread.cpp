@@ -318,8 +318,4 @@ namespace Proud
 		m_useComModel = false;
 #endif
 	}
-
 }
-
-
-

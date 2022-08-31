@@ -312,9 +312,9 @@ namespace Proud
 
 	void CLogWriterImpl::ProcessLogData(LogDataPtr& logData)
 	{
-		// 		// 콘솔에도 출력하자. 개발 편하게.
-		// 		// TODO: 본 내용을 더 편하게 그때그때마다 더 고치세요.
-		// 		cout << "NetServer Log for client " << logData->m_hostID << ": " << logData->m_message.GetString() << endl;
+		//		// 콘솔에도 출력하자. 개발 편하게.
+		//		// TODO: 본 내용을 더 편하게 그때그때마다 더 고치세요.
+		//		cout << "NetServer Log for client " << logData->m_hostID << ": " << logData->m_message.GetString() << endl;
 
 				// 메인
 		switch (logData->m_type)
@@ -503,5 +503,4 @@ namespace Proud
 	{
 		m_ignorePendedWriteOnExit = flag;
 	}
-
 }//end of namespace Proud

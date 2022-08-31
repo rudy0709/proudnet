@@ -1,12 +1,12 @@
-﻿#pragma once 
+﻿#pragma once
 
 namespace Proud
 {
 	inline FilterTag::Type FilterTag::CreateFilterTag(HostID srcID, HostID destID)
 	{
 		FilterTag::Type ret = 0;
-		ret |= uint8_t((uint8_t)srcID & 0x0f) << 4; //상위 4비트
-										   //ret |= BYTE(srcID & 0xff) << 8;
+		ret |= uint8_t((uint8_t)srcID & 0x0f) << 4;	//상위 4비트
+		//ret |= BYTE(srcID & 0xff) << 8;
 		ret |= uint8_t((uint8_t)destID & 0x0f); // 하위 4비트
 
 		return ret;
@@ -37,5 +37,4 @@ namespace Proud
 
 		return false;
 	}
-
 }

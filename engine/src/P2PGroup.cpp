@@ -14,8 +14,6 @@
 
 namespace Proud
 {
-
-
 	CP2PGroup::CP2PGroup()
 	{
 		m_groupHostID = HostID_None;
@@ -27,5 +25,4 @@ namespace Proud
 	{
 		m_enableDirectP2P = true;
 	}
-
 }

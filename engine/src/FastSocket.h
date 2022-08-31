@@ -50,7 +50,7 @@
 namespace Proud
 {
 	using namespace std;
-	
+
 #if (_MSC_VER>=1400)
 // 아래 주석처리된 pragma managed 전처리 구문은 C++/CLI 버전이 있었을 때에나 필요했던 것입니다.
 // 현재는 필요없는 구문이고, 일부 환경에서 C3295 "#pragma managed는 전역 또는 네임스페이스 범위에서만 사용할 수 있습니다."라는 빌드에러를 일으킵니다.
@@ -70,7 +70,7 @@ namespace Proud
 #endif
 
 	class CFastSocket;
-	typedef RefCount<CFastSocket> FastSocketPtr; 	// SSDP socket에서도 참조하며 Socket같은건 자주 만드는게 아니니까 이렇게 해도 OK. 자주 접근하므로 thread safe로 만들면 곤란. 웬만하면 쓰지 말자. RefCount이 assign op는 thread unsafe하니까.
+	typedef RefCount<CFastSocket> FastSocketPtr;	// SSDP socket에서도 참조하며 Socket같은건 자주 만드는게 아니니까 이렇게 해도 OK. 자주 접근하므로 thread safe로 만들면 곤란. 웬만하면 쓰지 말자. RefCount이 assign op는 thread unsafe하니까.
 
 	class CriticalSection;
 	typedef RefCount<CriticalSection> CriticalSectionPtr;
@@ -268,22 +268,22 @@ namespace Proud
 		// 이거 말고 Create()를 쓰세요.
 		CFastSocket();
 	public:
-		 ~CFastSocket();
+		~CFastSocket();
 
-		 static SocketCreateResult CreateFromIPv6Socket(int addressFamily, SOCKET existingSocket);
-		 PROUD_API static SocketCreateResult Create(SocketType type);
+		static SocketCreateResult CreateFromIPv6Socket(int addressFamily, SOCKET existingSocket);
+		PROUD_API static SocketCreateResult Create(SocketType type);
 
-		 bool IsSocketEmpty();
-		 SocketErrorCode Tcp_Send0ByteForConnectivityTest();
+		bool IsSocketEmpty();
+		SocketErrorCode Tcp_Send0ByteForConnectivityTest();
 
-		 PROUD_API int SetSocketReuseAddress(bool enable);
-		 int SetLingerOption(uint16_t const onoff, uint16_t const linger);
+		PROUD_API int SetSocketReuseAddress(bool enable);
+		int SetLingerOption(uint16_t const onoff, uint16_t const linger);
 
-		 int SetSendBufferSize(int size);
-		 int SetRecvBufferSize(int size);
+		int SetSendBufferSize(int size);
+		int SetRecvBufferSize(int size);
 
-		 PROUD_API int GetSendBufferSize(int *outsize);
-		 int GetRecvBufferSize(int *outsize);
+		PROUD_API int GetSendBufferSize(int *outsize);
+		int GetRecvBufferSize(int *outsize);
 
 #if !defined(SOL_SOCKET)
 #	error You must include socket header file for correct compilation of the functions below.
@@ -331,10 +331,10 @@ namespace Proud
 #else
 		SocketErrorCode IssueRecvFrom(int length);
 		SocketErrorCode IssueSendTo(uint8_t* data, int count, AddrPort sendTo);
-		// 		inline SocketErrorCode IssueSendTo_NoCopy( CFragmentedBuffer& sendBuffer, AddrPort sendTo )
-		// 		{
-		// 			return IssueSendTo_NoCopy_TempTtl(sendBuffer,sendTo,-1);
-		// 		}
+		//		inline SocketErrorCode IssueSendTo_NoCopy( CFragmentedBuffer& sendBuffer, AddrPort sendTo )
+		//		{
+		//			return IssueSendTo_NoCopy_TempTtl(sendBuffer,sendTo,-1);
+		//		}
 		SocketErrorCode IssueSendTo_NoCopy_TempTtl(CFragmentedBuffer& sendBuffer, const AddrPort& sendTo, int ttl);
 		SocketErrorCode IssueRecv(int length);
 		SocketErrorCode IssueSend(uint8_t* data, int count);

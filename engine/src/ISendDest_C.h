@@ -16,7 +16,7 @@
 namespace Proud
 {
 	using namespace std;
-	
+
 	class IP2PGroupMember;
 	typedef CFastMap2<HostID, shared_ptr<IP2PGroupMember>, int> P2PGroupMembers_C;
 
@@ -27,5 +27,4 @@ namespace Proud
 		virtual HostID GetHostID() = 0;
 		virtual int64_t GetIndirectServerTimeDiff() = 0;
 	};
-
 }

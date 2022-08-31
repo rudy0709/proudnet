@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "PooledObjects_C.h"
 #include "PooledObjects.h"
@@ -6,7 +6,6 @@
 namespace Proud
 {
 	PROUDSRV_API void PooledObjects_ShrinkOnNeed_ServerDll();
-
 
 	class SuperPeerCandidateArray;
 	class P2PGroupSubsetList;

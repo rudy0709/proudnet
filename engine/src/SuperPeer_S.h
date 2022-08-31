@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/NetConfig.h"
 
@@ -30,5 +30,4 @@ namespace Proud
 	};
 
 	class SuperPeerCandidateArray :public CFastArray<SuperPeerCandidate> {};
-
 }

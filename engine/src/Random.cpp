@@ -8,16 +8,16 @@
 #include "../include/sysutil.h"
 
 #if !defined(_WIN32)
-    #include <sys/time.h>
+	#include <sys/time.h>
 #endif
 
-#define N              (624)                 // length of state vector
-#define M              (397)                 // a period parameter
-#define K              (0x9908B0DFU)         // a magic constant
-#define hiBit(u)       ((u) & 0x80000000U)   // mask all but highest   bit of u
-#define loBit(u)       ((u) & 0x00000001U)   // mask all but lowest    bit of u
-#define loBits(u)      ((u) & 0x7FFFFFFFU)   // mask     the highest   bit of u
-#define mixBits(u, v)  (hiBit(u)|loBits(v))  // move hi bit of u to hi bit of v
+#define N				(624)					// length of state vector
+#define M				(397)					// a period parameter
+#define K				(0x9908B0DFU)			// a magic constant
+#define hiBit(u)		((u) & 0x80000000U)		// mask all but highest   bit of u
+#define loBit(u)		((u) & 0x00000001U)		// mask all but lowest    bit of u
+#define loBits(u)		((u) & 0x7FFFFFFFU)		// mask     the highest   bit of u
+#define mixBits(u, v)	(hiBit(u)|loBits(v))	// move hi bit of u to hi bit of v
 
 
 //////////////////////////////////////////////////////////////////////
@@ -50,22 +50,22 @@ namespace Proud
 		wHigh = LOWORD(CFakeWin32::GetTickCount());
 
 #if !defined(_WIN32)
-        struct timeval val;
-        gettimeofday(&val, NULL);
-        
-        unsigned char chigh = 0;
-        unsigned char clow = 0;
-        
-        chigh = LOBYTE(val.tv_usec);
-        clow = static_cast<unsigned char>((val.tv_usec >> 8) + val.tv_sec );
-        wLow = MAKEWORD(clow,chigh);
-        
+		struct timeval val;
+		gettimeofday(&val, NULL);
+
+		unsigned char chigh = 0;
+		unsigned char clow = 0;
+
+		chigh = LOBYTE(val.tv_usec);
+		clow = static_cast<unsigned char>((val.tv_usec >> 8) + val.tv_sec );
+		wLow = MAKEWORD(clow,chigh);
+
 #else
-        DWORD dwNumberOfSectorsPerCluster = 0;
+		DWORD dwNumberOfSectorsPerCluster = 0;
 		DWORD dwNumberOfBytesPerSector = 0;
 		DWORD dwNumberOfFreeClusters = 0;
 		DWORD dwTotalNumberOfClusters = 0;
-        
+
 		// Different folks have different amounts of free space on their hard drives
 		if ( ::GetDiskFreeSpace(NULL, &dwNumberOfSectorsPerCluster, &dwNumberOfBytesPerSector, &dwNumberOfFreeClusters, &dwTotalNumberOfClusters) != FALSE)
 		{
@@ -257,7 +257,7 @@ namespace Proud
 
 	int CRandom::StaticGetInt()
 	{
-		// GetSharedPtr을 쓰는 것이 더 바람직하나, 이 함수 자체가 static 함수인지라, 딱히 파괴순서를 보장할 
+		// GetSharedPtr을 쓰는 것이 더 바람직하나, 이 함수 자체가 static 함수인지라, 딱히 파괴순서를 보장할
 		return CGlobalRandom::GetUnsafeRef().m_rand.GetInt();
 	}
 
@@ -275,5 +275,4 @@ namespace Proud
 	{
 		return abs(StaticGetFloat_INTERNAL() / 2147483008);
 	}
-
 }

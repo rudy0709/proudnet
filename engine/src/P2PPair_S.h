@@ -34,5 +34,4 @@ namespace Proud
 
 		void Clear();
 	};
-
 }

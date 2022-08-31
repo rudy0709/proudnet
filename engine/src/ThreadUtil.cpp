@@ -20,8 +20,8 @@
 namespace Proud
 {
 #if defined(_WIN32)
-	NewTimerParam::NewTimerParam(WaitOrTimerCallbackProc callback, void *pCtx, uint32_t period, uint32_t DueTime) 
-		: m_callback(callback), m_pCtx(pCtx), 
+	NewTimerParam::NewTimerParam(WaitOrTimerCallbackProc callback, void *pCtx, uint32_t period, uint32_t DueTime)
+		: m_callback(callback), m_pCtx(pCtx),
 		m_period(period), m_DueTime(DueTime)
 	{
 	}
@@ -30,32 +30,32 @@ namespace Proud
 	//
 	#define MS_VC_EXCEPTION 0x406D1388
 // #pragma pack(push,8)
-// 	typedef struct tagTHREADNAME_INFO
-// 	{
-// 		uint32_t dwType; // Must be 0x1000.
-// 		const char* szName; // Pointer to name (in user addr space).
-// 		uint32_t dwThreadID; // Thread ID (-1=caller thread).
-// 		uint32_t dwFlags; // Reserved for future use, must be zero.
-// 	} THREADNAME_INFO;
+//	typedef struct tagTHREADNAME_INFO
+//	{
+//		uint32_t dwType; // Must be 0x1000.
+//		const char* szName; // Pointer to name (in user addr space).
+//		uint32_t dwThreadID; // Thread ID (-1=caller thread).
+//		uint32_t dwFlags; // Reserved for future use, must be zero.
+//	} THREADNAME_INFO;
 // #pragma pack(pop)
 
 	void SetThreadName( uint32_t /*dwThreadID*/, const char* /*threadName*/)
 	{
-		/* 이 메서드는 MiniDumper에서 AddVectoredExceptionHandler를 쓰는 이후부터, 여기서 덤프를 남겨버리기 때문에 막아버렸다. 이 문제를 추후 해결하면 다시 풀던가. 
-// 		Sleep(10); 
-// 		THREADNAME_INFO info;
-// 		info.dwType = 0x1000;
-// 		info.szName = threadName;
-// 		info.dwThreadID = dwThreadID;
-// 		info.dwFlags = 0;
-// 
-// 		__try
-// 		{
-// 			RaiseException( MS_VC_EXCEPTION, 0, sizeof(info)/sizeof(ULONG_PTR), (ULONG_PTR*)&info );
-// 		}
-// 		__except(EXCEPTION_EXECUTE_HANDLER)
-// 		{
-// 		}
+		/* 이 메서드는 MiniDumper에서 AddVectoredExceptionHandler를 쓰는 이후부터, 여기서 덤프를 남겨버리기 때문에 막아버렸다. 이 문제를 추후 해결하면 다시 풀던가.
+//		Sleep(10);
+//		THREADNAME_INFO info;
+//		info.dwType = 0x1000;
+//		info.szName = threadName;
+//		info.dwThreadID = dwThreadID;
+//		info.dwFlags = 0;
+//
+//		__try
+//		{
+//			RaiseException( MS_VC_EXCEPTION, 0, sizeof(info)/sizeof(ULONG_PTR), (ULONG_PTR*)&info );
+//		}
+//		__except(EXCEPTION_EXECUTE_HANDLER)
+//		{
+//		}
 		*/
 	}
 
@@ -105,7 +105,7 @@ namespace Proud
 	}
 
 	CTimerQueue::~CTimerQueue()
-	{		
+	{
 		if(::DeleteTimerQueueEx(m_timerQueue,m_endEvent.m_event))
 		{
 #ifndef PROUD_STATIC_LIB
@@ -138,5 +138,4 @@ namespace Proud
 		return ret; // pthread_key_t는 실제로 uint32다.
 #endif
 	}
-
 }

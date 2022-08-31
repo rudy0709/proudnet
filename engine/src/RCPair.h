@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/Enums.h"
 
@@ -17,8 +17,8 @@ namespace Proud
 		typedef const RCPair& INARGTYPE;
 		typedef RCPair& OUTARGTYPE;
 
-		inline static uint32_t Hash( const RCPair& element ) 
-		{		
+		inline static uint32_t Hash( const RCPair& element )
+		{
 			assert(sizeof(HostID) == 4);
 
 			return (int(element.m_first)<<16) ^ int(element.m_second);
@@ -45,6 +45,4 @@ namespace Proud
 				return 1;
 		}
 	};
-
-
 }

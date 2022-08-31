@@ -12,12 +12,10 @@
 #include "DumpClient.h"
 
 #if defined(_WIN32)
-    #include "RmiContextImpl.h"
+	#include "RmiContextImpl.h"
 	#include "pidl/dumps2c_stub.cpp"
 	#include "pidl/dumpc2s_proxy.cpp"
 #endif
-
-
 
 namespace Proud
 {
@@ -36,7 +34,7 @@ namespace Proud
 		m_client.Attach(CNetClient::Create());
 		m_client->AttachProxy(&m_c2sProxy);
 		m_client->AttachStub(this);
-		m_client->SetEventSink(this);	
+		m_client->SetEventSink(this);
 
 	}
 
@@ -174,6 +172,4 @@ namespace Proud
 		return new CDumpClientImpl(dg);
 	}
 #endif
-    
 }
-

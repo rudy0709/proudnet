@@ -77,6 +77,4 @@ namespace Proud
 		void RunMainLoop();
 
 	};
-
 }
-

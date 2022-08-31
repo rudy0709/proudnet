@@ -3,7 +3,7 @@
 #include <cstdint>
 #include "../include/Message.h"
 
-namespace Proud 
+namespace Proud
 {
 	inline bool IsInt8Range(int32_t v)
 	{
@@ -71,5 +71,4 @@ namespace Proud
 			return false;
 		}
 	}
-
 }

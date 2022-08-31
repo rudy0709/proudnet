@@ -71,7 +71,7 @@ namespace Proud
 		m_associatedSockets.Add(socket, socket);
 	}
 
-	
+
 
 	/* m_associatedSockets에서 socket을 제거한다.
 
@@ -93,11 +93,11 @@ namespace Proud
 	어떤 버퍼를 접근하느냐 여부는 CompletionStatus.m_type에 따라 다르다.
 	- fake iocp를 쓰는 경우 64개 이상의 socket에 대한 이벤트도 대기할 수 있다. 그러나 1ms단위로 대기했다가 모든 연계소켓을 체크하는 방식이므로 스레드는 좀 바쁘다.
 
-	
+
 	*/
 
-	// 1개 이상의 completion event를 pop한다. 
-	// GQCSEX를 미지원하는 OS에서도 사용 가능한 함수다. 단, 1개만 뽑아낸다.	
+	// 1개 이상의 completion event를 pop한다.
+	// GQCSEX를 미지원하는 OS에서도 사용 가능한 함수다. 단, 1개만 뽑아낸다.
 	// 최대 MaxPollCount 상수가 가리키는 갯수만큼 뽑는다. code profile 결과, CIoEventStatusList가 지나치게 커지면 resize cost가 막대하기 때문이다.
 	// 리턴값은 없지만, ret가 비었는지 아닌지로 필요한 정보를 얻으세요.
 	void CompletionPort::GetQueuedCompletionStatusEx(
@@ -125,14 +125,14 @@ namespace Proud
 		// 이 때문에 code profiler결과 여기가 지목되겠지만, I/O가 많은 경우 오히려 syscall을 줄이므로
 		// 굳이 없애지는 말자.
 		// #ifdef CLEAN_WITH_LOOP
-		// 		for(int i=0;i<maxPollCount;i++)
-		// 		{
-		// 			OverlappedEntry[i].lpCompletionKey = NULL;
-		// 			OverlappedEntry[i].lpOverlapped = NULL;
-		// 		}
+		//		for(int i=0;i<maxPollCount;i++)
+		//		{
+		//			OverlappedEntry[i].lpCompletionKey = NULL;
+		//			OverlappedEntry[i].lpOverlapped = NULL;
+		//		}
 		// #else
-		// 		// 이게 더 빠르다.
-		// 		memset(&OverlappedEntry, 0, sizeof(OverlappedEntry[0])*maxPollCount);
+		//		// 이게 더 빠르다.
+		//		memset(&OverlappedEntry, 0, sizeof(OverlappedEntry[0])*maxPollCount);
 		// #endif
 		// ::GQCSEX의 리턴값을 신뢰 안함. 대신 이 값이 안 채워졌는지로 검사함.
 		// ::GQCSEX의 도움말과 달리, GQCSEX의 리턴값은 여러가지 상황 가령 sem_timeout 등으로 인해서 정상적으로 poll 했음에도 불구하고 false일 수 있으므로 비 신뢰.
@@ -189,7 +189,7 @@ namespace Proud
 
 			if (OverlappedEntry[i].lpCompletionKey)
 			{
-				// not null이면, CSuperSocket ptr이다. 
+				// not null이면, CSuperSocket ptr이다.
 				// StopIoAcked이면 파괴되게 만들어져 있다. 즉 이 이벤트가 온다는 것은
 				// 비파괴 보장이다
 				// 따라서 직접 액세스한다. 단, 이미 m_associatedSockets에서는 사라져 있을테니 "이 안에 있나?" 를 체크하지는 말자.

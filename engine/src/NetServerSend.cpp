@@ -47,7 +47,7 @@ namespace Proud
 		int unreliableS2CRoutedMulticastMaxCount = max(sendContext.m_unreliableS2CRoutedMulticastMaxCount, 0);
 		int unreliableS2CRoutedMulticastMaxPing = max(sendContext.m_unreliableS2CRoutedMulticastMaxPingMs, 0);
 
-		// P2P 그룹을 HostID 리스트로 변환, 즉 ungroup한다.		
+		// P2P 그룹을 HostID 리스트로 변환, 즉 ungroup한다.
 		POOLED_LOCAL_VAR(HostIDArray, sendDestList0);
 
 		// sendDestList0에는 garbaged인 것들도 일단 다 포함된다.
@@ -61,7 +61,7 @@ namespace Proud
 
 		int sendDestListCount = (int)sendDestList.GetCount();
 
-		// 실제로 보낼 메시지. 
+		// 실제로 보낼 메시지.
 		const CSendFragRefs* realPayload = nullptr;
 
 		int64_t curTime = GetPreciseCurrentTimeMs();
@@ -82,10 +82,10 @@ namespace Proud
 		// main lock이 있는 상태에서 수행해야 할것들을 처리하자
 		if (sendContext.m_reliability == MessageReliability_Reliable)
 		{
- 			// 예전에는 AddToSendQueue 직전에 했으나, 보아하니 아래 루프도 main을 액세스 안하므로, 병렬 향상을 위해 여기다 옮겼다. code profile 후 판단한거임.
- 			// 게다가 sendDestList가 shared_ptr로써 remote를 잡고 있으므로, 댕글링 걱정 뚝.
- 			mainlock.Unlock();
-			
+			// 예전에는 AddToSendQueue 직전에 했으나, 보아하니 아래 루프도 main을 액세스 안하므로, 병렬 향상을 위해 여기다 옮겼다. code profile 후 판단한거임.
+			// 게다가 sendDestList가 shared_ptr로써 remote를 잡고 있으므로, 댕글링 걱정 뚝.
+			mainlock.Unlock();
+
 			//int reliableCount = 0;
 			POOLED_LOCAL_VAR(CSuperSocketArray, reliableSendList);
 
@@ -123,8 +123,8 @@ namespace Proud
 					{
 						// main lock 상태이므로 아래 변수는 중도 증발 안하니 걱정 뚝
 						reliableSendList.Add(SD3->m_tcpLayer);
-						// 						reliableSendList[reliableCount] = SD3->m_tcpLayer;
-						// 						reliableCount++;
+						//						reliableSendList[reliableCount] = SD3->m_tcpLayer;
+						//						reliableCount++;
 					}
 					else
 					{
@@ -221,7 +221,7 @@ namespace Proud
 
 						unreliableSendInfoList.Add(&(sendDestList[i]));
 					}
-					else 
+					else
 					{
 						// 보낼 상대가 정작 없다. 에러 처리.
 						FillSendFailListOnNeed(sendContext, &SD1.mHostID, 1, ErrorType_InvalidHostID);
@@ -236,13 +236,13 @@ namespace Proud
 				}
 			}
 
- 			/* main unlock을 하는 이유:
- 			이 이후부터는 low context switch loop가 돈다.
- 			제아무리 low context라고 해도 다수의 socket들의 send queue lock을 try or block lock을 하기 때문에
- 			context switch가 결국 여러 차례 발생한다.
- 			따라서 main lock이 많은 시간을 차지할 가능성이 낮게나마 존재한다.
- 			이를 없애기 위한 목적이다. */
- 			mainlock.Unlock();
+			/* main unlock을 하는 이유:
+			이 이후부터는 low context switch loop가 돈다.
+			제아무리 low context라고 해도 다수의 socket들의 send queue lock을 try or block lock을 하기 때문에
+			context switch가 결국 여러 차례 발생한다.
+			따라서 main lock이 많은 시간을 차지할 가능성이 낮게나마 존재한다.
+			이를 없애기 위한 목적이다. */
+			mainlock.Unlock();
 
 			// 각 unreliable message 수신 대상에 대해...
 			for (int i = 0; i < unreliableSendInfoList.GetCount(); i++)
@@ -259,7 +259,7 @@ namespace Proud
 				{
 					// 아무것도 안함
 				}
-				else if (SD1->mP2PRouteNextLink != nullptr) // 항목의 P2P next link가 있으면, 
+				else if (SD1->mP2PRouteNextLink != nullptr) // 항목의 P2P next link가 있으면,
 				{
 					// link의 끝까지 찾아서 P2P route 메시지 내용물에 추가한다.
 					CMessage header;
@@ -282,12 +282,12 @@ namespace Proud
 						header.Write(p2pRouteList[routeListIndex]);
 					}
 
-					// 					printf("S2C routed broadcast to %d: ",SD3->m_HostID);
-					// 					for (int i = 0;i < p2pRouteList.GetCount();i++)
-					// 					{
-					// 						printf("%d ",p2pRouteList[i]);
-					// 					}
-					// 					printf("\n");
+					//					printf("S2C routed broadcast to %d: ",SD3->m_HostID);
+					//					for (int i = 0;i < p2pRouteList.GetCount();i++)
+					//					{
+					//						printf("%d ",p2pRouteList[i]);
+					//					}
+					//					printf("\n");
 
 					// sendData의 내용을 추가한다.
 					header.WriteScalar(realPayload->GetTotalLength());
@@ -344,6 +344,4 @@ namespace Proud
 
 		return ret;
 	}
-
-
 }

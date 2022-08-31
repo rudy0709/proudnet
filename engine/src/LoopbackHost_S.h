@@ -22,5 +22,4 @@ namespace Proud
 
 		virtual LeanType GetLeanType() { return LeanType_Loopback;  }
 	};
-
 }

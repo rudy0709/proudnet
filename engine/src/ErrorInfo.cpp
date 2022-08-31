@@ -46,7 +46,7 @@ namespace Proud
 		return e;
 	}
 
-	ErrorInfo* ErrorInfo::Clone() 
+	ErrorInfo* ErrorInfo::Clone()
 	{
 		ErrorInfo* ret = new ErrorInfo;
 		*ret = *this;
@@ -68,16 +68,16 @@ namespace Proud
 	String ErrorInfo::ToString() const
 	{
 		String ret;
-// 		ret.Format(_PNT("Error=%s,Detail=%s,SocketError=%d,HostID=%d,Comment='%s'"), 
-// 			(LPCWSTR)TypeToString(m_errorType), 
-// 			(LPCWSTR)TypeToString(m_detailType), 
-// 			m_socketError, 
-// 			(int)m_remote, 
-// 			(LPCWSTR)m_comment);
+//		ret.Format(_PNT("Error=%s,Detail=%s,SocketError=%d,HostID=%d,Comment='%s'"),
+//			(LPCWSTR)TypeToString(m_errorType),
+//			(LPCWSTR)TypeToString(m_detailType),
+//			m_socketError,
+//			(int)m_remote,
+//			(LPCWSTR)m_comment);
 
-		//modify By Seungwhan 			
+		//modify By Seungwhan
 		ret.Format(_PNT("Error=%s"), TypeToString(m_errorType));
-		
+
 		if(m_errorType != m_detailType && m_detailType != ErrorType_Ok )
 		{
 			String tempret;
@@ -156,5 +156,4 @@ namespace Proud
 			return TypeToString_Eng(e);
 		}
 	}
-
 }

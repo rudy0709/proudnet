@@ -21,5 +21,4 @@ namespace Proud
 
 		return m_authedHostMap.TryGetValue(hostID, output);
 	}
-
 }

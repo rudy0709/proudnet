@@ -1,7 +1,6 @@
 ﻿#include "stdafx.h"
 #include "LeanType.h"
 
-namespace Proud 
+namespace Proud
 {
-
 }

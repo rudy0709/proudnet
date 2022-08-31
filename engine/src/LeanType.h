@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace Proud 
+namespace Proud
 {
 	enum LeanType
 	{
@@ -14,5 +14,4 @@ namespace Proud
 		LeanType_CLanRemoteClient_S,
 		LeanType_CLanRemotePeer_C,
 	};
-
 }

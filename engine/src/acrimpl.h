@@ -20,14 +20,14 @@ namespace Proud
 	public:
 		// 아래 message에 이미 포함되어 있는 message ID
 		int m_messageID;
-		
+
 		// 이미 splitter, message ID가 모두 포함된 상태의 메시지 데이터
 		// TcpPacketCtx.m_message와 share를 하기 위해 객체 타입이 이거다.
 		// NOTE: CMessage는 ByteArrayPtr을 내장하며 ByteArrayPtr 자체가 object share가 가능하다.
 		CMessage m_message;
 	};
 
-	/* ACR 재접속시 수신 미보장 데이터를 다시 보내는 역할, 
+	/* ACR 재접속시 수신 미보장 데이터를 다시 보내는 역할,
 	그리고 이미 받은 메시지를 재접속 후 재수신 과정에서 그냥 버리게 하는 여갈을 한다. */
 	class CAcrMessageRecovery
 	{
@@ -38,7 +38,7 @@ namespace Proud
 
 		/* 수신 미보장 부준, 즉 상대에게 송신했지만 아직 그것에 대한 ack가 오지 않은 것들이다.
 		ACK가 도착하면 제거된다.
-		ACR로 재연결 성공시 여기 있던 내용들은 재전송된다. 
+		ACR로 재연결 성공시 여기 있던 내용들은 재전송된다.
 		** 주의: 이걸 억세스할때 m_critSec로 먼저 보호할 것! ** */
 		CFastList2<CUnguarantee, int> m_unguarantees_NOLOCK;
 

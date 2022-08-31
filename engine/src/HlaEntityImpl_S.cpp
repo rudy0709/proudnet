@@ -44,7 +44,6 @@ namespace Proud
 			m_internal->m_iterInDirtyList = m_internal->m_ownerSessionHost->m_dirtyEntities.AddTail(this);
 		}
 	}
-
 }
 
 #endif

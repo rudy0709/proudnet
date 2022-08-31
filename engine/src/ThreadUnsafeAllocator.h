@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include <cstddef>
 #include "FreeList.h"
@@ -11,7 +11,7 @@
 namespace Proud
 {
 	// thread unsafe하고, 내부적으로 free list알고리즘으로, CRT heap보다 더 빠른 속도로 할당,해제를 한다.
-	// 대신 free list이기 때문에 미사용 공간이 오래 남을 수 있다.	
+	// 대신 free list이기 때문에 미사용 공간이 오래 남을 수 있다.
 	// 웹문서 'STL) 나만의 Allocator( 할당자 ) 만들기 - 2' 참고하면서 제작됨.
 	// 그냥 복붙했고, 아래 #ThreadUnsafeAllocator-MainFunctions 만 구현.
 	template<typename T>
@@ -28,7 +28,7 @@ namespace Proud
 
 		using size_type = size_t;
 
-		//using difference_type = std::ptrdiff_t;		
+		//using difference_type = std::ptrdiff_t;
 
 		ThreadUnsafeAllocator() = default;
 		~ThreadUnsafeAllocator() = default;
@@ -38,7 +38,7 @@ namespace Proud
 			using other = ThreadUnsafeAllocator<U>;
 		};
 		template <typename U>
-		ThreadUnsafeAllocator(const ThreadUnsafeAllocator<U>& other) 
+		ThreadUnsafeAllocator(const ThreadUnsafeAllocator<U>& other)
 		{
 			// 이것을 사용하는 collection가 복사되는 경우, 이것도 복사되어서는 안된다. 이건 복사된 새 collection 내부용으로 독립적으로 존재해야 한다.
 			// 이후 allocator가 새 collection를 대상으로 반복 실행될거다.
@@ -83,7 +83,5 @@ namespace Proud
 		void destroy(U* p) {
 			p->~U();
 		}
-
 	};
-
 }

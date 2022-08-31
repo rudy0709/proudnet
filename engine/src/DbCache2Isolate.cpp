@@ -8,7 +8,7 @@
 namespace Proud
 {
 	bool CDbCacheClient2Impl::RequestIsolateData(Guid rootUUID, String rootTableName, Guid &outSessionGuid)
-	{		
+	{
 		outSessionGuid = Win32Guid::NewGuid();
 		rootTableName.MakeUpper();
 
@@ -26,7 +26,7 @@ namespace Proud
 		m_c2sProxy.RequestDeisolateData(HostID_Server, g_ReliableSendForPN, rootUUID, filterText, outSessionGuid);
 		return true;
 	}
-	
+
 	DEFRMI_DB2S2C_NotifyDeisolateDataSuccess(CDbCacheClient2Impl)
 	{
 		_pn_unused(remote);
@@ -75,7 +75,7 @@ namespace Proud
 		args.m_items[0].m_loadedData = data;
 		args.m_items[0].m_sessionGuid = sessionGuid;
 		m_delegate->OnIsolateDataSuccess(args);
-	
+
 		return true;
 	}
 
@@ -110,10 +110,10 @@ namespace Proud
 		if (!IsValidRootTable(rootTableName))
 		{
 			m_s2cProxy.NotifyIsolateDataFailed(
-				remote, 
-				g_ReliableSendForPN, 
-				sessionGuid, 
-				ErrorType_PermissionDenied, 
+				remote,
+				g_ReliableSendForPN,
+				sessionGuid,
+				ErrorType_PermissionDenied,
 				_PNT("invalid table name")
 				);
 			return true;
@@ -123,7 +123,7 @@ namespace Proud
 		if (CheckIsolateDataList(rootUUID))
 		{
 			m_s2cProxy.NotifyIsolateDataFailed(
-				remote, 
+				remote,
 				g_ReliableSendForPN,
 				sessionGuid,
 				ErrorType_AlreadyExists,
@@ -132,7 +132,7 @@ namespace Proud
 			return true;
 		}
 
-		// isolate 요청한 데이터를 이미 로드한 유저가 있다면 unload 시킨다. 
+		// isolate 요청한 데이터를 이미 로드한 유저가 있다면 unload 시킨다.
 		CLoadedData2Ptr_S loadData = GetLoadedDataByRootGuid(rootUUID);
 		if (loadData != NULL && loadData->GetLoaderClientHostID() != HostID_None)
 		{
@@ -152,7 +152,7 @@ namespace Proud
 
 		return true;
 	}
-	// RequestIsolateData의 인자가 root UUID가 아니라 filter text인 경우도 넣어야 할텐데.	
+	// RequestIsolateData의 인자가 root UUID가 아니라 filter text인 경우도 넣어야 할텐데.
 	DEFRMI_DB2C2S_RequestDeisolateData(CDbCacheServer2Impl)
 	{
 		_pn_unused(rmiContext);
@@ -164,10 +164,10 @@ namespace Proud
 		{
 			// isolate Data List 에 없는데 deisolate 를 하는 것은 문제
 			m_s2cProxy.NotifyDeisolateDataFailed(
-				remote, 
-				g_ReliableSendForPN, 
-				sessionGuid, 
-				ErrorType_ValueNotExist, 
+				remote,
+				g_ReliableSendForPN,
+				sessionGuid,
+				ErrorType_ValueNotExist,
 				_PNT("is not isolated data") );
 			return true;
 		}
@@ -177,10 +177,10 @@ namespace Proud
 
 		ByteArray deIsolateDataBlock;
 		m_s2cProxy.NotifyDeisolateDataSuccess(
-			remote, 
-			g_ReliableSendForPN, 
-			sessionGuid, 
-			rootUUID, 
+			remote,
+			g_ReliableSendForPN,
+			sessionGuid,
+			rootUUID,
 			deIsolateDataBlock );
 		return true;
 	}
@@ -189,7 +189,7 @@ namespace Proud
 	// 격리되어 있으면 true.
 	bool CDbCacheServer2Impl::CheckIsolateDataList(Guid rootUUID)
 	{
-		//이 함수를 각 API에서 호출하는데, 나중에 병합시 추가된 API에서 놓치는 문제 존재. 
+		//이 함수를 각 API에서 호출하는데, 나중에 병합시 추가된 API에서 놓치는 문제 존재.
 		// 이 브랜치에서는 말고, 추후 다른 브랜치가 병합될 때 새로 추가된 함수가 있을 떄 주의해야 (지금은 없는 듯)
 
 
@@ -203,5 +203,4 @@ namespace Proud
 
 		return true;
 	}
-
 }

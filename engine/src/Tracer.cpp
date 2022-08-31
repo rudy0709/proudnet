@@ -65,7 +65,7 @@ namespace Proud
 		// singleton lost가 아니면 시행
 		if(p)
 			p->Trace(logCategory, s.GetString());
-		
+
 	}
 
 	// 특정 category에 대한 로그 기능을 켠다.
@@ -85,8 +85,4 @@ namespace Proud
 	{
 		// none
 	}
-
-
 }//end of namespace Proud
-
-

@@ -44,8 +44,8 @@ namespace Proud
 	intptr_t g_superSocketLastSerial = 0;
 
 	CSuperSocket::CSuperSocket(CNetCoreImpl *owner, SocketType socketType/*, CThreadPoolImpl* ownerThreadPool, AddrPort remoteAddr*/)
-        : m_tcpOnlyLastSentTime(0)
-        , m_totalIssueSendCount(0)
+		: m_tcpOnlyLastSentTime(0)
+		, m_totalIssueSendCount(0)
 		, m_totalIssueReceiveCount(0)
 		, m_firstIssueReceiveTime(0)
 		, m_firstReceiveEventTime(0)
@@ -75,7 +75,7 @@ namespace Proud
 		m_lastReceivedTime = GetPreciseCurrentTimeMs();
 		m_socketType = socketType;
 		m_timeToGarbage = 0;
-		
+
 #ifndef _WIN32
 		m_isLevelTrigger = false;
 #endif
@@ -206,94 +206,94 @@ namespace Proud
 		}
 	}
 
-	// 	// 이미 닫혀버린 socket을 다시 연다. => 제거. RestoreSocket 대신 CreateSocket(TcpSocketAddr)로 해결가능할 것이므로.
-	// 	// UDP 전용.
-	// 	bool CSuperSocket::RestoreSocket(AddrPort tcpLocalAddr/*m_main->Get_ToServerTcp()->m_localAddr가 여기 들어가야!*/)
-	// 	{
-	// 		//assert(m_ownerPeer != NULL);
-	// 		if (m_socketType != SocketType_Udp)
-	// 		{
-	// 			assert(0);
-	// 			throw Exception("Wrong CSuperSocket::RestoreSocket call!");
-	// 		}
+	//	// 이미 닫혀버린 socket을 다시 연다. => 제거. RestoreSocket 대신 CreateSocket(TcpSocketAddr)로 해결가능할 것이므로.
+	//	// UDP 전용.
+	//	bool CSuperSocket::RestoreSocket(AddrPort tcpLocalAddr/*m_main->Get_ToServerTcp()->m_localAddr가 여기 들어가야!*/)
+	//	{
+	//		//assert(m_ownerPeer != NULL);
+	//		if (m_socketType != SocketType_Udp)
+	//		{
+	//			assert(0);
+	//			throw Exception("Wrong CSuperSocket::RestoreSocket call!");
+	//		}
 	//
-	// 		m_socket->Restore(false);
-	// 		StopIoAckedToReset();
+	//		m_socket->Restore(false);
+	//		StopIoAckedToReset();
 	//
 	// #ifdef USE_DisableUdpConnResetReport
-	// 		m_socket->DisableUdpConnResetReport();
+	//		m_socket->DisableUdpConnResetReport();
 	// #endif // USE_DisableUdpConnResetReport
 	//
-	// 		// 서버와 연결되었던 TCP 소켓의 로컬 주소를 얻어서 그걸로 바인딩한다. 안그러면 로컬 NIC가 둘 이상이며 하나가 사내 네트워크 전용 따위인 경우 통신 불량이 생기기도 함.
-	// 		AddrPort udpLocalAddr = tcpLocalAddr;
-	// 		if (udpLocalAddr.m_binaryAddress == 0 || udpLocalAddr.m_binaryAddress == 0xffffffff)
-	// 		{
+	//		// 서버와 연결되었던 TCP 소켓의 로컬 주소를 얻어서 그걸로 바인딩한다. 안그러면 로컬 NIC가 둘 이상이며 하나가 사내 네트워크 전용 따위인 경우 통신 불량이 생기기도 함.
+	//		AddrPort udpLocalAddr = tcpLocalAddr;
+	//		if (udpLocalAddr.m_binaryAddress == 0 || udpLocalAddr.m_binaryAddress == 0xffffffff)
+	//		{
 	// #if defined(_WIN32)
-	// 			String text;
-	// 			text.Format(_PNT("FATAL: RestoreSocket - It should already have been TCP-Connected prior to the Creation of the UDP Socket but %s Appeared!"), udpLocalAddr.ToString());
-	// 			CErrorReporter_Indeed::Report(text);
+	//			String text;
+	//			text.Format(_PNT("FATAL: RestoreSocket - It should already have been TCP-Connected prior to the Creation of the UDP Socket but %s Appeared!"), udpLocalAddr.ToString());
+	//			CErrorReporter_Indeed::Report(text);
 	// #endif
-	// 			m_socket->CloseSocketOnly();
-	// 			m_stopIoRequested = true;
-	// 			return false;
-	// 		}
-	// 		udpLocalAddr.m_port = 0;
+	//			m_socket->CloseSocketOnly();
+	//			m_stopIoRequested = true;
+	//			return false;
+	//		}
+	//		udpLocalAddr.m_port = 0;
 	//
 	// #ifndef _WIN32 // ios,...
-	// 		m_socket->SetBlockingMode(false);
+	//		m_socket->SetBlockingMode(false);
 	// #endif // _WIN32
 	//
-	// 		if (m_socket->Bind(udpLocalAddr) != true)
-	// 		{
+	//		if (m_socket->Bind(udpLocalAddr) != true)
+	//		{
 	// #if defined(_WIN32)
-	// 			String text;
-	// 			text.Format(_PNT("RestoreSocket - Failed to Bind the UDP Local Address to %s."), udpLocalAddr.ToString());
-	// 			CErrorReporter_Indeed::Report(text);
+	//			String text;
+	//			text.Format(_PNT("RestoreSocket - Failed to Bind the UDP Local Address to %s."), udpLocalAddr.ToString());
+	//			CErrorReporter_Indeed::Report(text);
 	// #endif
-	// 			m_socket->CloseSocketOnly();
-	// 			m_stopIoRequested = true;
-	// 			return false;
-	// 		}
+	//			m_socket->CloseSocketOnly();
+	//			m_stopIoRequested = true;
+	//			return false;
+	//		}
 	//
-	// 		if (RefreshLocalAddr() != true)
-	// 		{
+	//		if (RefreshLocalAddr() != true)
+	//		{
 	// #if defined(_WIN32)
-	// 			String text;
-	// 			text.Format(_PNT("The Result of the getsockname after Binding the UDP Local Address to %s wackily appears to be %s."), udpLocalAddr.ToString(), GetLocalAddr().ToString());
-	// 			CErrorReporter_Indeed::Report(text);
-	// #endif
-	//
-	// 			m_socket->CloseSocketOnly();
-	// 			m_stopIoRequested = true;
-	// 			return false;
-	// 		}
-	//
-	// 		// IOCP혹은 KqueueContext에 역는다.
-	// 		m_socket->SetCompletionContext(this);
-	//
-	// #if defined(_WIN32)
-	// 		m_main->LockMain_AssertIsLockedByCurrentThread();
+	//			String text;
+	//			text.Format(_PNT("The Result of the getsockname after Binding the UDP Local Address to %s wackily appears to be %s."), udpLocalAddr.ToString(), GetLocalAddr().ToString());
+	//			CErrorReporter_Indeed::Report(text);
 	// #endif
 	//
+	//			m_socket->CloseSocketOnly();
+	//			m_stopIoRequested = true;
+	//			return false;
+	//		}
+	//
+	//		// IOCP혹은 KqueueContext에 역는다.
+	//		m_socket->SetCompletionContext(this);
+	//
 	// #if defined(_WIN32)
-	// 		m_main->m_manager->m_completionPort->AssociateSocket(m_socket);
+	//		m_main->LockMain_AssertIsLockedByCurrentThread();
+	// #endif
+	//
+	// #if defined(_WIN32)
+	//		m_main->m_manager->m_completionPort->AssociateSocket(m_socket);
 	// #else
-	// 		m_main->m_manager->m_reactor->AssociateSocket(m_socket);
+	//		m_main->m_manager->m_reactor->AssociateSocket(m_socket);
 	// #endif
 	//
-	// 		// socket의 send buffer를 없앤다. CSocketBuffer가 non swappable이므로 안전하다.
-	// 		// send buffer 없애기는 coalsecse, throttling을 위해 필수다.
-	// 		// recv buffer 제거는 백해무익이므로 즐
+	//		// socket의 send buffer를 없앤다. CSocketBuffer가 non swappable이므로 안전하다.
+	//		// send buffer 없애기는 coalsecse, throttling을 위해 필수다.
+	//		// recv buffer 제거는 백해무익이므로 즐
 	// #ifdef ALLOW_ZERO_COPY_SEND // zero copy send는 빠르지만 너무 많은 nonpaged를 유발 위험. 따라서 이걸로 막자. 막으니 성능도 더 나은데?
-	// 		m_socket->SetSendBufferSize(0);
+	//		m_socket->SetSendBufferSize(0);
 	// #endif // ALLOW_ZERO_COPY_SEND
-	// 		SetUdpDefaultBehavior_Client(m_socket);
+	//		SetUdpDefaultBehavior_Client(m_socket);
 	//
-	// 		// recv buffer를 크게 잡을수록 OS 부하가 커진다. 특별한 경우가 아니면 이것은 건드리지 않는 것이 좋다.
-	// 		//m_socket->SetRecvBufferSize(CNetConfig::ClientUdpRecvBufferLength);
+	//		// recv buffer를 크게 잡을수록 OS 부하가 커진다. 특별한 경우가 아니면 이것은 건드리지 않는 것이 좋다.
+	//		//m_socket->SetRecvBufferSize(CNetConfig::ClientUdpRecvBufferLength);
 	//
-	// 		return true;
-	// 	}
+	//		return true;
+	//	}
 
 	/* 더 이상 i/o 가 걸릴 수 없는 상태로 만들기를 시작한다.
 	이 함수 리턴 직후 this는 delete is safe는 아직 아니다.
@@ -328,13 +328,13 @@ namespace Proud
 #endif
 
 			/* win32에서는 이 함수는 socket close도 합니다.
-			win32에서는 이 함수는 socket close도 하기 때문에, overlapped io가 이미 진행중이었다면, 
-			completion이 반드시 오게 됩니다. 
+			win32에서는 이 함수는 socket close도 하기 때문에, overlapped io가 이미 진행중이었다면,
+			completion이 반드시 오게 됩니다.
 			따라서 아래 Working=>NotWorking 변화가 없더라도 괜찮습니다. */
 			if (m_fastSocket)
 			{
 #ifdef _DEBUG
-				assert(!m_fastSocket->IsClosedOrClosing()); 
+				assert(!m_fastSocket->IsClosedOrClosing());
 #endif
 				m_fastSocket->RequestStopIo_CloseOnWin32();
 #ifdef _WIN32
@@ -408,7 +408,7 @@ namespace Proud
 			수정 및 본 주석을 남겨 주시기 바랍니다. */
 
 		/*
-		 * 결과로 Queue에 쌓여 있는 종 량을 리턴합니다.
+		* 결과로 Queue에 쌓여 있는 종 량을 리턴합니다.
 		*/
 		CriticalSectionLock sendLock(m_sendQueueCS, true);
 
@@ -510,13 +510,13 @@ namespace Proud
 		if ( m_socketType == SocketType_Tcp )
 		{
 			AddrPort a1 = m_fastSocket->GetSockName();
-// 			AddrPort a2 = AddrPort::GetOneLocalAddress();// 서버와 연결이 아직 안되어있으면 0.0.0.0 등 식별불가 IP가 나와야 정상.
-// 
-// 			// 설정된 IP주소가 없으면, 로컬 IP 중 한개를 가져 옵니다.
-// 			if ( (a1.m_binaryAddress == 0) && (a2.m_binaryAddress != 0) )
-// 			{
-// 				a1.m_binaryAddress = a2.m_binaryAddress;
-// 			}
+//			AddrPort a2 = AddrPort::GetOneLocalAddress();// 서버와 연결이 아직 안되어있으면 0.0.0.0 등 식별불가 IP가 나와야 정상.
+//
+//			// 설정된 IP주소가 없으면, 로컬 IP 중 한개를 가져 옵니다.
+//			if ( (a1.m_binaryAddress == 0) && (a2.m_binaryAddress != 0) )
+//			{
+//				a1.m_binaryAddress = a2.m_binaryAddress;
+//			}
 
 			m_localAddr_USE_FUNCTION = a1;
 		}
@@ -577,9 +577,9 @@ namespace Proud
 			m_fastSocket->CloseSocketOnly();
 		}
 
-		// non win32에서는 NetCoreHeart의 사라짐을 검사하지, StopIoAcked 리턴값을 검사하지 않는다. 
+		// non win32에서는 NetCoreHeart의 사라짐을 검사하지, StopIoAcked 리턴값을 검사하지 않는다.
 		return true;
-#else 
+#else
 // Working이 아닌 이상 NoMoreWorkGuaranteed로 변경해 버린다.
 // 모두가 다 바뀌면 비로소 this를 없애도 된다.
 		int p1 = AtomicCompareAndSwapEnum<IoState,int32_t>(IoState_NotWorking, IoState_NoMoreWorkGuaranteed, &m_recvIssued);
@@ -588,7 +588,7 @@ namespace Proud
 		bool acked = (p1 == IoState_NotWorking || p1 == IoState_NoMoreWorkGuaranteed)
 			&& (p2 == IoState_NotWorking || p2 == IoState_NoMoreWorkGuaranteed);
 
-		// garbage 시킨 소켓이 너무 오랜동안 기다려도 처리되지 못하고 있다면 
+		// garbage 시킨 소켓이 너무 오랜동안 기다려도 처리되지 못하고 있다면
 		// 오류 로그를 출력합니다.
 		if (GetPreciseCurrentTimeMs() - m_requestStopIoTime > 6000 && !acked && !m_warnTooLongGarbage)
 		{
@@ -599,7 +599,7 @@ namespace Proud
 			ss << ", g_intrErrorCount=" << g_intrErrorCount;
 			ss << ", g_netResetErrorCount=" << g_netResetErrorCount;
 			ss << ", g_connResetErrorCount=" << g_connResetErrorCount;
-			m_owner->EnqueWarning(ErrorInfo::From(ErrorType_Unexpected, HostID_None, ss.str())); 
+			m_owner->EnqueWarning(ErrorInfo::From(ErrorType_Unexpected, HostID_None, ss.str()));
 		}
 
 		return acked;
@@ -760,7 +760,7 @@ namespace Proud
 
 				// Non-block recv 가 끝났을때 세팅 하도록 변경
 // #if !defined (_WIN32)
-// 				comp.m_receivedFrom.FromNative(m_fastSocket->GetRecvedFrom());
+//				comp.m_receivedFrom.FromNative(m_fastSocket->GetRecvedFrom());
 // #endif
 
 				String errorOut;
@@ -870,12 +870,12 @@ namespace Proud
 			output.m_detailType = ErrorType_TCPConnectFailure;
 			output.m_comment = _PNT("TCP graceful disconnect, NetClient.Disconnect() or NetServer.CloseConnection() has been called.");
 		}
-		// 		else if (StopIoRequested()) 이거를 검사하지 말자! caller가 RequestStopIo를 호출한 후 이것을 호출하기 때문이다. 이걸 검사해 버리면 아래 if구문들이 모두 무시된다.
-		// 		{
-		// 			output.m_errorType = ErrorType_DisconnectFromLocal;
-		// 			output.m_detailType = ErrorType_TCPConnectFailure;
-		// 			output.m_comment = _PNT("We stopped socket I/O already.");
-		// 		}
+		//		else if (StopIoRequested()) 이거를 검사하지 말자! caller가 RequestStopIo를 호출한 후 이것을 호출하기 때문이다. 이걸 검사해 버리면 아래 if구문들이 모두 무시된다.
+		//		{
+		//			output.m_errorType = ErrorType_DisconnectFromLocal;
+		//			output.m_detailType = ErrorType_TCPConnectFailure;
+		//			output.m_comment = _PNT("We stopped socket I/O already.");
+		//		}
 		else if (eventType == IoEventType_Receive && ioLength == 0)
 		{
 			output.m_errorType = ErrorType_DisconnectFromRemote;
@@ -966,46 +966,46 @@ namespace Proud
 	}
 
 	// remote client의, 외부 인터넷에서도 인식 가능한 TCP 연결 주소를 리턴한다.
-	// 	Proud::NamedAddrPort CSuperSocket::GetRemoteIdentifiableLocalAddr(CHostBase* rc)
-	// 	{
-	// 		GetCriticalSection().AssertIsNotLockedByCurrentThread();//mainlock만으로 진행이 가능할듯.
+	//	Proud::NamedAddrPort CSuperSocket::GetRemoteIdentifiableLocalAddr(CHostBase* rc)
+	//	{
+	//		GetCriticalSection().AssertIsNotLockedByCurrentThread();//mainlock만으로 진행이 가능할듯.
 	//
-	// 		/* 이 함수 자체는 SuperSocket의 멤버로 두지 맙시다.
-	// 			대신, CNetServer.GetRemoteIdentifiableLocalAddr(rc) 형식으로 만들어, 아래 루틴이 들어가게 합시다.
-	// 			위에 함수 설명 추가했음.
-	// 			*/
-	// 		NamedAddrPort ret = NamedAddrPort::From(m_socket->GetSockName());
-	// 		ret.OverwriteHostNameIfExists(rc->m_tcpLayer->m_socket->GetSockName().ToDottedIP());  // TCP 연결을 수용한 소켓의 주소. 가장 연결 성공률이 낮다. NIC가 두개 이상 있어도 TCP 연결을 받은 주소가 UDP 연결도 받을 수 있는 확률이 크므로 OK.
-	// 		ret.OverwriteHostNameIfExists(m_owner->m_localNicAddr); // 만약 NIC가 두개 이상 있는 서버이며 NIC 주소가 지정되어 있다면 지정된 NIC 주소를 우선 선택한다.
-	// 		ret.OverwriteHostNameIfExists(m_owner->m_serverAddrAlias); // 만약 서버용 공인 주소가 따로 있으면 그것을 우선해서 쓰도록 한다.
+	//		/* 이 함수 자체는 SuperSocket의 멤버로 두지 맙시다.
+	//			대신, CNetServer.GetRemoteIdentifiableLocalAddr(rc) 형식으로 만들어, 아래 루틴이 들어가게 합시다.
+	//			위에 함수 설명 추가했음.
+	//			*/
+	//		NamedAddrPort ret = NamedAddrPort::From(m_socket->GetSockName());
+	//		ret.OverwriteHostNameIfExists(rc->m_tcpLayer->m_socket->GetSockName().ToDottedIP());  // TCP 연결을 수용한 소켓의 주소. 가장 연결 성공률이 낮다. NIC가 두개 이상 있어도 TCP 연결을 받은 주소가 UDP 연결도 받을 수 있는 확률이 크므로 OK.
+	//		ret.OverwriteHostNameIfExists(m_owner->m_localNicAddr); // 만약 NIC가 두개 이상 있는 서버이며 NIC 주소가 지정되어 있다면 지정된 NIC 주소를 우선 선택한다.
+	//		ret.OverwriteHostNameIfExists(m_owner->m_serverAddrAlias); // 만약 서버용 공인 주소가 따로 있으면 그것을 우선해서 쓰도록 한다.
 	//
-	// 		if (!ret.IsUnicastEndpoint())
-	// 		{
-	// 			//assert(0); // 드물지만 있더라. 어쨌거나 어설션 즐
-	// 			ret.m_addr = StringW2A(CNetUtil::GetOneLocalAddress());
-	// 		}
+	//		if (!ret.IsUnicastEndpoint())
+	//		{
+	//			//assert(0); // 드물지만 있더라. 어쨌거나 어설션 즐
+	//			ret.m_addr = StringW2A(CNetUtil::GetOneLocalAddress());
+	//		}
 	//
-	// 		return ret;
-	// 	}
+	//		return ret;
+	//	}
 
 
 
 	// 이 함수는 제거합시다. 즉 이번 버전에서는 이 함수를 필요로 하는 기능이 모두 제거되어야 합니다.
 	// 물론 MessageType_RequestReceiveSpeedAtReceiverSide_NoRelay 정의 자체는 하위호환성을 위해 제거하면 안되고요.
 	// 씨드나인 버전 준 후에 R2.2의 혼잡제어 기능 구현을 여기로 가져옴으로 이 기능을 대체합시다.
-	// 	void CSuperSocket::RequestReceiveSpeedAtReceiverSide_NoRelay(AddrPort dest)
-	// 	{
-	// 		// 소켓이 공유되고 있으므로 적절한 dest를 찾아서 쏨
-	// 		CMessage sendMsg; sendMsg.UseInternalBuffer(); // UseInternalBuffer가 obj-pool을 쓰므로 서버 실행 시간이 길어질수록 realloc 낭비가 줄어들게 됨.
-	// 		Message_Write(sendMsg, MessageType_RequestReceiveSpeedAtReceiverSide_NoRelay);
+	//	void CSuperSocket::RequestReceiveSpeedAtReceiverSide_NoRelay(AddrPort dest)
+	//	{
+	//		// 소켓이 공유되고 있으므로 적절한 dest를 찾아서 쏨
+	//		CMessage sendMsg; sendMsg.UseInternalBuffer(); // UseInternalBuffer가 obj-pool을 쓰므로 서버 실행 시간이 길어질수록 realloc 낭비가 줄어들게 됨.
+	//		Message_Write(sendMsg, MessageType_RequestReceiveSpeedAtReceiverSide_NoRelay);
 	//
-	// 		// 서버측에서의 UDP 수신 속도를 요청한다.
-	// 		AddToSendQueueWithSplitterAndSignal_Copy(HostID_None,
-	// 			FilterTag::CreateFilterTag(HostID_Server, HostID_None),
-	// 			dest,
-	// 			sendMsg,
-	// 			SendOpt(MessagePriority_Ring1, true));
-	// 	}
+	//		// 서버측에서의 UDP 수신 속도를 요청한다.
+	//		AddToSendQueueWithSplitterAndSignal_Copy(HostID_None,
+	//			FilterTag::CreateFilterTag(HostID_Server, HostID_None),
+	//			dest,
+	//			sendMsg,
+	//			SendOpt(MessagePriority_Ring1, true));
+	//	}
 
 	int CSuperSocket::GetMessageMaxLength()
 	{
@@ -1152,5 +1152,4 @@ namespace Proud
 	int64_t CSuperSocket::m_firstReceiveDelay_TotalCount = 0;
 	int64_t CSuperSocket::m_firstReceiveDelay_MaxValue = 0;
 	int64_t CSuperSocket::m_firstReceiveDelay_MinValue = 1000000000;
-
 }

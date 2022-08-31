@@ -13,9 +13,9 @@
 #include <new>
 
 #if defined(_WIN32)
-    #include <process.h>
+	#include <process.h>
 #else
-    #include <errno.h>
+	#include <errno.h>
 #endif
 
 #include "../include/FakeClrBase.h"
@@ -35,11 +35,11 @@ namespace Proud
 	따라서 이렇게 해서, 잘못된 버전을 건드리게 되면 link error가 나게 만들었다.
 	*/
 	volatile int PROUDNET_H_LIB_SIGNATURE = 0;
-    
+
 	Guid Guid::RandomGuid()
 	{
 		CriticalSectionLock lock(g_guid_random_CS,true);
-        
+
 		return g_guid_random.NextGuid();
 	}
 

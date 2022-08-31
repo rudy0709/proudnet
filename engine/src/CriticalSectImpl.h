@@ -20,7 +20,7 @@ namespace Proud
 		// 윈도에서는 당연히 이거
 		CRITICAL_SECTION m_cs;
 
-		// ikpil.choi 2016-11-02 - 크리티컬 색션이 이상해 지는 버그가 있어, 다른 영역 힙에 올려봅니다.	
+		// ikpil.choi 2016-11-02 - 크리티컬 색션이 이상해 지는 버그가 있어, 다른 영역 힙에 올려봅니다.
 		DECLARE_NEW_AND_DELETE_THROWABLE
 #endif
 	};
@@ -131,4 +131,3 @@ namespace Proud
 }
 
 #include "CriticalSect.inl"
-

@@ -352,6 +352,4 @@ namespace Proud
 
 		return blockEvent->m_success;
 	}
-
 }
-

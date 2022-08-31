@@ -3,10 +3,8 @@
 
 namespace Proud
 {
-
-
 	CDefaultStringEncoder::CDefaultStringEncoder()
-	{		
+	{
 		const char* srcCodepage;
 		const char* destCodepage;
 

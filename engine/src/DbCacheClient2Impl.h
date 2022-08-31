@@ -57,7 +57,7 @@ namespace Proud
 		// 언로드 요청을 각 세션별로 관리하기 위한 맵 (key = Session)
 		typedef CFastMap2<Guid, RequestedTimeQueue, int> UnloadRequests;
 	private:
-		// 서버로부터 Unload요청을 받았을 때 
+		// 서버로부터 Unload요청을 받았을 때
 		// 사용자가 그에 대한 처리를 했는지 여부를 확인하기 위해 추가된 정보.
 		//  - 메인락으로 보호한다.
 		//  - 서버로부터 Unload요청을 받을 때 삽입 (NotifyDataUnloadRequested)
@@ -190,8 +190,8 @@ namespace Proud
 		DECRMI_DB2S2C_NotifyLoadDataComplete;
 
 		DECRMI_DB2S2C_NotifyDataUnloadRequested;
-		// 		DECRMI_DB2S2C_NotifyDataUnloadRequestedList;
-		// 		DECRMI_DB2S2C_NotifyDataUnloadRequestedListCommonMessage;
+		//		DECRMI_DB2S2C_NotifyDataUnloadRequestedList;
+		//		DECRMI_DB2S2C_NotifyDataUnloadRequestedListCommonMessage;
 
 		DECRMI_DB2S2C_NotifyAddDataFailed;
 		DECRMI_DB2S2C_NotifyAddDataSuccess;
@@ -238,6 +238,5 @@ namespace Proud
 
 	private:
 		bool IsCurrentThreadUserWorker();
-
 	};
 }

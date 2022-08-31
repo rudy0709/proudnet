@@ -1,4 +1,4 @@
-﻿/* 
+﻿/*
 ProudNet
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -10,11 +10,11 @@ ProudNet
 
 ProudNet
 
-This program is soley copyrighted by Nettention. 
+This program is soley copyrighted by Nettention.
 Any use, correction, and distribution of this program are subject to the terms and conditions of the License Agreement.
 Any violated use of this program is prohibited and will be cause of immediate termination according to the License Agreement.
 
-** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE. 
+** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE.
 
 */
 
@@ -46,7 +46,7 @@ namespace Proud
 		int Putc(const PNTCHAR c);
 		void Flush();
 	};
-	// 소멸자에서 Close를 하기 때문에 레퍼런스 카운팅이 필요함 
+	// 소멸자에서 Close를 하기 때문에 레퍼런스 카운팅이 필요함
 	typedef RefCount<CFileWrapper> CFileWrapperPtr;
 
 	class CLogWriterImpl:public CLogWriter

@@ -96,10 +96,10 @@ namespace Proud
 		m_dg->OnFrameMove();
 	}
 
-	// 	float CEmergencyLogServerImpl::GetElapsedTime()
-	// 	{
-	// 		return m_elapsedTime;
-	// 	}
+	//	float CEmergencyLogServerImpl::GetElapsedTime()
+	//	{
+	//		return m_elapsedTime;
+	//	}
 
 	void CEmergencyLogServerImpl::OnClientJoin(CNetClientInfo *clientInfo)
 	{
@@ -321,7 +321,7 @@ namespace Proud
 
 			if (logData.m_function.IsEmpty())
 			{
-				// Non-Use Function / Line		
+				// Non-Use Function / Line
 				text.Format(_PNT("%s: %d / %s(%d): %s\r\n"), addedDateAndTime,
 					logData.m_logLevel,
 					ToString(logData.m_logCategory),
@@ -330,7 +330,7 @@ namespace Proud
 			}
 			else
 			{
-				// Use Function / Line 
+				// Use Function / Line
 				text.Format(_PNT("%s: %d / %s(%d): %s {%s(%d)}\r\n"), addedDateAndTime,
 					logData.m_logLevel,
 					ToString(logData.m_logCategory),
@@ -340,12 +340,12 @@ namespace Proud
 					logData.m_line);
 			}
 
-			// 			text.Format(_PNT("%s | %s | %s | LogCategory:%d Log:%s\r\n"), 
-			// 				(const PNTCHAR*)CTime((*it).m_addedTime).Format(_PNT("%m/%d/%Y, %H:%M:%S (T0+0ms)")),
-			// 				_PNT("LOG"),
-			// 				_PNT("proudnet.clientinfo.emergencylog"),
-			// 				(*it).m_logCategory,
-			// 				(*it).m_text);
+			//			text.Format(_PNT("%s | %s | %s | LogCategory:%d Log:%s\r\n"),
+			//				(const PNTCHAR*)CTime((*it).m_addedTime).Format(_PNT("%m/%d/%Y, %H:%M:%S (T0+0ms)")),
+			//				_PNT("LOG"),
+			//				_PNT("proudnet.clientinfo.emergencylog"),
+			//				(*it).m_logCategory,
+			//				(*it).m_text);
 
 			m_logFile << text;
 		}

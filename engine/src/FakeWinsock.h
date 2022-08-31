@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #if !defined(_WIN32)
 
@@ -31,10 +31,9 @@
 
 #define WSAENOTCONN ENOTCONN
 
-namespace Proud 
+namespace Proud
 {
 	inline uint32_t WSAGetLastError() { return errno; }
 }
 
 #endif
-

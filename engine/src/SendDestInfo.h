@@ -1,11 +1,11 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "../include/AddrPort.h"
 
 namespace Proud
 {
 	using namespace std;
-	
+
 	class ISendDest;
 	class IHostObject;
 	class CHostBase;
@@ -43,7 +43,6 @@ namespace Proud
 
 	// NOTE: 자주 로컬 변수로 사용되므로 Proud.CPooledArrayObjectAsLocalVar를 통해 사용하자.
 	class SendDestInfoArray : public CFastArray < SendDestInfo, true, false, int > {};
-	
-	class SendDestInfoPtrArray : public CFastArray<SendDestInfo*, false, true, int> {};
 
+	class SendDestInfoPtrArray : public CFastArray<SendDestInfo*, false, true, int> {};
 }

@@ -12,13 +12,11 @@
 #include <new>
 #include "../include/FastArray.h"
 
-namespace Proud 
+namespace Proud
 {
 #ifdef ENABLE_REHASH_COUNT
 	volatile int32_t FastMap_RehashCount = 0;
 #else
 	int alal = 0; // LNK4221예방
 #endif // ENABLE_REHASH_COUNT
-
-
 }

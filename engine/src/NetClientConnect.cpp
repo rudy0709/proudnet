@@ -23,12 +23,12 @@ namespace Proud
 		// 파라메터 정당성 체크
 		// m_serverIP로 ipv4 literal + 도메인 주소를 입력받기 떄문에 아래 조건 검사에 대한 부분을 재고해야 합니다.
 		// => 이 코드가 있어야 할 이유가 없음. 따라서 제거.
-// 		if (CNetUtil::IsAddressUnspecified(param.m_serverIP)
-// 			|| CNetUtil::IsAddressAny(param.m_serverIP)
-// 			|| param.m_serverPort == 0)
-// 		{
-// 			throw Exception(ErrorInfo::TypeToString(ErrorType_UnknownAddrPort));
-// 		}
+//		if (CNetUtil::IsAddressUnspecified(param.m_serverIP)
+//			|| CNetUtil::IsAddressAny(param.m_serverIP)
+//			|| param.m_serverPort == 0)
+//		{
+//			throw Exception(ErrorInfo::TypeToString(ErrorType_UnknownAddrPort));
+//		}
 
 		// UDP port pool에 잘못된 값이나 중복된 값이 있으면 에러 처리
 		for (int i = 0; i < param.m_localUdpPortPool.GetCount(); i++)
@@ -54,13 +54,13 @@ namespace Proud
 			m_unusedUdpPorts.Add((uint16_t)param.m_localUdpPortPool[i]);
 		}
 
-// 		CFastArray<int> udpPortPool = param.m_localUdpPortPool; // copy
-// 		UnionDuplicates<CFastArray<int>, int, intptr_t >(udpPortPool);
-// 		if (udpPortPool.GetCount() != param.m_localUdpPortPool.GetCount())
-// 		{
-// 			// 길이가 다름 => 중복된 값이 있었음
-// 			throw Exception(ErrorInfo::TypeToString(ErrorType_InvalidPortPool));
-// 		}
+//		CFastArray<int> udpPortPool = param.m_localUdpPortPool; // copy
+//		UnionDuplicates<CFastArray<int>, int, intptr_t >(udpPortPool);
+//		if (udpPortPool.GetCount() != param.m_localUdpPortPool.GetCount())
+//		{
+//			// 길이가 다름 => 중복된 값이 있었음
+//			throw Exception(ErrorInfo::TypeToString(ErrorType_InvalidPortPool));
+//		}
 	}
 
 	// ErrorInfoPtr을 따로 주지 않는 레거시 함수
@@ -121,7 +121,7 @@ namespace Proud
 		if (m_connectionParam.m_closeNoPingPongTcpConnections == false)
 		{
 			// 하위호환성때문에 false이지만, 사용자에게는 true로 세팅함을 권고한다.
-			EnqueWarning(ErrorInfo::From(ErrorType_Ok, HostID_None, 
+			EnqueWarning(ErrorInfo::From(ErrorType_Ok, HostID_None,
 				_PNT("It is recommended to set closeNoPingPongTcpConnections to FALSE. For details, check out closeNoPingPongTcpConnections documentation.")));
 		}
 
@@ -149,12 +149,12 @@ namespace Proud
 
 		AtomicIncrement32(&m_connectCount);
 
-		// 		CServerConnectionState cs;
-		// 		ConnectionState retcs = GetServerConnectionState(cs);
-		// 		if ( retcs != ConnectionState_Disconnected)
-		// 		{
-		// 			throw Exception(_PNT("Wrong state(%s)! Disconnect() or GetServerConnectionState() may be required."), ToString(retcs));
-		// 		}
+		//		CServerConnectionState cs;
+		//		ConnectionState retcs = GetServerConnectionState(cs);
+		//		if ( retcs != ConnectionState_Disconnected)
+		//		{
+		//			throw Exception(_PNT("Wrong state(%s)! Disconnect() or GetServerConnectionState() may be required."), ToString(retcs));
+		//		}
 		SetTimerCallbackParameter(param.m_timerCallbackIntervalMs, param.m_timerCallbackParallelMaxCount, param.m_timerCallbackContext);
 
 		assert(m_sendReadyList == nullptr);
@@ -349,14 +349,14 @@ namespace Proud
 
 		// heartbeat과 coalesce send를 일으키는 event push를 일정 시간마다 일어나게 한다.
 // #if 0
-// 		if (m_periodicPoster_Heartbeat == nullptr)
-// 		{
-// 			m_periodicPoster_Heartbeat.Attach(new CThreadPoolPeriodicPoster(
-// 				this,
-// 				CustomValueEvent_Heartbeat,
-// 				m_netThreadPool,
-// 				CNetConfig::HeartbeatIntervalMs));
-// 		}
+//		if (m_periodicPoster_Heartbeat == nullptr)
+//		{
+//			m_periodicPoster_Heartbeat.Attach(new CThreadPoolPeriodicPoster(
+//				this,
+//				CustomValueEvent_Heartbeat,
+//				m_netThreadPool,
+//				CNetConfig::HeartbeatIntervalMs));
+//		}
 // #endif
 		if (m_periodicPoster_GarbageCollectInterval == nullptr)
 		{
@@ -367,14 +367,14 @@ namespace Proud
 				CNetConfig::GarbageCollectIntervalMs));
 		}
 // #if 0
-// 		if (m_periodicPoster_SendEnqueued == nullptr)
-// 		{
-// 			m_periodicPoster_SendEnqueued.Attach(new CThreadPoolPeriodicPoster(
-// 				this,
-// 				CustomValueEvent_SendEnqueued,
-// 				m_netThreadPool,
-// 				CNetConfig::EveryRemoteIssueSendOnNeedIntervalMs));
-// 		}
+//		if (m_periodicPoster_SendEnqueued == nullptr)
+//		{
+//			m_periodicPoster_SendEnqueued.Attach(new CThreadPoolPeriodicPoster(
+//				this,
+//				CustomValueEvent_SendEnqueued,
+//				m_netThreadPool,
+//				CNetConfig::EveryRemoteIssueSendOnNeedIntervalMs));
+//		}
 // #endif
 
 		if (m_timerCallbackInterval > 0)
@@ -414,9 +414,9 @@ namespace Proud
 
 		CriticalSectionLock phaseLock(m_connectDisconnectFramePhaseLock, true);
 
-		// 		// 드물지만 CNetClientManager가 먼저 이미 파괴된 경우라면 프로세스 종료 상황이겠다. 이럴 때는 이 함수는 즉시 리턴한다.
-		// 		if(!m_manager->m_cs.IsValid())
-		// 			goto LEXIT;
+		//		// 드물지만 CNetClientManager가 먼저 이미 파괴된 경우라면 프로세스 종료 상황이겠다. 이럴 때는 이 함수는 즉시 리턴한다.
+		//		if(!m_manager->m_cs.IsValid())
+		//			goto LEXIT;
 		//
 
 		m_HolsterMoreCallbackUntilNextProcessCall_flagged = false;
@@ -426,15 +426,15 @@ namespace Proud
 
 		/* user thread pool callback에서 실행되는 경우, 스레드풀 종료를 기다릴 수 없으므로 그냥 나간다.
 		Q: 그러면 user thread pool은 언제 정리되나요? 즉 이 아래 코드의 실행은 언제?
-		A: ~CNetClientImpl()에서 Disconnect()가 또 호출되는데, 그때 파괴됩니다. 단, delete를 user thread pool에서 하면 안되죠. 
-		
+		A: ~CNetClientImpl()에서 Disconnect()가 또 호출되는데, 그때 파괴됩니다. 단, delete를 user thread pool에서 하면 안되죠.
+
 		Q: single thread mode 즉 사용자가 FrameMove를 호출하는 형태이면, 아래 코드는 언제 실행되나요?
 		A: FrameMove 함수 실행 중에 사용자가 Disconnect를 호출했던 상황입니다. FrameMove에서는 그러한 상황임을 감지하면 아래 코드를 실행합니다.
 		*/
 		if (CurrentThreadIsRunningUserCallback())
 		{
 			// #NetClientDisconnectOnCallback
-			// NOTE: 예전에는, 여기서 throw를 했다. 하지만 많은 사용자는 RMI 즉 user callback 안에서 
+			// NOTE: 예전에는, 여기서 throw를 했다. 하지만 많은 사용자는 RMI 즉 user callback 안에서
 			// Disconnect를 호출하는 경향이 많다.
 			// 따라서 여기서 throw를 하지 말고, FrameMove 함수 끝자락에서 아래 코드를 실행하자.
 			// 여기서는 그냥 나가도 된다. 이미 DisconnectAsync에서 "이미 DisconnectAsync를 호출했었음"이 mark되었고
@@ -669,7 +669,7 @@ namespace Proud
 		:
 		m_ReliablePing_Timer(CNetConfig::DefaultNoPingTimeoutTimeMs), // 어차피 이 인터벌은 중간에 바뀜.
 		//		m_isProcessingHeartbeat(0),
-        m_addedToClientInstanceCount(false),
+		m_addedToClientInstanceCount(false),
 		m_enablePingTestEndTime(0),
 		m_disconnectCallTime(0),
 		m_RemoveTooOldUdpSendPacketQueueOnNeed_Timer(CNetConfig::LongIntervalMs),
@@ -705,7 +705,7 @@ namespace Proud
 		m_lastFrameMoveInvokedTime = 0;
 		m_disconnectInvokeCount = m_connectCount = 0;
 		m_toServerUdpSendCount = 0;
-		
+
 		Reset_ReportUdpCountTime_timeToDo();
 
 		m_selfP2PSessionKey = shared_ptr<CSessionKey>(new CSessionKey);
@@ -721,7 +721,7 @@ namespace Proud
 		AttachProxy(&m_c2sProxy);
 		AttachStub(&m_s2cStub);
 		AttachStub(&m_c2cStub);
-		
+
 
 		m_c2cStub.m_owner = this;
 		m_s2cStub.m_owner = this;
@@ -1031,19 +1031,19 @@ namespace Proud
 
 		return ConnectionState_Disconnected;
 
-		// 		if(GetVolatileLocalHostID() != HostID_None)
-		// 		{
-		// 			output.m_realUdpEnabled = m_ToServerUdp_fallbackable != nullptr ? m_ToServerUdp_fallbackable->IsRealUdpEnabled() : false;
-		// 			return ConnectionState_Connected;
-		// 		}
-		// 		else if (m_ToServerTcp != nullptr && Get_ToServerTcp()->m_socket != nullptr && Get_ToServerTcp()->m_socket->IsSocketEmpty() == false)
-		// 		{
-		// 			return ConnectionState_Connecting;
-		// 		}
-		// 		else
-		// 		{
-		// 			return ConnectionState_Disconnected;
-		// 		}
+		//		if(GetVolatileLocalHostID() != HostID_None)
+		//		{
+		//			output.m_realUdpEnabled = m_ToServerUdp_fallbackable != nullptr ? m_ToServerUdp_fallbackable->IsRealUdpEnabled() : false;
+		//			return ConnectionState_Connected;
+		//		}
+		//		else if (m_ToServerTcp != nullptr && Get_ToServerTcp()->m_socket != nullptr && Get_ToServerTcp()->m_socket->IsSocketEmpty() == false)
+		//		{
+		//			return ConnectionState_Connecting;
+		//		}
+		//		else
+		//		{
+		//			return ConnectionState_Disconnected;
+		//		}
 	}
 
 
@@ -1142,11 +1142,11 @@ namespace Proud
 
 		//FinalUserWorkItemList_RemoveReceivedMessagesOnly(); // 몽땅 지우면 안됨. CNetClient.Disconnect 콜 후에도 CNetClient.FrameMove 콜 시 디스에 대한 콜백이 있어야 하니까.
 
-		// 		if(m_timer != nullptr)
-		// 		{
-		// 			m_timer->Stop();
-		// 			m_timer.Free();
-		// 		}
+		//		if(m_timer != nullptr)
+		//		{
+		//			m_timer->Stop();
+		//			m_timer.Free();
+		//		}
 
 		m_lastFrameMoveInvokedTime = 0;
 		//m_remotePeers.Clear();
@@ -1170,7 +1170,7 @@ namespace Proud
 		// 디버거로 Disconnect 끝자락에서 미정리된 변수들이 발견되어, 여기서 추가로 그것들을 청소.
 		m_ReliablePing_Timer.Reset(GetPreciseCurrentTimeMs());
 		m_toServerUdpSendCount = 0;
-		
+
 		Reset_ReportUdpCountTime_timeToDo();
 
 		m_ioPendingCount = 0;
@@ -1271,8 +1271,8 @@ namespace Proud
 		if (m_virtualSpeedHackMultiplication != 1)
 			return false;
 
-		// 		if(m_ToServerTcp->m_lastReceivedTime != 0)
-		// 			return false;
+		//		if(m_ToServerTcp->m_lastReceivedTime != 0)
+		//			return false;
 
 		if (m_lastTcpStreamReceivedTime != 0)
 			return false;
@@ -1280,5 +1280,4 @@ namespace Proud
 		return true;
 	}
 #endif
-
 }

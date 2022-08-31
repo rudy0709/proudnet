@@ -54,7 +54,7 @@ namespace Proud
 	public:
 		int64_t m_issueConnectStartTimeMs;	// issue connect를 처음 시작한 시간. 연결 중일때만 유효한 값이다.
 
-		volatile int m_DisconnectingModeHeartbeatCount;		
+		volatile int m_DisconnectingModeHeartbeatCount;
 		volatile int64_t m_DisconnectingModeStartTime;
 		volatile bool m_DisconnectingModeWarned;
 	private:
@@ -70,12 +70,12 @@ namespace Proud
 		enum State
 		{
 			// 아래enum들은 순서 지켜야!
-			IssueConnect, // connect함수를 막 호출해야 하는 상황
-			Connecting, // 연결 완료를 기다리는 중
-			JustConnected, // 연결 완료가 막 된 첫 1회
-			Connected,			 // 연결 되어 있는 상태. 즉 통상 통신하고 있는 상황. 가장 오랜 상태가 이 상태이다.
-			Disconnecting, // 연결 해제를 걸어 놓고 모든 i/o 처리 등이 끝날 때까지 기다리는 중
-			Disconnected, // 연결 해제가 모두 되어서 NetClient를 delete해도 되는 상황
+			IssueConnect,	// connect함수를 막 호출해야 하는 상황
+			Connecting,		// 연결 완료를 기다리는 중
+			JustConnected,	// 연결 완료가 막 된 첫 1회
+			Connected,		// 연결 되어 있는 상태. 즉 통상 통신하고 있는 상황. 가장 오랜 상태가 이 상태이다.
+			Disconnecting,	// 연결 해제를 걸어 놓고 모든 i/o 처리 등이 끝날 때까지 기다리는 중
+			Disconnected,	// 연결 해제가 모두 되어서 NetClient를 delete해도 되는 상황
 		};
 	private:
 		// 현재 상태 값.
@@ -137,6 +137,4 @@ namespace Proud
 	};
 
 	typedef RefCount<CNetClientWorker> CNetClientWorkerPtr;
-
-
 }

@@ -25,7 +25,7 @@ namespace Proud
 
 	// P2P reliable 통신을 위한 객체
 	// TODO: 굳이 분리할 필요는 없다. ReliableUdpHost와 합쳐버리자.
-	class CRemotePeerReliableUdp 
+	class CRemotePeerReliableUdp
 	{
 	public:
 		CHeldPtr<ReliableUdpHost> m_host;
@@ -46,7 +46,6 @@ namespace Proud
 		HostID TEST_GetHostID();
 
 		bool IsReliableChannel();
-// 		virtual int GetRecentUnreliablePingMs();
+//		virtual int GetRecentUnreliablePingMs();
 	};
-
 }

@@ -26,7 +26,7 @@ namespace Proud
 {
 	class CDbCacheServer2Impl;
 	struct SaveToDbmsContext;
-	
+
 
 	class CDBCacheWorker;
 	class CDbCacheJobQueue;
@@ -66,7 +66,7 @@ namespace Proud
 		bool m_allowNonExclusiveAccess;
 
 		// 격리 요청한 클라이언트가 종료 할 때 격리를 해제 할 것인지 여부 (기본 true)
-		bool m_autoDeisolateData; 
+		bool m_autoDeisolateData;
 
 		//volatile  int64_t m_cachedServerTime;
 
@@ -194,35 +194,35 @@ namespace Proud
 			);
 
 		DECRMI_DB2C2S_RequestDbCacheClientLogon;
-		
+
 		DECRMI_DB2C2S_RequestExclusiveLoadDataByFieldNameAndValue;
 		bool RequestExclusiveLoadDataByFieldNameAndValue_Core(
-			Proud::HostID remote, 
-			Proud::RmiContext &rmiContext, 
-			const Proud::String &rootTableName, 
-			const Proud::String &fieldName, 
-			const Proud::CVariant &cmpValue, 
-			const int64_t& tag, 
+			Proud::HostID remote,
+			Proud::RmiContext &rmiContext,
+			const Proud::String &rootTableName,
+			const Proud::String &fieldName,
+			const Proud::CVariant &cmpValue,
+			const int64_t& tag,
 			const Proud::ByteArray &message
 			);
 
 		DECRMI_DB2C2S_RequestExclusiveLoadDataByGuid;
 		bool RequestExclusiveLoadDataByGuid_Core(
-			Proud::HostID remote, 
-			Proud::RmiContext &rmiContext, 
-			const Proud::String &rootTableName, 
-			const Proud::Guid &rootUUID, 
-			const int64_t& tag, 
+			Proud::HostID remote,
+			Proud::RmiContext &rmiContext,
+			const Proud::String &rootTableName,
+			const Proud::Guid &rootUUID,
+			const int64_t& tag,
 			const Proud::ByteArray &message
 			);
 
 		DECRMI_DB2C2S_RequestExclusiveLoadDataByQuery;
 		bool RequestExclusiveLoadDataByQuery_Core(
-			Proud::HostID remote, 
-			Proud::RmiContext &rmiContext, 
-			const Proud::String &rootTableName, 
-			const Proud::String &queryStirng, 
-			const int64_t& tag, 
+			Proud::HostID remote,
+			Proud::RmiContext &rmiContext,
+			const Proud::String &rootTableName,
+			const Proud::String &queryStirng,
+			const int64_t& tag,
 			const Proud::ByteArray &message
 			);
 
@@ -261,9 +261,9 @@ namespace Proud
 		CDbRemoteClientPtr_S GetRemoteClientByHostID(HostID clientID);
 		CDbRemoteClientPtr_S GetAuthedRemoteClientByHostID(HostID clientID);
 
-		 void RegisterLoadedData(CLoadedData2Ptr_S& loadedData);
-		 void RegisterLoadedData(
-			CLoadedData2Ptr_S& loadedData, 
+		void RegisterLoadedData(CLoadedData2Ptr_S& loadedData);
+		void RegisterLoadedData(
+			CLoadedData2Ptr_S& loadedData,
 			HostID requester,
 			const Guid& sessionGuid
 		);
@@ -356,13 +356,13 @@ namespace Proud
 		Proud::ByteArray message;
 
 		RequestExclusiveLoadDataByFieldNameAndValue_Param(
-			CDbCacheServer2Impl* server, 
-			Proud::HostID remote, 
-			Proud::RmiContext &rmiContext, 
-			const Proud::String &rootTableName, 
-			const Proud::String &fieldName, 
-			const Proud::CVariant &cmpValue, 
-			const int64_t& tag, 
+			CDbCacheServer2Impl* server,
+			Proud::HostID remote,
+			Proud::RmiContext &rmiContext,
+			const Proud::String &rootTableName,
+			const Proud::String &fieldName,
+			const Proud::CVariant &cmpValue,
+			const int64_t& tag,
 			const Proud::ByteArray &message
 			)
 			:CAsyncWork(server->m_asyncLoadWorks)
@@ -393,12 +393,12 @@ namespace Proud
 		Proud::ByteArray message;
 
 		RequestExclusiveLoadDataByGuid_Param(
-			CDbCacheServer2Impl* server, 
-			Proud::HostID remote, 
-			Proud::RmiContext &rmiContext, 
-			const Proud::String &rootTableName, 
-			const Proud::Guid &rootUUID, 
-			const int64_t& tag, 
+			CDbCacheServer2Impl* server,
+			Proud::HostID remote,
+			Proud::RmiContext &rmiContext,
+			const Proud::String &rootTableName,
+			const Proud::Guid &rootUUID,
+			const int64_t& tag,
 			const Proud::ByteArray &message
 			)
 			:CAsyncWork(server->m_asyncLoadWorks)
@@ -429,12 +429,12 @@ namespace Proud
 		Proud::ByteArray message;
 
 		RequestExclusiveLoadDataByQuery_Param(
-			CDbCacheServer2Impl* server, 
-			Proud::HostID remote, 
-			Proud::RmiContext &rmiContext, 
-			const Proud::String &rootTableName, 
-			const Proud::String &queryString, 
-			const int64_t& tag, 
+			CDbCacheServer2Impl* server,
+			Proud::HostID remote,
+			Proud::RmiContext &rmiContext,
+			const Proud::String &rootTableName,
+			const Proud::String &queryString,
+			const int64_t& tag,
 			const Proud::ByteArray &message
 			)
 			:CAsyncWork(server->m_asyncLoadWorks)
@@ -464,11 +464,11 @@ namespace Proud
 		bool transaction;
 
 		RequestExclusiveLoadNewData_Param(
-			CDbCacheServer2Impl* server, 
-			Proud::HostID remote, 
-			Proud::RmiContext &rmiContext, 
-			const Proud::String &rootTableName, 
-			const Proud::ByteArray &addDataBlock, 
+			CDbCacheServer2Impl* server,
+			Proud::HostID remote,
+			Proud::RmiContext &rmiContext,
+			const Proud::String &rootTableName,
+			const Proud::ByteArray &addDataBlock,
 			const int64_t& tag,
 			const bool transaction
 			)
@@ -500,7 +500,7 @@ namespace Proud
 			if (ret != 0)
 				return ret;
 
-			// DB 종류에 따라 비교 방법이 다르다.			
+			// DB 종류에 따라 비교 방법이 다르다.
 			if (m_dbmsType == MySql)
 			{
 				// 그냥 쌩 비교를 한다.
@@ -522,5 +522,4 @@ namespace Proud
 			}
 		}
 	};
-
 }

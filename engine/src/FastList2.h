@@ -903,8 +903,8 @@ namespace Proud
 					node = node->m_pNext;
 				}
 				// non-empty list
-				// 		assert(AtlIsValidAddress(m_pHead, sizeof(CNode)));
-				// 		assert(AtlIsValidAddress(m_pTail, sizeof(CNode)));
+				//		assert(AtlIsValidAddress(m_pHead, sizeof(CNode)));
+				//		assert(AtlIsValidAddress(m_pTail, sizeof(CNode)));
 			}
 		}
 
@@ -1234,5 +1234,4 @@ namespace Proud
 		}
 		void OnRecycle() {}
 	};
-
 }

@@ -77,13 +77,13 @@ namespace Proud
 
 		void CreateViewer( IHlaViewer_S * rc );
 		void DestroyViewer( IHlaViewer_S * rc );
-		
+
 		CHlaSpace_S* HlaCreateSpace();
 		void HlaDestroySpace(CHlaSpace_S* space);
 
 		CHlaEntity_S* HlaCreateEntity(HlaClassID classID);
 		void HlaDestroyEntity(CHlaEntity_S* Entity);
-	
+
 		void HlaViewSpace(HostID viewerID, CHlaSpace_S* space, double levelOfDetail);
 		void HlaUnviewSpace(HostID viewerID, CHlaSpace_S* space);
 		void EntityMoveToSpace( CHlaEntity_S* entity, CHlaSpace_S* space );

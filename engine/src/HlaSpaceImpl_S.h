@@ -27,5 +27,4 @@ namespace Proud
 			assert(m_viewers.empty());
 		}
 	};
-
 }

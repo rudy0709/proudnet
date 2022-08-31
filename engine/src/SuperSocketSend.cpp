@@ -33,8 +33,8 @@ namespace Proud
 
 	Q: shared_from_this 냅두고 왜 this에 대한 shared_ptr을 따로 인자로 받나요?
 	A: code profile 결과 shared_from_this에 의한 성능 하락이 커서입니다.
-	shared_from_this를 얻어올 때 atomic inc가 발생합니다. 
-	하지만 caller에서 이미 this를 액세스하기 전에 this에 대한 shared_ptr가 있었습니다. 
+	shared_from_this를 얻어올 때 atomic inc가 발생합니다.
+	하지만 caller에서 이미 this를 액세스하기 전에 this에 대한 shared_ptr가 있었습니다.
 	따라서 atomic inc를 피할 수 있습니다. 이렇게요. */
 	void CSuperSocket::AddToSendQueueWithoutSplitterAndSignal_Copy(
 		const shared_ptr<CSuperSocket>& param_shared_from_this,  // [1]
@@ -59,7 +59,7 @@ namespace Proud
 		CriticalSectionLock sendLock(m_sendQueueCS, true);
 		m_sendQueue_needSendLock->PushBack_Copy(sendData, SendOpt());
 
-		// TCP는 항상 
+		// TCP는 항상
 			m_owner->SendReadyList_Add(param_shared_from_this, m_forceImmediateSend);
 
 			m_tcpOnlyLastSentTime = GetPreciseCurrentTimeMs();
@@ -69,8 +69,8 @@ namespace Proud
 	/* TCP 전용.
 	AMR 기능이 내장되어 있다. AMR이 활성화되어 있으면 AMR 내 수신미보장 부분에 splitter가 들어간 메시지를 넣는다.
 	인자로 주어진 송신 payload는 사본이 떠져서 send queue에 들어간다.
-	ACR 과정이 진행중이고 메인 socket이 close된 상태이면 수신미보장 부분에 들어가기만 한다. 
-	
+	ACR 과정이 진행중이고 메인 socket이 close된 상태이면 수신미보장 부분에 들어가기만 한다.
+
 	caller에서는 sendOpt에 reliable or unreliable을 넣는데, unreliable을 넣는 경우 이 함수는 AMR에 넣지 않는다. 이유는 코드 내 주석에 있다.
 	*/
 	void CSuperSocket::AddToSendQueueWithSplitterAndSignal_Copy(
@@ -88,56 +88,56 @@ namespace Proud
 		}
 		else
 		{
-		    // 이 overload된 함수는 TCP 전용이어야 한다! UDP 소켓에 대해 이 함수를 호출하면 안되지!
-		    MustTcpSocket();
+			// 이 overload된 함수는 TCP 전용이어야 한다! UDP 소켓에 대해 이 함수를 호출하면 안되지!
+			MustTcpSocket();
 
-		    // AMR도 이걸로 보호된다. 자세한 것은 ACR 명세서 참고.
-		    CriticalSectionLock sendLock(m_sendQueueCS, true);
+			// AMR도 이걸로 보호된다. 자세한 것은 ACR 명세서 참고.
+			CriticalSectionLock sendLock(m_sendQueueCS, true);
 
-		    // add message to send queue for each remote host
-		    CSendFragRefs sendData2;
+			// add message to send queue for each remote host
+			CSendFragRefs sendData2;
 
-		    CMessage header;
-		    header.UseInternalBuffer();
+			CMessage header;
+			header.UseInternalBuffer();
 
-		    /*
-		    ikpil.choi 2017-04-04 (N3785)
-		    언릴라이어블일 경우, ACR 카운팅을 하지 않도록 한다. 이유는 두가지가 있다.
-		    1. 언릴라이어블일 경우, 중요 데이터가 아니기 때문에 AMR 에 넣을 필요가 없다.
-		    2. 언릴라이어블일 경우, unique number 가 설정 될 수 있는데, unique number에 의해 혼잡제어 루틴이 돌아 간다.
-		    이때, AMR의 messageID 카운팅을 하게 되면, sendqueue 속에서 패킷의 messageID가 sendqueue의 앞쪽으로 배치 될 수 있다.
-		    이렇게 되면, sendqueue의 패킷에 부여된 messageID가 오름차순으로 정렬 안되는 버그가 발생하여, 클라이언트쪽에서 패킷 유실이 발생한다.
-		    */
-		    if (NULL != m_acrMessageRecovery && MessageReliability_Unreliable != sendOpt.m_reliability)
-		    {
-			    // 메시지 ID를 할당한다.
-			    int messageID = m_acrMessageRecovery->PopNextMessageIDToSend();
+			/*
+			ikpil.choi 2017-04-04 (N3785)
+			언릴라이어블일 경우, ACR 카운팅을 하지 않도록 한다. 이유는 두가지가 있다.
+			1. 언릴라이어블일 경우, 중요 데이터가 아니기 때문에 AMR 에 넣을 필요가 없다.
+			2. 언릴라이어블일 경우, unique number 가 설정 될 수 있는데, unique number에 의해 혼잡제어 루틴이 돌아 간다.
+			이때, AMR의 messageID 카운팅을 하게 되면, sendqueue 속에서 패킷의 messageID가 sendqueue의 앞쪽으로 배치 될 수 있다.
+			이렇게 되면, sendqueue의 패킷에 부여된 messageID가 오름차순으로 정렬 안되는 버그가 발생하여, 클라이언트쪽에서 패킷 유실이 발생한다.
+			*/
+			if (NULL != m_acrMessageRecovery && MessageReliability_Unreliable != sendOpt.m_reliability)
+			{
+				// 메시지 ID를 할당한다.
+				int messageID = m_acrMessageRecovery->PopNextMessageIDToSend();
 
-			    // ACR로 복원될 수 있는 메시지이며 이를 위해 수신미보장 부분에 본 메시지를 사본을 저장해 둔다.
-			    CTcpLayer_Common::AddSplitterButShareBuffer(messageID, sendData, sendData2, header, simplePacketMode);
+				// ACR로 복원될 수 있는 메시지이며 이를 위해 수신미보장 부분에 본 메시지를 사본을 저장해 둔다.
+				CTcpLayer_Common::AddSplitterButShareBuffer(messageID, sendData, sendData2, header, simplePacketMode);
 
-			    // TODO: 나중에 senddata와 여기 들어가는 것들을 모두 share 방식으로 바꾸자. 이러면 복사 부하를 대폭 줄인다.
-			    m_acrMessageRecovery->Unguarantee_Add(messageID, sendData2); // splitter, messageID가 포함된 것을 저장한다.
-		    }
-		    else
-		    {
-			    // message ID가 없이 들어간다. 즉 AMR 비해당.
-			    CTcpLayer_Common::AddSplitterButShareBuffer(sendData, sendData2, header, simplePacketMode);
-		    }
+				// TODO: 나중에 senddata와 여기 들어가는 것들을 모두 share 방식으로 바꾸자. 이러면 복사 부하를 대폭 줄인다.
+				m_acrMessageRecovery->Unguarantee_Add(messageID, sendData2); // splitter, messageID가 포함된 것을 저장한다.
+			}
+			else
+			{
+				// message ID가 없이 들어간다. 즉 AMR 비해당.
+				CTcpLayer_Common::AddSplitterButShareBuffer(sendData, sendData2, header, simplePacketMode);
+			}
 
-		    // 랜선 끊어짐 시뮬.
-		    // 여기서 검사하는 이유: 랜선 끊어짐 모의 상황에서도 위 AMR 추가는 해야 하니까.
-		    if ( m_turnOffSendAndReceive )
-		    {
-			    return;
-		    }
+			// 랜선 끊어짐 시뮬.
+			// 여기서 검사하는 이유: 랜선 끊어짐 모의 상황에서도 위 AMR 추가는 해야 하니까.
+			if ( m_turnOffSendAndReceive )
+			{
+				return;
+			}
 
-		    // 송신큐에 넣음
-		    // 최초 송신 이슈는 10ms마다 하므로(사람이 못느끼며 TCP nagle OFF시 coalesce 효과) iocp post는 불필요.
-		    m_sendQueue_needSendLock->PushBack_Copy(sendData2, sendOpt);
+			// 송신큐에 넣음
+			// 최초 송신 이슈는 10ms마다 하므로(사람이 못느끼며 TCP nagle OFF시 coalesce 효과) iocp post는 불필요.
+			m_sendQueue_needSendLock->PushBack_Copy(sendData2, sendOpt);
 
-		    // TCP는 항상여기에 넣으면서 net worker thread가 깨어나게 해야 한다.
-		    // UDP와 달리 coalesce를 위한 delay가 없음.
+			// TCP는 항상여기에 넣으면서 net worker thread가 깨어나게 해야 한다.
+			// UDP와 달리 coalesce를 위한 delay가 없음.
 			m_owner->SendReadyList_Add(param_shared_from_this, m_forceImmediateSend);
 
 			m_tcpOnlyLastSentTime = GetPreciseCurrentTimeMs();
@@ -211,8 +211,8 @@ namespace Proud
 					sendOpt,
 					sendResult);
 
-				// send ready list에 넣고, 
-				// UDP는 최초 send issue를 coalesce를 해서 보낸다. 
+				// send ready list에 넣고,
+				// UDP는 최초 send issue를 coalesce를 해서 보낸다.
 				// 따라서 어차피 최장 10ms 후 보내므로 그냥 즉시 보내야 함을 발동시키는 신호를 post할 필요 없다.
 				// 하지만, ping 등 즉시 보내야 하는 메시지의 경우, syscall이 즉시 일어나게 net worker thread를 깨운다.
 				m_owner->SendReadyList_Add(param_shared_from_this, sendResult.m_issueSendNow || m_forceImmediateSend);
@@ -221,7 +221,7 @@ namespace Proud
 	}
 
 
-	//CSendFragRefs가 CMessage를 인자로 받는 ctor가 있다면, 
+	//CSendFragRefs가 CMessage를 인자로 받는 ctor가 있다면,
 	// 그냥 이 함수 자체는 없어도 될 듯. 지워보고 에러 안나면 지우자.
 	void CSuperSocket::AddToSendQueueWithSplitterAndSignal_Copy(
 		const shared_ptr<CSuperSocket>& param_shared_from_this,
@@ -375,7 +375,4 @@ namespace Proud
 	{
 		return m_udpPacketFragBoard_needSendLock->GetPacketQueueTotalLengthByAddr(addr);
 	}
-
-
-
 }

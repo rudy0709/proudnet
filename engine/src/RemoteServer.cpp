@@ -148,10 +148,10 @@ namespace Proud
 			//	CErrorReporter_Indeed::Report(txt);  // TEMPTEMPTEMPTEMPTEMPTEMPTEMPTEMPTEMPTEMPTEMP
 
 #endif
-// 			// 서버에 TCP fallback을 해야 함을 노티.
-// 			m_c2sProxy.NotifyUdpToTcpFallbackByClient(HostID_Server, g_ReliableSendForPN);
-// 			/* 클라에서 to-server-UDP가 증발해도 per-peer UDP는 증발하지 않는다. 아예 internal port 자체가 다르니까.
-// 			따라서 to-peer UDP는 그대로 둔다. */
+//			// 서버에 TCP fallback을 해야 함을 노티.
+//			m_c2sProxy.NotifyUdpToTcpFallbackByClient(HostID_Server, g_ReliableSendForPN);
+//			/* 클라에서 to-server-UDP가 증발해도 per-peer UDP는 증발하지 않는다. 아예 internal port 자체가 다르니까.
+//			따라서 to-peer UDP는 그대로 둔다. */
 
 			return true;
 		}
@@ -321,5 +321,4 @@ namespace Proud
 		if (flag)
 			m_realUdpEnabledTimeMs = GetPreciseCurrentTimeMs();
 	}
-
 }

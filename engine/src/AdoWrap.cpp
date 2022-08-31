@@ -12,7 +12,7 @@ namespace Proud
 	IDbmsAccessEvent* CDbmsAccessTracker::m_DbmsAcessEvent = NULL;
 
 	// ikpil.choi 2017-02-10 : 자연스로운 ADODB::_Connection 풀링을 위한 트릭 추가(N3690)
-	// 테스트 결과 ADODB::_Connection의 Open을 시도 하면, 결과와 상관없이 풀링이 시작되며, 
+	// 테스트 결과 ADODB::_Connection의 Open을 시도 하면, 결과와 상관없이 풀링이 시작되며,
 	// 마지막 ADODB::_Connection 없어질 때, 풀링이 종료 되는 것을 확인하였습니다. 그러므로, 한개의 객체만 남깁니다.
 	class CAdoConnectionInitializer : public CSingleton<CAdoConnectionInitializer>
 	{
@@ -74,7 +74,7 @@ namespace Proud
 
 	}
 
-	_Noreturn void RethrowComErrorAsAdoException(_com_error &e) 
+	_Noreturn void RethrowComErrorAsAdoException(_com_error &e)
 	{
 		const PNTCHAR* p1 = e.Description();
 		if (!p1)
@@ -102,9 +102,9 @@ namespace Proud
 
 //#pragma optimize("",off) // 쐤따빡! 여지껏 멀쩡하게 돌아가던 이게 Visual Studio 2005 SP1에서 스택을 긁어먹고 로컬 변수를 깨먹는다. 그래서 막아야 한다.
 
-	/** 이걸 세팅하면 이 소스에 있는 ADO 관련 메서드들 중에서 DB를 억세스하는 메서드가 호출되면 
+	/** 이걸 세팅하면 이 소스에 있는 ADO 관련 메서드들 중에서 DB를 억세스하는 메서드가 호출되면
 	이게 current thread에 의해 lock됐나 체크하고 lock됐으면 ADODB_RecommendCriticalSectionProc를 실행한다.
-	ADODB_RefCriticalSection이 NULL이면 무시한다. 
+	ADODB_RefCriticalSection이 NULL이면 무시한다.
 
 	주의: 예외적으로 SequenceIDGenerator8,SequenceIDGenerator4는 DB 병목을 체크하지 않는다. 이들은 DB 억세스 빈도가 매우 낮은데다
 	bunch 갯수를 DB 병목이 0%가 되도록 조절하는 알고리즘이 아직 없기 때문이다. */
@@ -134,7 +134,7 @@ namespace Proud
 #endif
 	}
 
-//#pragma optimize("",on) 
+//#pragma optimize("",on)
 
 	long CAdoConnection::Execute(const String& lpszSQL)
 	{
@@ -209,51 +209,51 @@ namespace Proud
 
 	// CAdoConnection::CAdoConnection( CAdoConnectionPool* connectionPool )
 	// {
-	// 	m_connectionPool=connectionPool;
-	// 	ADODB::_ConnectionPtr p=connectionPool->GetOne();
-	// 	*this=p; // 리퍼런스 객체를 addref한다.
-	// 
-	// 
+	//	m_connectionPool=connectionPool;
+	//	ADODB::_ConnectionPtr p=connectionPool->GetOne();
+	//	*this=p; // 리퍼런스 객체를 addref한다.
+	//
+	//
 	// }
 	CAdoConnection::~CAdoConnection()
 	{
-		// 	if(m_connectionPool)
-		// 	{
-		// 		// 리퍼런스 객체를 반환한다.
-		// 		m_connectionPool->ReleaseOne(this);
-		// 	}
-		// 	else
+		//	if(m_connectionPool)
+		//	{
+		//		// 리퍼런스 객체를 반환한다.
+		//		m_connectionPool->ReleaseOne(this);
+		//	}
+		//	else
 		{
 			/*
-			이걸 굳이 넣는 이유: 
-			SQL Server OLE DB Connection Pooling을 씀에도 불구하고 단일 스레드에서 잦은 open/close를 한 후에 
+			이걸 굳이 넣는 이유:
+			SQL Server OLE DB Connection Pooling을 씀에도 불구하고 단일 스레드에서 잦은 open/close를 한 후에
 			엄청난 갯수의 TCP connection이 발생한다. 그러나 SQL Server EM에서의 연결 갯수는 1개로 표시된다.
 			이를 해결하려면 명시적으로 Close()를 해줘야 한다고 하는데...
-			과연 될까? 끙. 
+			과연 될까? 끙.
 
-			Transaction 중에 Close 명시적 호출은 exception을 유발한다. 그러나 Close_NoThrow에 의해서 
+			Transaction 중에 Close 명시적 호출은 exception을 유발한다. 그러나 Close_NoThrow에 의해서
 			무시시킨다.
 
-			If you open a Connection object, remember to close it. Do not rely on garbage collection to 
-			implicitly close your connections. 
+			If you open a Connection object, remember to close it. Do not rely on garbage collection to
+			implicitly close your connections.
 
 			If You Explicitly Open It, Explicitly Close It
-			Pooling problems are frequently caused by an application that does not clean up 
-			its connections. Connections are placed in the pool at the time that the connection 
-			is closed and not before. To avoid this, always explicitly close an object you open. 
+			Pooling problems are frequently caused by an application that does not clean up
+			its connections. Connections are placed in the pool at the time that the connection
+			is closed and not before. To avoid this, always explicitly close an object you open.
 			If you don't explicitly close it, chances are it won't ever be released to the pool.
 
-			Even if the language you use has effective and reliable garbage collection, an 
-			instance of an open ADO Connection or Recordset object going out of scope does 
-			not equate to the Close method of that object being implicitly invoked. You must 
+			Even if the language you use has effective and reliable garbage collection, an
+			instance of an open ADO Connection or Recordset object going out of scope does
+			not equate to the Close method of that object being implicitly invoked. You must
 			close it explicitly.
 
-			Failing to close an open Connection or Recordset object is probably the single 
-			most frequent cause of connection creep and the single largest cause of incorrect 
+			Failing to close an open Connection or Recordset object is probably the single
+			most frequent cause of connection creep and the single largest cause of incorrect
 			diagnoses of pooling failure.
 
 			*/
-			Close_NoThrow(); 
+			Close_NoThrow();
 		}
 
 	}
@@ -274,8 +274,8 @@ namespace Proud
 			/* appname이 서로 다른 connection 들은 비록 디버깅을 도와주나
 			같은 ADO connection pool에 들어가지 못한다. 즉 connection creep의 가능성을 높인다.
 			따라서 껐다. */
-			connStrEx=connectionString; 
-#endif	
+			connStrEx=connectionString;
+#endif
 			String Token = connStrEx;
 			Token.Replace(_PNT(" "),_PNT("")); // 공백을 없앤다.
 			Token.MakeUpper();
@@ -314,7 +314,7 @@ namespace Proud
 			같은 ADO connection pool에 들어가지 못한다. 즉 connection creep의 가능성을 높인다.
 			따라서 껐다. */
 			connStrEx = connectionString;
-#endif	
+#endif
 
 			RecommendNoCriticalSectionLock();
 
@@ -380,7 +380,7 @@ namespace Proud
 			{
 			case OpenForRead:
 				// 게임 서버에서 주로 사용하는 DB read access 옵션
-				// MSDN says: Static cursor... provides a static copy of a set of records for you to use to find data or generate reports; always allows bookmarks and therefore allows all types of movement through the Recordset. Additions, changes, or deletions by other users will not be visible. This is the only type of cursor allowed when you open a client-side Recordset object. 
+				// MSDN says: Static cursor... provides a static copy of a set of records for you to use to find data or generate reports; always allows bookmarks and therefore allows all types of movement through the Recordset. Additions, changes, or deletions by other users will not be visible. This is the only type of cursor allowed when you open a client-side Recordset object.
 				cursorType=ADODB::adOpenStatic;
 				lockType=ADODB::adLockReadOnly;
 				// recordset에서 보유하는 record 값들을 client에서 저장하도록 한다.
@@ -389,7 +389,7 @@ namespace Proud
 			case OpenForFastRead:
 				{
 					// 게임 서버에서, 다수 레코드를 빨리 로딩할 때 사용하는 옵션
-					// MSDN says: Static cursor... provides a static copy of a set of records for you to use to find data or generate reports; always allows bookmarks and therefore allows all types of movement through the Recordset. Additions, changes, or deletions by other users will not be visible. This is the only type of cursor allowed when you open a client-side Recordset object. 
+					// MSDN says: Static cursor... provides a static copy of a set of records for you to use to find data or generate reports; always allows bookmarks and therefore allows all types of movement through the Recordset. Additions, changes, or deletions by other users will not be visible. This is the only type of cursor allowed when you open a client-side Recordset object.
 					// thus, use adOpenStatic rather than adOpenForwardOnly.
 					cursorType=ADODB::adOpenStatic;
 					lockType=ADODB::adLockReadOnly;
@@ -468,7 +468,7 @@ namespace Proud
 	{
 		try
 		{
-			_variant_t vNull;	
+			_variant_t vNull;
 			vNull.vt = VT_ERROR;
 			vNull.scode = DISP_E_PARAMNOTFOUND;
 			//GetInterfacePtr()->Open(vNull,vNull,ADODB::adOpenForwardOnly,ADODB::adLockReadOnly,ADODB::adCmdStoredProc);
@@ -580,7 +580,7 @@ namespace Proud
 	{
 		try
 		{
-			_variant_t vNull;	
+			_variant_t vNull;
 			vNull.vt = VT_ERROR;
 			vNull.scode = DISP_E_PARAMNOTFOUND;
 
@@ -594,11 +594,11 @@ namespace Proud
 
 	void CAdoRecordset::SetFieldValue( const String& pszFieldName,const CVariant &value )
 	{
-		// 	NTTNTRACE("%s*****\n",StringT2A(pszFieldName));
-		//  	if(String(pszFieldName)==_PNT("FIELDXX"))
-		//  	{
-		//  		int a=1;
-		//  	}
+		//	NTTNTRACE("%s*****\n",StringT2A(pszFieldName));
+		//	if(String(pszFieldName)==_PNT("FIELDXX"))
+		//	{
+		//		int a=1;
+		//	}
 		try
 		{
 			GetInterfacePtr()->PutCollect(pszFieldName.GetString(),value.m_val);
@@ -741,7 +741,7 @@ namespace Proud
 			CVariant ra2=0L;
 
 			ADODB::_RecordsetPtr recordset = GetInterfacePtr()->NextRecordset(&ra2.m_val);
-			
+
 			if(recordset != NULL)
 				Attach(recordset,true);
 			else
@@ -864,7 +864,7 @@ namespace Proud
 			RethrowComErrorAsAdoException(e);
 		}
 	}
-	
+
 	void CAdoCommand::Prepare(ADODB::_Connection* connection, const String& storedProcName, ADODB::CommandTypeEnum cmdType)
 	{
 		try
@@ -879,10 +879,10 @@ namespace Proud
 		}
 	}
 
-	ADODB::_ParameterPtr CAdoCommand::AppendParameter(const String& paramName, 
+	ADODB::_ParameterPtr CAdoCommand::AppendParameter(const String& paramName,
 		ADODB::DataTypeEnum paramType,
 		ADODB::ParameterDirectionEnum paramDirection)
-	{	
+	{
 		try
 		{
 			ADODB::_ParameterPtr ret;
@@ -899,7 +899,7 @@ namespace Proud
 		}
 	}
 
-	ADODB::_ParameterPtr CAdoCommand::AppendParameter(const String& paramName, 
+	ADODB::_ParameterPtr CAdoCommand::AppendParameter(const String& paramName,
 		ADODB::DataTypeEnum paramType,
 		ADODB::ParameterDirectionEnum paramDirection,
 		const CVariant &defaultValue)
@@ -918,11 +918,11 @@ namespace Proud
 		}
 	}
 
-	ADODB::_ParameterPtr CAdoCommand::AppendParameter(const String& paramName, 
+	ADODB::_ParameterPtr CAdoCommand::AppendParameter(const String& paramName,
 		ADODB::DataTypeEnum paramType,
-		ADODB::ParameterDirectionEnum paramDirection, 
+		ADODB::ParameterDirectionEnum paramDirection,
 		const String& defaultValue)
-	{	
+	{
 		try
 		{
 			ADODB::_ParameterPtr ret;
@@ -956,9 +956,9 @@ namespace Proud
 		}
 	}
 
-	ADODB::_ParameterPtr CAdoCommand::AppendParameter(const String& paramName, 
+	ADODB::_ParameterPtr CAdoCommand::AppendParameter(const String& paramName,
 		ADODB::DataTypeEnum paramType,
-		ADODB::ParameterDirectionEnum paramDirection, 
+		ADODB::ParameterDirectionEnum paramDirection,
 		const String& defaultValue,
 		long length)
 	{
@@ -1073,8 +1073,8 @@ namespace Proud
 
 	void RecommendNoCriticalSectionLock()
 	{
-		if(ADODB_RefCriticalSection && 
-			Proud::IsCriticalSectionLockedByCurrentThread(*ADODB_RefCriticalSection) && 
+		if(ADODB_RefCriticalSection &&
+			Proud::IsCriticalSectionLockedByCurrentThread(*ADODB_RefCriticalSection) &&
 			ADODB_RecommendCriticalSectionProc && tls_CADODBTemporaryBottleneckCheckDisabler_count==0)
 		{
 			String r=_PNT("경고: DB를 억세스하는 중에는 Critical section lock이 걸리면 device burst time이 길어지는 동안 병목 현상이 발생할 수 있습니다.\n");
@@ -1151,9 +1151,6 @@ namespace Proud
 	}
 
 //#pragma optimize("",on)
-	
-
-	
 }
 
 #endif //_WIN32

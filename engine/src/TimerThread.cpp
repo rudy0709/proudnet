@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "../include/TimerThread.h"
 
-namespace Proud 
+namespace Proud
 {
 #ifdef _WIN32
 	void CTimerThread::OuterThreadProc(void* ctx)
@@ -14,7 +14,7 @@ namespace Proud
 		}
 	}
 
-	CTimerThread::CTimerThread(Thread::ThreadProc threadProc, uint32_t interval, void *ctx):m_timer(m_tickEvent.m_event,interval, 0),m_thread(OuterThreadProc,this) 
+	CTimerThread::CTimerThread(Thread::ThreadProc threadProc, uint32_t interval, void *ctx):m_timer(m_tickEvent.m_event,interval, 0),m_thread(OuterThreadProc,this)
 	{
 		m_stopThread = false;
 		m_proc = threadProc;

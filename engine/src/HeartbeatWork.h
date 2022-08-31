@@ -5,7 +5,7 @@
 #include "../include/FastArray.h"
 #include "../include/FakeClrBase.h"
 
-namespace Proud 
+namespace Proud
 {
 #ifndef __GNUC__
 	class CHeartbeatWorkThread;
@@ -22,10 +22,10 @@ namespace Proud
 
 	/* 스레드 풀에서 일정 시간마다 유저 함수가 호출되게 하는 기능 제공.
 
-	사용법: 
+	사용법:
 	이 객체는 싱글톤.
 	Register()로 등록.
-	Unregister()로 등록 해제. 
+	Unregister()로 등록 해제.
 	*/
 	class CHeartbeatWorkThread:public CSingleton<CHeartbeatWorkThread>
 	{
@@ -37,9 +37,9 @@ namespace Proud
 			uint32_t m_lastWorkTime;
 			uint32_t m_interval;
 			volatile bool m_working;
-			
+
 			WorkData();
-		};		
+		};
 		// 맨 앞에 있는 항목은 처리되면 맨 뒤로 옮겨진다.
 		class WorkDataList:public CListNode<WorkData>::CListOwner
 		{

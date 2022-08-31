@@ -10,7 +10,7 @@ namespace Proud
 {
 	//////////////////////////////////////////////////////////////////////////
 	// !!Integ할때 참고!!
-	// 이 객체가 사용되면, R0,R1,R2에 있는 send ready list 객체들과 관련 critsec 들을 제거할 것. 
+	// 이 객체가 사용되면, R0,R1,R2에 있는 send ready list 객체들과 관련 critsec 들을 제거할 것.
 	// CListNode<CRemoteClient_S>, CListNode<CSuperSocket>를 쓰는 부분도 제거할 것. 랜클라도 마찬가지.
 	//////////////////////////////////////////////////////////////////////////
 
@@ -48,13 +48,13 @@ namespace Proud
 		int GetCount() const;
 
 	private:
-		// code profile 결과 blocking이 꽤 크다. 
+		// code profile 결과 blocking이 꽤 크다.
 		// 성능에 민감한 부분이므로 context switch를 절대 일으키지 않게 하기 위해, spin mutex를 쓴다.
 		mutable SpinMutex m_critSec;
 
 		/* send queue에 뭔가가 들어있는 socket들.
 		예전에는 map이었다. code profile 결과 성능 임팩트가 커서 list로 변경.
-		이것이 처리 못하는 동안 SuperSocket 객체가 계속 남는 것이 PS4나 안드로이드 같은 
+		이것이 처리 못하는 동안 SuperSocket 객체가 계속 남는 것이 PS4나 안드로이드 같은
 		리소스 협소 플랫폼에서 잠재적 문제가 될 수 있다. 따라서 weak_ptr을 두어,
 		소유자가 놔버리면 같이 덩달아 놓치게 하자. 물론 weak_ptr 특성상 돌연 댕글링은 없다. */
 		typedef CFastList2<weak_ptr<CSuperSocket>, int> SendReadySocketList;

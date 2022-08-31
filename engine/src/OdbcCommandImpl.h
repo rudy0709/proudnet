@@ -27,14 +27,14 @@ namespace Proud
 			// 파라메터 방향(in or out or inout)
 			SQLSMALLINT m_paramType;
 
-			// 문자열 크기나 바이너리 데이터 크기 등을 담는다. 
+			// 문자열 크기나 바이너리 데이터 크기 등을 담는다.
 			// SQL execute 함수 안에서 이 데이터 블럭이 참조 형태로 액세스된다.
 			// 양수인 경우 해당 숫자byte만큼 접근한다.
 			SQLLEN m_indicators;
 
 			// 필드 타입
 			OdbcSqlDataType m_sqlType;
-			// true이면 값이 없음을 의미. 
+			// true이면 값이 없음을 의미.
 			bool m_isNull;
 		};
 		typedef RefCount<CommandParameter> CommandParameterPtr;

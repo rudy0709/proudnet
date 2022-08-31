@@ -42,7 +42,7 @@ namespace Proud
 		uint8_t m_productType;
 		uint16_t m_processorArchitecture;
 
-		uint32_t m_serverUdpAddrCount;	// 최근의 server udp addr 갯수 
+		uint32_t m_serverUdpAddrCount;	// 최근의 server udp addr 갯수
 		uint32_t m_remoteUdpAddrCount;	// 최근의 remote udp addr 갯수
 
 		uint32_t m_lastErrorCompletionLength;	// Completion data length < 0 일때 GetLastError값

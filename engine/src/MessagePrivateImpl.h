@@ -33,7 +33,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 ** 注意：著作物に関する上記の明示を除去しないでください。
 
 */
-#pragma once 
+#pragma once
 
 #include "Relayer.h"
 #include "NetSettings.h"
@@ -183,12 +183,8 @@ namespace Proud
 		return CMessage::ReadArrayT<HostID, true, HostIDArray>(msg, lst);
 	}
 
-	 PROUD_API void Message_Write(CMessage& msg, const CompactFieldMap &fieldMap);
-	 PROUD_API bool Message_Read(CMessage& msg, CompactFieldMap &fieldMap);
-
-
-
+	PROUD_API void Message_Write(CMessage& msg, const CompactFieldMap &fieldMap);
+	PROUD_API bool Message_Read(CMessage& msg, CompactFieldMap &fieldMap);
 }
-
 
 #include "MessagePrivateImpl.inl"

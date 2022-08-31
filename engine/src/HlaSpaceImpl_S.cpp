@@ -2,7 +2,7 @@
 #include "HlaSpaceImpl_S.h"
 
 
-namespace Proud 
+namespace Proud
 {
 	CHlaSpace_S::CHlaSpace_S(void)
 	{
@@ -13,5 +13,4 @@ namespace Proud
 	{
 		delete m_internal;
 	}
-
 }

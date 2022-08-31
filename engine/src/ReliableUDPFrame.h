@@ -27,7 +27,7 @@ namespace Proud
 		// data frame인 경우 frame number. ack frame인 경우 안 쓰이는 값이다.
 		int m_frameNumber;
 
-		// ack를 갖고 있는지 여부와, 수신받고자 하는 next expected frame number. 
+		// ack를 갖고 있는지 여부와, 수신받고자 하는 next expected frame number.
 		// data frame인 경우 piggybag된 ack이며, 순수 ack frame인 경우 그냥 ack 정보만 갖고 있는다.
 		bool m_hasAck;
 		int m_ackFrameNumber;
@@ -52,10 +52,10 @@ namespace Proud
 	class SenderFrame : public ReliableUdpFrame
 	{
 	public:
-		int64_t m_lastSentTimeMs;	 // 마지막으로 보낸시간
-		int64_t m_resendCoolTimeMs; // RT0(Retransmission Timeout). 계속 감소하다 0이 되면 재송신을 1회 하고 재설정된다.
-		int64_t m_firstSentTimeMs;  // 처음 보내진 시간. 최악의 상황을 감지하기 위함.
-		int m_sentCount;	// 이미 송신한 횟수. 0이면 아직 보내진 적이 없음.
+		int64_t m_lastSentTimeMs;	// 마지막으로 보낸시간
+		int64_t m_resendCoolTimeMs;	// RT0(Retransmission Timeout). 계속 감소하다 0이 되면 재송신을 1회 하고 재설정된다.
+		int64_t m_firstSentTimeMs;	// 처음 보내진 시간. 최악의 상황을 감지하기 위함.
+		int m_sentCount;			// 이미 송신한 횟수. 0이면 아직 보내진 적이 없음.
 		bool m_needFastRetransmit;	// TCP fast retransmit과 같음
 
 		inline SenderFrame()
@@ -67,5 +67,4 @@ namespace Proud
 			m_needFastRetransmit = false;
 		}
 	};
-
 }

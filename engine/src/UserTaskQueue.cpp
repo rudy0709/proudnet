@@ -9,7 +9,6 @@ namespace Proud
 		m_owner = owner;
 	}
 
-
 	CUserTaskQueue::~CUserTaskQueue()
 	{
 		SpinLock clk(m_critSec, true);
@@ -18,5 +17,4 @@ namespace Proud
 		m_workReadyList.Clear();
 		m_workingList.Clear();
 	}
-
 }
