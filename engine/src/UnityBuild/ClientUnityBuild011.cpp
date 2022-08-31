@@ -12,5 +12,3 @@
 #include "../CompactFieldMap.cpp"
 #include "../NetVariant.cpp"
 #include "../FastMap.cpp"
-
-

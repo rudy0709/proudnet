@@ -9,4 +9,3 @@
 #include  "../FilterTag.cpp"
 #include  "../FinalUserWorkItem.cpp"
 #include  "../GlobalTimerThread.cpp"
-
