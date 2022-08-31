@@ -51,7 +51,7 @@ namespace Proud
 //#pragma managed(push,off)
 #endif
 
-	 PROUD_API extern const Guid DumpProtocolVersion;
+	PROUD_API extern const Guid DumpProtocolVersion;
 
 #if (defined(_MSC_VER) && _MSC_VER>=1400)
 //#pragma managed(pop)

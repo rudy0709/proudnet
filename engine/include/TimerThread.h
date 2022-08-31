@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "FakeClrBase.h"
 
@@ -42,7 +42,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #pragma pack(push,8)
 #endif
 
-namespace Proud 
+namespace Proud
 {
 #if (defined(_MSC_VER) && _MSC_VER>=1400)
 // 아래 주석처리된 pragma managed 전처리 구문은 C++/CLI 버전이 있었을 때에나 필요했던 것입니다.
@@ -55,15 +55,15 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
-	일정 시간마다 특정 루틴이 실행되게 하고자 한다면 CTimerThread 나 CTimerQueue 를 사용하는 방법이 있습니다. 
-	- CTimerThread 는 일정 시간마다 타이머 콜백 함수가 실행됩니다. 하지만 단 한개의 스레드에서만의 콜백이 일어납니다. 
+	일정 시간마다 특정 루틴이 실행되게 하고자 한다면 CTimerThread 나 CTimerQueue 를 사용하는 방법이 있습니다.
+	- CTimerThread 는 일정 시간마다 타이머 콜백 함수가 실행됩니다. 하지만 단 한개의 스레드에서만의 콜백이 일어납니다.
 	- CTimerQueue 는 과거 타이머 콜백이 리턴하지 않은 상태에서 타이머 시간이 되었을 때에는 또 다른 스레드에서 콜백이 일어납니다.
 
 	\~english
-	 If you want to have a specific routine to run at a specific time, use  CTimerThread or CTimerQueue.
-	- CTimerThread runs a timer callback function at specific times. But callback only happens in a single thread. 
+	If you want to have a specific routine to run at a specific time, use  CTimerThread or CTimerQueue.
+	- CTimerThread runs a timer callback function at specific times. But callback only happens in a single thread.
 	- CTimerQueue allows callback to start in a different thread at specific times even thoud the previous timer callback hasn't been returned.
 
 	\~chinese
@@ -91,20 +91,20 @@ namespace Proud
 
 	public:
 		// true이면 CoInitialize가 스레드 시작시 호출된다.
-		bool m_useComModel; 
+		bool m_useComModel;
 
-		/** 
+		/**
 		\~korean
-		생성자. 타이머 스레드가 시작하지는 않습니다. 
+		생성자. 타이머 스레드가 시작하지는 않습니다.
 		\param threadProc 일정 시간마다 호출되는 함수입니다. 사용자가 정의해야 합니다.
 		\param interval 타이머 주기. 밀리초입니다.
-		\param ctx threadProc이 실행될 때 던져지는 인자입니다. 사용자가 지정해야 합니다. 
+		\param ctx threadProc이 실행될 때 던져지는 인자입니다. 사용자가 지정해야 합니다.
 
 		\~english
-		Creator and timer thead do not start here. 
+		Creator and timer thead do not start here.
 		\param threadProc a function that gets called at an user-defined specific time.
 		\param interval Timer cycle in millisecond.
-		\param ctx A factor tht gets passed on when threadProc is running. This needs to be defined by user. 
+		\param ctx A factor tht gets passed on when threadProc is running. This needs to be defined by user.
 
 		\~chinese
 		生成者。Timer 线程并不会开始。
@@ -120,10 +120,10 @@ namespace Proud
 		\~
 		*/
 		PROUD_API CTimerThread(Thread::ThreadProc threadProc, uint32_t interval, void *ctx);
-		
-		/** 
+
+		/**
 		\~korean
-		파괴자. 파괴되기 전에 타이머 스레드를 종료시킵니다. 
+		파괴자. 파괴되기 전에 타이머 스레드를 종료시킵니다.
 
 		\~english
 		Shuts down timer thread before destruction.
@@ -137,7 +137,7 @@ namespace Proud
 		*/
 		PROUD_API ~CTimerThread();
 
-		/** 
+		/**
 		\~korean
 		타이머 스레드의 작동을 시작합니다.
 
@@ -153,9 +153,9 @@ namespace Proud
 		*/
 		PROUD_API void Start();
 
-		/** 
+		/**
 		\~korean
-		타이머 스레드의 작동을 중지하고, 스레드 파괴가 완료될 때까지 기다립니다. 
+		타이머 스레드의 작동을 중지하고, 스레드 파괴가 완료될 때까지 기다립니다.
 
 		\~english
 		Stops the operation of timer thread and wait until a thread gets destructed.

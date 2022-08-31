@@ -56,7 +56,7 @@ namespace Proud
 
 		/** 이 이벤트와 관련된 NetClient 혹은 NetServer의 HostID입니다. */
 		HostID m_remoteHostID;
-        /** 무슨 이유로 연결이 offline이 되었는지를 나타냅니다. */
+		/** 무슨 이유로 연결이 offline이 되었는지를 나타냅니다. */
 		ErrorInfo* m_errorInfo;		// SWIG 때문에 RefCount가 아니다. ProcessOneLocalEvent에서 memory leak이 없게 다루므로 안심하자.
 	};
 

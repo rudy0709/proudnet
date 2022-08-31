@@ -62,7 +62,7 @@ namespace Proud
 
 			// http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.faqs/ka15414.html 에 의하면,
 			// GCC는 char* 타입에 대해서 1byte align을 가정하고 작동하게 되어있다.
-			// 즉, 컴파일러가 알아서 4byte align에 맞게 조작하게 작동된다. 
+			// 즉, 컴파일러가 알아서 4byte align에 맞게 조작하게 작동된다.
 			a = *(char*)(m_src + m_extracteeLength);
 
 			m_extracteeLength += sizeof(a);
@@ -89,7 +89,7 @@ namespace Proud
 		{
 			m_filledBlockLength = 0;
 
-			bool bNegative;	 // src가 음수인가?
+			bool bNegative;	// src가 음수인가?
 			if (src < 0)
 			{
 				bNegative = true;
@@ -115,7 +115,7 @@ namespace Proud
 					// 기록할 값이 7bit이 경우 1vvv vvvv 0s00 0000를, 6bit인 경우 0svv vvvv를 기록한다.
 					if (oneByte & 0x40)
 					{
-						WriteByte((oneByte | 0x80)); // 7개 비트를 기록한다. 
+						WriteByte((oneByte | 0x80)); // 7개 비트를 기록한다.
 						oneByte = 0;		// 이제 더 이상 기록할 bit가 없으므로 다음 byte에서는 0개의 zero bit가 들어간다.
 					}
 
@@ -128,7 +128,7 @@ namespace Proud
 
 			}
 		}
-		
+
 		// 값->스트림
 		inline bool ExtractValue(uint8_t* src, int srcLength)
 		{

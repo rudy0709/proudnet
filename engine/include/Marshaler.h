@@ -59,8 +59,8 @@ namespace Proud
 	*  @{
 	*/
 
-	 void ThrowExceptionOnReadString(int length);
-	 PROUD_API void ThrowExceptionOnReadArray(int64_t length);
+	void ThrowExceptionOnReadString(int length);
+	PROUD_API void ThrowExceptionOnReadArray(int64_t length);
 	inline CMessage& operator<<(CMessage &a, const StringA &str)
 	{
 		a.WriteString(str);
@@ -106,7 +106,7 @@ namespace Proud
 	inline CMessage& operator<<(CMessage& a, const char* str)
 	{
 		a.WriteStringA(str);
-		return a; 
+		return a;
 	}
 	inline CMessage& operator<<(CMessage& a, const wchar_t* str)
 	{
@@ -159,7 +159,7 @@ namespace Proud
 		return a;
 	}
 
-	
+
 	//void Write(CMessage &a,Size^ b) { a.Write(b); return a; }
 	inline CMessage& operator>>(CMessage &a, bool &b) {
 		a.Read(b);
@@ -189,7 +189,7 @@ namespace Proud
 		a.Read(b);
 		return a;
 	}
-    inline CMessage& operator>>(CMessage &a, uint64_t  &b) {
+	inline CMessage& operator>>(CMessage &a, uint64_t  &b) {
 		a.Read(b);
 		return a;
 	}
@@ -205,17 +205,17 @@ namespace Proud
 		a.Read(b);
 		return a;
 	}
-	
-	
+
+
 
 	//inline CMessage& operator>>(CMessage &a,DateTime b)
 	//{
-	//    a.Read(b);
+	//	a.Read(b);
 	//}
 
 	//inline CMessage& operator<<(CMessage &a,DateTime b)
 	//{
-	//    a.Write(b);
+	//	a.Write(b);
 	//}
 
 	inline CMessage& operator>>(CMessage &a, AddrPort &b)
@@ -313,27 +313,27 @@ namespace Proud
 
 	inline CMessage& operator<<(CMessage &a, const ByteArray &b);
 	inline CMessage& operator>>(CMessage &a, ByteArray &b);
-	 PROUD_API CMessage& operator<<(CMessage& a, const NamedAddrPort &b);
-	 PROUD_API CMessage& operator>>(CMessage& a, NamedAddrPort &b);
+	PROUD_API CMessage& operator<<(CMessage& a, const NamedAddrPort &b);
+	PROUD_API CMessage& operator>>(CMessage& a, NamedAddrPort &b);
 
-	 PROUD_API void AppendTextOut(String &a, const bool &b);
-	 PROUD_API void AppendTextOut(String &a, const int8_t &b);
-	 PROUD_API void AppendTextOut(String &a, const uint8_t &b);
-	 PROUD_API void AppendTextOut(String &a, const int16_t &b);
-	 PROUD_API void AppendTextOut(String &a, const uint16_t& b);
-	 PROUD_API void AppendTextOut(String &a, const int32_t &b);
-	 PROUD_API void AppendTextOut(String &a, const uint32_t& b);
-	 PROUD_API void AppendTextOut(String &a, const int64_t &b);
-	 PROUD_API void AppendTextOut(String &a, const uint64_t &b);
+	PROUD_API void AppendTextOut(String &a, const bool &b);
+	PROUD_API void AppendTextOut(String &a, const int8_t &b);
+	PROUD_API void AppendTextOut(String &a, const uint8_t &b);
+	PROUD_API void AppendTextOut(String &a, const int16_t &b);
+	PROUD_API void AppendTextOut(String &a, const uint16_t& b);
+	PROUD_API void AppendTextOut(String &a, const int32_t &b);
+	PROUD_API void AppendTextOut(String &a, const uint32_t& b);
+	PROUD_API void AppendTextOut(String &a, const int64_t &b);
+	PROUD_API void AppendTextOut(String &a, const uint64_t &b);
 
-	 PROUD_API void AppendTextOut(String &a, const float  &b);
-	 PROUD_API void AppendTextOut(String &a, const double &b);
+	PROUD_API void AppendTextOut(String &a, const float  &b);
+	PROUD_API void AppendTextOut(String &a, const double &b);
 
-	 PROUD_API void AppendTextOut(String &a, const char *&b);
-	 PROUD_API void AppendTextOut(String &a, const wchar_t *&b);
+	PROUD_API void AppendTextOut(String &a, const char *&b);
+	PROUD_API void AppendTextOut(String &a, const wchar_t *&b);
 
-	 PROUD_API void AppendTextOut(String &a, const StringA &b);
-	 PROUD_API void AppendTextOut(String &a, const StringW &b);
+	PROUD_API void AppendTextOut(String &a, const StringA &b);
+	PROUD_API void AppendTextOut(String &a, const StringW &b);
 
 	// NOTE: std.string 을 인자로 다루는 함수는 inline이다. 이렇게 안하면, 서비스팩이나 STL 라이브러리 벤더가 달라지는 것마다에 대한 커스텀 빌드를 다 만들어주어야 하니까.
 
@@ -351,11 +351,11 @@ namespace Proud
 		a += _PNT("'");
 	}
 
-#if defined(_WIN32) 
+#if defined(_WIN32)
 	PROUD_API void AppendTextOut(String& a, const POINT& b);
 #endif
 
-	
+
 
 	template<typename elem>
 	inline void AppendTextOut(String &a, const CFastArray<elem> &b)
@@ -378,7 +378,7 @@ namespace Proud
 		// 물론 모든 경우를 잡지는 못하지만 (sizeof elem 무용지물) 그래도 최소 1바이트는 쓸테니.
 		// 원소의 개수가 바이트 개수보다 많은 경우는 무시.
 		if (length<0 || length > a.GetLength() - a.GetReadOffset())
-             ThrowExceptionOnReadArray(length);
+			ThrowExceptionOnReadArray(length);
 
 		b.Clear();
 
@@ -398,7 +398,7 @@ namespace Proud
 		int64_t length = (int64_t)b.GetCount();
 		a.WriteScalar(length);
 
-        typedef typename CFastMap<K,V>::const_iterator ConstIter;
+		typedef typename CFastMap<K,V>::const_iterator ConstIter;
 
 		for(ConstIter i=b.begin();i!=b.end();i++)
 		{
@@ -415,7 +415,7 @@ namespace Proud
 		temp.Format(_PNT("FastMap(Size=%d){"), b.GetCount());
 		a += temp;
 
-         typedef typename CFastMap<K,V>::const_iterator ConstIter;
+		typedef typename CFastMap<K,V>::const_iterator ConstIter;
 
 		for(ConstIter i=b.begin();i!=b.end();i++)
 		{
@@ -428,9 +428,9 @@ namespace Proud
 		a+=_PNT("}");
 	}
 
-    template<typename elem>
-    __forceinline CMessage& operator>>(CMessage &a, CFastList<elem> &b)
-    {
+	template<typename elem>
+	__forceinline CMessage& operator>>(CMessage &a, CFastList<elem> &b)
+	{
 		int64_t length;
 		a.ReadScalar(length);
 
@@ -438,41 +438,41 @@ namespace Proud
 		// 물론 모든 경우를 잡지는 못하지만 (sizeof elem 무용지물) 그래도 최소 1바이트는 쓸테니.
 		// 원소의 개수가 바이트 개수보다 많은 경우는 무시.
 		if (length<0 || length > a.GetLength() - a.GetReadOffset())
-             ThrowExceptionOnReadArray(length);
+			ThrowExceptionOnReadArray(length);
 
 		b.Clear();
 
-        for(int64_t i=0;i<length;i++)
-        {
-            elem e;
-            a>>e;
-            b.AddTail(e);
-        }
-        return a;
-    }
+		for(int64_t i=0;i<length;i++)
+		{
+			elem e;
+			a>>e;
+			b.AddTail(e);
+		}
+		return a;
+	}
 
-    template<typename elem>
-    __forceinline CMessage& operator<<(CMessage &a, const CFastList<elem> &b)
-    {
+	template<typename elem>
+	__forceinline CMessage& operator<<(CMessage &a, const CFastList<elem> &b)
+	{
 		int64_t length = (int64_t)b.GetCount();
 		a.WriteScalar(length);
 
-        typedef typename CFastList<elem>::const_iterator ConstIter;
+		typedef typename CFastList<elem>::const_iterator ConstIter;
 
-        for(ConstIter i=b.begin();i!=b.end();i++)
-        {
-            a<< (*i);
-        }
-        return a;
-    }
+		for(ConstIter i=b.begin();i!=b.end();i++)
+		{
+			a<< (*i);
+		}
+		return a;
+	}
 
-    template<typename elem>
-    __forceinline void AppendTextOut(String &a,const CFastList<elem> &b)
-    {
-        Proud::String x;
+	template<typename elem>
+	__forceinline void AppendTextOut(String &a,const CFastList<elem> &b)
+	{
+		Proud::String x;
 		x.Format(_PNT("<FastList %d>"), b.GetCount());
-        a += x;
-    }
+		a += x;
+	}
 
 	// 가령 Entity Replication의 serialized data를 주고받을 때 쓴다.
 	__forceinline CMessage& operator<<(CMessage& a, const ByteArrayPtr& b)
@@ -638,11 +638,9 @@ PROUDNET_SERIALIZE_ENUM(Proud::Retained::EntityID);
 PROUDNET_SERIALIZE_ENUM(Proud::HostID);
 
 #if defined(_WIN32) && defined(ATLASSERT)
-    #include "AtlDependent.inl"
+	#include "AtlDependent.inl"
 #endif
 
 #if defined(_WIN32) && defined(_AFX)
 #include "MfcDependent.inl"
 #endif
-
-

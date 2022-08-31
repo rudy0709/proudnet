@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "NetCoreStats.h"
 
@@ -130,7 +130,7 @@ namespace Proud
 		*/
 		int m_occupiedUdpPortCount;
 
-		PROUDSRV_API 	  CNetServerStats();
+		PROUDSRV_API CNetServerStats();
 		PROUDSRV_API virtual String ToString() const;
 	};
 }

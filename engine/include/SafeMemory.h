@@ -34,7 +34,7 @@ namespace Proud
 	}
 }
 
-// ikpil.choi 2016-12-28, memset_s 
+// ikpil.choi 2016-12-28, memset_s
 inline errno_t memset_s(void *dest, size_t dest_size, int c, size_t n)
 {
 	errno_t err = 0;
@@ -50,14 +50,14 @@ inline errno_t memset_s(void *dest, size_t dest_size, int c, size_t n)
 		return E2BIG;
 
 	// 채워야 할 사이즈가 최대값을 초과 했을 경우, 대상 사이즈로 조정, 에러 셋팅
-	if (n > max_value) 
+	if (n > max_value)
 	{
 		err = E2BIG;
 		n = dest_size;
 	}
 
 	// 채워야 할 바이트가 대상 사이즈보다 클 경우, 대상 사이즈로 조정, 에러 셋팅
-	if (n > dest_size) 
+	if (n > dest_size)
 	{
 		err = EOVERFLOW;
 		n = dest_size;
@@ -71,4 +71,3 @@ inline errno_t memset_s(void *dest, size_t dest_size, int c, size_t n)
 #if !defined(WIN32)
 #include "SafeMemoryCRT.h"
 #endif
-

@@ -52,15 +52,15 @@ namespace Proud
 	*  @{
 	*/
 
-	 PROUD_API extern const char* ExternalBufferArrayIsUninitializedError;
-	 PROUD_API extern const char* ExternalBufferArrayIsInitializedError;
+	PROUD_API extern const char* ExternalBufferArrayIsUninitializedError;
+	PROUD_API extern const char* ExternalBufferArrayIsInitializedError;
 
-	/** 
+	/**
 	\~korean
 	외부 버퍼를 사용하는 배열 클래스입니다.
 
 	주의: 외부 버퍼안에 이미 할당된 객체들이 존재하지 않아야 합니다. 즉 단순히 초기화된 메모리 영역이어야 합니다. 왜냐하면
-	CArrayWithExternalBuffer 가 초기화할 것이기 때문입니다. 
+	CArrayWithExternalBuffer 가 초기화할 것이기 때문입니다.
 
 	\param TYPE 배열의 원소 타입입니다.
 	\param RAWTYPE 배열 원소가 raw memory copy를 해도 안전한 타입인지에 대한 여부입니다. int는 안전하지만 std.string은 안전하지 않습니다.
@@ -78,14 +78,14 @@ namespace Proud
 
 	\param TYPE Allocation type
 	\param RAWTYPE To check if the type is safe even if array element is processed as “raw memory copy”. int is safe but std.string is not safe.
-	In case element type of array is not related to constructor, destructor and copy assignment operator, you can set it as “true”. 
+	In case element type of array is not related to constructor, destructor and copy assignment operator, you can set it as “true”.
 	If setting it as “true”, constructor, destructor and copy assignment will not be called for progression of construction, destruction and copy of array element that internally occurs when inserting & deleting & changing size.
-	Therefore, processing speed will be improved. 
+	Therefore, processing speed will be improved.
 	Default is “false”.
 	\param INDEXTYP It is strongly recommended to use the maximum size of array and one of index types like int32,int64 and intPtr.
-	Casting load between int32 and int64 should be considered, so using the appropriate one is recommended. 
-	For example, packet size should be int32 because it does not exceed 2GB and if it is only for local process, intPtr is recommended. 
-	int64 is appropriate when int32 cannot deal with accurate value like network statistics.  
+	Casting load between int32 and int64 should be considered, so using the appropriate one is recommended.
+	For example, packet size should be int32 because it does not exceed 2GB and if it is only for local process, intPtr is recommended.
+	int64 is appropriate when int32 cannot deal with accurate value like network statistics.
 
 	\~chinese
 	使用外部缓存区的排列类。
@@ -116,7 +116,7 @@ namespace Proud
 	class  CArrayWithExternalBuffer :public CFastArray < TYPE, TYPE_IN_REF, RAWTYPE, INDEXTYPE >
 	{
 		/****************************
-		주의!!! 고정 크기 배열을 멤버로 가지는 로컬 변수가 이것과는 PS4에서 꼬인다!! 
+		주의!!! 고정 크기 배열을 멤버로 가지는 로컬 변수가 이것과는 PS4에서 꼬인다!!
 		*/
 
 	public:
@@ -127,14 +127,14 @@ namespace Proud
 			this->m_Data = (TYPE*)buffer;
 		}
 
-		
+
 
 		/**
 		\~korean
 		NULL이면 예외를 낸다
 
 		\~english TODO:translate needed.
-		Generate an exception if null. 
+		Generate an exception if null.
 
 		\~chinese
 		NULL 的话会例外。
@@ -148,7 +148,7 @@ namespace Proud
 			if (this->m_Data == NULL)
 				ThrowException(ExternalBufferArrayIsUninitializedError);
 		}
-		
+
 		/**
 		\~korean
 		NULL이 아니면 예외를 낸다
@@ -188,21 +188,21 @@ namespace Proud
 			return this->m_Data == NULL;
 		}
 
-		/** 
-		\~korean 
+		/**
+		\~korean
 		세팅한다.
-		\param buffer buffer포인터 
-		\param capacity 버퍼의 크기 
+		\param buffer buffer포인터
+		\param capacity 버퍼의 크기
 
 		\~english TODO:translate needed.
-		Set it up. 
+		Set it up.
 		\param buffer buffer pointer
 		\param capacity buffer size
 
 		\~chinese
 		设置。
 		\param buffer buffer指针。
-		\param capacity buffer的大小。		
+		\param capacity buffer的大小。
 
 		\~japanese
 		設定します。
@@ -224,9 +224,9 @@ namespace Proud
 			혹시나 m_Data를 접근 할 시 null pointer exception이 출현합니다.
 
 			m_externalBuffer가 NULL이지만, 이것의 길이와 용량이 0이 아니어도 되는 사례를 찾았다면 위 2줄 코드의 주석을 해제해 주십시오.
-			만약 패러미터 하나라도 null이면 초기화를 중지하고자 하는 의도라면 위 2줄의 코드를 MustNull()위에 위치하여 주십시오. 
+			만약 패러미터 하나라도 null이면 초기화를 중지하고자 하는 의도라면 위 2줄의 코드를 MustNull()위에 위치하여 주십시오.
 			*/
-						
+
 			// 상태를 변조한다.
 			this->m_Capacity = capacity;
 			this->m_Length = 0;
@@ -238,7 +238,7 @@ namespace Proud
 		모든 멤버 변수를 초기화 한다.
 
 		\~english TODO:translate needed.
-		Initialize all member parameters. 
+		Initialize all member parameters.
 
 		\~chinese
 		初始化所有成员变数。
@@ -269,13 +269,13 @@ namespace Proud
 			if (IsNull() == false)
 			{
 				this->SetCount(0);
-				this->m_Data = NULL; 
+				this->m_Data = NULL;
 			}
 		}
 
 		/**
-		\~korean 
-		dest와 버퍼를 공유한다. 
+		\~korean
+		dest와 버퍼를 공유한다.
 
 		\~english Shares data with dest.
 
@@ -296,7 +296,7 @@ namespace Proud
 
 
 
-		/* 
+		/*
 		\~korean
 		복사 자체는 금지된다. CopyTo 또는 ShareTo를 써야 한다.
 		이렇게 되어 있는 이유는, CArrayWithExternalBuffer 는 = 연산자를 쓸 경우 이것이
@@ -304,7 +304,7 @@ namespace Proud
 
 		\~english
 		Duplication itself is prohibited. Must use CopyTo or ShareTo.
-		The reason why is that it is unclear whether CArrayWithExternalBuffer is a pointer share or copying contents 
+		The reason why is that it is unclear whether CArrayWithExternalBuffer is a pointer share or copying contents
 		when CArrayWithExternalBuffer uses '=' opeartor.
 
 		\~chinese
@@ -329,7 +329,7 @@ namespace Proud
 
 		virtual void DataBlock_Free(void* /*data*/)
 		{
-			// 하는 일이 없다. 
+			// 하는 일이 없다.
 			// 주의: CFastArray가 m_Data=null 하는 일이 없음을 가정해야 한다!
 		}
 

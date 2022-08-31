@@ -74,8 +74,8 @@ namespace Proud
 	public:
 	};
 
-	/** 
-	\~korean 
+	/**
+	\~korean
 	HostID 중복 없는 배열
 
 	\~english

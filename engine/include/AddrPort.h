@@ -128,7 +128,7 @@ namespace Proud
 		SocketErrorCode_OperationAborted = ERROR_OPERATION_ABORTED,
 		SocketErrorCode_InvalidArgument = WSAEINVAL,
 		SocketErrorCode_Intr = WSAEINTR, // EINTR in linux
-		SocketErrorCode_InProgress = WSAEINPROGRESS, // operation이 이미 진행중이다.		
+		SocketErrorCode_InProgress = WSAEINPROGRESS, // operation이 이미 진행중이다.
 		SocketErrorCode_AlreadyIsConnected = WSAEISCONN,
 		SocketErrorCode_AlreadyAttempting = WSAEALREADY,
 		SocketErrorCode_Cancelled = WSAECANCELLED,
@@ -155,7 +155,7 @@ namespace Proud
 #ifdef _WIN32
 	// 윈도에서는 invalid fd = INVALID_SOCKET = 0이다.
 	const int InvalidSocket = 0; // INVALID_SOCKET
-#else 
+#else
 	// unix에서는 음수가 무효 소켓 fd 값이다.
 	const int InvalidSocket = -1;
 #endif
@@ -209,7 +209,7 @@ namespace Proud
 
 		\~japanese
 		ポート番号
-		⁻ native endianで、network endianではありません。即ち、socket関数のhtonsやntohsを通じ変換する必要がなくそのまま使っても良いです。		
+		⁻ native endianで、network endianではありません。即ち、socket関数のhtonsやntohsを通じ変換する必要がなくそのまま使っても良いです。
 
 		\~
 		*/
@@ -219,7 +219,7 @@ namespace Proud
 		bool IsFFFFAddress() const;
 		bool Is0000Address() const;
 		bool IsLocalhostAddress() const;
-		
+
 	public:
 
 		// #TODO 아래 주석들은 code review 후 doxygen 형태로 정리 해야 된다.
@@ -279,10 +279,10 @@ namespace Proud
 		生成子
 		\~
 		*/
-		 PROUD_API AddrPort();
+		PROUD_API AddrPort();
 
-		 PROUD_API  bool ToNativeV4(ExtendSockAddr& output, ErrorInfo& outErrorInfo) const;
-		 PROUD_API  void ToNativeV6(ExtendSockAddr& out) const;
+		PROUD_API  bool ToNativeV4(ExtendSockAddr& output, ErrorInfo& outErrorInfo) const;
+		PROUD_API  void ToNativeV6(ExtendSockAddr& out) const;
 
 
 		/**
@@ -300,11 +300,11 @@ namespace Proud
 
 		\~
 		*/
-		 PROUD_API  void FromNativeV4(const sockaddr_in& in);
+		PROUD_API  void FromNativeV4(const sockaddr_in& in);
 
-		 PROUD_API  void FromNativeV6(const sockaddr_in6& in);
+		PROUD_API  void FromNativeV6(const sockaddr_in6& in);
 
-		 PROUD_API  void FromNative(const ExtendSockAddr& in);
+		PROUD_API  void FromNative(const ExtendSockAddr& in);
 
 		/**
 		\~korean
@@ -320,7 +320,7 @@ namespace Proud
 		xxx.xxx.xxx.xxx:xxxx 文字列エクスポート
 		\~
 		*/
-		 PROUD_API virtual String ToString() const;
+		PROUD_API virtual String ToString() const;
 
 		/**
 		\~korean
@@ -336,7 +336,7 @@ namespace Proud
 		xxx.xxx.xxx.xxx 文字列エクスポート
 		\~
 		*/
-		 PROUD_API virtual String IPToString() const;
+		PROUD_API virtual String IPToString() const;
 
 		/**
 		\~korean
@@ -363,16 +363,16 @@ namespace Proud
 
 		\~
 		*/
-		 PROUD_API  static AddrPort FromIPPortV4(const String& ipAddress, uint16_t port);
+		PROUD_API  static AddrPort FromIPPortV4(const String& ipAddress, uint16_t port);
 
-		 PROUD_API  static AddrPort FromIPPortV6(const String& ipAddress, uint16_t port);
+		PROUD_API  static AddrPort FromIPPortV6(const String& ipAddress, uint16_t port);
 
-		 PROUD_API  static AddrPort FromIPPort(const int32_t& af, const String& ipAddress, uint16_t port);
+		PROUD_API  static AddrPort FromIPPort(const int32_t& af, const String& ipAddress, uint16_t port);
 
 		/** Set to Any:port. */
-		 PROUD_API  static AddrPort FromAnyIPPort(const int32_t& af, uint16_t port);
+		PROUD_API  static AddrPort FromAnyIPPort(const int32_t& af, uint16_t port);
 
-		 PROUD_API static bool FromHostNamePort(AddrPort* outAddrPort, SocketErrorCode& errorCode, const String& hostName, uint16_t port);
+		PROUD_API static bool FromHostNamePort(AddrPort* outAddrPort, SocketErrorCode& errorCode, const String& hostName, uint16_t port);
 
 		/**
 		\~korean
@@ -392,7 +392,7 @@ namespace Proud
 		- NamedAddrPortのhost nameが"my.somename.net"形態である場合、これをIP addressに変換して取り込みます。
 		\~
 		*/
-		 PROUD_API  static AddrPort From(const NamedAddrPort& src);
+		PROUD_API  static AddrPort From(const NamedAddrPort& src);
 
 		/**
 		\~korean
@@ -408,7 +408,7 @@ namespace Proud
 		未指定IPオブジェクト。デフォルト値です。
 		\~
 		*/
-		 PROUD_API static AddrPort Unassigned;
+		PROUD_API static AddrPort Unassigned;
 
 		/**
 		\~korean
@@ -424,9 +424,9 @@ namespace Proud
 		ブロードキャストアドレスでもなく、nullアドレスでもない、1ホストの1ポートを指す正常なアドレスですか？
 		\~
 		*/
-		 PROUD_API bool IsUnicastEndpoint() const;
+		PROUD_API bool IsUnicastEndpoint() const;
 
-		 PROUD_API bool IsAnyOrUnicastEndpoint() const;
+		PROUD_API bool IsAnyOrUnicastEndpoint() const;
 
 		static inline bool IsEqualAddress(const AddrPort& a, const AddrPort& b)
 		{
@@ -575,7 +575,7 @@ namespace Proud
 		特定hostname、ポート番号からこのオブジェクトを生成します。
 		\~
 		*/
-		 PROUD_API static NamedAddrPort  FromAddrPort(String addr, uint16_t port);
+		PROUD_API static NamedAddrPort  FromAddrPort(String addr, uint16_t port);
 
 		/**
 		\~korean
@@ -591,7 +591,7 @@ namespace Proud
 		AddrPortオブジェクトからこのオブジェクトを生成します。
 		\~
 		*/
-		 PROUD_API static NamedAddrPort  From(const AddrPort &src);
+		PROUD_API static NamedAddrPort  From(const AddrPort &src);
 
 		/**
 		\~korean
@@ -677,7 +677,7 @@ namespace Proud
 		ブロードキャストアドレスでもなく、nullアドレスでもない、1ホストの1ポートを指す正常なアドレスですか？
 		\~
 		*/
-		 PROUD_API bool IsUnicastEndpoint();
+		PROUD_API bool IsUnicastEndpoint();
 	};
 
 	inline void AppendTextOut(String& a, const AddrPort &b)
@@ -727,16 +727,16 @@ namespace Proud
 		PROUD_API static int GetIPVersionFromString(const String& rhs);
 
 		/** Returns true if address is filled with 255 or 0xffff. */
-		  PROUD_API static bool IsAddressAny(const String& address);
+		PROUD_API static bool IsAddressAny(const String& address);
 
 		/** Returns true if address is filled with 0. */
-		 PROUD_API static bool IsAddressUnspecified(const String& address);
+		PROUD_API static bool IsAddressUnspecified(const String& address);
 
 		/** Returns true if address is not Any, Unspecified nor Loopback. */
-		 PROUD_API static bool IsAddressPhysical(const String& address);
+		PROUD_API static bool IsAddressPhysical(const String& address);
 
 		/** Returns true if addres is Loopback. For example, "127.0.0.1", "::1" or "localhost". */
-		 PROUD_API  static bool IsAddressLoopback(const String& address);
+		PROUD_API  static bool IsAddressLoopback(const String& address);
 
 #if defined(_WIN32)
 
@@ -793,10 +793,10 @@ public:
 
 	inline static int CompareElementsOrdered(INARGTYPE element1, INARGTYPE element2)
 	{
- 		if (element1 < element2)
- 			return -1;
- 		if (element1 == element2)
- 			return 0;
+		if (element1 < element2)
+			return -1;
+		if (element1 == element2)
+			return 0;
 		return 1;
 	}
 };
@@ -805,34 +805,34 @@ public:
 // class CPNElementTraits<Proud::AddrPort>
 // {
 // public:
-// 	typedef const Proud::AddrPort& INARGTYPE;
-// 	typedef Proud::AddrPort& OUTARGTYPE;
+//	typedef const Proud::AddrPort& INARGTYPE;
+//	typedef Proud::AddrPort& OUTARGTYPE;
 //
-// 	inline static ULONG Hash( INARGTYPE element )
-// 	{
-// 		assert(sizeof(element.m_binaryAddress) == 4);
-// 		return element.m_binaryAddress ^ element.m_port;
+//	inline static ULONG Hash( INARGTYPE element )
+//	{
+//		assert(sizeof(element.m_binaryAddress) == 4);
+//		return element.m_binaryAddress ^ element.m_port;
 //
-// 		return ret;
-// 	}
+//		return ret;
+//	}
 //
-// 	inline static bool CompareElements( INARGTYPE element1, INARGTYPE element2 ) throw()
-// 	{
-// 		return ( element1 == element2 ) ? true:false;
-// 	}
+//	inline static bool CompareElements( INARGTYPE element1, INARGTYPE element2 ) throw()
+//	{
+//		return ( element1 == element2 ) ? true:false;
+//	}
 //
-// 	inline static int CompareElementsOrdered( INARGTYPE element1, INARGTYPE element2 ) throw()
-// 	{
-// 		if(element1.m_binaryAddress < element2.m_binaryAddress)
-// 			return -1;
-// 		else if(element1.m_binaryAddress < element2.m_binaryAddress)
-// 			return 1;
-// 		if(element1.m_port < element2.m_port)
-// 			return -1;
-// 		else if(element1.m_port > element2.m_port)
-// 			return 1;
-// 		return 0;
-// 	}
+//	inline static int CompareElementsOrdered( INARGTYPE element1, INARGTYPE element2 ) throw()
+//	{
+//		if(element1.m_binaryAddress < element2.m_binaryAddress)
+//			return -1;
+//		else if(element1.m_binaryAddress < element2.m_binaryAddress)
+//			return 1;
+//		if(element1.m_port < element2.m_port)
+//			return -1;
+//		else if(element1.m_port > element2.m_port)
+//			return 1;
+//		return 0;
+//	}
 // };
 
 #ifdef _MSC_VER
@@ -842,4 +842,3 @@ public:
 #if (defined(_MSC_VER) && _MSC_VER>=1400)
 //#pragma managed(pop)
 #endif
-

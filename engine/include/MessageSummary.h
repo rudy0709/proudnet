@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "EncryptEnum.h"
 #include "CompressEnum.h"
@@ -53,9 +53,9 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
-	전송되는 메시지의 요약 정보입니다. 예를 들어 RMI 로그를 추적할 때, 보낸 메시지가 어떤 형식인지 등을 요약하여 사용자에게 제공합니다. 
+	전송되는 메시지의 요약 정보입니다. 예를 들어 RMI 로그를 추적할 때, 보낸 메시지가 어떤 형식인지 등을 요약하여 사용자에게 제공합니다.
 
 	\~english
 	This is a quick summary of messages being sent. For instance, when tracking RMI log, this shows a summary of the sent messages to user such as which type they are in.
@@ -70,9 +70,9 @@ namespace Proud
 	class MessageSummary
 	{
 	public:
-		/** 
+		/**
 		\~korean
-		메시지의 크기입니다. ProudNet의 메시지 계층 이하의 계층은 포함하지 않습니다. 
+		메시지의 크기입니다. ProudNet의 메시지 계층 이하의 계층은 포함하지 않습니다.
 
 		\~english
 		Size of message. This doesn't include other classes than the ProudNet message class.
@@ -86,9 +86,9 @@ namespace Proud
 		*/
 		int m_payloadLength;
 
-		/** 
+		/**
 		\~korean
-		압축된 메시지의 크기입니다.압축이 되지 않았으면,0이 들어갑니다. ProudNet의 메시지 계층 이하의 계층은 포함하지 않습니다. 
+		압축된 메시지의 크기입니다.압축이 되지 않았으면,0이 들어갑니다. ProudNet의 메시지 계층 이하의 계층은 포함하지 않습니다.
 
 		\~english
 		Size of compressed message. This doesn't include other classes than the ProudNet message class.
@@ -102,9 +102,9 @@ namespace Proud
 		*/
 		int m_compressedPayloadLength;
 
-		/** 
+		/**
 		\~korean
-		이 메시지가 RMI 메시지인 경우 RMI의 ID값입니다. 
+		이 메시지가 RMI 메시지인 경우 RMI의 ID값입니다.
 
 		\~english
 		RMI ID if a message is RMI.
@@ -117,9 +117,9 @@ namespace Proud
 		\~
 		*/
 		RmiID m_rmiID;
-		/** 
+		/**
 		\~korean
-		이 메시지가 RMI 메시지인 경우 RMI의 함수명입니다. 
+		이 메시지가 RMI 메시지인 경우 RMI의 함수명입니다.
 
 		\~english
 		RMI function name if a message is RMI.
@@ -132,9 +132,9 @@ namespace Proud
 		\~
 		*/
 		const PNTCHAR* m_rmiName;
-		/** 
+		/**
 		\~korean
-		이 메시지에 동원된 암호화 기법입니다. 
+		이 메시지에 동원된 암호화 기법입니다.
 
 		\~english
 		The encrypted method of a message.
@@ -147,7 +147,7 @@ namespace Proud
 		\~
 		*/
 		EncryptMode m_encryptMode;
-		/** 
+		/**
 		\~korean
 		이 메시지에 동원된 압축방식입니다.
 
@@ -166,9 +166,9 @@ namespace Proud
 
 	/**  @} */
 
-	/** 
+	/**
 	\~korean
-	IRmiStub::BeforeRmiInvocation 에서 수신 메시지의 요약 정보입니다. 예를 들어 RMI 로그를 추적할 때, 보낸 메시지가 어떤 형식인지 등을 요약하여 사용자에게 제공합니다. 
+	IRmiStub::BeforeRmiInvocation 에서 수신 메시지의 요약 정보입니다. 예를 들어 RMI 로그를 추적할 때, 보낸 메시지가 어떤 형식인지 등을 요약하여 사용자에게 제공합니다.
 
 	\~english
 	Summary of received message at IRmiStub::BeforeRmiInvocation. For exmaple, it provide summary to user such as type of message when you tracking RMI log.
@@ -183,9 +183,9 @@ namespace Proud
 	class BeforeRmiSummary
 	{
 	public:
-		/** 
+		/**
 		\~korean
-		이 메시지가 RMI 메시지인 경우 RMI의 ID값입니다. 
+		이 메시지가 RMI 메시지인 경우 RMI의 ID값입니다.
 
 		\~english
 		RMI ID if a message is RMI.
@@ -198,9 +198,9 @@ namespace Proud
 		\~
 		*/
 		RmiID m_rmiID;
-		/** 
+		/**
 		\~korean
-		이 메시지가 RMI 메시지인 경우 RMI의 함수명입니다. 
+		이 메시지가 RMI 메시지인 경우 RMI의 함수명입니다.
 		USE_RMI_NAME_STRING을 define해야 이 함수의 파라메터에서 문자열이 등장합니다.
 
 		\~english
@@ -217,9 +217,9 @@ namespace Proud
 		\~
 		*/
 		const PNTCHAR* m_rmiName;
-		/** 
+		/**
 		\~korean
-		보낸 Host의 HostID 입니다. 
+		보낸 Host의 HostID 입니다.
 
 		\~english
 		HostID of Host who sent
@@ -232,9 +232,9 @@ namespace Proud
 		\~
 		*/
 		HostID m_hostID;
-		/** 
+		/**
 		\~korean
-		사용자가 지정한 hostTag의 포인터입니다. 
+		사용자가 지정한 hostTag의 포인터입니다.
 
 		\~english
 		Pointer of user defined hostTag.
@@ -255,9 +255,9 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
-	IRmiStub::AfterRmiInvocation 에서 수신 메시지의 요약 정보입니다. 예를 들어 RMI 로그를 추적할 때, 보낸 메시지가 어떤 형식인지 등을 요약하여 사용자에게 제공합니다. 
+	IRmiStub::AfterRmiInvocation 에서 수신 메시지의 요약 정보입니다. 예를 들어 RMI 로그를 추적할 때, 보낸 메시지가 어떤 형식인지 등을 요약하여 사용자에게 제공합니다.
 
 	\~english
 	Summary of received message at IRmiStub::AfterRmiInvocation. For exmaple, it provide summary to user such as type of message when you tracking RMI log.
@@ -272,9 +272,9 @@ namespace Proud
 	class AfterRmiSummary
 	{
 	public:
-		/** 
+		/**
 		\~korean
-		이 메시지가 RMI 메시지인 경우 RMI의 ID값입니다. 
+		이 메시지가 RMI 메시지인 경우 RMI의 ID값입니다.
 
 		\~english
 		RMI ID if a message is RMI.
@@ -287,7 +287,7 @@ namespace Proud
 		\~
 		*/
 		RmiID m_rmiID;
-		/** 
+		/**
 		\~korean
 		이 메시지가 RMI 메시지인 경우 RMI의 함수명입니다.
 		USE_RMI_NAME_STRING을 define해야 이 함수의 파라메터에서 문자열이 등장합니다.
@@ -306,9 +306,9 @@ namespace Proud
 		\~
 		*/
 		const PNTCHAR* m_rmiName;
-		/** 
+		/**
 		\~korean
-		보낸 Host의 HostID 입니다. 
+		보낸 Host의 HostID 입니다.
 
 		\~english
 		HostID of Host who sent
@@ -321,9 +321,9 @@ namespace Proud
 		\~
 		*/
 		HostID m_hostID;
-		/** 
+		/**
 		\~korean
-		사용자가 지정한 hostTag의 포인터입니다. 
+		사용자가 지정한 hostTag의 포인터입니다.
 
 		\~english
 		Pointer of user defined hostTag.
@@ -336,9 +336,9 @@ namespace Proud
 		\~
 		*/
 		void* m_hostTag;
-		/** 
+		/**
 		\~korean
-		수신 RMI함수가 처리되는데 걸리는 시간 
+		수신 RMI함수가 처리되는데 걸리는 시간
 
 		\~english
 		Time to process received RMI function.

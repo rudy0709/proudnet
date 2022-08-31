@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "NetConfig.h"
 #include "Enums.h"
@@ -17,8 +17,8 @@ namespace Proud
 		, m_maxDirectP2PMulticastCount(CNetConfig::DefaultMaxDirectP2PMulticastCount)
 		, m_uniqueID(0)
 		, m_fillSendFailedRemotes(false)
-        , m_priority(MessagePriority_Medium)
-        , m_reliability(MessageReliability_Reliable)
+		, m_priority(MessagePriority_Medium)
+		, m_reliability(MessageReliability_Reliable)
 		, m_enableLoopback(true)
 		, m_hostTag(NULL)
 		, m_enableP2PJitTrigger(true)
@@ -38,8 +38,8 @@ namespace Proud
 		, m_maxDirectP2PMulticastCount(CNetConfig::DefaultMaxDirectP2PMulticastCount)
 		, m_uniqueID(0)
 		, m_fillSendFailedRemotes(false)
-        , m_priority(priority)
-        , m_reliability(reliability)
+		, m_priority(priority)
+		, m_reliability(reliability)
 		, m_enableLoopback(true)
 		, m_hostTag(NULL)
 		, m_enableP2PJitTrigger(true)
@@ -51,5 +51,4 @@ namespace Proud
 		, m_compressMode(CM_None)
 	{
 	}
-
 }

@@ -54,7 +54,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	Tracer.h 파일을 Include해야 합니다.
 	파일에 로그를 기록하는 모듈입니다. ( <a target="_blank" href="http://guide.nettention.com/cpp_ko#write_pidl" >PIDL 파일 작성하기</a>  참고)
@@ -64,7 +64,7 @@ namespace Proud
 	- WriteLine, WriteLine를 써서 로그를 기록합니다. 저장된 로그는 비동기로 파일에 저장됩니다.
 
 	\~english
-	 Module that records log to a file (Refer <a target="_blank" href="http://guide.nettention.com/cpp_en#write_pidl" >Making a PIDL file</a> )
+	Module that records log to a file (Refer <a target="_blank" href="http://guide.nettention.com/cpp_en#write_pidl" >Making a PIDL file</a> )
 
 	General usage
 	- Use CLogWriter.New to create this object. Designates log file name when created.
@@ -95,8 +95,8 @@ namespace Proud
 			eLogTypeDefault,
 			eLogTypeUserDefine
 		};
-	
-		/** 
+
+		/**
 		\~korean
 		\brief 새 CLogWriter 객체를 생성합니다.
 		\param logFileName 로그 파일 이름
@@ -105,9 +105,9 @@ namespace Proud
 
 		\~english TODO:translate needed.
 		\brief Generate a new CLogWriter object.
-		\param logFileName log file name. 
+		\param logFileName log file name.
 		\param newFileForLineLimit If the number of the log lines gets bigger than the designated value her, then it starts recording in a new log file. It is limitless if 0.
-		\param putFileTimeString If set as “true”, the current time information (year/month/date/hour/minute/second) is added to prevent duplication of file names. 
+		\param putFileTimeString If set as “true”, the current time information (year/month/date/hour/minute/second) is added to prevent duplication of file names.
 
 		\~chinese
 		\brief 生成新的 CLogWriter%对象。
@@ -121,7 +121,7 @@ namespace Proud
 		\param putFileTimeString trueを指定するとファイル名に現在の時間情報(年月日時分秒)をつけてファイル名重複を防止します。
 		\~
 		*/
-		 PROUD_API static CLogWriter* New(const String& logFileName, unsigned int newFileForLineLimit = 0, bool putFileTimeString = true);
+		PROUD_API static CLogWriter* New(const String& logFileName, unsigned int newFileForLineLimit = 0, bool putFileTimeString = true);
 
 	protected:
 		CLogWriter(); // CLogWriter::New()를 대신 사용하세요!
@@ -129,25 +129,25 @@ namespace Proud
 	public:
 		virtual ~CLogWriter();
 
-		/** 
+		/**
 		\~korean
-		로그 파일을 다른 이름으로 바꿉니다. 기록 중이던 파일은 닫히고 다른 이름으로 바뀐 파일로 새로 열립니다. 
+		로그 파일을 다른 이름으로 바꿉니다. 기록 중이던 파일은 닫히고 다른 이름으로 바뀐 파일로 새로 열립니다.
 		- 이 함수는 비동기로 실행됩니다.  즉, 즉시 리턴됩니다.
-		- 만약 로그 파일을 다른 이름으로 바꾸는 것이 실패하면 이 함수는 오류를 리턴하지 않습니다. 그 대신 로그를 기록하는 함수를 
-		사용할 때 Proud.Exception 예외가 발생할 것입니다. 
-		\param logFileName 새 로그 파일 이름 
+		- 만약 로그 파일을 다른 이름으로 바꾸는 것이 실패하면 이 함수는 오류를 리턴하지 않습니다. 그 대신 로그를 기록하는 함수를
+		사용할 때 Proud.Exception 예외가 발생할 것입니다.
+		\param logFileName 새 로그 파일 이름
 
 		\~english
 		The log file is changed to another name. The file being recorded is closed and opens newly as a file changed to a different name.
-		- This function is executed asynchronously. In other words, it is returned immediately. 
-		- If the log file fails to change to a different name, this function does not return the error. Instead, Proud.Exception exception will occur when the function to record the log is used. 
+		- This function is executed asynchronously. In other words, it is returned immediately.
+		- If the log file fails to change to a different name, this function does not return the error. Instead, Proud.Exception exception will occur when the function to record the log is used.
 		\param logFileName New log file name
 
 		\~chinese
-		把日志文件修改为其他名称。记录中的文件将被关闭，同时打开其他名称的文件。 
+		把日志文件修改为其他名称。记录中的文件将被关闭，同时打开其他名称的文件。
 		- 此函数非同步运行。即，立即返回。
-		- 如果日志文件的名称更改失败，将不返回错误。 但在使用日志记录函数会发生Proud.Exception例外。 
-		\paramlogFileName 新日志文件名称 
+		- 如果日志文件的名称更改失败，将不返回错误。 但在使用日志记录函数会发生Proud.Exception例外。
+		\paramlogFileName 新日志文件名称
 
 		\~japanese
 		ログファイルの名前を変更します。記録していたファイルは閉じて、変更された名前のファイルが新たに開かれます。
@@ -158,12 +158,12 @@ namespace Proud
 		*/
 		virtual void SetFileName(const String& logFileName) = 0;
 
-		/** 
+		/**
 		\~korean
 		로그 한줄을 ProudNet 양식에 맞춰 파일에 기록합니다.
 		- 이 함수는 비동기로 실행됩니다. 즉, 즉시 리턴됩니다.
-		 -이 함수는 아래 예제처럼 최종 출력 됩니다. 
-		  logWriteLineTime: logLevel / logCategory(logHostID): logMessage {logFunction(logLine)}
+		-이 함수는 아래 예제처럼 최종 출력 됩니다.
+		logWriteLineTime: logLevel / logCategory(logHostID): logMessage {logFunction(logLine)}
 		\param logLevel 로그 내용의 심각도
 		\param logCategory 어떤 종류의 로그인지?
 		\param logHostID 이 로그를 전송한 호스트
@@ -172,13 +172,13 @@ namespace Proud
 		\param logLine 로그를 호출한 라인
 
 		\~english
-		One line of the log is recorded in the file in the ProudNet format. 
+		One line of the log is recorded in the file in the ProudNet format.
 		- This function is executed asynchronously. In other words, it is returned immediately.
 		- This function is finally output as the examples below.
 		logWriteLineTime: logLevel / logCategory(logHostID): logMessage {logFunction(logLine)}
 		\param logLevel Severity of the log content
 		\param logCategory What type of a log is this?
-		\param logHostID The host transmitting this log. 
+		\param logHostID The host transmitting this log.
 		\param logMessage Log message
 		\param logFunction Name of the function that has called the log
 		\param logLine Line that has called the log
@@ -187,7 +187,7 @@ namespace Proud
 		\~chinese
 		把一行日志按照ProudNet样式记录到文件。
 		- 此函数非同步运行，即，立即返回。
-		-此函数最终被输出，如下例子。 
+		-此函数最终被输出，如下例子。
 		logWriteLineTime: logLevel / logCategory(logHostID): logMessage {logFunction(logLine)}
 		\param logLevel 日志内容的重要度
 		\param logCategory 何种类型的日志?
@@ -216,7 +216,7 @@ namespace Proud
 		로그 한줄을 파일에 기록합니다.
 		- 이 함수는 비동기로 실행됩니다. 즉, 즉시 리턴됩니다.
 		- 단, void WriteLine(TraceID TID, LPCWSTR text) 와 달리 아무런 헤더를 포함하지 않습니다.
-		\param logMessage 로그를 찍을 문자열. 
+		\param logMessage 로그를 찍을 문자열.
 		- String 형태 또는 WriteLine(String::NewFormat(L"Test Log %d", 10)) 형태로 사용 가능합니다.
 
 		\~english
@@ -237,7 +237,7 @@ namespace Proud
 		ログ1行をファイルに記録します。
 		- この関数は非同期で実行されます。即ち、直ちにリターンされます。
 		- 但し、void WriteLine(TraceID TID, LPCWSTR text)とは違って、何らのヘッダーを含めません。
-		\param logMessage ログを残す文字列 
+		\param logMessage ログを残す文字列
 		- String 形態またはWriteLine(String::NewFormat(L"Test Log %d", 10))形態で使用可能です。
 		\~
 		*/
@@ -251,14 +251,14 @@ namespace Proud
 		- false로 설정된 경우 출력하지 못한 로그들을 모두 출력 할 때 까지 종료가 지연됩니다.
 
 		\param flag 이 옵션을 사용할지 여부입니다.
-		
-		\~english 
-		- This determines whether to output the rest of the logs not yet output when the object is terminated (ended) or ignore them. 
-		- The default value is false. 
-		- If set true, it terminates immediately even if there is a log not yet output. 
-		- If set false, termination is delayed until not yet output logs are all output. 
 
-		\param flag Whether to use this option or not. 
+		\~english
+		- This determines whether to output the rest of the logs not yet output when the object is terminated (ended) or ignore them.
+		- The default value is false.
+		- If set true, it terminates immediately even if there is a log not yet output.
+		- If set false, termination is delayed until not yet output logs are all output.
+
+		\param flag Whether to use this option or not.
 
 		\~chinese
 		- 对清除（结束）CLogWriter 对象时未及时输出的日志进行继续输出或忽略操作做出决定。
@@ -274,7 +274,7 @@ namespace Proud
 		- trueに設定すると出力できなかったログがあっても無視して直ちに終了します。
 		- falseに設定した場合、出力できなかったログを全て出力する時まで終了が遅延されます。
 		\param flag このオプションを使用するかどうかです。
-		
+
 		\~
 		*/
 		virtual void SetIgnorePendedWriteOnExit(bool flag) = 0;

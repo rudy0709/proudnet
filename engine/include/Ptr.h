@@ -36,7 +36,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 #pragma once
 
-#include "pnstdint.h" 
+#include "pnstdint.h"
 
 #include "BasicTypes.h"
 #include "atomic.h"
@@ -48,7 +48,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #ifdef _MSC_VER
 #pragma warning(push)
 #pragma warning(disable:4324)
-#endif 
+#endif
 
 #ifdef _MSC_VER
 #pragma pack(push,8)
@@ -68,11 +68,11 @@ namespace Proud
 
 	class CLookasideAllocator;
 
-	/** 
+	/**
 	\~korean
 	reference count를 세지 않는 덜 smart한 pointer이다.
 	- ATL CAutoPtr과 같은 역할을 한다.
-	- 이 객체가 파괴될 때 hold하고 있는 pointer의 object를 delete한다. 
+	- 이 객체가 파괴될 때 hold하고 있는 pointer의 object를 delete한다.
 
 	\~english
 	A less smart pointer that does not count reference count
@@ -97,9 +97,9 @@ namespace Proud
 		T* m_p;
 
 		inline CHeldPtr() : m_p(NULL) {}
-		
+
 		inline CHeldPtr(T* p_) : m_p(p_) {}
-		
+
 		inline CHeldPtr& operator=(T* p_)
 		{
 			m_p = p_;
@@ -113,11 +113,11 @@ namespace Proud
 		}
 
 		/**
-		\~korean 
-		object를 제거한다. 
+		\~korean
+		object를 제거한다.
 
-		\~english 
-		Remove an object. 
+		\~english
+		Remove an object.
 
 		\~chinese
 		删除object。
@@ -139,10 +139,10 @@ namespace Proud
 		- 이미 다른 것을 attach하고 있는 경우 그것을 delete하지는 않는다.
 		\param p_ attach할 객체의 포인터
 
-		\~english 
+		\~english
 		Attach an object
-		- If something else is already attached, do not delete it. 
-		\param p_ Pointer of the object to be attached. 
+		- If something else is already attached, do not delete it.
+		\param p_ Pointer of the object to be attached.
 
 		\~chinese
 		Attach object。
@@ -160,16 +160,16 @@ namespace Proud
 			m_p = p_;
 		}
 
-		/** 
+		/**
 		\~korean
 		object를 detach한다. 즉, hold하고 있는 object를 NULL로 세팅한다.
 		- 기존 attach된 object를 delete하지는 않는다.
 		- 즉, Attach(NULL)과 같은 역할을 한다.
 
-		\~english 
-		Detach an object. In other words, the object being held is set to null. 
-		- Do not delete the previously attached object. 
-		- In other words, it performs the same role as Attach (NULL). 
+		\~english
+		Detach an object. In other words, the object being held is set to null.
+		- Do not delete the previously attached object.
+		- In other words, it performs the same role as Attach (NULL).
 
 		\~chinese
 		Detach object。即将hold中的object设置成NULL。
@@ -211,40 +211,40 @@ namespace Proud
 		return a.m_p < b.m_p;
 	}
 
-// 	 void* RefCount_LookasideAllocator_Alloc(size_t length);
-// 	 void RefCount_LookasideAllocator_Free(void* ptr);
+//	void* RefCount_LookasideAllocator_Alloc(size_t length);
+//	void RefCount_LookasideAllocator_Free(void* ptr);
 
-	/** 
+	/**
 	\~korean
 	Smart pointer 클래스. 자세한 내용은 <a target="_blank" href="http://guide.nettention.com/cpp_ko#smart_ptr" >스마트 포인터</a>에 있다.
 
 	RefCount를 사용시 다음을 주의해야 한다.
 	- RefCount가 최초로 객체를 참조할 때 Tombstone이라는 것을 만든다. 그리고 이후의 공동 참조 객체가 등장시 이 tombstone이 공유된다.
-	즉 tombstone을 최초에 생성하는 시간 비용(메모리 할당 1회)이 든다. 
+	즉 tombstone을 최초에 생성하는 시간 비용(메모리 할당 1회)이 든다.
 	- 서로 다른 연관된 클래스 타입으로 캐스팅이 안된다. 예컨대 RefCount<CFile>을 RefCount<CObject>에 복사할 수 없다.
-	이런 경우는 RefCount의 class type으로 가급적 상위 base class를 넣고 코딩시 type cast를 매번 해야 한다. 
+	이런 경우는 RefCount의 class type으로 가급적 상위 base class를 넣고 코딩시 type cast를 매번 해야 한다.
 	\code
 	class Base {};
 	class A:public Base {};
 
 	void Foo()
 	{
-	   RefCount<A> a;
-	   RefCount<Base> b;
-	   a = b; // 에러
+	    RefCount<A> a;
+	    RefCount<Base> b;
+	    a = b; // 에러
 	}
 
 	void Foo2()
 	{
-	   RefCount<Base> a;
-	   RefCount<Base> b(new A);
-	   a = b; // OK
-	   A* p = (A*)a.get(); // 타입 A를 참조하려면 이렇게 해야 한다.
+	    RefCount<Base> a;
+	    RefCount<Base> b(new A);
+	    a = b; // OK
+	    A* p = (A*)a.get(); // 타입 A를 참조하려면 이렇게 해야 한다.
 	}
 	\endcode
-	
+
 	\param T 스마트 포인터가 다룰 객체의 타입
-	\param AllocT AllocType 값 중 하나. 
+	\param AllocT AllocType 값 중 하나.
 	\param IsThreadSafe <안씀!> true이면 이 스마트 포인터 변수를 여러 스레드가 동시에 다루어도 안전하다. 그러나 성능 저하가 있다.
 
 	\~english
@@ -252,8 +252,8 @@ namespace Proud
 
 	When using RefCount, the following must be considered.
 	- When RefCount refers object for the first time, it creates Tombstone. And when joint reference object appears, this tombstone will be shared.
-	  In other words, there is a time cost(memory allocation, 1 time) to create tombstone initially. 
-	- Cannot cast to related class types that are different to each other. Which means, RefCount<CFile> cannot be copied to RefCount<CObject>.  
+	  In other words, there is a time cost(memory allocation, 1 time) to create tombstone initially.
+	- Cannot cast to related class types that are different to each other. Which means, RefCount<CFile> cannot be copied to RefCount<CObject>.
 	  Type cast must be performed each time when coding as class type of RefCount entered higher possible base class.
 	\code
 	class Base {};
@@ -261,22 +261,22 @@ namespace Proud
 
 	void Foo()
 	{
-	   RefCount<A> a;
-	   RefCount<Base> b;
-	   a = b; // Error
+		RefCount<A> a;
+		RefCount<Base> b;
+		a = b; // Error
 	}
 
 	void Foo2()
 	{
-	   RefCount<Base> a;
-	   RefCount<Base> b(new A);
-	   a = b; // OK
-	   A* p = (A*)a.get(); // This must be done to refer type A.
+		RefCount<Base> a;
+		RefCount<Base> b(new A);
+		a = b; // OK
+		A* p = (A*)a.get(); // This must be done to refer type A.
 	}
 	\endcode
-	
+
 	\param T Type of object that is to be handled by smart pointer
-	\param AllocT one of the values of AllocType 
+	\param AllocT one of the values of AllocType
 	\param IsThreadSafe <NEVER USED!> If true then it is safe that many threads handle the variable of this smart pointer. But it reduces overall performance.
 
 	\~chinese
@@ -293,17 +293,17 @@ namespace Proud
 
 		void Foo()
 		{
-		   RefCount<A> a;
-		   RefCount<Base> b;
-		   a = b; // 错误
+		    RefCount<A> a;
+		    RefCount<Base> b;
+		    a = b; // 错误
 		}
 
 		void Foo2()
 		{
-		   RefCount<Base> a;
-		   RefCount<Base> b(new A);
-		   a = b; // OK
-		   A* p = (A*)a.get(); // 想参考A的话要这样做。
+		    RefCount<Base> a;
+		    RefCount<Base> b(new A);
+		    a = b; // OK
+		    A* p = (A*)a.get(); // 想参考A的话要这样做。
 		}
 	\endcode
 
@@ -316,50 +316,50 @@ namespace Proud
 
 	RefCountを使用時に次を注意しなければなりません。
 	- RefCountが初めてオブジェクトを参照時にTombstoneということを作ります。そして、以降の共同参照オブジェクトが登場時にこのtombstoneが共有されます。
-	即ち、tombstoneを初めて生成する時間コスト(メモリー割当1回)がかかります。 
+	即ち、tombstoneを初めて生成する時間コスト(メモリー割当1回)がかかります。
 	- お互い違う関連したクラスタイプでキャスティングがされません。例えば、RefCount<CFile>をRefCount<CObject>にコピーすることはできません。
-	このような場合はRefCountのclass typeでなるべく上位のbase classを入れてコーディング時にtype castを毎回しなければなりません。 
+	このような場合はRefCountのclass typeでなるべく上位のbase classを入れてコーディング時にtype castを毎回しなければなりません。
 \code
 	class Base {};
 	class A:public Base {};
 
 	void Foo()
 	{
-	   RefCount<A> a;
-	   RefCount<Base> b;
-	   a = b; // エラー　
+	    RefCount<A> a;
+	    RefCount<Base> b;
+	    a = b; // エラー　
 	}
 
 	void Foo2()
 	{
-	   RefCount<Base> a;
-	   RefCount<Base> b(new A);
-	   a = b; // OK
-	   A* p = (A*)a.get(); // タイプAを参照するためにはこのようにしなければなりません。
+	    RefCount<Base> a;
+	    RefCount<Base> b(new A);
+	    a = b; // OK
+	    A* p = (A*)a.get(); // タイプAを参照するためにはこのようにしなければなりません。
 	}
 	\endcode
 
 	\param T スマートポインターが扱うオブジェクトのタイプ
-	\param AllocT AllocType 値のうち一つ。 
+	\param AllocT AllocType 値のうち一つ。
 	\param IsThreadSafe <使わない!> trueであればこのスマートポインター変数を複数のスレッドが同時に扱っても安全です。しかし、性能低下があります。
 
 	\~
 	*/
 	template<typename T>
-	class RefCount 
+	class RefCount
 	{
 	public:
 		typedef RefCount<T> Type;
 	private:
-		struct Tombstone 
+		struct Tombstone
 		{
 			T* m_ptr;
 
 			/* 낮은 확률일 것 같지? 64bit에서는 reference count가 2^32를 넘어가지 말란 법 없다.
-			여러 스레드에서 동시에 assign이나 암묵적인 scope out이 있을 경우 얼마든지 thread unsafe는 있을 수 있다. 
+			여러 스레드에서 동시에 assign이나 암묵적인 scope out이 있을 경우 얼마든지 thread unsafe는 있을 수 있다.
 			따라서 이 값은 atomic op으로만 다루어져야 한다. */
-			volatile intptr_t m_count; 
- 
+			volatile intptr_t m_count;
+
 			inline Tombstone() {}
 			inline ~Tombstone() {
 				delete m_ptr;
@@ -377,8 +377,8 @@ namespace Proud
 		public:
 			/**
 			\~korean
-			CFirstHeap은 CSingleton 참조. 
-			- CSingleton은 RefCount를 참조. 
+			CFirstHeap은 CSingleton 참조.
+			- CSingleton은 RefCount를 참조.
 			- 따라서 CSingleton은 CFirstHeap 사용 금지.
 			- object를 생성 해줌
 			- 자체적으로 new를 할 수 없게끔 되어있음
@@ -387,8 +387,8 @@ namespace Proud
 			CFirstHeap refers to CSingleton
 			- CSingleton refers to RefCount
 			- Therefore, CSingleton is forbidden to use CFirstHeap.
-			- It generates objects. 
-			- It is made not to do new on its own. 
+			- It generates objects.
+			- It is made not to do new on its own.
 
 			\~chinese
 			CFirstHeap 参考 CSingleton%。
@@ -398,8 +398,8 @@ namespace Proud
 			- 不让自己本身做new。
 
 			\~japanese
-			CFirstHeapはCSingletonをご参照ください。 
-			- CSingletonはRefCountをご参照ください。 
+			CFirstHeapはCSingletonをご参照ください。
+			- CSingletonはRefCountをご参照ください。
 			- よって、CSingletonはCFirstHeap使用禁止
 			- objectを生成します。
 			- 自体的にnewができなくなっています。
@@ -407,25 +407,25 @@ namespace Proud
 			*/
 			inline static Tombstone* NewInstance()
 			{
-				Tombstone* ret = (Tombstone*)CProcHeap::Alloc(sizeof(Tombstone));  // 반드시 CProcHeap을 써야 한다. CFirstHeap은 프로세스 종료중 사용 불가이므로.				
+				Tombstone* ret = (Tombstone*)CProcHeap::Alloc(sizeof(Tombstone));  // 반드시 CProcHeap을 써야 한다. CFirstHeap은 프로세스 종료중 사용 불가이므로.
 				if(ret == NULL)
-				 ThrowBadAllocException();
- 
+					ThrowBadAllocException();
+
 				CallConstructor<typename Type::Tombstone>(ret);// <Type::Tombstone>를 붙여야 컴파일러가 엉뚱한 타입 매칭을 하는 버그를 피함
- 
+
 				return ret;
 			}
- 
+
 			/**
 			\~korean
-			 object를 제거함.
+			object를 제거함.
 			- 자체적 delete를 할 수 없음
 			\param object 제거할 객체
 
-			\~english 
-			Removes objects. 
-			- It cannot delete on its own. 
-			\param object Object to be removed. 
+			\~english
+			Removes objects.
+			- It cannot delete on its own.
+			\param object Object to be removed.
 
 			\~chinese
 			删除object。
@@ -441,19 +441,19 @@ namespace Proud
 			inline static void DeleteInstance(Tombstone* object)
 			{
 				CallDestructor<typename Type::Tombstone>(object);// <Type::Tombstone>를 붙여야 컴파일러가 엉뚱한 타입 매칭을 하는 버그를 피함
- 
+
 				CProcHeap::Free(object);
 			}
 
 			NO_COPYABLE(Tombstone)
 		};
- 
+
 		Tombstone* m_tombstone;
- 
+
 	public:
-		/** 
+		/**
 		\~korean
-		이 객체를 참조하고 있는 다른 변수 객체들의 갯수를 리턴한다. 즉 참조 횟수다. 
+		이 객체를 참조하고 있는 다른 변수 객체들의 갯수를 리턴한다. 즉 참조 횟수다.
 
 		\~english
 		Returns the number of other variable objects that refer this object. In other words, the number of referring.
@@ -465,17 +465,17 @@ namespace Proud
 		このオブジェクトを参照している他の変数オブジェクトの数をリターンします。即ち、参照回数です。
 		\~
 		*/
-		inline intptr_t GetRefCount() 
+		inline intptr_t GetRefCount()
 		{
 			if (!m_tombstone)
 				return 0;
- 
+
 			return m_tombstone->m_count;
 		}
- 
-		/** 
+
+		/**
 		\~korean
-		생성자. 포인터 p가 가리키는 객체의 소유권을 가져온다. 
+		생성자. 포인터 p가 가리키는 객체의 소유권을 가져온다.
 
 		\~english
 		Constructor. Brings the ownership of the object that pointer p points.
@@ -487,21 +487,21 @@ namespace Proud
 		生成子。ポインターpが指すオブジェクトの所有権を取り込みます。
 		\~
 		*/
-		inline explicit RefCount(T* p = 0)			
+		inline explicit RefCount(T* p = 0)
 		{
 			if(p)
 			{
 				m_tombstone = Tombstone::NewInstance();
-				
+
 				m_tombstone->m_count = 1;
 				m_tombstone->m_ptr = p;
 			}
 			else
 				m_tombstone = 0;
 		}
-		/** 
+		/**
 		\~korean
-		복사 대입 연산자 
+		복사 대입 연산자
 
 		\~english
 		Copy assignment operator
@@ -540,22 +540,22 @@ namespace Proud
 		// shared_ptr.reset과 동일
 		inline void reset()
 		{
-			Reset(); 
+			Reset();
 		}
- 
+
 	private:
 		inline void AssignFrom(const Type& other)
 		{
 			// 이미 같은거면 스킵
 			if(other.m_tombstone == m_tombstone)
 				return;
- 
+
 			// 상대측 RefCount 증가
 			if(other.m_tombstone)
 			{
 				AtomicIncrementPtr(&other.m_tombstone->m_count);
 			}
- 
+
 			// 이쪽 RefCount 감소
 			Tombstone* deletePendee = 0;
 			if(m_tombstone)
@@ -566,10 +566,10 @@ namespace Proud
 					deletePendee = m_tombstone;
 				}
 			}
- 
+
 			// 본격
 			m_tombstone = other.m_tombstone;
- 
+
 			// 파괴해야 하는 객체의 뒤늦은 파괴
 			if(deletePendee != NULL)
 				Tombstone::DeleteInstance(deletePendee);
@@ -581,7 +581,7 @@ namespace Proud
 			AssignFrom(other);
 			return *this;
 		}
- 
+
 		inline operator T* () const
 		{
 			return m_tombstone ? m_tombstone->m_ptr : 0;
@@ -594,14 +594,14 @@ namespace Proud
 		{
 			return m_tombstone ? m_tombstone->m_ptr : 0;
 		}
- 
+
 	};
 
 	/**
 	\~korean
 	memory page를 통째로 alloc/free할 때 유용하다.
 
-	\~english 
+	\~english
 
 	\~chinese
 	把整个memory page进行alloc/free的时候有用。
@@ -632,17 +632,17 @@ namespace Proud
 				::VirtualFree(m_p,m_dwSizeOnFree,m_dwTypeOnFree);
 		}
 
-		/** 
-		\~korean 
-		memory page를 할당하되 자동 해제시 사용될 값도 미리 입력해둔다. 
-		
-		\~english 
-		
+		/**
+		\~korean
+		memory page를 할당하되 자동 해제시 사용될 값도 미리 입력해둔다.
+
+		\~english
+
 		\~chinese
 		分配memory page，而且预先输入自动解除时将被使用的值。
 
 		\~japanese
-		memory pageを割り当てるが自動解除時に使用される値も前もって入力して置きます。 
+		memory pageを割り当てるが自動解除時に使用される値も前もって入力して置きます。
 		\~
 		*/
 		void VirtualAlloc(void* lpAddress,size_t dwSize,uint32_t flAllocationType,uint32_t flProtect,size_t dwSizeOnFree,uint32_t dwFreeType)
@@ -711,7 +711,7 @@ public:
 	Compare two elements
 	\param element1 First element to be compared
 	\param element2 Second element to be compared
-	\return True if the same, otherwise false. 
+	\return True if the same, otherwise false.
 
 
 	\~chinese
@@ -739,11 +739,11 @@ public:
 	\param element2 비교할 두번째 element
 	\return element1이 더 크면 1, 작으면 -1, 같으면 0
 
-	\~english 
+	\~english
 	Compare two elements
 	\param element1 First element to be compared
 	\param element2 Second element to be compared
-	\return 1 if element 1 is bigger, -1 if smaller, 0 if equal. 
+	\return 1 if element 1 is bigger, -1 if smaller, 0 if equal.
 
 
 	\~chinese
@@ -777,4 +777,4 @@ public:
 
 #ifdef _MSC_VER
 #pragma warning(pop)
-#endif 
+#endif

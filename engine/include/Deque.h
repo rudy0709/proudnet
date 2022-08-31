@@ -37,8 +37,8 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #pragma once
 
 //#if defined(_WIN32)
-    #include <deque>
-    #include "FastArrayPtr.h"
+	#include <deque>
+	#include "FastArrayPtr.h"
 //#endif
 
 #ifdef _MSC_VER
@@ -54,14 +54,14 @@ namespace Proud
 	template<typename T>
 	class Deque: public std::deque<T>
 	{
-        typedef typename std::deque<T> DeqType;
-        
+		typedef typename std::deque<T> DeqType;
+
 	public:
 		/**
-		\~korean 
+		\~korean
 		\return Data의 수를 리턴합니다.
 
-		\~english 
+		\~english
 		\return the number of data.
 
 		\~chinese
@@ -79,15 +79,15 @@ namespace Proud
 		__declspec(property(get = GetCount)) int Count;
 #endif
 
-        inline bool IsEmpty() const { return DeqType::empty(); }
+		inline bool IsEmpty() const { return DeqType::empty(); }
 
 		/**
-		\~korean 
+		\~korean
 		큐에 Data를 추가합니다.
 		\param data 추가할 Data입니다.
 
-		\~english TODO:translate needed.		
-		\param data Data to be added 
+		\~english TODO:translate needed.
+		\param data Data to be added
 
 		\~chinese
 		队列里添加Data。
@@ -104,12 +104,12 @@ namespace Proud
 		}
 
 		/**
-		\~korean 
+		\~korean
 		가장 앞에 있는 Data를 복사받습니다.
 		\param [out] ret 복사받을 reference입니다.
 
 		\~english TODO:translate needed.
-		Get the very front data copied. 
+		Get the very front data copied.
 		\param [out] ret This is a reference to be copied
 
 		\~chinese
@@ -127,10 +127,10 @@ namespace Proud
 		}
 
 		/**
-		\~korean 
+		\~korean
 		\return 가장 앞의 데이터
 
-		\~english 
+		\~english
 		\return The first data.
 
 		\~chinese
@@ -146,12 +146,12 @@ namespace Proud
 		}
 
 		/**
-		\~korean 
+		\~korean
 		가장 앞의 데이터를 큐에서 제거하고 리턴받습니다.
 		\return 가장 앞에 있었던 데이터
 
-		\~english 
-		Removes the very front data from the queue and get it returned. 
+		\~english
+		Removes the very front data from the queue and get it returned.
 		\return The very front data.
 
 		\~chinese
@@ -166,7 +166,7 @@ namespace Proud
 		T PopFront()
 		{
 			T ret = DeqType::front();
-            DeqType::pop_front();
+			DeqType::pop_front();
 			return ret;
 		}
 
@@ -175,8 +175,8 @@ namespace Proud
 		가장 앞의 데이터를 큐에서 제거하고 reference로 받습니다.
 		\param [out] ret Data를 받을 reference
 
-		\~english 
-		Deletes the very first data from the queue and get it as reference. 
+		\~english
+		Deletes the very first data from the queue and get it as reference.
 		\param [out] ret             Reference to receive data
 
 		\~chinese
@@ -191,14 +191,14 @@ namespace Proud
 		void PopFront(T& ret)
 		{
 			ret = DeqType::front();
-            DeqType::pop_front();
+			DeqType::pop_front();
 		}
 
 		/**
 		\~korean
 		모든 데이터 정보를 제거합니다.
 
-		\~english 
+		\~english
 		Deletes all data information.
 
 		\~chinese
@@ -210,19 +210,19 @@ namespace Proud
 		*/
 		void Clear()
 		{
-            DeqType::clear();
+			DeqType::clear();
 		}
 
 		// 이 메서드는 deque.iterator 자체가 느리기 때문에 비효율적이다.
-		// 		void CloneToArray(CFastArray<T> &dest)
-		// 		{
-		// 			dest.SetCount(size());
-		// 			int c=0;
-		// 			for(iterator i=begin();i!=end();i++)
-		// 			{
-		// 				dest[c++]=*i;
-		// 			}
-		// 		}
+		//		void CloneToArray(CFastArray<T> &dest)
+		//		{
+		//			dest.SetCount(size());
+		//			int c=0;
+		//			for(iterator i=begin();i!=end();i++)
+		//			{
+		//				dest[c++]=*i;
+		//			}
+		//		}
 	};
 
 	/**  @} */

@@ -301,7 +301,7 @@ namespace Proud
 	SCM에서의 실행을 원하지 않는 경우 이 옵션을 써야 한다.
 
 	\~english
-	 Windows service (daemon) module class
+	Windows service (daemon) module class
 	- CNTService is Singleton. It can be accessed by Instance().
 
 	General usage

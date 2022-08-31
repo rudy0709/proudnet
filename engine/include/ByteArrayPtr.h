@@ -73,7 +73,7 @@ namespace Proud
 	ByteArrayにsmart pointer機能が追加された形態。ネットワークパケット形態で使われますので、32-64変換にも敏感です。よって、intPtrではないint32タイプです。
 	ByteArrayがtypedefではない相続クラスであるため、必要なメソッドをこのオブジェクトもオーバーライドしてビルドエラーを避けます。
 	\~
-	 */
+	*/
 	class  ByteArrayPtr :public BiasManagedPointer<ByteArray, true>
 	{
 	private:
@@ -96,12 +96,12 @@ namespace Proud
 
 #ifdef SUPPORTS_CPP11
 		// 이동 생성자
- 		inline ByteArrayPtr(ByteArrayPtr&& src)
- 			: BiasManagedPointer<ByteArray, true>(src)
- 		{
- 			src.m_externalBuffer.ShareTo(m_externalBuffer);
- 			src.m_externalBuffer.Uninit();
- 		}
+		inline ByteArrayPtr(ByteArrayPtr&& src)
+			: BiasManagedPointer<ByteArray, true>(src)
+		{
+			src.m_externalBuffer.ShareTo(m_externalBuffer);
+			src.m_externalBuffer.Uninit();
+		}
 #endif
 		inline ByteArrayPtr& operator=(const ByteArrayPtr& src)
 		{
@@ -115,19 +115,19 @@ namespace Proud
 
 #ifdef SUPPORTS_CPP11
 		// 이동 연산자
- 		inline ByteArrayPtr& operator=(ByteArrayPtr&& src)
- 		{
- 			// base class
- 			BiasManagedPointer<ByteArray, true>::operator=(src);
+		inline ByteArrayPtr& operator=(ByteArrayPtr&& src)
+		{
+			// base class
+			BiasManagedPointer<ByteArray, true>::operator=(src);
 
- 			if (&src != this) // 이동 연산자는 이거 꼭 체크해야.
- 			{
- 				src.m_externalBuffer.ShareTo(m_externalBuffer);
- 				src.m_externalBuffer.Uninit();
- 			}
+			if (&src != this) // 이동 연산자는 이거 꼭 체크해야.
+			{
+				src.m_externalBuffer.ShareTo(m_externalBuffer);
+				src.m_externalBuffer.Uninit();
+			}
 
- 			return *this;
- 		}
+			return *this;
+		}
 #endif
 
 	public:
@@ -189,7 +189,7 @@ namespace Proud
 		\param length 要变换的Capacity大小。
 
 		\~japanese
-		\param length 変更するCapacityサイズ 
+		\param length 変更するCapacityサイズ
 		\~
 		*/
 		inline void SetCapacity(int length)
@@ -292,7 +292,7 @@ namespace Proud
 
 		\~japanese
 		1バイト単位のデータを追加します。
-		\param data 追加するバイト 
+		\param data 追加するバイト
 		\~
 		*/
 		inline void Add(uint8_t data)
@@ -364,8 +364,8 @@ namespace Proud
 		\~japanese
 		現在の配列にバイト配列データを追加します。
 		\param indexAt 配列内でindexAt番目の後に挿入します。本来のindexAtの後のデータは挿入されたデータの後にずらされます。
-		\param data 追加するバイト配列ポインター 
-		\param count 配列のサイズ 
+		\param data 追加するバイト配列ポインター
+		\param count 配列のサイズ
 		\~
 		*/
 		inline void InsertRange(int indexAt, const uint8_t* data, int count)
@@ -453,7 +453,7 @@ namespace Proud
 		\~korean
 		배열을 비웁니다. capacity는 변화하지 않습니다.
 
-		\~english 
+		\~english
 		Empty the array. The capacity does not change
 
 		\~chinese
@@ -473,7 +473,7 @@ namespace Proud
 		\~korean
 		\return Data배열의 포인터를 리턴합니다.
 
-		\~english 
+		\~english
 		\return the pointer of the data array.
 
 		\~chinese
@@ -502,7 +502,7 @@ namespace Proud
 		\return Data배열의 const 포인터를 리턴합니다.
 
 		\~english TODO:translate needed.
-		\return the const pointer of the data array. 
+		\return the const pointer of the data array.
 
 		\~chinese
 		\return return Data排列的const指针。
@@ -563,9 +563,9 @@ namespace Proud
 
 		\~english TODO:translate needed.
 		copy data to dest
-		\param dest object to be copied 
+		\param dest object to be copied
 		\param srcOffset Location of the original array to start copying
-		\param count Size of the array to be copied 
+		\param count Size of the array to be copied
 
 		\~chinese
 		将数据复制到dest。
@@ -697,8 +697,8 @@ namespace Proud
 		\~korean
 		\return 이 객체의 배열 크기가 증가할 때 가중치 타입
 
-		\~english 
-		\return Weighted value when the array size of this object increases. 
+		\~english
+		\return Weighted value when the array size of this object increases.
 
 		\~chinese
 		\return 当此客体的排列大小增加时的加重值类型。
@@ -722,7 +722,7 @@ namespace Proud
 		\param val 증가할 때의 가중치 타입
 
 		\~english TODO:translate needed.
-		The weighted value type is set when the array size of this object increases. 
+		The weighted value type is set when the array size of this object increases.
 		For more details, refer to GrowPolicy
 		\param val The weighted value type when increasing
 
@@ -734,7 +734,7 @@ namespace Proud
 		\~japanese
 		このオブジェクトの配列サイズが増加する時の加重値タイプを設定します。
 		詳しくは、GrowPolicy をご参照ください。
-		\param val 増加する時の加重値タイプ 
+		\param val 増加する時の加重値タイプ
 		\~
 		*/
 		void SetGrowPolicy(GrowPolicy val)
@@ -753,7 +753,7 @@ namespace Proud
 		\param val 최소 Capacity size
 
 		\~english TODO:translate needed.
-		Set the minimum buffer size. When the buffer (capacity) size increases, set it at least bigger than this size. 
+		Set the minimum buffer size. When the buffer (capacity) size increases, set it at least bigger than this size.
 		\param val Minimum capacity size
 
 		\~chinese
@@ -761,8 +761,8 @@ namespace Proud
 		\param val 最小Capacity size
 
 		\~japanese
-		最小バッファーサイズを設定します。バッファー(capacity)サイズが増加する時、少なくともこのサイズより大きく設定します。 
-		\param val 最小 Capacity size 
+		最小バッファーサイズを設定します。バッファー(capacity)サイズが増加する時、少なくともこのサイズより大きく設定します。
+		\param val 最小 Capacity size
 		\~
 		*/
 		void SetMinCapacity(int val)
@@ -853,7 +853,7 @@ namespace Proud
 		\return  NULL的话true,不是NULL的话return false。
 
 		\~japanese
-		\return NULLであればtrue、NULLではなければfalseをリターンします。 
+		\return NULLであればtrue、NULLではなければfalseをリターンします。
 		\~
 		*/
 		inline bool IsNull() const
@@ -861,11 +861,11 @@ namespace Proud
 			return (GetTombstone() == NULL && m_externalBuffer.IsNull());
 		}
 
-// 		inline ByteArray& GetInternalBufferRef()
-// 		{
-// 			MustInternalBuffer();
-// 			return *m_tombstone;
-// 		}
+//		inline ByteArray& GetInternalBufferRef()
+//		{
+//			MustInternalBuffer();
+//			return *m_tombstone;
+//		}
 
 		/**
 		\~korean
@@ -897,7 +897,7 @@ namespace Proud
 		\return 같으면 true 다르면 false를 리턴한다.
 
 		\~english TODO:translate needed.
-		 Check to see if the content is the same as rhs
+		Check to see if the content is the same as rhs
 		- Caution: this is a simple comparison of memory. Use caution.
 		\param rhs ByteArrayPtr to be compared
 		\return true if the same, otherwise return false

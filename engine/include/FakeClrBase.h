@@ -83,7 +83,7 @@ namespace Proud
 	};
 
 #ifdef _WIN32
-	/** 
+	/**
 	\~korean
 	타이머 클래스
 	- 일정 시간마다 이벤트 객체(Proud.Event 참고)를 SetEvent, 즉 시그널한다.
@@ -113,14 +113,14 @@ namespace Proud
 		static void EventSetter(void* ctx);
 
 	public:
-		/** 
+		/**
 		\~korean
 		생성자
 		\param eventHandle 일정 시간마다 시그널을 넣을 이벤트 객체. Proud.Event를 파라메터로 넣어도 된다.
 		\param interval 시그널을 넣을 주기. 밀리초이다.
 
 		\~english
-		 Constructor
+		Constructor
 		\param eventHandle Evnet object where signal to be entered periodically. It is possible to use Proud.event as parameter.
 		\param interval The period to enter signal. Unit is millisecond.
 
@@ -135,9 +135,9 @@ namespace Proud
 		\param interval シグナルを入れる周期。ミリ秒です。
 		\~
 		*/
-		 Timer(HANDLE eventHandle, uint32_t interval, DWORD_PTR dwUser = 0);
+		Timer(HANDLE eventHandle, uint32_t interval, DWORD_PTR dwUser = 0);
 
-		/** 
+		/**
 		\~korean
 		파괴자
 		- 객체를 파괴한 직후부터는 이벤트 객체에 시그널을 넣지 않는다.
@@ -155,7 +155,7 @@ namespace Proud
 		- オブジェクトを破壊した直後からはイベントオブジェクトにシグナルを入れません。
 		\~
 		*/
-		 ~Timer();
+		~Timer();
 	};
 #endif
 	/**  @} */

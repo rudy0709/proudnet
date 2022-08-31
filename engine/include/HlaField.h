@@ -45,7 +45,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 namespace Proud
 {
-	class CHlaFieldGroup 
+	class CHlaFieldGroup
 	{
 	public:
 		bool m_valueChanged_INTERNAL;

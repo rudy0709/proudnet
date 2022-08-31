@@ -43,11 +43,11 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #endif
 
 #ifdef _WIN32
-#define PN_PATH_SEPARATOR_TCHAR     _PNT('\\')
-#define PN_PATH_SEPARATOR_TSTRING   _PNT("\\")
+#define PN_PATH_SEPARATOR_TCHAR		_PNT('\\')
+#define PN_PATH_SEPARATOR_TSTRING	_PNT("\\")
 #else
-#define PN_PATH_SEPARATOR_TCHAR     _PNT('/')
-#define PN_PATH_SEPARATOR_TSTRING   _PNT("/")
+#define PN_PATH_SEPARATOR_TCHAR		_PNT('/')
+#define PN_PATH_SEPARATOR_TSTRING	_PNT("/")
 #endif
 
 namespace Proud
@@ -67,13 +67,13 @@ namespace Proud
 
 		/** directory와 fileName을 이어붙인 문자열을 만듭니다.
 		directory 뒤에 역슬래시나 슬래시가 있는 것을 고려합니다. */
-		PROUD_API static String Combine(const String& directory, const String& fileName); 
+		PROUD_API static String Combine(const String& directory, const String& fileName);
 
 		/** 디렉터리 부분을 제외한 순수한 파일 이름만을 얻습니다.
 		예를 들어 c:\xxx\yyy.txt이면 yyy.txt만을 리턴합니다. */
 		PROUD_API static String GetFileName(const PNTCHAR* fileName);
 
-		/** 파일 이름의 확장자를 변경합니다. 
+		/** 파일 이름의 확장자를 변경합니다.
 		가령 c:\xxx\yyy.txt와 .md를 넣으면 c:\xxx\yyy.md가 됩니다. */
 		PROUD_API static String ChangeExtension(const String& fileName, const PNTCHAR* fileExtensionWithDot);
 

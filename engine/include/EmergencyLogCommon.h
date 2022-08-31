@@ -50,7 +50,7 @@ namespace Proud
 //#pragma managed(push,off)
 #endif
 
-#if defined(_WIN32)    
+#if defined(_WIN32)
 	extern const Guid EmergencyProtocolVersion;
 #endif
 

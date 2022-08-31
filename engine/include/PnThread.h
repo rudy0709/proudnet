@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 #include "BasicTypes.h"
 #include "Ptr.h"
 #include "Event.h"
@@ -56,7 +56,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 //#pragma managed(push,off)
 #endif
 
-namespace Proud 
+namespace Proud
 {
 	class ThreadProcContext;
 
@@ -64,7 +64,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	단순 스레드 Wrapper 클래스입니다.
 	- 이 인스턴스를 생성한 후 Start를 호출하면 스레드가 생성됩니다. 그리고 이 인스턴스가 파괴되면 생성되었던 스레드가 종료할 때까지 블러킹됩니다.
@@ -75,19 +75,19 @@ namespace Proud
 	- Thread 객체를 생성한다고 해서 바로 스레드가 작동하지는 않습니다. Start를 실행해야만 합니다.
 	- Join을 호출하거나 Thread 객체가 파괴될 때 실행중인 스레드가 종료할 때까지 기다립니다.
 
-    \warning 이 클래스의 사용보다 std::thread를 사용하실 것을 권장합니다.
+	\warning 이 클래스의 사용보다 std::thread를 사용하실 것을 권장합니다.
 
 	\~english
 	Simple thread wrapper class
 	- After creating this instance, a thread will be created by calling Start. And if this instance is destructed then it will be blocked until created thread is terminated.
-	- This class has the same operating process as System.Threading.Thread class of .NET framework. 
+	- This class has the same operating process as System.Threading.Thread class of .NET framework.
 
 	General usage
 	- Creates a thread object and designates thread function as a parameter. The thread function is designated by constructor.
-	- Creating a thread object does not mean immediate thread execution. Start must be run. 
+	- Creating a thread object does not mean immediate thread execution. Start must be run.
 	- Either when calls Join or destructing the thread object, this waits until the running thread ends.
 
-    \warning We recommend using std::thread instead of using this class.
+	\warning We recommend using std::thread instead of using this class.
 
 	\~chinese
 	单线程Wrapper类
@@ -99,7 +99,7 @@ namespace Proud
 	- 即使生成了Thread对象也不会立即运行线程，需要运行Start。
 	- 呼出Join或Thread对象被破坏时一直等到运行中的线程终止为止。
 
-    \warning We recommend using std::thread instead of using this class.
+	\warning We recommend using std::thread instead of using this class.
 
 	\~japanese
 	シンプルスレッドWrapperクラス
@@ -111,7 +111,7 @@ namespace Proud
 	-Threadオブジェクトを生成しても、すぐにスレッドが作動するわけではありません。Startを実行しなければなりません。
 	-Joinを呼び出したりThreadオブジェクトが破壊される際、実行中のスレッドが終了されるまで待ちます。
 
-    \warning We recommend using std::thread instead of using this class.
+	\warning We recommend using std::thread instead of using this class.
 
 	\~
 
@@ -127,7 +127,7 @@ namespace Proud
 	volatile bool stopThread = false;
 	ThreadPtr th = ThreadPtr(new Thread([&]()
 	{
-		// note that thread function is defined exactly here 
+		// note that thread function is defined exactly here
 		// and even the variables out of the scope are
 		// used here, thankfully by lambda capture above.
 		while (!stopThread)
@@ -169,7 +169,7 @@ namespace Proud
 	public:
 		static bool m_dllProcessDetached_INTERNAL;
 
-		/** 
+		/**
 		\~korean
 		생성자
 		\param threadProc 이 인스턴스가 쥐고 있을 스레드의 메인 함수
@@ -179,10 +179,10 @@ namespace Proud
 
 		\~english TODO:translate needed.
 		Constructer
-		\param threadProc The main function of the thread which would be held by this instance. 
+		\param threadProc The main function of the thread which would be held by this instance.
 		\param ctx The parameter to be sent to threadProc
 		\param neededJoin Join Whether to use the Join function
-		The default value is true. If this thread is to be guaranteed to end earlier than the main thread and you don’t want to use the Join feature, you can set it as false. 
+		The default value is true. If this thread is to be guaranteed to end earlier than the main thread and you don’t want to use the Join feature, you can set it as false.
 
 		\~chinese TODO:translate needed.
 		构造函数
@@ -208,7 +208,7 @@ namespace Proud
 		PROUD_API Thread(ThreadProc threadProc, void *ctx, bool neededJoin = true);
 
 	public:
-		/** 
+		/**
 		\~korean
 		파괴자
 		- 스레드가 미실행중이면 즉시 리턴하나, 스레드가 이미 실행중이면 스레드가 종료할 때까지 기다린다.
@@ -227,9 +227,9 @@ namespace Proud
 
 		\~
 		*/
-		 PROUD_API ~Thread();
+		PROUD_API ~Thread();
 
-		/** 
+		/**
 		\~korean
 		스레드를 생성한다.
 		- 이미 생성한 상태면 예외가 발생한다.
@@ -248,9 +248,9 @@ namespace Proud
 
 		\~
 		*/
-		 PROUD_API void Start();
+		PROUD_API void Start();
 
-		/** 
+		/**
 		\~korean
 		스레드가 종료할 때까지 기다린다.
 
@@ -265,9 +265,9 @@ namespace Proud
 
 		\~
 		*/
-		 PROUD_API void Join();
+		PROUD_API void Join();
 
-		/** 
+		/**
 		\~korean
 		스레드 핸들
 
@@ -285,7 +285,7 @@ namespace Proud
 #if defined(_WIN32)
 		__declspec(property(get = GetHandle)) HANDLE Handle;
 #endif
-		/** 
+		/**
 		\~korean
 		스레드 핸들을 얻는다.
 
@@ -312,12 +312,12 @@ namespace Proud
 		}
 #endif
 
-		/** 
+		/**
 		\~korean
 		스레드 아이디
 
 		\~english
-		Thread ID 
+		Thread ID
 
 		\~chinese
 		获得线程ID。
@@ -331,7 +331,7 @@ namespace Proud
 		__declspec(property(get = GetID)) uint64_t ID;
 #endif
 
-		/** 
+		/**
 		\~korean
 		스레드 아이디를 얻습니다.
 		이 값은 Proud.GetCurrentThreadID()의 값과 호환됩니다.
@@ -358,9 +358,9 @@ namespace Proud
 		bool IsAlive() const;
 #endif
 
-		/** 
+		/**
 		\~korean
-		Static library로서의 ProudNet이 DLL에서 사용되는 경우 
+		Static library로서의 ProudNet이 DLL에서 사용되는 경우
 		DllMain의 Process detach case에서 이 메서드를 꼭 호출해야 한다.
 
 		\~english
@@ -371,12 +371,12 @@ namespace Proud
 		一定要在DllMain的Process detach case中呼出此方法。
 
 		\~japanese
-		Static libraryとしてのProudNetがDLLで使われる場合 
+		Static libraryとしてのProudNetがDLLで使われる場合
 		DllMainのProcess detach caseでこのメソッドを必ず呼び出さなければなりません。
 
 		\~
 		*/
-		 PROUD_API static void NotifyDllProcessDetached();
+		PROUD_API static void NotifyDllProcessDetached();
 	private:
 		// 사용자가 입력한 함수와 데이터 (고전)
 		ThreadProc m_threadProc;
@@ -390,13 +390,13 @@ namespace Proud
 		// 주의: shared_ptr로 바꾸지 말 것. 사용자가 boost, tr1, stdlibc++ 선택할 때 shared_ptr의 구현 내용이 달라질 경우 때문에.
 		// 주의: 실체 멤버이므로 SUPPORTS_LAMBDA_EXPRESSION 조건 안에 넣지 말 것. 넣으면 찾기 힘든 버그로 이어진다.
 		RefCount<LambdaBase_Param0<void> > m_lambdaProc;
-		
+
 #ifdef SUPPORTS_LAMBDA_EXPRESSION
 	public:
 		/** Constructor. Does not create a thread until Start() is called.
-		\param function Your function or lambda expression. 
+		\param function Your function or lambda expression.
 		\param needJoin True if you want this to wait for thread exit. No wait if set to false. */
-		inline/*PROUD_API금지*/ Thread(const std::function<void()> &function, bool needJoin = true) 
+		inline/*PROUD_API금지*/ Thread(const std::function<void()> &function, bool needJoin = true)
 #ifdef _WIN32
 			:m_threadStopped(true, true)
 #endif // _WIN32

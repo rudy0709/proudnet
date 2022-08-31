@@ -72,7 +72,7 @@ namespace Proud
 	*  @{
 	*/
 
-	class CMessage;	
+	class CMessage;
 	class CSendFragRefs;
 	class ErrorInfo;
 	class IRmiProxy;
@@ -82,10 +82,10 @@ namespace Proud
 
 	struct SendOpt;
 
-	/** 
+	/**
 	\~korean
 	\brief ProudNet RMI가 참조하는 네트워크 호스트 인터페이스입니다.
-	유저는 이 클래스를 직접 사용할 필요가 없습니다. 
+	유저는 이 클래스를 직접 사용할 필요가 없습니다.
 
 	\~english
 	\brief ProudNet Network host interface that is referred by RMI.
@@ -106,9 +106,9 @@ namespace Proud
 	public:
 		virtual ~IRmiHost() {}
 
-		/** 
+		/**
 		\~korean
-		PIDL 컴파일러의 결과물 중 proxy를 이 객체에 등록한다. 
+		PIDL 컴파일러의 결과물 중 proxy를 이 객체에 등록한다.
 
 		\~english
 		Registers proxy among the results of PIDL compiler to this object
@@ -124,9 +124,9 @@ namespace Proud
 		// no-throw version for UE4, etc.
 		void AttachProxy(IRmiProxy *proxy, ErrorInfoPtr& outError);
 
-		/** 
+		/**
 		\~korean
-		PIDL 컴파일러의 결과물 중 stub을 이 객체에 등록한다. 
+		PIDL 컴파일러의 결과물 중 stub을 이 객체에 등록한다.
 
 		\~english
 		Registers stub among the results of PIDL compiler to this object
@@ -141,9 +141,9 @@ namespace Proud
 		virtual void AttachStub(IRmiStub* stub) = 0;
 		// no-throw version for UE4, etc.
 		void AttachStub(IRmiStub* stub, ErrorInfoPtr& outError);
-		/** 
+		/**
 		\~korean
-		AttachProxy 의 반대로서, 이 객체에서 등록 해제를 한다. 
+		AttachProxy 의 반대로서, 이 객체에서 등록 해제를 한다.
 
 		\~english
 		As opposite to AttachProxy, this object cancels the registration.
@@ -158,9 +158,9 @@ namespace Proud
 		virtual void DetachProxy(IRmiProxy* proxy) = 0;
 		// no-throw version for UE4, etc.
 		void DetachProxy(IRmiProxy* proxy, ErrorInfoPtr& outError);
-		/** 
+		/**
 		\~korean
-		AttachStub 의 반대로서, 이 객체에서 등록 해제를 한다. 
+		AttachStub 의 반대로서, 이 객체에서 등록 해제를 한다.
 
 		\~english
 		As opposite to AttachStub, this object cancels the registration.
@@ -183,7 +183,7 @@ namespace Proud
 #ifdef SUPPORTS_LAMBDA_EXPRESSION
 	public:
 		/**
-		
+
 		사용자 정의 함수나 람다식을 비동기로 실행합니다. 자세한 것은 \page run_async를 참고하십시오.
 
 		\param taskOwner 어떤 Host를 위한 비동기 실행인지를 가리킵니다.
@@ -196,7 +196,7 @@ namespace Proud
 		}
 
 #endif
-		// 람다식 미지원 컴파일러에서는 못 쓰지만, 가상 함수는 실존 멤버이므로, 
+		// 람다식 미지원 컴파일러에서는 못 쓰지만, 가상 함수는 실존 멤버이므로,
 		// 조건부 컴파일 블럭 바깥에 있어야 한다.
 		virtual bool RunAsyncInternal(HostID taskOwner, LambdaBase_Param0<void>* func) = 0;
 
@@ -209,12 +209,12 @@ namespace Proud
 
 	public:
 
-		/** 
+		/**
 		\~korean
 		simple packet mode를 사용하고 있는지 확인한다.
 
 		\~english
-		Check to see whether simple packet mode is being used. 
+		Check to see whether simple packet mode is being used.
 
 		\~chinese
 		确认是否使用simple packet mode。
@@ -225,9 +225,9 @@ namespace Proud
 		*/
 		virtual bool IsSimplePacketMode() = 0;
 
-		/** 
+		/**
 		\~korean
-		내부 함수. 사용자는 호출 금지. 
+		내부 함수. 사용자는 호출 금지.
 
 		\~english
 		Internal function. User must not call this.
@@ -253,9 +253,9 @@ namespace Proud
 #endif
 	};
 
-	/** 
+	/**
 	\~korean
-	\brief clientWorker의 정보를 담는 구조체. 
+	\brief clientWorker의 정보를 담는 구조체.
 
 	\~english
 	\brief Structure that contain information of clientWorker
@@ -264,7 +264,7 @@ namespace Proud
 	\brief 包含clientWorker信息的构造体。
 
 	\~japanese
-	\brief clientWorkerの情報を入れる構造体 
+	\brief clientWorkerの情報を入れる構造体
 	\~
 	*/
 	class CClientWorkerInfo
@@ -293,7 +293,7 @@ namespace Proud
 #endif
 	};
 
-	/** 
+	/**
 	\~korean
 	\brief socket의 정보를 담는 구조체입니다.
 
@@ -310,9 +310,9 @@ namespace Proud
 	class CSocketInfo
 	{
 	public:
-		/** 
+		/**
 		\~korean
-		TCP socket handle입니다. 서버와의 연결을 위한 socket입니다. 
+		TCP socket handle입니다. 서버와의 연결을 위한 socket입니다.
 
 		\~english
 		It is TCP socket handle. This socket is for connecting to server
@@ -326,9 +326,9 @@ namespace Proud
 		*/
 		SOCKET m_tcpSocket;
 
-		/** 
+		/**
 		\~korean
-		UDP socket handle입니다. 서버 혹흔 P2P peer와의 연결을 위한 socket입니다. 
+		UDP socket handle입니다. 서버 혹흔 P2P peer와의 연결을 위한 socket입니다.
 
 		\~english
 		It is UDP socket handle. This socket is for connecting to server or P2P peer.
@@ -337,7 +337,7 @@ namespace Proud
 		是UDP socket handle。为了与服务器或者P2P peer的连接的socket。
 
 		\~japanese
-		UDP socket handleです。サーバーまたはP2P peerとの接続のためのsocketです。 
+		UDP socket handleです。サーバーまたはP2P peerとの接続のためのsocketです。
 		\~
 		*/
 		SOCKET m_udpSocket;
@@ -349,9 +349,9 @@ namespace Proud
 		}
 	};
 
-	/** 
+	/**
 	\~korean
-	\brief 1개의 스레드에 대한 정보가 담겨져 있는 구조체. 
+	\brief 1개의 스레드에 대한 정보가 담겨져 있는 구조체.
 
 	\~english
 	\brief Construct contains information of 1 thread
@@ -360,7 +360,7 @@ namespace Proud
 	\brief 包含对一个线程信息的构造体。
 
 	\~japanese
-	\brief 1個のスレッドに関する情報が入っている構造体 
+	\brief 1個のスレッドに関する情報が入っている構造体
 	\~
 	*/
 	class CThreadInfo
@@ -368,7 +368,7 @@ namespace Proud
 	public:
 		/**
 		\~korean
-		Thread의 ID 
+		Thread의 ID
 
 		\~english
 		ID of thread
@@ -377,14 +377,14 @@ namespace Proud
 		Thread的ID。
 
 		\~japanese
-		ThreadのID 
+		ThreadのID
 		\~
 		*/
 		uint64_t m_threadID;
 
 		/**
 		\~korean
-		Thread의 Handle 
+		Thread의 Handle
 
 		\~english
 		Handle of thread
@@ -393,7 +393,7 @@ namespace Proud
 		Thread的Handle。
 
 		\~japanese
-		ThreadのHandle 
+		ThreadのHandle
 		\~
 		*/
 #if defined(_WIN32)
@@ -403,9 +403,9 @@ namespace Proud
 #endif
 	};
 
-	/** 
+	/**
 	\~korean
-	\brief 사용자 프로그램에서 엔진에 전달하는 입력 파라메터 
+	\brief 사용자 프로그램에서 엔진에 전달하는 입력 파라메터
 
 	\~english
 	Input parameter delivered from \brief user program to engine
@@ -414,15 +414,15 @@ namespace Proud
 	\brief 在用户程序中，往引擎传达的输入参数。
 
 	\~japanese
-	\brief ユーザープログラムでエンジンに伝達する入力パラメーター 
+	\brief ユーザープログラムでエンジンに伝達する入力パラメーター
 	\~
 	*/
-	class CApplicationHint 
+	class CApplicationHint
 	{
 	public:
-		/** 
+		/**
 		\~korean
-		사용자가 측정한, 응용 프로그램의 프레임 레이트입니다. 
+		사용자가 측정한, 응용 프로그램의 프레임 레이트입니다.
 
 		\~english
 		Frame rate of application program measured by user
@@ -431,10 +431,10 @@ namespace Proud
 		用户测定的，应用程序的帧速率。
 
 		\~japanese
-		ユーザーが測定したアプリケーションプログラムのフレームレートです。 
+		ユーザーが測定したアプリケーションプログラムのフレームレートです。
 		\~
 		*/
-		double m_recentFrameRate; 
+		double m_recentFrameRate;
 
 		CApplicationHint()
 		{
@@ -442,9 +442,9 @@ namespace Proud
 		}
 	};
 
-	/** 
+	/**
 	\~korean
-	\brief 통계 정보. 디버깅이나 성능 측정을 위함 
+	\brief 통계 정보. 디버깅이나 성능 측정을 위함
 
 	\~english
 	\brief statistics information. For debugging or performance test
@@ -467,7 +467,7 @@ namespace Proud
 		int m_expectedFrameNumberToReceive;
 		int m_nextFrameNumberToSend;
 
-		/** 
+		/**
 		\~korean
 		송신큐에 쌓여있는 스트림 크기
 
@@ -483,7 +483,7 @@ namespace Proud
 		*/
 		int m_sendStreamCount;
 
-		/** 
+		/**
 		\~korean
 		초송신 윈도에 들어있는 프레임 갯수
 
@@ -498,8 +498,8 @@ namespace Proud
 		\~
 		*/
 		int m_senderWindowDataFrameCount;
-		
-        /**
+
+		/**
 		\~korean
 		재송신 윈도에 들어있는 프레임 갯수
 
@@ -515,7 +515,7 @@ namespace Proud
 		*/
 		int m_resendFrameCount;
 
-		/** 
+		/**
 		\~korean
 		여지껏 보낸 스트림 크기
 
@@ -531,7 +531,7 @@ namespace Proud
 		*/
 		int m_totalSendStreamLength;
 
-		/** 
+		/**
 		\~korean
 		여지껏 초송신한 프레임 갯수
 		- 초송신한 프레임 갯수에 비해 여지껏 재송신한 프레임 갯수가 지나치게 증가하면 P2P Reliable 메시징이 잘 이루어지지 않음을 의미한다.
@@ -551,7 +551,7 @@ namespace Proud
 		*/
 		int m_totalFirstSendCount;
 
-		/** 
+		/**
 		\~korean
 		여지껏 재송신한 프레임 갯수
 
@@ -600,7 +600,7 @@ namespace Proud
 		}
 	};
 
-	/** 
+	/**
 	\~korean
 	Disconnect()에서 사용하는 인자입니다.
 
@@ -619,13 +619,13 @@ namespace Proud
 		/**
 		\~korean
 		graceful disconnect를 수행하는데 걸리는 최대 시간입니다.
-		이 시간을 넘어서면 Proud.CNetClient.Disconnect()는 무조건 return하게 되고, 서버에서는 클라이언트의 연결 해제를 
-		즉시 인식하지 못합니다. 
-		꼭 필요한 경우가 아니면 이 값을 변경하지 마십시오. 
+		이 시간을 넘어서면 Proud.CNetClient.Disconnect()는 무조건 return하게 되고, 서버에서는 클라이언트의 연결 해제를
+		즉시 인식하지 못합니다.
+		꼭 필요한 경우가 아니면 이 값을 변경하지 마십시오.
 
 		\~english TODO:translate needed.
-		If you exceed this time, Proud.CNetClient.Disconnect() unconditionally returns and the server cannot immediately recognize the disconnection of the client. 
-		Unless absolutely necessary, do not change this value. 
+		If you exceed this time, Proud.CNetClient.Disconnect() unconditionally returns and the server cannot immediately recognize the disconnection of the client.
+		Unless absolutely necessary, do not change this value.
 
 		\~chinese
 		执行graceful disconnect所消耗的最长时间。
@@ -634,7 +634,7 @@ namespace Proud
 
 		\~japanese
 		graceful disconnectを遂行するにかかる最大時間です。
-		この時間が経過したらProud.CNetClient.Disconnect()は無条件でリターンされて、サーバーではクライアントの接続解除を直ちに認識できなくなります。 
+		この時間が経過したらProud.CNetClient.Disconnect()は無条件でリターンされて、サーバーではクライアントの接続解除を直ちに認識できなくなります。
 		必ず必要な場合ではなければ、この値を変更しないでください。
 		\~
 		*/
@@ -645,7 +645,7 @@ namespace Proud
 		이것으로 Disconnect시의 대기하는 Sleep 시간을 조절할 수 있습니다.
 
 		\~english TODO:translate needed.
-		With this, you can adjust the sleep time waiting during disconnection. 
+		With this, you can adjust the sleep time waiting during disconnection.
 
 		\~chinese TODO:translate needed.
 		通过这个可以调整断开时等待的Sleep时间。
@@ -661,7 +661,7 @@ namespace Proud
 		서버에서 클라이언트 연결 해제 사유를 이것을 통해 전송할 수 있습니다.
 
 		\~english TODO:translate needed.
-		In the server, you can transmit the client disconnection reason through this. 
+		In the server, you can transmit the client disconnection reason through this.
 
 		\~chinese
 		服务器将通过此传送客户端连接解除原因。
@@ -671,10 +671,10 @@ namespace Proud
 		*/
 		ByteArray m_comment;
 
-		PROUD_API 	CDisconnectArgs();
+		PROUD_API CDisconnectArgs();
 	};
 
-	
+
 
 #if (defined(_MSC_VER) && _MSC_VER>=1400)
 //#pragma managed(pop)

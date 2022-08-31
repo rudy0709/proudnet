@@ -78,4 +78,3 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #ifdef USE_HLA
 #include "Hla_C.h"
 #endif // USE_HLA
-

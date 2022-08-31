@@ -52,7 +52,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	CNetServer 용 event sink
 
@@ -87,7 +87,7 @@ namespace Proud
 	public:
 		virtual ~INetServerEvent() {}
 
-		/** 
+		/**
 		\~korean
 		클라이언트가 연결을 들어오면 발생하는 이벤트
 		- OnConnectionRequest에서 진입 허가를 한 클라이언트에 대해서만 콜백된다.
@@ -95,7 +95,7 @@ namespace Proud
 
 		\~english
 		Event that occurs when client attempts to connect
-		- Only called back for the client that received access permission from OnConnectionRequest  
+		- Only called back for the client that received access permission from OnConnectionRequest
 		\param clientInfo client requested to connect
 
 		\~chinese
@@ -111,11 +111,11 @@ namespace Proud
 		*/
 		virtual void OnClientJoin(CNetClientInfo *clientInfo) = 0;
 
-		/** 
+		/**
 		\~korean
 		클라이언트가 연결을 해제하면 발생하는 이벤트입니다.
 		\param clientInfo 연결이 해제된 클라이언트의 정보입니다.
-		\param errorInfo 연결이 해제된 클라이언트의 연결 해제 정보입니다. 
+		\param errorInfo 연결이 해제된 클라이언트의 연결 해제 정보입니다.
 		ErrorInfo.m_type 값은 연결 해제의 경위를, ErrorInfo.
 		자세한 것은 ErrorInfo 도움말에 있습니다.
 		\param comment 클라이언트가 CNetClient.Disconnect 의 파라메터 comment 를 통해 보내온 문자열입니다.
@@ -123,7 +123,7 @@ namespace Proud
 		\~english
 		Event that occurs when client terminates connection
 		\param clientInfo client info that is disconnected
-		\param errorInfo disconnection info of client that is disconneced 
+		\param errorInfo disconnection info of client that is disconneced
 		ErrorInfo.m_type value shows how disconnection processed
 		Please refer ErrorInfo help section.
 		\param comment text string sent by client via parameter comment of CNetClient.Disconnect
@@ -139,7 +139,7 @@ namespace Proud
 		\~japanese
 		クライアントが接続を解除すると発生するイベントです。
 		\param clientInfo 接続が解除されたクライアントの情報です。
-		\param errorInfo 接続の解除されたクライアントの接続解除情報です。 
+		\param errorInfo 接続の解除されたクライアントの接続解除情報です。
 		ErrorInfo.m_type 値は接続解除の経緯を、ErrorInfo。
 		詳しくは、ErrorInfoのヘルプをご参照ください。
 		\param comment クライアントが CNetClient.Disconnect のパラメーターコメントを通じ送られた文字列です。
@@ -211,7 +211,7 @@ namespace Proud
 		virtual void OnClientOnline(CRemoteOnlineEventArgs& /*args*/) {}
 
 
-		/** 
+		/**
 		\~korean
 		클라이언트가 서버로 처음 연결을 시도하면 콜백되는 이벤트
 		- 이 이벤트에서는 서버가 클라의 연결 시도를 수용할 것인지 거절할 것인지를 결정한다.
@@ -230,22 +230,22 @@ namespace Proud
 		넣었던 파라메터 CNetConnectionParam::m_userData 에서 넣었던 값이다.
 		\param reply 이 이벤트 콜백에서 이 필드에 값을 채우면 클라이언트는 서버와의 연결 결과
 		INetClientEvent::OnJoinServerComplete 에서 받게 된다.
-		\return 클라이언트로부터의 연결을 수용할 것이라면 이 함수는 true를 리턴하면 된다. 
+		\return 클라이언트로부터의 연결을 수용할 것이라면 이 함수는 true를 리턴하면 된다.
 
 		\~english
-		 Event called back when client attempts to connect to server for the first time
+		Event called back when client attempts to connect to server for the first time
 		- This event is where to decide if server accepts the attempt or not
 		If refused then client fails to connect to server and client receives ErrorType_NotifyServerDeniedConnection.
 		If accepted then client succeeds to connect to server and a new HostID will be allocated to client.
-   		This is when OnClientJoin event is called back to server
+		This is when OnClientJoin event is called back to server
 
 		Note
 		- NEVER! to send/receive user logon info(user account name and/or password) in here.
-	 	  That is because the custom data from cliet to server is not encrypted.
+		  That is because the custom data from cliet to server is not encrypted.
 
 		\param clientAddr Internet address of client
 		\param userDataFromClient The custom data from client
-					    This value is the value that was entered at parameter CNetConnectionParam::m_userData when client was connected to server.
+		  This value is the value that was entered at parameter CNetConnectionParam::m_userData when client was connected to server.
 		\param reply If this event callback fills a value to this field then client will receive the result of connection to server from INetClientEvent::OnJoinServerComplete.
 		\return If to accept the connection reqeust from client then this function should return true.
 
@@ -278,45 +278,45 @@ namespace Proud
 		\param clientAddr クライアントのインターネットアドレス
 		\param userDataFromClient クライアントから送ったカスタムデータ。この値はクライアントよりサーバーへ接続時に入れたパラメーターのCNetConnectionParam::m_userDataで入れた値です。
 		\param reply このイベントコールバックでこのフィールドに値を入れると、クライアントはサーバーとの接続結果、INetClientEvent::OnJoinServerCompleteで受けるようになります。
-		\return クライアントからの接続を受け入れるなら、この関数はtrueをリターンします。 
+		\return クライアントからの接続を受け入れるなら、この関数はtrueをリターンします。
 		\~
 		*/
 		virtual bool OnConnectionRequest(AddrPort /*clientAddr*/, ByteArray& /*userDataFromClient*/, ByteArray& /*reply*/) {
 			return true;
 		}
 
-		/** 
+		/**
 		\~korean
 		<a target="_blank" href="http://guide.nettention.com/cpp_ko#p2p_group" >P2P 그룹</a> 에 새 멤버가 추가되는 과정이 모든 클라이언트에서도 완료되면 발생하는 이벤트입니다.
 		- 만약 그룹 G에 기 멤버 M1,M2,M3가 있다고 가정할 경우 신규 멤버 M4를 넣는다고 합시다.
 		이때 JoinP2PGroup()에 의해 M4가 추가되더라도 즉시 완료되는 것은 아닙니다. 각 클라이언트
 		M1,M2,M3에서는 아직 'M4의 추가되었음' 보고(INetClientEvent.OnP2PMemberJoin)를 받지 않았고 M4에서도 M1,M2,M3,M4 모두에 대한 '추가되었음 보고'(INetClientEvent.OnP2PMemberJoin)를 받지 않았기 때문입니다.
 		이 이벤트는 M4에 대해, M1,M2,M3,M4에서 이들을 모두 받은 것을 서버에서 확인한 후에야 발생됩니다.
-		- CreateP2PGroup에 대해서도 마찬가지로 이 이벤트가 발생합니다. 
-		
+		- CreateP2PGroup에 대해서도 마찬가지로 이 이벤트가 발생합니다.
+
 		\param groupHostID \ref 그룹의 HostID
 		\param memberHostID 그룹 멤버의 HostID
 		\param result ErrorType_Ok 이면 성공적으로 추가됐음을 의미하며,ErrorType_AlreadyExists 이면 이미 그룹내 들어가있는 멤버임을 의미 합니다.(실패 했다는 의미는 아님)
-		그외 다른 값이면 추가가 실패했음을 의미합니다. 
+		그외 다른 값이면 추가가 실패했음을 의미합니다.
 		예를 들어 CNetServer.CreateP2PGroup 혹은 CNetServer.JoinP2PGroup 호출 후에 이 콜백이 있기 전에
 		CNetServer.LeaveP2PGroup 혹은 CNetServer.DestroyP2PGroup 를 호출 하거나, 해당 클라이언트가 동시에 서버와의 연결을 끊고 있는 중이었다면
-		다른 값이 여기에 들어갈 수 있습니다. 
+		다른 값이 여기에 들어갈 수 있습니다.
 
 		\~english
 		The event that occurs when the process adding a new member to <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a> is completed in all client
 		- Assuming that there are existing member M1, M2 and M3 in group G and we try to add a new member M4.
 		Even if M4 is added by JoinP2PGroup(), the process is not to be completed immediately.
 		This is because each client M1, M2 and M3 did not yet receive the report(INetClientEvent.OnP2PMemberJoin) that 'M4 is added',
-		and M4 did not yet receive the report(INetClientEvent.OnP2PMemberJoin) that M4 is added to M1, M2, M3 and M4. 
+		and M4 did not yet receive the report(INetClientEvent.OnP2PMemberJoin) that M4 is added to M1, M2, M3 and M4.
 		This event, for M4, occurs only after server acknowledges that M1, M2, M3 and M4 received necesary info.
-		- The event also occurs for CreateP2PGroup. 
-		
+		- The event also occurs for CreateP2PGroup.
+
 		\param groupHostID HostId of \ref group
 		\param memberHostID HostID of group member
 		\param result If ErrorType_Ok then it means successfully added, if ErrorType_AlreadyExists then it is a member that already in group. (does not mean it falied to)
-		If has other values then it means failed to add. 
+		If has other values then it means failed to add.
 		For an example,
-		Case1. Calling CNetServer.LeaveP2PGroup or CNetServer.DestroyP2PGroup between the moment after calling CNetServer.CreateP2PGroup or CNetServer.JoinP2PGroup and the moment before this callback occurs, OR  
+		Case1. Calling CNetServer.LeaveP2PGroup or CNetServer.DestroyP2PGroup between the moment after calling CNetServer.CreateP2PGroup or CNetServer.JoinP2PGroup and the moment before this callback occurs, OR
 		Case2. the client was terminating its connection to server at the same time,
 		For each case, an other value can enter here.
 
@@ -344,13 +344,13 @@ namespace Proud
 		\param memberHostID グループメンバーの HostID
 		\param result ErrorType_Ok であれば追加に成功したことを意味して、ErrorType_AlreadyExistsであれば既にグループ内に入っているメンバーであることを意味します。(失敗したという意味ではありません)
 		その外の値であれば追加に失敗したことを意味します。
-		例えば、CNetServer.CreateP2PGroup またはCNetServer.JoinP2PGroupを呼び出した後、このコールバックがある前に、CNetServer.LeaveP2PGroupまたはCNetServer.DestroyP2PGroupを呼び出すか、該当クライアントが同時にサーバーとの接続を切っている間でしたら、他の値がここに入ることができます。 
+		例えば、CNetServer.CreateP2PGroup またはCNetServer.JoinP2PGroupを呼び出した後、このコールバックがある前に、CNetServer.LeaveP2PGroupまたはCNetServer.DestroyP2PGroupを呼び出すか、該当クライアントが同時にサーバーとの接続を切っている間でしたら、他の値がここに入ることができます。
 
 		\~
 		*/
 		virtual void OnP2PGroupJoinMemberAckComplete(HostID groupHostID, HostID memberHostID, ErrorType result) = 0;
 
-		/** 
+		/**
 		\~korean
 		user work thread pool의 스레드가 시작할 때 이 메서드가 호출된다.
 
@@ -366,7 +366,7 @@ namespace Proud
 		*/
 		virtual void OnUserWorkerThreadBegin() = 0;
 
-		/** 
+		/**
 		\~korean
 		user work thread pool의 스레드가 종료할 때 이 메서드가 호출된다.
 
@@ -382,16 +382,16 @@ namespace Proud
 		*/
 		virtual void OnUserWorkerThreadEnd() = 0;
 
-		/** 
+		/**
 		\~korean
 		클라이언트가 해킹당했다는 의혹이 있을 때 이 메서드가 호출된다.
 		\param clinetID 의심되는 client의 HostID
-		\param hackType 해킹의 종류 
+		\param hackType 해킹의 종류
 
 		\~english TODO:translate needed.
-		This method is called when there is suspicion that the client has been hacked. 
+		This method is called when there is suspicion that the client has been hacked.
 		\param clinetID HostID of the client under suspicion
-		\param hackType Type of hacking. 
+		\param hackType Type of hacking.
 
 		\~chinese
 		疑惑玩家被黑的时候，此方法被呼叫。
@@ -406,14 +406,14 @@ namespace Proud
 		*/
 		virtual void OnClientHackSuspected(HostID /*clientID*/,HackType /*hackType*/) {}
 
-		/** 
+		/**
 		\~korean
 		P2P group이 제거된 직후 이 메서드가 호출됩니다.
 		- P2P group이 제거되는 조건은 Proud.CNetServer.DestroyP2PGroup 를 호출하거나 P2P group 에 소속된 마지막 멤버가
 		서버와의 접속을 종료할 때 등입니다.
 
 		\~english
-		This method is called right after P2P group is removed. 
+		This method is called right after P2P group is removed.
 		- The condition P2P froup is removed is EITHER calling Proud.CNetServer.DestroyP2PGroup OR the last member of P2P group terminates its connection to server.
 
 		\~chinese
@@ -427,7 +427,7 @@ namespace Proud
 		*/
 		virtual void OnP2PGroupRemoved(HostID /*groupID*/) {}
 
-		/** 
+		/**
 		\~korean
 		RMI 호출 또는 이벤트 발생으로 인해 user worker에서 callback이 호출되기 직전에 호출됩니다.
 		프로그램 실행 성능 측정을 위해 사용하셔도 됩니다.
@@ -445,7 +445,7 @@ namespace Proud
 		\~
 		*/
 		//virtual void OnUserWorkerThreadCallbackBegin(CUserWorkerThreadCallbackContext* ctx){}
-		/** 
+		/**
 		\~korean
 		RMI 호출 또는 이벤트 발생으로 인해 user worker에서 callback이 리턴한 직후에 호출됩니다.
 		프로그램 실행 성능 측정을 위해 사용하셔도 됩니다.
@@ -464,13 +464,13 @@ namespace Proud
 		*/
 		//virtual void OnUserWorkerThreadCallbackEnd(CUserWorkerThreadCallbackContext* ctx){}
 
-		/** 
+		/**
 		\~korean
-		일정 시간마다 user worker thread pool에서 콜백되는 함수입니다.  <a target="_blank" href="http://guide.nettention.com/cpp_ko#server_timer_callback" >서버에서 타이머 루프 RMI 이벤트 처리하기</a>기능입니다. 		
+		일정 시간마다 user worker thread pool에서 콜백되는 함수입니다.  <a target="_blank" href="http://guide.nettention.com/cpp_ko#server_timer_callback" >서버에서 타이머 루프 RMI 이벤트 처리하기</a>기능입니다.
 		\param context CStartServerParameter.m_timerCallbackContext 에서 입력된 값과 동일합니다.
 
 		\~english
-		Function called back at user worker thread pool periodically. This is a <a target="_blank" href="http://guide.nettention.com/cpp_en#server_timer_callback" >Managing Timer loop RMI Event from server</a> function.		
+		Function called back at user worker thread pool periodically. This is a <a target="_blank" href="http://guide.nettention.com/cpp_en#server_timer_callback" >Managing Timer loop RMI Event from server</a> function.
 		\param context same as the value entered at CStartLanServerParameter.m_timerCallbackContext
 
 		\~chinese
@@ -478,7 +478,7 @@ namespace Proud
 		\param context 与在 CStartLanServerParameter.m_timerCallbackContext%输入的值相同。
 
 		\~japanese
-		所定時間ごとにuser worker thread poolでコールバックされる関数です。\ref server_timer_callback 機能です。 
+		所定時間ごとにuser worker thread poolでコールバックされる関数です。\ref server_timer_callback 機能です。
 		\param context CStartServerParameter.m_timerCallbackContext で入力された値と同じです。
 		\~
 		*/
@@ -486,7 +486,7 @@ namespace Proud
 
 	};
 
-	/** 
+	/**
 	\~korean
 	스레드 관련 콜백 인자 구조체입니다.
 	아직은 제공되는 변수가 없습니다만, 하위호환성을 위해 미리 준비되어 있을 뿐입니다.
@@ -504,9 +504,9 @@ namespace Proud
 	まだ提供されない変数はありませんが、下位互換性のために前もって準備されているだけです。
 	\~
 	*/
-// 	class CUserWorkerThreadCallbackContext
-// 	{
-// 	};
+//	class CUserWorkerThreadCallbackContext
+//	{
+//	};
 	/**  @} */
 }
 

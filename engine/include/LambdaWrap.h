@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "CallbackContext.h"
 #include <functional>
@@ -45,7 +45,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #endif
 
 //////////////////////////////////////////////////////////////////////////
-// 람다식 지원 컴파일러와 미지원 컴파일러 모두를 위한 함수 객체 관련 정의들 
+// 람다식 지원 컴파일러와 미지원 컴파일러 모두를 위한 함수 객체 관련 정의들
 // 프넷 내부 모듈이므로. 번역하지 마세요.
 
 namespace Proud
@@ -176,7 +176,7 @@ namespace Proud
 		{
 			m_functionObject = RefCount<BaseType>(new LambdaType(lambda));
 		}
-		
+
 		LambdaBaseHolder_Param1& operator=(const std::function<RETURN(PARAM1)>& lambda)
 		{
 			m_functionObject = RefCount<BaseType>(new LambdaType(lambda));
@@ -267,7 +267,7 @@ namespace Proud
 
 #ifdef SUPPORTS_LAMBDA_EXPRESSION
 		LambdaBaseHolder_Param3() {}
-		
+
 		LambdaBaseHolder_Param3(const std::function<RETURN(PARAM1, PARAM2, PARAM3)>& lambda)
 		{
 			m_functionObject = RefCount<BaseType>(new LambdaType(lambda));
@@ -334,15 +334,15 @@ namespace Proud
 	/* 로컬 변수로 이것을 사용해서 scope out시 특정 코드가 실행되게 한다.
 	타 언어의 try-finally 구문 대용이다.
 
-	추후 C++ 미래 버전에서 std::finally가 도입되면 얘기가 달라지겠지만, 일단은 이걸 자체구현해서 사용하자. 
-	
+	추후 C++ 미래 버전에서 std::finally가 도입되면 얘기가 달라지겠지만, 일단은 이걸 자체구현해서 사용하자.
+
 	사용 예:
 	\code
 	int a;
 	a++;
 	finally dec_it([&]
-	{ 
-		a--; 
+	{
+		a--;
 	});
 	...;
 	\endcode

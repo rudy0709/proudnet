@@ -38,8 +38,8 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 #if defined(_WIN32)
 	#include <WinSock2.h>
-    #include <MMSystem.h>
-    #include <vector>
+	#include <MMSystem.h>
+	#include <vector>
 #endif
 
 #include "FakeClrBase.h"
@@ -51,4 +51,3 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #include "Event.h"
 #include "Exception.h"
 #include "PNString.h"
-

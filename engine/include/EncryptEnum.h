@@ -48,7 +48,7 @@ namespace Proud
 
 	// 주의: 이것도 바꾸면 ProudClr namespace의 동명 심볼도 수정해야 한다.
 
-	/** 
+	/**
 	\~korean
 	암호화 및 복호화 설정값입니다.
 
@@ -64,7 +64,7 @@ namespace Proud
 	*/
 	enum EncryptMode
 	{
-		/** 
+		/**
 		\~korean
 		암호화를 안합니다.
 
@@ -78,8 +78,8 @@ namespace Proud
 		暗号化をしません。
 		\~
 		*/
-		EM_None,		
-		/** 
+		EM_None,
+		/**
 		\~korean
 		RSA와 AES를 혼용한 암호화를 수행합니다. 로그온 등 보안성이 높은 메시지에 쓰십시오.
 
@@ -93,8 +93,8 @@ namespace Proud
 		RSAとAESを混用した暗号化を遂行します。ログオンなどセキュリティ性の高いメッセージに使ってください。
 		\~
 		*/
-		EM_Secure,		
-		/** 
+		EM_Secure,
+		/**
 		\~korean
 		RSA와 Fast를 혼용한 암호화를 수행합니다. 캐릭터 이동 등 약간의 암호화는 필요하지만 성능 또한 고려해야 하는 상황에서 쓰십시오.
 
@@ -102,13 +102,13 @@ namespace Proud
 		Do encryption that mixture with RSA and Fast. Encryption is required like moving character but please consider about performance.
 
 		\~chinese
-		实行混用RSA和Fast的加密。如角色移动等虽加密程度不高，但需考虑性能的状况下请使用此方法。 
+		实行混用RSA和Fast的加密。如角色移动等虽加密程度不高，但需考虑性能的状况下请使用此方法。
 
 		\~japanese
 		RSAとFastを混用した暗号化を遂行します。キャラクター移動など少しの暗号化は必要ですが、性能も考慮すべき状況で使ってください。
 		\~
 		*/
-		EM_Fast,			
+		EM_Fast,
 		EM_LAST,
 	};
 

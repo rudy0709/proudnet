@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "pnguid.h"
 
@@ -6,7 +6,7 @@
 #pragma pack(push,8)
 #endif
 
-#if defined(_WIN32) 
+#if defined(_WIN32)
 
 // 주의: UE4 project에서는 include하지 말 것! 빌드 오류난다.
 #pragma comment(lib,"rpcrt4.lib")
@@ -20,7 +20,7 @@ namespace Proud
 	{
 	public:
 		/** creates a new unique ID. */
-		 PROUD_API static Guid NewGuid();
+		PROUD_API static Guid NewGuid();
 
 		/** gets data from Win32 UUID data. */
 		PROUD_API static Guid From(UUID src);

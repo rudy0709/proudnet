@@ -43,7 +43,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #if !defined(_WIN32)
    #include "atomic.h"
 #else
-    #include <vector>
+	#include <vector>
 #endif
 
 #ifdef _MSC_VER
@@ -51,7 +51,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #pragma warning(disable:4324)
 #pragma warning(disable:4290)
 #pragma pack(push,8)
-#endif 
+#endif
 
 namespace Proud
 {
@@ -59,17 +59,17 @@ namespace Proud
 	*  @{
 	*/
 
-	 extern const char* ArrayPtrIsNullError;
-	 extern const char* ArrayPtrIsNotNullError;
-	 extern const char* MustInternalBufferError;
-	 extern const char* MustNotExternalBufferError;
-	 extern const char* MustUnsafeInternalBufferError;
-	 PROUD_API extern const char* AlreadyHasInternalBufferError;
-	 extern const char* AlreadyHasUnsafeInternalBufferError;
-	 PROUD_API extern const char* AlreadyHasExternalBufferError;
+	extern const char* ArrayPtrIsNullError;
+	extern const char* ArrayPtrIsNotNullError;
+	extern const char* MustInternalBufferError;
+	extern const char* MustNotExternalBufferError;
+	extern const char* MustUnsafeInternalBufferError;
+	PROUD_API extern const char* AlreadyHasInternalBufferError;
+	extern const char* AlreadyHasUnsafeInternalBufferError;
+	PROUD_API extern const char* AlreadyHasExternalBufferError;
 
 	// VC++에서 unreachable code 경고가 떠서 _Noreturn을 막음. 더 좋은 방법 없을까?
-	 PROUD_API /*_Noreturn*/ void ThrowArrayIsNullError();
+	PROUD_API /*_Noreturn*/ void ThrowArrayIsNullError();
 
 	/**  @} */
 }

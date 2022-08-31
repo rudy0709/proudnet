@@ -142,15 +142,15 @@ namespace Proud
 		std::function<void()> OnThreadBeginFunction;
 		/** IThreadPoolEvent의 같은 이름의 함수의 설명을 참고하십시오. */
 		std::function<void()> OnThreadEndFunction;
-	
+
 	private:
-		void OnThreadBegin() 
+		void OnThreadBegin()
 		{
 			if (OnThreadBeginFunction)
 				OnThreadBeginFunction();
 		}
 
-		void OnThreadEnd() 
+		void OnThreadEnd()
 		{
 			if (OnThreadEndFunction)
 				OnThreadEndFunction();
@@ -181,7 +181,7 @@ namespace Proud
 
 	\~japanese
 	ホストモジュール(NetServer,NetClient)のためのthread poolオブジェクトです。
-	
+
 	詳しくは、\ref thread_pool_sharingをご参照ください。
 	\~
 
@@ -227,7 +227,7 @@ namespace Proud
 
 		/** Zero thread pool mode란, 이 thread pool 객체가 별도의 스레드를 갖지 않고, 사용자가 갖고 있는 스레드 위에서 일을 하는 것을 말합니다.
 		Create() 호출시 thread count 값을 0을 지정하면 이 thread pool 객체는 zero thread pool mode가 됩니다.
-		
+
 		Zero thread pool mode를 쓰는 경우, 이 thread pool 객체는 사용자가 명시적으로 일을 하라는 지시를 해야만 작동합니다.
 		이 함수를 호출하면 이 thread pool 객체는 일을 합니다.
 		Zero thread pool mode가 아니면 이 함수는 아무것도 하지 않습니다.
@@ -237,7 +237,7 @@ namespace Proud
 		*/
 		virtual void Process(int timeoutMs) = 0;
 
-		/** 함수 func 를 이 Thread pool 의 스레드에서 비동기로 실행합니다. 
+		/** 함수 func 를 이 Thread pool 의 스레드에서 비동기로 실행합니다.
 		\param type 비동기 실행의 종류
 		\param func 비동기로 실행할 함수
 		\param context 함수에 전달할 데이터

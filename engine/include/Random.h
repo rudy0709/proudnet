@@ -56,7 +56,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	랜덤값 생성기
 
@@ -67,7 +67,7 @@ namespace Proud
 	- CRandom 객체를 생성한 후 InitializeSeed()나 SetSeed() 최초 1회 후 GetInt(), GetInt64, GetFloat 등을 쓰면 된다.
 	- 명시적 랜덤 분포를 요구하지 않으면 그냥 StaticGet*()를 사용하라.
 	- 명시적 랜덤 분포를 필요로 하면 이 객체를 만들어서 InitializeSeed()를 최초 한번만 호출한 후
-	Get*()를 사용하라. 
+	Get*()를 사용하라.
 
 	\~english
 	Random value generator
@@ -100,7 +100,7 @@ namespace Proud
 	一般的な用途
 	- CRandom オブジェクトを生成した後、InitializeSeed()とかSetSeed()を最初1回後、GetInt(), GetInt64, GetFloat などを使ってください。
 	- 明示的ランダム分布を要求しなければただ StaticGet*()を使ってください。
-	- 明示的ランダム分布を必要とすればこのオブジェクトを作ってInitializeSeed()を最初1回のみ呼び出した後、Get*()を使ってください。 
+	- 明示的ランダム分布を必要とすればこのオブジェクトを作ってInitializeSeed()を最初1回のみ呼び出した後、Get*()を使ってください。
 	\~
 	*/
 	class CRandom
@@ -109,19 +109,19 @@ namespace Proud
 		uint32_t m_dwState[625];
 		uint32_t *m_pdwNext;
 		int m_lLeft;
-	
+
 		uint32_t LoadMersenneTwister();
 		double GetFloat_INTERNAL();
 		static double StaticGetFloat_INTERNAL();
 
 		CriticalSection m_cs;
 	public:
-		 PROUD_API CRandom();
-		 PROUD_API virtual ~CRandom();
+		PROUD_API CRandom();
+		PROUD_API virtual ~CRandom();
 
-		/** 
+		/**
 		\~korean
-		난수생성 seed 값을 설정합니다. 
+		난수생성 seed 값을 설정합니다.
 
 		\~english
 		Set random number creating seed value
@@ -133,11 +133,11 @@ namespace Proud
 		乱数生成seed値を設定します。
 		\~
 		*/
-		 PROUD_API void InitializeSeed();
+		PROUD_API void InitializeSeed();
 
-		/** 
+		/**
 		\~korean
-		난수생성 seed 값을 특정 값으로 설정합니다. 
+		난수생성 seed 값을 특정 값으로 설정합니다.
 		\param dwSeed 시드값
 
 		\~english TODO:translate needed.
@@ -152,11 +152,11 @@ namespace Proud
 		\param dwSeed シード値
 		\~
 		*/
-		 void SetSeed(uint32_t dwSeed);
+		void SetSeed(uint32_t dwSeed);
 
-		/** 
+		/**
 		\~korean
-		랜덤값을 만든다. INT_MIN~INT_MAX 중 하나이다. 
+		랜덤값을 만든다. INT_MIN~INT_MAX 중 하나이다.
 
 		\~english
 		Creates random value. One value between INT_MIN~INT_MAX
@@ -165,12 +165,12 @@ namespace Proud
 		生成随机值。INT_MIN~INT_MAX 中之一。
 
 		\~japanese
-		ランダム値を作ります。INT_MIN~INT_MAXの一つです。 
+		ランダム値を作ります。INT_MIN~INT_MAXの一つです。
 		\~
 		*/
-		 PROUD_API int GetInt();
+		PROUD_API int GetInt();
 
-		/** 
+		/**
 		\~korean
 		랜덤값을 만든다. INT64_MIN~INT64_MAX 중 하나이다.
 
@@ -184,9 +184,9 @@ namespace Proud
 		ランダム値を作ります。INT64_MIN~INT64_MAXの一つです。
 		\~
 		*/
-		 int64_t GetInt64();
+		int64_t GetInt64();
 
-		/** 
+		/**
 		\~korean
 		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. thread safe하다.
 
@@ -200,11 +200,11 @@ namespace Proud
 		全域オブジェクトで作られたCRandomより値を求めます。thread safeです。
 		\~
 		*/
-		 PROUD_API static int StaticGetInt();
+		PROUD_API static int StaticGetInt();
 
-		/** 
+		/**
 		\~korean
-		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. thread safe하다. 
+		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. thread safe하다.
 
 		\~english
 		Gets value from CRandom that created with global object. It does thread safe.
@@ -216,11 +216,11 @@ namespace Proud
 		全域オブジェクトで作られたCRandomより値を求めます。thread safeです。
 		\~
 		*/
-		 static int64_t StaticGetInt64();
+		static int64_t StaticGetInt64();
 
-		/** 
+		/**
 		\~korean
-		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. 0~1 사이의 부동소수점 값이다. thread safe하다. 
+		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. 0~1 사이의 부동소수점 값이다. thread safe하다.
 
 		\~english
 		Gets value from CRandom that created with global object. It is floating point value between 0 to 1. It does thread safe.
@@ -232,11 +232,11 @@ namespace Proud
 		全域オブジェクトで作られたCRandomより値を求めます。0~1の間の不動小数点値です。thread safeです。
 		\~
 		*/
-		 double GetFloat();
-		
-		/** 
+		double GetFloat();
+
+		/**
 		\~korean
-		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. 0~1 사이의 부동소수점 값이다. thread safe하다. 
+		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. 0~1 사이의 부동소수점 값이다. thread safe하다.
 
 		\~english
 		Gets value from CRandom that created with global object. It is floating point value between 0 to 1. It does thread safe.
@@ -248,7 +248,7 @@ namespace Proud
 		全域オブジェクトで作られたCRandomより値を求めます。0~1の間の不動小数点値です。thread safeです。
 		\~
 		*/
-		 PROUD_API static double StaticGetFloat();
+		PROUD_API static double StaticGetFloat();
 	};
 
 
@@ -261,7 +261,7 @@ namespace Proud
 			return arr[CRandom::StaticGetInt()%arr.GetSize()];
 	}
 
-#if defined(_WIN32)    
+#if defined(_WIN32)
 	template<typename T>
 	T GetRandomElement(const std::vector<T>& arr)
 	{
@@ -271,7 +271,7 @@ namespace Proud
 			return arr[CRandom::StaticGetInt()%arr.size()];
 	}
 #endif
-    
+
 	/**  @} */
 #if (defined(_MSC_VER) && _MSC_VER>=1400)
 //#pragma managed(pop)

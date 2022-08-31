@@ -67,7 +67,7 @@ namespace Proud
 	\~japanese
 	このオブジェクトの配列サイズが増加する時の加重値タイプ
 	\~
-	 */
+	*/
 	enum GrowPolicy
 	{
 		/**
@@ -220,7 +220,7 @@ namespace Proud
 	主要特徴
 	- heap アクセスを最小化するために auto memory shrinkをしません。
 	即ち、capacityは絶対減らしません。よって、メモリー過多使用の問題点を考慮すれば、このオブジェクトの使用は避けた方が良いです。
-	- 内部的に\ref fast_heapを使ってheapアクセスによる負荷を節約することができます。 
+	- 内部的に\ref fast_heapを使ってheapアクセスによる負荷を節約することができます。
 	基本的にこの機能はオフです。しかし、UseFastHeapに変更可能です。
 	- .Net frameworkのList<>、STL.vector、CAtlArrayのメソッド名を全て使うことができます。そして、STL.vector.iteratorのような役割のiterator classも提供しています。
 	\param T 配列の項目タイプです。
@@ -232,14 +232,14 @@ namespace Proud
 	例えば、パケットサイズの場合、できれば2GBを超えるものは扱わないのでint32をお勧めします。ローカルプロセスでのみ扱うならintPtrをお勧めします。ネットワーク統計など32bitでは不十分な値を扱えばint64をお勧めします。
 
 	\~
-	 */
+	*/
 	template<typename T, bool T_IN_REF = true, bool RAWTYPE = false, typename INDEXTYPE = intptr_t>
 	class CFastArray
 	{
 		typedef typename FastArray_Traits<T, T_IN_REF>::type T_IN;
 
 	public:
-		// ikpil.choi 2016-11-29 : T의 타입 사이즈 추가, 		
+		// ikpil.choi 2016-11-29 : T의 타입 사이즈 추가,
 		static const size_t TYPE_SIZE = sizeof(T);
 
 	protected:
@@ -363,10 +363,10 @@ namespace Proud
 		\param data 데이터 배열의 포인터 입니다.
 		\param count 배열의 Data수 입니다.
 
-		\~english 
+		\~english
 		Constructor that copies external data
 		\param src This is the pointer of the data array
-		\param count This is the number of data in the array		
+		\param count This is the number of data in the array
 
 
 
@@ -396,10 +396,10 @@ namespace Proud
 		외부 데이터를 복사해오는 생성자
 		\param src 복사할 CFastArray
 
-		\~english 
+		\~english
 		Constructor that copies external data
 		\param src CFastArray to be copied
-		
+
 
 		\~chinese
 		复制外部数据的生成者。
@@ -407,7 +407,7 @@ namespace Proud
 
 		\~japanese
 		外部データをコピーしてくる生成子
-		\param src コピーする CFastArray 
+		\param src コピーする CFastArray
 
 		\~
 		*/
@@ -439,7 +439,7 @@ namespace Proud
 		이 객체의 배열 크기가 증가할 때 가중치 타입을 설정. 자세한 내용은 GrowPolicy을 참조
 		\param val 배열의 증가 가중치에 대한 type
 
-		\~english 
+		\~english
 		Set the weighted value type when the array size of this object increases. For details, refer to GrowPolicy.
 		\param val The type to the weighted value of the array
 
@@ -453,7 +453,7 @@ namespace Proud
 		\param val 配列の増加加重値に対するtype
 
 		\~
-		 */
+		*/
 		inline void SetGrowPolicy(GrowPolicy val)
 		{
 			m_growPolicy = val;
@@ -472,7 +472,7 @@ namespace Proud
 		\~japanese
 		既存のgrow policy(このオブジェクトの配列サイズが増加する時の加重値タイプ)を得ます。
 		\~
-		 */
+		*/
 		inline GrowPolicy GetGrowPolicy()
 		{
 			return m_growPolicy;
@@ -483,7 +483,7 @@ namespace Proud
 		최소 버퍼 크기를 설정한다. 버퍼(capacity)크기가 증가할 때 최소한 이 사이즈보다 크게 설정한다.
 		\param newCapacity 최소 Capacity size
 
-		\~english 
+		\~english
 		Set the minimum buffer size. When the buffer (capacity) size increases, set it at least bigger than this size.
 		\param newCapacity Minimum capacity size
 
@@ -495,7 +495,7 @@ namespace Proud
 
 		\~japanese
 		最小バッファーサイズを設定します。バッファー(capacity)サイズが増加する時、最小限このサイズより大きく設定します。
-		\param newCapacity 最小 Capacity size 
+		\param newCapacity 最小 Capacity size
 
 		\~
 		*/
@@ -523,7 +523,7 @@ namespace Proud
 		- キャパシティーは増加するだけで減ることはありません。
 
 		\~
-		 */
+		*/
 		inline void SetCapacity(INDEXTYPE newCapacity)
 		{
 			assert(m_Capacity >= m_Length);
@@ -606,9 +606,9 @@ namespace Proud
 		- 배열 크기 조절시 capacity가 충분히 증가한다.
 		\param newVal 새로운 배열의 크기
 
-		\~english 
+		\~english
 		Adjust the array size
-		- When adjusting the array size, the capacity increases sufficiently. 
+		- When adjusting the array size, the capacity increases sufficiently.
 		\param newVal Size of the new array
 
 
@@ -623,7 +623,7 @@ namespace Proud
 		\param newVal 新しい配列のサイズ
 
 		\~
-		 */
+		*/
 		inline void SetCount(INDEXTYPE newVal) // 성능이 중요하므로 루틴이 커도 inline
 		{
 			/*
@@ -656,7 +656,7 @@ namespace Proud
 			- M->N(M<N): granularity 単位でサイズ増加。サイズ増加時にreallocされます。
 
 			\~
-			 */
+			*/
 
 			if (newVal < 0)
 			{
@@ -730,7 +730,7 @@ namespace Proud
 		\~korean
 		capacity의 크기를 얻는다
 
-		\~english 
+		\~english
 		Get the size of the capacity
 
 		\~chinese
@@ -788,7 +788,7 @@ namespace Proud
 		*/
 		inline void Clear()
 		{
-			SetCount(0);    // 메모리 블럭 파괴는 절대 안함
+			SetCount(0);	// 메모리 블럭 파괴는 절대 안함
 		}
 
 		/**
@@ -1027,9 +1027,9 @@ namespace Proud
 		\param data 새로 추가할 배열의 포인터
 		\param count 추가할 배열의 크기
 
-		\~english 
+		\~english
 		Add a new array behind an array
-		\param data Pointer of the array to be newly added. 
+		\param data Pointer of the array to be newly added.
 		\param count Size of the array to be added
 
 
@@ -1040,7 +1040,7 @@ namespace Proud
 
 		\~japanese
 		配列の後ろに新しい配列を追加
-		\param data 新たに追加する配列のポインター 
+		\param data 新たに追加する配列のポインター
 		\param count 追加する配列のサイズ
 
 		\~
@@ -1087,11 +1087,11 @@ namespace Proud
 		\param data data 삽입할 배열의 포인터 입니다.
 		\param count 삽입할 배열의 크기
 
-		\~english 
-		Add an array in the middle of an array. Push the area pointed at by indexAt behind and add it in the gap. 
-		\param indexAt It is added after this index number. 
-		\param data data It is a pointer of the array to be inserted. 
-		\param count Size of the array to be added. 
+		\~english
+		Add an array in the middle of an array. Push the area pointed at by indexAt behind and add it in the gap.
+		\param indexAt It is added after this index number.
+		\param data data It is a pointer of the array to be inserted.
+		\param count Size of the array to be added.
 
 
 
@@ -1173,11 +1173,11 @@ namespace Proud
 		\param srcOffset 배열 내 srcOffset 이후 Data부터 dest로 복사 한다.
 		\param count count갯수 만큼의 배열을 복사 한다.
 
-		\~english 
-		After adjusting the size of dest with count, part of all of src is copied to dest. 
-		\param dest Array is copied to dest. 
-		\param srcOffset Copy the data after srcOffset within the array to dest.  
-		\param count count Copy arrays as the same number of count. 
+		\~english
+		After adjusting the size of dest with count, part of all of src is copied to dest.
+		\param dest Array is copied to dest.
+		\param srcOffset Copy the data after srcOffset within the array to dest.
+		\param count count Copy arrays as the same number of count.
 
 
 
@@ -1189,7 +1189,7 @@ namespace Proud
 		\param count  复制出相当于count个数的数组。
 
 		\~japanese
-		Destのサイズをcountで調整後、srcの一部または全体をdestへコピーします。 
+		Destのサイズをcountで調整後、srcの一部または全体をdestへコピーします。
 		\param dest 配列をdestへコピーします。
 		\param srcOffset 配列内のsrcOffset以降のデータからdestへコピーします。
 		\param count count数だけの配列をコピーします。
@@ -1217,7 +1217,7 @@ namespace Proud
 			{
 				// ikpil.choi 2016-11-07 : memcpy_s 로 변경, destSize(2번째 인자) 값이 항상 올바른 값이여야 합니다.
 				//UnsafeFastMemcpy(dest.GetData(),GetData()+srcOffset,sizeof(T)*count);
-				
+
 				if (count != 0) // PS4 플랫폼에서 STDERR 출력 방지를 위해
 					memcpy_s(dest.GetData(), sizeof(T) * dest.m_Length, GetData() + srcOffset, sizeof(T) * count);
 			}
@@ -1234,7 +1234,7 @@ namespace Proud
 		\param dest 把数组复制成dest。
 
 		\~japanese
-		\param dest 配列をdestへコピーします。 
+		\param dest 配列をdestへコピーします。
 		\~
 		*/
 		inline void CopyTo(CFastArray &dest) const
@@ -1264,9 +1264,9 @@ namespace Proud
 		\param index 제거할 배열의 index
 		\param count index로부터 count수 만큼 제거한다.
 
-		\~english 
-		Remove as many as the count from the (index)th item. 
-		\param index Index of the array to be removed. 
+		\~english
+		Remove as many as the count from the (index)th item.
+		\param index Index of the array to be removed.
 		\param count Remove as many as the number of count from the index.
 
 
@@ -1276,7 +1276,7 @@ namespace Proud
 		\param count 从index开始删除相当于count的量。
 
 		\~japanese
-		index番目の項目からcountだけ除去します。 
+		index番目の項目からcountだけ除去します。
 		\param index 除去する配列の index
 		\param count indexからcount数だけ除去します。
 
@@ -1323,7 +1323,7 @@ namespace Proud
 		\param index 删除等于index的data。
 
 		\~japanese
-		\param index indexに該当するデータを除去します。 
+		\param index indexに該当するデータを除去します。
 		\~
 		*/
 		inline void RemoveAt(INDEXTYPE index)
@@ -1399,7 +1399,7 @@ namespace Proud
 		\return valueのような値を持つ配列項目があれば、そのインデックスをリターンします。見つからなかったら⁻1をリターンします。
 
 		\~
-		 */
+		*/
 		inline INDEXTYPE FindByValue(T_IN value)
 		{
 			T* src = GetData();
@@ -1436,7 +1436,7 @@ namespace Proud
 		\param rhs rhsと内容が同じかどうかをチェックします。
 
 		\~
-		 */
+		*/
 		inline bool Equals(const CFastArray &rhs) const
 		{
 			if(rhs.m_Length!=m_Length)
@@ -1490,7 +1490,7 @@ namespace Proud
 		\~japanese
 		STLのconst_iteratorのような役割をします。
 		\~
-		 */
+		*/
 		class const_iterator
 		{
 			friend class CFastArray;
@@ -1550,7 +1550,7 @@ namespace Proud
 		\~japanese
 		STLのiteratorのような役割をします。
 		\~
-		 */
+		*/
 		class iterator
 		{
 			friend class CFastArray;
@@ -1614,7 +1614,7 @@ namespace Proud
 		\~japanese
 		STLの同名メソッドのような役割をします。
 		\~
-		 */
+		*/
 		inline iterator begin()
 		{
 			iterator ret;
@@ -1637,7 +1637,7 @@ namespace Proud
 		\~japanese
 		STLの同名メソッドのような役割をします。
 		\~
-		 */
+		*/
 		inline iterator end()
 		{
 			iterator ret;
@@ -1661,7 +1661,7 @@ namespace Proud
 			\~japanese
 			STLの同名メソッドのような役割をします。
 			\~
-			 */
+			*/
 		inline const_iterator begin() const
 		{
 			const_iterator ret;
@@ -1684,7 +1684,7 @@ namespace Proud
 		\~japanese
 		STLの同名メソッドのような役割をします。
 		\~
-		 */
+		*/
 		inline const_iterator end() const
 		{
 			const_iterator ret;
@@ -1699,7 +1699,7 @@ namespace Proud
 		STL의 동명 메서드와 같은 역할을 한다.
 		\param iter iter가 가르키는 데이터를 제거한다.
 
-		\~english 
+		\~english
 		Acts similar as same name method of STL
 
 
@@ -1712,7 +1712,7 @@ namespace Proud
 		\param iter iterが指すデータを除去します。
 
 		\~
-		 */
+		*/
 		iterator erase(iterator iter)
 		{
 			if(iter.m_owner!=this)
@@ -1730,8 +1730,8 @@ namespace Proud
 		\~korean
 		배열의 마지막 정보를 배열내에서 제거하고 리턴해준다.
 
-		\~english 
-		Remove the last information of the array within the array and return it. 
+		\~english
+		Remove the last information of the array within the array and return it.
 
 		\~chinese
 		从数组内删除数组的最后信息并返回。
@@ -1759,10 +1759,10 @@ namespace Proud
 		순서가 상관없는 콜렉션에서 허리 항목을 제거할 때 Remove 대신 쓰면 효과적이다.
 		\param index 제거할 index
 
-		\~english 
-		After moving the last item to the place where index is pointing at and remove the last item. 
-		It is effective to use instead of Remove when you move the waist item from a collection where sequence is irrelevant. 
-		\param index Index to be removed. 
+		\~english
+		After moving the last item to the place where index is pointing at and remove the last item.
+		It is effective to use instead of Remove when you move the waist item from a collection where sequence is irrelevant.
+		\param index Index to be removed.
 
 		\~chinese
 		把最后项目挪到index指向的地方以后删除最后项。
@@ -1775,7 +1775,7 @@ namespace Proud
 		\param index 除去する index
 
 		\~
-		 */
+		*/
 		inline void RemoveAndPullLast(INDEXTYPE index)
 		{
 			INDEXTYPE cnt = m_Length;
@@ -1819,10 +1819,7 @@ namespace Proud
 		}
 	};
 
-
-
 	/**  @} */
-
 
 }
 

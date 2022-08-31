@@ -147,7 +147,7 @@ Parameters for NetServer startup.
 		\~japanese
 		UDPホストポートリストです。
 		m_udpAssignModeがProud.ServerUdpAssignMode_PerClientである場合、本リストは無視されます。
-		
+
 		m_udpAssignModeがProud.ServerUdpAssignMode_Staticである場合、本リストは次のように作動します。
 		- 0が入っている配列の場合：0が入っている数だけの任意ポート番号を持つUDPソケットが前もって準備されます。
 		この時、実際割り当てられたポート番号を得るためには、CNetServer.GetServerUdpAddrPort()を使えば良いです。
@@ -232,9 +232,9 @@ Parameters for NetServer startup.
 		- 일반적으로 TCP 연결이 열려 있으면 이 기능이 굳이 필요하지는 않습니다. 따라서 기본값은 false입니다.
 
 		\~english TODO:translate needed.
-		If true, the TCP hole punching connection is forced to be port mapped using the universal plug and play (UPNP) feature if needed in the client. 
-		- If this feature is turned on, it controls the upnp port mapping connection to the TCP hole punching connection to stabilize the connection to TCP. 
-		- If the TCP connection is open in general, this feature is not really necessary. Therefore, the basic value is false. 
+		If true, the TCP hole punching connection is forced to be port mapped using the universal plug and play (UPNP) feature if needed in the client.
+		- If this feature is turned on, it controls the upnp port mapping connection to the TCP hole punching connection to stabilize the connection to TCP.
+		- If the TCP connection is open in general, this feature is not really necessary. Therefore, the basic value is false.
 
 		\~chinese
 		True的话client需要时利用universal plug and play(UPNP)功能把TCP打洞连接进行强制port mapping。
@@ -334,10 +334,10 @@ Parameters for NetServer startup.
 		- 이 기능이 켜져있지 않다면 Superpeer 선정에 있어 Peer간 핑을 받을 수 없음으로, m_peerLagWeight값을 계산하지 않습니다.
 
 		\~english TODO:translate needed.
-		This is the feature to collect the ping between every peer. 
-		- The initial value is false. 
-		- If set true, the ping value among all peers connected from the peer is obtained entirely. 
-		- If this feature is not turned on, you cannot get the ping among peers when selecting the superpeer, so it does not calculate m_peerLagWeight value. 
+		This is the feature to collect the ping between every peer.
+		- The initial value is false.
+		- If set true, the ping value among all peers connected from the peer is obtained entirely.
+		- If this feature is not turned on, you cannot get the ping among peers when selecting the superpeer, so it does not calculate m_peerLagWeight value.
 
 		\~chinese
 		收集所有peer之间的ping功能。
@@ -495,8 +495,8 @@ Parameters for NetServer startup.
 		특별한 경우가 아니라면 함부로 이 값을 설정하지 마십시오.
 
 		\~english
-		When the value is set, a warning and a dump file are generated when NetServer bottleneck occurs. 
-		Unless it is a special situation, do not carelessly set this value. 
+		When the value is set, a warning and a dump file are generated when NetServer bottleneck occurs.
+		Unless it is a special situation, do not carelessly set this value.
 
 		\~chinese
 		一旦设置该值，在NetServer发生瓶颈时将生成警告和dump文件。
@@ -542,9 +542,9 @@ Parameters for NetServer startup.
 			/** 웹소켓 서버가 사용하는 endpoint 값이며, URL의 주소 부분 이후의 부분을 정의합니다.
 			예를 들어 `^/echo/?$` 형태로 입력하십시오. */
 			Proud::String endpoint;
-			   
-			/** 웹소켓 포트입니다. 
-			Proud.CStartServerParameter.m_tcpPorts는 네이티브 TCP 소켓의 포트이며, 
+
+			/** 웹소켓 포트입니다.
+			Proud.CStartServerParameter.m_tcpPorts는 네이티브 TCP 소켓의 포트이며,
 			여기 들어가는 포트값은 Websocket용 소켓의 포트입니다. */
 			uint16_t listenPort;
 

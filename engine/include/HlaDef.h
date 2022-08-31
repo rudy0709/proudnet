@@ -44,7 +44,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 namespace Proud
 {
-	/** 
+	/**
 	\~korean
 
 	\~english
@@ -79,13 +79,13 @@ namespace Proud
 		Protocol_ReliableSend,
 	};
 
-	/** 
+	/**
 	\~korean
 
 	\~english
 	return values from synch class invocation.
 	\todo you may change this type to what you want
-	
+
 	\~chinese
 
 	\~japanese
@@ -95,17 +95,17 @@ namespace Proud
 	*/
 	typedef unsigned int HlaResult;
 
-	/** 
+	/**
 	\~korean
 
 	\~english
-	means, "synch class call successful" 
-	
+	means, "synch class call successful"
+
 	\~chinese
 
 	\~japanese
 	\~
-	means, "synch class call successful" 
+	means, "synch class call successful"
 	*/
 	static const HlaResult HlaResult_Ok = 0;
 

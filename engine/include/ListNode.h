@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "./Exception.h"
 
@@ -42,24 +42,24 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #pragma pack(push,8)
 #endif
 
-namespace Proud 
+namespace Proud
 {
 #if (defined(_MSC_VER) && _MSC_VER>=1400)
 // 아래 주석처리된 pragma managed 전처리 구문은 C++/CLI 버전이 있었을 때에나 필요했던 것입니다.
 // 현재는 필요없는 구문이고, 일부 환경에서 C3295 "#pragma managed는 전역 또는 네임스페이스 범위에서만 사용할 수 있습니다."라는 빌드에러를 일으킵니다.
 //#pragma managed(push,off)
 #endif
-	
+
 	PROUD_API extern const char* ConsistencyProblemText;
-	
+
 	/** \addtogroup util_group
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	double linked list 를 구성하는 node이다.
-	- CListOwner 에 붙는 경우에만 연결 관계를 구성할 수 있다. 
+	- CListOwner 에 붙는 경우에만 연결 관계를 구성할 수 있다.
 
 	\~english
 	node that consist double linked list
@@ -71,13 +71,13 @@ namespace Proud
 
 	\~japanese
 	double linked listを構成するnodeです。
-	- ClistOwnerに付く場合のみ連結関係を構成することができます。 
+	- ClistOwnerに付く場合のみ連結関係を構成することができます。
 	\~
 	*/
 	template<typename T>
 	class CListNode
 	{
-	public:	
+	public:
 		class CListOwner
 		{
 			T* m_first;
@@ -154,8 +154,8 @@ namespace Proud
 			\~korean
 			연결된 링크를 제거합니다.
 
-			\~english 
-			Removed the connected link 
+			\~english
+			Removed the connected link
 
 			\~chinese
 			删除连接的链接。
@@ -176,9 +176,9 @@ namespace Proud
 			\~korean
 			노드가 비었는지 확인한다. \return 비었으면 true, 비어있지 않으면 false 리턴
 
-			\~english 
-			Check to see if the node is empty. \return Return true if empty, false if not. 
-			
+			\~english
+			Check to see if the node is empty. \return Return true if empty, false if not.
+
 			\~chinese
 			确认节点是否空。
 			\return 空的话true，不是空的话返回false。
@@ -308,7 +308,7 @@ namespace Proud
 			\~korean
 			first 노드를 리턴받습니다.
 
-			\~english 
+			\~english
 			Get the first node returned
 
 			\~chinese
@@ -327,7 +327,7 @@ namespace Proud
 			\~korean
 			last노드를 리턴받습니다.
 
-			\~english 
+			\~english
 			Get the last node returned
 
 			\~chinese
@@ -346,7 +346,7 @@ namespace Proud
 			\~korean
 			연결되어 있는 노드의 카운트를 리턴받습니다.
 
-			\~english 
+			\~english
 			Get the count of the connected node
 
 			\~chinese
@@ -389,7 +389,7 @@ namespace Proud
 		\~korean
 		이 node를 가지고 있는 owner를 리턴합니다.
 
-		\~english 
+		\~english
 		Return the owner who has this node
 
 		\~chinese
@@ -399,7 +399,7 @@ namespace Proud
 		このnodeを持っているownerをリターンします。
 		\~
 		*/
-		inline CListOwner* GetListOwner() const 
+		inline CListOwner* GetListOwner() const
 		{
 			return m_listOwner;
 		}
@@ -408,7 +408,7 @@ namespace Proud
 		\~korean
 		다음노드를 리턴받습니다.
 
-		\~english 
+		\~english
 		Get the next node returned
 
 		\~chinese
@@ -427,7 +427,7 @@ namespace Proud
 		\~korean
 		이전 노드를 리턴받습니다.
 
-		\~english 
+		\~english
 		Get the previous node returned
 
 		\~chinese

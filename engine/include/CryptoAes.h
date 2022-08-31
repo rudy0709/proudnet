@@ -129,10 +129,10 @@ namespace Proud
 
 		\~english
 		- ECB, CBC, CFB Mode
-		- ECB Mode: when the same block is encrypted twice, the original unencrypted test appears. 
-		- CBC mode: the previous block and xor calculation is encrypted afterwards. 
-		- CFB mode: after the block is encrypted, it does xor calculation with the previous block. 
-		
+		- ECB Mode: when the same block is encrypted twice, the original unencrypted test appears.
+		- CBC mode: the previous block and xor calculation is encrypted afterwards.
+		- CFB mode: after the block is encrypted, it does xor calculation with the previous block.
+
 
 		\~chinese
 		- ECB，CBC，CFB模式
@@ -159,8 +159,8 @@ namespace Proud
 		enum { MAX_BLOCK_SIZE = 32, MAX_ROUNDS = 14, MAX_KC = 8, MAX_BC = 8 };
 
 	public:
-		 CCryptoAes();
-		 virtual ~CCryptoAes();
+		CCryptoAes();
+		virtual ~CCryptoAes();
 
 	public:
 		/**
@@ -176,16 +176,16 @@ namespace Proud
 		\param blockSize Aes 알고리즘 내의 블럭 사이즈 입니다. (16, 24 or 32 bytes).
 
 		\~english TODO:translate needed.
-		When the length of the key and the block is 128bit – 9 rounds 
+		When the length of the key and the block is 128bit – 9 rounds
 		- When the length of the key and the block is 192bit – 9 rounds
 		- When the length of the key and the block is 256bit – 9 rounds
-		- Block size: size that can be encrypted at once. 
+		- Block size: size that can be encrypted at once.
 
 
 		\param outKey Generated encryption key is saved
-		\param inputKey The 128/192/256-bit can be used and this is the random block data to make the initial Aes key. 
+		\param inputKey The 128/192/256-bit can be used and this is the random block data to make the initial Aes key.
 		\param keyLength It’s either 16, 24 or 32 bytes
-		\param This is the block size within the Aes algorithm (16, 24 or 32 bytes). 
+		\param This is the block size within the Aes algorithm (16, 24 or 32 bytes).
 
 		\~chinese
 		Key和block的长度是128bit的时候 – 9回合
@@ -210,7 +210,7 @@ namespace Proud
 		\param blockSize Aes アルゴリズム内のブロックサイズです。(16, 24 or 32 bytes).
 		\~
 		*/
-		 PROUD_API static bool ExpandFrom(CCryptoAesKey &outKey, const uint8_t* const inputKey, int keyLength = DEFAULT_BLOCK_SIZE, int blockSize = DEFAULT_BLOCK_SIZE);
+		PROUD_API static bool ExpandFrom(CCryptoAesKey &outKey, const uint8_t* const inputKey, int keyLength = DEFAULT_BLOCK_SIZE, int blockSize = DEFAULT_BLOCK_SIZE);
 
 		/**
 		\~korean
@@ -234,7 +234,7 @@ namespace Proud
 		\return 暗号化されたデータの長さ
 		\~
 		*/
-		 static int GetEncryptSize(const CCryptoAesKey &key, int inputLength);
+		static int GetEncryptSize(const CCryptoAesKey &key, int inputLength);
 
 		/**
 		\~korean
@@ -282,14 +282,14 @@ namespace Proud
 		\param encryptMode 暗号化モードです。ECB, CBC, CFBモードがあります。
 		\~
 		*/
-		 static bool Encrypt(
-			const CCryptoAesKey &key, 
-			const uint8_t* const input, 
-			int inputLength, 
-			uint8_t *output, 
-			int &outputLength, 
-			uint8_t * initializationVector = NULL, 
-			int initializationVectorLength = 0, 
+		static bool Encrypt(
+			const CCryptoAesKey &key,
+			const uint8_t* const input,
+			int inputLength,
+			uint8_t *output,
+			int &outputLength,
+			uint8_t * initializationVector = NULL,
+			int initializationVectorLength = 0,
 			EncryptMode encryptMode = ECB
 			);
 
@@ -339,13 +339,13 @@ namespace Proud
 		\param encryptMode 暗号化モードです。 ECB, CBC, CFB モードがあります。
 		\~
 		*/
-		 static bool Decrypt(
-			const CCryptoAesKey &key, 
-			const uint8_t* const input, 
-			int inputLength, 
-			uint8_t *output, 
-			int &outputLength, 
-			uint8_t * initializationVector = NULL, 
+		static bool Decrypt(
+			const CCryptoAesKey &key,
+			const uint8_t* const input,
+			int inputLength,
+			uint8_t *output,
+			int &outputLength,
+			uint8_t * initializationVector = NULL,
 			int initializationVectorLength = 0,
 			EncryptMode encryptMode = ECB
 			);
@@ -388,12 +388,12 @@ namespace Proud
 		\param encryptMode 暗号化モードです。ECB, CBC, CFB モードがあります。
 		\~
 		*/
-		 static bool EncryptByteArray(
-			const CCryptoAesKey &key, 
-			const ByteArray &input, 
-			ByteArray &output, 
-			uint8_t * initializationVector = NULL, 
-			int initializationVectorLength = 0, 
+		static bool EncryptByteArray(
+			const CCryptoAesKey &key,
+			const ByteArray &input,
+			ByteArray &output,
+			uint8_t * initializationVector = NULL,
+			int initializationVectorLength = 0,
 			EncryptMode encryptMode = ECB
 			);
 
@@ -435,11 +435,11 @@ namespace Proud
 		\param encryptMode 暗号化モードです。ECB, CBC, CFBモードがあります。
 		\~
 		*/
-		 PROUD_API static bool DecryptByteArray(
+		PROUD_API static bool DecryptByteArray(
 			const CCryptoAesKey &key,
-			const ByteArray &input, ByteArray &output, 
-			uint8_t * initializationVector = NULL, 
-			int initializationVectorLength = 0, 
+			const ByteArray &input, ByteArray &output,
+			uint8_t * initializationVector = NULL,
+			int initializationVectorLength = 0,
 			EncryptMode encryptMode = ECB
 			);
 
@@ -485,13 +485,13 @@ namespace Proud
 		\param encryptMode 暗号化モードです。ECB, CBC, CFBモードがあります。
 		\~
 		*/
-		 PROUD_API static bool EncryptMessage(
-			const CCryptoAesKey &key, 
-			const CMessage &input, 
-			CMessage &output, 
-			int offset, 
-			uint8_t * initializationVector = NULL, 
-			int initializationVectorLength = 0, 
+		PROUD_API static bool EncryptMessage(
+			const CCryptoAesKey &key,
+			const CMessage &input,
+			CMessage &output,
+			int offset,
+			uint8_t * initializationVector = NULL,
+			int initializationVectorLength = 0,
 			EncryptMode encryptMode = ECB
 			);
 
@@ -537,13 +537,13 @@ namespace Proud
 		\param encryptMode 暗号化モードです。ECB, CBC, CFBモードがあります。
 		\~
 		*/
-		 PROUD_API static bool DecryptMessage(
-			const CCryptoAesKey &key, 
-			const CMessage &input, 
-			CMessage &output, 
-			int offset, 
-			uint8_t * initializationVector = NULL, 
-			int initializationVectorLength = 0, 
+		PROUD_API static bool DecryptMessage(
+			const CCryptoAesKey &key,
+			const CMessage &input,
+			CMessage &output,
+			int offset,
+			uint8_t * initializationVector = NULL,
+			int initializationVectorLength = 0,
 			EncryptMode encryptMode = ECB
 			);
 
@@ -613,7 +613,7 @@ namespace Proud
 		\return aes キーの長さ
 		\~
 		*/
-		 int GetKeyLength() const;
+		int GetKeyLength() const;
 
 		/**
 		\~korean
@@ -634,7 +634,7 @@ namespace Proud
 
 		\~
 		*/
-		 int	GetBlockSize() const;
+		int	GetBlockSize() const;
 
 		/**
 		\~korean
@@ -655,7 +655,7 @@ namespace Proud
 
 		\~
 		*/
-		 int GetRounds() const;
+		int GetRounds() const;
 
 		/**
 		\~korean
@@ -671,9 +671,9 @@ namespace Proud
 		キーが既に生成されているかを確認します。
 		\~
 		*/
-		 PROUD_API bool KeyExists() const;
+		PROUD_API bool KeyExists() const;
 
-		 void Clear();
+		void Clear();
 
 	private:
 		// 암호화에 사용되는 round key

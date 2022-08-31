@@ -40,7 +40,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 #if ((defined(_MSC_VER) && _MSC_VER >= 1700) || (__cplusplus > 199711L))
 #include "ErrorType.h"
-#else 
+#else
 #include "ErrorTypeOldSpec.h"
 #endif
 
@@ -62,7 +62,7 @@ namespace Proud
 	메시지 송신 우선순위
 	- <a target="_blank" href="http://guide.nettention.com/cpp_ko#message_priority" >메시지 송신 우선순위 기능</a> 참고.
 
-	\~english 
+	\~english
 	Message transmission priority.
 	Refer to \ref message_priority.
 
@@ -72,7 +72,7 @@ namespace Proud
 
 	\~japanese
 	メッセージ送信プライオリティ
-	- \ref message_priority 参考 
+	- \ref message_priority 参考
 	\~
 	*/
 	enum MessagePriority
@@ -87,7 +87,7 @@ namespace Proud
 		\~korean
 		높은 우선순위
 
-		\~english 
+		\~english
 		High priority
 
 		\~chinese
@@ -103,7 +103,7 @@ namespace Proud
 		\~korean
 		보통 우선순위. 가장 많이 사용됨.
 
-		\~english 
+		\~english
 		Medium priority. Used most frequently
 
 		\~chinese
@@ -119,7 +119,7 @@ namespace Proud
 		\~korean
 		낮은 우선순위
 
-		\~english 
+		\~english
 		Low priority
 
 		\~chinese
@@ -154,8 +154,8 @@ namespace Proud
 	\~korean
 	ProudNet 호스트 식별자
 
-	\~english 
-	ProudNet host identifier 
+	\~english
+	ProudNet host identifier
 
 	\~chinese
 	ProudNet 主机识别者。
@@ -407,8 +407,8 @@ namespace Proud
 		ConnectionState_Disconnecting,
 	};
 
-	 PROUD_API const PNTCHAR* ToString(LogCategory logCategory);
-	 PROUD_API const PNTCHAR* ToString(ConnectionState val);
+	PROUD_API const PNTCHAR* ToString(LogCategory logCategory);
+	PROUD_API const PNTCHAR* ToString(ConnectionState val);
 
 	/**
 	\~korean
@@ -461,7 +461,7 @@ namespace Proud
 		서버와의 UDP 통신을 차단된 것으로 처리한다. 일시적 포트매핑 실패와 유사한 상황을 재현한다. 아울러 Peer들과의 UDP 통신도 차단된다. 중간 강도다.
 
 		\~english
-		 Regards that UDP with server is disconnected. Reproduce a circumstance similar to a temporary port mapping failure. On top of that, it also disconnects UDP with peers. Intermediate impact.
+		Regards that UDP with server is disconnected. Reproduce a circumstance similar to a temporary port mapping failure. On top of that, it also disconnects UDP with peers. Intermediate impact.
 
 
 		\~chinese
@@ -478,7 +478,7 @@ namespace Proud
 		- Proud.CNetServer.SetDefaultFallbackMethod 에서는 사용할 수 없다.
 
 		\~english
-		 All UDP sockets of client will be shut down. UDP restoration will never be possible. Strongest impact.
+		All UDP sockets of client will be shut down. UDP restoration will never be possible. Strongest impact.
 		- Unable to use in Proud.CNetServer.SetDefaultFallbackMethod
 
 		\~chinese
@@ -614,12 +614,12 @@ namespace Proud
 		\~korean
 		디버거 브레이크를 겁니다. 해당옵션은 디버그 모드에서만 사용하십시오.
 		\~english
-		Put on the debugger brake. Please use this option only in the debugging mode. 
+		Put on the debugger brake. Please use this option only in the debugging mode.
 
 		\~japanese
 		デバッガーブレーキをかけます。該当オプションはデバッグモードでのみ使ってください。
 		\~
-		 */
+		*/
 		ErrorReaction_DebugBreak
 	};
 

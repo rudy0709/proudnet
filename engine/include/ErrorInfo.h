@@ -207,7 +207,7 @@ namespace Proud
 		*/
 		ByteArray m_lastReceivedMessage;
 
-#if defined(_WIN32)    
+#if defined(_WIN32)
 
 		/**
 		\~korean
@@ -248,7 +248,7 @@ namespace Proud
 		// 이 클래스는 ProudNet DLL 경우를 위해 커스텀 할당자를 쓰되 fast heap을 쓰지 않는다.
 		DECLARE_NEW_AND_DELETE
 #pragma pop_macro("new")
-#endif 
+#endif
 
 
 		PROUD_API ErrorInfo();

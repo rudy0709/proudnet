@@ -48,18 +48,18 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
-	CFastMap 과 달리 key만을 가지는 클래스이다. 
-	- 나머지는 CFastMap 과 성향이 같다. CFastMap 을 참고할 것. 
+	CFastMap 과 달리 key만을 가지는 클래스이다.
+	- 나머지는 CFastMap 과 성향이 같다. CFastMap 을 참고할 것.
 
 	\param K 콜렉션의 값 타입
 	\param KTraits 콜렉션의 값 타입을 다루는 특성을 정의한 클래스
 	\param AllocT AllocType 값 중 하나
 
 	\~english
-	Not like CFastMap, this is a class that only possesses key. 
-	- Has same nature as CFastMap for the rest. Please refer CFastMap. 
+	Not like CFastMap, this is a class that only possesses key.
+	- Has same nature as CFastMap for the rest. Please refer CFastMap.
 
 	\param K value type of collection
 	\param KTraits class that defines the characteristics that handle value type of collection
@@ -74,8 +74,8 @@ namespace Proud
 	\param AllocT AllocType值中之一。
 
 	\~japanese
-	CfastMapとは違って、キーのみを持つクラスです。 
-	- 残りはCFastMapと性向が同じです。CFastMap をご参照ください。 
+	CfastMapとは違って、キーのみを持つクラスです。
+	- 残りはCFastMapと性向が同じです。CFastMap をご参照ください。
 
 	\param K コレクションの値タイプ
 	\param KTraits コレクションの値タイプを扱う特性を定義したクラス
@@ -90,8 +90,8 @@ namespace Proud
 	public:
 		class iterator;
 		friend class iterator;
-		
-		/** 
+
+		/**
 		\~korean
 		STL의 iterator와 같은 역할을 한다.
 
@@ -105,7 +105,7 @@ namespace Proud
 		STLのiteratorのような役割をします。
 		\~
 		*/
-		class iterator 
+		class iterator
 		{
 			friend class CFastSet;
 		public:
@@ -126,12 +126,12 @@ namespace Proud
 				return (_Tmp);
 			}
 
-			inline bool operator==(const iterator& a) const 
+			inline bool operator==(const iterator& a) const
 			{
 				return m_iterIntl == a.m_iterIntl;
 			}
 
-			inline bool operator!=(const iterator& a) const 
+			inline bool operator!=(const iterator& a) const
 			{
 				return !(m_iterIntl == a.m_iterIntl);
 			}
@@ -143,7 +143,7 @@ namespace Proud
 
 		};
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -165,7 +165,7 @@ namespace Proud
 			return ret;
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -187,7 +187,7 @@ namespace Proud
 			return ret;
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -206,7 +206,7 @@ namespace Proud
 			m_intl.Add(val,0);
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -225,7 +225,7 @@ namespace Proud
 			return m_intl.GetCount();
 		}
 
-#if defined(_MSC_VER)       
+#if defined(_MSC_VER)
 		__declspec(property(get=GetCount)) intptr_t Count;
 #endif
 
@@ -239,7 +239,7 @@ namespace Proud
 			return m_intl.IsEmpty();
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -257,7 +257,7 @@ namespace Proud
 		{
 			m_intl.Clear();
 		}
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -276,7 +276,7 @@ namespace Proud
 			m_intl.Clear();
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -297,7 +297,7 @@ namespace Proud
 			return ret;
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -316,7 +316,7 @@ namespace Proud
 			m_intl.Remove(key,rehashOnNeed);
 		}
 
-		/** 
+		/**
 		\~korean
 		항목 하나를 찾아서 제거한다.
 
@@ -330,12 +330,12 @@ namespace Proud
 		一項目を探して除去します。
 		\~
 		*/
-		inline bool Remove( const K& key,bool rehashOnNeed=false ) 
+		inline bool Remove( const K& key,bool rehashOnNeed=false )
 		{
 			return m_intl.Remove(key,rehashOnNeed);
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같음
 
@@ -354,7 +354,7 @@ namespace Proud
 			return m_intl.front().GetFirst();
 		}
 
-		/** 
+		/**
 		\~korean
 		key 가 이 컨테이너에 있으면 true를 리턴한다.
 
@@ -373,7 +373,7 @@ namespace Proud
 			return m_intl.ContainsKey(key);
 		}
 
-		/** 
+		/**
 		\~korean
 		새 항목을 추가한다.
 		\param key 추가할 항목의 key
@@ -406,7 +406,7 @@ namespace Proud
 
 		void UseFastHeap(CFastHeap* heap)
 		{
-			m_intl.UseFastHeap(heap);		
+			m_intl.UseFastHeap(heap);
 		}
 	};
 

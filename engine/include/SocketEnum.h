@@ -64,10 +64,10 @@ namespace Proud
 		/// rievedFlags
 		uint32_t m_retrievedFlags;
 
-		/** 
-		\~korean 
-		소켓 에러 발생시 들어온다. SocketErrorCode_Ok 이면 정상 
-		
+		/**
+		\~korean
+		소켓 에러 발생시 들어온다. SocketErrorCode_Ok 이면 정상
+
 		\~english TODO:translate needed.
 		It is received when a socket error occurs. Normal if it is SocketErrorCode_Ok
 
@@ -82,9 +82,9 @@ namespace Proud
 
 		/**
 		\~korean
-		
+
 		\~english
-		
+
 		\~chinese
 
 		\~japanese
@@ -92,9 +92,9 @@ namespace Proud
 		for recvfrom(UDP) only
 		*/
 		AddrPort m_receivedFrom;
-	
-		/** 
-		\~korean 
+
+		/**
+		\~korean
 		완료된 Data길이
 
 		\~english TODO:translate needed.

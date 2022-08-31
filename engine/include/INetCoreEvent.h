@@ -59,7 +59,7 @@ namespace Proud
 
 
 
-	/** 
+	/**
 	\~korean
 	ProudNet용 event sink
 	- 파생 클래스에서 사용됨.
@@ -82,16 +82,16 @@ namespace Proud
 	public:
 
 	public:
-		 PROUD_API virtual ~INetCoreEvent();
+		PROUD_API virtual ~INetCoreEvent();
 
-		/** 
+		/**
 		\~korean
 		내부 에러 발생시 호출됨
 		\param errorInfo 에러 정보. ErrorInfo::ToString() 을 통하여 필요한 정보를 쉽게 얻으실 수 있습니다. 자세한 것은 ErrorInfo 도움말에 있습니다.
 
 		\~english TODO:translate needed.
-		It is called when an internal error is called. 
-		\param errorInfo Error information. You can easily obtain the necessary information through ErrorInfo::ToString(). More details are in the ErrorInfo help. 
+		It is called when an internal error is called.
+		\param errorInfo Error information. You can easily obtain the necessary information through ErrorInfo::ToString(). More details are in the ErrorInfo help.
 
 		\~chinese
 		发生内部错误时被呼叫。
@@ -104,13 +104,13 @@ namespace Proud
 		*/
 		virtual void OnError(ErrorInfo *errorInfo) = 0;
 
-		/** 
+		/**
 		\~korean
 		내부 경고 발생시 호출됨. 에러보다는 낮은 수위의 문제를 보고함.
-		\param errorInfo 에러 정보. ErrorInfo::ToString() 을 통하여 필요한 정보를 쉽게 얻으실 수 있습니다. 자세한 것은 ErrorInfo 도움말에 있습니다. 
+		\param errorInfo 에러 정보. ErrorInfo::ToString() 을 통하여 필요한 정보를 쉽게 얻으실 수 있습니다. 자세한 것은 ErrorInfo 도움말에 있습니다.
 
 		\~english TODO:translate needed.
-		It is called when an internal warning is called. This reports a problem on a lower level than an error. 
+		It is called when an internal warning is called. This reports a problem on a lower level than an error.
 		\param errorInfo Error information. You can easily obtain the necessary information through ErrorInfo::ToString(). More details are in the ErrorInfo help.
 
 		\~chinese
@@ -124,13 +124,13 @@ namespace Proud
 		*/
 		virtual void OnWarning(ErrorInfo *errorInfo) = 0;
 
-		/** 
+		/**
 		\~korean
 		내부 알림 발생시 호출됨. 내부 상황 추적 등을 위한 것으로 문제 상황을 말하는 것은 아님.
 		\param errorInfo 에러 정보. ErrorInfo::ToString() 을 통하여 필요한 정보를 쉽게 얻으실 수 있습니다.
 
 		\~english TODO:translate needed.
-		It is called when an internal notification is called. This is for internal status tracing, etc. and does not mean a problem situation. 
+		It is called when an internal notification is called. This is for internal status tracing, etc. and does not mean a problem situation.
 		\param errorInfo Error information. You can easily obtain the necessary information through ErrorInfo::ToString(). More details are in the ErrorInfo help.
 
 		\~chinese
@@ -144,7 +144,7 @@ namespace Proud
 		*/
 		virtual void OnInformation(ErrorInfo *errorInfo) = 0;
 
-		/** 
+		/**
 		\~korean
 		Proud.Exception 으로 통합
 		- 일반적으로 유저 코드에서 나는 에러를 처리한다.
@@ -156,13 +156,13 @@ namespace Proud
 
 		\~english
 		Merge to Proud.Exception
-		- It handles error that occur from user code. 
-		- User realize things that user needed. 
-		- You can use Exceptiontype that obtain Exception object. 
-		- It process _com_error, void*, std::exception, etc. Also there is OnUnhandledException() that handle catch(...) 
-		- void* can obtain exceptional object type by casting. For example, it uses obtaining MFC CException. 
+		- It handles error that occur from user code.
+		- User realize things that user needed.
+		- You can use Exceptiontype that obtain Exception object.
+		- It process _com_error, void*, std::exception, etc. Also there is OnUnhandledException() that handle catch(...)
+		- void* can obtain exceptional object type by casting. For example, it uses obtaining MFC CException.
 
- 		\~chinese
+		\~chinese
 		合并为 Proud.Exception%。
 		- 一般处理在用户代码发生的错误。
 		- 用户体现所需要的即可。
@@ -183,7 +183,7 @@ namespace Proud
 		*/
 		virtual void OnException(const Exception &e) = 0;
 
-		/** 
+		/**
 		\~korean
 		RMI가 호출이 들어왔으나 Attach된 Stub 중에 대응하는 RMI가 전혀 없으면 이것이 콜백된다.
 
@@ -199,12 +199,12 @@ namespace Proud
 		*/
 		virtual void OnNoRmiProcessed(RmiID rmiID) = 0;
 
-		/** 
+		/**
 		\~korean
 		사용자가 정의한 메시지를 수신하면 이 함수가 콜백됩니다. 사용자는 이 함수를 오버라이드해서 원하는 처리를 할 수 있습니다.
 		자세한 것은 <a target="_blank" href="http://guide.nettention.com/cpp_ko#send_user_message" >RMI를 전혀 안쓰고 사용자 정의 메시지를 주고 받기</a> 를 참고하십시오.
-		- Visual Studio 2005 이상의 컴파일러에서는 override 키워드 사용을 권장합니다. 
-		
+		- Visual Studio 2005 이상의 컴파일러에서는 override 키워드 사용을 권장합니다.
+
 		\param sender 메시지를 송신한 호스트입니다.
 		\param rmiContext 수신 부가 정보입니다.
 		\param payload 수신된 메시지 본문입니다.
@@ -233,7 +233,7 @@ namespace Proud
 		\~japanese
 		ユーザーが定義したメッセージを受信すればこの関数がコールバックされます。ユーザーはこの関数をオーバーライドして願い処理をすることができます。
 		詳しくは、\ref send_user_messageをご参照ください。
-		- Visual Studio 2005 以上のコンパイラーではoverrideキーワードの使用をお勧めします。 
+		- Visual Studio 2005 以上のコンパイラーではoverrideキーワードの使用をお勧めします。
 
 		\param sender メッセージを送信したホストです。
 		\param rmiContext 受信付加情報です。
@@ -241,15 +241,15 @@ namespace Proud
 		\param payloadLength 受信されたメッセージ本文の長さ（バイト）です。
 		\~
 		*/
-		 PROUD_API virtual void OnReceiveUserMessage(HostID sender, const RmiContext &rmiContext, uint8_t* payload, int payloadLength);
+		PROUD_API virtual void OnReceiveUserMessage(HostID sender, const RmiContext &rmiContext, uint8_t* payload, int payloadLength);
 
-		/** 
+		/**
 		\~korean
-		일정 시간마다 user worker thread pool에서 콜백되는 함수입니다. <a target="_blank" href="http://guide.nettention.com/cpp_ko#server_timer_callback" >서버에서 타이머 루프 RMI 이벤트 처리하기</a> 기능입니다. 		
+		일정 시간마다 user worker thread pool에서 콜백되는 함수입니다. <a target="_blank" href="http://guide.nettention.com/cpp_ko#server_timer_callback" >서버에서 타이머 루프 RMI 이벤트 처리하기</a> 기능입니다.
 		\param context CStartServerParameter.m_timerCallbackContext 에서 입력된 값과 동일합니다.
 
 		\~english
-		Function called back at user worker thread pool periodically. This is a <a target="_blank" href="http://guide.nettention.com/cpp_en#server_timer_callback" >Managing Timer loop RMI Event from server</a> function.		
+		Function called back at user worker thread pool periodically. This is a <a target="_blank" href="http://guide.nettention.com/cpp_en#server_timer_callback" >Managing Timer loop RMI Event from server</a> function.
 		\param context same as the value entered at CStartLanServerParameter.m_timerCallbackContext
 
 		\~chinese
@@ -261,9 +261,9 @@ namespace Proud
 		\param context CStartServerParameter.m_timerCallbackContextで入力された値と同じです。
 		\~
 		*/
-		virtual void OnTick(void* /*context*/){}	
-		
-		/** 
+		virtual void OnTick(void* /*context*/){}
+
+		/**
 		\~korean
 		RMI 호출 또는 이벤트 발생으로 인해 user worker에서 callback이 호출되기 직전에 호출됩니다.
 		프로그램 실행 성능 측정을 위해 사용하셔도 됩니다.
@@ -282,7 +282,7 @@ namespace Proud
 		\~
 		*/
 		virtual void OnUserWorkerThreadCallbackBegin(CUserWorkerThreadCallbackContext* /*ctx*/){}
-		/** 
+		/**
 		\~korean
 		RMI 호출 또는 이벤트 발생으로 인해 user worker에서 callback이 리턴한 직후에 호출됩니다.
 		프로그램 실행 성능 측정을 위해 사용하셔도 됩니다.
@@ -308,8 +308,8 @@ namespace Proud
 
 
 
-	/** Add your event handler to these member objects. 
-	
+	/** Add your event handler to these member objects.
+
 	Example:
 	\code
 	CNetClient* c = CNetClient::Create();

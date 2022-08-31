@@ -56,7 +56,7 @@ namespace Proud
 	*/
 	class CLookasideAllocatorInternal;
 
-	/** 
+	/**
 	\~korean
 	매우 빠른 메모리 할당,해제를 하지만 몇 가지 제약이 있다.
 	- 항상 같은 크기의 메모리만 할당할 수 있다.
@@ -65,7 +65,7 @@ namespace Proud
 	특징
 	- 내부적으로 memory page 단위의 메모리 블럭을 미리 할당하고 사용한다. 따라서 너무 많은 갯수의 CLookasideAllocator 인스턴스를 만드는 것은 권장하지 않는다.
 	- memory page는 VirtualAlloc으로 할당된다. 따라서 internal fragmentation을 만들지 않으므로 win32 working set의 크기도 절감하는
-	효과를 준다. 
+	효과를 준다.
 
 	\~english
 	Performs very high speed memory allocation/disengagement but there are some restrictions.
@@ -73,7 +73,7 @@ namespace Proud
 	- The object allocated by this cannot be global variable. In other words, the destruction time of this allocator must come prior to the desruction time of allocated object.
 
 	Characteristics
-	- Allocate memory block of memory page unit in advance and then use it, so it is recommended not to make too many CLookasideAllocator instances. 
+	- Allocate memory block of memory page unit in advance and then use it, so it is recommended not to make too many CLookasideAllocator instances.
 	- Memory page is allocated to VirtualAlloc. Since it will not create internal fragmentation, it brings an effect of reducing the size of win32 working set.
 
 	\~chinese
@@ -92,7 +92,7 @@ namespace Proud
 
 	特徴
 	- 内部的にmemory page単位のメモリーブロックを前もって割り当てて使用します。よって、とても多い個数のCLookasideAllocatorインスタンスを作ることはお勧めしません。
-	- memory pageはVirtualAllocに割り当てます。よって、internal fragmentationを作らないので、win32 working setのサイズも節減する効果を与えます。 
+	- memory pageはVirtualAllocに割り当てます。よって、internal fragmentationを作らないので、win32 working setのサイズも節減する効果を与えます。
 	\~
 	*/
 	class CLookasideAllocator
@@ -102,9 +102,9 @@ namespace Proud
 	public:
 		virtual ~CLookasideAllocator();
 
-		/** 
+		/**
 		\~korean
-		메모리를 할당합니다. 
+		메모리를 할당합니다.
 
 		\~english
 		Allocate memory.
@@ -117,7 +117,7 @@ namespace Proud
 		\~
 		*/
 		virtual void* Alloc(size_t size) = 0;
-		/** 
+		/**
 		\~korean
 		할당했던 메모리를 해제합니다.
 
@@ -132,10 +132,10 @@ namespace Proud
 		\~
 		*/
 		virtual void Free(void* ptr) = 0;
-		/** 
+		/**
 		\~korean
 		기본적으로 thread safe입니다. 하지만 thread unsafe를 해서 실행 가속화를 하려면 thread unsafe하게 옵션을 바꿀 수 있습니다.
-		- 주의해서 사용하셔야 합니다. 
+		- 주의해서 사용하셔야 합니다.
 
 		\~english
 		This is thread safe by default. the option can change to thread unsafe in order to accelerate.
@@ -148,15 +148,15 @@ namespace Proud
 		\~japanese
 		基本的にthread safeです。しかし、thread unsafeによって実行加速化をするためには、thread unsafeにオプションを変えることができます。
 		- 注意して使ってください。
-		
+
 		\~
 		*/
 		virtual int DebugCheckConsistency() = 0;
 
-		/** 
+		/**
 		\~korean
 		새 Lookaside allocator를 생성합니다.
-		\param settings 초기 속성을 설정할 수 있습니다. 생략 가능한 파라메터입니다.  
+		\param settings 초기 속성을 설정할 수 있습니다. 생략 가능한 파라메터입니다.
 
 		\~english
 		Creates a new Lookaside allocator
@@ -168,10 +168,10 @@ namespace Proud
 
 		\~japanese
 		新しいLookaside allocatorを生成します。
-		\param settings 初期属性を設定することができます。省略可能なパラメーターです。  
+		\param settings 初期属性を設定することができます。省略可能なパラメーターです。
 		\~
 		*/
-		 static CLookasideAllocator* New(const CFastHeapSettings& settings = CFastHeapSettings());
+		static CLookasideAllocator* New(const CFastHeapSettings& settings = CFastHeapSettings());
 	};
 	typedef RefCount<CLookasideAllocator> CLookasideAllocatorPtr;
 

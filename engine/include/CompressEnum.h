@@ -48,47 +48,47 @@ namespace Proud
 
 	// 주의: 이것도 바꾸면 ProudClr namespace의 동명 심볼도 수정해야 한다.
 
-	/** 
+	/**
 	\~korean
 	압축 모드입니다.
-	
+
 	\~english
 	Compression mode
-	
+
 	\~chinese
 	压缩模式。
-	
+
 	\~japanese
 	圧縮モードです。
 	\~
 	*/
 	enum CompressMode
 	{
-		/** 
+		/**
 		\~korean
 		압축을 하지 않습니다.
-		
+
 		\~english
 		Do not compress
-		
+
 		\~chinese
 		不要压缩。
-		
+
 		\~japanese
 		圧縮をしません。
 		\~
-		 */
-		CM_None,		
+		*/
+		CM_None,
 		/**
-		\~korean 
+		\~korean
 		ZIP 알고리즘으로 압축을 합니다.
-		
+
 		\~english
-		Compress with ZIP algorism 
-		
+		Compress with ZIP algorism
+
 		\~chinese
 		用ZIP来压缩。
-		
+
 		\~japanese
 		ZIPアルゴリズムで圧縮します。
 		\~

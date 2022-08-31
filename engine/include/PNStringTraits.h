@@ -19,7 +19,7 @@ namespace Proud
 		PROUD_API static void CopyString(CharType* dest, int destNumOfElements, const CharType* src, int length);
 
 		PROUD_API static int StringCompare(const CharType* a, const CharType*b);
-        PROUD_API static int StringCompareNoCase(const CharType* a, const CharType*b);
+		PROUD_API static int StringCompareNoCase(const CharType* a, const CharType*b);
 		PROUD_API static int GetFormattedLength(const char* pszFormat, va_list args);
 		PROUD_API static int __cdecl Format(char* pszBuffer, size_t nlength, const char* pszFormat, va_list args) throw();
 
@@ -63,7 +63,7 @@ namespace Proud
 		PROUD_API static int __cdecl Format(wchar_t* pszBuffer, size_t nLength, const wchar_t* pszFormat, va_list args) throw();
 
 		// 해결 방법을 찾을때 까지 막아놓음.
-#if defined(_WIN32) 
+#if defined(_WIN32)
 		PROUD_API static wchar_t* StringUppercase(wchar_t* psz, size_t size) throw();
 		PROUD_API static wchar_t* StringLowercase(wchar_t* psz, size_t size) throw();
 #endif
@@ -86,5 +86,4 @@ namespace Proud
 		template<typename PNSTRING>
 		inline static void FromStdWString(const std::wstring& src, PNSTRING& dest);
 	};
-
 }

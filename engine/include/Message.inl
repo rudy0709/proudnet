@@ -42,9 +42,9 @@ namespace Proud
 	//////////////////////////////////////////////////////////////////////////
 	// 성능을 많이 먹는 것들을 일로 옮겼음.
 
-	const int StringSerializeMaxLength = 1024 * 1024;	
-	 PROUD_API extern const char* ReadOffsetAlignErrorText;
-	 PROUD_API extern const char* NullAccessErrorText;
+	const int StringSerializeMaxLength = 1024 * 1024;
+	PROUD_API extern const char* ReadOffsetAlignErrorText;
+	PROUD_API extern const char* NullAccessErrorText;
 
 
 	inline void AdjustReadOffsetByteAlign(CMessage& msg)
@@ -437,7 +437,7 @@ namespace Proud
 		if (msg.IsSimplePacketMode())
 		{
 			int64_t a0; // VLQ에 대해서는, 사용자가 어떤 타입을 넣을지 무시하고 쓰므로
-			bool ok = msg.Read(a0); 
+			bool ok = msg.Read(a0);
 			if (ok)
 			{
 				a = (Type)a0; // 크기가 작더라도 무시하자.
@@ -553,14 +553,9 @@ namespace Proud
 
 	inline void CMessage::UseExternalBuffer(uint8_t* buf, int capacity)
 	{
-		// 		if (capacity > CNetConfig::MessageMaxLength)
-		// 			throw Exception("UseExternalBuffer failed due to too large capacity");
+		//		if (capacity > CNetConfig::MessageMaxLength)
+		//			throw Exception("UseExternalBuffer failed due to too large capacity");
 
 		m_msgBuffer.UseExternalBuffer(buf, capacity);
 	}
-
-
-
-
-
 }

@@ -57,8 +57,8 @@ namespace Proud
 		ByteArray m_key;
 
 	public:
-		 PROUD_API CCryptoFastKey();
-		 PROUD_API ~CCryptoFastKey();
+		PROUD_API CCryptoFastKey();
+		PROUD_API ~CCryptoFastKey();
 
 		/**
 		\~korean
@@ -78,7 +78,7 @@ namespace Proud
 		\return Fast キーの長さ
 		\~
 		*/
-		 int GetKeyLength() const;
+		int GetKeyLength() const;
 
 
 		/**
@@ -95,9 +95,9 @@ namespace Proud
 		キーが既に生成されているかを確認します。
 		\~
 		*/
-		 PROUD_API bool KeyExists() const;
+		PROUD_API bool KeyExists() const;
 
-		 void Clear();
+		void Clear();
 	};
 
 	// 매우 단순한 수준의 암호화 알고리즘
@@ -122,7 +122,7 @@ namespace Proud
 		\param outKey
 		\param inputKey
 		\param keyLength 16 or 24 or 32 bytes。
-		
+
 
 		\~japanese
 		暗号化に使われるキーオブジェクトを生成する関数です。
@@ -131,7 +131,7 @@ namespace Proud
 		\param keyLength 16 or 24 or 32 bytes です。
 		\~
 		*/
-		 PROUD_API static bool ExpandFrom(CCryptoFastKey& outKey, const uint8_t* inputKey, int keyLength);
+		PROUD_API static bool ExpandFrom(CCryptoFastKey& outKey, const uint8_t* inputKey, int keyLength);
 
 		/**
 		\~korean
@@ -155,7 +155,7 @@ namespace Proud
 		\return 暗号化されたデータの長さ
 		\~
 		*/
-		 static int GetEncryptSize(int inputLength);
+		static int GetEncryptSize(int inputLength);
 
 		/**
 		\~korean
@@ -191,7 +191,7 @@ namespace Proud
 		\param outputLength 暗号化された結果のサイズです。
 		\~
 		*/
-		 static bool Encrypt(
+		static bool Encrypt(
 			const CCryptoFastKey& key,
 			const uint8_t* input,
 			int inputLength,
@@ -234,7 +234,7 @@ namespace Proud
 		\param outputLength 復号化された結果値のサイズです。
 		\~
 		*/
-		 static bool Decrypt(
+		static bool Decrypt(
 			const CCryptoFastKey& key,
 			const uint8_t* input,
 			int inputLength,
@@ -267,10 +267,10 @@ namespace Proud
 		\param key 対称キーです。
 		\param input 平文メッセージです。
 		\param output 暗号化された結果値です。
-		
+
 		\~
 		*/
-		 static bool EncryptByteArray(
+		static bool EncryptByteArray(
 			const CCryptoFastKey& key,
 			const ByteArray& input,
 			ByteArray& output,
@@ -303,9 +303,9 @@ namespace Proud
 		\param output 復号化された結果値です。
 		\~
 		*/
-		 static bool DecryptByteArray(
+		static bool DecryptByteArray(
 			const CCryptoFastKey& key,
-			const ByteArray& input, 
+			const ByteArray& input,
 			ByteArray& output,
 			ErrorInfoPtr& errorInfo
 			);
@@ -340,7 +340,7 @@ namespace Proud
 		\param offset 平文メッセージで暗号化を開始する位置
 		\~
 		*/
-		 PROUD_API static bool EncryptMessage(
+		PROUD_API static bool EncryptMessage(
 			const CCryptoFastKey& key,
 			const CMessage& input,
 			CMessage& output,
@@ -378,7 +378,7 @@ namespace Proud
 		\param offset 暗号化されたメッセージで復号化を開始する位置
 		\~
 		*/
-		 PROUD_API static bool DecryptMessage(
+		PROUD_API static bool DecryptMessage(
 			const CCryptoFastKey& key,
 			const CMessage& input,
 			CMessage& output,

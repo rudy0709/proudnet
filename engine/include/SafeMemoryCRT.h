@@ -212,6 +212,4 @@ namespace Proud
 
 		return ret;
 	}
-
-	
 }

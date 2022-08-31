@@ -33,7 +33,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 ** 注意：著作物に関する上記の明示を除去しないでください。
 
 */
-#pragma once 
+#pragma once
 
 #include "BasicTypes.h"
 
@@ -78,11 +78,11 @@ namespace Proud
 	class CFirstHeap
 	{
 	public:
-		 PROUD_API static void* Alloc(size_t size);
-		 PROUD_API static void* Realloc(void* ptr, size_t size);
-		 PROUD_API static void Free(void* ptr);
+		PROUD_API static void* Alloc(size_t size);
+		PROUD_API static void* Realloc(void* ptr, size_t size);
+		PROUD_API static void Free(void* ptr);
 
-		 static CMemoryHeap* GetHeap();
+		static CMemoryHeap* GetHeap();
 	};
 
 	/**
@@ -115,11 +115,11 @@ namespace Proud
 	{
 	public:
 #if !defined(_WIN32)
-		 static CMemoryHeap* NewFromHeapHandle();
-		 static CMemoryHeap* NewHeap();
+		static CMemoryHeap* NewFromHeapHandle();
+		static CMemoryHeap* NewHeap();
 #else
-		 static CMemoryHeap* NewFromHeapHandle(HANDLE hHeap, bool autoDestroy);
-		 static CMemoryHeap* NewHeap(bool autoDestroy);
+		static CMemoryHeap* NewFromHeapHandle(HANDLE hHeap, bool autoDestroy);
+		static CMemoryHeap* NewHeap(bool autoDestroy);
 #endif
 
 		virtual void* Alloc(size_t size) = 0;
@@ -136,36 +136,36 @@ namespace Proud
 
 #define DECLARE_NEW_AND_DELETE // 사실상 CProcHeap::Alloc() = malloc()이기 때문에, 그냥 막아버렸다.
 // #define DECLARE_NEW_AND_DELETE					\
-// 	void* operator new(size_t size)					\
-// 		{															\
-// 		void *ret = CProcHeap::Alloc(size);						\
-// 		if (ret == NULL)										\
-// 			ThrowBadAllocException();							\
-// 		return ret;												\
-// 		}															\
-// 	void operator delete(void* ptr, size_t)			\
-// 		{															\
-// 		return CProcHeap::Free(ptr);							\
-// 		}
-// 
+//	void* operator new(size_t size)					\
+//		{															\
+//		void *ret = CProcHeap::Alloc(size);						\
+//		if (ret == NULL)										\
+//			ThrowBadAllocException();							\
+//		return ret;												\
+//		}															\
+//	void operator delete(void* ptr, size_t)			\
+//		{															\
+//		return CProcHeap::Free(ptr);							\
+//		}
+//
 
 /* UE4 등은 operator new, delete를 override하는데, 이미 자체적으로 obj-pool 등을 쓰는 경우 꼬일 수 있다.
 이 때문에 obj-pool로 다뤄지는 것들은 아래 매크로를 안에서 쓰도록 하자.
 UE4는 throw keyword를 못 쓰므로 ThrowBadAllocException를 쓴다.
 */
 #define DECLARE_NEW_AND_DELETE_THROWABLE \
- 	void* operator new(size_t size)					\
- 		{															\
- 		void *ret = CProcHeap::Alloc(size);						\
- 		if (ret == NULL)										\
- 			ThrowBadAllocException();							\
- 		return ret;												\
- 		}															\
- 	void operator delete(void* ptr, size_t)			\
- 		{															\
- 		return CProcHeap::Free(ptr);							\
- 		}
- 
+	void* operator new(size_t size)					\
+		{															\
+		void *ret = CProcHeap::Alloc(size);						\
+		if (ret == NULL)										\
+			ThrowBadAllocException();							\
+		return ret;												\
+		}															\
+	void operator delete(void* ptr, size_t)			\
+		{															\
+		return CProcHeap::Free(ptr);							\
+		}
+
 #ifdef _MSC_VER
 #pragma pack(pop)
 #endif

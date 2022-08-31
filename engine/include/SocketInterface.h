@@ -50,12 +50,12 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	SocketSelectContext class
 	- 사용법 예제는 Sample중 SimpleHttpConnect를 참고하시면 됩니다.
 	- socket의 select() non-block model 을 위한 용도
-	- 주의: Wait 호출 후에는 FD_SET의 내용이 바뀐다. 따라서 이 객체는 1회성으로 쓰여야 한다. 
+	- 주의: Wait 호출 후에는 FD_SET의 내용이 바뀐다. 따라서 이 객체는 1회성으로 쓰여야 한다.
 	- Win32에서만 지원하는 기능입니다. iOS, linux에서는 이것 대신 ::poll()을 사용하십시오.
 
 	\~english TODO:translate needed.
@@ -90,7 +90,7 @@ namespace Proud
 		virtual void Wait(uint32_t miliSec) = 0;
 		virtual bool GetConnectResult(CSocket& socket, SocketErrorCode& outCode) = 0;
 
-		 static SocketSelectContext *New();
+		static SocketSelectContext *New();
 	};
 #endif // _WIN32
 
@@ -205,7 +205,7 @@ namespace Proud
 		\~
 		*/
 		virtual SocketErrorCode IssueRecvFrom(int length) = 0;
-		
+
 		/**
 		\~korean
 		UDP socket
@@ -237,7 +237,7 @@ namespace Proud
 		\~
 		*/
 		virtual SocketErrorCode IssueSendTo( uint8_t* data, int count, AddrPort sendTo ) = 0;
-		
+
 		/**
 		\~korean
 		TCP socket
@@ -336,7 +336,7 @@ namespace Proud
 		\~
 		*/
 		virtual bool GetRecvOverlappedResult(bool waitUntilComplete, OverlappedResult &ret) = 0;
-		
+
 		/**
 		\~korean
 		async issue의 결과를 기다린다.
@@ -374,7 +374,7 @@ namespace Proud
 		*/
 		virtual bool GetSendOverlappedResult(bool waitUntilComplete, OverlappedResult &ret) = 0;
 #endif
-        
+
 		/**
 		\~korean
 		소켓의 주소를 가져온다.
@@ -462,7 +462,7 @@ namespace Proud
 		\param dg ソケットのイベントを受けるオブジェクト。\ref ISocketDelegate をご参照ください。
 		\~
 		*/
-		 static CSocket *New(SocketType type, ISocketDelegate *dg);
+		static CSocket *New(SocketType type, ISocketDelegate *dg);
 	};
 	/**  @} */
 }

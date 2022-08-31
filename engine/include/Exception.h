@@ -97,7 +97,7 @@ namespace Proud
 
 		/**
 		\~korean
-		 Exception(LPCWSTR pFormat, ...); 으로 생성된 Exception
+		Exception(LPCWSTR pFormat, ...); 으로 생성된 Exception
 
 		\~english
 		Exception that created by Exception(LPCWSTR pFormat, ...);
@@ -169,7 +169,7 @@ namespace Proud
 		\~chinese
 		生成为Exception(ErrorInfo* src);的Exception。
 
-		\~japanese 
+		\~japanese
 		Exception(ErrorInfo* src); から生成された Exception
 		\~
 		*/
@@ -196,7 +196,7 @@ namespace Proud
 		CLR을 사용하는 경우 Managed code에서 발생한 Exception
 
 		\~english
-		Exception occurred in the managed code in case of using a CLR. 
+		Exception occurred in the managed code in case of using a CLR.
 
 		\~chinese
 		使用CLR时在Managed code中发生的Exception
@@ -307,13 +307,13 @@ namespace Proud
 		\~korean
 		ErrorInfo 객체의 복제본을 저장한다.
 
-		\~english 
-		Save the copy of ErrorInfo object. 
+		\~english
+		Save the copy of ErrorInfo object.
 
-		\~chinese 
+		\~chinese
 		保存ErrorInfo对象的副本。
 
-		\~japanese 
+		\~japanese
 		ErrorInfo オブジェクトのコピーを保存します。
 		\~
 		*/
@@ -368,21 +368,21 @@ namespace Proud
 		StringA chMsg;// public because of Exception_UpdateFromComError
 
 	public:
-		 PROUD_API Exception(void);
-		 PROUD_API Exception(const char* text);
-		 PROUD_API Exception(const wchar_t* text);
-		 PROUD_API Exception(std::exception& src);
-		 PROUD_API Exception(ErrorInfo* src);
-		 PROUD_API Exception(const Exception& src);
+		PROUD_API Exception(void);
+		PROUD_API Exception(const char* text);
+		PROUD_API Exception(const wchar_t* text);
+		PROUD_API Exception(std::exception& src);
+		PROUD_API Exception(ErrorInfo* src);
+		PROUD_API Exception(const Exception& src);
 
-		 PROUD_API ~Exception(void) throw();
+		PROUD_API ~Exception(void) throw();
 
 		/**
 		\~korean
 		Exception 에 대한 문자열 포인터를 리턴합니다.
 
-		\~english 
-		Return the string pointer to the exception. 
+		\~english
+		Return the string pointer to the exception.
 
 		\~chinese
 		返回对Exception的字符串指针。
@@ -391,11 +391,11 @@ namespace Proud
 		Exception に対する文字列ポインターをリターンします。
 		\~
 		*/
-		 PROUD_API const char *what( ) const throw();
+		PROUD_API const char *what( ) const throw();
 
 	};
 
-	 void XXXHeapChkImpl(int index = 1); // PN DLL이면 이거 세다!
+	void XXXHeapChkImpl(int index = 1); // PN DLL이면 이거 세다!
 
 #if defined(CHECK_HEAP_CORRUPTION) && defined(_WIN32)
 	#define XXXHeapChk XXXHeapChkImpl

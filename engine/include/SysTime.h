@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "BasicTypes.h"
 #include "pnstdint.h"
@@ -43,9 +43,9 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #pragma pack(push,8)
 #endif
 
-namespace Proud 
+namespace Proud
 {
-	 PROUD_API void Sleep(int sleepTimeMs);
+	PROUD_API void Sleep(int sleepTimeMs);
 }
 
 

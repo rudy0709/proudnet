@@ -55,7 +55,7 @@ namespace Proud
 #endif
 
 
-	struct TimerEventHandle { intptr_t m_internal; }; 
+	struct TimerEventHandle { intptr_t m_internal; };
 
 
 	/**  @} */

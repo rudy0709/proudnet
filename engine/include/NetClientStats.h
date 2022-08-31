@@ -12,15 +12,15 @@ namespace Proud
 	\~korean
 	클라이언트의 상황 통계 정보입니다.
 	성능 측정 등에서 사용됩니다.
-	
+
 	\~english
 	Client status information.
 	Used for performance check.
-	
+
 	\~chinese
 	客户端状态统计信息。
 	用于性能检测。
-	
+
 	\~japanese
 	クライアントの状況の統計情報です。
 	パフォーマンスの測定等で使われています。
@@ -102,9 +102,9 @@ namespace Proud
 		uint32_t m_sendQueueUdpTotalBytes;
 
 
-		 PROUD_API CNetClientStats();
+		PROUD_API CNetClientStats();
 
-		 PROUD_API virtual String ToString() const;
+		PROUD_API virtual String ToString() const;
 	};
 }
 #ifdef _MSC_VER

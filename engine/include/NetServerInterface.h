@@ -417,7 +417,7 @@ namespace Proud
 		*/
 		int64_t m_excludeNewJoineeDurationTimeMs;
 
-		PROUDSRV_API 		 CSuperPeerSelectionPolicy();
+		PROUDSRV_API CSuperPeerSelectionPolicy();
 
 		inline bool operator==(const CSuperPeerSelectionPolicy& rhs) const
 		{
@@ -459,7 +459,7 @@ namespace Proud
 		使わないこと。
 		\~
 		*/
-		PROUDSRV_API 		static CSuperPeerSelectionPolicy GetNull();
+		PROUDSRV_API static CSuperPeerSelectionPolicy GetNull();
 	};
 
 	/**
@@ -920,37 +920,37 @@ namespace Proud
 
 		/**
 		\~korean
-		<a target="_blank" href="http://guide.nettention.com/cpp_ko#p2p_group" >P2P 그룹</a> 을 생성합니다. 
+		<a target="_blank" href="http://guide.nettention.com/cpp_ko#p2p_group" >P2P 그룹</a> 을 생성합니다.
 		- 이렇게 생성한 그룹 내의 피어들끼리는 즉시 서로간 메시징을 해도 됩니다.  (참고: <a target="_blank" href="http://guide.nettention.com/cpp_ko#robust_p2p" >ProudNet의 P2P 통신 성능</a>)
-		- 클라이언트 목록(clientHostIDs,clientHostIDNum)을 받을 경우 이미 멤버가 채워져 있는 P2P group을 생성한다. 
-		텅 빈 배열을 넣을 경우 멤버 0개짜리 P2P 그룹을 생성할 수 있다. (단, AllowEmptyP2PGroup 에 따라 다르다.) 
-		- 이 메서드 호출 후, CNetClient 에서는 P2P 그룹의 각 멤버에 대해(자기 자신 포함) 
+		- 클라이언트 목록(clientHostIDs,clientHostIDNum)을 받을 경우 이미 멤버가 채워져 있는 P2P group을 생성한다.
+		텅 빈 배열을 넣을 경우 멤버 0개짜리 P2P 그룹을 생성할 수 있다. (단, AllowEmptyP2PGroup 에 따라 다르다.)
+		- 이 메서드 호출 후, CNetClient 에서는 P2P 그룹의 각 멤버에 대해(자기 자신 포함)
 		INetClientEvent.OnP2PMemberJoin 이 연이어서 호출된다.
-		- HostID_Server 가 들어가도 되는지 여부는 <a target="_blank" href="http://guide.nettention.com/cpp_ko#server_as_p2pgroup_member" >P2P 그룹 멤버로서 서버를 포함시키기</a> 를 참고하십시오. 
+		- HostID_Server 가 들어가도 되는지 여부는 <a target="_blank" href="http://guide.nettention.com/cpp_ko#server_as_p2pgroup_member" >P2P 그룹 멤버로서 서버를 포함시키기</a> 를 참고하십시오.
 
-		\param clientHostIDs 만들 P2P 그룹의 멤버 리스트. HostID_Server 는 멤버로 불가능하다. count=0일때 이 값은 무시된다. 
-		\param count clientHostIDs의 배열 요소 갯수. 0을 넣을 경우 멤버가 없는 P2P group 을 생성함을 의미한다. 
-		\param message P2P 그룹을 추가하면서 서버에서 관련 클라이언트들에게 보내는 메시지. 생략하셔도 됩니다. 
-		- INetClientEvent.OnP2PMemberJoin 에서 그대로 받아집니다. 
-		\param option P2P 그룹 생성 과정에서 사용자가 지정하고 싶은 추가 옵션입니다. 생략하셔도 됩니다. 
+		\param clientHostIDs 만들 P2P 그룹의 멤버 리스트. HostID_Server 는 멤버로 불가능하다. count=0일때 이 값은 무시된다.
+		\param count clientHostIDs의 배열 요소 갯수. 0을 넣을 경우 멤버가 없는 P2P group 을 생성함을 의미한다.
+		\param message P2P 그룹을 추가하면서 서버에서 관련 클라이언트들에게 보내는 메시지. 생략하셔도 됩니다.
+		- INetClientEvent.OnP2PMemberJoin 에서 그대로 받아집니다.
+		\param option P2P 그룹 생성 과정에서 사용자가 지정하고 싶은 추가 옵션입니다. 생략하셔도 됩니다.
 		\param assignedHostID 사용자가 원하는 HostID 를 가진 P2P 그룹을 생성할 수 있습니다. 기본값은 None입니다. None을 지정하면 자동 할당됩니다. 만약 이미 사용중인 HostID 를 입력할 경우 P2P group 생성은 실패하고 None을 리턴할 수 있습니다.
 		\return 만들어진 P2P 그룹의 Host ID 입니다. 타입은 HostID 입니다.
 
-		\~english 
-		Generate a <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a>. 
+		\~english
+		Generate a <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a>.
 		- The peers in the group generated in this way can do messaging with one another immediately (<a target="_blank" href="http://guide.nettention.com/cpp_en#robust_p2p" >P2P performance of ProudNet</a>)
 		- After calling this method, for each member of P2P group(including itself), INetClientEvent.OnP2PMemberJoin will be called one after another to CNetClient.
 		When you insert an empty array, you can generate a P2P group with 0 members (however, it depends on AllowEmptyP2PGroup).
 		- After calling this method, in CNetClient, INetClientEvent.OnP2PMemberJoin is called continuously to each member of the P2P group (including itself).
 		- To find out whether HostID_Server can enter or not, please refer to <a target="_blank" href="http://guide.nettention.com/cpp_en#server_as_p2pgroup_member" >How to include a server as a peer - to - peer group member</a> .
 
-		\param clientHostIDs The member list of the P2P group to make clientHostIDs. HostID_Server is not possible as a member. When count=0, this value is ignored. 
-		\param count The number of array elements of clientHostIDs. If you input 0, it means it will generate a P2P group without a member. 
-		\param The message to be sent to the related clients from the server when a P2P group is added. You can skip it. 
-		- It is received in INetClientEvent.OnP2PMemberJoin as it is. 
-		\param This is an additional option that users want to designate during creation of a P2P group. You can skip it. 
-		\param You can create a P2P group with the HostID users want. The default value is None. If you select None, it is automatically allocated. If you enter a HostID already being used, P2P group creation will fail and None can be returned. 
-		\return HostID of the created P2P group. The type is HostID.  
+		\param clientHostIDs The member list of the P2P group to make clientHostIDs. HostID_Server is not possible as a member. When count=0, this value is ignored.
+		\param count The number of array elements of clientHostIDs. If you input 0, it means it will generate a P2P group without a member.
+		\param The message to be sent to the related clients from the server when a P2P group is added. You can skip it.
+		- It is received in INetClientEvent.OnP2PMemberJoin as it is.
+		\param This is an additional option that users want to designate during creation of a P2P group. You can skip it.
+		\param You can create a P2P group with the HostID users want. The default value is None. If you select None, it is automatically allocated. If you enter a HostID already being used, P2P group creation will fail and None can be returned.
+		\return HostID of the created P2P group. The type is HostID.
 
 		\~chinese
 		生成<a target="_blank" href="http://guide.nettention.com/cpp_zh#p2p_group" >P2P 组</a>%。
@@ -997,10 +997,10 @@ namespace Proud
 		\param assignedHostID 사용자가 원하는 HostID 를 가진 P2P 그룹을 생성할 수 있습니다. 기본값은 None입니다. None을 지정하면 자동 할당됩니다. 만약 이미 사용중인 HostID 를 입력할 경우 P2P group 생성은 실패하고 None을 리턴할 수 있습니다.
 		\return 만들어진 P2P 그룹의 Host ID 입니다. 타입은 HostID 입니다.
 
-		\~english 
-		Create a P2P group without a member. 
-		- Group creation may fail depending on the AllowEmptyP2PGroup configuration. 
-		\param message This is the message sent to related clients from the server when adding a P2P group. You can skip it. 
+		\~english
+		Create a P2P group without a member.
+		- Group creation may fail depending on the AllowEmptyP2PGroup configuration.
+		\param message This is the message sent to related clients from the server when adding a P2P group. You can skip it.
 		\param You can create a P2P group with the HostID users want. The default value is None. If you select None, it is automatically allocated. If you enter a HostID already being used, P2P group creation will fail and None can be returned.
 		\return HostID of the created P2P group. The type is HostID.
 
@@ -1027,18 +1027,18 @@ namespace Proud
 		/**
 		\~korean
 		1개 멤버로 구성된 P2P 그룹을 만듭니다.
-		- 이렇게 생성한 그룹 내의 피어들끼리는 즉시 서로간 메시징을 해도 됩니다. (참고: \ref robust_p2p) 
+		- 이렇게 생성한 그룹 내의 피어들끼리는 즉시 서로간 메시징을 해도 됩니다. (참고: \ref robust_p2p)
 
 		\param memberID 그룹에 처음 들어가 있을 멤버의 HostID 입니다.
 		\param message P2P 그룹을 추가하면서 서버에서 관련 클라이언트들에게 보내는 메시지입니다. 생략하셔도 됩니다.
 		\param assignedHostID 사용자가 원하는 HostID 를 가진 P2P 그룹을 생성할 수 있습니다. 기본값은 None입니다. None을 지정하면 자동 할당됩니다. 만약 이미 사용중인 HostID 를 입력할 경우 P2P group 생성은 실패하고 None을 리턴할 수 있습니다.
 		\return 만들어진 P2P 그룹의 Host ID 입니다. 타입은 HostID 입니다.
 
-		\~english 
+		\~english
 		You can create a P2P group consisted of one member
 		- The peers in the group generated in this way can do messaging with one another immediately (refer to: \ref robust_p2p)
 
-		\param memberID The HostID of the member when joining the group for the first time. 
+		\param memberID The HostID of the member when joining the group for the first time.
 		\param message This is the message sent to related clients from the server when adding a P2P group. You can skip it.
 		\param You can create a P2P group with the HostID users want. The default value is None. If you select None, it is automatically allocated. If you enter a HostID already being used, P2P group creation will fail and None can be returned.
 		\return HostID of the created P2P group. The type is HostID.
@@ -1228,7 +1228,7 @@ namespace Proud
 
 		\~english
 		(We recommend you to use StartRoundTripLatencyTest and GetRoundTripLatency rather than this function.)
-		Gets the last latency of client.		
+		Gets the last latency of client.
 		\param clientID HostID of client to find
 		\return returns ping time in millisecond. Returns -1 when there is none.
 
@@ -1766,26 +1766,26 @@ namespace Proud
 		*/
 		virtual void AllowEmptyP2PGroup(bool enable) = 0;
 
-        /**
-        \~korean
-        멤버가 전혀 없는 <a target="_blank" href="http://guide.nettention.com/cpp_ko#p2p_group" >P2P 그룹</a> 이 유지될 수 있도록 설정하는 옵션값을 얻습니다.
-        \return 멤버가 전혀 없는 <a target="_blank" href="http://guide.nettention.com/cpp_ko#p2p_group" >P2P 그룹</a> 이 유지될 수 있도록 설정하는 옵션값입니다.
+		/**
+		\~korean
+		멤버가 전혀 없는 <a target="_blank" href="http://guide.nettention.com/cpp_ko#p2p_group" >P2P 그룹</a> 이 유지될 수 있도록 설정하는 옵션값을 얻습니다.
+		\return 멤버가 전혀 없는 <a target="_blank" href="http://guide.nettention.com/cpp_ko#p2p_group" >P2P 그룹</a> 이 유지될 수 있도록 설정하는 옵션값입니다.
 
-        \~english
-        Gets option value to set <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a> without member can be sustained.
-        \return Option value to set <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a> without member can be sustained.
+		\~english
+		Gets option value to set <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a> without member can be sustained.
+		\return Option value to set <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a> without member can be sustained.
 
-        \~chinese
-        Gets option value to set <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a> without member can be sustained.
-        \return Option value to set <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a> without member can be sustained.
+		\~chinese
+		Gets option value to set <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a> without member can be sustained.
+		\return Option value to set <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a> without member can be sustained.
 
-        \~japanese
-        Gets option value to set <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a> without member can be sustained.
-        \return Option value to set <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a> without member can be sustained.
+		\~japanese
+		Gets option value to set <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a> without member can be sustained.
+		\return Option value to set <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_group" >P2P Group</a> without member can be sustained.
 
-        \~
-        */
-        virtual bool IsEmptyP2PGroupAllowed() const = 0;
+		\~
+		*/
+		virtual bool IsEmptyP2PGroupAllowed() const = 0;
 
 		/**
 		\~korean
@@ -2164,7 +2164,7 @@ namespace Proud
 		初期値は64kbです。
 		\param value_s serverMessageMaxLength
 		\param value_c clientMessageMaxLength
-		
+
 
 		\~
 		*/
@@ -2182,7 +2182,7 @@ namespace Proud
 
 		\~japanese
 		\ref delayed_send  状態を得ます。
-		
+
 		\~
 		*/
 		virtual bool IsNagleAlgorithmEnabled() = 0;
@@ -2609,7 +2609,7 @@ namespace Proud
 		\param remoteHostID 어느 remote 와의 통신에 대한 로스율을 얻을 걷인지. 자기 자신 peer, server 뭐든지 입력 가능합니다. 자기 자신이면 0% 입니다
 		\param outputPercent 패킷 로스율을 %단위로 채워짐(즉 0~100)
 
-		\~english 
+		\~english
 		As unreliable messaging takes most of the entire traffic in common on-line games, we add the feature to get the traffic loss rate in the existing unreliable messaging feature.
 		Packet loss rate measuring device
 
@@ -2635,7 +2635,7 @@ namespace Proud
 		//		virtual void SetTimerCallbackIntervalMs(int newVal) = 0;
 	};
 
-	 PROUD_API const PNTCHAR* ToString(ConnectionState cs);
+	PROUD_API const PNTCHAR* ToString(ConnectionState cs);
 
 #if (defined(_MSC_VER) && _MSC_VER>=1400)
 //#pragma managed(pop)

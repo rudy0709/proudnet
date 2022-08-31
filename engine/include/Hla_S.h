@@ -34,10 +34,9 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "HlaDef.h"
 #include "HlaField.h"
 #include "HlaEntity_S.h"
 #include "HlaSpace_S.h"
-

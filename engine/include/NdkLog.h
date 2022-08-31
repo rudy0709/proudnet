@@ -2,7 +2,7 @@
  * log.h
  *
  *  Created on: 2012. 10. 26.
- *      Author: kjsa
+ *  Author: kjsa
  */
 
 #ifdef _NDK_LOG_ENABLE_

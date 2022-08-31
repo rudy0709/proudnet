@@ -38,10 +38,10 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 #include "BasicTypes.h"
 #include "quicksort.h"
-#include "pnstdint.h" 
+#include "pnstdint.h"
 
 #if defined(_WIN32)
-    #include <algorithm>
+	#include <algorithm>
 #endif
 
 #ifdef _MSC_VER
@@ -54,10 +54,10 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	두 값 v1,v2의 v1->v2로의 내분값 ratio을 구한다.
-	ratio가 0에 가까울수록 v1에 가깝다. 
+	ratio가 0에 가까울수록 v1에 가깝다.
 
 	\~english
 	Obtains a interior division ratio of two values of v1,v2, v1->v2.
@@ -81,10 +81,10 @@ namespace Proud
 
 	/**
 	\~korean
- 	Lerp의 정수형 버전. ratio의 분자는 ratio1,분모는 ratio2
+	Lerp의 정수형 버전. ratio의 분자는 ratio1,분모는 ratio2
 
 	\~english TODO:translate needed.
-	Integer version of Lerp. Numerator of the ratio is ratio 1. Denominator is ratio 2. 
+	Integer version of Lerp. Numerator of the ratio is ratio 1. Denominator is ratio 2.
 
 	\~chinese
 	Lerp 的整数型版本。Ratio 的分子是ratio1，分母是ratio2.
@@ -99,12 +99,12 @@ namespace Proud
 		return (v1 + ((v2 - v1) * ratio1) / ratio2);
 	}
 
-	/** 
+	/**
 	\~korean
 	Round robin 슬롯 숫자 생성자.
 
 	\~english
-	Round robin slot number generator 
+	Round robin slot number generator
 
 	\~chinese
 	Round robin 插槽（slot）数字生成者。
@@ -117,21 +117,21 @@ namespace Proud
 	{
 		int m_number;
 	public:
-		 PROUD_API CRoundRobinNumberGenerator();
+		PROUD_API CRoundRobinNumberGenerator();
 
-		 PROUD_API int Next(int maxNumber);
+		PROUD_API int Next(int maxNumber);
 	};
 	/**  @} */
 
 	// 출처: http://www.java2s.com/Tutorial/Cpp/0260__template/Genericquicksort.htm
 
-// 	template<typename T>
-// 	inline void swap(T& v1,T& v2)
-// 	{
-// 		T temp=v2;
-// 		v2=v1;
-// 		v1=temp;
-// 	}
+//	template<typename T>
+//	inline void swap(T& v1,T& v2)
+//	{
+//		T temp=v2;
+//		v2=v1;
+//		v1=temp;
+//	}
 }
 
 #ifdef _MSC_VER

@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include <string>
 
@@ -47,21 +47,21 @@ public:
 	typedef const T& INARGTYPE;
 	typedef T& OUTARGTYPE;
 
-	// 	static void CopyElements( T* pDest, const T* pSrc, size_t nElements )
-	// 	{
-	// 		for( size_t iElement = 0; iElement < nElements; iElement++ )
-	// 		{
-	// 			pDest[iElement] = pSrc[iElement];
-	// 		}
-	// 	}
+	//	static void CopyElements( T* pDest, const T* pSrc, size_t nElements )
+	//	{
+	//		for( size_t iElement = 0; iElement < nElements; iElement++ )
+	//		{
+	//			pDest[iElement] = pSrc[iElement];
+	//		}
+	//	}
 	//
-	// 	static void RelocateElements( T* pDest, T* pSrc, size_t nElements )
-	// 	{
-	// 		// A simple memmove works for nearly all types.
-	// 		// You'll have to override this for types that have pointers to their
-	// 		// own members.
-	// 		Checked::memmove_s( pDest, nElements*sizeof( T ), pSrc, nElements*sizeof( T ));
-	// 	}
+	//	static void RelocateElements( T* pDest, T* pSrc, size_t nElements )
+	//	{
+	//		// A simple memmove works for nearly all types.
+	//		// You'll have to override this for types that have pointers to their
+	//		// own members.
+	//		Checked::memmove_s( pDest, nElements*sizeof( T ), pSrc, nElements*sizeof( T ));
+	//	}
 
 
 	// 예전에는 sizeof(element) 크기가 1,2,4,8에 따라 어떻게 해라...이래 짜졌다.

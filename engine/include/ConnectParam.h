@@ -64,7 +64,7 @@ namespace Proud
 	\~japanese
 	サーバーに接続するための情報構造体
 	\~
-	 */
+	*/
 	class CNetConnectionParam
 	{
 	public:
@@ -94,7 +94,7 @@ namespace Proud
 		- ストレステストをする場合に一度に多いクライアントがサーバーに接続しなければなりません。このような場合
 		サーバーアドレスがホスト名形式である場合、接続速度が非常に遅い場合があります。よって、ストレステストをする場合、サーバーアドレスとしてIPアドレス形式を使うことをお勧めします。
 		\~
-		 */
+		*/
 		String m_serverIP;
 
 		/**
@@ -110,7 +110,7 @@ namespace Proud
 		\~japanese
 		接続するサーバーのTCPポートです。
 		\~
-		 */
+		*/
 		uint16_t m_serverPort;
 
 		///**
@@ -141,7 +141,7 @@ namespace Proud
 		///** \copydoc m_publicDomainName1 */
 		//String m_publicDomainName2;
 
- 		/**
+		/**
 		\~korean
 		클라이언트에서 생성하는 UDP socket이 사용할 local port 번호들입니다.
 
@@ -175,7 +175,7 @@ namespace Proud
 		このモジュールはサーバーとかpeerとの連結のためにそれぞれ1個のUDP portを使用します。この時、m_localUdpPortPoolで指定したポート番号をLocal portとするUDP socketを生成するようになります。もし、m_localUdpPortPoolで是正したポート番号がないとか、m_localUdpPortPoolで指定したポート番号が全て違う所で使用中の場合、任意のポート番号が指定されUDP socketが生成されます。
 		一般的にm_localUdpPortPool値はそのまま置いた方が良いです。しかし、意図的にlocal UDP socketのport番号を強制に指定したい場合、m_localUdpPortPool内に希望する値を入れてください。
 		\~
-		 */
+		*/
 		CFastArray<int> m_localUdpPortPool;
 
 		/**
@@ -197,7 +197,7 @@ namespace Proud
 		サーバーに接続する前に、サーバーとのプロトコルマッチングのための値です。
 		- CNetServer.Startで入力したprotocol versionとサーバーとの接続が成功します。そうではない場合、ErrorType_ProtocolVersionMismatchがサーバー接続後に応答として来ます。
 		\~
-		 */
+		*/
 		Guid m_protocolVersion;
 		/**
 		\~korean
@@ -205,7 +205,7 @@ namespace Proud
 
 		\~english
 		This is an additional connection info to be sent to the server.
- 		This data is received at INetServerEvent.OnConnectRequest().
+		This data is received at INetServerEvent.OnConnectRequest().
 
 		\~chinese
 		在服务器发送额外附加连接信息。
@@ -214,7 +214,7 @@ namespace Proud
 		\~japanese
 		サーバーに送る追加接続情報です。INetServerEvent.OnConnectionRequest()でこのデータが受け取られます。
 		\~
-		 */
+		*/
 		ByteArray m_userData;
 
 		/**
@@ -357,7 +357,7 @@ namespace Proud
 		bool m_enableAutoConnectionRecovery;
 
 		/** 클라이언트-서버간에 TCP 핑퐁을 주고 받으며, 이 핑퐁이 너무 오랫동안 되지 못하면 연결을 끊어버리는 기능입니다.
-		
+
 		기본값은 true입니다. 하위호환성을 위해 true일 뿐이며, 여러분은 가급적이면 이 값을 false로 바꾸는 것을 권장합니다.
 
 		일반적인 경우 이것을 켜지 않으셔도, NetClient와 NetServer는 TCP 연결 해제를 즉시 혹은 20초 정도 지나서 감지합니다.
@@ -365,11 +365,11 @@ namespace Proud
 		이보다 더 빠른 시간 안에 TCP 연결 해제를 감지하고 싶다면 이 값을 true로 만들고 SetDefaultTimeoutTime이나 SetTimeoutTime을 추가적으로 사용하십시오.
 
 		그러나 주의가 필요합니다. 이것을 true로 설정하는 경우 평소 인터넷 품질이 나쁜 나라나 무선 신호가 약한 네트워킹에서 의도치 않은 연결해제가 일어날 수 있습니다.
-		인터넷 환경이 나쁘지만 그래도 조금이나마 통신이 되는 것을, 통신 불가능으로 오판하기 때문입니다. 
-		
+		인터넷 환경이 나쁘지만 그래도 조금이나마 통신이 되는 것을, 통신 불가능으로 오판하기 때문입니다.
+
 		이 값이 true이면, 모바일 기기에서 NetClient가 사용중일 때 주의사항이 있습니다. 프로그램이 오랫동안 백그라운드에 있을 때 즉 일시정지 상태에서 수십초 정도의
-		오랜 시간이 지나면, 서버에서는 연결해제 즉 OnClientLeave나 OnClientOffline이 발생할 수 있습니다. 
-		
+		오랜 시간이 지나면, 서버에서는 연결해제 즉 OnClientLeave나 OnClientOffline이 발생할 수 있습니다.
+
 		*/
 		bool m_closeNoPingPongTcpConnections;
 
@@ -393,7 +393,7 @@ namespace Proud
 		- SingleThreaded 지정시 사용자는 NetClient.FrameMove 함수를 호출 할 때 I/O 처리를 합니다.
 		- MultiThreaded 지정시 전역 공유 쓰레드풀에서 멀티 쓰레드로 처리가 됩니다.
 		- UseExternalThreadPool 지정시 m_externalNetWorkerThreadPool 에 지정 된 사용자 정의 쓰레드 풀로 작동 됩니다.
-		 (전역 공유 쓰레드풀이란, NetClient 객체가 여러개가 되더라도 엔진 내부의 하나의 쓰레드풀에서 처리가 됩니다.)
+		(전역 공유 쓰레드풀이란, NetClient 객체가 여러개가 되더라도 엔진 내부의 하나의 쓰레드풀에서 처리가 됩니다.)
 
 		기본 옵션은 MultiThreaded 입니다.
 
@@ -485,7 +485,7 @@ namespace Proud
 		*/
 		void* m_timerCallbackContext;
 
-		 PROUD_API CNetConnectionParam();
+		PROUD_API CNetConnectionParam();
 	};
 
 	/**  @} */

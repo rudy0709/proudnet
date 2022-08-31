@@ -49,24 +49,24 @@ Any violated use of this program is prohibited and will be cause of immediate te
 namespace Proud
 {
 	/**
-	 \~korean
-	 ODBC의 익셉션 처리를 위한 클래스입니다.
-	 what() 함수를 이용하여 상세 내용을 확인할 수 있습니다.
+	\~korean
+	ODBC의 익셉션 처리를 위한 클래스입니다.
+	what() 함수를 이용하여 상세 내용을 확인할 수 있습니다.
 
-	 \~english
-	 It is a class that deals with ODBC exception. 
-	 You can check the detailed information by what() function. 
+	\~english
+	It is a class that deals with ODBC exception.
+	You can check the detailed information by what() function.
 
-	 \~chinese
-	 处理ODBC异常的class。
-	 通过what()函数可以确认详细内容。
+	\~chinese
+	处理ODBC异常的class。
+	通过what()函数可以确认详细内容。
 
-	 \~japanese
-	 ODBCのexception処理のためのクラスです。
-	 what() 関数を利用して詳細内容を確認できます。
+	\~japanese
+	ODBCのexception処理のためのクラスです。
+	what() 関数を利用して詳細内容を確認できます。
 
-	 \~
-	 */
+	\~
+	*/
 	class COdbcException: public Exception
 	{
 	protected:
@@ -77,20 +77,20 @@ namespace Proud
 		PROUDSRV_API COdbcException(const SQLRETURN ret, const StringA& errorString);
 
 		/**
-		 \~korean
-		 sql.h나 sqlext.h에 정의된 return value를 반환 합니다.
+		\~korean
+		sql.h나 sqlext.h에 정의된 return value를 반환 합니다.
 
-		 \~english
-		 It returns the return value that has been defined in sql.h or sqlext.h.
+		\~english
+		It returns the return value that has been defined in sql.h or sqlext.h.
 
-		 \~chinese
-		 返还在sql.h或 sqlext.h定义的return value。
+		\~chinese
+		返还在sql.h或 sqlext.h定义的return value。
 
-		 \~japanese
-		 sql.hやsqlext.hに定義されたreturn valueを返還します。
+		\~japanese
+		sql.hやsqlext.hに定義されたreturn valueを返還します。
 
-		 \~
-		 */
+		\~
+		*/
 		PROUDSRV_API int GetSqlErrorCode();
 
 		PROUDSRV_API bool IsConnectionTimeout();
@@ -100,36 +100,36 @@ namespace Proud
 	};
 
 	/**
-	 \~korean
-	 SqlErrorCode가 SQL_SUCCESS_WITH_INFO일 경우 Warning Exception이 발생합니다.
-	 해당 익셉션은 기본적으론 무시해도 상관없으나 중요한 정보를 담고있는 경우도 있으므로 주의해야 합니다.
-	 ex> Warning 발생 예
-	 1. MSSQL의 경우 사용하는 데이터베이스(스키마)가 변경되는 경우에 변경되었다는 알림을 위해 발생
-	 2. Insert시 Primary Key가 중복된 데이터일 경우 발생(Primary Key Duplicate Error)
+	\~korean
+	SqlErrorCode가 SQL_SUCCESS_WITH_INFO일 경우 Warning Exception이 발생합니다.
+	해당 익셉션은 기본적으론 무시해도 상관없으나 중요한 정보를 담고있는 경우도 있으므로 주의해야 합니다.
+	ex> Warning 발생 예
+	1. MSSQL의 경우 사용하는 데이터베이스(스키마)가 변경되는 경우에 변경되었다는 알림을 위해 발생
+	2. Insert시 Primary Key가 중복된 데이터일 경우 발생(Primary Key Duplicate Error)
 
-	 \~english
-	 In case SqlErrorCode is SQL_SUCCESS_WITH_INFO, Warning Exception will occur. 
-	 It does not matter if you ignore this exception, but it contains important information, so you should take extra caution. 
-	 ex> Example of Warning Occurrence
-	 1. In case of MSSQL, when the database (schema) is changed, warning will occur.
-	 2. In case primary keys are duplicated when inserting, warning will occur. (Primary Key Duplicate Error)
+	\~english
+	In case SqlErrorCode is SQL_SUCCESS_WITH_INFO, Warning Exception will occur.
+	It does not matter if you ignore this exception, but it contains important information, so you should take extra caution.
+	ex> Example of Warning Occurrence
+	1. In case of MSSQL, when the database (schema) is changed, warning will occur.
+	2. In case primary keys are duplicated when inserting, warning will occur. (Primary Key Duplicate Error)
 
-	 \~chinese
-	 SqlErrorCode是 SQL_SUCCESS_WITH_INFO的情况，发生 Warning Exception。
-	 一般情况下无视该异常也没有太大问题，但也有重要信息的情况，所以需注意。
-	 ex> Warning 发生 例
-	 1. . MSSQL的情况，使用的数据库变更时，为提示变更而发生。
-	 2. Insert시 Primary Key为重复数据时发生(Primary Key Duplicate Error)
+	\~chinese
+	SqlErrorCode是 SQL_SUCCESS_WITH_INFO的情况，发生 Warning Exception。
+	一般情况下无视该异常也没有太大问题，但也有重要信息的情况，所以需注意。
+	ex> Warning 发生 例
+	1. . MSSQL的情况，使用的数据库变更时，为提示变更而发生。
+	2. Insert시 Primary Key为重复数据时发生(Primary Key Duplicate Error)
 
-	 \~japanese
-	 SqlErrorCodeがSQL_SUCCESS_WITH_INFOの場合Warning Exceptionが発生します。
-	 該当exceptionは基本的に無視しても構いませんが、重要な情報を含めている場合もあるためご注意ください。
-	 ex> Warning 発生の例
-	 1. MSSQLの場合、使用しているデータベース（スキーマ）が変更される場合に変更のお知らせのため発生
-	 2. Insert時Primary Keyが重複されたデータの場合発生(Primary Key Duplicate Error)
+	\~japanese
+	SqlErrorCodeがSQL_SUCCESS_WITH_INFOの場合Warning Exceptionが発生します。
+	該当exceptionは基本的に無視しても構いませんが、重要な情報を含めている場合もあるためご注意ください。
+	ex> Warning 発生の例
+	1. MSSQLの場合、使用しているデータベース（スキーマ）が変更される場合に変更のお知らせのため発生
+	2. Insert時Primary Keyが重複されたデータの場合発生(Primary Key Duplicate Error)
 
-	 \~
-	 */
+	\~
+	*/
 	class COdbcWarning: public COdbcException
 	{
 	public:

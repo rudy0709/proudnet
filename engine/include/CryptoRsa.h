@@ -57,7 +57,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	RSA Key 데이터 클래스 입니다.
 
@@ -78,13 +78,13 @@ namespace Proud
 		/** RSA Key */
 		Rsa_key *m_key;
 
-		 	PROUD_API CCryptoRsaKey();
-		 PROUD_API ~CCryptoRsaKey();
+		PROUD_API CCryptoRsaKey();
+		PROUD_API ~CCryptoRsaKey();
 
-		/** 
+		/**
 		\~korean
 		ByteArray 로 이루어진 공개키를 CRsaKey 로 Import 합니다.
-		\param blob CRsaKey 에서 뽑아진 ByteArray 공개키 
+		\param blob CRsaKey 에서 뽑아진 ByteArray 공개키
 
 		\~english
 		Import public key with CRsaKey that made with ByteArray.
@@ -96,15 +96,15 @@ namespace Proud
 
 		\~japanese
 		ByteArrayからなる公開キーをCRsaKeyでImportします。
-		\param blob CRsaKeyより選られたByteArray公開キー 
+		\param blob CRsaKeyより選られたByteArray公開キー
 		\~
 		*/
-		 PROUD_API bool FromBlob(const ByteArray& blob);
+		PROUD_API bool FromBlob(const ByteArray& blob);
 
-		/** 
+		/**
 		\~korean
 		CRsaKey 에서 공개키를 ByteArray 로 뽑아냅니다.
-		\param outBlob 키에서 뽑아낸 공개키의 ByteArray 입니다. 
+		\param outBlob 키에서 뽑아낸 공개키의 ByteArray 입니다.
 
 		\~english
 		Delegate public key with ByteArray from CRsaKey.
@@ -116,21 +116,21 @@ namespace Proud
 
 		\~japanese
 		CrsaKeyより公開キーをByteArrayで引き取ります。
-		\param outBlob キーより引き取った公開キーのByteArrayです。 
+		\param outBlob キーより引き取った公開キーのByteArrayです。
 		\~
 		*/
-		 bool ToBlob(ByteArray &outBlob);
+		bool ToBlob(ByteArray &outBlob);
 
 		/** Same to ToBlob(), but it outputs private key.*/
-		 PROUD_API bool ToBlob_privateKey(ByteArray &outBlob);
+		PROUD_API bool ToBlob_privateKey(ByteArray &outBlob);
 	private:
 		bool ToBlob_internal(ByteArray &outBlob, int keyType);
 	public:
 
-		operator Rsa_key*() 
- 		{
- 			return m_key;
- 		}
+		operator Rsa_key*()
+		{
+			return m_key;
+		}
 
 #ifdef _WIN32
 #pragma push_macro("new")
@@ -144,9 +144,9 @@ namespace Proud
 
 	typedef RefCount<CCryptoRsaKey> CRsaKeyPtr;
 
-	/** 
+	/**
 	\~korean
-	RSA 공개키, 비공개키 암호화 클래스 
+	RSA 공개키, 비공개키 암호화 클래스
 
 	\~english
 	Encryption class of RSA publick key, private key
@@ -161,51 +161,51 @@ namespace Proud
 	class CCryptoRsa
 	{
 	public:
-		/** 
+		/**
 		\~korean
 		Random Block 을 생성합니다.
 		\param output 생성될 랜덤블럭의 ByteArray 입니다.
-		\param length 생성할 랜덤블럭의 길이입니다. 
+		\param length 생성할 랜덤블럭의 길이입니다.
 		\return 랜덤블럭 생성에 성공하면 true를 리턴하고, 실패하면 false 리턴합니다.
 
 		\~english TODO:translate needed.
 		Generate a random block.
-		\param output This is the ByteArray of the random block to be generated. 
-		\param length This is the length of the random block to be generated. 
-		\return true if successful in generating a random block or otherwise return false. 
+		\param output This is the ByteArray of the random block to be generated.
+		\param length This is the length of the random block to be generated.
+		\return true if successful in generating a random block or otherwise return false.
 
 		\~chinese
 		生成Random Block。
 		\param output 要生成的随机block的 ByteArray%。
-		\param length 要生成的随机block的长度。 
+		\param length 要生成的随机block的长度。
 		\return 成功生成随机block的话返回true，失败的话返回false。
 
 		\~japanese
 		Random Blockを生成します。
 		\param output 生成されるランダムブロックのByteArrayです。
-		\param length 生成するランダムブロックの長さです。 
+		\param length 生成するランダムブロックの長さです。
 		\return ランダムブロックの生成に成功するとtrueをリターンして、失敗するとfalseをリターンします。
 		\~
 		*/
-		 PROUD_API static bool CreateRandomBlock(ByteArray &output, int length);
+		PROUD_API static bool CreateRandomBlock(ByteArray &output, int length);
 
-		/** 
+		/**
 		\~korean
 		RSA 공개키와 비공개키를 생성합니다.
 		\param outXchgKey 생성될 RSA 키 입니다.
-		\param outPubKeyBlob 생성될 RSA 키에서 export 된 공개키의 ByteArray 값입니다. 
+		\param outPubKeyBlob 생성될 RSA 키에서 export 된 공개키의 ByteArray 값입니다.
 		\return 키 생성에 성공하면 true를 리턴하고, 실패하면 false 리턴합니다.
 
 		\~english TODO:translate needed.
-		Generate a public key and a private key. 
+		Generate a public key and a private key.
 		\param outXchgKey This is an RSA key to be generated
-		\param outPubKeyBlob This is the value of ByteArray of a public key exported from the RSA key to be generated. 
+		\param outPubKeyBlob This is the value of ByteArray of a public key exported from the RSA key to be generated.
 		\return true if successful in generating a key or otherwise return false.
 
 		\~chinese
 		生成RSA公开key和非公开key。
 		\param outXchgKey 要生成的RSA key。
-		\param outPubKeyBlob 从要生成的RSA key中export的公开key的 ByteArray%值。 
+		\param outPubKeyBlob 从要生成的RSA key中export的公开key的 ByteArray%值。
 		\return 成功生成key的话返回true，失败的话返回false。
 
 		\~japanese
@@ -215,12 +215,12 @@ namespace Proud
 		\return キーの生成に成功するとtrueをリターンして、失敗するとfalseをリターンします。
 		\~
 		*/
-		 PROUD_API static bool CreatePublicAndPrivateKey(CCryptoRsaKey &outXchgKey, ByteArray &outPubKeyBlob);
+		PROUD_API static bool CreatePublicAndPrivateKey(CCryptoRsaKey &outXchgKey, ByteArray &outPubKeyBlob);
 
-		/** 
+		/**
 		\~korean
 		공개키로 블럭을 암호화합니다.
-		- randomBlock 의 사이즈가 key 의 Modulus N 의 값보다 초과하면 Encrypt를 할 수 없습니다. 
+		- randomBlock 의 사이즈가 key 의 Modulus N 의 값보다 초과하면 Encrypt를 할 수 없습니다.
 		\param outEncryptedSessionKey 암호화 될 랜덤블럭입니다.
 		\param randomBlock 암호화 할 랜덤블럭입니다.
 		\param publicKeyBlob RSA 공개키입니다.
@@ -228,11 +228,11 @@ namespace Proud
 
 		\~english TODO:translate needed.
 		Encode the block with the public key
-		- If the size of randomBlock exceeds the Modulus N value of the key, you cannot do encryption. 
+		- If the size of randomBlock exceeds the Modulus N value of the key, you cannot do encryption.
 		\param outEncryptedSessionKey This is the random block to be encrypted.
-		\param randomBlock This is the random block you will encrypt. 
-		\param publicKeyBlob  This is the RSA public key. 
-		\return true if successful in obtaining an encrypted symmetric key with the public key or otherwise return false. 
+		\param randomBlock This is the random block you will encrypt.
+		\param publicKeyBlob  This is the RSA public key.
+		\return true if successful in obtaining an encrypted symmetric key with the public key or otherwise return false.
 
 		\~chinese
 		用公开key加密block。
@@ -241,7 +241,7 @@ namespace Proud
 		\param randomBlock 要加密的随机block。
 		\param publicKeyBlob RSA公开key。
 		\return 用公开key获得加密的对称key成功的话返回true，失败的话返回false。
-		
+
 		\~japanese
 		公開キーでブロックを暗号化します。
 		- randomBlock のサイズがキーのModulus Nの値を超過するとEncryptができません。
@@ -251,14 +251,14 @@ namespace Proud
 		\return 公開キーで暗号化された対称キーを得ることに成功するとtrueをリターンして、失敗するとfalseをリターンします。
 		\~
 		*/
-		 PROUD_API static bool EncryptSessionKeyByPublicKey(ByteArray &outEncryptedSessionKey, const ByteArray &randomBlock, const ByteArray &publicKeyBlob);
+		PROUD_API static bool EncryptSessionKeyByPublicKey(ByteArray &outEncryptedSessionKey, const ByteArray &randomBlock, const ByteArray &publicKeyBlob);
 
-		/** 
+		/**
 		\~korean
 		비공개키로 암호화된 블럭을 복호화합니다.
 		\param outRandomBlock 복호화 할 ByteArray
 		\param encryptedSessionKey 암호화된 ByteArray
-		\param privateKey 비공개키입니다. 
+		\param privateKey 비공개키입니다.
 		\return 개인키로 암호화된 대칭키를 복호화 하여 얻는데 실패하면 ErrorInforPtr을 리턴합니다.
 
 		\~english TODO:translate needed.
@@ -266,7 +266,7 @@ namespace Proud
 		\param outRandomBlock ByteArray to decrypt.
 		\param encryptedSessionKey Encrypted ByteArray.
 		\param privateKey This is a private key.
-		\return When you fail to obtain an encrypted symmetric key with a private key, returns ErrorInforPtr. 
+		\return When you fail to obtain an encrypted symmetric key with a private key, returns ErrorInforPtr.
 
 		\~chinese
 		用非公开key破译被加密的block。
@@ -279,11 +279,11 @@ namespace Proud
 		非公開キーで暗号化されたブロックを復号化します。
 		\param outRandomBlock 復号化する ByteArray
 		\param encryptedSessionKey 暗号化された ByteArray
-		\param privateKey 非公開キーです。 
+		\param privateKey 非公開キーです。
 		\return 個人キーで暗号化された対称キーを復号化して得ることに失敗すると ErrorInforPtrをリターンします。
 		\~
 		*/
-		 PROUD_API static ErrorInfoPtr DecryptSessionKeyByPrivateKey(ByteArray &outRandomBlock, const ByteArray &encryptedSessionKey, const CCryptoRsaKey &privateKey);
+		PROUD_API static ErrorInfoPtr DecryptSessionKeyByPrivateKey(ByteArray &outRandomBlock, const ByteArray &encryptedSessionKey, const CCryptoRsaKey &privateKey);
 	};
 
 	typedef uint16_t CryptCount;

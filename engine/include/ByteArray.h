@@ -73,14 +73,14 @@ namespace Proud
 	- ByteArrayはoperator new、deleteもオーバーライドされて、fast heapにアプローチしています。よって、使用時にProud.CFastHeapのご注意事項の規約を順守しなければなりません。
 	\~
 	\todo translate it.
-	 */
+	*/
 	class ByteArray :public CFastArray < uint8_t, false, true, int >
 	{
 	public:
 		typedef CFastArray<uint8_t, false, true, int> Base;
-// 		 static void* LookasideAllocator_Alloc(size_t length);
-// 		 static void LookasideAllocator_Free(void* ptr);
-        
+//		static void* LookasideAllocator_Alloc(size_t length);
+//		static void LookasideAllocator_Free(void* ptr);
+
 	public:
 //#pragma push_macro("new")
 //#undef new
@@ -95,7 +95,7 @@ namespace Proud
 //		}
 //#pragma pop_macro("new")
 
-		/** 
+		/**
 		\~korean
 		기본 생성자
 
@@ -108,38 +108,38 @@ namespace Proud
 		\~japanese
 		基本生成子
 		\~
-		 */
+		*/
 		inline ByteArray()
 		{
 		}
 
-		/** 
+		/**
 		\~korean
 		외부 데이터를 복사해오는 생성자
 		\param data 복사해올 BYTE배열의 포인터
 		\param count count 만큼을 복사한다.
 
 		\~english TODO:translate needed.
-		Constructor copies external data 
+		Constructor copies external data
 		\param data
 		\param count
 
 		\~chinese
 		复制外部数据的生成者。
 		\param date 要复制的BYTE排列的指针。
-		\param count 复制相当于count的量。 
+		\param count 复制相当于count的量。
 
 		\~japanese
 		外部データをコピーしてくる生成子
 		\param data コピーしてくるBYTE配列のポインター
 		\param count count だけをコピーします。
 		\~
-		 */
+		*/
 		inline ByteArray(const uint8_t* data, int count):Base(data,count)
 		{
 		}
 
-		/** 
+		/**
 		\~korean
 		외부 데이터를 복사해오는 생성자
 		\param src 복사할 ByteArray 원본
@@ -156,26 +156,26 @@ namespace Proud
 		外部データをコピーしてくる生成子
 		\param src コピーするByteArray原本
 		\~
-		 */
+		*/
 		inline ByteArray(const ByteArray &src):Base(src)
 		{
 		}
 
-		 PROUD_API virtual ~ByteArray();
+		PROUD_API virtual ~ByteArray();
 
-// 		BUG PRONE! 따라서 막아버렸다.
+//		BUG PRONE! 따라서 막아버렸다.
 		/*
 						\~korean
 						생성자. 단, 배열 크기를 미리 설정한다.
 						\~english
 						Constructor. But it must have previously set array size.
 						\~
-						 */
-// 		inline ByteArray(int count):CFastArray<BYTE,true>(count)
-// 		{
-// 		}
+						*/
+//		inline ByteArray(int count):CFastArray<BYTE,true>(count)
+//		{
+//		}
 
-		/** 
+		/**
 		\~korean
 		배열을 16진수의 String으로 변환하여 return해준다.
 		\return String으로 변환된 16진수 배열 (예 L"FFAB123")
@@ -194,7 +194,7 @@ namespace Proud
 		\return Stringに変換された16進数の配列（例：L"FFAB123")
 		\~
 		*/
-		 PROUD_API String ToHexString();
+		PROUD_API String ToHexString();
 
 		/**
 		\~korean
@@ -205,7 +205,7 @@ namespace Proud
 		\~english TODO:translate needed.
 		A hexadecimal array string is converted into a hexadecimal number
 		\param hexadecimal array String (ex. Text = L"FFFFEAB12")
-		\return conversion is successful, it is true. If failed, it is false. 	
+		\return conversion is successful, it is true. If failed, it is false.
 
 		\~chinese
 		将16进数排列String换成16进数。
@@ -218,50 +218,50 @@ namespace Proud
 		\return 変換が成功するとtrue、失敗するとfalse
 		\~
 		*/
-		 PROUD_API  bool FromHexString(String text);
+		PROUD_API  bool FromHexString(String text);
 
 
-		 inline uint32_t Hash() const
-		 {
-			 // 4바이트씩 해시를 하고 맨 마지막 잔여 바이트를 해시한다.
-			 int bigLen = GetCount() >> 2; // DIV 4
-			 int smallLen = GetCount() & 3;	// MOD 4
+		inline uint32_t Hash() const
+		{
+			// 4바이트씩 해시를 하고 맨 마지막 잔여 바이트를 해시한다.
+			int bigLen = GetCount() >> 2; // DIV 4
+			int smallLen = GetCount() & 3;	// MOD 4
 
-			 uint32_t ret = 0;
-			 uint32_t* bigPtr = (uint32_t*)GetData();
-			 for (int i = 0; i < bigLen; i++)
-			 {
-				 ret ^= *bigPtr;
-				 bigPtr++;
-			 }
-			 uint8_t* smallPtr = (uint8_t*)bigPtr;
-			 uint32_t remainderValue = 0;
-			 uint8_t* smallPtrDest = (uint8_t*)&remainderValue;
-			 for (int i = 0; i < smallLen; i++)
-			 {
+			uint32_t ret = 0;
+			uint32_t* bigPtr = (uint32_t*)GetData();
+			for (int i = 0; i < bigLen; i++)
+			{
+				ret ^= *bigPtr;
+				bigPtr++;
+			}
+			uint8_t* smallPtr = (uint8_t*)bigPtr;
+			uint32_t remainderValue = 0;
+			uint8_t* smallPtrDest = (uint8_t*)&remainderValue;
+			for (int i = 0; i < smallLen; i++)
+			{
 #ifdef __ANDROID__
-				 memcpy(smallPtrDest, smallPtr, 1);		// 혹은 안드로이드 한정으로 __packed keyword를 쓰던지...
+				memcpy(smallPtrDest, smallPtr, 1);		// 혹은 안드로이드 한정으로 __packed keyword를 쓰던지...
 #else
-				 *smallPtrDest = *smallPtr;
+				*smallPtrDest = *smallPtr;
 #endif
-				 smallPtr++;
-				 smallPtrDest++;
-			 }
-			 ret ^= remainderValue;
+				smallPtr++;
+				smallPtrDest++;
+			}
+			ret ^= remainderValue;
 
-			 return ret;
-		 }
+			return ret;
+		}
 
 
 	};
 
-// 	// ByteArray에 한해서는 == 연산자를 허락해주자. map key로 사용되는 경우 때문이다.
+//	// ByteArray에 한해서는 == 연산자를 허락해주자. map key로 사용되는 경우 때문이다.
 	// => 아래 클래스 구현 때문에 허락 할 필요 없다.
-// 	inline bool operator==(const ByteArray& lhs, const ByteArray& rhs)
-// 	{
-// 		return lhs.Equals(rhs);
-// 	}
-	
+//	inline bool operator==(const ByteArray& lhs, const ByteArray& rhs)
+//	{
+//		return lhs.Equals(rhs);
+//	}
+
 	/**  @} */
 
 
@@ -313,9 +313,6 @@ public:
 
 };
 
-
-
 #ifdef _MSC_VER
 #pragma pack(pop)
 #endif
-

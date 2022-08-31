@@ -48,13 +48,13 @@ namespace Proud
 //#pragma managed(push,off)
 #endif
 
-    
-#if defined(_WIN32)    
+
+#if defined(_WIN32)
 	/** \addtogroup minidump_group
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	CDumpClient 가 요구하는 delegate 인터페이스. CDumpClient 를 생성할 때 인자로 필요하다.
 
@@ -73,7 +73,7 @@ namespace Proud
 	public:
 		virtual ~IDumpClientDelegate() {}
 
-		/** 
+		/**
 		\~korean
 		CDumpClient 가 덤프 파일을 서버로 보내는 동안 일정 시간마다 호출된다. 유저에 의해
 		보내기를 취소할 경우 이 함수는 true를 리턴하면 된다.
@@ -90,13 +90,13 @@ namespace Proud
 		*/
 		virtual bool MustStopNow() = 0;
 
-		/** 
+		/**
 		\~korean
 		송신 처리중 예외가 발생할 경우 이 메서드가 콜백된다.
 		\param e 예외정보 Exception::what() 을 통하여 문제에 관련된 String 받으실 수 있습니다.
 
-		\~english 
-		This method is called back when an exception occurs during processing transmission. 
+		\~english
+		This method is called back when an exception occurs during processing transmission.
 		\param e      You can get the string related to the problem through the exception information Exception::what().
 
 
@@ -110,13 +110,13 @@ namespace Proud
 		\~
 		*/
 		virtual void OnException(const Exception &e) = 0;
-		
-		/** 
+
+		/**
 		\~korean
 		송신이 완료되면 이것이 호출된다. 송신 대화 상자를 이때 닫으면 된다.
 
 		\~english
-		This will be called once sending is completed. Sending chat box can be closed at this point. 
+		This will be called once sending is completed. Sending chat box can be closed at this point.
 
 		\~chinese
 		传送完毕的话这个会被呼叫。这时候关闭传送对话框即可。
@@ -128,7 +128,7 @@ namespace Proud
 		virtual void OnComplete() = 0;
 	};
 
-	/** 
+	/**
 	\~korean
 	덤프 클라이언트
 	- CDumpServer 로의 연결을 한 후 서버로 DMP 파일을 보내는 역할을 한다.
@@ -186,7 +186,7 @@ namespace Proud
 
 		virtual ~CDumpClient() {};
 
-		/** 
+		/**
 		\~korean
 		덤프 서버로 덤프 파일을 보내기 시작한다.
 		\param serverAddr 서버 주소
@@ -214,7 +214,7 @@ namespace Proud
 		*/
 		virtual void Start(String serverAddr, uint16_t serverPort, String filePath) = 0;
 
-		/** 
+		/**
 		\~korean
 		일정 시간마다 이 메서드를 호출해줘야 송신 과정이 진행될 수 있다.
 
@@ -230,7 +230,7 @@ namespace Proud
 		*/
 		virtual void FrameMove() = 0;
 
-		/** 
+		/**
 		\~korean
 		현재 덤프 파일 송신 경과를 얻는다.
 
@@ -246,7 +246,7 @@ namespace Proud
 		*/
 		virtual State GetState() = 0;
 
-		/** 
+		/**
 		\~korean
 		현재 덤프 파일 송신이 몇 바이트가 끝난는지 얻는다.
 
@@ -262,7 +262,7 @@ namespace Proud
 		*/
 		virtual int GetSendProgress() = 0;
 
-		/** 
+		/**
 		\~korean
 		보내야 하는 총 송신 데이터를 얻는다.
 
@@ -278,7 +278,7 @@ namespace Proud
 		*/
 		virtual int GetSendTotal() = 0;
 
-		/** 
+		/**
 		\~korean
 		CDumpClient 객체를 생성한다.
 		\param dg IDumpClientDelegate 의 포인터
@@ -296,10 +296,10 @@ namespace Proud
 		\param dg IDumpClientDelegate のポインター
 		\~
 		*/
-		 static CDumpClient* Create(IDumpClientDelegate* dg);
+		static CDumpClient* Create(IDumpClientDelegate* dg);
 
 	};
-#endif 
+#endif
 
 	/**  @} */
 #if (defined(_MSC_VER) && _MSC_VER>=1400)

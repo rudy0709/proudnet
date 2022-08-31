@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #ifdef _MSC_VER
 #pragma pack(push,8)
@@ -66,16 +66,16 @@ static inline void CallConstructors(T* pElements, intptr_t nElements)
 
 	}
 	//	}
-	// 	catch(...)
-	// 	{
-	// 		while( iElement > 0 )
-	// 		{
-	// 			iElement--;
-	// 			pElements[iElement].~T();
-	// 		}
-	// 
-	// 		throw;
-	// 	}
+	//	catch(...)
+	//	{
+	//		while( iElement > 0 )
+	//		{
+	//			iElement--;
+	//			pElements[iElement].~T();
+	//		}
+	//
+	//		throw;
+	//	}
 }
 
 // 주의: 반드시!! 함수 사용시 <T>를 명료하게 붙일 것. 일부 컴파일러는 엉뚱한 것을 템플릿 인스턴스화한다.

@@ -116,16 +116,16 @@ namespace Proud
 	public:
 		enum { DefaultAccelBlockSizeLimit = 2048 };
 
-		 virtual ~CFastHeap();
+		virtual ~CFastHeap();
 
 		/**
 		\~korean
 		메모리를 할당한다. 할당한 메모리는 Realloc이나 Free로 조정될 수 있다.
 		\param size 할당받을 메모리 크기
 
-		\~english 
-		Allocate the memory. The allocated memory may be adjusted by Realloc or Free. 
-		\param size Size of the memory to be allocated. 
+		\~english
+		Allocate the memory. The allocated memory may be adjusted by Realloc or Free.
+		\param size Size of the memory to be allocated.
 
 
 		\~chinese
@@ -145,10 +145,10 @@ namespace Proud
 		\param ptr 재할당할 메모리 포인터
 		\param size 재할당할 메모리 사이즈
 
-		\~english 
-		Reallocate the memory. As reallocated memory may have its position switched, you must refer the returned pointer value. 
+		\~english
+		Reallocate the memory. As reallocated memory may have its position switched, you must refer the returned pointer value.
 		\param ptr Memory pointer to be reallocated.
-		\param size Memory size to be reallocated. 
+		\param size Memory size to be reallocated.
 
 
 		\~chinese
@@ -158,7 +158,7 @@ namespace Proud
 
 		\~japanese
 		メモリーを再割り当てします。再割り当てしたメモリーは位置が変わることがありますので、リターンされないポインター値を必ず参照してください。
-		\param ptr 再割り当てするメモリーポインター 
+		\param ptr 再割り当てするメモリーポインター
 		\param size 再割り当てするメモリーサイズ
 		\~
 		*/
@@ -169,9 +169,9 @@ namespace Proud
 		할당했던 메모리를 해제한다.
 		\param ptr 할당 받았던 메모리의 포인터
 
-		\~english 
-		Clear the memory that was allocated. 
-		\param ptr Pointer of the memory that was allocated. 
+		\~english
+		Clear the memory that was allocated.
+		\param ptr Pointer of the memory that was allocated.
 
 		\~chinese
 		解除分配过的内存。
@@ -220,16 +220,16 @@ namespace Proud
 
 		\~japanese
 		CFastHeapオブジェクトを生成します。
-		\param AccelBlockSizeLimit この値より大きいサイズのメモリーブロックを割り当てる時ごとにlookaside allocator方式を使わない通常のメモリーブロックを割り当てます。この値が大きいほどもっと多いメモリーを消耗しますが、速い速度がheap割当確率が大きくなります。(しかし、あまりにも大き過ぎたらpage faultコストによる性能低下のため逆に性能低下が発生します。) 
+		\param AccelBlockSizeLimit この値より大きいサイズのメモリーブロックを割り当てる時ごとにlookaside allocator方式を使わない通常のメモリーブロックを割り当てます。この値が大きいほどもっと多いメモリーを消耗しますが、速い速度がheap割当確率が大きくなります。(しかし、あまりにも大き過ぎたらpage faultコストによる性能低下のため逆に性能低下が発生します。)
 		\param pHeap もし、このFast HeapがProudNetで前もって生成した専用のHeapではない他のHeapを使用するようにしたい場合は、ここにCMemoryHeapオブジェクトのポインターを入れなければなりません。但し、このクラスがCMemoryHeapを自動除去することはありません。
 		NULLを入れるとProudNetで前もって生成した専用のHeapを使用します。
-		\param safeMode CLookasideAllocator.New() 参照	
-		\param debugSafetyCheckCritSec デバッグ用です。safeModeがfalseである場合のみ有効です。 
-		このfast heapをアクセスする時ごとにdebugSafetyCheckCritSecが指すcritical sectionが現在のスレッドによってロック状態なのかをチェックして、ロック状態ではなければエラーを発生させるアラームをします。 
-		
+		\param safeMode CLookasideAllocator.New() 参照
+		\param debugSafetyCheckCritSec デバッグ用です。safeModeがfalseである場合のみ有効です。
+		このfast heapをアクセスする時ごとにdebugSafetyCheckCritSecが指すcritical sectionが現在のスレッドによってロック状態なのかをチェックして、ロック状態ではなければエラーを発生させるアラームをします。
+
 		\~
 		*/
-		 PROUD_API static CFastHeap* New( size_t AccelBlockSizeLimit = DefaultAccelBlockSizeLimit , const CFastHeapSettings& settings = CFastHeapSettings());
+		PROUD_API static CFastHeap* New( size_t AccelBlockSizeLimit = DefaultAccelBlockSizeLimit , const CFastHeapSettings& settings = CFastHeapSettings());
 
 		/**
 		\~korean
@@ -245,7 +245,7 @@ namespace Proud
 		ブロックがfast heapによって作られたのではなければエラー画面を表示するかクラッシュが発生します。
 		\~
 		*/
-		 static void AssureValidBlock(void* block);
+		static void AssureValidBlock(void* block);
 
 		virtual int DebugCheckConsistency() = 0;
 	};

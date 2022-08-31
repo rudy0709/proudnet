@@ -115,16 +115,16 @@ namespace Proud
 	/*
 	\~korean
 	GetRoundTripLatency의 아웃풋 파라미터로 쓰이는 구조체이다.
-	
+
 	\~english
 	ToDo
 
 	\~chinese
 	ToDo
-	
+
 	\~japanese
 	ToDo
-	
+
 	\~
 	*/
 	struct RoundTripLatencyTestResult

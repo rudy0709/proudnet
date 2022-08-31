@@ -50,7 +50,7 @@ namespace Proud
 		Tombstone* m_tombstone;
 
 		//////////////////////////////////////////////////////////////////////////
-		// src/ 안에서 구현됨. 헤더 파일에 남지 못함. 
+		// src/ 안에서 구현됨. 헤더 파일에 남지 못함.
 
 		static Tombstone* AllocTombstone();
 		static void FreeTombstone(Tombstone* tombstone);
@@ -136,7 +136,7 @@ namespace Proud
 
 		inline ~BiasManagedPointer()
 		{
-			UninitTombstone(); 
+			UninitTombstone();
 		}
 
 	protected:

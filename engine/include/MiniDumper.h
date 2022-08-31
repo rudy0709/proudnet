@@ -200,9 +200,9 @@ namespace Proud
 		*/
 		volatile LONG m_hitCount;
 
-		 void SetUnhandledExceptionHandler();
+		void SetUnhandledExceptionHandler();
 
-		 uint32_t CreateProcessAndWaitForExit(const PNTCHAR *args, MINIDUMP_TYPE miniDumpType, _EXCEPTION_POINTERS *pExceptionInfo = NULL);
+		uint32_t CreateProcessAndWaitForExit(const PNTCHAR *args, MINIDUMP_TYPE miniDumpType, _EXCEPTION_POINTERS *pExceptionInfo = NULL);
 
 		static LONG WINAPI TopLevelFilter(_EXCEPTION_POINTERS *pExceptionInfo);
 		LONG TopLevelFilter_(_EXCEPTION_POINTERS *pExceptionInfo);
@@ -218,14 +218,14 @@ namespace Proud
 		\~korean
 		미니 덤프를 사용하기 위한 파라메터
 
-		\~english 
-		The parameter to use the mini dump. 
+		\~english
+		The parameter to use the mini dump.
 
-		\~chinese 
+		\~chinese
 		用于mini dumper的参数
 		\~
 
-		\~japanese 
+		\~japanese
 		ミニダンプを使うためのパラメーター
 		\~
 		*/
@@ -406,7 +406,7 @@ namespace Proud
 		\~japanese
 		ユーザの呼び出しによりミニダンプファイルを生成します。
 		*/
-		 PROUD_API  void ManualMiniDump();
+		PROUD_API  void ManualMiniDump();
 
 		/**
 		\~korean
@@ -426,7 +426,7 @@ namespace Proud
 		\param fileNameダンプファイルの名前。拡張子はdmpで指定すること。
 		*/
 		PROUD_API static void WriteDumpFromHere(const PNTCHAR* fileName, bool fullDump = false);
-		//		 static void WriteDumpAtExceptionThrower(const PNTCHAR* fileName, bool fullDump = false);
+		//		static void WriteDumpAtExceptionThrower(const PNTCHAR* fileName, bool fullDump = false);
 	};
 
 	/**

@@ -88,11 +88,11 @@ namespace Proud
 	- このようにすると/MPオプションがよく作動します。
 	- また、ユーザーがc:\program files\common files\system\adoを追加する努力をしなくても良いです。
 	\~
-	 */
+	*/
 
 	/** \addtogroup db_group
 	*  @{
-	 */
+	*/
 
 	/**
 	\~korean
@@ -115,8 +115,8 @@ namespace Proud
 	class CQueryChecker
 	{
 	protected:
-		PROUDSRV_API 		void	ExecuteBegin();
-		PROUDSRV_API 		void	ExecuteEnd(const String& command);
+		PROUDSRV_API void ExecuteBegin();
+		PROUDSRV_API void ExecuteEnd(const String& command);
 	protected:
 		int64_t	m_prevTime;
 	public:
@@ -143,13 +143,13 @@ namespace Proud
 	\brief DBMS アクセス時にイベントを受けるオブジェクトのインターフェースクラスです。
 	- ユーザーはこのインターフェースを相続してイベントを通知して貰います。
 	- \ref ado_access_trackerをご参照ください。
-	
+
 	\~
-	 */
+	*/
 	class IDbmsAccessEvent
 	{
 	public:
-		PROUDSRV_API 		virtual ~IDbmsAccessEvent();
+		PROUDSRV_API virtual ~IDbmsAccessEvent();
 
 		/**
 		\~korean
@@ -201,7 +201,7 @@ namespace Proud
 	\ref ado_overview を使用時にイベントを通知する主体です。
 	- 全域で使われます。
 	- \ref ado_access_tracker をご参照ください。
-	
+
 
 	\~
 	*/
@@ -211,7 +211,7 @@ namespace Proud
 
 		CDbmsAccessTracker();
 	public:
-		PROUDSRV_API 		~CDbmsAccessTracker();
+		PROUDSRV_API ~CDbmsAccessTracker();
 		/**
 		\~korean
 		이벤트를 노티 받을 인터페이스를 지정합니다.
@@ -231,7 +231,7 @@ namespace Proud
 
 		\~
 		*/
-		PROUDSRV_API 		static void SetAdoWrapEvent(IDbmsAccessEvent* pEvent);
+		PROUDSRV_API static void SetAdoWrapEvent(IDbmsAccessEvent* pEvent);
 
 	private:
 		static IDbmsAccessEvent*	m_DbmsAcessEvent;
@@ -258,7 +258,7 @@ namespace Proud
 		- 基本値は500に設定されています。
 		\~
 		*/
-		PROUDSRV_API  static uint32_t	DelayedAccessThresholdMilisec;
+		PROUDSRV_API static uint32_t	DelayedAccessThresholdMilisec;
 	};
 
 	enum DbOpenFor { OpenForRead,OpenForFastRead,OpenForReadWrite,OpenForAppend };
@@ -310,23 +310,23 @@ namespace Proud
 	- 全域にこのオブジェクトを置いて複数のスレッドよりアクセスすることは様々な問題（例えば、race condition）を引き起こします。よって、必要な時ごとにこのオブジェクトをローカル変数で生成して使うのが望ましいです。一方、性能のために接続だけをして他の用途では使われないプロセス全域のオブジェクトを一つ置いた方が良いです。詳しくは\ref ado_connection_poolingをご参照ください。
 	- このオブジェクトを生成する前に、最小1回のCoInitializeを呼び出す必要があります。ただ、スレッドのメイン関数に次のような構文を入れて置けば便利です。
 	\code
-	Proud::CCoInitializer coi;		
+	Proud::CCoInitializer coi;
 	\endcode
-	- DBをアクセスする間にはcritical sectionを触らないとチェックする機能：ADODB_RefCriticalSection、ADODB_RecommendCriticalSectionProc 
+	- DBをアクセスする間にはcritical sectionを触らないとチェックする機能：ADODB_RefCriticalSection、ADODB_RecommendCriticalSectionProc
 	\~
-	 */
+	*/
 	class  CAdoConnection :public ADODB::_ConnectionPtr, protected CQueryChecker
 	{
 	private:
 		// Execute에서 사용하는 할당 메모리양
 		const static size_t SQLTEXTLEN = 12800;
-		
+
 		//CAdoConnectionPool* m_connectionPool; // NULL이면 connection pool을 쓰지 않고 있음을 의미한다.
 	public:
-		 PROUDSRV_API CAdoConnection(ADODB::_Connection *conn);
+		PROUDSRV_API CAdoConnection(ADODB::_Connection *conn);
 		//CAdoConnection(CAdoConnectionPool* connectionPool);
-		   PROUDSRV_API CAdoConnection();
-		   PROUDSRV_API ~CAdoConnection();
+		PROUDSRV_API CAdoConnection();
+		PROUDSRV_API ~CAdoConnection();
 	private:
 		// 복사 금지. ADODB COM smartptr을 래핑하고 있으나, 정작 이 함수의 dtor에서 close를 하기 때문임.
 		PROUDSRV_API CAdoConnection& operator=(const CAdoConnection&);
@@ -378,16 +378,16 @@ namespace Proud
 		\param connectionString DBMS連結文字列
 		- ADO DB connection string 規約に従います。詳しくは<a href="http://www.connectionstrings.com/" target="_blank">http://www.connectionstrings.com/</a>をご参照ください。
 		- DriverまたはProviderが入らなければ、sqloledbをproviderとして使います。
-		下は一例です。 
+		下は一例です。
 		\code
 		Data Source=.;Database=ProudDB-Test;Trusted_Connection=yes // .を使って、localhostは使わないこと。一部のコンピューターでは連結失敗のエラーにつながります。
 		Data Source=.;Database=ProudDB-Test;user id=xxx;password=yyy
 		\endcode
-		\param AppName SQL Server Enterprise Managerで表示される名前。Connectionの名前に特定のルーチンを意味する名前を追加したい場合は、これを入れればデッドロックなどを感知する時に助かります。入れなければ無視されます。 
+		\param AppName SQL Server Enterprise Managerで表示される名前。Connectionの名前に特定のルーチンを意味する名前を追加したい場合は、これを入れればデッドロックなどを感知する時に助かります。入れなければ無視されます。
 
 		\~
-		 */
-		  PROUDSRV_API void OpenEx(const String& connectionString, const PNTCHAR* AppName);
+		*/
+		PROUDSRV_API void OpenEx(const String& connectionString, const PNTCHAR* AppName);
 
 		/**
 		\~korean
@@ -472,16 +472,16 @@ namespace Proud
 		Data Source=.;Database=ProudDB-Test;user id=xxx;password=yyy
 
 		//MySql
-		Driver={MySQL ODBC 5.1 
+		Driver={MySQL ODBC 5.1
 		Driver};server=xxx.xxx.xxx.xxx;port=3306;Database=TableName;User ID=UserID;Password=yyy;
 		\endcode
 
-		\param AppName SQL Server Enterprise Managerで表示される名前。Connectionの名前に特定のルーチンを意味する名前を追加したい場合は、これを入れればデッドロックなどを感知する時に助かります。入れなければ無視されます。 
+		\param AppName SQL Server Enterprise Managerで表示される名前。Connectionの名前に特定のルーチンを意味する名前を追加したい場合は、これを入れればデッドロックなどを感知する時に助かります。入れなければ無視されます。
 		\param Type DbmsType形態のenum値を入れます。MsSql,MySqlなどがあります。(MsSqlは内部的にsqloledb Providerを使用しています。)
 
 		\~
 		*/
-		 PROUDSRV_API void OpenEx(const String& connectionString, const PNTCHAR* AppName, DbmsType Type);
+		PROUDSRV_API void OpenEx(const String& connectionString, const PNTCHAR* AppName, DbmsType Type);
 
 		/**
 		\~korean
@@ -525,7 +525,7 @@ namespace Proud
 		ADODBを閉じます。
 		\~
 		*/
-		 PROUDSRV_API void Close();
+		PROUDSRV_API void Close();
 
 		/**
 		\~korean
@@ -545,7 +545,7 @@ namespace Proud
 		- throwを発生させません。
 		\~
 		*/
-		 PROUDSRV_API 		 void Close_NoThrow();
+		PROUDSRV_API void Close_NoThrow();
 
 		/**
 		\~korean
@@ -553,7 +553,7 @@ namespace Proud
 		\return 연결 성공하면 true를 리턴하고, 실패하면 false를 리턴합니다.
 
 		\~english
-		 Is ADO object connected to DB server?
+		Is ADO object connected to DB server?
 		\return true if it succeed to connect DB;false if it failed to connect DB
 
 		\~chinese
@@ -565,7 +565,7 @@ namespace Proud
 		\return 連結に成功するとtrueをリターンして、失敗するとfalseをリターンします。
 		\~
 		*/
-		 PROUDSRV_API  bool IsOpened();
+		PROUDSRV_API bool IsOpened();
 
 		/**
 		\~korean
@@ -588,8 +588,8 @@ namespace Proud
 		\param lpszSQL クエリー構文
 		\return stored procedureによって影響されたrecordの数、影響を受けた行がないとか失敗時0、Select構文であれば-1をリターン
 		\~
-		  */
-		  PROUDSRV_API long Execute(const String& lpszSQL);
+		*/
+		PROUDSRV_API long Execute(const String& lpszSQL);
 
 		/**
 		\~korean
@@ -616,8 +616,8 @@ namespace Proud
 		\param lpszSQL クエリー構文
 		\return stored procedureによって影響されたrecord数、影響された行がないか失敗時0、Select構文であれば-1をリターン
 		\~
-		 */
-		 PROUDSRV_API long Execute(CAdoRecordset& outputRecords, const String& lpszSQL);
+		*/
+		PROUDSRV_API long Execute(CAdoRecordset& outputRecords, const String& lpszSQL);
 
 		/**
 		\~korean
@@ -632,7 +632,7 @@ namespace Proud
 		\~japanese
 		DBトランザクションを開始します。
 		\~
-		  */
+		*/
 		inline void BeginTrans() {  (*this)->BeginTrans(); }
 
 		/**
@@ -648,7 +648,7 @@ namespace Proud
 		\~japanese
 		DBトランザクションロールバック
 		\~
-		  */
+		*/
 		inline void RollbackTrans() {  (*this)->RollbackTrans(); }
 
 		/**
@@ -656,7 +656,7 @@ namespace Proud
 		DB 트랜잭션 커밋
 
 		\~english
-		 DB transaction commit
+		DB transaction commit
 
 		\~chinese
 		DB transaction 的提交
@@ -664,7 +664,7 @@ namespace Proud
 		\~japanese
 		DBトランザクションコミット
 		\~
-		  */
+		*/
 		inline void CommitTrans() {  (*this)->CommitTrans(); }
 	private:
 	};
@@ -682,7 +682,7 @@ namespace Proud
 	- CAdoConnection 과 혼용한다.
 
 	\~english
-	 ADO Recordset class + some enhanced functions
+	ADO Recordset class + some enhanced functions
 
 	Use
 	- Use this method with CAdoConnection.
@@ -698,11 +698,11 @@ namespace Proud
 	用途
 	- CAdoConnectionと混用します。
 	\~
-	  */
+	*/
 	class CAdoRecordset:public ADODB::_RecordsetPtr,protected CQueryChecker
 	{
 	public:
-		  PROUDSRV_API CAdoRecordset();
+		PROUDSRV_API CAdoRecordset();
 
 		inline CAdoRecordset(ADODB::_Recordset *rc)
 		{
@@ -760,15 +760,15 @@ namespace Proud
 		inline void SetFV(LPCWSTR pszFieldName,LPCWSTR value)
 		{ GetInterfacePtr()->PutCollect(pszFieldName,value); } */
 
-		  PROUDSRV_API bool GetFieldValue(const String& pszFieldName, String &var);
-		  PROUDSRV_API bool GetFieldValue(const String& pszFieldName, UUID &var);
-		  PROUDSRV_API   bool GetFieldValue(const String& pszFieldName, COleDateTime &var);
+		PROUDSRV_API bool GetFieldValue(const String& pszFieldName, String &var);
+		PROUDSRV_API bool GetFieldValue(const String& pszFieldName, UUID &var);
+		PROUDSRV_API bool GetFieldValue(const String& pszFieldName, COleDateTime &var);
 
-		  PROUDSRV_API CVariant GetFieldValue(const String& pszFieldName);
-		  PROUDSRV_API   void SetFieldValue(const String& pszFieldName, const CVariant &value);
+		PROUDSRV_API CVariant GetFieldValue(const String& pszFieldName);
+		PROUDSRV_API void SetFieldValue(const String& pszFieldName, const CVariant &value);
 
-		  PROUDSRV_API CVariant GetFieldValue(int index);
-		  PROUDSRV_API   void SetFieldValue(int index,const CVariant &value);
+		PROUDSRV_API CVariant GetFieldValue(int index);
+		PROUDSRV_API void SetFieldValue(int index,const CVariant &value);
 
 		/**
 		\~korean
@@ -796,7 +796,7 @@ namespace Proud
 		__declspec(property(get=GetFieldValue,put=SetFieldValue)) CVariant FieldValues[];
 #endif
 
-		  PROUDSRV_API _bstr_t GetFieldNames(int index);
+		PROUDSRV_API _bstr_t GetFieldNames(int index);
 
 		/**
 		\~korean
@@ -833,7 +833,7 @@ namespace Proud
 		ADODBを閉じます。
 		\~
 		*/
-		  PROUDSRV_API void Close();
+		PROUDSRV_API void Close();
 
 		/**
 		\~korean
@@ -853,7 +853,7 @@ namespace Proud
 		- throwを発生させません。
 		\~
 		*/
-		  PROUDSRV_API void Close_NoThrow();
+		PROUDSRV_API void Close_NoThrow();
 
 		/**
 		\~korean
@@ -862,7 +862,7 @@ namespace Proud
 
 		\~english TODO:translate needed.
 		Check whether this is the end of the record
-		\return If it is the end, then true, otherwise false. 
+		\return If it is the end, then true, otherwise false.
 
 		\~chinese
 		确认是否是record的最后。
@@ -884,8 +884,8 @@ namespace Proud
 		\return open 상태이면 true, close 상태이면 false
 
 		\~english TODO:translate needed.
-		Check whether ADODB is in open status. 
-		\return If open, true. If close, false. 
+		Check whether ADODB is in open status.
+		\return If open, true. If close, false.
 
 		\~chinese
 		确认ADODB是否是open状态。
@@ -896,7 +896,7 @@ namespace Proud
 		\return open状態であればtrue、close状態であればfalse
 		\~
 		*/
-		PROUDSRV_API 	  bool IsOpened();
+		PROUDSRV_API bool IsOpened();
 
 		/**
 		\~korean
@@ -911,10 +911,10 @@ namespace Proud
 
 		\~japanese
 		DbmsSave関数を通じ保存されたデータをアップデートさせます。
-		
+
 		\~
 		*/
-		PROUDSRV_API 	  void Update();
+		PROUDSRV_API void Update();
 
 		/**
 		\~korean
@@ -931,7 +931,7 @@ namespace Proud
 		新しいデータを追加することを予約します。
 		\~
 		*/
-		PROUDSRV_API   void AddNew();
+		PROUDSRV_API void AddNew();
 
 		/**
 		\~korean
@@ -948,7 +948,7 @@ namespace Proud
 		データを除去します。
 		\~
 		*/
-		PROUDSRV_API 	  void Delete();
+		PROUDSRV_API void Delete();
 
 		/**
 		\~korean
@@ -972,11 +972,11 @@ namespace Proud
 		\~japanese
 		Recordsetを開く。
 		\param conn DB連結オブジェクト
-		\param openFor OpenForRead：読み取り専用、OpenForReadWrite, OpenForAppend：読み取り/書き込み。ゲームサーバー上で用途が最適化された値です。 
+		\param openFor OpenForRead：読み取り専用、OpenForReadWrite, OpenForAppend：読み取り/書き込み。ゲームサーバー上で用途が最適化された値です。
 		\param lpszSQL クエリー構文
 		\~
 		*/
-		  PROUDSRV_API void Open(ADODB::_Connection *conn, DbOpenFor openFor, const String& queryString);
+		PROUDSRV_API void Open(ADODB::_Connection *conn, DbOpenFor openFor, const String& queryString);
 
 		/**
 		\~korean
@@ -1004,12 +1004,12 @@ namespace Proud
 		Recordsetを開く
 		\param conn DB連結オブジェクト
 		\param cursorType ADODB::CursorTypeEnum
-		\param lockType ADODB::LockTypeEnum		
+		\param lockType ADODB::LockTypeEnum
 		\param lpszSQL クエリー構文
-		
+
 		\~
 		*/
-		  PROUDSRV_API void Open(ADODB::_Connection *conn, ADODB::CursorTypeEnum cursorType, ADODB::LockTypeEnum lockType, const String& lpszSQL);
+		PROUDSRV_API void Open(ADODB::_Connection *conn, ADODB::CursorTypeEnum cursorType, ADODB::LockTypeEnum lockType, const String& lpszSQL);
 
 		/**
 		\~korean
@@ -1029,7 +1029,7 @@ namespace Proud
 		ADO commandでreturnしたrecordset objectをopenする時に使われることができます。
 		\~
 		*/
-		  PROUDSRV_API void Open(void);
+		PROUDSRV_API void Open(void);
 
 		/**
 		\~korean
@@ -1049,14 +1049,14 @@ namespace Proud
 		ADO commandでreturnしたrecordset objectをopenする時に使われることができます。
 		\~
 		*/
-		  PROUDSRV_API   void OpenForUpdate();
+		PROUDSRV_API void OpenForUpdate();
 
 		/**
 		\~korean
 		\param src \ref CAdoOfflineRecord에 있는 key값과 value값을 차례로 복사해옵니다.
 
 		\~english TODO:translate needed.
-		The key value and the value in \param src \ref CAdoOfflineRecord is copied one by one. 
+		The key value and the value in \param src \ref CAdoOfflineRecord is copied one by one.
 
 
 		\~chinese
@@ -1066,7 +1066,7 @@ namespace Proud
 		\param src \ref CAdoOfflineRecordにあるkey値とvalue値を順にコピーしてきます。
 		\~
 		*/
-		  PROUDSRV_API   void CopyFrom(CAdoOfflineRecord &src);
+		PROUDSRV_API void CopyFrom(CAdoOfflineRecord &src);
 		const static int defaultCacheSize = 100;
 
 		/**
@@ -1082,8 +1082,8 @@ namespace Proud
 		\~japanese
 		次のレコードにカーソルを移します。
 		\~
-		 */
-		 PROUDSRV_API void MoveNext();
+		*/
+		PROUDSRV_API void MoveNext();
 
 		/**
 		\~korean
@@ -1098,8 +1098,8 @@ namespace Proud
 		\~japanese
 		最初のレコードにカーソルを移します。
 		\~
-		 */
-		 PROUDSRV_API   void MoveFirst();
+		*/
+		PROUDSRV_API void MoveFirst();
 
 		/**
 		\~korean
@@ -1114,12 +1114,12 @@ namespace Proud
 		\~japanese
 		以前のレコードにカーソルを移します。
 		\~
-		 */
-		 PROUDSRV_API   void MovePrevious();
+		*/
+		PROUDSRV_API void MovePrevious();
 
 		/**
 		\~korean
-		 마지막 레코드로 커서를 옮긴다.
+		마지막 레코드로 커서를 옮긴다.
 
 		\~english
 		This method moves cursor to the last record.
@@ -1130,8 +1130,8 @@ namespace Proud
 		\~japanese
 		最後のレコードにカーソルを移します。
 		\~
-		 */
-		 PROUDSRV_API   void MoveLast();
+		*/
+		PROUDSRV_API void MoveLast();
 
 		/**
 		\~korean
@@ -1154,8 +1154,8 @@ namespace Proud
 		- 次のレコードセットを自分自身に割り当てます。
 		\param recordsAffected クエリーによって影響を受けたレコード数
 		\~
-		 */
-		  PROUDSRV_API bool MoveNextRecordset(long *recordsAffected = NULL);
+		*/
+		PROUDSRV_API bool MoveNextRecordset(long *recordsAffected = NULL);
 		/**
 		\~korean
 		다음 레코드셋을 다른 인스턴스에게 넘겨줍니다.
@@ -1177,8 +1177,8 @@ namespace Proud
 		\param outRecordset 次のレコードセットを引き渡すレコードセットのインスタンス
 		\param recordsAffected クエリーによって影響を受けたレコード数
 		\~
-		 */
-		  PROUDSRV_API void NextRecordset(OUT CAdoRecordset& outRecordset,OUT long *recordsAffected=NULL);
+		*/
+		PROUDSRV_API void NextRecordset(OUT CAdoRecordset& outRecordset,OUT long *recordsAffected=NULL);
 	};
 
 	/**
@@ -1226,16 +1226,16 @@ namespace Proud
 	co.Parameters[1]=1L;
 	co.Parameters[2]=2L;
 	co.Execute();
-	long x=co.Parameters[3]; 
-	\endcode 
+	long x=co.Parameters[3];
+	\endcode
 
 	\~
 	*/
 	class CAdoCommand:public ADODB::_CommandPtr,protected CQueryChecker
 	{
 	public:
-		  PROUDSRV_API CAdoCommand(ADODB::_Command *conn);
-		  PROUDSRV_API CAdoCommand();
+		PROUDSRV_API CAdoCommand(ADODB::_Command *conn);
+		PROUDSRV_API CAdoCommand();
 	private:
 		// 복사 금지. ADODB COM smartptr을 래핑하고 있으나, 정작 이 함수의 dtor에서 close를 하기 때문임.
 		CAdoCommand& operator=(const CAdoCommand&);
@@ -1264,7 +1264,7 @@ namespace Proud
 		\param storedProcName
 		\~
 		*/
-		 PROUDSRV_API void /*FASTCALL */ Prepare(ADODB::_Connection* connection, const String& storedProcName, ADODB::CommandTypeEnum cmdType = ADODB::adCmdStoredProc);
+		PROUDSRV_API void /*FASTCALL */ Prepare(ADODB::_Connection* connection, const String& storedProcName, ADODB::CommandTypeEnum cmdType = ADODB::adCmdStoredProc);
 
 		/**
 		\~korean
@@ -1283,8 +1283,8 @@ namespace Proud
 		PrepareSPに指定されたstored procedureを実行します。
 		\param recordsAffected stored procedureによって影響を受けたrecord数
 		\~
-		  */
-		  PROUDSRV_API void /*FASTCALL */ Execute(OUT long *recordsAffected=NULL);
+		*/
+		PROUDSRV_API void /*FASTCALL */ Execute(OUT long *recordsAffected=NULL);
 
 		/**
 		\~korean
@@ -1307,8 +1307,8 @@ namespace Proud
 		\param outRecordsetを受け取る結果のレコードセット
 		\param recordsAffected stored procedureによって影響を受けたrecordの数
 		\~
-		  */
-		  PROUDSRV_API void /*FASTCALL */ Execute(OUT CAdoRecordset& outRecordset,OUT long *recordsAffected=NULL);
+		*/
+		PROUDSRV_API void /*FASTCALL */ Execute(OUT CAdoRecordset& outRecordset,OUT long *recordsAffected=NULL);
 
 
 		/**
@@ -1333,7 +1333,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		  PROUDSRV_API CVariant /*FASTCALL */ GetParam(int index);
+		PROUDSRV_API CVariant /*FASTCALL */ GetParam(int index);
 
 		/**
 		\~korean
@@ -1357,14 +1357,14 @@ namespace Proud
 		\~japanese
 		indexが指すparamter値を求めます。PrepareSPを呼び出した後に使うことができます。
 		\returnリターンされるparameter値
-		\param index 何番目のparameter値を求めますか？ 
+		\param index 何番目のparameter値を求めますか？
 		0はstored procedureのreturn valueを、残りparameterは1-based indexです。
 		\~
 
 		**NOTE** This function is very slow because of executing an additional stored procedure for getting procedure information.
 		It is not recommended to use this function. The workaround is to use AppendParameter() instead.
 		*/
-		 PROUDSRV_API void /*FASTCALL */ SetParam(int index,const CVariant &value);
+		PROUDSRV_API void /*FASTCALL */ SetParam(int index,const CVariant &value);
 #if defined (_MSC_VER)
 		__declspec(property(get=GetParam,put=SetParam)) CVariant Parameters[];
 #endif
@@ -1402,7 +1402,7 @@ namespace Proud
 		\param defaultValue 実際にプロシージャに伝われた値
 		\~
 		*/
-		PROUDSRV_API  ADODB::_ParameterPtr /*FASTCALL */ AppendParameter(const String& paramName, ADODB::DataTypeEnum paramType, ADODB::ParameterDirectionEnum paramDirection, const CVariant &defaultValue);
+		PROUDSRV_API ADODB::_ParameterPtr /*FASTCALL */ AppendParameter(const String& paramName, ADODB::DataTypeEnum paramType, ADODB::ParameterDirectionEnum paramDirection, const CVariant &defaultValue);
 
 		/**
 		\~korean
@@ -1422,8 +1422,8 @@ namespace Proud
 		\param defaultValue 実際プロシージャにストリング値
 		\~
 		*/
-		PROUDSRV_API 	 ADODB::_ParameterPtr /*FASTCALL */ AppendParameter(const String& paramName, ADODB::DataTypeEnum paramType, ADODB::ParameterDirectionEnum paramDirection, const String& defaultValue);
-		PROUDSRV_API 	 ADODB::_ParameterPtr /*FASTCALL */ AppendParameter(ADODB::DataTypeEnum paramType, ADODB::ParameterDirectionEnum paramDirection, const String& defaultValue);
+		PROUDSRV_API ADODB::_ParameterPtr /*FASTCALL */ AppendParameter(const String& paramName, ADODB::DataTypeEnum paramType, ADODB::ParameterDirectionEnum paramDirection, const String& defaultValue);
+		PROUDSRV_API ADODB::_ParameterPtr /*FASTCALL */ AppendParameter(ADODB::DataTypeEnum paramType, ADODB::ParameterDirectionEnum paramDirection, const String& defaultValue);
 
 		/**
 		\~korean
@@ -1439,7 +1439,7 @@ namespace Proud
 		同名メソッド参照。但し、内部的に_variant_tが入ります。
 		\~
 		*/
-		PROUDSRV_API   ADODB::_ParameterPtr /*FASTCALL */ AppendParameter(const String& paramName, ADODB::DataTypeEnum paramType, ADODB::ParameterDirectionEnum paramDirection);
+		PROUDSRV_API ADODB::_ParameterPtr /*FASTCALL */ AppendParameter(const String& paramName, ADODB::DataTypeEnum paramType, ADODB::ParameterDirectionEnum paramDirection);
 
 		/**
 		\~korean
@@ -1463,14 +1463,14 @@ namespace Proud
 		\param length ストリングの最大長さ
 		\~
 		*/
-		PROUDSRV_API   ADODB::_ParameterPtr /*FASTCALL */ AppendParameter(const String& paramName, ADODB::DataTypeEnum paramType, ADODB::ParameterDirectionEnum paramDirection, const String& defaultValue, long length);
+		PROUDSRV_API ADODB::_ParameterPtr /*FASTCALL */ AppendParameter(const String& paramName, ADODB::DataTypeEnum paramType, ADODB::ParameterDirectionEnum paramDirection, const String& defaultValue, long length);
 
 		/**
 		Convenient function for AppendParameter.
 		*/
-		PROUDSRV_API  ADODB::_ParameterPtr AppendInputParameter(const String& paramName, const Guid& value);
+		PROUDSRV_API ADODB::_ParameterPtr AppendInputParameter(const String& paramName, const Guid& value);
 
-		PROUDSRV_API  ADODB::_ParameterPtr AppendReturnValue();
+		PROUDSRV_API ADODB::_ParameterPtr AppendReturnValue();
 
 	private:
 		void WarnIfParameterHasProblem();
@@ -1507,7 +1507,7 @@ namespace Proud
 	ADO recordsetのfieldのコピーをコピーしますが、原本recordsetをcloseしても読み取りアクセスほどはできるADO objectが存在すれば、それをこのクラスの代わりに使っても良いですが、性能の保証されたものがないので、このクラスを代わりに作りました。
 	MSSQL serverの特性から、field nameはcase insensitiveです。
 	\~
-	  */
+	*/
 	class CAdoOfflineRecord:public CProperty
 	{
 	public:
@@ -1533,7 +1533,7 @@ namespace Proud
 		\param src 原本 recordset
 		\~
 		*/
-		PROUDSRV_API  void CopyFrom(CAdoRecordset &src);
+		PROUDSRV_API void CopyFrom(CAdoRecordset &src);
 
 		inline CAdoOfflineRecord()
 		{
@@ -1613,10 +1613,10 @@ namespace Proud
 		sourceの全てのレコードをコピーしてきます。
 		コピーが終わったら、sourceのcursorはEOFになります。
 		\param source  原本 recordset
-		
+
 		\~
 		*/
-		PROUDSRV_API   void IterateAndCopyFrom(CAdoRecordset &source);
+		PROUDSRV_API void IterateAndCopyFrom(CAdoRecordset &source);
 
 		/**
 		\~korean
@@ -1639,7 +1639,7 @@ namespace Proud
 		\param source  原本 recordset
 		\~
 		*/
-		PROUDSRV_API   void IterateAndAppendFrom(CAdoRecordset &source);
+		PROUDSRV_API void IterateAndAppendFrom(CAdoRecordset &source);
 	};
 
 	// Disconnected Recordset - Sample Source //
@@ -1699,9 +1699,9 @@ namespace Proud
 	src文字列内の"'"文字は、誤作動を引き起こす可能性があるため、"''"に引き換えます。
 	\~
 	*/
-	PROUDSRV_API  String gds(const PNTCHAR *src);
+	PROUDSRV_API String gds(const PNTCHAR *src);
 
-	 PROUDSRV_API  void RecommendNoCriticalSectionLock();
+	PROUDSRV_API void RecommendNoCriticalSectionLock();
 
 	/**
 	\~korean
@@ -1732,12 +1732,12 @@ namespace Proud
 	- これを濫用しないこと。DBボットルネットを無視することなので、サーバーの最適化過程ではこれが原因になって重要なボットルネットを見つけられない場合があります。
 	- ローカル変数のみでこのオブジェクトを生成することができます。
 	\~
-	   */
+	*/
 	class CAdoDBTemporaryBottleneckCheckDisabler
 	{
 	public:
-		PROUDSRV_API   CAdoDBTemporaryBottleneckCheckDisabler();
-		PROUDSRV_API  ~CAdoDBTemporaryBottleneckCheckDisabler();
+		PROUDSRV_API CAdoDBTemporaryBottleneckCheckDisabler();
+		PROUDSRV_API ~CAdoDBTemporaryBottleneckCheckDisabler();
 	};
 
 	/**
@@ -1749,7 +1749,7 @@ namespace Proud
 	\~english TODO:translate needed.
 	Error object that could occur as running ProudDB
 	-When a problem occurs, you can get it called back using ILogWriterDelegate::OnLogWriterException function
-	-Through - AdoException::what() function, you can get the string of what has occurred. 
+	-Through - AdoException::what() function, you can get the string of what has occurred.
 
 	\~chinese
 	ProudDB 实行时发生的错误对象
@@ -1760,9 +1760,9 @@ namespace Proud
 	ProudDB 実行中に発生するエラーオブジェクト
 	- 問題が発生時、ILogWriterDelegate::OnLogWriterException関数を通じコールバックを受けられます。
 	- AdoException::what()関数を通じ発生した内容のStringを得ることができます。
-	
+
 	\~
-	  */
+	*/
 	class AdoException:public Exception
 	{
 	public:
@@ -1781,19 +1781,13 @@ namespace Proud
 		\~japanese
 		ProudDBはADOを使っています。ProudDBが使うADOは_com_errorを例外として送りますが、それがここに入ります。
 		\~
-		  */
+		*/
 		_com_error m_comError;
 
-		PROUDSRV_API   AdoException(const PNTCHAR *txt, _com_error &e);
+		PROUDSRV_API AdoException(const PNTCHAR *txt, _com_error &e);
 	};
 
-
-
-
-
 	/**  @}  */
-
-
 }
 
 #ifdef _MSC_VER

@@ -5,7 +5,7 @@
 ProudNet은 [1] 플랫폼에서는 wchar_t를, [2] 플랫폼에서는 char를 사용하는 API를 제공합니다.
 만약 당신의 프로그램이 [1]과 [2]에서 모두 정상적인 빌드가 되어야 한다면, 아래 정의된 것들을 사용하셔야 할 것입니다. */
 
-#pragma once 
+#pragma once
 
 #ifdef _MSC_VER
 #pragma pack(push,8)
@@ -20,11 +20,11 @@ ProudNet은 [1] 플랫폼에서는 wchar_t를, [2] 플랫폼에서는 char를 �
 #define _PNSTR2WSTR(str)	__PNSTR2WSTR(str)
 
 // PNTCHAR=char로 빌드되더라도 이 define은 존재해야 한다.
-// 주의: 가급적 이것을 쓰지 말 것. String 변환 때문에 느리다. 
+// 주의: 가급적 이것을 쓰지 말 것. String 변환 때문에 느리다.
 #ifndef __FUNCTIONW__
 #define __FUNCTIONW__		(StringA2W(__FUNCTION__).GetString())
 
-//#define __FUNCTIONW__		_PNSTR2WSTR(__FUNCTION__) 
+//#define __FUNCTIONW__		_PNSTR2WSTR(__FUNCTION__)
 //  안타깝게도 PS4에서 윗줄이 L__FUNCTION__ 이 없다는 에러를 낸다. 따라서 이 줄을 쓴다. 성능 떨어지지만 어차피 디버그 용도인데.
 
 #endif
@@ -49,11 +49,11 @@ ProudNet은 [1] 플랫폼에서는 wchar_t를, [2] 플랫폼에서는 char를 �
 #define Tstrcat wcscat
 #define Tstricmp wcsicmp
 #define Tstrcpy wcscpy
-#define Tofstream ::std::wofstream 
-#define Tstringstream ::std::wstringstream 
+#define Tofstream ::std::wofstream
+#define Tstringstream ::std::wstringstream
 typedef wchar_t PNTCHAR;
 
-// 주의: 가급적 이것을 쓰지 말 것. String 변환 때문에 느리다. 
+// 주의: 가급적 이것을 쓰지 말 것. String 변환 때문에 느리다.
 #define __FUNCTIONT__ __FUNCTIONW__
 
 // filesys.h 따라함
@@ -74,7 +74,7 @@ typedef wchar_t PNTCHAR;
 #define Tstricmp stricmp
 #define Tstrcpy strcpy
 #define Tofstream std::ofstream
-#define Tstringstream std::stringstream 
+#define Tstringstream std::stringstream
 typedef char PNTCHAR;
 
 #define __FUNCTIONT__ __FUNCTION__

@@ -37,9 +37,9 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #pragma once
 #include "BasicTypes.h"
 
-#define UPDC16(cp,crc)      (Proud::CCrc::Crc16Table[((crc^cp) & 0xff)] ^ (crc >> 8))
-#define UPDCCCITT(cp,crc)   (Proud::CCrc::CrcCcittTable[((crc >> 8) & 0xff)] ^ (crc << 8) ^ cp)
-#define UPDC32(octet,crc)   (Proud::CCrc::Crc32Table[((crc) ^ (octet)) & 0xff] ^ ((crc) >> 8))
+#define UPDC16(cp,crc)		(Proud::CCrc::Crc16Table[((crc^cp) & 0xff)] ^ (crc >> 8))
+#define UPDCCCITT(cp,crc)	(Proud::CCrc::CrcCcittTable[((crc >> 8) & 0xff)] ^ (crc << 8) ^ cp)
+#define UPDC32(octet,crc)	(Proud::CCrc::Crc32Table[((crc) ^ (octet)) & 0xff] ^ ((crc) >> 8))
 
 #ifdef _MSC_VER
 #pragma pack(push,8)
@@ -57,16 +57,16 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	CRC 체크섬 클래스입니다.
-	
+
 	\~english
 	CRC checksum class
-	
+
 	\~chinese
 	CRC校验总合类。
-	
+
 	\~japanese
 	CRCチェックサムクラスです。
 	\~
@@ -74,15 +74,15 @@ namespace Proud
 	class CCrc
 	{
 	public:
-		/** 
+		/**
 		\~korean
-		Crc-16 
+		Crc-16
 		\param data 데이터의 포인터
 		\param length 데이터의 길이
 		\return 체크섬 결과값
 
 		\~english TODO:translate needed.
-		Crc-16 
+		Crc-16
 		\param data Data pointer
 		\param length Data length
 		\return Check sum result value
@@ -94,63 +94,63 @@ namespace Proud
 		\return 校验综合结果值
 
 		\~japanese
-		Crc-16 
+		Crc-16
 		\param data データのポインター
 		\param length データの長さ
 		\return チェックサム結果値
 		\~
 		*/
-		 static unsigned short Crc16(const uint8_t* data, unsigned int length);
+		static unsigned short Crc16(const uint8_t* data, unsigned int length);
 
-		/** 
+		/**
 		\~korean
-		Crc-ccitt 
+		Crc-ccitt
 		\param data 데이터의 포인터
 		\param length 데이터의 길이
 		\return 체크섬 결과값
-		
+
 		\~english TODO:translate needed.
-		Crc-ccitt 
+		Crc-ccitt
 		\param data Data pointer
 		\param length Data length
 		\return Check sum result value
 
-		
+
 		\~chinese
 		Crc-ccitt
 		\param data 数据的指针
 		\param length 数据的长度
 		\return 校验综合结果值
-		
+
 		\~japanese
-		Crc-ccitt 
+		Crc-ccitt
 		\param data データのポインター
 		\param length データの長さ
 		\return チェックサム結果値
 		\~
 		*/
-		 static unsigned short CrcCcitt(const uint8_t* data, unsigned int length);
+		static unsigned short CrcCcitt(const uint8_t* data, unsigned int length);
 
-		/**  
+		/**
 		\~korean
 		Crc-32
 		\param data 데이터의 포인터
 		\param length 데이터의 길이
 		\return 체크섬 결과값
-		
+
 		\~english TODO:translate needed.
 		Crc-32
 		\param data Data pointer
 		\param length Data length
 		\return Check sum result value
 
-		
+
 		\~chinese
 		Crc-32
 		\param data 数据的指针
 		\param length 数据的长度
 		\return 校验综合结果值
-		
+
 		\~japanese
 		Crc-32
 		\param data データのポインター
@@ -158,7 +158,7 @@ namespace Proud
 		\return チェックサム結果値
 		\~
 		*/
-		 static unsigned int  Crc32(const uint8_t* data, unsigned int length);
+		static unsigned int  Crc32(const uint8_t* data, unsigned int length);
 
 	private:
 		static const unsigned short Crc16Table[256];

@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "Ptr.h"
 
@@ -42,14 +42,14 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #pragma pack(push,8)
 #endif
 
-namespace Proud 
+namespace Proud
 {
 	// 다양한 함수 콜백에서 사용되는, 함수 인자 클래스.
 	// 보통 함수 콜백으로 던져지는 "기타 등등 사용자 정의"값들의 객체가 된다.
 	class CallbackContext
 	{
 	public:
-		// NOTE: 이 클래스에는 함수 포인터가 들어가지 않는다. 
+		// NOTE: 이 클래스에는 함수 포인터가 들어가지 않는다.
 		// 이 클래스는 사용자가 어떤 인자를 가진 함수 포인터를 넣을지 모르기 때문에 여기에서 다루지 않는다.
 
 		// 상속받아 쓰이는 경우를 위해 이것이 있어야 한다. 혹시 모르므로.

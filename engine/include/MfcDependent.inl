@@ -49,7 +49,7 @@ namespace Proud
 	// #TODO-MFC 여기다 CArray, CMap의 operator<<,>>,AppendTextOut을 구현하세요.
 	// stlmarshal.inl에 있는 std.vector, std.map을 복붙해서 고쳐만드세요.
 	// size()대신 GetCount가 쓰이고 size_t대신 intptr_t 혹은 int를 쓰세요. 어떤걸 써야 하는지는 CAtlArray등의 구현부를 참고해서 하시고요.
-	// 고객사 이슈가 발생하면 다룹시다. 
+	// 고객사 이슈가 발생하면 다룹시다.
 
 }
 

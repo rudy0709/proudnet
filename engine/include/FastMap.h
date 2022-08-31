@@ -537,7 +537,7 @@ namespace Proud
 		\param key 追加するキー値
 		\param value 追加するオブジェクト
 		\return 追加をした後、追加位置を指すポインター。Positionがベースクラスなので、すぐPositionをリターン値に見なしても良いです。
- 
+
 		\~
 		*/
 		CNode* SetAt( KINARGTYPE key, VINARGTYPE value )
@@ -550,7 +550,7 @@ namespace Proud
 			if ( pNode == NULL )
 			{
 				pNode = CreateNode( key, iBin, nHash );
-        pNode->m_value = value;
+				pNode->m_value = value;
 			}
 			else
 			{
@@ -566,8 +566,8 @@ namespace Proud
 		\param pos value를 넣을 node의 Position
 		\param value node에 넣을 data
 
-		\~english 
-		Insert a new value of the place where the previously obtained position object points at. 
+		\~english
+		Insert a new value of the place where the previously obtained position object points at.
 		\param pos Position of the node to insert the value
 		\param value Data to be inserted into the node
 
@@ -658,7 +658,7 @@ namespace Proud
 		\~japanese
 		キーが指す項目を探して除去します。
 		\param key 除去するキー
-		\param rehashOnNeed trueの場合、hash tableが十分小さくなった場合、hash tableを再調整します。 
+		\param rehashOnNeed trueの場合、hash tableが十分小さくなった場合、hash tableを再調整します。
 		この時、使っていたiteratorかPositionがある場合、これはも効果されることに注意しなければなりません。
 		\return 探して除去したら、trueをリターンします。探すことができなかったらfalseです。
 
@@ -746,7 +746,7 @@ namespace Proud
 		\~japanese
 		Positionが指す所のkey-value pairを除去します。
 		\param pos この前に得たPosition値。この値は有効な値ではなければなりません。
-		\param rehashOnNeed trueの時、hash tableが十分小さくなった場合、hash tableを再調整します。 
+		\param rehashOnNeed trueの時、hash tableが十分小さくなった場合、hash tableを再調整します。
 		この時、使っていた iteratorかPositionがある場合、これは無効かされるこことに注意しなければなりません。
 
 		\~
@@ -835,11 +835,11 @@ namespace Proud
 		\param [out] key 다음항목의 key
 		\param [out] value 다음 항목의 값
 
-		\~english 
+		\~english
 		Obtain the following
-		\param [in,out] Position value of the next item. 
-		\param [out] Key of the next item. 
-		\param [out] Value of the next item. 
+		\param [in,out] Position value of the next item.
+		\param [out] Key of the next item.
+		\param [out] Value of the next item.
 
 		\~chinese
 		获得之后项目。
@@ -877,9 +877,9 @@ namespace Proud
 		\param pos 가리키고 있는 node의 다음 Position을 얻어온다.
 		\return 다음 node의 const CPair값을 리턴
 
-		\~english 
+		\~english
 		Obtain the following:
-		\param pos Obtain the next position of the node being pointed at. 
+		\param pos Obtain the next position of the node being pointed at.
 		\return Return the const CPair value of the next node
 
 		\~chinese
@@ -916,9 +916,9 @@ namespace Proud
 		\param pos pos 가리키고 있는 node의 다음 Position을 얻어온다.
 		\return 다음 node의 \ref CPair 값을 리턴
 
-		\~english 
+		\~english
 		Obtain the next item.
-		\param pos Obtain the next position of the node being pointed at. 
+		\param pos Obtain the next position of the node being pointed at.
 		\return Return the const CPair value of the next node
 
 
@@ -953,10 +953,10 @@ namespace Proud
 		\param pos pos가 가르키고 있는 node의 이전 Position을 얻어온다.
 		\return 이전노드의 \ref CPair 값
 
-		\~english 
-		Obtain the previous item. 
+		\~english
+		Obtain the previous item.
 		\param pos Obtain the next position of the node being pointed at by this pos.
-		\return Key value of the next node. 
+		\return Key value of the next node.
 
 		\~chinese
 		获得之前项目。
@@ -989,10 +989,10 @@ namespace Proud
 		\param pos 이 pos 가리키고 있는 node의 다음 Position을 얻어온다.
 		\return 다음 node의 key값
 
-		\~english 
+		\~english
 		Obtain the next item
 		\param pos Obtain the next position of the node being pointed at by this pos.
-		\return const value of the next node 
+		\return const value of the next node
 
 		\~chinese
 		获得之后项目。
@@ -1028,10 +1028,10 @@ namespace Proud
 		\param pos 이 pos 가리키고 있는 node의 다음 Position을 얻어온다.
 		\return 다음 node의 const value값
 
-		\~english 
+		\~english
 		Obtain the next item
 		\param pos Obtain the next position of the node being pointed at by this pos.
-		\return const value of the next node 
+		\return const value of the next node
 
 		\~chinese
 		获得之后项目。
@@ -1067,7 +1067,7 @@ namespace Proud
 		\param pos 이 pos 가리키고 있는 node의 다음 Position을 얻어온다.
 		\return 다음 node의 value값
 
-		\~english 
+		\~english
 		Obtain the next item
 		\param pos Obtain the next position of the node being pointed at by this pos.
 		\return Value of the next node
@@ -1107,9 +1107,9 @@ namespace Proud
 		\param key 해당노드의 key을 얻어옴
 		\param value 해당 노드의 data를 얻어옴
 
-		\~english 
-		Obtain the key and value of the place where the position is pointing at. 
-		\param pos Position pointing the node 
+		\~english
+		Obtain the key and value of the place where the position is pointing at.
+		\param pos Position pointing the node
 		\param key Obtain the key of the node
 		\param value Obtain the data of the node
 
@@ -1143,9 +1143,9 @@ namespace Proud
 		\param index 첫번째 정보로 부터 이 index만큼 다음노드로 이동한다.
 		\return 찾은 노드의 CPair
 
-		\~english 
-		Obtain the key and value of the place located in the index 
-		\param index Move to the next node as much as this index from the first information. 
+		\~english
+		Obtain the key and value of the place located in the index
+		\param index Move to the next node as much as this index from the first information.
 		\return CPair of the searched node
 
 		\~chinese
@@ -1178,7 +1178,7 @@ namespace Proud
 		\param index 첫번째 정보로 부터 이 index만큼 다음노드로 이동한다.
 		\return 찾은 노드의 const CPair
 
-		\~english 
+		\~english
 		Obtain the key and value of the place located in the index
 		\param index Move to the next node as much as this index from the first information.
 		\return const CPair of the searched node
@@ -1213,7 +1213,7 @@ namespace Proud
 		\param pos Position정보
 		\return Position에 해당하는 CPair
 
-		\~english 
+		\~english
 		Obtain the key and value of the place where the position is pointing at
 		\param pos Position information
 		\return CPair corresponding to the position
@@ -1243,7 +1243,7 @@ namespace Proud
 		\param pos Position정보
 		\return Position에 해당하는 const CPair
 
-		\~english 
+		\~english
 		Obtain the key and value of the place where the position is pointing at
 		\param pos Position information
 		\return const CPair corresponding to the position
@@ -1273,7 +1273,7 @@ namespace Proud
 		\param pos node를 가리키는 Position
 		\return Position이 가리키는 node의 key
 
-		\~english 
+		\~english
 		Obtain the key and value of the place where the position is pointing at
 		\param pos Position pointing at the node
 		\return Key of the node pointed at by the position
@@ -1305,7 +1305,7 @@ namespace Proud
 		\param pos node를 가리키는 Position
 		\return Position이 가리키는 node의 const data
 
-		\~english 
+		\~english
 		Obtain the key and value of the place where the position is pointing at
 		\param Position pointing at the node
 		\return const data of the node pointed at by the position
@@ -1337,7 +1337,7 @@ namespace Proud
 		\param pos node를 가리키는 Position
 		\return Position이 가리키는 node의 data
 
-		\~english 
+		\~english
 		Obtain the key and value of the place where the position is pointing at
 		\param pos Position pointing at the node
 		\return Data of the node pointed at by the position
@@ -1367,9 +1367,9 @@ namespace Proud
 		\~korean
 		hash 테이블의 크기를 얻습니다.
 
-		\~english 
+		\~english
 		Get the size of the hash table
-		
+
 		\~chinese
 		获取hash table的大小。
 
@@ -1390,12 +1390,12 @@ namespace Proud
 		\param bAllocNow 헤쉬 메모리 생성 여부 설정
 		\return hash 초기화에 성공하면 true, 실패하면 false 리턴
 
-		\~english 
-		Initialize the hash table. 
-		- It automatically calls when generating a node. 
+		\~english
+		Initialize the hash table.
+		- It automatically calls when generating a node.
 		\param nBins Hash size
 		\param bAllocNow Configure whether to generate hash memory
-		\return hash True if successful in initializing, false if failed. 
+		\return hash True if successful in initializing, false if failed.
 
 
 		\~chinese
@@ -1445,8 +1445,8 @@ namespace Proud
 		\~korean
 		자동으로 Rehash를 합니다.
 
-		\~english 
-		Rehash automatically 
+		\~english
+		Rehash automatically
 
 		\~chinese
 		自动Rehash。
@@ -1465,8 +1465,8 @@ namespace Proud
 		\~korean
 		자동으로 Rehash를 하지 않습니다.
 
-		\~english 
-		Do not rehash automatically 
+		\~english
+		Do not rehash automatically
 
 		\~chinese
 		不自动Rehash。
@@ -1485,9 +1485,9 @@ namespace Proud
 		hash 테이블을 다시 생성한다.
 		\param nBins hash테이블의 크기
 
-		\~english 
+		\~english
 		Generate a hash table again
-		\param Size of the hash table 
+		\param Size of the hash table
 
 		\~chinese
 		重新生成hash table。
@@ -1701,9 +1701,9 @@ namespace Proud
 
 		\param rehashNow 설정하면서 Rehash를 할것인지를 선택한다. true이면 Rehash를 함
 
-		\~english 
-		Lookup optimum performance. Configuration to avoid rehash as much as possible but instead use a lot of memory. 
-		\param Select whether to rehash when configuring. If true, rehash. 
+		\~english
+		Lookup optimum performance. Configuration to avoid rehash as much as possible but instead use a lot of memory.
+		\param Select whether to rehash when configuring. If true, rehash.
 
 		\~chinese
 		Lookup 最佳性能，尽可能不要最大化rehash，使用很多内存的设置。
@@ -1728,8 +1728,8 @@ namespace Proud
 		\~korean
 		각 bin을 뒤져서, 최악의 bin, 즉 가장 많은 item을 가진 bin의 item 갯수를 리턴한다.
 
-		\~english 
-		Search each bin and return the worst bin, in other words, the number of items of the bin with the most items. 
+		\~english
+		Search each bin and return the worst bin, in other words, the number of items of the bin with the most items.
 
 		\~chinese
 		找各个bin，返回最坏的bin，即拥有最多item的bin的item个数。
@@ -1791,7 +1791,7 @@ namespace Proud
 		{
 			output.Clear();
 			output.SetCount(GetCount());
-			
+
 			KeysToArray(output.GetData(), output.GetCount());
 		}
 
@@ -1839,7 +1839,7 @@ namespace Proud
 		{
 			output.Clear();
 			output.SetCount(GetCount());
-			
+
 			int c = 0;
 			for (ConstIterType i = CFastMap<K, V>::begin(); i != CFastMap<K, V>::end(); i++)
 			{
@@ -2254,10 +2254,10 @@ namespace Proud
 		//{
 				RemoveAll();
 		//}
-		//    catch(...)
+		//	catch(...)
 		//{
-		//        assert(false);
-		//    }
+		//	assert(false);
+		//}
 #else
 			//_ATLTRY
 			//try
@@ -2402,7 +2402,7 @@ namespace Proud
 		\retur 有key的话true。
 
 		\~japanese
-		Keyがあるか確認します。 
+		Keyがあるか確認します。
 		\return キーがあれば true
 
 		\~
@@ -3336,9 +3336,9 @@ namespace Proud
 		내부 버퍼로 CFastHeap 을 사용한다.
 		\param heap CFastHeap 포인터
 
-		\~english 
-		Use CFastHeap with the internal buffer. 
-		\param CFastHeap pointer 
+		\~english
+		Use CFastHeap with the internal buffer.
+		\param CFastHeap pointer
 
 		\~chinese
 		使用 CFastHeap%为内部buffer。

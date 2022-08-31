@@ -37,5 +37,3 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #pragma once
 
 #include "NetStartServerParameter.h"
-
-

@@ -183,25 +183,25 @@ namespace Proud
 
 
 #ifdef _AFX
-	// 	__forceinline CMessage& operator<<(CMessage& a,const CPoint &b)
-	// 	{
-	// 		a<<b.x<<b.y;
-	// 		return a;
-	// 	}
+	//	__forceinline CMessage& operator<<(CMessage& a,const CPoint &b)
+	//	{
+	//		a<<b.x<<b.y;
+	//		return a;
+	//	}
 	//
 	//
-	// 	__forceinline CMessage& operator>>(CMessage& a,CPoint &b)
-	// 	{
-	// 		a>>b.x>>b.y;
-	// 		return a;
-	// 	}
+	//	__forceinline CMessage& operator>>(CMessage& a,CPoint &b)
+	//	{
+	//		a>>b.x>>b.y;
+	//		return a;
+	//	}
 	//
-	// 	__forceinline void AppendTextOut(String &a,CPoint &b)
-	// 	{
-	// 		String txt;
-	// 		txt.Format(_PNT("(%d,%d)"),b.x,b.y);
-	// 		a+=txt;
-	// 	}
+	//	__forceinline void AppendTextOut(String &a,CPoint &b)
+	//	{
+	//		String txt;
+	//		txt.Format(_PNT("(%d,%d)"),b.x,b.y);
+	//		a+=txt;
+	//	}
 #endif
 
 #ifdef PREPARED_D3DX_MARSHALER

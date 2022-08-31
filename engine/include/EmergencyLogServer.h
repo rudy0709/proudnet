@@ -50,7 +50,7 @@ namespace Proud
 //#pragma managed(push,off)
 #endif
 
-	/** 
+	/**
 	\~korean
 	EmergencyLog 서버가 요구하는 delegate
 
@@ -80,12 +80,12 @@ namespace Proud
 		주의! CEmergencyLogServer 는 UDP 사용을 하지 않기때문에 m_udpPorts, m_udpAssignMode 를 설정해도 UDP 통신이 되지 않는다.
 
 		\~english TODO:translate needed.
-		The method to set server run parameters. 
-		This is called back when the server starts. Users must set the server running option through this method. 
-		\param refParam Server running option. In this function, the user must configure Proud.CStartServerParameter.m_tcpPort. 
-		Proud.CStartServerParameter.m_localNicAddr,Proud.CStartServerParameter.m_serverAddrAtClient shall be configured when necessary. 
-		Other parameters need not be configured. 
-		Caution! As CEmergencyLogServer does not use UDP, UDP communication is not possible even if m_udpPorts and m_udpAssignMode are selected. 
+		The method to set server run parameters.
+		This is called back when the server starts. Users must set the server running option through this method.
+		\param refParam Server running option. In this function, the user must configure Proud.CStartServerParameter.m_tcpPort.
+		Proud.CStartServerParameter.m_localNicAddr,Proud.CStartServerParameter.m_serverAddrAtClient shall be configured when necessary.
+		Other parameters need not be configured.
+		Caution! As CEmergencyLogServer does not use UDP, UDP communication is not possible even if m_udpPorts and m_udpAssignMode are selected.
 
 		\~chinese
 		设置服务器的运行参数方法。
@@ -108,12 +108,12 @@ namespace Proud
 		*/
 		virtual void OnStartServer(CStartServerParameter &refParam) = 0;
 
-		/** 
+		/**
 		\~korean
-		서버가 종료해야 하는 상황(유저의 요청 등)이면 이 함수가 true를 리턴하면 된다. 
+		서버가 종료해야 하는 상황(유저의 요청 등)이면 이 함수가 true를 리턴하면 된다.
 
 		\~english TODO:translate needed.
-		If this is a situation where the server must be terminated (user request, etc), then this function shall return true. 
+		If this is a situation where the server must be terminated (user request, etc), then this function shall return true.
 
 		\~chinese
 		如需终止服务器（因用户邀请等原因），此函数返回true即可。
@@ -123,34 +123,34 @@ namespace Proud
 		\~
 		*/
 		virtual bool MustStopNow() = 0;
-		
-		/** 
+
+		/**
 		\~korean
 		Critical section 객체를 리턴한다. 개발자는 이 함수를 통해 이미 서버가 사용중인 critical section이나
-		별도로 준비한 critical section 객체를 공급해야 한다.  
+		별도로 준비한 critical section 객체를 공급해야 한다.
 
 		\~english TODO:translate needed.
-		A critical section object is returned. Developers must supply either a critical section where the server is already being used or a critical section object additionally prepared.  
+		A critical section object is returned. Developers must supply either a critical section where the server is already being used or a critical section object additionally prepared.
 
 		\~chinese
 		返回Critical section对象。开发者要通过此函数提供服务器正在使用的critical section，或另外准备的critical section。
 
 		\~japanese
-		Critical section オブジェクトをリターンします。開発者はこの関数を通じ既にサーバーが使用しているcritical sectionとか別に準備したcritical sectionオブジェクトを供給しなければなりません。 
-		  
+		Critical section オブジェクトをリターンします。開発者はこの関数を通じ既にサーバーが使用しているcritical sectionとか別に準備したcritical sectionオブジェクトを供給しなければなりません。
+
 		\~
 		*/
 		virtual CriticalSection* GetCriticalSection() = 0;
-		
-		/** 
+
+		/**
 		\~korean
 		서버 시작이 완료됐음을 알리는 이벤트
-		\param err 서버 시작이 성공했으면 NULL이, 그렇지 않으면 ErrorInfo 객체가 들어있다. 
+		\param err 서버 시작이 성공했으면 NULL이, 그렇지 않으면 ErrorInfo 객체가 들어있다.
 
 		\~english TODO:translate needed.
-		The event that informs the server start is complete. 
-		If the server start is successful, NULL, otherwise the ErrorInfo object is in there. 
-		
+		The event that informs the server start is complete.
+		If the server start is successful, NULL, otherwise the ErrorInfo object is in there.
+
 
 		\~chinese
 		告知服务器启动完毕的的事件。
@@ -158,19 +158,19 @@ namespace Proud
 
 		\~japanese
 		サーバー開始が完了されたことを知らせるイベント
-		\param err サーバー開始に成功したらNULLが、失敗したらErrorInfoオブジェクトが入っています。 
-		
+		\param err サーバー開始に成功したらNULLが、失敗したらErrorInfoオブジェクトが入っています。
+
 		\~
 		*/
 		virtual void OnServerStartComplete(Proud::ErrorInfo *err) = 0;
 
-		/** 
+		/**
 		\~korean
-		일정 시간마다 호출된다. 
+		일정 시간마다 호출된다.
 
 		\~english TODO:translate needed.
-		It is called a fixed interval. 
-		 
+		It is called a fixed interval.
+
 		\~chinese
 		每隔一段时间进行传呼。
 
@@ -181,7 +181,7 @@ namespace Proud
 		virtual void OnFrameMove() {}
 	};
 
-	/** 
+	/**
 	\~korean
 	EmergencyLog 서버
 	일반적 용도
@@ -192,9 +192,9 @@ namespace Proud
 	\~english TODO:translate needed.
 	EmergencyLog server
 	General use
-	- The client needs not be executed additionally. If you call CNetClient.SendEmergencyLog, it sends to the log server on its own. 
+	- The client needs not be executed additionally. If you call CNetClient.SendEmergencyLog, it sends to the log server on its own.
 	- Creation is done with Create()
-	- If you run RunMainLoop(), it performs its role until the log server ends. 
+	- If you run RunMainLoop(), it performs its role until the log server ends.
 
 	\~chinese
 	EmergencyLog 服务器。
@@ -216,29 +216,29 @@ namespace Proud
 	public:
 		virtual ~CEmergencyLogServer(void) {}
 
-		/** 
+		/**
 		\~korean
 		이 메서드를 실행하면 로그 서버가 활성화된다. 이 메서드는 서버가 작동을 중지하라는 요청이 IEmergencyLogServerDelegate 에
-		의해 오기 전까지 리턴하지 않는다. 
+		의해 오기 전까지 리턴하지 않는다.
 
 		\~english TODO:translate needed.
-		- If you run this method, the log server is activated. This method does not return until the request to stop running the server is relayed by IEmergencyLogServerDelegate. 
+		- If you run this method, the log server is activated. This method does not return until the request to stop running the server is relayed by IEmergencyLogServerDelegate.
 
 		\~chinese
 		实行此方法的话会激活log服务器。在接到通过IEmergencyLogServerDelegate服务器发出的终止运行邀请之前，此方法不会返回。
 
 		\~japanese
-		このメソッドを実行するとログサーバーが活性化されます。このメソッドはサーバーが作動を中止しろという要請がIEmergencyLogServerDelegateによって来る前までリターンしません。 
+		このメソッドを実行するとログサーバーが活性化されます。このメソッドはサーバーが作動を中止しろという要請がIEmergencyLogServerDelegateによって来る前までリターンしません。
 		\~
 		*/
 		virtual void RunMainLoop() = 0;
 
-		/** 
+		/**
 		\~korean
-		CEmergencyLogServer 객체를 생성한다. 
+		CEmergencyLogServer 객체를 생성한다.
 
 		\~english TODO:translate needed.
-		Generate CEmergencyLogServer object. 
+		Generate CEmergencyLogServer object.
 
 		\~chinese
 		生成 CEmergencyLogServer%对象。
@@ -247,7 +247,7 @@ namespace Proud
 		CEmergencyLogServer オブジェクトを生成します。
 		\~
 		*/
-		 static CEmergencyLogServer* Create(IEmergencyLogServerDelegate* dg);
+		static CEmergencyLogServer* Create(IEmergencyLogServerDelegate* dg);
 	};
 
 #if (defined(_MSC_VER) && _MSC_VER>=1400)

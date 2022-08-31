@@ -39,7 +39,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 // NOTE: 본 모듈은 서버 전용이다. UE4 등에서는 OLE-COM API를 사용 불가하므로.
 
 #if defined(_WIN32)
-    #include <comutil.h>
+	#include <comutil.h>
 	#include <ATLComTime.h>
 #endif
 
@@ -64,19 +64,19 @@ namespace Proud
 #endif
 
 #if defined(_WIN32)
-	/** 
+	/**
 	\~korean
 	variant.
 	_variant_t와 비슷한 역할을 하지만, UUID, int64 등의 처리 기능이 부가적으로 들어가 있다.
 	- 이 객체는 UUID를 bracket string으로 변환해서 가진다.
-	- 이 객체는 int64를 VariantChangeType()대신 자체 구현된 변환기를 가진다. 
-	(VariantChangeType에서 64bit integer 지원은 Windows XP에서부터 지원하기 때문이다.) 
+	- 이 객체는 int64를 VariantChangeType()대신 자체 구현된 변환기를 가진다.
+	(VariantChangeType에서 64bit integer 지원은 Windows XP에서부터 지원하기 때문이다.)
 
 	\~english
 	variant.
 	This module works similar to _variant_t, but additionally handles UUID, int64 and etc.
 	- This object has an UUID after converting it to braket string.
-	- This object has a custom converter of int64 instead of VariantChangeType(). 
+	- This object has a custom converter of int64 instead of VariantChangeType().
 	(Because VariantChangeType에서 64bit integer is already supported in Windows XP.)
 
 	\~chinese
@@ -90,8 +90,8 @@ namespace Proud
 	variant.
 	_variant_tと類似した役割をしますが、UUID、int64などの処理機能が付加的に入っています。
 	- このオブジェクトはUUIDをbracket stringに変換して持ちます。
-	- このオブジェクトはint64をVariantChangeType()の代わりに自ら実現した変換器を持ちます。 
-	(VariantChangeTypeでの64bit integerのサポートは、Windows XPからサポートするからです。) 
+	- このオブジェクトはint64をVariantChangeType()の代わりに自ら実現した変換器を持ちます。
+	(VariantChangeTypeでの64bit integerのサポートは、Windows XPからサポートするからです。)
 	\~
 	*/
 	class CVariant
@@ -99,8 +99,8 @@ namespace Proud
 	public:
 		_variant_t m_val;
 
-		// 아래 많은 constructor들은 _variant_t에서 따온 것이다. 필요한 경우 
-		// 이러한 것들(constructor,operator=,extractor operator)를 만들도록 하자. 
+		// 아래 많은 constructor들은 _variant_t에서 따온 것이다. 필요한 경우
+		// 이러한 것들(constructor,operator=,extractor operator)를 만들도록 하자.
 		inline CVariant() {}
 		inline CVariant(const _variant_t &src) { m_val=src; }
 		inline CVariant(VARENUM vartype){V_VT(&m_val) = vartype;}
@@ -127,87 +127,7 @@ namespace Proud
 		inline CVariant(const ByteArray& a){FromByteArray(a);}
 		inline CVariant(const ByteArrayPtr a){FromByteArray(a);}
 
-		/** 
-		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
-
-		\~english
-		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
-
-		\~chinese
-		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
-
-		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
-		\~
-		*/
-		inline operator char() const { ThrowIfNull(); return (long)m_val; }
-
-		/** 
-		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
-
-		\~english
-		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
-
-		\~chinese
-		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
-
-		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
-		\~
-		*/
-		inline operator short() const { ThrowIfNull(); return (long)m_val; }
-
-		/** 
-		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
-
-		\~english
-		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
-
-		\~chinese
-		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
-
-		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
-		\~
-		*/
-		inline operator int() const { ThrowIfNull(); return (long)m_val; }
-
-		/** 
-		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
-
-		\~english
-		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
-
-		\~chinese
-		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
-
-		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
-		\~
-		*/
-		inline operator long() const { ThrowIfNull(); return m_val; }
-
-		/** 
-		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
-
-		\~english
-		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
-
-		\~chinese
-		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
-
-		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
-		\~
-		*/
-		inline operator unsigned char() const { ThrowIfNull(); return m_val; }
-
-		/** 
+		/**
 		\~korean
 		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
 
@@ -218,14 +138,94 @@ namespace Proud
 		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
 
 		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
+		\~
+		*/
+		inline operator char() const { ThrowIfNull(); return (long)m_val; }
+
+		/**
+		\~korean
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+
+		\~english
+		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
+
+		\~chinese
+		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
+
+		\~japanese
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
+		\~
+		*/
+		inline operator short() const { ThrowIfNull(); return (long)m_val; }
+
+		/**
+		\~korean
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+
+		\~english
+		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
+
+		\~chinese
+		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
+
+		\~japanese
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
+		\~
+		*/
+		inline operator int() const { ThrowIfNull(); return (long)m_val; }
+
+		/**
+		\~korean
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+
+		\~english
+		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
+
+		\~chinese
+		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
+
+		\~japanese
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
+		\~
+		*/
+		inline operator long() const { ThrowIfNull(); return m_val; }
+
+		/**
+		\~korean
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+
+		\~english
+		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
+
+		\~chinese
+		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
+
+		\~japanese
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
+		\~
+		*/
+		inline operator unsigned char() const { ThrowIfNull(); return m_val; }
+
+		/**
+		\~korean
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+
+		\~english
+		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
+
+		\~chinese
+		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
+
+		\~japanese
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
 		\~
 		*/
 		inline operator unsigned short() const { ThrowIfNull(); return m_val; }
 
-		/** 
+		/**
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -234,14 +234,14 @@ namespace Proud
 		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
 
 		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
 		\~
 		*/
 		inline operator unsigned int() const { ThrowIfNull(); return m_val; }
 
-		/** 
+		/**
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -250,14 +250,14 @@ namespace Proud
 		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
 
 		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
 		\~
 		*/
 		inline operator unsigned long() const { ThrowIfNull(); return m_val; }
 
-		/** 
+		/**
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -266,14 +266,14 @@ namespace Proud
 		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
 
 		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
 		\~
 		*/
 		inline operator float() const { ThrowIfNull(); return m_val; }
 
-		/** 
+		/**
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -282,14 +282,14 @@ namespace Proud
 		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
 
 		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
 		\~
 		*/
 		inline operator double() const { ThrowIfNull(); return m_val; }
 
 		/**
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -298,14 +298,14 @@ namespace Proud
 		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
 
 		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
 		\~
 		*/
 		inline operator String() const { ThrowIfNull(); return String((const PNTCHAR*)(_bstr_t)m_val); }
 
-		/** 
+		/**
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -314,14 +314,14 @@ namespace Proud
 		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
 
 		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
 		\~
 		*/
 		inline operator UUID() const { ThrowIfNull(); return Win32Guid::ToNative(Guid::GetFromString((_bstr_t)m_val)); }
 
-		/** 
+		/**
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -330,14 +330,14 @@ namespace Proud
 		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
 
 		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
 		\~
 		*/
 		inline operator Guid() const { ThrowIfNull(); return Guid::GetFromString((_bstr_t)m_val); }
 
-		/** 
+		/**
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -346,14 +346,14 @@ namespace Proud
 		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
 
 		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
 		\~
 		*/
-		inline operator bool() const { ThrowIfNull(); return m_val; }	
+		inline operator bool() const { ThrowIfNull(); return m_val; }
 
-		/** 
+		/**
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -362,7 +362,7 @@ namespace Proud
 		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
 
 		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
 		\~
 		*/
 		inline operator COleDateTime() const { ThrowIfNull(); return m_val; }
@@ -382,10 +382,10 @@ namespace Proud
 		\~
 		*/
 		inline operator int64_t() const { ThrowIfNull(); return m_val; }
-		
-		/** 
+
+		/**
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -394,16 +394,16 @@ namespace Proud
 		返回值运算符。如果此对象拥有null值的话，例外会被throw。因此需要的话先用IsNull()确认null的与否。
 
 		\~japanese
-		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。 
+		リターン値演算子です。もし、このオブジェクトがnull値を持っていれば例外がthrowになります。よって、必要な場合、IsNull()でまずnullなのかどうかを確認してください。
 		\~
 		*/
 		inline operator uint64_t() const { ThrowIfNull(); return m_val; }
 		//inline operator ByteArray() const {return ToByteArray();}
 		inline operator ByteArrayPtr() const {return ToByteArrayPtr();}
 
-		/** 
+		/**
 		\~korean
-		값이 들어있는지 체크한다. 
+		값이 들어있는지 체크한다.
 
 		\~english
 		This method checks whether or not a value is included.
@@ -415,11 +415,11 @@ namespace Proud
 		値が入っているかをチェックします。
 		\~
 		*/
-		inline bool IsNull() const { return m_val.vt == VT_NULL; } 
+		inline bool IsNull() const { return m_val.vt == VT_NULL; }
 
-		/** 
+		/**
 		\~koeran
-		이진 데이터 블럭 형태로 데이터를 리턴한다. 
+		이진 데이터 블럭 형태로 데이터를 리턴한다.
 
 		\~english
 		This method returns data in byte data block.
@@ -431,11 +431,11 @@ namespace Proud
 		二進データブロック形態でデータをリターンします。
 		\~
 		*/
-		PROUDSRV_API 		 void ToByteArray(ByteArray &output) const;
+		PROUDSRV_API		void ToByteArray(ByteArray &output) const;
 
 		/**
 		\~korean
-		이진 데이터 블럭 형태로 데이터를 리턴한다. 
+		이진 데이터 블럭 형태로 데이터를 리턴한다.
 
 		\~english
 		This method returns data in byte data block.
@@ -447,11 +447,11 @@ namespace Proud
 		二進データブロック形態でデータをリターンします。
 		\~
 		*/
-		PROUDSRV_API 		 ByteArrayPtr ToByteArrayPtr() const;
+		PROUDSRV_API		ByteArrayPtr ToByteArrayPtr() const;
 
-		/** 
+		/**
 		\~korean
-		이진 데이터 블럭을 입력받는다. 
+		이진 데이터 블럭을 입력받는다.
 
 		\~english
 		This method inputs data in byte data block.
@@ -463,11 +463,11 @@ namespace Proud
 		二進データブロックを入力してもらいます。
 		\~
 		*/
-		 PROUDSRV_API void  FromByteArray(const ByteArray& input);
+		PROUDSRV_API void  FromByteArray(const ByteArray& input);
 
-		/** 
+		/**
 		\~korean
-		이진 데이터 블럭을 입력받는다. 
+		이진 데이터 블럭을 입력받는다.
 
 		\~english
 		This method inputs data in byte data block.
@@ -479,7 +479,7 @@ namespace Proud
 		二進データブロックを入力してもらいます。
 		\~
 		*/
-		 PROUDSRV_API void  FromByteArray(const ByteArrayPtr input);
+		PROUDSRV_API void  FromByteArray(const ByteArrayPtr input);
 	//private: VariantToByteArray 때문에 public
 		PROUDSRV_API void ThrowIfNull() const;
 	};

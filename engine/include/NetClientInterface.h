@@ -111,7 +111,7 @@ namespace Proud
 
 	\~japanese
 	\brief クライアントFrameMoveの処理結果
-	- FrameMoveでメッセージとイベントがどれだけ処理されたのかの結果です。 
+	- FrameMoveでメッセージとイベントがどれだけ処理されたのかの結果です。
 
 	\~
 	*/
@@ -170,7 +170,7 @@ namespace Proud
 	\brief 获得与服务器的连接状态的结果。
 
 	\~japanese
-	\brief サーバーとの接続状態を得た結果 
+	\brief サーバーとの接続状態を得た結果
 	\~
 	*/
 	class CServerConnectionState
@@ -216,7 +216,7 @@ namespace Proud
 	\brief 在ProudNet内部为了Direct P2P通信而保留的地址等信息。在 CNetClient.GetDirectP2PInfo%等使用。
 
 	\~japanese
-	\brief ProudNet 内部でDirect P2P通信のために保有しているアドレスなどの情報です。 
+	\brief ProudNet 内部でDirect P2P通信のために保有しているアドレスなどの情報です。
 	CNetClient.GetDirectP2PInfo などで使われます。
 
 	\~
@@ -238,8 +238,8 @@ namespace Proud
 		- 与 CNetClient.GetLocalUdpSocketAddr%一样的值。
 
 		\~japanese
-		CNetClientが相手peerとのDirect P2P通信のために持っているUDPソケットのローカルアドレス 	
-		- CNetClient.GetLocalUdpSocketAddrと同じ値です。 
+		CNetClientが相手peerとのDirect P2P通信のために持っているUDPソケットのローカルアドレス
+		- CNetClient.GetLocalUdpSocketAddrと同じ値です。
 
 		\~
 		*/
@@ -260,7 +260,7 @@ namespace Proud
 
 		\~japanese
 		相手PeerにDirect P2Pでパケットを送信時に相手peerの着信アドレスです。
-		socket API sendto()に使われたりします。 
+		socket API sendto()に使われたりします。
 
 		\~
 		*/
@@ -281,7 +281,7 @@ namespace Proud
 
 		\~japanese
 		相手peerからDirect P2Pでパケットを受信時に相手peerの送信アドレスです。
-		socket API recvfrom()に使われたりします。 
+		socket API recvfrom()に使われたりします。
 
 		\~
 		*/
@@ -305,7 +305,7 @@ namespace Proud
 		是P2P打洞成功后确保的信息吗？
 
 		\~japanese
-		P2P ホールパンチングに成功して確保された情報なのか？ 
+		P2P ホールパンチングに成功して確保された情報なのか？
 		\~
 		*/
 		inline bool HasBeenHolepunched()
@@ -349,7 +349,7 @@ namespace Proud
 		virtual ~CNetClient() {}
 
 	private:
-		 PROUD_API static CNetClient* Create_Internal(); // PNTEST가 쓴다.
+		PROUD_API static CNetClient* Create_Internal(); // PNTEST가 쓴다.
 	public:
 
 		/**
@@ -486,7 +486,7 @@ namespace Proud
 		この値は通常的に1以内が適当ですが、あまりにも小さい値を取る場合、クライアントはサーバーとの接続を終了しましたが、サーバー側でクライアントの接続解除を直ちに感知できない場合があり得ます。
 		\param comment ここに入れたデータは、INetServerEvent.OnClientLeaveより受け取られます。
 		即ち、クライアントがサーバーとの接続を解除しますが、サーバーに最後にデータを送りたい時(例：接続を切る理由を送る)有用です。
-		gracefulDisconnectTimeoutがあまりにも短いと届かない場合があります。 
+		gracefulDisconnectTimeoutがあまりにも短いと届かない場合があります。
 
 		\~
 		*/
@@ -499,9 +499,9 @@ namespace Proud
 		- 자세한 것은 동명 메서드 참조
 
 		\~english
-		It disconnects the connection to the server. Additionally, it withdraws from all P2P groups. 
-		In an environment where try/catch cannot be used from the user side such as UE4/PS4, it shall be used when an error message is notified. 
-		- For details, refer to the method with the same name. 
+		It disconnects the connection to the server. Additionally, it withdraws from all P2P groups.
+		In an environment where try/catch cannot be used from the user side such as UE4/PS4, it shall be used when an error message is notified.
+		- For details, refer to the method with the same name.
 
 		\~chinese
 		解除与服务器的连接。同时从所有P2P组退出。
@@ -524,9 +524,9 @@ namespace Proud
 		- 자세한 것은 동명 메서드 참조
 
 		\~english
-		It disconnects the connection to the server. Additionally, it withdraws from all P2P groups. 
-		In an environment where try/catch cannot be used from the user side such as UE4/PS4, it shall be used when an error message is notified. 
-		- For details, refer to the method with the same name. 
+		It disconnects the connection to the server. Additionally, it withdraws from all P2P groups.
+		In an environment where try/catch cannot be used from the user side such as UE4/PS4, it shall be used when an error message is notified.
+		- For details, refer to the method with the same name.
 
 		\~chinese
 		解除与服务器的连接。同时从所有P2P组退出。
@@ -603,7 +603,7 @@ namespace Proud
 		- このメソッドを長時間呼び出さないとして他のホストやサーバーとの接続が切れることはありません。
 		\param maxWaitTimeMs 処理するイベントや受信メッセージがある時まで、どれだけ長く待つかに対する値です。0であれば待たずに直ちにリターンします。
 		ゲームなどレンダーリングループ内では0が一般的で、レンダーリングループがない一般アプリでは適当な値(仮に200ms)を入れます。
-		\param outResult FrameMove 呼び出し時に処理結果の報告を得ます。省略可能なパラメーターです。 
+		\param outResult FrameMove 呼び出し時に処理結果の報告を得ます。省略可能なパラメーターです。
 
 
 		\param maxWaitTimeMs  処理するイベントや受信メッセージがあるまで、どれほど長く待つのかについた値です。0には待たずに直ちにリターンします。
@@ -763,7 +763,7 @@ namespace Proud
 
 		\~japanese
 		このホストが他のPeerとの通信のために内部的に持っているUDPソケットのローカルアドレスを得ます。
-		- \ref use_alternative_p2pで使われることもあります。 
+		- \ref use_alternative_p2pで使われることもあります。
 		\param remotePeerID このホストとP2P通信をしている他のPeerのHostID.
 		\return CNetClient 内部で保有しているUDPソケットのポート番号または(アドレス、ポート番号)。ユーザーはここでポート番号を取り込んで使えば良いです。
 		- P2Pグループに相手側のPeerが入って間もない場合、この値はAddrPort.Unassignedであることもあります。なぜなら、ProudNetは性能向上のためにUDPソケットを直ちに作らないからです。よって、このような場合、しばらく後で再びこのメソッドを呼び出して得ることができます。
@@ -801,10 +801,10 @@ namespace Proud
 
 		\~japanese
 		このホストがremotePeerIDが指す他のPeerとの通信のためにホールパンチングされた情報を得ます。
-		- \ref use_alternative_p2pで使われることもあります。 		
+		- \ref use_alternative_p2pで使われることもあります。
 		\param remotePeerID 他のPeerのID
 		\param outInfo 他のPeerとの通信のためのホールパンチング情報が満たされる所
-		\return ホールパンチングされたPeerの場合はtrue、その他の場合はfalseをリターンします。もし、falseをリターンした場合、まだホールパンチングされてないpeerの場合は0.3~1秒の間隔でこのメソッドを持続的に呼び出しながら見ると、trueをリターンする時があります。なぜなら、ホールパンチングに成功する時間はいつも違うからです。 
+		\return ホールパンチングされたPeerの場合はtrue、その他の場合はfalseをリターンします。もし、falseをリターンした場合、まだホールパンチングされてないpeerの場合は0.3~1秒の間隔でこのメソッドを持続的に呼び出しながら見ると、trueをリターンする時があります。なぜなら、ホールパンチングに成功する時間はいつも違うからです。
 
 		\~
 		*/
@@ -870,7 +870,7 @@ namespace Proud
 
 		\~japanese
 		このホストにつながった他のホスト(サーバーの場合はクライアント、クライアントの場合はピーア)のそれぞれにtagを指定します。\ref host_tag 機能です。
-		- 自己自身(サーバーまたはクライアント)に対するtagも指定することができます。 
+		- 自己自身(サーバーまたはクライアント)に対するtagも指定することができます。
 
 		\~
 		*/
@@ -935,7 +935,7 @@ namespace Proud
 		サーバーとのソケット接続状態をリターンします。
 		- ソケットの接続状態のみをリターンします。完全につながっているかはOnJoinServerCompleteにコールバックされます。
 		\param output サーバーとの接続状態が満たされる空間
-		\return サーバーとの接続状態 
+		\return サーバーとの接続状態
 
 		\~
 		*/
@@ -988,7 +988,7 @@ namespace Proud
 		\~japanese
 		イベントを受けられるオブジェクトを設定します。
 		- 一つのみ設定可能です。
-		- このメソッドはクライアントがサーバーに接続を試す前のみ呼び出すことができます。それとも、exceptionがthrowされます。 
+		- このメソッドはクライアントがサーバーに接続を試す前のみ呼び出すことができます。それとも、exceptionがthrowされます。
 
 		\~
 		*/
@@ -1361,9 +1361,9 @@ namespace Proud
 		- CNetClientはP2P通信をしているPeerの数だけのUDPソケットを持っていて、各々のUDPソケットはお互い違うPeerとの通信を専担しています。このメソッドは1個のPeerとの通信のみをバイパス状態に強制切り替えます。
 		- このメソッドを呼び出した後、相手もdirect P2Pを使えなくなりますので、相手もこのメソッドを呼び出すこともできます。
 		- direct P2Pではない場合にもこのメソッドは過去にホールパンチングされた情報を満たしてくれます。
-		
-		\param peerID 強制にバイパスする相手のPeerのHostID		
-		\param outDirectP2PInfo 強制にバイパスされたpeerとこのCNetClientがP2P通信を行うため、CNetClientが内部的に持っていたホールパンチング情報が満たされる所。\return 相手Peerが存在して相手Peerとのホールパンチングがされたことがあったとか、direct P2Pを維持していたらtrueをリターンします。 
+
+		\param peerID 強制にバイパスする相手のPeerのHostID
+		\param outDirectP2PInfo 強制にバイパスされたpeerとこのCNetClientがP2P通信を行うため、CNetClientが内部的に持っていたホールパンチング情報が満たされる所。\return 相手Peerが存在して相手Peerとのホールパンチングがされたことがあったとか、direct P2Pを維持していたらtrueをリターンします。
 
 		\~
 		*/
@@ -1402,7 +1402,7 @@ namespace Proud
 		\return 正式完成的话true。没有相关对方peer的话false。
 
 		\~japanese
-		InvalidateUdpSocketで除去されたUDP socketを再び作ります。 
+		InvalidateUdpSocketで除去されたUDP socketを再び作ります。
 		そして該当相手のPeerとのUDPホールパンチングを再開します。
 		- \ref use_alternative_p2p で使われます。
 		- このメソッドを呼び出すといって直ちにUDP socketが作られることはありません。新たに作られたUDPソケットのアドレスを得るためには、しばらく後でGetLocalUdpSocketAddrを呼び出して得てくる必要があります。
@@ -1436,7 +1436,7 @@ namespace Proud
 
 		\~japanese
 		P2P間のReliableメッセージングシステムの作動統計を得ます。
-		- 性能測定やデバッギングなどのために使用されます。 
+		- 性能測定やデバッギングなどのために使用されます。
 
 		\~
 		*/
@@ -1460,8 +1460,8 @@ namespace Proud
 
 		\~japanese
 		このクライアントがルーターの後ろにあるクライアントなのか？
-		\return 判断できなければfalseをリターン。この時、outputは満たされません。 
-		\param output ルーターの後ろにあるクライアントであればtrueが満たされます。 
+		\return 判断できなければfalseをリターン。この時、outputは満たされません。
+		\param output ルーターの後ろにあるクライアントであればtrueが満たされます。
 
 		\~
 		*/
@@ -1560,7 +1560,7 @@ namespace Proud
 		\~japanese
 		ネットワーキングスレッドの情報を得ます。
 		ProudNetは\ref thread_poolとは別にネットワークI/O処理を担当するスレッドが内臓されています。これの情報を得ます。
-		\param output ここに情報が満たされます。 
+		\param output ここに情報が満たされます。
 
 		\~
 		*/
@@ -1596,7 +1596,7 @@ namespace Proud
 		このメソッドを通じ得たsocket handleは情報獲得用途でのみ使って、I/O処理を遂行することは禁止です。副作用があり得るからです。
 		\param remoteHostID ソケット情報を得るPeerのHostIDです。HostID_Serverの場合、サーバーに接続されたソケット情報を得ます。
 		\param output ここに情報が満たされます。
-		\return remoteHostID 値が有効な場合、trueです。 
+		\return remoteHostID 値が有効な場合、trueです。
 
 		\~
 		*/
@@ -1624,9 +1624,9 @@ namespace Proud
 		\~
 		\~japanese
 		CNetClientを使用するアプリケーションの状態をCNetClientに伝達します。
-		CNetClientをレンダーリングループと他のスレッドで実行させるゲームの場合、フレームレートをCNetClientが直接算出できず、ユーザーがあえて測定しなければなりません。 
+		CNetClientをレンダーリングループと他のスレッドで実行させるゲームの場合、フレームレートをCNetClientが直接算出できず、ユーザーがあえて測定しなければなりません。
 		- いつ呼び出しても性能にほぼ影響を与えません。
-		- このメソッドは多様な機能、仮に\ref super_peer 機能などで使用します。 
+		- このメソッドは多様な機能、仮に\ref super_peer 機能などで使用します。
 \~
 		*/
 		virtual void SetApplicationHint(const CApplicationHint &hint) = 0;
@@ -1739,13 +1739,13 @@ namespace Proud
 		\return 성공, 실패 여부입니다. m_clientEmergencyLogMaxLineCount 값이 0인 경우가 이에해당됩니다.
 
 		\~english TODO:translate needed.
-		The emergency log is transmitted to the emergency log collection server (CEmergencyLogServer). You have to run CEmergencyLogServer first in order to use its feature. 	
-		- You have to designate the number of CStartServerParameter.m_clientEmergencyLogMaxLineCount. 
-		- When the connection to the server is lost unintentionally, the current status log as well as the latest status of the client is transmitted to CEmergencyLogServer. 
-		- logClient generates a new thread inside and create a log client and the log is directly transmitted to the server. Therefore, you must not end the main thread after calling this method. 
-		\param serverAddr This is the address of the log server. 
-		\param serverPort This is the port number of the log server. 
-		\return This is either success or failure. The case when the value of m_clientEmergencyLogMaxLineCount is 0 falls under this case. 
+		The emergency log is transmitted to the emergency log collection server (CEmergencyLogServer). You have to run CEmergencyLogServer first in order to use its feature.
+		- You have to designate the number of CStartServerParameter.m_clientEmergencyLogMaxLineCount.
+		- When the connection to the server is lost unintentionally, the current status log as well as the latest status of the client is transmitted to CEmergencyLogServer.
+		- logClient generates a new thread inside and create a log client and the log is directly transmitted to the server. Therefore, you must not end the main thread after calling this method.
+		\param serverAddr This is the address of the log server.
+		\param serverPort This is the port number of the log server.
+		\return This is either success or failure. The case when the value of m_clientEmergencyLogMaxLineCount is 0 falls under this case.
 
 
 		\~chinese
@@ -1758,7 +1758,7 @@ namespace Proud
 		\return 成功与否。 m_clientEmergencyLogMaxLineCount 是0的情况属于此。
 
 		\~japanese
-		緊急ログを緊急ログ収集サーバー(CEmergencyLogServer)に転送します。CEmergencyLogServerを先に実行してから該当機能を使うことができます。		
+		緊急ログを緊急ログ収集サーバー(CEmergencyLogServer)に転送します。CEmergencyLogServerを先に実行してから該当機能を使うことができます。
 		- CStartServerParameter.m_clientEmergencyLogMaxLineCountの数を指定しなければなりません。
 		- 意図せずにサーバーとの接続が切れた場合、該当関数を呼び出すとクライアントの最近状況と現在状態ログをCEmergencyLogServerに転送します。
 		- logClientは内部で新しいスレッドを生成してログクライアントを作ってすぐサーバーにログが転送されます。よって、このメソッドを呼び出した後、すぐメインスレッドを終了してはいけません。
@@ -1795,10 +1795,10 @@ namespace Proud
 		\param enable true이면 강제 relay 를 켭니다.
 
 		\~english TODO:translate needed.
-		This is the function to designate whether the communication with other P2P peers designated by the user should be forced to relay. The following are the cases where this feature comes handy. 
+		This is the function to designate whether the communication with other P2P peers designated by the user should be forced to relay. The following are the cases where this feature comes handy.
 		- When the P2P traffic from the client side is excessive so you want to convert some communication with some P2P peers to relay;
 		\param remotePeerID The HostID value of the peer to be converted to relay
-		\param enable If true is enabled, forced relay is turned on. 
+		\param enable If true is enabled, forced relay is turned on.
 
 		\~chinese
 		是指定是否将用户指定的与其他P2P Peer间的通信强制进行relay的函数。
@@ -1825,17 +1825,17 @@ namespace Proud
 		\param outputPercent 패킷 로스율을 %단위로 채워짐(즉 0~100)
 
 		\~english TODO:translate needed.
-		As unreliable messaging takes most of the entire traffic in common on-line games, we add the feature to get the traffic loss rate in the existing unreliable messaging feature. 
+		As unreliable messaging takes most of the entire traffic in common on-line games, we add the feature to get the traffic loss rate in the existing unreliable messaging feature.
 		Packet loss rate measuring device
 		\param remoteHostID Which loss rate with communication with which remote would be obtained. You can input anything, including your own peer, server, etc. If it is itself, it is 0%
-		\param outputPercent The packet loss rate is filled up in % unit (i.e., 0 to 100) 
+		\param outputPercent The packet loss rate is filled up in % unit (i.e., 0 to 100)
 
 		\~chinese
 		在一般在线游戏中当Unreliable信息的总体通信量占据绝大部分时，在原有Unreliable信息功能上添加获得通信量Loss率的功能。
 		数据包Loss率测定仪。
 		\param remoteHostID 要获得对哪一个remote间的通信Loss率，可以输入如自身Peer，server 等。如果是自己的话则为0%。
 		\param outputPercent  数据包的Loss率将以%单位填充，（即0~100）
-		
+
 		\~japanese
 		一般的にオンラインゲームではunreliableメッセージングが全体トラフィックのほとんどを占めますので、既存のunrelableメッセージング機能にトラフィックロス率を得る機能を追加します。
 		パケットロス率測定機
@@ -1908,7 +1908,7 @@ namespace Proud
 			HolsterMoreCallbackUntilNextFrameMove();
 		}
 		\endcode
-		
+
 		\~japanese
 		CNetClient.FrameMoveを呼べば積もっていた全てのイベントと受信RMIが一切にきます。
 		ProudNetはユーザーが望む場合積もっていた全てのイベントと受信RMIを一つのCNetClient.FrameMoveルーチンの中で処理をやめ途中にリターンする機能があります。そして残されてた全てのイベントと受信RMIを次のCNetClient.FrameMoveで処理できるようにします。
@@ -1935,7 +1935,7 @@ namespace Proud
 		virtual void HolsterMoreCallbackUntilNextFrameMove() = 0;
 	};
 
-	 PROUD_API const PNTCHAR* ToString(ConnectionState cs);
+	PROUD_API const PNTCHAR* ToString(ConnectionState cs);
 
 #if (defined(_MSC_VER) && _MSC_VER>=1400)
 //#pragma managed(pop)

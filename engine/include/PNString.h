@@ -85,9 +85,9 @@ namespace Proud
 #endif
 
 
-	 PROUD_API _Noreturn void ThrowInvalidArgumentException();
+	PROUD_API _Noreturn void ThrowInvalidArgumentException();
 
-	/** 
+	/**
 	\~korean
 	문자열 클래스
 	- 이 클래스를 직접 사용하지 말고 Proud.String, Proud.StringW, Proud.StringA 를 통해 쓰는 것을 권장합니다.
@@ -113,10 +113,10 @@ namespace Proud
 	class  StringT
 	{
 		// copy-on-write 및 shared ptr 형태를 모두 제공한다.
-		// 문자열 버퍼 바로 앞단에 위치한다. 
+		// 문자열 버퍼 바로 앞단에 위치한다.
 		// NOTE: Tombstone이 가진 문자열 객체는 일단 한번 설정되고 나면 소멸할 때까지 내용물이 절대 바뀌지 말아야 한다.
 		// 왜냐하면 여러 변수들이 이 문자열 데이터를 잠금 없이 공유하기 때문이다.
-		// 각 변수들은 자기가 가진 문자열 데이터를 변경하고자 하는 경우 
+		// 각 변수들은 자기가 가진 문자열 데이터를 변경하고자 하는 경우
 		// 변형하는 문자열 데이터를 만든 후 새 tombstone에 그 내용을 복사해 넣어야 한다.
 		class Tombstone
 		{
@@ -133,7 +133,7 @@ namespace Proud
 				m_refCount = 1;
 			}
 
-			inline XCHAR* GetBuffer() 
+			inline XCHAR* GetBuffer()
 			{
 				return (XCHAR*)(this+1);
 			}
@@ -142,7 +142,7 @@ namespace Proud
 		// 문자열 클래스는 이 데이터 멤버만을 유일하게 가져야 하며 vtable을 가질 수 없다.
 		// 그래야 printf 계열에서 객체 자체를 직접 넣어도 잘 작동하니까.
 		// 이 포인터가 가리키는 블럭 바로 앞에 Tombstone이 있다.
-		XCHAR* m_strPtr; 
+		XCHAR* m_strPtr;
 
 
 		void ShareFrom(const StringT& src)
@@ -150,13 +150,13 @@ namespace Proud
 			if(src.m_strPtr != m_strPtr)
 			{
 				ReleaseTombstone();
-				
+
 				m_strPtr = src.m_strPtr;
-				
+
 				if(GetTombstone())
-                {
+				{
 					AtomicIncrementPtr(&GetTombstone()->m_refCount);
-                }
+				}
 			}
 		}
 
@@ -170,7 +170,7 @@ namespace Proud
 				{
 					CProcHeap::Free(ts);
 				}
-			}			
+			}
 			m_strPtr = NULL;
 		}
 
@@ -201,7 +201,7 @@ namespace Proud
 				if(ts == NULL)
 					ThrowBadAllocException();
 
-                memset(ts,0,blockLen);
+				memset(ts,0,blockLen);
 				CallConstructor<Tombstone>(ts);
 				m_strPtr = ts->GetBuffer();
 			}
@@ -213,12 +213,12 @@ namespace Proud
 					ThrowBadAllocException();
 
 				CallConstructor<Tombstone>(newTS);
-				newTS->m_length = GetLength();				
+				newTS->m_length = GetLength();
 
 				// ikpil.choi 2016-11-10 : memcpy_s 로 변경, destSize(2번째 인자) 값이 항상 올바른 값이여야 합니다.
 				//StringTraits::CopyString(newTS->GetBuffer(), GetString(), GetLength()); // sz도 만들어줌.
 				StringTraits::CopyString(newTS->GetBuffer(), newTS->m_length + 1, GetString(), GetLength()); // sz도 만들어줌.
-				
+
 				// 원본 교체
 				ReleaseTombstone();
 
@@ -240,7 +240,7 @@ namespace Proud
 			if (ts != NULL)
 			{
 				ts->m_length = length;
-				ts->GetBuffer()[length] = 0; // sz mark				
+				ts->GetBuffer()[length] = 0; // sz mark
 			}
 		}
 
@@ -272,7 +272,7 @@ namespace Proud
 				}
 				else
 				{
-					// 다른 변수가 참조하고 있으면 원본을 건드리면 안된다. 
+					// 다른 변수가 참조하고 있으면 원본을 건드리면 안된다.
 					// 따라서 크기 다른 사본 즉 copy on write와 같은 준비를 한다.
 					Tombstone* newTS = (Tombstone*)CProcHeap::Alloc(GetBlockLen(length));
 					if( newTS == NULL)
@@ -354,7 +354,7 @@ namespace Proud
 
 		/**
 		\~korean
-		문자열을 가져온다. 
+		문자열을 가져온다.
 
 		\~english
 		Gets a string
@@ -370,10 +370,10 @@ namespace Proud
 		{
 			InitVars();
 			int len = StringTraits::SafeStringLen(src);
-			
+
 			if(length > 0)
 				len = PNMIN(len, length);
-			
+
 			XCHAR* buf = GetBuffer(len);
 			// ikpil.choi 2016-11-10 : memcpy_s 로 변경, destSize(2번째 인자) 값이 항상 올바른 값이여야 합니다.
 			//StringTraits::CopyString(buf, src, len);
@@ -384,7 +384,7 @@ namespace Proud
 
 		/**
 		\~korean
-		빈 문자열인가? 
+		빈 문자열인가?
 
 		\~english
 		Is it an empty string ?
@@ -413,9 +413,9 @@ namespace Proud
 			return GetString()[offset];
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 데이터를 읽을 수 있게 한다. 
+		문자열 데이터를 읽을 수 있게 한다.
 
 		\~english
 		Let's read text string data
@@ -427,7 +427,7 @@ namespace Proud
 		文字列データを読めるようにします。
 		\~
 		*/
-		inline const XCHAR* GetString() const 
+		inline const XCHAR* GetString() const
 		{
 			// 과거에는, StringT::NullString을 리턴했다.
 			// 이게 문제가 있었다. DLL과 EXE간 오가는 API에서 이것이 두 군데 이상 존재하면서 꼬이는 문제였다.
@@ -445,7 +445,7 @@ namespace Proud
 			return GetString();
 		}
 
-		/** 
+		/**
 		\~korean
 		문자열 데이터를 읽기 및 쓰기를 위해 포인터를 접근할 때 쓰는 메서드입니다.
 		- 이 메서드를 쓰고 나서는 ReleaseBuffer로 마감해줘야 합니다. 이를 편하게 하려면
@@ -462,7 +462,7 @@ namespace Proud
 		\~japanese
 		文字列データを読み取り・書き込みのためにポインターに近づく時に使うメソッドです。
 		- このメソッドを使ってからはReleaseBufferで仕上げてください。これを楽にしたい場合は、StrBufAとかStrBufWを使えば良いです。
-		\~ 
+		\~
 		\~korean 사용 예시
 		\~english Usage example
 		\~chinese 使用例子
@@ -471,14 +471,14 @@ namespace Proud
 		\~
 
 		\code
-        Proud::String a = L"abc";
-        wchar_t* pa = a.GetBuffer(100);
-        _wsprintf(pa, L"%d", 123);
-        a.ReleaseBuffer();
-        \endcode
+		Proud::String a = L"abc";
+		wchar_t* pa = a.GetBuffer(100);
+		_wsprintf(pa, L"%d", 123);
+		a.ReleaseBuffer();
+		\endcode
 
 		\~
-		
+
 		\~korean 더 나은 사용 예시
 		\~english Better usage example
 		\~chinese 更好的使用例子。
@@ -525,7 +525,7 @@ namespace Proud
 
 		/**
 		\~korean
-		문자열 길이를 얻습니다. 
+		문자열 길이를 얻습니다.
 
 		\~english
 		Gets length of string.
@@ -543,13 +543,13 @@ namespace Proud
 		{
 			if(m_strPtr == NULL)
 				return 0;
-			else 
+			else
 				return GetTombstone()->m_length;
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 길이를 재조정한다. 
+		문자열 길이를 재조정한다.
 		\param length Number of characters if wchar_t is used, number of bytes if char is used, regardless of multibyte or unicode encoding.
 
 		\~english
@@ -572,9 +572,9 @@ namespace Proud
 			SetMaxLength(length);
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 뒤에 다른 문자열을 덧붙인다. 
+		문자열 뒤에 다른 문자열을 덧붙인다.
 
 		\~english
 		Adds another text string after text string
@@ -600,9 +600,9 @@ namespace Proud
 			}
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 뒤에 다른 문자열을 덧붙인다. 
+		문자열 뒤에 다른 문자열을 덧붙인다.
 
 		\~english
 		Adds another text string to text string
@@ -619,7 +619,7 @@ namespace Proud
 			if (src != NULL)
 			{
 				int srcLen = StringTraits::SafeStringLen(src);
-				
+
 				int oldLen = GetLength();
 				XCHAR* buf = GetBuffer(oldLen + srcLen);
 
@@ -630,9 +630,9 @@ namespace Proud
 			}
 		}
 
-		/** 
+		/**
 		\~korean
-		이 객체의 문자열과 src가 가리키는 문자열을 비교한다. 이 객체의 문자열이 더 '사전적 앞'이면 음수가, 같으면 0, 그렇지 않으면 양수가 리턴된다. 
+		이 객체의 문자열과 src가 가리키는 문자열을 비교한다. 이 객체의 문자열이 더 '사전적 앞'이면 음수가, 같으면 0, 그렇지 않으면 양수가 리턴된다.
 
 		\~english
 		Compare this objective’s string to string that src indicates. If this objective’s string is smaller than src, negative number will be returned (if same, 0 will be returned & if it is bigger than src, positive number will be returned).
@@ -655,9 +655,9 @@ namespace Proud
 			return StringTraits::StringCompare(GetString(), src.GetString());
 		}
 
-		/** 
+		/**
 		\~korean
-		이 객체의 문자열과 src가 가리키는 문자열을 비교한다. 이 객체의 문자열이 더 '사전적 앞'이면 음수가, 같으면 0, 그렇지 않으면 양수가 리턴된다. 
+		이 객체의 문자열과 src가 가리키는 문자열을 비교한다. 이 객체의 문자열이 더 '사전적 앞'이면 음수가, 같으면 0, 그렇지 않으면 양수가 리턴된다.
 
 		\~english
 		Compare this objective’s string to string that src indicates. If this objective’s string is smaller than src, negative number will be returned (if same, 0 will be returned & if it is bigger than src, positive number will be returned).
@@ -675,13 +675,13 @@ namespace Proud
 			return StringTraits::StringCompare(GetString(), src);
 		}
 
-		/** 
+		/**
 		\~korean
-		이 객체의 문자열과 src가 가리키는 문자열을 비교한다. 이 객체의 문자열이 더 '사전적 앞'이면 음수가, 같으면 0, 그렇지 않으면 양수가 리턴된다. 
-		단, 대소문자 구별을 하지 않는다. 
+		이 객체의 문자열과 src가 가리키는 문자열을 비교한다. 이 객체의 문자열이 더 '사전적 앞'이면 음수가, 같으면 0, 그렇지 않으면 양수가 리턴된다.
+		단, 대소문자 구별을 하지 않는다.
 
 		\~english
-		Compare this objective’s string to string that src indicates. If this objective’s string is smaller than src, negative number will be returned (if same, 0 will be returned & if it is bigger than src, positive number will be returned). 
+		Compare this objective’s string to string that src indicates. If this objective’s string is smaller than src, negative number will be returned (if same, 0 will be returned & if it is bigger than src, positive number will be returned).
 		But, not classify capital and small letter.
 
 		\~chinese
@@ -703,13 +703,13 @@ namespace Proud
 			return StringTraits::StringCompareNoCase(GetString(), src.GetString());
 		}
 
-		/** 
+		/**
 		\~korean
-		이 객체의 문자열과 src가 가리키는 문자열을 비교한다. 이 객체의 문자열이 더 '사전적 앞'이면 음수가, 같으면 0, 그렇지 않으면 양수가 리턴된다. 
-		단, 대소문자 구별을 하지 않는다. 
+		이 객체의 문자열과 src가 가리키는 문자열을 비교한다. 이 객체의 문자열이 더 '사전적 앞'이면 음수가, 같으면 0, 그렇지 않으면 양수가 리턴된다.
+		단, 대소문자 구별을 하지 않는다.
 
 		\~english
-		Compare this objective’s string to string that src indicates. If this objective’s string is smaller than src, negative number will be returned (if same, 0 will be returned & if it is bigger than src, positive number will be returned). 
+		Compare this objective’s string to string that src indicates. If this objective’s string is smaller than src, negative number will be returned (if same, 0 will be returned & if it is bigger than src, positive number will be returned).
 		But, not classify capital and small letter.
 
 		\~chinese
@@ -731,7 +731,7 @@ namespace Proud
 		Format 메소드와 똑같은 기능을 하지만, static 메소드이며 새로운 객체를 리턴한다.
 
 		\~english
-		It performs the same function as the Format method, but it is a static method and returns a new object. 
+		It performs the same function as the Format method, but it is a static method and returns a new object.
 
 		\~chinese
 		与Format 方法的功能相同，但它是静态方法返回新对象。
@@ -754,9 +754,9 @@ namespace Proud
 			return ret;
 		}
 
-		/** 
+		/**
 		\~korean
-		printf 처럼 문자열을 만든다. ( <a target="_blank" href="http://guide.nettention.com/cpp_ko#string_format" >문자열 만들기 기능(format)</a>  참고) 
+		printf 처럼 문자열을 만든다. ( <a target="_blank" href="http://guide.nettention.com/cpp_ko#string_format" >문자열 만들기 기능(format)</a>  참고)
 
 		\~english
 		Creates text string as printf (Please refer <a target="_blank" href="http://guide.nettention.com/cpp_en#string_format" >Creating a string(format)</a>)
@@ -765,7 +765,7 @@ namespace Proud
 		像printf一样创建字符串。（参考 <a target="_blank" href="http://guide.nettention.com/cpp_zh  #string_format" >创建文字列的功能。(format)</a>）
 
 		\~japanese
-		printf のように文字列を作ります。 ( \ref string_format 参考) 
+		printf のように文字列を作ります。 ( \ref string_format 参考)
 		\~
 		*/
 		inline void Format( const XCHAR* pszFormat, ... )
@@ -778,9 +778,9 @@ namespace Proud
 			va_end( argList );
 		}
 
-		/** 
+		/**
 		\~korean
-		printf 처럼 문자열을 만든다. (  <a target="_blank" href="http://guide.nettention.com/cpp_ko#string_format" >문자열 만들기 기능(format)</a> 참고) 
+		printf 처럼 문자열을 만든다. (  <a target="_blank" href="http://guide.nettention.com/cpp_ko#string_format" >문자열 만들기 기능(format)</a> 참고)
 
 		\~english
 		Creates text string as printf (Please refer <a target="_blank" href="http://guide.nettention.com/cpp_en#string_format" >Creating a string(format)</a>)
@@ -789,7 +789,7 @@ namespace Proud
 		像printf一样创建字符串。（参考 <a target="_blank" href="http://guide.nettention.com/cpp_zh  #string_format" >创建文字列的功能。(format)</a>）
 
 		\~japanese
-		printf のように文字列を作ります。 ( \ref string_format 参考) 
+		printf のように文字列を作ります。 ( \ref string_format 参考)
 		\~
 		*/
 		void FormatV( const XCHAR* pszFormat, va_list args )
@@ -797,12 +797,12 @@ namespace Proud
 			assert( pszFormat != NULL );
 
 			if(pszFormat == NULL)
-            {
+			{
 				ThrowInvalidArgumentException();
-            }
+			}
 
 			int nLength = StringTraits::GetFormattedLength(pszFormat, args) + 1;
-			
+
 			XCHAR* buf = GetBuffer(nLength);
 			StringTraits::Format(buf, nLength, pszFormat, args);
 			buf[nLength] = 0;
@@ -810,10 +810,10 @@ namespace Proud
 			ReleaseBuffer();
 		}
 
-		/** 
+		/**
 		\~korean
 		GetBuffer를 호출했으면 이걸로 마무리를 해줘야 한다. 안그러면 문자열 길이를 정확하게 가지지 못할 수 있다.
-		자세한 것은 GetBuffer 설명 참고. 
+		자세한 것은 GetBuffer 설명 참고.
 
 		\~english
 		Once GetBuffer is called then this must end to finalize. Otherwise, the exact length of text string may not be acquired.
@@ -833,9 +833,9 @@ namespace Proud
 			ReleaseBufferSetLength(StringTraits::SafeStringLen(GetString()));
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 중 chOld가 가리키는 글자를 chNew 로 바꾼다. 
+		문자열 중 chOld가 가리키는 글자를 chNew 로 바꾼다.
 
 		\~english
 		Among text strings, replace the character pointed by chOld with the character pointed by chNew.
@@ -884,9 +884,9 @@ namespace Proud
 			return( nCount );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 중 pszOld가 가리키는 문자열을 pszNew 로 바꾼다. 
+		문자열 중 pszOld가 가리키는 문자열을 pszNew 로 바꾼다.
 
 		\~english
 		Among text strings, replace the character pointed by pszOld with the character pointed by pszNew.
@@ -947,14 +947,14 @@ namespace Proud
 					{
 						int nBalance = nOldLength-int(pszTarget-pszBuffer+nSourceLen);
 #if (defined(_MSC_VER) && _MSC_VER>=1400)
-						memmove_s( pszTarget+nReplacementLen, nBalance*sizeof( XCHAR ), 
+						memmove_s( pszTarget+nReplacementLen, nBalance*sizeof( XCHAR ),
 							pszTarget+nSourceLen, nBalance*sizeof( XCHAR ) );
-						memcpy_s( pszTarget, nReplacementLen*sizeof( XCHAR ), 
+						memcpy_s( pszTarget, nReplacementLen*sizeof( XCHAR ),
 							pszNew, nReplacementLen*sizeof( XCHAR ) );
 #else
 						memmove( pszTarget+nReplacementLen,
 							pszTarget+nSourceLen, nBalance*sizeof( XCHAR ) );
-						memcpy( pszTarget, 
+						memcpy( pszTarget,
 							pszNew, nReplacementLen*sizeof( XCHAR ) );
 #endif
 						pszStart = pszTarget+nReplacementLen;
@@ -970,9 +970,9 @@ namespace Proud
 			return( nCount );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열을 대문자화한다. 
+		문자열을 대문자화한다.
 
 		\~english
 		Capitalizes text string
@@ -994,9 +994,9 @@ namespace Proud
 			return( *this );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열을 소문자화한다. 
+		문자열을 소문자화한다.
 
 		\~english
 		De-capitalize text string
@@ -1018,9 +1018,9 @@ namespace Proud
 			return( *this );
 		}
 
-		/** 
+		/**
 		\~korean
-		비교 연산자 
+		비교 연산자
 
 		\~english
 		Comparison operator
@@ -1042,9 +1042,9 @@ namespace Proud
 			return Compare(src) < 0;
 		}
 
-		/** 
+		/**
 		\~korean
-		비교 연산자 
+		비교 연산자
 
 		\~english
 		Comparison operator
@@ -1061,9 +1061,9 @@ namespace Proud
 			return Compare(src) != 0;
 		}
 
-		/** 
+		/**
 		\~korean
-		비교 연산자 
+		비교 연산자
 
 		\~english
 		Comparison operator
@@ -1080,9 +1080,9 @@ namespace Proud
 			return Compare(src) == 0;
 		}
 
-		/** 
+		/**
 		\~korean
-		비교 연산자 
+		비교 연산자
 
 		\~english
 		Comparison operator
@@ -1099,9 +1099,9 @@ namespace Proud
 			return Compare(src) != 0;
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 덧붙이기 연산자 
+		문자열 덧붙이기 연산자
 
 		\~english
 		Text string adding operator
@@ -1119,9 +1119,9 @@ namespace Proud
 			return *this;
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 덧붙이기 연산자 
+		문자열 덧붙이기 연산자
 
 		\~english
 		Text string adding operator
@@ -1139,9 +1139,9 @@ namespace Proud
 			return *this;
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 복사 대입 연산자 
+		문자열 복사 대입 연산자
 
 		\~english
 		String copy assignment operator
@@ -1159,9 +1159,9 @@ namespace Proud
 			return *this;
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 복사 대입 연산자 
+		문자열 복사 대입 연산자
 
 		\~english
 		String copy assignment operator
@@ -1180,9 +1180,9 @@ namespace Proud
 			return *this;
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열의 iStart 번째 캐릭터부터 검색해서 ch 가 가리키는 글자의 위치를 찾는다. 못찾으면 -1을 리턴한다. 
+		문자열의 iStart 번째 캐릭터부터 검색해서 ch 가 가리키는 글자의 위치를 찾는다. 못찾으면 -1을 리턴한다.
 
 		\~english
 		Finds the location of the character that is pointed by ch through searching from 'iStart'th character of text string. Returns -1 when not found.
@@ -1191,7 +1191,7 @@ namespace Proud
 		从字符串的第iStart个角色开始搜索，查找ch所指的字的位置。没有找到的话返回-1。
 
 		\~japanese
-		文字列のiStart番目のキャラクターから検索してchが指す文字の位置を探します。探せなければ-1をリターンします。 
+		文字列のiStart番目のキャラクターから検索してchが指す文字の位置を探します。探せなければ-1をリターンします。
 		\~
 		*/
 		int Find( XCHAR ch, int iStart = 0 ) const throw()
@@ -1229,9 +1229,9 @@ namespace Proud
 		}
 
 
-		/** 
+		/**
 		\~korean
-		문자열의 iStart 번째 캐릭터부터 검색해서 pszSub 가 가리키는 문자열의 첫 글자 위치를 찾는다. 못찾으면 -1을 리턴한다. 
+		문자열의 iStart 번째 캐릭터부터 검색해서 pszSub 가 가리키는 문자열의 첫 글자 위치를 찾는다. 못찾으면 -1을 리턴한다.
 
 		\~english
 		Finds the location of the character that is pointed by pszSub through searching from 'iStart'th character of text string. Returns -1 when not found.
@@ -1266,9 +1266,9 @@ namespace Proud
 			return( (psz == NULL) ? -1 : int( psz-GetString() ) );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 안에서 iFirst가 가리키는 곳부터 나머지 글자를 추려서 리턴한다. 
+		문자열 안에서 iFirst가 가리키는 곳부터 나머지 글자를 추려서 리턴한다.
 
 		\~english
 		Returns the characters collected from the location where pointed by iFirst to the end in text string.
@@ -1285,9 +1285,9 @@ namespace Proud
 			return( Mid( iFirst, GetLength()-iFirst ) );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 안에서 iFirst가 가리키는 곳부터 nCount 만큼의 글자를 추려서 리턴한다. 
+		문자열 안에서 iFirst가 가리키는 곳부터 nCount 만큼의 글자를 추려서 리턴한다.
 
 		\~english
 		Returns the characters collected from the location where pointed by iFirst to the point where the amount of characters become nCount in text string.
@@ -1329,9 +1329,9 @@ namespace Proud
 			return( StringT( GetString()+iFirst, nCount) );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 내에서 우측으로부터 nCount만큼의 문자열만 추려서 리턴한다. 
+		문자열 내에서 우측으로부터 nCount만큼의 문자열만 추려서 리턴한다.
 
 		\~english
 		Returns the text stings that are collected from RHS to the point where the amount of characters become nCount in text string.
@@ -1358,9 +1358,9 @@ namespace Proud
 			return( StringT( GetString()+nLength-nCount, nCount ) );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 내에서 좌측으로부터 nCount만큼의 문자열만 추려서 리턴한다. 
+		문자열 내에서 좌측으로부터 nCount만큼의 문자열만 추려서 리턴한다.
 
 		\~english
 		Returns the text stings that are collected from LHS to the point where the amount of characters become nCount in text string.
@@ -1387,14 +1387,14 @@ namespace Proud
 			return( StringT( GetString(), nCount ) );
 		}
 
-		/** 
+		/**
 		\~korean
 		pszToken가 가리키는 구분자들로 구별된 문자열을 뜯어내서 하나씩 리턴한다.
-		
+
 
 		\~english
-		Collects the text strings distinguished by distinguishers pointed by ofpszToken one by one then returns them one by one. 
-		
+		Collects the text strings distinguished by distinguishers pointed by ofpszToken one by one then returns them one by one.
+
 
 		\~chinese
 		拆开pszToken所指的由区分者所区分的字符串后一个个返回。
@@ -1408,21 +1408,21 @@ namespace Proud
 
 
 			Example:
-        \code
-            Proud::String str(L"%First Second#Third");
-            Proud::String resToken;
-            int curPos = 0;
+		\code
+			Proud::String str(L"%First Second#Third");
+			Proud::String resToken;
+			int curPos = 0;
 
-            resToken= str.Tokenize(L"% #",curPos);
-            while (resToken != L"")
-            {
-                _tprintf_s(L"Resulting token: %s\n", resToken);
-                resToken = str.Tokenize(L"% #", curPos);
-            };   
-        \endcode 
+			resToken= str.Tokenize(L"% #",curPos);
+			while (resToken != L"")
+			{
+				_tprintf_s(L"Resulting token: %s\n", resToken);
+				resToken = str.Tokenize(L"% #", curPos);
+			};
+		\endcode
 
 		*/
-        StringT Tokenize( const XCHAR* pszTokens, int& iStart ) const
+		StringT Tokenize( const XCHAR* pszTokens, int& iStart ) const
 		{
 			assert( iStart >= 0 );
 
@@ -1467,9 +1467,9 @@ namespace Proud
 			return( StringT() );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 오른쪽 끝에 남아있는 빈 글자들을 잘라내버린다. 
+		문자열 오른쪽 끝에 남아있는 빈 글자들을 잘라내버린다.
 
 		\~english
 		Cuts off the empty characters are left at RHS end of text string
@@ -1514,9 +1514,9 @@ namespace Proud
 			return( *this );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 왼쪽 끝에 남아있는 빈 글자들을 잘라내버린다. 
+		문자열 왼쪽 끝에 남아있는 빈 글자들을 잘라내버린다.
 
 		\~english
 		Cuts off the empty characters are left at LHS end of text string
@@ -1547,7 +1547,7 @@ namespace Proud
 				psz = pszBuffer+iFirst;
 				int nDataLength = GetLength()-iFirst;
 #if (defined(_MSC_VER) && _MSC_VER>=1400)
-				memmove_s( pszBuffer, (GetLength()+1)*sizeof( XCHAR ), 
+				memmove_s( pszBuffer, (GetLength()+1)*sizeof( XCHAR ),
 					psz, (nDataLength+1)*sizeof( XCHAR ) );
 #else
 				memmove( pszBuffer,
@@ -1559,9 +1559,9 @@ namespace Proud
 			return( *this );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 양쪽 끝에 남아있는 빈 글자들을 잘라내버린다. 
+		문자열 양쪽 끝에 남아있는 빈 글자들을 잘라내버린다.
 
 		\~english
 		Cuts off the empty characters are left at RHS end and at LHS end of text string
@@ -1578,9 +1578,9 @@ namespace Proud
 			return( TrimRight().TrimLeft() );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 양쪽 끝에 남아있는 chTarget이 가리키는 글자들을 잘라내버린다. 
+		문자열 양쪽 끝에 남아있는 chTarget이 가리키는 글자들을 잘라내버린다.
 
 		\~english
 		Cuts off the characters pointed by chTarget and are left at RHS end and at LHS end of text string
@@ -1597,9 +1597,9 @@ namespace Proud
 			return( TrimRight( chTarget ).TrimLeft( chTarget ) );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 양쪽 끝에 남아있는 pszTargets이 가리키는 글자들을 잘라내버린다. 
+		문자열 양쪽 끝에 남아있는 pszTargets이 가리키는 글자들을 잘라내버린다.
 
 		\~english
 		Cuts off the characters pointed by pszTargets and are left at RHS end and at LHS end of text string
@@ -1616,24 +1616,24 @@ namespace Proud
 			return( TrimRight( pszTargets ).TrimLeft( pszTargets ) );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 우측 끝에 남아있는 chTarget이 가리키는 글자들을 잘라내버린다. 
+		문자열 우측 끝에 남아있는 chTarget이 가리키는 글자들을 잘라내버린다.
 
 		\~english
-		Cuts off the characters pointed by chTarget and are left at RHS end of text string 
+		Cuts off the characters pointed by chTarget and are left at RHS end of text string
 
 		\~chinese
 		剪掉留在字符串右侧chTarget指向的文字。
 
 		\~japanese
-		文字列の右側の終端に残っているchTargetが指す文字を切り捨てます。 
+		文字列の右側の終端に残っているchTargetが指す文字を切り捨てます。
 		\~
 		*/
 		StringT& TrimRight( XCHAR chTarget )
 		{
 			// find beginning of trailing matches
-			// by starting at beginning (DBCS aware)			
+			// by starting at beginning (DBCS aware)
 
 			const XCHAR* psz = GetString();
 			const XCHAR* pszLast = NULL;
@@ -1656,7 +1656,7 @@ namespace Proud
 
 			if( pszLast != NULL )
 			{
-				// truncate at left-most matching character  
+				// truncate at left-most matching character
 				int iLast = int( pszLast-GetString() );
 				Truncate( iLast );
 			}
@@ -1664,9 +1664,9 @@ namespace Proud
 			return( *this );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 우측 끝에 남아있는 pszTargets이 가리키는 글자들을 잘라내버린다. 
+		문자열 우측 끝에 남아있는 pszTargets이 가리키는 글자들을 잘라내버린다.
 
 		\~english
 		uts off the characters pointed by pszTargets and are left at RHS end of text string
@@ -1675,7 +1675,7 @@ namespace Proud
 		剪掉留在字符串右侧pszTargets指向的文字。
 
 		\~japanese
-		文字列の右側の終端に残っているpszTargetが指す文字を切り捨てます。 
+		文字列の右側の終端に残っているpszTargetが指す文字を切り捨てます。
 		\~
 		*/
 		StringT& TrimRight( const XCHAR* pszTargets )
@@ -1710,7 +1710,7 @@ namespace Proud
 
 			if( pszLast != NULL )
 			{
-				// truncate at left-most matching character  
+				// truncate at left-most matching character
 				int iLast = int( pszLast-GetString() );
 				Truncate( iLast );
 			}
@@ -1718,18 +1718,18 @@ namespace Proud
 			return( *this );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 좌측 끝에 남아있는 chTarget이 가리키는 글자들을 잘라내버린다. 
+		문자열 좌측 끝에 남아있는 chTarget이 가리키는 글자들을 잘라내버린다.
 
 		\~english
-		Cuts off the characters pointed by chTarget and are left at LHS end of text string 
+		Cuts off the characters pointed by chTarget and are left at LHS end of text string
 
 		\~chinese
 		剪掉留在字符串左侧chTarget指向的文字。
 
 		\~japanese
-		文字列の左側の終端に残っているchTargetが指す文字を切り捨てます。 
+		文字列の左側の終端に残っているchTargetが指す文字を切り捨てます。
 		\~
 		*/
 		StringT& TrimLeft( XCHAR chTarget )
@@ -1750,7 +1750,7 @@ namespace Proud
 				psz = pszBuffer+iFirst;
 				int nDataLength = GetLength()-iFirst;
 #if (defined(_MSC_VER) && _MSC_VER>=1400)
-				memmove_s( pszBuffer, (GetLength()+1)*sizeof( XCHAR ), 
+				memmove_s( pszBuffer, (GetLength()+1)*sizeof( XCHAR ),
 					psz, (nDataLength+1)*sizeof( XCHAR ) );
 #else
 				memmove( pszBuffer,
@@ -1762,9 +1762,9 @@ namespace Proud
 			return( *this );
 		}
 
-		/** 
+		/**
 		\~korean
-		문자열 좌측 끝에 남아있는 pszTargets이 가리키는 글자들을 잘라내버린다. 
+		문자열 좌측 끝에 남아있는 pszTargets이 가리키는 글자들을 잘라내버린다.
 
 		\~english
 		Cuts off the characters pointed by pszTargets and are left at RHS end of text string
@@ -1773,7 +1773,7 @@ namespace Proud
 		剪掉留在字符串左侧pszTargets指向的文字。
 
 		\~japanese
-		文字列の左側の終端に残っているpszTargetが指す文字を切り捨てます。 
+		文字列の左側の終端に残っているpszTargetが指す文字を切り捨てます。
 		\~
 		*/
 		StringT& TrimLeft( const XCHAR* pszTargets )
@@ -1798,10 +1798,10 @@ namespace Proud
 				psz = pszBuffer+iFirst;
 				int nDataLength = GetLength()-iFirst;
 #if defined(_WIN32)
-				memmove_s( pszBuffer, (GetLength()+1)*sizeof( XCHAR ), 
+				memmove_s( pszBuffer, (GetLength()+1)*sizeof( XCHAR ),
 					psz, (nDataLength+1)*sizeof( XCHAR ) );
 #else
-                memmove(pszBuffer, psz, (nDataLength+1)*sizeof( XCHAR ));
+				memmove(pszBuffer, psz, (nDataLength+1)*sizeof( XCHAR ));
 #endif
 				ReleaseBufferSetLength( nDataLength );
 			}
@@ -1850,7 +1850,7 @@ namespace Proud
 			StringTraits::FromStdWString(src, *this);
 		}
 	};
-	
+
 	template<typename XCHAR, typename StringTraits>
 	StringT<XCHAR,StringTraits> operator+(const StringT<XCHAR,StringTraits> &a,const StringT<XCHAR,StringTraits> &b)
 	{
@@ -1875,9 +1875,9 @@ namespace Proud
 		return ret;
 	}
 
-	/** 
+	/**
 	\~korean
-	CStringT.GetBuffer, CStringT.ReleaseBuffer 의 호출을 자동화한다. 
+	CStringT.GetBuffer, CStringT.ReleaseBuffer 의 호출을 자동화한다.
 
 	\~english
 	Automates calling CStringT.GetBuffer, CStringT.ReleaseBuffer
@@ -1886,7 +1886,7 @@ namespace Proud
 	自动化 CStringT.GetBuffer,  CStringT.ReleaseBuffer%的呼叫。
 
 	\~japanese
-	CStringT.GetBuffer, CStringT.ReleaseBufferの呼び出しを自動化します。 
+	CStringT.GetBuffer, CStringT.ReleaseBufferの呼び出しを自動化します。
 	\~
 	*/
 	template<typename XCHAR, typename StringTraits>
@@ -1898,7 +1898,7 @@ namespace Proud
 		StrBufT(StringT<XCHAR,StringTraits>& src, int maxLength = 0)
 		{
 			m_obj = &src;
-			m_bufPtr = src.GetBuffer(maxLength); 
+			m_bufPtr = src.GetBuffer(maxLength);
 		}
 
 		~StrBufT()
@@ -1926,7 +1926,7 @@ namespace Proud
 
 		static uint32_t Hash( INARGTYPE str )
 		{
-			return HashString<XCHAR>(str.GetString());			
+			return HashString<XCHAR>(str.GetString());
 		}
 
 		static bool CompareElements( INARGTYPE str1, INARGTYPE str2 )
@@ -1940,9 +1940,9 @@ namespace Proud
 		}
 	};
 
-	/** 
+	/**
 	\~korean
-	ANSI 캐릭터 문자열 
+	ANSI 캐릭터 문자열
 
 	\~english
 	ANSI character text string
@@ -1955,9 +1955,9 @@ namespace Proud
 	\~
 	*/
 	typedef StringT<char,AnsiStrTraits> StringA;
-	/** 
+	/**
 	\~korean
-	Unicode 캐릭터 문자열 
+	Unicode 캐릭터 문자열
 
 	\~english
 	Unicode character text string
@@ -1970,7 +1970,7 @@ namespace Proud
 	\~
 	*/
 	typedef StringT<wchar_t,UnicodeStrTraits> StringW;
-    
+
 	/**
 	\~korean
 	문자열 클래스입니다.
@@ -1994,9 +1994,9 @@ namespace Proud
 	typedef StringA String;
 #endif
 
-	/** 
+	/**
 	\~korean
-	ANSI 캐릭터 문자열용 문자열 버퍼 조작을 위한 클래스 
+	ANSI 캐릭터 문자열용 문자열 버퍼 조작을 위한 클래스
 
 	\~english
 	Class for manipulating ANSI character text string buffer
@@ -2010,9 +2010,9 @@ namespace Proud
 	*/
 	typedef StrBufT<char,AnsiStrTraits> StrBufA;
 
-	/** 
+	/**
 	\~korean
-	Unicode 캐릭터 문자열용 문자열 버퍼 조작을 위한 클래스 
+	Unicode 캐릭터 문자열용 문자열 버퍼 조작을 위한 클래스
 
 	\~english
 	Class for manipulating Unicode character text string bufferUnicode
@@ -2025,11 +2025,11 @@ namespace Proud
 	\~
 	*/
 	typedef StrBufT<wchar_t,UnicodeStrTraits> StrBufW;
-    
+
 	typedef StringTraitsT<char,AnsiStrTraits> StringTraitsA;
 	typedef StringTraitsT<wchar_t,UnicodeStrTraits> StringTraitsW;
 
-	/** 
+	/**
 	\~korean
 	캐릭터 문자열 변환함수
 
@@ -2043,8 +2043,8 @@ namespace Proud
 	キャラクター文字列変換関数
 	\~
 	*/
-	 PROUD_API StringA StringW2A(const wchar_t *src, CStringEncoder* encoder = NULL);		
-	 PROUD_API StringW StringA2W(const char *src, CStringEncoder* encoder = NULL);
+	PROUD_API StringA StringW2A(const wchar_t *src, CStringEncoder* encoder = NULL);
+	PROUD_API StringW StringA2W(const char *src, CStringEncoder* encoder = NULL);
 
 	inline StringA StringW2A(const StringW& src, CStringEncoder* encoder = NULL)
 	{
@@ -2056,7 +2056,7 @@ namespace Proud
 	}
 
 	/* Win32에서는 wchar_t를 애용하지만 unix에서는 char을 애용한다.
-	char 문자열이 UTF-8을 처리하기 때문이다. 
+	char 문자열이 UTF-8을 처리하기 때문이다.
 	*/
 #ifdef _PNUNICODE
 	typedef StringTraitsW StringTraits;
@@ -2088,6 +2088,6 @@ class CPNElementTraits<Proud::StringA> :public Proud::StringTraitsA{};
 #pragma pack(pop)
 #endif
 
-#ifdef _MSC_VER 
+#ifdef _MSC_VER
 #pragma warning(pop)
-#endif 
+#endif

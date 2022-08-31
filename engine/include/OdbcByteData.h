@@ -48,28 +48,28 @@ Any violated use of this program is prohibited and will be cause of immediate te
 namespace Proud
 {
 	/**
-	 \~korean
-	 ODBC API에 이진 데이터를 입출력할때 사용됩니다.
-	 이진 데이터가 덩치가 매우 큰 경우, 데이터 입출력 과정에서 불필요한 복사 과정을 생략하기 위해 이 클래스가 사용됩니다.
-	 사용자가 이진 데이터를 직접 소유해야 하고, 이 클래스는 그 데이터를 참조하는 역할을 합니다.
+	\~korean
+	ODBC API에 이진 데이터를 입출력할때 사용됩니다.
+	이진 데이터가 덩치가 매우 큰 경우, 데이터 입출력 과정에서 불필요한 복사 과정을 생략하기 위해 이 클래스가 사용됩니다.
+	사용자가 이진 데이터를 직접 소유해야 하고, 이 클래스는 그 데이터를 참조하는 역할을 합니다.
 
-	 \~english
-	 It is used for input & output of binary data at ODBC API.
-	 If the size of binary data is too big, this class will be used to omit unnecessary copy process in the process of data input & output. 
-	 A user must possess binary data and this class refers to the data. 
+	\~english
+	It is used for input & output of binary data at ODBC API.
+	If the size of binary data is too big, this class will be used to omit unnecessary copy process in the process of data input & output.
+	A user must possess binary data and this class refers to the data.
 
-	 \~chinese
-	 在ODBC API输出入二进制数据时使用。
-	 二进制数据量非常大时，为了在输出入数据的过程中省略不必要的复制过程，使用该class。
-	 用户应直接所有二进制数据，而该class起到参照该数据的作用。
+	\~chinese
+	在ODBC API输出入二进制数据时使用。
+	二进制数据量非常大时，为了在输出入数据的过程中省略不必要的复制过程，使用该class。
+	用户应直接所有二进制数据，而该class起到参照该数据的作用。
 
-	 \~japanese
-	 ODBC APIにパイナリデータを入出力する場合に使われます。
-	 パイナリデータのサイズが大変大きい場合、データ入出力過程で不必要なコピー過程を省略するためにこのクラスが使用されます。
-	 ユーザーがパイナリデータを直接所有する必要があり、このクラスはそのデータを参照する役割をします。
+	\~japanese
+	ODBC APIにパイナリデータを入出力する場合に使われます。
+	パイナリデータのサイズが大変大きい場合、データ入出力過程で不必要なコピー過程を省略するためにこのクラスが使用されます。
+	ユーザーがパイナリデータを直接所有する必要があり、このクラスはそのデータを参照する役割をします。
 
-	 \~
-	 */
+	\~
+	*/
 	class COdbcByteData
 	{
 	private:
@@ -83,104 +83,104 @@ namespace Proud
 
 	public:
 		/**
-		 \~korean
-		 생성자 함수. 여기서 사용자가 갖고 있는 이진 데이터의 주소와 크기를 입력하십시오.
-		 \param pData 이진 데이터의 주소
-		 \param dataLength 이진 데이터의 유효한 현재 크기입니다
-		 \param maxLength 이진 데이터가 저장되는 최대 크기
+		\~korean
+		생성자 함수. 여기서 사용자가 갖고 있는 이진 데이터의 주소와 크기를 입력하십시오.
+		\param pData 이진 데이터의 주소
+		\param dataLength 이진 데이터의 유효한 현재 크기입니다
+		\param maxLength 이진 데이터가 저장되는 최대 크기
 
-		 \~english
-		 Constructor function. Please input the size & address of binary data that a user has. 
-		 \param pData Address of binary data.
-		 \param dataLength Current valid size of binary data. 
-		 \param maxLength Maximum size of binary data saving.
+		\~english
+		Constructor function. Please input the size & address of binary data that a user has.
+		\param pData Address of binary data.
+		\param dataLength Current valid size of binary data.
+		\param maxLength Maximum size of binary data saving.
 
-		 \~chinese
-		 生成者 函数。在此输入用户的二进制数据的地址和大小。
-		 \param pData 二进制数据的地址
-		 \param dataLength 二进制数据的当前有效大小。
-		 \param maxLength 二进制数据可保存的最大限度。
+		\~chinese
+		生成者 函数。在此输入用户的二进制数据的地址和大小。
+		\param pData 二进制数据的地址
+		\param dataLength 二进制数据的当前有效大小。
+		\param maxLength 二进制数据可保存的最大限度。
 
-		 \~japanese
-		 生成者関数。ここでユーザーが持っているパイナリデータのアドレスとサイズを入力してください。
-		 \param pData パイナリデータのアドレス
-		 \param dataLength パイナリデータの有効な現在サイズです。
-		 \param maxLength パイナリデータがセーブされる最大サイズ
+		\~japanese
+		生成者関数。ここでユーザーが持っているパイナリデータのアドレスとサイズを入力してください。
+		\param pData パイナリデータのアドレス
+		\param dataLength パイナリデータの有効な現在サイズです。
+		\param maxLength パイナリデータがセーブされる最大サイズ
 
-		 \~
-		 */
+		\~
+		*/
 		COdbcByteData(SQLCHAR* pData, SQLLEN dataLength, SQLULEN maxLength);
 
 		/**
-		 \~korean
-		 설정된 데이터의 주소를 가져 옵니다.
+		\~korean
+		설정된 데이터의 주소를 가져 옵니다.
 
-		 \~english
-		 Get the data address that has been set. 
+		\~english
+		Get the data address that has been set.
 
-		 \~chinese
-		 获取已设定的数据地址。
+		\~chinese
+		获取已设定的数据地址。
 
-		 \~japanese
-		 設定されたデータのアドレスをロードします。
+		\~japanese
+		設定されたデータのアドレスをロードします。
 
-		 \~
-		 */
+		\~
+		*/
 		SQLCHAR* GetDataPtr();
 
 		/**
-		 \~korean
-		 설정된 데이터의 크기를 가져 옵니다.
+		\~korean
+		설정된 데이터의 크기를 가져 옵니다.
 
-		 \~english
-		 Get the data size that has been set. 
+		\~english
+		Get the data size that has been set.
 
-		 \~chinese
-		 获取已设定的数据大小。
+		\~chinese
+		获取已设定的数据大小。
 
-		 \~japanese
-		 設定されたデータのサイズをロードします。.
+		\~japanese
+		設定されたデータのサイズをロードします。.
 
-		 \~
-		 */
+		\~
+		*/
 		SQLLEN GetDataLength();
 
 		/**
-		 \~korean
-		 데이터의 크기를 재조정합니다.
-		 생성자에서 지정한 사용자 데이터 버퍼를 수정하였을 때 그것의 길이가 바뀌면 이 함수를 호출하여 크기를 변경해야 합니다.
+		\~korean
+		데이터의 크기를 재조정합니다.
+		생성자에서 지정한 사용자 데이터 버퍼를 수정하였을 때 그것의 길이가 바뀌면 이 함수를 호출하여 크기를 변경해야 합니다.
 
-		 \~english
-		 Readjust the size of data.
-		 If the length of data buffer changes when modifying data buffer that has been set by a constructor, you will be required to change the size by calling this function. 
+		\~english
+		Readjust the size of data.
+		If the length of data buffer changes when modifying data buffer that has been set by a constructor, you will be required to change the size by calling this function.
 
-		 \~chinese
-		 重新调整数据大小。
-		 修改生成者指定的用户数据buffer时，如果该长度有所改变，需呼出此函数进行大小变更。
+		\~chinese
+		重新调整数据大小。
+		修改生成者指定的用户数据buffer时，如果该长度有所改变，需呼出此函数进行大小变更。
 
-		 \~japanese
-		 データのサイズを再調整します。
-		 生成者で指定したユーザーデータバッファーを修正したとき、それの長さが変わるとこの関数を呼び出し、サイズを変更する必要があります。
+		\~japanese
+		データのサイズを再調整します。
+		生成者で指定したユーザーデータバッファーを修正したとき、それの長さが変わるとこの関数を呼び出し、サイズを変更する必要があります。
 
-		 \~
-		 */
+		\~
+		*/
 		void SetDataLength(SQLLEN dataLength);
 
 		/**
-		 \~korean
-		 설정된 데이터의 최대 크기를 얻습니다.
+		\~korean
+		설정된 데이터의 최대 크기를 얻습니다.
 
-		 \~english
-		 Obtain the maximum size of data. 
+		\~english
+		Obtain the maximum size of data.
 
-		 \~chinese
-		 获取已设定数据的最大值。
+		\~chinese
+		获取已设定数据的最大值。
 
-		 \~japanese
-		 設定されたデータの最大サイズを取得します。
+		\~japanese
+		設定されたデータの最大サイズを取得します。
 
-		 \~
-		 */
+		\~
+		*/
 		SQLULEN GetMaxLength();
 
 	private:

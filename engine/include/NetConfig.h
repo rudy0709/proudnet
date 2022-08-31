@@ -93,8 +93,8 @@ namespace Proud
 		PROUD_API static int64_t ReliableUdpHeartbeatIntervalMs_Real;
 		PROUD_API static int64_t ReliableUdpHeartbeatIntervalMs_ForDummyTest;
 
-		 PROUD_API static int64_t TcpSocketConnectTimeoutMs;
-		 PROUD_API static int64_t ClientConnectServerTimeoutTimeMs;
+		PROUD_API static int64_t TcpSocketConnectTimeoutMs;
+		PROUD_API static int64_t ClientConnectServerTimeoutTimeMs;
 
 		//////////////////////////////////////////////////////////////////////////
 		// time
@@ -103,31 +103,31 @@ namespace Proud
 		PROUD_API static int64_t MaxConnectionTimeoutMs;
 		PROUD_API static uint32_t WaitCompletionTimeoutMs;
 		PROUD_API static uint32_t HeartbeatIntervalMs;
-		 PROUD_API static uint32_t GarbageCollectIntervalMs;
+		PROUD_API static uint32_t GarbageCollectIntervalMs;
 
 		PROUD_API static int64_t ServerHolepunchIntervalMs;
 		PROUD_API static int64_t UdpHolepunchIntervalMs;
-		 PROUD_API static int64_t ServerUdpRepunchIntervalMs;
+		PROUD_API static int64_t ServerUdpRepunchIntervalMs;
 		PROUD_API static int ServerUdpRepunchMaxTrialCount;
 		PROUD_API static int ServerUdpHolepunchMaxTrialCount;
 		PROUD_API static int64_t P2PHolepunchIntervalMs;
 		PROUD_API static int P2PShotgunStartTurn;
 		PROUD_API static int P2PHolepunchMaxTurnCount;
 		PROUD_API static int64_t PurgeTooOldUnmatureClientTimeoutMs;
-		 PROUD_API static int64_t PurgeTooOldAddMemberAckTimeoutMs;
-		 PROUD_API static int64_t DisposeGarbagedHostsTimeoutMs;
+		PROUD_API static int64_t PurgeTooOldAddMemberAckTimeoutMs;
+		PROUD_API static int64_t DisposeGarbagedHostsTimeoutMs;
 		PROUD_API static int64_t RemoveTooOldUdpSendPacketQueueTimeoutMs;
 		PROUD_API static int64_t AssembleFraggedPacketTimeoutMs;
-		 PROUD_API static bool EnablePacketDefragWarning;
+		PROUD_API static bool EnablePacketDefragWarning;
 		PROUD_API static int64_t GetP2PHolepunchEndTimeMs();
 		PROUD_API static int ShotgunTrialCount;
 		PROUD_API static int ShotgunRange;
 
-		 PROUD_API static int64_t UnreliablePingIntervalMs;
+		PROUD_API static int64_t UnreliablePingIntervalMs;
 		PROUD_API static int64_t ReliablePingIntervalMs;
 
 		PROUD_API static bool UseReportRealUdpCount;
-		 PROUD_API static int64_t ReportRealUdpCountIntervalMs;
+		PROUD_API static int64_t ReportRealUdpCountIntervalMs;
 
 		PROUD_API static uint32_t LanClientHeartbeatIntervalMs;
 
@@ -135,9 +135,9 @@ namespace Proud
 		PROUD_API static int64_t PurgeTooOldJoiningTimeOutIntervalMs;
 		PROUD_API static int64_t RemoveLookaheadMessageTimeoutIntervalMs;
 
-		 PROUD_API static int RecyclePairReuseTimeMs;
+		PROUD_API static int RecyclePairReuseTimeMs;
 		PROUD_API static int64_t GarbageTooOldRecyclableUdpSocketsIntervalMs;
-		 PROUD_API static int ServerUdpSocketLatentCloseMs;
+		PROUD_API static int ServerUdpSocketLatentCloseMs;
 
 		PROUD_API static int64_t TcpInDangerThresholdMs;
 		PROUD_API static int64_t TcpUnstableDetectionWaitTimeMs;
@@ -146,7 +146,7 @@ namespace Proud
 		PROUD_API static int64_t RecentAssemblyingPacketIDsClearIntervalMs;
 
 		PROUD_API static int AutoConnectionRecoveryTimeoutTimeMs;
-		 PROUD_API static int64_t AutoConnectionRecoveryTimeoutMinTimeMs;
+		PROUD_API static int64_t AutoConnectionRecoveryTimeoutMinTimeMs;
 
 		PROUD_API static int64_t AutoConnectionRecoveryRefreshServerAddrInfoTimeoutMs;
 
@@ -172,7 +172,7 @@ namespace Proud
 		- この値を長く取れば送信ラックが発生することがありますのでご注意ください!(3ms~10ms)間が適当です。
 		\~
 		*/
-		 PROUD_API static int EveryRemoteIssueSendOnNeedIntervalMs;
+		PROUD_API static int EveryRemoteIssueSendOnNeedIntervalMs;
 
 		__forceinline static int64_t GetFallbackServerUdpToTcpTimeoutMs()
 		{
@@ -191,7 +191,7 @@ namespace Proud
 
 			// 연속 3번 보낸 것을 못 받는다는 것은 80% 이상 패킷 로스라는 의미. 이 정도면 홀펀칭 되어 있어도 막장이다.
 			// 따라서 10->4 하향.
-			// GetFallbackServerUdpToTcpTimeoutMs과 GetFallbackP2PUdpToTcpTimeoutMs은 서로 같은 값이어야. 
+			// GetFallbackServerUdpToTcpTimeoutMs과 GetFallbackP2PUdpToTcpTimeoutMs은 서로 같은 값이어야.
 			// C-S UDP가 증발하건 P2P UDP가 증발하건 한쪽이 증발하면 나머지도 불안한건 매한가지 이므로.
 			return UnreliablePingIntervalMs * 4;
 		}
@@ -220,11 +220,11 @@ namespace Proud
 		- あまりにも小さく取ると値の変化が小さくて既存値のエラーを簡単に乗り越えることができず、あまりにも大きければ値の変化が大きくて大体の値の中間点を維持しにくいです。
 		\~
 		*/
-		 PROUD_API static int LagLinearProgrammingFactorPercent;
+		PROUD_API static int LagLinearProgrammingFactorPercent;
 
 		PROUD_API static int StreamGrowBy;
 
-		 PROUD_API static int InternalNetVersion;
+		PROUD_API static int InternalNetVersion;
 
 		PROUD_API static int InternalLanVersion;
 
@@ -235,9 +235,9 @@ namespace Proud
 		\~ */
 		PROUD_API static Proud::String GetVersion();
 
-		 PROUD_API static int MtuLength;
+		PROUD_API static int MtuLength;
 
-		 PROUD_API static int64_t ElectSuperPeerIntervalMs;
+		PROUD_API static int64_t ElectSuperPeerIntervalMs;
 
 		/**
 		\~korean
@@ -299,7 +299,7 @@ namespace Proud
 		*/
 		PROUD_API static int MaxS2CMulticastRouteCount;
 
-		 PROUD_API static int UnreliableS2CRoutedMulticastMaxPingDefaultMs;
+		PROUD_API static int UnreliableS2CRoutedMulticastMaxPingDefaultMs;
 
 		PROUD_API static bool ForceCompressedRelayDestListOnly;
 
@@ -336,7 +336,7 @@ namespace Proud
 		static const int OrdinaryHeavyS2CMulticastCount = 100;
 
 		/** test splitter를 켤 것인가 말 것인가?
-		켤 경우 통신량은 약간 증가하나 splitter test를 통해 깨진 serialization을 찾는데 도움이 된다. 
+		켤 경우 통신량은 약간 증가하나 splitter test를 통해 깨진 serialization을 찾는데 도움이 된다.
 		주의: true로 설정하지 말 것. RMI encryption이 정상 작동 안한다. */
 		static const bool EnableTestSplitter = false;
 
@@ -358,7 +358,7 @@ namespace Proud
 		*/
 		PROUD_API static CriticalSection m_writeCritSec;
 	public:
-		 PROUD_API static bool EnableSpeedHackDetectorByDefault;
+		PROUD_API static bool EnableSpeedHackDetectorByDefault;
 
 		/**
 		\~korean
@@ -376,15 +376,15 @@ namespace Proud
 		*/
 		PROUD_API  static bool EnableMessagePriority;
 
-		 PROUD_API static int64_t SpeedHackDetectorPingIntervalMs;
+		PROUD_API static int64_t SpeedHackDetectorPingIntervalMs;
 
 		PROUD_API  static CriticalSection& GetWriteCriticalSection();
 
-		 PROUD_API static int DefaultMaxDirectP2PMulticastCount;
+		PROUD_API static int DefaultMaxDirectP2PMulticastCount;
 
-		 PROUD_API static bool UpnpDetectNatDeviceByDefault, UpnpTcpAddPortMappingByDefault;
+		PROUD_API static bool UpnpDetectNatDeviceByDefault, UpnpTcpAddPortMappingByDefault;
 
-		 PROUD_API static int64_t MeasureClientSendSpeedIntervalMs;
+		PROUD_API static int64_t MeasureClientSendSpeedIntervalMs;
 
 		PROUD_API  static int64_t MeasureSendSpeedDurationMs;
 
@@ -418,7 +418,7 @@ namespace Proud
 
 		\~
 		*/
-		 PROUD_API static bool CatchUnhandledException;
+		PROUD_API static bool CatchUnhandledException;
 
 		/**
 		\~korean
@@ -443,7 +443,7 @@ namespace Proud
 		- 基本値はErrorReaction_MessageBoxです。
 		\~
 		*/
-		 PROUD_API static ErrorReaction UserMisuseErrorReaction;
+		PROUD_API static ErrorReaction UserMisuseErrorReaction;
 
 		/**
 		\~korean
@@ -514,7 +514,7 @@ namespace Proud
 		- Default: true
 		\~
 		*/
-		 PROUD_API static bool EnableObjectPooling;
+		PROUD_API static bool EnableObjectPooling;
 
 		/**
 		\~korean
@@ -525,22 +525,22 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		 PROUD_API static bool EnableSocketReuseAddress;
+		PROUD_API static bool EnableSocketReuseAddress;
 
 		// static double ReportP2PGroupPingIntervalMs;
 		PROUD_API  static int64_t ReportLanP2PPeerPingIntervalMs;
 		PROUD_API  static int64_t ReportP2PPeerPingTestIntervalMs;
-		 PROUD_API static int64_t ReportServerTimeAndPingIntervalMs;
-		 PROUD_API static int64_t LongIntervalMs;
+		PROUD_API static int64_t ReportServerTimeAndPingIntervalMs;
+		PROUD_API static int64_t LongIntervalMs;
 
 		PROUD_API  static int64_t MinSendSpeed;
 
-		 PROUD_API static int DefaultOverSendSuspectingThresholdInBytes;
+		PROUD_API static int DefaultOverSendSuspectingThresholdInBytes;
 		PROUD_API  static bool ForceUnsafeHeapToSafeHeap;
 		PROUD_API  static bool EnableSendBrake;
 		PROUD_API  static int UdpCongestionControl_MinPacketLossPercent;
 		PROUD_API  static int64_t VizReconnectTryIntervalMs;
-		 PROUD_API static int64_t SuperPeerSelectionPremiumMs;
+		PROUD_API static int64_t SuperPeerSelectionPremiumMs;
 
 		/**
 		\~korean
@@ -556,7 +556,7 @@ namespace Proud
 		ProudNetで HostID 再使用発行時に何秒が過ぎて発行するかを決定する値です。
 		\~
 		*/
-		 PROUD_API static int64_t HostIDRecycleAllowTimeMs;
+		PROUD_API static int64_t HostIDRecycleAllowTimeMs;
 
 		/**
 		\~korean
@@ -572,17 +572,17 @@ namespace Proud
 		Sendqueueの容量がどれだけ超過すればwarningを表示するかに対する値です。
 		\~
 		*/
-		 PROUD_API static int SendQueueHeavyWarningCapacity;
+		PROUD_API static int SendQueueHeavyWarningCapacity;
 
-		 PROUD_API static int64_t SendQueueHeavyWarningTimeMs;
+		PROUD_API static int64_t SendQueueHeavyWarningTimeMs;
 		PROUD_API  static int64_t SendQueueHeavyWarningCheckCoolTimeMs;
 
 		/**
 		\~korean
 		emergency log를 위한 NetClientStats 의 사본을 갱신할 coolTime 값입니다.
 
-		\~english 
-		This is the coolTime value to renew the copy of NetClientStats for the emergency log. 
+		\~english
+		This is the coolTime value to renew the copy of NetClientStats for the emergency log.
 
 		\~chinese
 		为了emergency log，要更新NetClientStats副本的coolTime值。
@@ -599,7 +599,7 @@ namespace Proud
 		PROUD_API  static unsigned int ManagerAverageElapsedTimeCollectCount;
 		PROUD_API  static bool	EnableStarvationWarning;
 
-		 PROUD_API static bool FraggingOnNeedByDefault;
+		PROUD_API static bool FraggingOnNeedByDefault;
 		PROUD_API  static bool CheckDeadLock;
 		PROUD_API  static bool UseIsSameLanToLocalForMaxDirectP2PMulticast;
 
@@ -612,10 +612,10 @@ namespace Proud
 		TLS 함수를 사용할 수 없는 환경에 한해서, 이 값을 false로 설정하십시오.
 		(예를 들어 몇 해킹 방지 3rd party 소프트웨어 혼용을 하는 경우)
 
-		\~english 
-		This is to determine whether to use the Thread local storage (TLS) function. 
-		The default value is true. 
-		For the environment where the TLS function cannot be used only, set this value as false. 
+		\~english
+		This is to determine whether to use the Thread local storage (TLS) function.
+		The default value is true.
+		For the environment where the TLS function cannot be used only, set this value as false.
 		(for example, when an anti-hacking 3rd party software is used together)
 
 		\~chinese
@@ -633,16 +633,16 @@ namespace Proud
 		*/
 		PROUD_API static const bool AllowUseTls = true;
 
-		 PROUD_API static bool ConcealDeadlockOnDisconnect;
+		PROUD_API static bool ConcealDeadlockOnDisconnect;
 
 		//kdh MessageOverload Warning 추가
 		PROUD_API  static int MessageOverloadWarningLimit;
 		PROUD_API  static int MessageOverloadWarningLimitTimeMs; //sec
 
-		// 		 static int64_t LanServerMessageOverloadTimerIntervalMs;
-		// 		 static int64_t LanClientMessageOverloadTimerIntervalMs;
-		// 		 static int64_t NetServerMessageOverloadTimerIntervalMs;
-		// 		 static int64_t NetClientMessageOverloadTimerIntervalMs;
+		//		static int64_t LanServerMessageOverloadTimerIntervalMs;
+		//		static int64_t LanClientMessageOverloadTimerIntervalMs;
+		//		static int64_t NetServerMessageOverloadTimerIntervalMs;
+		//		static int64_t NetClientMessageOverloadTimerIntervalMs;
 		PROUD_API  static int64_t MessageOverloadTimerIntervalMs;
 		PROUD_API  static int64_t LanRemotePeerHeartBeatTimerIntervalMs;
 
@@ -651,12 +651,12 @@ namespace Proud
 
 		PROUD_API  static int CleanUpOldPacketIntervalMs;
 		PROUD_API  static int NormalizePacketIntervalMs;
-		 PROUD_API static void ThrowExceptionIfMessageLengthOutOfRange(int length);
+		PROUD_API static void ThrowExceptionIfMessageLengthOutOfRange(int length);
 
 		PROUD_API  static double MessageRecovery_MessageIDAckIntervalMs;
 
 		PROUD_API  static bool ListenSocket_RetryOnInvalidArgError;
-		 PROUD_API static bool AllowOutputDebugString;
+		PROUD_API static bool AllowOutputDebugString;
 
 		PROUD_API static bool DefensiveSendReadyListAdd;
 		PROUD_API static bool DefensiveCustomValueEvent;
@@ -666,11 +666,11 @@ namespace Proud
 		PROUD_API static const int64_t WaitForSendingDummyPacketIntervalMs;
 
 		/************************************************************************/
-		/* ACR 관련 설정변수                                                     */
+		/* ACR 관련 설정변수													*/
 		/************************************************************************/
-		 PROUD_API static bool EnableAutoConnectionRecoveryOnServer;
+		PROUD_API static bool EnableAutoConnectionRecoveryOnServer;
 
-		 static const int RountTripLatencyTestMaxCount = 1000;
+		static const int RountTripLatencyTestMaxCount = 1000;
 	};
 	/**  @} */
 #if (defined(_MSC_VER) && _MSC_VER>=1400)

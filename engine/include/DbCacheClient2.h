@@ -325,7 +325,7 @@ namespace Proud
 				그 message를 전달받는 파라메터가 바로 이것입니다.
 
 				\~english
-				The requests receiving the message as a factor amongst the methods of DBCacheClient can deliver the message to another loader or the requester. 
+				The requests receiving the message as a factor amongst the methods of DBCacheClient can deliver the message to another loader or the requester.
 				The parameter receiving the message is this.
 
 				\~chinese
@@ -345,7 +345,7 @@ namespace Proud
 				해당 Callback과 관련된 데이터의 Session입니다.
 
 				\~english
-				The data session related to the Callback. 
+				The data session related to the Callback.
 
 				\~chinese
 				与该Callback相关的数据会话。
@@ -433,7 +433,7 @@ namespace Proud
 
 				\~english
 				- Reason for the failure when failed
-				- whether the request has succeeded or failed should be determined, check to make sure whether this value is ErrorType_Ok or not. 
+				- whether the request has succeeded or failed should be determined, check to make sure whether this value is ErrorType_Ok or not.
 
 				\~chinese
 				- 失败理由。
@@ -509,26 +509,26 @@ namespace Proud
 			// example
 			void IDbCacheClientDelegate2::OnExclusiveLoadDataComplete(CCallbackArgs& args)
 			{
-			    for ( CLoadResults::iterator it=m_loadResults.begin(); it!=m_loadResults.end(); ++it )
-			    {
-			        CLoadResult& result = *it;
-			        if ( result.m_reason == ErrorType_Ok )
-			        {
-			            // success
-			        }
-			        else
-			        {
-			            // fail
-			        }
-			    }
-			    // ...
+				for ( CLoadResults::iterator it=m_loadResults.begin(); it!=m_loadResults.end(); ++it )
+				{
+					CLoadResult& result = *it;
+					if ( result.m_reason == ErrorType_Ok )
+					{
+						// success
+					}
+					else
+					{
+						// fail
+					}
+				}
+				// ...
 			}
 
 			\endcode
 
 			\~english
-			This is the list containing the data trees related to the request. 
-			. For example, the byQuery series requests return several data trees matching the query condition and to receive to process them, this list must be circulated. 
+			This is the list containing the data trees related to the request.
+			. For example, the byQuery series requests return several data trees matching the query condition and to receive to process them, this list must be circulated.
 
 
 			\~chinese
@@ -674,13 +674,13 @@ namespace Proud
 		- args.m_tag에 요청 시 사용자가 임의로 입력했던 tag값이 그대로 돌아오므로 이를 통해 어떤 요청에 대한 응답인지 알 수 있습니다.
 
 		\~english
-		- This is the response for the exclusive load request. 
-		- When requesting, you may receive multiple data trees through args.m_items depending on the input search conditions. 
-		- args.m_items may have successful results and failed results mixed for exclusive load and if the value of CItem.m_reason is ErrorType_Ok, then this is a successful result. 
+		- This is the response for the exclusive load request.
+		- When requesting, you may receive multiple data trees through args.m_items depending on the input search conditions.
+		- args.m_items may have successful results and failed results mixed for exclusive load and if the value of CItem.m_reason is ErrorType_Ok, then this is a successful result.
 		- If successful, the related information is recorded in m_loadedData, m_data, m_sessionGuid, m_rootUUID, m_UUID and m_message among the member variables of the CItem object.
-		- If failed, the related information is recorded in m_reason, m_comment, m_UUID, m_hResult and m_message among the member variable of the CItem object. 
+		- If failed, the related information is recorded in m_reason, m_comment, m_UUID, m_hResult and m_message among the member variable of the CItem object.
 		- When the data is already excluded, the message transmitted by the current excluder when it transfers or rejects the exclusivity is recorded in m_message.
-		- When requesting to args.m_tag, the tag value input randomly by the user is returned as the original value so you can see this is a response to which request. 
+		- When requesting to args.m_tag, the tag value input randomly by the user is returned as the original value so you can see this is a response to which request.
 
 		\~chinese
 		- 针对垄断加载请求的响应。
@@ -742,7 +742,7 @@ namespace Proud
 		\~english
 		This is the event when particular data is forcibly unloaded from the server.
 		If another exclusivity request is received by the data exclusively loaded currently, OnDataUnloadRequested() is called back, but
-		If \ref dbc2_isolate_overview is attempted, inevitably this function is called back. 
+		If \ref dbc2_isolate_overview is attempted, inevitably this function is called back.
 
 		\~chinese
 		当特定数据从服务器强制上传时发生的事件。
@@ -1007,7 +1007,7 @@ namespace Proud
 		- args.m_tag에 요청 시 사용자가 임의로 입력했던 tag값이 그대로 돌아오므로 이를 통해 어떤 요청에 대한 응답인지 알 수 있습니다.
 
 		\~english
-		- This is the request for the nonexclusive search request. 
+		- This is the request for the nonexclusive search request.
 		- When requesting, you may receive multiple data trees through args.m_items depending on the input search conditions
 		- args.m_items may have successful results and failed results mixed for search success and if the value of CItem.m_reason is ErrorType_Ok, then this is a successful result.
 		- If successful, the related information is recorded in m_loadedData, m_data, m_sessionGuid, m_rootUUID and m_UUID among the member variables of the CItem object.
@@ -1028,7 +1028,7 @@ namespace Proud
 		- 要請時に入力した検索条件によってargs.m_itemsを通じ複数のデータツリーを受けることもできます。
 		- args.m_itemsには照会に成功した結果と失敗した結果が混じられますが、CItem.m_reason値がErrorType_Okであれば成功した結果です。
 		- 成功した場合、CItemオブジェクトのメンバー変数のうち、m_loadedData, m_data, m_sessionGuid, m_rootUUID, m_UUIDに関連情報が記録されます。
-		- 失敗した場合、CItemオブジェクトのメンバー変数のうち、m_reason, m_comment, m_UUID, m_hResultに関連情報が記録されます。	
+		- 失敗した場合、CItemオブジェクトのメンバー変数のうち、m_reason, m_comment, m_UUID, m_hResultに関連情報が記録されます。
 		- args.m_tagに要請時にユーザーが任意に入力したtag値がそのまま帰ってくるので、これを通じどんな要請に対する応答なのか知られます。
 
 		\~
@@ -1441,7 +1441,7 @@ namespace Proud
 		DB cache client2 インスタンスを生成します。
 		\~
 		*/
-		 PROUDSRV_API static CDbCacheClient2* New();
+		PROUDSRV_API static CDbCacheClient2* New();
 
 		/**
 		\~korean
@@ -1897,7 +1897,7 @@ namespace Proud
 		\~english
 		For a detailed explanation, refer to \ref BlockedNonCacheAddData
 		\param updateData Node to be updated.
-		\param timeOutTime  The time waiting for the return to avoid falling into an infinite loop. Default is 30 seconds. 
+		\param timeOutTime  The time waiting for the return to avoid falling into an infinite loop. Default is 30 seconds.
 		\param outError Error type
 
 		\~chinese
@@ -1926,7 +1926,7 @@ namespace Proud
 
 		\~english
 		Refer to BlockedNonCacheAddData
-		\param rootUUID rootUUID of the data to be added 
+		\param rootUUID rootUUID of the data to be added
 		\param removeUUID to be deleted
 		\param The time waiting for the return to avoid falling into an infinite loop. Default is 30 seconds.
 		\param outError type
@@ -2052,7 +2052,7 @@ namespace Proud
 		\~english TODO:translate needed.
 		For a detailed explanation, refer to \ref UnilateralAddData
 		\param update Node data to be updated
-		\param writeDbmsImmediately     If true, execute record as fast as possible in DBMS. 
+		\param writeDbmsImmediately     If true, execute record as fast as possible in DBMS.
 
 		\~chinese
 		详细的请参考\ref UnilateralAddData%。
@@ -2157,7 +2157,7 @@ namespace Proud
 		\~english TODO:translate needed.
 		For a detailed explanation, refer to \ref UnilateralAddData
 		\param loadedData         Data Loaded data
-		\param transactional      Whether to use the transaction feature 
+		\param transactional      Whether to use the transaction feature
 		\param writeDbmsImmediately      If true, execute record as fast as possible in DBMS.
 
 		\~chinese
@@ -2172,7 +2172,7 @@ namespace Proud
 		\param transactional トランザクション機能の使用可否
 		\param writeDbmsImmediately trueであればDBMSに最大限に速く記録を遂行します。
 
-		
+
 		\~
 		*/
 		virtual bool UnilateralRecursiveUpdateData(CLoadedData2Ptr loadedData, bool transactional = false, bool writeDbmsImmediately = true) = 0;
@@ -2365,7 +2365,7 @@ namespace Proud
 		\param tag 对此邀请用户要填入的识别值。回调时进入\ref CCallbackArg%的m_tag。
 
 		\~japanese
-		
+
 		\~
 		*/
 		virtual void RequestNonExclusiveSnapshotDataByGuid(String rootTableName, Guid rootUUID, intptr_t tag) = 0;
@@ -2880,10 +2880,10 @@ namespace Proud
 		실제 DB에 업데이트하려면 변경한 후 객체를 UpdateData 함수를 통해 서버에 전송해야 한다.
 
 		\~english TODO:translate needed.
-		It’s the same function as the above \ref GetClonedLoadedDataBySessionGuid, but it is searched with rootUUID. 
+		It’s the same function as the above \ref GetClonedLoadedDataBySessionGuid, but it is searched with rootUUID.
 		Check out \ref GetClonedLoadedDataBySessionGuid. For a detailed explanation, refer to \ref GetClonedLoadedDataBySessionGuid
-		\Obtained data object. Since this is a copy, it is not updated in the real DB even though you transform the value of the obtained object. 
-		If you want to update it in the actual DB, you have to transmit the object through the UpdateData function. 
+		\Obtained data object. Since this is a copy, it is not updated in the real DB even though you transform the value of the obtained object.
+		If you want to update it in the actual DB, you have to transmit the object through the UpdateData function.
 
 		\~chinese
 		与上面的\ref GetClonedLoadedDataBySessionGuid%一样的函数，用rootUUID查询。

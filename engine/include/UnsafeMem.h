@@ -34,13 +34,13 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #ifdef _MSC_VER
 #pragma pack(push,8)
 #endif
 
-namespace Proud 
+namespace Proud
 {
 #if (defined(_MSC_VER) && _MSC_VER>=1400)
 // 아래 주석처리된 pragma managed 전처리 구문은 C++/CLI 버전이 있었을 때에나 필요했던 것입니다.
@@ -54,7 +54,7 @@ namespace Proud
 	#TODO 아닐수도 있다. compiler가 알아서 16바이트 정도 크기면
 	intrinsic level로 최적화된 코드가 나올 수 있다.
 	일단은 보수적으로 가지만 추후 체크해서 이 함수를 버리던지 유지하던지 하자. */
-	template <size_t LENGTH> 
+	template <size_t LENGTH>
 	int CompareInt32Array(const void* a, const void* b)
 	{
 		const int32_t* a2 = (const int32_t*)a;
@@ -75,7 +75,7 @@ namespace Proud
 //
 //	// 작은 크기의 데이터에 대한 memcpy. memcpy 자체는 내부적으로 SIMD 최적화를 하지만 CPU 상황이라던지 여러가지를 알아보는 코스트가 크다.
 //	// 오히려 작은 크기는 이게 더 빠름.
-//	inline void SmallMemcpy(uint8_t*dst, const uint8_t*src, size_t size)  
+//	inline void SmallMemcpy(uint8_t*dst, const uint8_t*src, size_t size)
 //	{
 //		static const size_t sizetSize = sizeof(size_t);
 //
@@ -141,9 +141,9 @@ namespace Proud
 //#endif
 //	}
 //
-//#else 
+//#else
 //
-//#	define UnsafeFastMemcpy memcpy 
+//#	define UnsafeFastMemcpy memcpy
 //
 //#endif
 //

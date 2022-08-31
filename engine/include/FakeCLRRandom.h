@@ -59,7 +59,7 @@ namespace Proud
 			m_rand.InitializeSeed();
 		}
 
-		/** 
+		/**
 		\~korean
 		0~1 사이 난수 부동소수점 값을 생성합니다.
 
@@ -73,9 +73,9 @@ namespace Proud
 		0~1の間の乱数不動小数点値を生成します。
 		\~
 		*/
-		 PROUD_API double NextDouble();
+		PROUD_API double NextDouble();
 
-		/** 
+		/**
 		\~korean
 		난수값을 생성합니다.
 		생성된 난수값은 0부터 maxVal까지 중 하나입니다.
@@ -93,9 +93,9 @@ namespace Proud
 		生成された乱数値は0からmaxValまでの中の一つです。
 		\~
 		*/
-		 PROUD_API int Next(int maxVal);
+		PROUD_API int Next(int maxVal);
 
-		/** 
+		/**
 		\~korean
 		GUID 난수값을 생성합니다.
 
@@ -109,7 +109,7 @@ namespace Proud
 		GUID乱数値を生成します。
 		\~
 		*/
-		 PROUD_API Guid NextGuid();
+		PROUD_API Guid NextGuid();
 	};
 	/**  @} */
 }

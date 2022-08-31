@@ -68,7 +68,7 @@ namespace Proud
 
 	\~japanese
 	DB casheによってロードされるテーブル名です。
-	root nodeのためのテーブル名とchild nodeのためのテーブル名などを入れてください。 
+	root nodeのためのテーブル名とchild nodeのためのテーブル名などを入れてください。
 	child nodeのためのテーブル名は0個以上ではなければなりません。
 	child nodeのためのテーブル名の中には、root nodeのためのテーブル名と同じものがあってはいけません。
 
@@ -109,7 +109,7 @@ namespace Proud
 
 		\~english TODO:translate needed
 		It is called when an internal error occurs
-		\This is the information on an error. If you use ErrorInfo::ToString(), you can see the detailed information of the problem. 
+		\This is the information on an error. If you use ErrorInfo::ToString(), you can see the detailed information of the problem.
 
 		\~chinese
 		发生内部错误时呼叫。
@@ -129,7 +129,7 @@ namespace Proud
 		\param errorInfo 에러에 대한 정보입니다. ErrorInfo::ToString()을 이용하시면 간편하게 자세한 문제의 정보를 보실 수 있습니다.
 
 		\~english TODO:translate needed
-		It is called when an internal warning occurs. This reports a problem with the level lower than an error. 
+		It is called when an internal warning occurs. This reports a problem with the level lower than an error.
 		\param errorInfo This is the information on an error. If you use ErrorInfo::ToString(), you can see the detailed information of the problem
 
 		\~chinese
@@ -207,7 +207,7 @@ namespace Proud
 		\param type 完了されたDBMS記録(PropNode)の種類(参考 \ref DbmsWritePropNodePendType)
 
 		\~
-		 */
+		*/
 		virtual void OnDbmsWriteDone(DbmsWritePropNodePendType /*type*/) {}
 	};
 
@@ -224,7 +224,7 @@ namespace Proud
 	\~japanese
 	CDbCacheServer2がサーバー作動を開始するために提供しなければならないパラメーター
 	\~
-	 */
+	*/
 	class CDbCacheServer2StartParameter
 	{
 	public:
@@ -241,7 +241,7 @@ namespace Proud
 		\~japanese
 		サーバーのアドレス。詳しくは、CStartServerParameterの同じ名前のメンバーをご参照ください。
 		\~
-		 */
+		*/
 		Proud::String m_serverIP;
 
 		/**
@@ -258,7 +258,7 @@ namespace Proud
 		The address that the listening socket of the client to be bound.
 		- The initial value is an empty string.
 		- Usually set as an empty string but in case when the client has 2 or more of network interfaces (NICs)
-		   and when only one of them is able to recieve the connection request from other CLanClient, it is the case to use this.
+		  and when only one of them is able to recieve the connection request from other CLanClient, it is the case to use this.
 		  The IP address or the host name designated by the NIC must be used. Proud.GetLocalIPAddresses can be used to get the NIC address list located in the host.
 		- In the case that a host name is used, a connection failure can occur when localhost is set as the address to connect to the server for a client.
 		  In this case, the client must be set clearly as the server host address in order to connect to the server.
@@ -299,7 +299,7 @@ namespace Proud
 		詳しくは、CStartServerParameterの同じ名前のメンバーをご参照くだｓだい。
 
 		\~
-		 */
+		*/
 		int m_tcpPort;
 
 		/**
@@ -316,7 +316,7 @@ namespace Proud
 		- 对字符串请参考 CAdoConnection.Open%帮助。
 
 		\~japanese
-		DBMSに接続するためのconnection string.		
+		DBMSに接続するためのconnection string.
 		- 文字列に対しては、CAdoConnection.Openのヘルプをご参照ください。
 
 		\~
@@ -341,7 +341,7 @@ namespace Proud
 
 		\~japanese
 		このDBサーバーに接続できる認証キー
-		- 絶対この値はゲームクライアントに露出されてはいけません。 
+		- 絶対この値はゲームクライアントに露出されてはいけません。
 		この値はDB cache client(ゲームサーバーなど)が本サーバーへ接続するための目的で使われます。
 
 		\~
@@ -391,7 +391,7 @@ namespace Proud
 		詳しくは、CCachedTableNameをご参照ください。
 
 		\~
-		 */
+		*/
 		CFastArray<CCachedTableName> m_tableNames;
 
 		/**
@@ -420,9 +420,9 @@ namespace Proud
 		이 값이 null이 아니면, 외부 networker thread를 사용합니다.
 		Proud.CStartLanServerParameter.m_externalNetWorkerThreadPool와 같은 역할을 합니다.
 
-		\~english 
-		If this value is not null, use an external networker thread. 
-		It performs the same role as Proud.CStartLanServerParameter.m_externalNetWorkerThreadPool. 
+		\~english
+		If this value is not null, use an external networker thread.
+		It performs the same role as Proud.CStartLanServerParameter.m_externalNetWorkerThreadPool.
 
 		\~chinese
 		此值不是null的话，使用外部networker thread。
@@ -441,7 +441,7 @@ namespace Proud
 		이 값이 null이 아니면, 외부 user worker thread를 사용합니다.
 		Proud.CStartLanServerParameter.m_externalUserWorkerThreadPool와 같은 역할을 합니다.
 
-		\~english 
+		\~english
 		If this value is not null, use an external networker thread.
 		It performs the same role as Proud.CStartLanServerParameter.m_externalNetWorkerThreadPool.
 
@@ -593,7 +593,7 @@ namespace Proud
 	\~japanese
 	\ref dbc2_server です。
 	\~
-	 */
+	*/
 	class CDbCacheServer2
 	{
 	protected:
@@ -614,7 +614,7 @@ namespace Proud
 		\~japanese
 		接続されたクライアント数をリターンします。
 		\~
-		 */
+		*/
 		virtual intptr_t GetCachingDataTreeCount() = 0;
 
 		/**
@@ -630,7 +630,7 @@ namespace Proud
 		\~japanese
 		DB cacheサーバーインスタンスを生成します。
 		\~
-		 */
+		*/
 		PROUDSRV_API static CDbCacheServer2* New();
 
 		/**
@@ -639,7 +639,7 @@ namespace Proud
 		\param params CDbCacheServer2를 시작하는데 필요한 설정값 (참고 \ref CDbCacheServer2StartParameter)
 
 		\~english TODO:translate needed
-		Enable the connection from the client and start the actual connection with DBMS. 
+		Enable the connection from the client and start the actual connection with DBMS.
 		\param params The configuration value required to start CDbCacheServer2 (refer to \ref CDbCacheServer2StartParameter)
 
 		\~chinese
@@ -651,7 +651,7 @@ namespace Proud
 		\param params CDbCacheServer2を開始するに必要な設定値(参考 \ref CDbCacheServer2StartParameter)
 
 		\~
-		 */
+		*/
 		virtual void Start(CDbCacheServer2StartParameter &params) = 0;
 
 		/**
@@ -680,9 +680,9 @@ namespace Proud
 		\param val 밀리초 단위 시간
 
 		\~english TODO:translate needed
-		This is the time to stand by from after receiving the data add/modify/delete content from DB cache client 2 until recording it in DBMS. 
+		This is the time to stand by from after receiving the data add/modify/delete content from DB cache client 2 until recording it in DBMS.
 		- If too short, the load on DBMS increases
-		- If too long, when the DB cache server terminates abnormally (e.g.: power failure), it cannot record in DBMS and the data waiting in the memory is likely to be lost.  
+		- If too long, when the DB cache server terminates abnormally (e.g.: power failure), it cannot record in DBMS and the data waiting in the memory is likely to be lost.
 		\param val Time in millisecond unit
 
 		\~chinese
@@ -698,7 +698,7 @@ namespace Proud
 		\param val ミリ秒単位時間
 
 		\~
-		 */
+		*/
 		virtual void SetDbmsWriteIntervalMs(int64_t val)=0;
 
 		/**
@@ -727,7 +727,7 @@ namespace Proud
 		\param val ミリ秒単位時間
 
 		\~
-		 */
+		*/
 		virtual void SetUnloadedDataHibernateDurationMs(int64_t val)=0;
 
 		/**
@@ -743,7 +743,7 @@ namespace Proud
 		\~japanese
 		Proud.CNetServer.SetDefaultTimeoutTimeMsと同じ役割をします。
 		\~
-		 */
+		*/
 		virtual void SetDefaultTimeoutTimeMs(int newValInMs) = 0;
 
 		/**
@@ -764,7 +764,7 @@ namespace Proud
 		\param val 秒単位時間
 
 		\~
-		 */
+		*/
 		virtual void SetDefaultTimeoutTimeSec(double newValInSec) = 0;
 
 
@@ -777,10 +777,10 @@ namespace Proud
 
 		\~chinese
 		获得此DB cache server2打开的TCP收听插口地址。
-		
+
 		\~japanese
 		このDB cache server2が開けて置いたTCPリスニングソケットのアドレスを得ます。
-		 */
+		*/
 		virtual AddrPort GetTcpListenerLocalAddr() = 0;
 
 		/**
@@ -791,10 +791,10 @@ namespace Proud
 		\param output AddrPort들의 목록이 채워질 곳
 
 		\~english TODO:translate needed.
-		Obtain the AddrPort for the DB Cache Client 2 connected to this DB Cache Server2. 
-		- The list obtained by this method is only the snapshot at the time of being called. 
-		Even after this function is returned, it does not guarantee that the content of the client list is the same as the status of the actual server. 
-		\param output Place where the list of AddrPort will be filled out. 
+		Obtain the AddrPort for the DB Cache Client 2 connected to this DB Cache Server2.
+		- The list obtained by this method is only the snapshot at the time of being called.
+		Even after this function is returned, it does not guarantee that the content of the client list is the same as the status of the actual server.
+		\param output Place where the list of AddrPort will be filled out.
 
 		\~chinese
 		获得连接这个DB cache Server2的DB Cache Cleint2的AddrPort值。
@@ -820,8 +820,8 @@ namespace Proud
 		\param timeoutMs 지정 할 시간 제한입니다. (밀리초 단위)
 
 		\~english
-		Configure the time limit to wait for the processing of exclusive load request. 
-		- If the load and exclusivity acquisition is not completed within the time set with this value, the request is processed as a failure as a timeout. 
+		Configure the time limit to wait for the processing of exclusive load request.
+		- If the load and exclusivity acquisition is not completed within the time set with this value, the request is processed as a failure as a timeout.
 		- The default value is 10 seconds (10000 milliseconds)
 		\param timeoutMs The time limit to be designated (millisecond unit)
 
@@ -846,7 +846,7 @@ namespace Proud
 		- 독점 로드 요청의 타임아웃 설정값을 밀리초 단위로 반환합니다.
 
 		\~english
-		Return the timeout configuration value of the exclusive load request in millisecond unit. 
+		Return the timeout configuration value of the exclusive load request in millisecond unit.
 
 		\~chinese
 		- 把垄断加载超时设定值转换成微妙单位。

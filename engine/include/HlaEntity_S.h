@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #ifdef _MSC_VER
 #pragma pack(push,8)
@@ -44,7 +44,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #include "HlaDef.h"
 #include "FastMap.h"
 
-namespace Proud 
+namespace Proud
 {
 	class CHlaSessionHostImpl_S;
 	class CHlaSpace_S;
@@ -84,7 +84,7 @@ namespace Proud
 	public:
 		CHlaSessionHostImpl_S* m_ownerHost;
 
-		CHlaEntityManagerBase_S() 
+		CHlaEntityManagerBase_S()
 		{
 			m_ownerHost = NULL;
 		}

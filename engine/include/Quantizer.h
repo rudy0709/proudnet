@@ -55,7 +55,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	<a target="_blank" href="http://guide.nettention.com/cpp_ko#quantizer" >데이터 양자화</a> 기능을 담당하는 클래스입니다.
 
@@ -74,13 +74,13 @@ namespace Proud
 		double m_min,m_max;
 		uint32_t m_granulation;
 	public:
-		/** 
+		/**
 		\~korean
 		생성자
 		\param min 양자화되는 값은 이 값 이하로는 들어가지 않습니다.
 		\param max 양자화되는 값은 이 값 이상으로는 들어가지 않습니다.
 		\param granulation 양자화되는 값은 정수 타입입니다. 본 값은 양자화되는 값이 0부터 얼마까지의 정수형으로 변환되느냐를 지칭합니다.
-		값이 클수록 양자화된 값의 정밀도가 높지만 양자화된 데이터가 필요로 하는 비트수가 증가하게 됩니다. 
+		값이 클수록 양자화된 값의 정밀도가 높지만 양자화된 데이터가 필요로 하는 비트수가 증가하게 됩니다.
 
 		\~english
 		Constructor
@@ -112,9 +112,9 @@ namespace Proud
 			m_granulation = granulation;
 		}
 
-		/** 
+		/**
 		\~korean
-		양자화를 합니다. 
+		양자화를 합니다.
 
 		\~english
 		Quantizing
@@ -136,9 +136,9 @@ namespace Proud
 			return (uint32_t)offset2;
 		}
 
-		/** 
+		/**
 		\~korean
-		양자화된 값을 복원합니다. 
+		양자화된 값을 복원합니다.
 
 		\~english
 		Recover quantized value

@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "Ptr.h"
 #include "FastMap.h"
@@ -43,7 +43,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #pragma pack(push,8)
 #endif
 
-namespace Proud 
+namespace Proud
 {
 	class CPooledString;
 

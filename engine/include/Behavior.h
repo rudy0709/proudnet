@@ -82,16 +82,16 @@ namespace Proud
 		}
 	};
 
-	/** 
+	/**
 	\~korean
 	Conditional behavior member를 위한 임시 Class
-	
+
 	\~english
 	a template class for conditional behavior member
-	
+
 	\~chinese
 	为了Conditional behavior member的临时Class。
-	
+
 	\~japanese
 	Conditional behavior memberのための臨時クラス
 	\~

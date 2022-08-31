@@ -114,7 +114,7 @@ namespace Proud
 		\param infoサーバー接続の結果を次のオブジェクト。サーバーとの接続が成功した場合、ErrorInfo.m_typeがsuccess valueを持ちます。
 		サーバーとの接続に失敗した場合、この値を閲覧すれば良いです。詳しくは、ErrorInfoクラスの説明をご参照ください。
 		\param replyFromServer サーバーから受けた追加メッセージです。この値は、
-		INetServerEvent.OnConnectionRequestより送られた値です。 
+		INetServerEvent.OnConnectionRequestより送られた値です。
 		\~
 		*/
 		virtual void OnJoinServerComplete(ErrorInfo *info, const ByteArray& replyFromServer) = 0;

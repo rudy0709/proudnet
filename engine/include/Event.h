@@ -68,7 +68,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	멀티스레드 프로그래밍에서의 이벤트 객체이다.
 
@@ -122,7 +122,7 @@ namespace Proud
 		\param initialState このイベントオブジェクトがシグナルを最初から受けた状態で生成されるようにしたい場合は true
 		\~
 		*/
-		 PROUD_API Event(bool manualReset, bool initialState);
+		PROUD_API Event(bool manualReset, bool initialState);
 
 		/**
 		\~korean
@@ -142,7 +142,7 @@ namespace Proud
 		- auto reset, non signaledで開始します。
 		\~
 		*/
-		 PROUD_API Event();
+		PROUD_API Event();
 
 		/**
 		\~korean
@@ -158,7 +158,7 @@ namespace Proud
 		破壊子
 		\~
 		*/
-		 PROUD_API ~Event();
+		PROUD_API ~Event();
 
 		/**
 		\~korean
@@ -259,7 +259,7 @@ namespace Proud
 		\param timeOut (ミリ秒) シグナル待機最大時間。INFINITEを入れると無限定で待ちます。
 		\~
 		*/
-		 PROUD_API bool WaitOne(uint32_t timeOut);
+		PROUD_API bool WaitOne(uint32_t timeOut);
 
 		/**
 		\~korean
@@ -267,7 +267,7 @@ namespace Proud
 
 		\~english
 		Waits indefinitely until signal arrives
-		
+
 		\~chinese
 		无限等至信号到达。
 
@@ -275,7 +275,7 @@ namespace Proud
 		シグナルが来る時まで無限定で待ちます。
 		\~
 		*/
-		 PROUD_API bool WaitOne();
+		PROUD_API bool WaitOne();
 
 		/**
 		\~korean

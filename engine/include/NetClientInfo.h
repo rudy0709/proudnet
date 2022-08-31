@@ -163,7 +163,7 @@ namespace Proud
 		在 CNetServer%分配的peer的int。
 
 		\~japanese
-		CNetServerで割り当てたpeerのint.  
+		CNetServerで割り当てたpeerのint.
 		\~
 		*/
 		HostID m_HostID;
@@ -184,7 +184,7 @@ namespace Proud
 
 		\~japanese
 		Trueであれば、このクライアントpeerへのRMIはサーバーを経由するP2P relayを行うことを意味します。
-		- CNetClientでのみ有効な値 
+		- CNetClientでのみ有効な値
 		\~
 		*/
 		bool m_RelayedP2P;
@@ -204,7 +204,7 @@ namespace Proud
 
 		\~japanese
 		このクライアントが参加しているP2Pグループのリスト
-		- CNetServer, CNetClientの両方で有効です。 
+		- CNetServer, CNetClientの両方で有効です。
 		\~
 		*/
 		HostIDSet m_joinedP2PGroups;
@@ -224,7 +224,7 @@ namespace Proud
 
 		\~japanese
 		Trueの場合、このクライアントはNAT装置の裏にあることを意味します。
-		- CNetServer, CNetClientの両方で有効です。 
+		- CNetServer, CNetClientの両方で有効です。
 		\~
 		*/
 		bool m_isBehindNat;
@@ -294,8 +294,8 @@ namespace Proud
 
 		\~japanese
 		最近に測定したpingの平均時間(秒単位)
-		- CNetClient.GetPeerInfoから得た場合：該当P2P peerのpingです。 
-		- CNetServer.GetClientInfoから得た場合：サーバークライアント間のpingです。 
+		- CNetClient.GetPeerInfoから得た場合：該当P2P peerのpingです。
+		- CNetServer.GetClientInfoから得た場合：サーバークライアント間のpingです。
 		\~
 		*/
 		int m_recentPingMs;
@@ -342,7 +342,7 @@ namespace Proud
 
 		\~japanese
 		ユーザーが指定したtagのポインターです。
-		- CNetServer.SetHostTag, CNetClient.SetHostTag を通じ指定した値です。 
+		- CNetServer.SetHostTag, CNetClient.SetHostTag を通じ指定した値です。
 		- ご注意!：tagはネットワーク同期化がされない値です。
 		\~
 		*/
@@ -351,7 +351,7 @@ namespace Proud
 		/**
 		\~korean
 		클라이언트의 Frame Rate 입니다.
-	    - CNetClient.SetApplicationHint 에서 사용자가 입력한 값입니다.
+		- CNetClient.SetApplicationHint 에서 사용자가 입력한 값입니다.
 		- 각 피어에는 전달되지 않으며, 서버에서 각 클라이언트의 Frame Rate 를 확인 하고자 할 때 사용합니다.
 		- Frame rate는 통신량 절감을 위하여 전송시 float값으로 변환되어 송수신 됩니다.
 

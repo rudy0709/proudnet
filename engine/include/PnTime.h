@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "PNString.h"
 #if !defined(_WIN32)
@@ -90,7 +90,7 @@ namespace Proud
 
 	\~
 	*/
-	 PROUD_API errno_t localtime_pn(const ::time_t* time, ::tm* t);
+	PROUD_API errno_t localtime_pn(const ::time_t* time, ::tm* t);
 
 	/**
 	\~korean
@@ -109,7 +109,7 @@ namespace Proud
 
 	\~
 	*/
-	 errno_t gmtime_pn(const ::time_t* time, ::tm* t);
+	errno_t gmtime_pn(const ::time_t* time, ::tm* t);
 
 	/**
 	\~korean
@@ -128,7 +128,7 @@ namespace Proud
 
 	\~
 	*/
-	 PROUD_API int timespec_get_pn(::timespec *tp, int const base);
+	PROUD_API int timespec_get_pn(::timespec *tp, int const base);
 
 	/**
 	\~korean
@@ -146,7 +146,7 @@ namespace Proud
 
 	\~
 	*/
-	 PROUD_API long long timespec_to_nanosecond(const ::timespec& ts);
+	PROUD_API long long timespec_to_nanosecond(const ::timespec& ts);
 
 	/**
 	\~korean
@@ -165,7 +165,7 @@ namespace Proud
 
 	\~
 	*/
-	 PROUD_API int nanosecond_to_timespec(const long long& ns, timespec *tp);
+	PROUD_API int nanosecond_to_timespec(const long long& ns, timespec *tp);
 
 	/**
 	\~korean
@@ -183,7 +183,7 @@ namespace Proud
 
 	\~
 	*/
-	 PROUD_API long long timespec_to_millisecond(const ::timespec& ts);
+	PROUD_API long long timespec_to_millisecond(const ::timespec& ts);
 
 	/**
 	\~korean
@@ -202,7 +202,7 @@ namespace Proud
 	\~
 	*/
 
-	 PROUD_API int millisecond_to_timespec(const long long& ms, timespec *tp);
+	PROUD_API int millisecond_to_timespec(const long long& ms, timespec *tp);
 
 	/**
 	\~korean
@@ -219,7 +219,7 @@ namespace Proud
 
 	\~
 	*/
-	 long long GetCurrentTimeNanoSecond();
+	long long GetCurrentTimeNanoSecond();
 
 
 }

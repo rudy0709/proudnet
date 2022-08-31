@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #ifdef _MSC_VER
 #pragma pack(push,8)
@@ -17,7 +17,7 @@
 		}
 
 // 클래스에 이걸 선언하면 복사 불가능한 상태가 된다.
-// 실수로 assignment 구문을 넣는 것을 막게 하려면 유용하다. 
+// 실수로 assignment 구문을 넣는 것을 막게 하려면 유용하다.
 #define NO_COPYABLE(typeName) \
 	private: \
 		inline typeName& operator=(const typeName&) { return *this; } \

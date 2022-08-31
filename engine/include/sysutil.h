@@ -121,29 +121,29 @@ namespace Proud
 	PROUD_API uint64_t GetCurrentThreadID();
 
 	/**
-	 \~korean
-	 ProudNet 사용자가 실수한 경우에만 보여주는 에러다.
-	 - CNetConfig::UserMisuseErrorReaction 의 type에 따라서 MessageBox혹은 디버그뷰로 확인 할 수 있는 에러를 출력해준다.
-	 \param text Error Comment
+	\~korean
+	ProudNet 사용자가 실수한 경우에만 보여주는 에러다.
+	- CNetConfig::UserMisuseErrorReaction 의 type에 따라서 MessageBox혹은 디버그뷰로 확인 할 수 있는 에러를 출력해준다.
+	\param text Error Comment
 
-	 \~english
+	\~english
 	This is an error shown only when a ProudNet user makes a mistake.
 	- Depending on the type of CNetConfig::UserMisuseErrorReaction, it outputs the error that can be confirmed with either MessageBox or debugview.
 	\param text Error Comment
 
 
-	 \~chinese
-	 ProudNet用户失误的时候显示的错误。
-	 - 根据 CNetConfig::UserMisuseErrorReaction%的type，打印用MessageBox或者调试view可以确认的错误。
-	 \param text Error Comment
+	\~chinese
+	ProudNet用户失误的时候显示的错误。
+	- 根据 CNetConfig::UserMisuseErrorReaction%的type，打印用MessageBox或者调试view可以确认的错误。
+	\param text Error Comment
 
-	 \~japanese
+	\~japanese
 	ProudNetユーザーが間違った場合のみ表示するエラーです。
 	- CNetConfig::UserMisuseErrorReactionのtypeによってMessageBoxまたはデバッグビューで確認できるエラーを出力します。
 	\param text Error Comment
 
-	 \~
-	 */
+	\~
+	*/
 	PROUD_API void ShowUserMisuseError(const PNTCHAR* text);
 
 
@@ -372,10 +372,10 @@ namespace Proud
 		/*__out_opt*/
 		HANDLE
 		(WINAPI* CreateIoCompletionPortProc)(
-			/*__in*/     HANDLE FileHandle,
+			/*__in*/	 HANDLE FileHandle,
 			/*__in_opt*/ HANDLE ExistingCompletionPort,
-			/*__in*/     ULONG_PTR CompletionKey,
-			/*__in*/     uint32_t NumberOfConcurrentThreads
+			/*__in*/	 ULONG_PTR CompletionKey,
+			/*__in*/	 uint32_t NumberOfConcurrentThreads
 			);
 
 	typedef
@@ -390,9 +390,9 @@ namespace Proud
 	typedef
 		BOOL
 		(WINAPI* QueueUserWorkItemProc) (
-			/*__in*/     LPTHREAD_START_ROUTINE Function,
+			/*__in*/	 LPTHREAD_START_ROUTINE Function,
 			/*__in_opt*/ PVOID Context,
-			/*__in*/     uint32_t Flags
+			/*__in*/	 uint32_t Flags
 			);
 
 	typedef
@@ -427,8 +427,8 @@ namespace Proud
 	typedef
 		PVOID
 		(WINAPI* AddVectoredExceptionHandlerProc) (
-			/*__in*/          uint32_t FirstHandler,
-			/*__in*/          PVECTORED_EXCEPTION_HANDLER VectoredHandler
+			/*__in*/	 	 uint32_t FirstHandler,
+			/*__in*/	 	 PVECTORED_EXCEPTION_HANDLER VectoredHandler
 			);
 
 	typedef
@@ -616,7 +616,7 @@ namespace Proud
 		InitializeCriticalSectionExProc InitializeCriticalSectionEx;
 		GetLogicalProcessorInformation GetLogicalProcessInformation;
 
-		HINSTANCE m_dllHandle;               // Handle to DLL
+		HINSTANCE m_dllHandle;		// Handle to DLL
 	};
 
 	class CLocale :public DllSingleton<CLocale>
@@ -717,7 +717,7 @@ namespace Proud
 
 
 #ifdef _WIN32
-	// error code를 사람이 읽을 수 있는 문장으로 만듭니다. 
+	// error code를 사람이 읽을 수 있는 문장으로 만듭니다.
 	PROUD_API String GetMessageTextFromWin32Error(uint32_t errorCode);
 #endif // _WIN32
 
@@ -734,4 +734,3 @@ namespace Proud
 #ifdef _MSC_VER
 #pragma pack(pop)
 #endif
-

@@ -155,8 +155,8 @@ namespace Proud
 		\~korean
 		\return 아무런 데이터가 없으면 true, 존재하면 false를 리턴
 
-		\~english 
-		If there is no data then true, otherwise return false. 
+		\~english
+		If there is no data then true, otherwise return false.
 
 		\~chinese
 		\return 没有任何数据的话true，存在的话返回false。
@@ -174,8 +174,8 @@ namespace Proud
 		\~korean
 		\return list의 첫번째 data를 리턴합니다.
 
-		\~english 
-		Return the first data in the \return list. 
+		\~english
+		Return the first data in the \return list.
 
 		\~chinese
 		\return 返回list的第一个data。
@@ -194,8 +194,8 @@ namespace Proud
 		\~korean
 		\return list의 첫번째 data를 const 변수로 리턴합니다.
 
-		\~english 
-		\return the first data in list as a const variable. 
+		\~english
+		\return the first data in list as a const variable.
 
 		\~chinese
 		\return 返回list的第一个data为const变数。
@@ -214,8 +214,8 @@ namespace Proud
 		\~korean
 		\return list의 마지막 Data를 리턴합니다.
 
-		\~english 
-		\return the last data in list. 
+		\~english
+		\return the last data in list.
 
 		\~chinese
 		\return 返回list的最后data。
@@ -234,8 +234,8 @@ namespace Proud
 		\~korean
 		\return list의 마지막 Data를 const 변수로 리턴합니다.
 
-		\~english 
-		\return the last data in list as a const variable. 
+		\~english
+		\return the last data in list as a const variable.
 
 		\~chinese
 		\return 返回list的最后data为const变数。
@@ -255,8 +255,8 @@ namespace Proud
 		list 의 첫번째 Data를 list내에서 제거하고 리턴해 줍니다.
 		\return list에서 제거된 data
 
-		\~english 
-		Deletes the first data within the list and returns it. 
+		\~english
+		Deletes the first data within the list and returns it.
 		\return Data deleted from \return list
 
 		\~chinese
@@ -265,7 +265,7 @@ namespace Proud
 
 		\~japanese
 		Listの最初データをリスト内より除去してリターンします。
-		\return listより除去されたデータ 
+		\return listより除去されたデータ
 		\~
 		*/
 		inline E RemoveHead()
@@ -294,8 +294,8 @@ namespace Proud
 		list 의 마지막 Data를 list내에서 제거하고 리턴해 줍니다.
 		\return list에서 제거된 data
 
-		\~english 
-		Deletes the first data within the list and returns it. 
+		\~english
+		Deletes the first data within the list and returns it.
 		\return Data deleted from \return list
 
 		\~chinese
@@ -333,8 +333,8 @@ namespace Proud
 		\~korean
 		list의 첫번째 data를 제거합니다.
 
-		\~english 
-		First data of the list is deleted. 
+		\~english
+		First data of the list is deleted.
 
 		\~chinese
 		删除list的第一个data。
@@ -365,8 +365,8 @@ namespace Proud
 		\~korean
 		list의 마지막 data를 제거합니다.
 
-		\~english 
-		Last data of the list is deleted. 
+		\~english
+		Last data of the list is deleted.
 
 		\~chinese
 		删除list的最后data。
@@ -398,9 +398,9 @@ namespace Proud
 		Data가 비어있는 해더를 추가한다.
 		\return 새로 추가된 노드의 Position
 
-		\~english 
-		An empty header without data is added. 
-		\return Position of the newly added node 
+		\~english
+		An empty header without data is added.
+		\return Position of the newly added node
 
 		\~chinese
 		添加data为空的header。
@@ -433,8 +433,8 @@ namespace Proud
 		\param element 새로운 헤더에 넣을 Data
 		\return 새로 추가된 노드의 Position
 
-		\~english 
-		Add a header 
+		\~english
+		Add a header
 		\param element Data to be inserted to a new header
 		\return Position of a newly added node
 
@@ -473,9 +473,9 @@ namespace Proud
 		헤더에 새로운 list를 추가합니다.
 		\param plNew 헤더에 추가할 list
 
-		\~english 
+		\~english
 		A new list is added to the header
-		\param plNew List to be added to the header 
+		\param plNew List to be added to the header
 
 		\~chinese
 		往header添加新的list。
@@ -503,9 +503,9 @@ namespace Proud
 		list의 마지막에 빈 노드를 추가한다.
 		\return 새로 추가된 노드의 Position
 
-		\~english 
-		An empty node is added to the end of the list. 
-		\return Position of the newly added node. 
+		\~english
+		An empty node is added to the end of the list.
+		\return Position of the newly added node.
 
 		\~chinese
 		往list的最后添加空节点。
@@ -538,9 +538,9 @@ namespace Proud
 		\param element 마지막 노드에 삽입을 Data
 		\return 새로 추가된 노드의 Position
 
-		\~english 
+		\~english
 		Add a node at the end of the list
-		\param element Data to be inserted to the last node 
+		\param element Data to be inserted to the last node
 		\return Position of the newly added node
 
 		\~chinese
@@ -578,9 +578,9 @@ namespace Proud
 		List의 마지막노드에 새로운 List를 추가
 		\param plNew 추가할 List
 
-		\~english 
+		\~english
 		A new list is added to the last node of the list
-		\param plNew List to be added 
+		\param plNew List to be added
 
 		\~chinese
 		往list的最后节点添加新的list。
@@ -607,7 +607,7 @@ namespace Proud
 		\~korean
 		모든 데이터를 제거. Clear()와 같음.
 
-		\~english 
+		\~english
 		Delete all data. Same as Clear()
 
 		\~chinese
@@ -637,7 +637,7 @@ namespace Proud
 		\~korean
 		모든 데이터를 제거.RemoveAll()같음.
 
-		\~english 
+		\~english
 		Delete all data. Same as RemoveAll()
 
 		\~chinese
@@ -653,7 +653,7 @@ namespace Proud
 		\~korean
 		\return 헤더의 Position을 리턴
 
-		\~english 
+		\~english
 		\return the position of the header.
 
 		\~chinese
@@ -672,7 +672,7 @@ namespace Proud
 		\~korean
 		\return list의 마지막 노드의 Position을 리턴
 
-		\~english 
+		\~english
 		\return the position of the last node of list.
 
 		\~chinese
@@ -692,8 +692,8 @@ namespace Proud
 		\param pos 현재 Position
 		\return 다음 노드의 Data를 리턴
 
-		\~english 
-		Obtain the next node position of the position inserted as a factor 
+		\~english
+		Obtain the next node position of the position inserted as a factor
 		\param pos Current position.
 		\return the data of the next node.
 
@@ -722,7 +722,7 @@ namespace Proud
 		\param pos 현재 Position
 		\return 다음 노드의 Data를 const변수로 리턴
 
-		\~english 
+		\~english
 		Obtain the next node position of the position inserted as a factor
 		\param pos Current position
 		\return Return the data of the next node
@@ -755,10 +755,10 @@ namespace Proud
 		\param pos 현재 Position
 		\return 전 노드의 Data
 
-		\~english 
+		\~english
 		Obtain the previous node position of the position inserted as a factor
 		\param pos Current position
-		\return Data of the previous node 
+		\return Data of the previous node
 
 		\~chinese
 		因子で入れたPositionの後のnode Positionを得ます。
@@ -788,10 +788,10 @@ namespace Proud
 		\param pos 현재 Position
 		\return 전 노드의 Data를 const 변수로 리턴한다.
 
-		\~english 
+		\~english
 		Obtain the previous node position of the position inserted as a factor
-		\param pos Current position 
-		\return Return the data of the previous node as a const variable 
+		\param pos Current position
+		\return Return the data of the previous node as a const variable
 
 		\~chinese
 		获得输入为因子的Position之前的node Position。
@@ -821,10 +821,10 @@ namespace Proud
 		\param pos 현재 노드의 Position
 		\return 현재 노드의 Data
 
-		\~english 
-		Obtain the data of the current node 
+		\~english
+		Obtain the data of the current node
 		\param pos Position of the current node
-		\return Data of the current node 
+		\return Data of the current node
 
 		\~chinese
 		获得现在节点的data。
@@ -850,9 +850,9 @@ namespace Proud
 		\param pos 현재 노드의 Position
 		\return 현재 노드의 Data의 const 변수 리턴
 
-		\~english 
+		\~english
 		Obtain the data of the current node as a const variable
-		\param pos Position of the current node 
+		\param pos Position of the current node
 		\return Return the const variable of the current node data
 
 		\~chinese
@@ -879,10 +879,10 @@ namespace Proud
 		\param pos 현재 노드의 Position
 		\param element 세팅할 data
 
-		\~english 
+		\~english
 		Configure the data of the node pointed by the current position
-		\param pos Position of the current node 
-		\param element Data to be configured 
+		\param pos Position of the current node
+		\param element Data to be configured
 
 		\~chinese
 		设置现在Position所指节点的data。
@@ -909,10 +909,10 @@ namespace Proud
 		\param pos 제거하고자 하는 node의 Position
 		\return 제거된 Position의 다음 Position
 
-		\~english 
+		\~english
 		Delete the node pointed by the current position and then return the next position
 		\param pos Position of the node to be deleted
-		\return Next position of the deleted position 
+		\return Next position of the deleted position
 
 		\~chinese
 		删除现在Position所指的node，返回之后Position。
@@ -969,10 +969,10 @@ namespace Proud
 		\param pos 현재 node를 가리키는 Position
 		\param element 추가할 새 노드의 Data
 
-		\~english 
-		Add a new node in front of the node pointed by the current position 
-		\param pos Position pointing the current node 
-		\param element Data of the new node to be added 
+		\~english
+		Add a new node in front of the node pointed by the current position
+		\param pos Position pointing the current node
+		\param element Data of the new node to be added
 
 		\~chinese
 		往现在Position所指的node前面添加新的node。
@@ -983,7 +983,7 @@ namespace Proud
 		現在Positionが指すノードの前に新しいノードを追加します。
 		\param pos 現在ノードを指すPosition
 		\param element 追加する新しいノードのデータ
-		
+
 		\~
 		*/
 		inline Proud::Position InsertBefore( Proud::Position pos, INARGTYPE element )
@@ -1020,10 +1020,10 @@ namespace Proud
 		\param pos 현재 node를 가리키는 Position
 		\param element 추가할 새 노드의 Data
 
-		\~english 
-		Add a new node behind the node pointed by the current position 
-		\param pos Position pointing the current node 
-		\param element Data of the new node to be added 
+		\~english
+		Add a new node behind the node pointed by the current position
+		\param pos Position pointing the current node
+		\param element Data of the new node to be added
 
 		\~chinese
 		往现在Position所指的node后面添加新的node。
@@ -1068,7 +1068,7 @@ namespace Proud
 		\param element 찾을 node의 data
 		\param posStartAfter 이 Position이후부터 비교하여 찾는다.
 
-		\~english 
+		\~english
 		Find a node with data
 		\param element Data of the node to be searched for
 		\param posStartAfter Search by comparing after this position
@@ -1116,8 +1116,8 @@ namespace Proud
 		\param iElement 다음으로 넘어갈 노드의 갯수
 		\return node의 Position
 
-		\~english 
-		Return the position of the next node for the number if iElement from the header 
+		\~english
+		Return the position of the next node for the number if iElement from the header
 		\param iElement Number of the node to be passed after iElement
 		\return Position of node
 
@@ -1156,9 +1156,9 @@ namespace Proud
 		현재 Position이 가리키는 node를 list의 처음으로 보낸다.
 		\param pos 현재 node의 Position
 
-		\~english 
-		Send the node pointed by the current position to the beginning of the list 
-		\param pos Position of the current node 
+		\~english
+		Send the node pointed by the current position to the beginning of the list
+		\param pos Position of the current node
 
 		\~chinese
 		把现在的Position所指的node发送到list的最前面。
@@ -1205,9 +1205,9 @@ namespace Proud
 		현재 Position이 가리키는 node를 list의 마지막으로 보낸다.
 		\param pos 현재 node의 Position
 
-		\~english 
-		Send the node pointed by the current position to the end of the list 
-		\param pos Position of the current node 
+		\~english
+		Send the node pointed by the current position to the end of the list
+		\param pos Position of the current node
 
 		\~chinese
 		把现在Position所指的node发送的list的最后。
@@ -1253,9 +1253,9 @@ namespace Proud
 		\param pos1 바꿀 첫번째 node의 Position
 		\param pos2 바꿀 두번째 node의 Position
 
-		\~english 
-		Switch the position of the two nodes. As a big waste may occur if you directly swap the elements so you change the relevant pointers of the two nodes. 
-		\param pos1 Position of the first node to be changed 
+		\~english
+		Switch the position of the two nodes. As a big waste may occur if you directly swap the elements so you change the relevant pointers of the two nodes.
+		\param pos1 Position of the first node to be changed
 		\param pos2 Position of the second node to be changed
 
 		\~chinese
@@ -1385,8 +1385,8 @@ namespace Proud
 					node = node->m_pNext;
 				}
 				// non-empty list
-				// 		assert(AtlIsValidAddress(m_pHead, sizeof(CNode)));
-				// 		assert(AtlIsValidAddress(m_pTail, sizeof(CNode)));
+				//		assert(AtlIsValidAddress(m_pHead, sizeof(CNode)));
+				//		assert(AtlIsValidAddress(m_pTail, sizeof(CNode)));
 			}
 		}
 
@@ -1489,7 +1489,7 @@ namespace Proud
 			inline const_iterator& operator++()
 			{
 				// preincrement
-                value_type::m_owner->GetNext(value_type::m_pos);
+				value_type::m_owner->GetNext(value_type::m_pos);
 				return (*this);
 			}
 
@@ -1695,10 +1695,10 @@ namespace Proud
 		\param rhs 비교할 CFastList
 		\return 같으면 true 다른면 false 리턴
 
-		\~english 
-		Compare whether the content of the current CFastList and other CFastList are the same. Directly compare the data to confirm. 
-		\param rhs CFastList to be compared 
-		\return True if the same, otherwise return false. 
+		\~english
+		Compare whether the content of the current CFastList and other CFastList are the same. Directly compare the data to confirm.
+		\param rhs CFastList to be compared
+		\return True if the same, otherwise return false.
 
 		\~chinese
 		比较现在的 CLinkedList%和其他 CLinkedList%的内容是否相同。直接比较data并确认。

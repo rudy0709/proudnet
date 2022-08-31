@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "Marshaler.h"
 #include <vector>
@@ -72,8 +72,8 @@ namespace Proud
 
 		for ( typename std::map<K, V>::const_iterator i=b.begin(); i!=b.end(); ++i )
 		{
-            const K& key = i->first;
-            const V& val = i->second;
+			const K& key = i->first;
+			const V& val = i->second;
 			a << key << val;
 		}
 		return a;
@@ -87,9 +87,9 @@ namespace Proud
 		a += temp;
 		for ( typename std::map<K, V>::const_iterator i=b.begin(); i!=b.end(); ++i )
 		{
-            const K& key = i->first;
-            const V& val = i->second;
-            
+			const K& key = i->first;
+			const V& val = i->second;
+
 			a+=_PNT("(");
 			AppendTextOut(a, key);
 			a+=_PNT(",");
@@ -115,15 +115,15 @@ namespace Proud
 			ThrowExceptionOnReadArray(length);
 
 		// 메모리 frag를 줄이기 위해
-        b.reserve((size_t)length);
+		b.reserve((size_t)length);
 		b.resize(0);
 
 		// 배열 항목 하나 하나를 읽는다.
 		for (size_t i = 0; i < (size_t)length; i++)
 		{
-            elem e;
+			elem e;
 			a >> e;
-            b.push_back(e);
+			b.push_back(e);
 		}
 		return a;
 	}
@@ -138,7 +138,7 @@ namespace Proud
 		// 각 배열 인자를 기록한다.
 		for ( typename std::vector<elem>::const_iterator i = b.begin(); i != b.end(); ++i )
 		{
-            const elem& e = *i;
+			const elem& e = *i;
 			a << e;
 		}
 		return a;
@@ -185,7 +185,7 @@ namespace Proud
 
 		for ( typename std::list<elem>::const_iterator i = b.begin(); i != b.end(); ++i )
 		{
-            const elem& e = *i;
+			const elem& e = *i;
 			a << e;
 		}
 

@@ -53,9 +53,9 @@ namespace Proud
 // 현재는 필요없는 구문이고, 일부 환경에서 C3295 "#pragma managed는 전역 또는 네임스페이스 범위에서만 사용할 수 있습니다."라는 빌드에러를 일으킵니다.
 //#pragma managed(push,off)
 #endif
-	/* 
+	/*
 	\~korean
-	수신된 메시지. 내부 용도다. 
+	수신된 메시지. 내부 용도다.
 
 	\~english
 	Received messge. Internal purpose.
@@ -88,7 +88,7 @@ namespace Proud
 		bool m_relayed;
 
 		// ACR
-		int m_messageID; // m_hasMessgeID=true일때만 유효 
+		int m_messageID; // m_hasMessgeID=true일때만 유효
 		bool m_hasMessageID;
 
 		//double m_actionTime;

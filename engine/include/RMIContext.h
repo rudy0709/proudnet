@@ -60,10 +60,10 @@ namespace Proud
 	{
 	public:
 		/// 실패한 송신 대상의 ID
-		HostID m_hostID; 
+		HostID m_hostID;
 
 		/// 송신이 실패한 이유
-		ErrorType m_reason; 
+		ErrorType m_reason;
 	};
 
 	/**
@@ -96,7 +96,7 @@ namespace Proud
 		Is this a relaysed message?
 		- The value filled at RMI stub
 		- If RMI from client is relayed via server(Please refer <a target="_blank" href="http://guide.nettention.com/cpp_en#p2p_comm_overview" >Overview of peer-to-peer communication between clients</a>) or RMI sent by server is routed by other client(Please refer <a target="_blank" href="http://guide.nettention.com/cpp_en#s2c_routed_multicast" >Routed multicasting several clients from server</a>),
-  		then RMI function wil be called back while this value keeps to be true.
+		  then RMI function wil be called back while this value keeps to be true.
 
 		\~chinese
 		Relay 的信息吗？
@@ -106,7 +106,7 @@ namespace Proud
 		\~japanese
 		Relayされたメッセージなのか？
 		- RMI stubで満たされる値です。
-		- もし、クライアントが送ったRMIがサーバーを通じリレー(バイパス)されているか(\ref p2p_comm_overview 参考)、サーバーが送ったRMIが他のクライアントを通じrouteされたら(\ref s2c_routed_multicast 参考)この値はtrueになったままRMI関数がコールバックされます。 
+		- もし、クライアントが送ったRMIがサーバーを通じリレー(バイパス)されているか(\ref p2p_comm_overview 参考)、サーバーが送ったRMIが他のクライアントを通じrouteされたら(\ref s2c_routed_multicast 参考)この値はtrueになったままRMI関数がコールバックされます。
 
 		\~
 		*/
@@ -196,7 +196,7 @@ namespace Proud
 		- When RMI transmitting to P2P group and the value is set as N, for N many of other peers of P2P group members, it will be trasmitted as direct P2P. (Of course when other peers communicate with direct P2P)
 		  However, it will be transmitted to the other peers as relayed P2P even if they are performing direct P2P communications. If 0 is set then it means there is no P2P transmission at all.
 		- This function is useful when client performs a large amount of multicasts and the speed limit of client upload (e.g. ADSL line with slower upload speed).
-                  During broadcasting relayed P2P in Proudnet, client sends only 1 of message to be relayed then server performs the role that sends it to many other clients.
+		  During broadcasting relayed P2P in Proudnet, client sends only 1 of message to be relayed then server performs the role that sends it to many other clients.
 		- Default: infinite
 		- User can designate this value to RMI parameter before it is called by client. At server, this value is not used.
 
@@ -212,7 +212,7 @@ namespace Proud
 		直接マルチキャストができる最大数
 		- \ref throttling 技法のうち一つです。
 		- P2Pグループを対象にRMI送信をする場合、この値がNで指定された場合、P2Pグループメンバー中にN個だけの他のpeerにはP2Pで直接転送します。(もちろん、他のpeerが直接P2P通信んをしている場合)しかし、残りのpeerたちにはRelayed P2Pで転送します。たとえ、直接P2P通信をしているとしてもです。0を指定すればdirect P2P送信自体をしないことを意味します。
-		- この機能はクライアントが大量のマルチキャストをする場合、そして、クライアントのアップロード速度の限界が大きい場合(例えば、アップロード速度が遅いADSL回線)誘導です。なぜなら、ProudNetではrelayed P2Pのブロードキャスト過程でクライアントは1個のrelayされるメッセージのみをサーバーに送って、サーバーはそれを複数のクライアントに送る役割をするからです。 
+		- この機能はクライアントが大量のマルチキャストをする場合、そして、クライアントのアップロード速度の限界が大きい場合(例えば、アップロード速度が遅いADSL回線)誘導です。なぜなら、ProudNetではrelayed P2Pのブロードキャスト過程でクライアントは1個のrelayされるメッセージのみをサーバーに送って、サーバーはそれを複数のクライアントに送る役割をするからです。
 		- 基本値：無制限
 		- クライアントで呼び出すRMIのパラメーターの前にこの値をユーザーが指定することができます。サーバーではこの値は使われません。
 
@@ -245,13 +245,13 @@ namespace Proud
 		int64_t m_uniqueID;
 
 		/** 송신이 실패할 경우 송신 실패 대상에 대한 정보를 채울 것인지를 나타냅니다.
-		m_sendFailedRemotes를 위해 사용됩니다. 기본값은 false입니다. 
-		
-		주의: 이 변수를 켜면, 송신함수가 m_sendFailedRemotes를 변경합니다. 
+		m_sendFailedRemotes를 위해 사용됩니다. 기본값은 false입니다.
+
+		주의: 이 변수를 켜면, 송신함수가 m_sendFailedRemotes를 변경합니다.
 		서로 다른 스레드가 같은 RmiContext 객체를 다루지 않도록 주의하십시오. */
 		bool m_fillSendFailedRemotes;
 
-		/** 송신이 실패할 경우 여기에 송신 실패 대상이 채워집니다. 
+		/** 송신이 실패할 경우 여기에 송신 실패 대상이 채워집니다.
 		m_fillSendFailedRemotes=true일때만 채워집니다. */
 		CFastArray<SendFailedRemote> m_sendFailedRemotes;
 
@@ -279,7 +279,7 @@ namespace Proud
 		メッセージ送信プライオリティ
 		- \ref message_priority 参考
 		- ユーザーが指定しなければなりません。
-		- m_reliabilityがreliableで指定されている場合、この値は無視されます。 
+		- m_reliabilityがreliableで指定されている場合、この値は無視されます。
 
 		\~
 		*/
@@ -373,7 +373,7 @@ namespace Proud
 		*/
 		bool m_allowRelaySend;
 
-        /**
+		/**
 		\~korean
 		강제 릴레이 임계비율 값입니다.
 		이 값을 조절하면, P2P간 통신 속도보다 릴레이가 더 통신 속도가 빠른 경우 릴레이를 선택할 수 있습니다.
@@ -414,13 +414,13 @@ namespace Proud
 
 		\~
 		*/
-        double m_forceRelayThresholdRatio;
+		double m_forceRelayThresholdRatio;
 
-        /**
+		/**
 		\~korean
 		ProudNet 전용 메시지인지에 대한 식별값입니다.
-        - 기본 false입니다. false이면 udp 메시지 갯수를 측정합니다.
-        - 특별한 상황이 아니면 이값을 true로 바꾸지 마십시오.
+		- 기본 false입니다. false이면 udp 메시지 갯수를 측정합니다.
+		- 특별한 상황이 아니면 이값을 true로 바꾸지 마십시오.
 
 		\~english
 		Identifying value that message for only ProudNet or not
@@ -439,16 +439,16 @@ namespace Proud
 
 		\~
 		*/
-        bool m_INTERNAL_USE_isProudNetSpecificRmi;
+		bool m_INTERNAL_USE_isProudNetSpecificRmi;
 
 		/** \~korean true이면, unreliable 송신에 쓰이는 메시지를 MTU 크기로 분할해서 보냅니다.
 		UDP 처리로 인해 서버가 CPU 사용량이 높으면 이것을 꺼 보세요.
 		기본값은 true 입니다.
 
 		\~english Sends messages after fragmentation.
-		If true, the message used in unreliable transmission is divided and sent into MTU size. 
-		Turn this off if the server has high CPU use due to UDP processing. 
-		The default value is true. 
+		If true, the message used in unreliable transmission is divided and sent into MTU size.
+		Turn this off if the server has high CPU use due to UDP processing.
+		The default value is true.
 
 		\~chinese NOTE: Machanical translation.
 		如果是true，就把用于unreliable传递的消息分割成MTU的大小之后发送。
@@ -465,7 +465,7 @@ namespace Proud
 		bool m_fragmentOnNeed;
 
 
-        /**
+		/**
 		\~korean
 		<a target="_blank" href="http://guide.nettention.com/cpp_ko#encryption_usage" >통신 메시지 암호화하기</a> 에서 사용되는 암호화 알고리즘 선택입니다.
 		- 기본값은 EM_None 입니다.
@@ -479,23 +479,23 @@ namespace Proud
 		- 默认值是EM_None。
 
 		\~japanese
-		\ref encryption_usageで使われる暗号化アルゴリズム選択です。 
+		\ref encryption_usageで使われる暗号化アルゴリズム選択です。
 		- 基本値はEM_Noneです。
 
 		\~
 		*/
-        EncryptMode m_encryptMode;
+		EncryptMode m_encryptMode;
 
 		/**
 		\~korean
-        메시지 압축 기능 입니다. 이 값을 CM_None 이외를 선택할 경우 압축을 하여 메시지를 전송합니다.
-        - 기본값은 CM_None 입니다.
-        - 보낼 메시지의 크기가 너무 작거나(약 50바이트) 압축을 해도 크기가 작아지지 않으면 압축하지 않고 전송합니다.
+		메시지 압축 기능 입니다. 이 값을 CM_None 이외를 선택할 경우 압축을 하여 메시지를 전송합니다.
+		- 기본값은 CM_None 입니다.
+		- 보낼 메시지의 크기가 너무 작거나(약 50바이트) 압축을 해도 크기가 작아지지 않으면 압축하지 않고 전송합니다.
 
 		\~english TODO:translate needed.
-		This is the message compression feature. When things other than CM_None is selected for this value, you can compress to send the message. 
+		This is the message compression feature. When things other than CM_None is selected for this value, you can compress to send the message.
 		- The default value is CM_None
-		- If the message to be sent is too small (approx. 50 bytes) or does not get smaller even if it’s compressed, then send it uncompressed. 
+		- If the message to be sent is too small (approx. 50 bytes) or does not get smaller even if it’s compressed, then send it uncompressed.
 
 		\~chinese
 		信息压缩功能。把此值选择为CM_None以外的时候，压缩以后传送信息。
@@ -509,7 +509,7 @@ namespace Proud
 
 		\~
 		*/
-        CompressMode m_compressMode;
+		CompressMode m_compressMode;
 
 		/**
 		\~korean
@@ -530,10 +530,10 @@ namespace Proud
 		RmiID m_rmiID;
 
 		// 주의: 수정시 ProudClr의 동명 심볼도 수정해야 한다.
-		 RmiContext();
+		RmiContext();
 
 		// 주의: 수정시 ProudClr의 동명 심볼도 수정해야 한다.
-		 RmiContext( MessagePriority priority, MessageReliability reliability, int unreliableS2CRoutedMulticastMaxCount, EncryptMode encryptMode = EM_None);
+		RmiContext( MessagePriority priority, MessageReliability reliability, int unreliableS2CRoutedMulticastMaxCount, EncryptMode encryptMode = EM_None);
 
 		/**
 		\~korean
@@ -554,7 +554,7 @@ namespace Proud
 
 		\~
 		*/
-		 PROUD_API static RmiContext ReliableSend;
+		PROUD_API static RmiContext ReliableSend;
 
 		/**
 		\~korean
@@ -575,7 +575,7 @@ namespace Proud
 
 		\~
 		*/
-		 PROUD_API static RmiContext FastEncryptedReliableSend;
+		PROUD_API static RmiContext FastEncryptedReliableSend;
 
 		/**
 		\~korean
@@ -596,7 +596,7 @@ namespace Proud
 
 		\~
 		*/
-		 PROUD_API static RmiContext SecureReliableSend;
+		PROUD_API static RmiContext SecureReliableSend;
 
 
 
@@ -642,7 +642,7 @@ namespace Proud
 
 		\~
 		*/
-		 PROUD_API static RmiContext UnreliableSend;
+		PROUD_API static RmiContext UnreliableSend;
 
 		/**
 		\~korean
@@ -663,7 +663,7 @@ namespace Proud
 
 		\~
 		*/
-		 PROUD_API static RmiContext FastEncryptedUnreliableSend;
+		PROUD_API static RmiContext FastEncryptedUnreliableSend;
 
 
 		/**
@@ -685,7 +685,7 @@ namespace Proud
 
 		\~
 		*/
-		 PROUD_API static RmiContext SecureUnreliableSend;
+		PROUD_API static RmiContext SecureUnreliableSend;
 
 
 

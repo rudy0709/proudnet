@@ -38,8 +38,8 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 #include "BasicTypes.h"
 #ifndef _WIN32
-    #include "CriticalSect.h"
-    #include <pthread.h>
+	#include "CriticalSect.h"
+	#include <pthread.h>
 #endif
 
 #ifdef _MSC_VER
@@ -52,7 +52,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	멀티스레드 프로그래밍에서 semaphore 객체이다.
 	- .Net Framework의 System.Threading.Semaphore와 같은 역할을 한다.
@@ -76,18 +76,18 @@ namespace Proud
 		HANDLE m_sema;
 #else
 		// m_cs에 의해 보호됨. 이 값이 0이 될때까지 스레드를 awake한다.
-		int32_t m_count, m_maxCount; 
+		int32_t m_count, m_maxCount;
 
 		// semaphore 대신 condition variable을 사용한다. ios에서는 무조건 named object를 요구함 ㅎㄷㄷ
 		pthread_cond_t m_cond;
 
 		// m_cond가 필요로 함
 		CriticalSection m_cs;
-#endif 
+#endif
 
 	public:
 
-		/** 
+		/**
 		\~korean
 		생성자
 		\param initialCount semaphore 객체가 가질 초기 내부 값
@@ -109,11 +109,11 @@ namespace Proud
 		\param maxCount semaphore オブジェクトが持てる最大値
 		\~
 		*/
-		 PROUD_API Semaphore(int initialCount, int maxCount);
+		PROUD_API Semaphore(int initialCount, int maxCount);
 
-		/** 
+		/**
 		\~korean
-		파괴자 
+		파괴자
 
 		\~english
 		Destructor
@@ -125,15 +125,15 @@ namespace Proud
 		破壊子
 		\~
 		*/
-		 PROUD_API ~Semaphore();
+		PROUD_API ~Semaphore();
 
-		/** 
+		/**
 		\~korean
-		내부 카운트가 1 이상이 될 때까지 무한정 기다린다. 
+		내부 카운트가 1 이상이 될 때까지 무한정 기다린다.
 		내부 카운트가 1 이상인 경우 카운트를 1 감소시키면서 리턴한다.
 
 		\~english
-		It waits endlessly untill the internal counte becomes higher than 1. 
+		It waits endlessly untill the internal counte becomes higher than 1.
 		If the count becomes higher than 1, it reduces the count by 1 and returns.
 
 		\~chinese
@@ -149,21 +149,21 @@ namespace Proud
 		{
 			return WaitOne(PN_INFINITE);
 		}
-		/** 
+		/**
 		\~korean
-		내부 카운트가 1 이상이 될 때까지 일정 시간 기다린다. 
-		내부 카운트가 1 이상인 경우 카운트를 1 감소시키면서 리턴한다. 
+		내부 카운트가 1 이상이 될 때까지 일정 시간 기다린다.
+		내부 카운트가 1 이상인 경우 카운트를 1 감소시키면서 리턴한다.
 		\param timeOut (밀리초) 시그널 대기 최대 시간. INFINITE를 넣으면 무한정 기다린다.
 
 		\~english
-		It waits for a specific time until the internal count becomes higher than 1. 
-		If the count becomes higher than 1, it reduces the count by 1 and returns. 
+		It waits for a specific time until the internal count becomes higher than 1.
+		If the count becomes higher than 1, it reduces the count by 1 and returns.
 		\param timeOut (millisecond) The maximum waiting time for signal standby. Input INFINITE if you want it to wait endlessly.
 
 		\~chinese
 		等待一定时间至内部count变成1以上。
 		内部count为1以上的时候，把count减少1并返回。
-                \param timeOut （毫秒）等待信号的最大时间。输入INFINITE的话是无限期等待。
+		\param timeOut （毫秒）等待信号的最大时间。输入INFINITE的话是无限期等待。
 
 		\~japanese
 		内部カウントが1以上になる時まで所定時間を待ちます。
@@ -171,18 +171,18 @@ namespace Proud
 		\param timeOut（ミリ秒）シグナル待ち最大時間。INFINITEを入れれば限りなく待ちます。
 		\~
 		*/
-		 PROUD_API bool WaitOne(uint32_t timeOut);
+		PROUD_API bool WaitOne(uint32_t timeOut);
 
-		/** 
+		/**
 		\~korean
 		내부 카운트를 특정 값만큼 증가시킨다.
-		\param releaseCount 증가시킬 값 
+		\param releaseCount 증가시킬 값
 		\return 증가시키기 전의 semaphore의 내부 값
 
 		\~english TODO:translate needed.
-		Increase the internal count with a certain value. 
+		Increase the internal count with a certain value.
 		\param releaseCount Value to be increased
-		\return Internal value of semaphore before the increase. 
+		\return Internal value of semaphore before the increase.
 
 		\~chinese
 		增加内部count相当于特定值。
@@ -195,7 +195,7 @@ namespace Proud
 		\return 増加させる前の semaphoreの内部値
 		\~
 		*/
-		 PROUD_API void Release(int releaseCount = 1);
+		PROUD_API void Release(int releaseCount = 1);
 	};
 
 	/** @} */

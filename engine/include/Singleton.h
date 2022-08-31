@@ -95,7 +95,7 @@ namespace Proud
 			CriticalSectionLock lock(m_cs, true);
 
 			// stale not 0이면 => 그 사이에 이미 만들어진 것이 있으니 그것을 리턴
-			// stale 0이면 => 앞서 lock에서 이미 생성 후 m_instancePtr을 not 0을 하고 unlock을 한 상태이다. lock and unlock은 컴파일러와 CPU에 의해 fenced이다. 
+			// stale 0이면 => 앞서 lock에서 이미 생성 후 m_instancePtr을 not 0을 하고 unlock을 한 상태이다. lock and unlock은 컴파일러와 CPU에 의해 fenced이다.
 			// 따라서 여기서의 stale 0은 fenced 0이기 때문에, 사실상 아직 생성자가 타 스레드에 의해 실행되고 m_instancePtr을 변경한 적 없음을 말한다.
 			// 따라서 안전.
 			if (0 != m_instancePtr)
@@ -111,7 +111,7 @@ namespace Proud
 			JitCreateObject();
 
 			// 한번 not 0이 됐으면 다시 0이 되는 일은 없다. 따라서 여기서 안전하게 리턴해도 된다.
-			return m_instancePtr; // 여기서 shared_ptr 복사가 일어난다. 
+			return m_instancePtr; // 여기서 shared_ptr 복사가 일어난다.
 		}
 
 		// return value optimization을 못 믿겠으면 이것을 사용하자.
@@ -273,13 +273,13 @@ namespace Proud
 	{
 	public:
 	__declspec(dllexport) Goofie& Instance() // CSingleton.Instance()をオーバーライドしますが、DLLよりexportされる関数に作ります。
-	
+
 	return __super::Instance(); // DLLモジュールメモリー空間内に作られたinstanceをリターンします。
 	}
 	};
 	\endcode
 
-	
+
 
 	\~
 
@@ -459,16 +459,16 @@ namespace Proud
 
 	\endcode
 
-	
 
-	
+
+
 	\~
 
 
 	*/
 
 	template<typename T>
-	class CSingleton 
+	class CSingleton
 	{
 		// 복사 방지 : 싱글턴 객체 특성상 복사 코드는 있어선 안됩니다.
 		NO_COPYABLE(CSingleton)
@@ -502,7 +502,7 @@ namespace Proud
 			}
 			return *val;
 		}
-		
+
 
 		// 사용자가 이것의 변수를 멤버로 가지는 동안 사용자의 객체가 파괴되기 전에는 이 싱글톤이 파괴 안됨을 보장한다.
 		class Holder
@@ -536,7 +536,7 @@ namespace Proud
 
 	/** CSingleton은 executable이나 static library에서는 안전하게 사용할 수 있습니다.
 	그러나 DLL에서는 CSingleton은 문제가 있습니다.
-	
+
 	1. DLL1에 싱글톤을 둡니다.
 	2. DLL2는 DLL1의 싱글톤을 액세스합니다.
 	3. 그러나 싱글톤은 실제로 두개가 존재해 버립니다.
@@ -544,7 +544,7 @@ namespace Proud
 	이러한 문제를 없애려면 CSingleton대신에 DllSingleton을 사용하십시오.
 
 	사용법:
-	
+
 	1. 여러분의 헤더 파일에 DllSingleton<X>을 정의합니다.
 	2. namespace Proud를 하나 만들고 그 안에 `DECLARE_DLL_SINGLETON(X_API, X)`를 추가합니다. X_API는 여러분의 DLL에 대한 dllexport, dllimport 매크로입니다.
 	3. 여러분의 DLL의 소스 파일에 namespace Proud를 하나 만들고 그 안에 `IMPLEMENT_DLL_SINGLETON(X)`를 추가합니다. 싱글톤의 생성과 파괴순서를 정하고 싶으시면 이 매크로를 여러분의 1개의 소스파일에서만 사용하십시오.
@@ -606,7 +606,7 @@ namespace Proud
 	DLLSPEC void GetDllSingletonSharedPtr(RefCount<CLASS>* output); \
 	DLLSPEC void GetDllSingletonRawPtr(CLASS** output)
 
-// 이 매크로는 namespace Proud 안에서 사용하세요.	
+// 이 매크로는 namespace Proud 안에서 사용하세요.
 #define IMPLEMENT_DLL_SINGLETON(CLASS) \
 JitObjectCreator<CLASS> g_singleton_##CLASS; \
 void GetDllSingletonSharedPtr(RefCount<CLASS>* output) \

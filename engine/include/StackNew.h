@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #ifndef _WIN32
 //#include <alloca.h>
@@ -12,15 +12,15 @@
 
 */
 
-/* _malloca가 작은 크기조차 heap access를 해버린다. 그래서 win32에서 성능을 크게 낭비한다. 
-차라리 TLS 기반 obj-pool이 빠름. 아무튼 웬만하면 그냥 _alloca를 쓰지, _malloc는 피하자. 
+/* _malloca가 작은 크기조차 heap access를 해버린다. 그래서 win32에서 성능을 크게 낭비한다.
+차라리 TLS 기반 obj-pool이 빠름. 아무튼 웬만하면 그냥 _alloca를 쓰지, _malloc는 피하자.
 물론 매우 작은 크기에 한해서 써야 하겠고.
 */
-#if 0 
+#if 0
 
 #if !defined(_WIN32)
 #define _MALLOCA alloca
-#define _FREEA(...) 
+#define _FREEA(...)
 #else
 #if (defined(_MSC_VER) && _MSC_VER>=1400)
 #define _MALLOCA _malloca
@@ -35,10 +35,10 @@
 
 #	ifndef _WIN32
 #		define _MALLOCA alloca
-#		define _FREEA(...) 
-#	else 
+#		define _FREEA(...)
+#	else
 #		define _MALLOCA _alloca
-#		define _FREEA 
+#		define _FREEA
 #	endif
 
 #endif  // 1
@@ -47,7 +47,7 @@
 
 주의사항:
 스택에 너무 큰 크기를 할당하지 말 것. 스택이라는 것 자체가 용량 모자라면 답 없는 환경이기 때문이다.
-어차피 win32 _malloca에서도 1KB 이상의 그냥 heap 할당해 버린다. 
+어차피 win32 _malloca에서도 1KB 이상의 그냥 heap 할당해 버린다.
 1KB 미만의 작은 크기가 아니라면 NEW_ON_STACK이나 _MALLOCA 대신 POOLED_LOCAL_VAR를 쓸 것.
 
 사용예:
@@ -63,9 +63,8 @@ FREE_ON_STACK(array);
 
 #define NEW_ON_STACK(VARNAME, TYPE, LENGTH) \
 	TYPE* VARNAME = (TYPE*)_MALLOCA(sizeof(TYPE) * LENGTH); \
-	CallConstructors(VARNAME, LENGTH); 
+	CallConstructors(VARNAME, LENGTH);
 
 #define FREE_ON_STACK(VARNAME, LENGTH) \
 	CallDestructors(VARNAME, LENGTH); \
 	_FREEA(VARNAME);
-

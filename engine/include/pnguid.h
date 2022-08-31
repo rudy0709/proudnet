@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "BasicTypes.h"
 #include "PNString.h"
@@ -19,7 +19,7 @@ namespace Proud
 		uint8_t Data4[8];
 	};
 
-	/** Platform independent Global Unique ID object. 
+	/** Platform independent Global Unique ID object.
 	For Win32 features, refer to Proud::Win32Guid class.
 	*/
 	class  Guid :public PNGUID
@@ -39,17 +39,17 @@ namespace Proud
 		GUIDをランダムで生成します。NewGuid()とは違って、この値は固有性が保障されなければなりません。
 		\~
 		*/
-		 PROUD_API static Guid RandomGuid();
+		PROUD_API static Guid RandomGuid();
 
-		 PROUD_API Guid();
-		 PROUD_API Guid(PNGUID src);
+		PROUD_API Guid();
+		PROUD_API Guid(PNGUID src);
 
 		/**
 		\~korean
 		Guid를 String값으로 변환해 줍니다.
 
 		\~english TODO:translate needed.
-		It converts Guid to a string value. 
+		It converts Guid to a string value.
 
 		\~chinese
 		把Guid转换成String值。
@@ -58,14 +58,14 @@ namespace Proud
 		GuidをString値に変換してくれます。
 		\~
 		*/
-		 PROUD_API String ToString() const;
+		PROUD_API String ToString() const;
 
 		/**
 		\~korean
 		Guid를 Bracket({}) 를 포함한 String으로 변환해 줍니다.
 
 		\~english TODO:translate needed.
-		It converts Guid with a string including brakets({}). 
+		It converts Guid with a string including brakets({}).
 
 		\~chinese
 		把Guid转换成包括Bracket({})的String。
@@ -74,7 +74,7 @@ namespace Proud
 		GuidをBracket({})を含んだStringに変換してくれます。
 		\~
 		*/
-		 PROUD_API String ToBracketString() const;
+		PROUD_API String ToBracketString() const;
 
 		/**
 		\~korean
@@ -85,9 +85,9 @@ namespace Proud
 
 		\~english TODO:translate needed.
 		It converts Guid to a string value.
-		\param This is uuid Guid. 
-		\param This is the reference to hold the information which is uuid converted into a string format. 
-		\return True when successful in conversion, otherwise false. 
+		\param This is uuid Guid.
+		\param This is the reference to hold the information which is uuid converted into a string format.
+		\return True when successful in conversion, otherwise false.
 
 
 		\~chinese
@@ -103,7 +103,7 @@ namespace Proud
 		\return 変換に成功するとtrue、失敗するとfalse
 		\~
 		*/
-		 PROUD_API static bool  ConvertUUIDToString(const Guid &uuid, String &uuidStr);
+		PROUD_API static bool  ConvertUUIDToString(const Guid &uuid, String &uuidStr);
 
 		/**
 		\~korean
@@ -115,10 +115,10 @@ namespace Proud
 		\~english TODO:translate needed.
 		It converts Guid to a string value
 		\param This is uuid Guid.
-		\param This is the reference to hold the information which is uuid converted into a string format. 
+		\param This is the reference to hold the information which is uuid converted into a string format.
 		\return True when successful in conversion, otherwise false.
 
-		
+
 
 		\~chinese
 		把Guid转换成包括Bracket({}) 的String。
@@ -133,7 +133,7 @@ namespace Proud
 		\return 変換に成功するとtrue、失敗するとfalse
 		\~
 		*/
-		 PROUD_API static bool  ConvertUUIDToBracketString(const Guid &uuid, String &uuidStr);
+		PROUD_API static bool  ConvertUUIDToBracketString(const Guid &uuid, String &uuidStr);
 
 		/**
 		\~korean
@@ -144,7 +144,7 @@ namespace Proud
 
 		\~english TODO:translate needed.
 		It converts string to a uuid value.
-		\param uuidStr This is the string type of uuid. 
+		\param uuidStr This is the string type of uuid.
 		\param uuidStr This is the reference to hold the information which is string converted into an uuid format.
 		\return True when successful in conversion, otherwise false.
 
@@ -160,10 +160,10 @@ namespace Proud
 		\param uuidStr uuidのString形態です。
 		\param uuidStr Stringでuuidに変換した情報を入れるreferenceです。
 		\return 変換に成功するとtrue、失敗するとfalse
-		
+
 		\~
 		*/
-		 PROUD_API static bool  ConvertStringToUUID(String uuidStr, Guid &uuid);
+		PROUD_API static bool  ConvertStringToUUID(String uuidStr, Guid &uuid);
 
 		/**
 		\~korean
@@ -173,7 +173,7 @@ namespace Proud
 
 		\~english TODO:translate needed.
 		It converts Guid to a string value.
-		\param This is Guid. 
+		\param This is Guid.
 		\return String
 
 
@@ -189,7 +189,7 @@ namespace Proud
 
 		\~
 		*/
-		 static inline String GetString(const Guid &uuid)
+		static inline String GetString(const Guid &uuid)
 		{
 			String ret;
 			if (ConvertUUIDToString(uuid, ret))
@@ -210,7 +210,7 @@ namespace Proud
 		\return String
 
 		\~english TODO:translate needed.
-		It converts Guid with a string including brakets({}). 
+		It converts Guid with a string including brakets({}).
 		\param This is Guid.
 		\return String
 
@@ -227,7 +227,7 @@ namespace Proud
 
 		\~
 		*/
-		 static inline String GetBracketString(const Guid &uuid)
+		static inline String GetBracketString(const Guid &uuid)
 		{
 			String ret;
 			if (ConvertUUIDToBracketString(uuid, ret))
@@ -244,8 +244,8 @@ namespace Proud
 
 		\~english TODO:translate needed.
 		It converts string to a uuid value.
-		\param uuidStr This is the string type of uuid. 
-		\return Guid This is the converted Guid. 
+		\param uuidStr This is the string type of uuid.
+		\return Guid This is the converted Guid.
 
 
 		\~chinese
@@ -259,7 +259,7 @@ namespace Proud
 		\return Guid 変換されたGuidです。
 		\~
 		*/
-		 static inline Guid GetFromString(const PNTCHAR* uuidStr)
+		static inline Guid GetFromString(const PNTCHAR* uuidStr)
 		{
 			Guid uuid;
 			if (ConvertStringToUUID(uuidStr, uuid))
@@ -277,7 +277,7 @@ namespace Proud
 		\~english TODO:translate needed.
 		Casting from PNGUID object
 		\param uuid  This is PNGUID
-		\return Guid object. 
+		\return Guid object.
 
 
 		\~chinese TODO:translate needed.
@@ -291,7 +291,7 @@ namespace Proud
 		\return Guidオブジェクト
 		\~
 		*/
-		 static inline Guid From(const PNGUID& uuid)
+		static inline Guid From(const PNGUID& uuid)
 		{
 			return Guid(uuid);
 		}
@@ -328,9 +328,9 @@ namespace Proud
 		return memcmp(&d1, &d2, sizeof(Guid)) != 0;
 	}
 
-	 PROUD_API CMessage& operator>>(CMessage &a, Guid &b);
-	 PROUD_API CMessage& operator<<(CMessage &a, const Guid &b);
-	 PROUD_API void AppendTextOut(String &a, const Guid &b);
+	PROUD_API CMessage& operator>>(CMessage &a, Guid &b);
+	PROUD_API CMessage& operator<<(CMessage &a, const Guid &b);
+	PROUD_API void AppendTextOut(String &a, const Guid &b);
 };
 
 /**

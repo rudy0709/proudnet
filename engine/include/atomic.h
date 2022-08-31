@@ -40,10 +40,10 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 // interlocked op 관련 멀티플랫폼 코딩을 편하게 하고자 함. 즉 #ifdef 떡칠을 줄이자.
 #if defined(__MACH__) // mac,ios 전용
-    #include <libkern/OSAtomic.h>
+	#include <libkern/OSAtomic.h>
 #endif
 
-#ifdef _WIN32 
+#ifdef _WIN32
 #include <Windows.h>
 #endif
 

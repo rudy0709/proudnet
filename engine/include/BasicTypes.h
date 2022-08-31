@@ -36,12 +36,12 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 #pragma once
 
-// 사용자가 프라우드넷 같은 라이브러리의 헤더파일과 LIB가 서로 버전이 안맞게 사용하면 찾기 힘든 런타임오류가 된다. 
+// 사용자가 프라우드넷 같은 라이브러리의 헤더파일과 LIB가 서로 버전이 안맞게 사용하면 찾기 힘든 런타임오류가 된다.
 // 이를 링크오류로 끌어올리는 역할을 한다.
 #ifdef _DEBUG
 #define PROUDNET_H_LIB_SIGNATURE VER_HERE_2_SHALL_BE_EDITED_BY_BUILD_HELPER_DEBUG
 #else
-#define PROUDNET_H_LIB_SIGNATURE VER_HERE_2_SHALL_BE_EDITED_BY_BUILD_HELPER_RELEASE 
+#define PROUDNET_H_LIB_SIGNATURE VER_HERE_2_SHALL_BE_EDITED_BY_BUILD_HELPER_RELEASE
 #endif
 
 #include <assert.h>
@@ -67,8 +67,8 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #include "HashString.h"
 #include "PNElementTraits.h"
 
-#define PNMIN(a,b)            (((a) < (b)) ? (a) : (b))
-#define PNMAX(a,b)            (((a) > (b)) ? (a) : (b))
+#define PNMIN(a,b)			(((a) < (b)) ? (a) : (b))
+#define PNMAX(a,b)			(((a) > (b)) ? (a) : (b))
 
 #define PN_INFINITE 0xFFFFFFFF
 
@@ -85,7 +85,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #include "pndefine.h"
 
 #if !defined(_MSC_VER) || (_MSC_VER < 1300)
-#define __noop (void)0 		// __noop는 msvc 1300 이상 전용 키워드다.
+#define __noop (void)0		// __noop는 msvc 1300 이상 전용 키워드다.
 #endif
 
 
@@ -211,16 +211,16 @@ static inline void CallConstructors(T* pElements, intptr_t nElements)
 
 	}
 	//	}
-	// 	catch(...)
-	// 	{
-	// 		while( iElement > 0 )
-	// 		{
-	// 			iElement--;
-	// 			pElements[iElement].~T();
-	// 		}
+	//	catch(...)
+	//	{
+	//		while( iElement > 0 )
+	//		{
+	//			iElement--;
+	//			pElements[iElement].~T();
+	//		}
 	//
-	// 		throw;
-	// 	}
+	//		throw;
+	//	}
 }
 
 // 주의: 반드시!! 함수 사용시 <T>를 명료하게 붙일 것. 일부 컴파일러는 엉뚱한 것을 템플릿 인스턴스화한다.
@@ -261,7 +261,7 @@ static inline void CallDestructors(T* pElements, intptr_t nElements) throw()
 
 
 // 사용자가 ProudNet DLL을 쓸 때는 이걸 켜야 한다.
-#ifdef USE_PROUDNET_DLL 
+#ifdef USE_PROUDNET_DLL
 #ifndef PROUD_API
 #define PROUD_API __declspec(dllimport)
 #endif
@@ -329,7 +329,7 @@ namespace Proud
 #define _InOut_
 #define _Outptr_
 #define _Check_return_
-#define _Guarded_by_(x) 
+#define _Guarded_by_(x)
 #else
 #include <sal.h>
 #endif

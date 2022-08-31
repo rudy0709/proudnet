@@ -122,7 +122,7 @@ namespace Proud
 
 		\~japanese
 		peer 内部でのUDP socketのアドレス
-		- サーバーとのUDPホールパンチングがまだ終わってないクライアント、即ち、TCPへのみ通信しているクライアントは、この値がUnassignedの場合もあります。しかし、異常状況ではありません。 
+		- サーバーとのUDPホールパンチングがまだ終わってないクライアント、即ち、TCPへのみ通信しているクライアントは、この値がUnassignedの場合もあります。しかし、異常状況ではありません。
 		\~
 		*/
 		AddrPort m_UdpAddrInternal;
@@ -159,7 +159,7 @@ namespace Proud
 
 		\~japanese
 		TrueであればこのクライアントのpeerへのRMIはサーバーを経由するP2P relayを意味します。
-		- CNetClientでのみ有効な値 
+		- CNetClientでのみ有効な値
 		\~
 		*/
 		bool m_RelayedP2P;
@@ -179,7 +179,7 @@ namespace Proud
 
 		\~japanese
 		このクライアントが参加しているP2Pグループのリスト
-		- CNetServer, CNetClient の両方で有効です。 
+		- CNetServer, CNetClient の両方で有効です。
 		\~
 		*/
 		HostIDArray m_joinedP2PGroups;
@@ -199,7 +199,7 @@ namespace Proud
 
 		\~japanese
 		trueの場合、このクライアントはNAT装置の後にあることを意味します。
-		- CNetServer, CNetClient の両方で有効です。 
+		- CNetServer, CNetClient の両方で有効です。
 		\~
 		*/
 		bool m_isBehindNat;
@@ -222,8 +222,8 @@ namespace Proud
 
 		\~japanese
 		最近に測定されたpingの平均時間（ミリ秒単位）
-		- CNetClient.GetPeerInfo より得た場合：該当P2P peerのpingです。 
-		- CNetServer.GetClientInfoより得た場合：サーバークライアント間のpingです。 
+		- CNetClient.GetPeerInfo より得た場合：該当P2P peerのpingです。
+		- CNetServer.GetClientInfoより得た場合：サーバークライアント間のpingです。
 		\~
 		*/
 		int m_recentPingMs;
@@ -270,8 +270,8 @@ namespace Proud
 
 		\~japanese
 		ユーザーが指定したtagのポインターです。
-		- CNetServer.SetHostTag, CNetClient.SetHostTagを通じ指定した値です。 
-		- ご注意!：tagはネットワーク同期化が取れない値です。 
+		- CNetServer.SetHostTag, CNetClient.SetHostTagを通じ指定した値です。
+		- ご注意!：tagはネットワーク同期化が取れない値です。
 		\~
 		*/
 		void* m_hostTag;
@@ -303,7 +303,7 @@ namespace Proud
 		- CNetClient.SetApplicationHintにユーザーが入力した値です。
 		- P2Pグループを結んだ各ピーアのFrame Rateを確認したい時に使います。
 		- pingとともにsuper peerの設定に使うことができます。
-		- Frame rateは通信料の節減のために、転送時にfloat値に変換して送受信されます。 
+		- Frame rateは通信料の節減のために、転送時にfloat値に変換して送受信されます。
 		\~
 		*/
 		double m_directP2PPeerFrameRate;
@@ -338,13 +338,13 @@ namespace Proud
 		自分(CNetClient)が該当クライアントにUDP packetの送信を成功した総数
 		\~
 		*/
-        uint32_t m_toRemotePeerSendUdpMessageSuccessCount;
+		uint32_t m_toRemotePeerSendUdpMessageSuccessCount;
 
 		int64_t m_unreliableMessageReceiveSpeed;
 
-		 PROUD_API CNetPeerInfo();
+		PROUD_API CNetPeerInfo();
 
-		 PROUD_API String ToString(bool atServer);
+		PROUD_API String ToString(bool atServer);
 
 		/**
 		\~korean

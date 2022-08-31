@@ -44,8 +44,8 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #include "ClassBehavior.h"
 
 #if !defined(_WIN32)
-    #include <pthread.h>
-    #include <time.h>
+	#include <pthread.h>
+	#include <time.h>
 #endif
 
 #if defined(_MSC_VER) && defined(_WIN32)
@@ -82,7 +82,7 @@ namespace Proud
 		병목 발생시 덤프 파일을 저장할 이름을 설정합니다.
 		(ex. L"example_dump_file_name/")
 		\~english
-		Select the name to save the dump file when bottleneck occurs. 
+		Select the name to save the dump file when bottleneck occurs.
 		(ex. L"example_dump_file_name/")
 
 		\~chinese
@@ -100,7 +100,7 @@ namespace Proud
 		병목 발생시 덤프 파일을 저장할 경로를 설정합니다.
 		(ex. L"C:/")
 		\~english
-		Set the path to save the dump file when bottleneck occurs. 
+		Set the path to save the dump file when bottleneck occurs.
 		(ex. L"C:/")
 
 		\~chinese
@@ -119,8 +119,8 @@ namespace Proud
 		경고가 발생할때의 최대 시간값을 설정합니다.
 		해당값이 0 이외의 값으로 세팅되면 NetServer 내부에서 해당 값 만큼 병목 발생시 경고와 덤프 파일을 남깁니다.
 		\~english
-		Set the maximum time value when a warning occurs. 
-		When the value is set for a value other than 0, it leaves a warning and a dump file when bottleneck occurs equal to the value inside NetServer.  
+		Set the maximum time value when a warning occurs.
+		When the value is set for a value other than 0, it leaves a warning and a dump file when bottleneck occurs equal to the value inside NetServer.
 
 		\~chinese
 
@@ -136,7 +136,7 @@ namespace Proud
 		Proud.CriticalSection.GetLastLockedThreadID() is valid. */
 		bool m_updateLastLockedThreadID;
 
-		 PROUD_API CriticalSectionSettings();
+		PROUD_API CriticalSectionSettings();
 	};
 
 
@@ -184,7 +184,7 @@ namespace Proud
 	- CriticalSection オブジェクトを先に作った後、CriticalSectionLock オブジェクトを通じcritical section lock & unlockを行うことができます。
 
 	\~
-	 */
+	*/
 	class CriticalSection
 	{
 		//String m_name;
@@ -232,7 +232,7 @@ namespace Proud
 		破壊子
 		- 破壊する前に、このcritical sectionを占有しているスレッドがあってはいけません!
 		\~
-		  */
+		*/
 		PROUD_API ~CriticalSection(void);
 
 		/**
@@ -246,7 +246,7 @@ namespace Proud
 		发生错误呼叫时打开MessageBox。
 		\~japanese
 		\~
-		 */
+		*/
 		PROUD_API void Lock();
 
 		/**
@@ -262,7 +262,7 @@ namespace Proud
 		critical sectionをこのメソッドを呼び出すスレッドが占有します。
 		間違った呼び出しが発生した時、MessageBoxを表示します。
 		\~
-		 */
+		*/
 		void UnsafeLock();
 
 		/**
@@ -275,7 +275,7 @@ namespace Proud
 		\~japanese
 		critical sectionをこのメソッドを呼び出すスレッドが占有解除します。
 		\~
-		 */
+		*/
 		PROUD_API void Unlock();
 
 		/**
@@ -292,7 +292,7 @@ namespace Proud
 		EnterCriticalSectionの代わりにTryEnterCriticalSectionを使用します。
 		\return ロックに成功したらtrue。
 		\~
-		 */
+		*/
 		PROUD_API bool TryLock();
 		bool IsValid();
 
@@ -371,7 +371,7 @@ namespace Proud
 
 
 		/////////////////////////
-		// PLATFORM SPECIFIC 멤버 변수들이다. 이것들은 이 클래스의 맨 뒤에 선언되어있도록 하자. 
+		// PLATFORM SPECIFIC 멤버 변수들이다. 이것들은 이 클래스의 맨 뒤에 선언되어있도록 하자.
 	public:
 
 		/** 여러분이 디버거에서 이 내부 상태값을 보고 싶으시면 이 멤버 변수의 값을 확인하십시오.
@@ -390,10 +390,10 @@ namespace Proud
 	/**
 	\~korean
 	\brief CriticalSection 객체를 lock access하는 객체입니다.
-	- 일반적으로 로컬 변수로서 사용됩니다. 
+	- 일반적으로 로컬 변수로서 사용됩니다.
 	- 이 객체가 파괴될 때 자동으로 lock하고 있던 critical section을 unlock합니다.
 	\~english
-	 \brief The object that 'lock accesses' CriticalSection object.
+	\brief The object that 'lock accesses' CriticalSection object.
 	- Usually created and used as a local variable.
 	- When this object is destroyed, it automatically unlocks the critical section that was locked by this.
 	\~chinese
@@ -411,8 +411,8 @@ namespace Proud
 	void foo()
 	{
 		CriticalSectionLock lock(critSec, true);
-		... 
-		
+		...
+
 		// automatically unlocked here.
 	}
 	\endcode
@@ -445,7 +445,7 @@ namespace Proud
 		\param cs 使用する critical section オブジェクト
 		\param initialLock trueであれば生成子ですぐロックします。
 		\~
-		 */
+		*/
 		inline CriticalSectionLock(CriticalSection& cs, bool initialLock)
 		{
 			SetCriticalSection(cs, initialLock);
@@ -493,7 +493,7 @@ namespace Proud
 		\~japanese
 		ロックされていますか？
 		\~
-		 */
+		*/
 		inline bool IsLocked() const
 		{
 			assert(m_recursionCount >= 0);
@@ -514,7 +514,7 @@ namespace Proud
 		破壊子
 		- 既にこのオブジェクトが占有していたCriticalSectionがある場合、占有解除を自動で行います。
 		\~
-		 */
+		*/
 		inline ~CriticalSectionLock()
 		{
 			assert(m_recursionCount >= 0);
@@ -534,7 +534,7 @@ namespace Proud
 		\~japanese
 		critical sectionを占有します。
 		\~
-		 */
+		*/
 		inline void Lock()
 		{
 			m_cs->Lock();
@@ -555,7 +555,7 @@ namespace Proud
 		Try Lockを遂行します。
 		\return CriticalSection.TryLock()と同じ値
 		\~
-		 */
+		*/
 		inline bool TryLock()
 		{
 			bool r = m_cs->TryLock();
@@ -583,7 +583,7 @@ namespace Proud
 		\~japanese
 		critical sectionを占有解除します。
 		\~
-		 */
+		*/
 		inline void Unlock()
 		{
 			if ( IsLocked() )

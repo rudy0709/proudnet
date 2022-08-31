@@ -58,9 +58,9 @@ namespace Proud
 	class CP2PGroup;
 	typedef RefCount<CP2PGroup> CP2PGroupPtr;
 
-	/** 
+	/**
 	\~korean
-	P2P 그룹 정보 구조체 
+	P2P 그룹 정보 구조체
 
 	\~english
 	Information construct of P2P group
@@ -75,12 +75,12 @@ namespace Proud
 	class CP2PGroup
 	{
 	public:
-		/** 
+		/**
 		\~korean
-		그룹 ID 
+		그룹 ID
 
 		\~english
-		Group ID 
+		Group ID
 
 		\~chinese
 		组ID
@@ -90,9 +90,9 @@ namespace Proud
 		\~
 		*/
 		HostID m_groupHostID;
-		/** 
+		/**
 		\~korean
-		그룹에 소속된 client peer들의 HostID 
+		그룹에 소속된 client peer들의 HostID
 
 		\~english
 		HostID of client peer that is possessed by group
@@ -106,7 +106,7 @@ namespace Proud
 		*/
 		HostIDArray m_members;
 
-		 PROUD_API CP2PGroup();
+		PROUD_API CP2PGroup();
 
 #ifdef _WIN32
 #pragma push_macro("new")
@@ -116,13 +116,13 @@ namespace Proud
 #pragma pop_macro("new")
 #endif
 	};
-	/** 
+	/**
 	\~korean
 	P2P 그룹 리스트
-	- 보다 자세한 사용법은 베이스 클래스를 참고할 것. 
+	- 보다 자세한 사용법은 베이스 클래스를 참고할 것.
 
 	\~english
-	 P2P group list
+	P2P group list
 	- Please refer base class for more details.
 
 	\~chinese
@@ -143,24 +143,24 @@ namespace Proud
 		// 이 클래스는 ProudNet DLL 경우를 위해 커스텀 할당자를 쓰되 fast heap을 쓰지 않는다.
 		DECLARE_NEW_AND_DELETE
 #pragma pop_macro("new")
-#endif //SWIG 
+#endif //SWIG
 	};
 
 	/**
 	\~korean
-	\brief <a target="_blank" href="http://guide.nettention.com/cpp_ko#p2p_group" >P2P 그룹</a> 한 개의 사용자 지정 설정입니다. 
+	\brief <a target="_blank" href="http://guide.nettention.com/cpp_ko#p2p_group" >P2P 그룹</a> 한 개의 사용자 지정 설정입니다.
 	필요한 경우가 아닌 이상 이 객체를 사용하실 필요는 없습니다.
 
-	\~english 
-	Additional settings for a P2P group. 
-	Unless necessary, you don’t have to use this object. 
+	\~english
+	Additional settings for a P2P group.
+	Unless necessary, you don’t have to use this object.
 
 	\~chinese
 	\brief <a target="_blank" href="http://guide.nettention.com/cpp_zh#p2p_group" >P2P 组</a>%一个用户指定设置。
-        如果不是必要的情况，不需要使用此对象。
+	如果不是必要的情况，不需要使用此对象。
 
 	\~japanese
-	\brief \ref p2p_group  1個のユーザー指定設定です。 
+	\brief \ref p2p_group  1個のユーザー指定設定です。
 	必要な場合ではない以上、このオブジェクトを使う必要はありません。
 	\~
 	*/
@@ -170,15 +170,15 @@ namespace Proud
 		/**
 		\~korean
 		true이면 그룹 멤버간 Direct P2P 통신을 제공합니다. 기본값은 true입니다.
-		그룹을 맺되 멤버간 P2P 통신을 차단하고자 할 때 이 값을 false로 설정하면 됩니다. 
-		
+		그룹을 맺되 멤버간 P2P 통신을 차단하고자 할 때 이 값을 false로 설정하면 됩니다.
+
 		그룹 내 멤버간 이미 타 그룹 종속에 의해 서로 Direct P2P를 이미 하고 있는 상태인 경우, 이 값을 false로 설정하는 것이 그들의 Direct P2P를 차단하지는 않습니다.
 
 		\~english TODO:translate needed.
-		If true, this provides direct P2P communication among group members. The default value is true. 
-		You can set this value as false when you form a group but want to block P2P communication among members. 
+		If true, this provides direct P2P communication among group members. The default value is true.
+		You can set this value as false when you form a group but want to block P2P communication among members.
 
-		When direct P2P is already being done due to being subordinated by another group among the members in the group, selecting this value as false does not block the direct P2P among them. 
+		When direct P2P is already being done due to being subordinated by another group among the members in the group, selecting this value as false does not block the direct P2P among them.
 
 		\~chinese
 		True的话提供组成员之间Direct P2P通信。默认值是true。
@@ -195,7 +195,7 @@ namespace Proud
 	*/
 		bool m_enableDirectP2P;
 
-		PROUD_API CP2PGroupOption();		
+		PROUD_API CP2PGroupOption();
 
 		PROUD_API static  CP2PGroupOption Default;
 	};

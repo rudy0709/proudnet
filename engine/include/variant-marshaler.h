@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "Variant.h"
 
@@ -11,7 +11,7 @@ namespace Proud
 	class CMessage;
 	class CVariant;
 
-#if defined(_WIN32)    
+#if defined(_WIN32)
 	PROUDSRV_API CMessage& operator<<(CMessage &a, const CVariant &b);
 	PROUDSRV_API CMessage& operator>>(CMessage &a, CVariant &b);
 

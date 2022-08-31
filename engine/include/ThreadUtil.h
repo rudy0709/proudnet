@@ -244,7 +244,7 @@ namespace Proud
 
 	public:
 		PROUD_API CTimerQueue();
-		PROUD_API 	~CTimerQueue();
+		PROUD_API ~CTimerQueue();
 
 		/**
 		\~korean

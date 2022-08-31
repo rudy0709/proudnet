@@ -66,7 +66,7 @@ namespace Proud
 		일반적인 프로그램의 경우.
 
 		\~english
-		It is a general program. 
+		It is a general program.
 
 		\~chinese
 		一般程序
@@ -84,7 +84,7 @@ namespace Proud
 		In case of mini dump file creation by user calling.
 
 		\~chinese
-		由用户呼出生成Mini Dump文件时的情况 
+		由用户呼出生成Mini Dump文件时的情况
 
 		\~japanese
 		ユーザの呼び出しにより身にダンプファイルが生成された場合

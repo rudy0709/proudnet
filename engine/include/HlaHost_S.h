@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #ifdef _MSC_VER
 #pragma pack(push,8)
@@ -44,7 +44,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #include "HlaEntity_S.h"
 #include "HlaDelagate_Common.h"
 
-namespace Proud 
+namespace Proud
 {
 	class CHlaEntityManagerBase_S;
 	class CriticalSection;
@@ -56,7 +56,7 @@ namespace Proud
 	HLA 세션 서버 메서드 인터페이스입니다.
 
 	\~english TODO:translate needed.
-	This is a HLA session server method interface. 
+	This is a HLA session server method interface.
 
 	\~chinese
 	是HLA session服务器方法界面。
@@ -70,15 +70,15 @@ namespace Proud
 	public:
 		virtual ~IHlaHost_S() {};
 
-		/** 
+		/**
 		\~korean
-		HLA entity class를 등록합니다. 
-		HLA entity class는 HLA compiler output이어야 합니다. 
+		HLA entity class를 등록합니다.
+		HLA entity class는 HLA compiler output이어야 합니다.
 
 		\~english TODO:translate needed.
-		An HLA entity class is registered. 
-		An HLA entity class must be HLA complier output. 
-	
+		An HLA entity class is registered.
+		An HLA entity class must be HLA complier output.
+
 		\~chinese
 		登录HLA entity class。
 		HLA entity class得是HLA compiler output。
@@ -90,13 +90,13 @@ namespace Proud
 		*/
 		virtual void HlaAttachEntityTypes(CHlaEntityManagerBase_S* entityManager) = 0;
 
-		/** 
+		/**
 		\~korean
-		이 모듈에 의해 콜백되는 메서드들을 구현한 객체를 받아들입니다. 
+		이 모듈에 의해 콜백되는 메서드들을 구현한 객체를 받아들입니다.
 
 		\~english TODO:translate needed.
-		This receives the objects that implements the methods called back by this module. 
-	
+		This receives the objects that implements the methods called back by this module.
+
 		\~chinese
 		在接收体现被此模块的回拨方法的对象。
 
@@ -106,13 +106,13 @@ namespace Proud
 		*/
 		virtual void HlaSetDelegate(IHlaDelegate_S* dg) = 0;
 
-		/** 
+		/**
 		\~korean
-		사용자는 이 함수를 일정 시간마다 콜 해야 합니다. 
+		사용자는 이 함수를 일정 시간마다 콜 해야 합니다.
 
 		\~english TODO:translate needed.
-		Users must call this function at a certain interval. 
-	
+		Users must call this function at a certain interval.
+
 		\~chinese
 		用户要在每隔一段时间拨此函数。
 
@@ -121,7 +121,7 @@ namespace Proud
 
 		*/
 		virtual void HlaFrameMove() = 0;
-		
+
 		virtual CHlaSpace_S* HlaCreateSpace() = 0;
 		virtual void HlaDestroySpace(CHlaSpace_S* space) = 0;
 
@@ -132,27 +132,27 @@ namespace Proud
 		virtual void HlaUnviewSpace(HostID viewerID, CHlaSpace_S* space) = 0;
 	};
 
-	/** 
+	/**
 	\~korean
-	HLA 세션 서버에 의해 콜백되는 인터페이스입니다. 
-	
+	HLA 세션 서버에 의해 콜백되는 인터페이스입니다.
+
 	참고
-	- C++ 이외 버전에서는 본 메서드는 delegate callback 형태일 수 있습니다. 
+	- C++ 이외 버전에서는 본 메서드는 delegate callback 형태일 수 있습니다.
 
 	\~english
 	This is an interface called back by the HLA session server.
 
 	Note
-	- In versions other than C++, this method may be in the form of delegate callback. 
-	
+	- In versions other than C++, this method may be in the form of delegate callback.
+
 	\~chinese
-	被HLA会话服务器回调的接口。 
+	被HLA会话服务器回调的接口。
 	参照
-	- 在C++ 之外的版本中本方法可以是delegate callback形式。 
+	- 在C++ 之外的版本中本方法可以是delegate callback形式。
 
 	\~japanese
 	HLAセッションサーバーによってコールバックされるインターフェースです。
-	
+
 	参考
 	- C++ 以外のバージョンでは、本メソッドはdelegate callback形態である場合があります。
 
