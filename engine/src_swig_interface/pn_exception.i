@@ -1,5 +1,4 @@
 ﻿
-
 %ignore Proud::Exception::m_pVoidSource;
 %ignore Proud::Exception::m_pStdSource;
 %ignore Proud::Exception::m_comSource;
@@ -16,5 +15,3 @@
 %ignore Proud::m_delegThrowInvalidArgumentExceptionateObject;
 %ignore Proud::ThrowArrayOutOfBoundException;
 %ignore Proud::XXXHeapChkImpl;
-
-

@@ -12,7 +12,7 @@
 
 		System.IntPtr nativeData = GetNativeComment();
 
-		ConvertToNative.CopyByteArrayToNative(data, nativeData);	
+		ConvertToNative.CopyByteArrayToNative(data, nativeData);
 	}
 %}
 

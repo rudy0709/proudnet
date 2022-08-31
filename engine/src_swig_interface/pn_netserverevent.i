@@ -5,4 +5,3 @@
 %typemap(cscode) Proud::INetServerEvent
 %{
 %}
-

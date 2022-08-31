@@ -37,7 +37,7 @@
 {
 	inline void* GetNativeIPAddr()
 	{
-	    assert(self);
+		assert(self);
 		return &(self->m_addr.v6Byte);
 	}
 }

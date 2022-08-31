@@ -43,48 +43,52 @@ class String;
 %typemap(csdirectorin) String "$iminput"
 %typemap(csdirectorout) String "$cscall"
 
-%typemap(in, canthrow=1) String 
-%{ if (!$input) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
-    return $null;
-   }
-   $1 = StringA2T($input, GetUTF8toUTF16()); %}
+%typemap(in, canthrow=1) String
+%{
+	if (!$input) {
+		SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+		return $null;
+	}
+	$1 = StringA2T($input, GetUTF8toUTF16());
+%}
 
 %typemap(out) String %{ $result = SWIG_csharp_string_callback(StringT2A($1, GetUTF16toUTF8()).GetString()); %}
 %typemap(out) const PNTCHAR* %{  $result = SWIG_csharp_string_callback(StringT2A($1, GetUTF16toUTF8()).GetString()); %}
 
 %typemap(directorout, canthrow=1) String
 %{ if (!$input) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
-    return $null;
-   }
-   $result = StringA2T($input, GetUTF8toUTF16()); %}
-
-%typemap(in) Proud::String %{ 
-// ikpil.choi 2017-01-09 : swig의 input이 Proud::String일 경우, A2T 실행하여 할당
-$1 = StringA2T($input, GetUTF8toUTF16());
+		SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+		return $null;
+	}
+	$result = StringA2T($input, GetUTF8toUTF16());
 %}
 
-%typemap(in) Proud::PNTCHAR* %{ 
-// ikpil.choi 2017-01-09 : swig 의 input 이 PNTCHAR* 일 경우, StringA2T로 생성한 객체를 유지하고, PNTCHAR* 를 리턴하게 처리한다.(N3728)
-Proud::String $input_pnstring = StringA2T($input, GetUTF8toUTF16());
-$1 = (PNTCHAR*)$input_pnstring.GetString();
+%typemap(in) Proud::String %{
+	// ikpil.choi 2017-01-09 : swig의 input이 Proud::String일 경우, A2T 실행하여 할당
+	$1 = StringA2T($input, GetUTF8toUTF16());
+%}
+
+%typemap(in) Proud::PNTCHAR* %{
+	// ikpil.choi 2017-01-09 : swig 의 input 이 PNTCHAR* 일 경우, StringA2T로 생성한 객체를 유지하고, PNTCHAR* 를 리턴하게 처리한다.(N3728)
+	Proud::String $input_pnstring = StringA2T($input, GetUTF8toUTF16());
+	$1 = (PNTCHAR*)$input_pnstring.GetString();
 %}
 
 %typemap(csin) String "$csinput"
 
 %typemap(csout, excode=SWIGEXCODE) String {
-    string ret = $imcall;$excode
-    return ret;
-  }
+	string ret = $imcall;$excode
+	return ret;
+}
 
 %typemap(typecheck) String = char *;
 
 %typemap(throws, canthrow=1) String
-%{ 
-   // 주의 : 어쩌면 ProudCatchAllException.i에 넣은 %exception으로 인해서 이 throws typemap이 가려질 수도 있을 거 같다.
-   SWIG_CSharpSetPendingException(SWIG_CSharpApplicationException, StringT2A($1, GetUTF16toUTF8()).GetString());
-   return $null; %}
+%{
+	// 주의 : 어쩌면 ProudCatchAllException.i에 넣은 %exception으로 인해서 이 throws typemap이 가려질 수도 있을 거 같다.
+	SWIG_CSharpSetPendingException(SWIG_CSharpApplicationException, StringT2A($1, GetUTF16toUTF8()).GetString());
+	return $null;
+%}
 
 // const String &
 %typemap(ctype) const String & "char *"
@@ -96,32 +100,35 @@ $1 = (PNTCHAR*)$input_pnstring.GetString();
 
 %typemap(in, canthrow=1) const String &
 %{ if (!$input) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
-    return $null;
-   }
-   $*1_ltype $1_str(StringA2T($input, GetUTF8toUTF16()));
-   $1 = &$1_str; 
+		SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+		return $null;
+	}
+	$*1_ltype $1_str(StringA2T($input, GetUTF8toUTF16()));
+	$1 = &$1_str;
 %}
 
 %typemap(out) const String & %{ $result = SWIG_csharp_string_callback(StringT2A(*$1, GetUTF16toUTF8()).GetString()); %}
 
 
 %typemap(csvarin, excode=SWIGEXCODE2) const String & %{
-    set {
-      $imcall;$excode
-    } %}
+	set {
+		$imcall;$excode
+	}
+%}
 %typemap(csvarout, excode=SWIGEXCODE2) const String & %{
-    // 주의 : 어쩌면 ProudCatchAllException.i에 넣은 %exception으로 인해서 이 throws typemap이 가려질 수도 있을 거 같다.
-    get {
-      string ret = $imcall;$excode
-      return ret;
-    } %}
+	// 주의 : 어쩌면 ProudCatchAllException.i에 넣은 %exception으로 인해서 이 throws typemap이 가려질 수도 있을 거 같다.
+	get {
+		string ret = $imcall;$excode
+		return ret;
+	}
+%}
 
 %typemap(csin) const String & "$csinput"
 
 %typemap(throws, canthrow=1) const String &
-%{ SWIG_CSharpSetPendingException(SWIG_CSharpApplicationException, StringT2A(*$1, GetUTF16toUTF8()).GetString());
-   return $null; %}
+%{
+	SWIG_CSharpSetPendingException(SWIG_CSharpApplicationException, StringT2A(*$1, GetUTF16toUTF8()).GetString());
+	return $null;
+%}
 
 }
-

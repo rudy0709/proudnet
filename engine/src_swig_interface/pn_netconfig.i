@@ -8,4 +8,3 @@
 %ignore Proud::CNetConfig::MessageMaxLengthInServerLan;
 
 %ignore Proud::CNetConfig::AllowUseTls;
-

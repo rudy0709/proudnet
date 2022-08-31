@@ -61,10 +61,10 @@ class ByteArray;
 %typemap(csin) const Proud::ByteArray & "$csinput"
 
 %typemap(csvarout, excode=SWIGEXCODE2) const Proud::ByteArray & %{
-    get {
-      ByteArray ret = $imcall;$excode
-      return ret;
-    } %}
+	get {
+		ByteArray ret = $imcall;$excode
+		return ret;
+	} %}
 
 }
 */

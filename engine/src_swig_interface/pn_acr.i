@@ -1,7 +1,7 @@
 ﻿
 %extend Proud::CRemoteOfflineEventArgs
 {
-    // C++ ��ü�� C# ��ü�� �����մϴ�.
+	// C++ ��ü�� C# ��ü�� �����մϴ�.
 	inline void CopyFromNative(void* obj)
 	{
 		assert(self);

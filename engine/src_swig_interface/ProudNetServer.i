@@ -66,4 +66,3 @@
 %include "ProudNetTypeMaps.i"
 %include "ProudNetServerCPlusIncludes.i"
 using namespace Proud;
-

@@ -5,4 +5,3 @@
 
 // ProudNet TCHAR
 typedef char PNTCHAR, *PPNTCHAR;
-

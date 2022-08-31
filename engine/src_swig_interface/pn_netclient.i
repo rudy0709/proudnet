@@ -19,12 +19,12 @@
 
 %typemap(cscode) Proud::CNetClient
 %{
-	  // cMemoryOwn 변수는 C# GC에서 managed 객체를 삭제할 때 연결되어 있는 native 객체를 삭제 유/무를 설정할 수 있습니다.
-	  internal static NativeNetClient Create(bool cMemoryOwn) {
+	// cMemoryOwn 변수는 C# GC에서 managed 객체를 삭제할 때 연결되어 있는 native 객체를 삭제 유/무를 설정할 수 있습니다.
+	internal static NativeNetClient Create(bool cMemoryOwn) {
 		global::System.IntPtr cPtr = ProudNetClientPluginPINVOKE.NativeNetClient_Create();
 		NativeNetClient ret = (cPtr == global::System.IntPtr.Zero) ? null : new NativeNetClient(cPtr, cMemoryOwn);
 		return ret;
-	  }
+	}
 %}
 
 %extend Proud::CNetClient

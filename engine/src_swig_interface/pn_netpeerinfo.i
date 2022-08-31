@@ -6,19 +6,19 @@
 	public HostIDArray GetJoinedP2PGroups()
 	{
 		int count = joinedP2PGroups.GetCount();
-        if (count == 0)
-        {
-            return null;
-        }
+		if (count == 0)
+		{
+			return null;
+		}
 
-        HostIDArray idArray = new HostIDArray();
+		HostIDArray idArray = new HostIDArray();
 
-        for (int i = 0; i < count; ++i )
-        {
-            idArray.Add(joinedP2PGroups.At(i));
-        }
+		for (int i = 0; i < count; ++i )
+		{
+			idArray.Add(joinedP2PGroups.At(i));
+		}
 
-        return idArray;
+		return idArray;
 	}
 %}
 

@@ -1,5 +1,4 @@
 ﻿
-
 enum RmiID
 {
 	RmiID_None = 0,

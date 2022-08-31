@@ -18,7 +18,7 @@
 		Proud::CMessage msg;
 		msg.UseExternalBuffer(static_cast<uint8_t*>(msgBuffer), bufferLength);
 		msg.SetLength(bufferLength);
-		
+
 		return self->RmiSend(static_cast<Proud::HostID*>(remotes), remoteCount, *rmiContext, msg, RMIName, RMIId);
 	}
 }

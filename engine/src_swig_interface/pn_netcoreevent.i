@@ -1,5 +1,2 @@
 ﻿
 %feature("director") Proud::INetCoreEvent;
-
-
-

@@ -62,4 +62,3 @@
 
 %include "ProudNetClientCPlusIncludes.i"
 using namespace Proud;
-

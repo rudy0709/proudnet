@@ -32,7 +32,7 @@
 #endif // __NETSERVER__
 
 %typemap(cscode) Proud::ErrorInfo %{
-	public override string ToString() 
+	public override string ToString()
 	{
 		return GetString();
 	}

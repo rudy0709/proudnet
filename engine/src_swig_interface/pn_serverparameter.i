@@ -8,12 +8,12 @@
 	public void SetExternalUserWorkerThreadPool(ThreadPool threadPool)
 	{
 		SetExternalUserWorkerThreadPool(threadPool.GetNativeThreadPool());
-    } 
+	}
 
 	public void SetExternalNetWorkerThreadPool(ThreadPool threadPool)
 	{
 		SetExternalNetWorkerThreadPool(threadPool.GetNativeThreadPool());
-    } 
+	}
 %}
 
 

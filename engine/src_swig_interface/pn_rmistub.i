@@ -11,4 +11,3 @@
 //%ignore Proud::IRmiStub::AfterRmiInvocation;
 
 //%ignore Proud::IRmiStub::BeforeRmiInvocation;
-

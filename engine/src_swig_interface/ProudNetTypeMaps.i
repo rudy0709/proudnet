@@ -12,37 +12,37 @@ CSHARP_ARRAYS(char *,string)
 %apply unsigned char INOUT[] {unsigned char* _data};
 %apply unsigned char INOUT[] {unsigned char* inOutData};
 
-%typemap(ctype)   unsigned char *inByteArrayArray "unsigned char*"
-%typemap(cstype)  unsigned char *inByteArrayArray  "byte[,]"
+%typemap(ctype)		unsigned char *inByteArrayArray "unsigned char*"
+%typemap(cstype)	unsigned char *inByteArrayArray  "byte[,]"
 %typemap(imtype, inattributes="[In, MarshalAs(UnmanagedType.LPArray)]") unsigned char *inByteArrayArray  "byte[,]"
-%typemap(csin)    unsigned char *inByteArrayArray  "$csinput"
+%typemap(csin)		unsigned char *inByteArrayArray  "$csinput"
 
-%typemap(in)     unsigned char *inByteArrayArray  "$1 = $input;"
-%typemap(freearg) unsigned char *inByteArrayArray  ""
-%typemap(argout)  unsigned char *inByteArrayArray  ""
+%typemap(in)		unsigned char *inByteArrayArray  "$1 = $input;"
+%typemap(freearg)	unsigned char *inByteArrayArray  ""
+%typemap(argout)	unsigned char *inByteArrayArray  ""
 
 //====================================================================================================================
 
 // void* -> global::System.IntPtr
-%typemap(ctype)  void * "void *"
-%typemap(imtype) void * "global::System.IntPtr"
-%typemap(cstype) void * "global::System.IntPtr"
-%typemap(csin)   void * "$csinput"
-%typemap(in)     void * %{ $1 = $input; %}
-%typemap(out)    void * %{ $result = $1; %}
-%typemap(csout)  void * { return $imcall; }
+%typemap(ctype)		void * "void *"
+%typemap(imtype)	void * "global::System.IntPtr"
+%typemap(cstype)	void * "global::System.IntPtr"
+%typemap(csin)		void * "$csinput"
+%typemap(in)		void * %{ $1 = $input; %}
+%typemap(out)		void * %{ $result = $1; %}
+%typemap(csout)		void * { return $imcall; }
 %typemap(csdirectorin) void* "$iminput"
 
 //====================================================================================================================
 
 // uint8_t* -> global::System.IntPtr
-%typemap(ctype)  uint8_t * "void *"
-%typemap(imtype) uint8_t * "global::System.IntPtr"
-%typemap(cstype) uint8_t * "global::System.IntPtr"
-%typemap(csin)   uint8_t * "$csinput"
-%typemap(in)     uint8_t * %{ $1 = $input; %}
-%typemap(out)    uint8_t * %{ $result = $1; %}
-%typemap(csout)  uint8_t * { return $imcall; }
+%typemap(ctype)		uint8_t * "void *"
+%typemap(imtype)	uint8_t * "global::System.IntPtr"
+%typemap(cstype)	uint8_t * "global::System.IntPtr"
+%typemap(csin)		uint8_t * "$csinput"
+%typemap(in)		uint8_t * %{ $1 = $input; %}
+%typemap(out)		uint8_t * %{ $result = $1; %}
+%typemap(csout)		uint8_t * { return $imcall; }
 %typemap(csdirectorin) uint8_t * "$iminput"
 
 %typemap(in, canthrow=1) uint8_t*
@@ -61,8 +61,8 @@ CSHARP_ARRAYS(char *,string)
  AddrPortArray ret = new AddrPortArray($imcall, true);
  return ret;
 }
-//%typemap(in)     Proud::CFastArray<Proud::AddrPort> %{ $1 = $input; %}
-//%typemap(out)    Proud::CFastArray<Proud::AddrPort>  %{ $result = $1; %}
+//%typemap(in)		Proud::CFastArray<Proud::AddrPort> %{ $1 = $input; %}
+//%typemap(out)		Proud::CFastArray<Proud::AddrPort>  %{ $result = $1; %}
 //%typemap(csdirectorin) Proud::CFastArray<Proud::AddrPort> * "$iminput"
 
 //%typemap(in, canthrow=1) Proud::CFastArray<Proud::AddrPort>*

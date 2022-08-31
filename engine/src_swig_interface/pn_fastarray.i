@@ -67,8 +67,8 @@
 %ignore Proud::CFastArray::DataBlock_Alloc;
 %ignore Proud::CFastArray::DataBlock_Realloc;
 
-%ignore Proud::CFastArray::Add; 
-%ignore Proud::FastArray_In_Type; 
+%ignore Proud::CFastArray::Add;
+%ignore Proud::FastArray_In_Type;
 
 %include "../../include/FastArray.h"
 
