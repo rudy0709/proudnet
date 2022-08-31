@@ -43,139 +43,139 @@ using Nettention.Proud;
 
 namespace Nettention.Proud
 {
-    // Swig에서 제공하는 C++ 가상 클래스를 C# 클래스에서 상속받아서 사용하는 기능을 사용하지 못하는 이유는 Unity IL2CPP에서 C++ 코드를 생성할 때 C++ -> C# 콜백에 대한 코드에 문제가 있기 때문에
-    // 각 이벤트에 대해서 콜백 함수를 만들어서 처리합니다.
-    public class NativeInternalProxy : GCHandleList
-    {
-        private RmiProxy m_proxy;
-        private System.IntPtr m_proxyWrap = System.IntPtr.Zero;
+	// Swig에서 제공하는 C++ 가상 클래스를 C# 클래스에서 상속받아서 사용하는 기능을 사용하지 못하는 이유는 Unity IL2CPP에서 C++ 코드를 생성할 때 C++ -> C# 콜백에 대한 코드에 문제가 있기 때문에
+	// 각 이벤트에 대해서 콜백 함수를 만들어서 처리합니다.
+	public class NativeInternalProxy : GCHandleList
+	{
+		private RmiProxy m_proxy;
+		private System.IntPtr m_proxyWrap = System.IntPtr.Zero;
 
-        private bool disposed = false;
+		private bool disposed = false;
 
-        internal NativeInternalProxy(RmiProxy clrObj)
-        {
-            m_proxy = clrObj;
+		internal NativeInternalProxy(RmiProxy clrObj)
+		{
+			m_proxy = clrObj;
 
-            GCHandle handle = GCHandle.Alloc(this);
-            m_proxyWrap = Nettention.Proud.ProudNetClientPlugin.NativeToRmiProxyWrap_New();
+			GCHandle handle = GCHandle.Alloc(this);
+			m_proxyWrap = Nettention.Proud.ProudNetClientPlugin.NativeToRmiProxyWrap_New();
 
-            Nettention.Proud.ProudNetClientPlugin.RmiProxy_SetCSharpHandle(m_proxyWrap, GCHandle.ToIntPtr(handle));
-            base.AddHandle(handle);
+			Nettention.Proud.ProudNetClientPlugin.RmiProxy_SetCSharpHandle(m_proxyWrap, GCHandle.ToIntPtr(handle));
+			base.AddHandle(handle);
 
-            // C# -> C++로 넘겨진 Delegate도 가비지 수집이 되기 때문에 GCHandle.Alloc을 해주어야 합니다.
-            ProudDelegate.Delegate_6 del1 = GetRmiIDList;
-            handle = GCHandle.Alloc(del1);
-            Nettention.Proud.ProudNetClientPlugin.RmiProxy_SetCallbackGetRmiIDList(m_proxyWrap, del1);
-            base.AddHandle(handle);
+			// C# -> C++로 넘겨진 Delegate도 가비지 수집이 되기 때문에 GCHandle.Alloc을 해주어야 합니다.
+			ProudDelegate.Delegate_6 del1 = GetRmiIDList;
+			handle = GCHandle.Alloc(del1);
+			Nettention.Proud.ProudNetClientPlugin.RmiProxy_SetCallbackGetRmiIDList(m_proxyWrap, del1);
+			base.AddHandle(handle);
 
-            ProudDelegate.Delegate_1 del2 = GetRmiIDListCount;
-            handle = GCHandle.Alloc(del2);
-            Nettention.Proud.ProudNetClientPlugin.RmiProxy_SetCallbackGetRmiIDListCount(m_proxyWrap, del2);
-            base.AddHandle(handle);
-        }
+			ProudDelegate.Delegate_1 del2 = GetRmiIDListCount;
+			handle = GCHandle.Alloc(del2);
+			Nettention.Proud.ProudNetClientPlugin.RmiProxy_SetCallbackGetRmiIDListCount(m_proxyWrap, del2);
+			base.AddHandle(handle);
+		}
 
-        ~NativeInternalProxy()
-        {
-            Dispose(false);
-        }
+		~NativeInternalProxy()
+		{
+			Dispose(false);
+		}
 
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
 
-        protected virtual void Dispose(bool disposing)
-        {
-             if (disposed)
-                return;
+		protected virtual void Dispose(bool disposing)
+		{
+			if (disposed)
+				return;
 
-            if (disposing == true)
-            {
-                Nettention.Proud.ProudNetClientPlugin.NativeToRmiProxyWrap_Delete(m_proxyWrap);
-                m_proxyWrap = IntPtr.Zero;
+			if (disposing == true)
+			{
+				Nettention.Proud.ProudNetClientPlugin.NativeToRmiProxyWrap_Delete(m_proxyWrap);
+				m_proxyWrap = IntPtr.Zero;
 
-                base.FreeAllHandle();
-            }
+				base.FreeAllHandle();
+			}
 
-            disposed = true;
-        }
+			disposed = true;
+		}
 
-        public System.IntPtr GetNativeProxy()
-        {
-            return m_proxyWrap;
-        }
-
-#if (UNITY_ENGINE)
-    [AOT.MonoPInvokeCallback(typeof(ProudDelegate.Delegate_6))]
-#endif
-        internal static unsafe System.IntPtr GetRmiIDList(System.IntPtr obj)
-        {
-            GCHandle gch = (GCHandle)obj;
-            NativeInternalProxy native = (NativeInternalProxy)gch.Target;
-
-            fixed (RmiID* ret = (&native.m_proxy.RmiIDList[0]))
-            {
-                return new IntPtr((void*)ret);
-            }
-        }
+		public System.IntPtr GetNativeProxy()
+		{
+			return m_proxyWrap;
+		}
 
 #if (UNITY_ENGINE)
-    [AOT.MonoPInvokeCallback(typeof(ProudDelegate.Delegate_1))]
+	[AOT.MonoPInvokeCallback(typeof(ProudDelegate.Delegate_6))]
 #endif
-        internal static int GetRmiIDListCount(System.IntPtr obj)
-        {
-            GCHandle gch = (GCHandle)obj;
-            NativeInternalProxy native = (NativeInternalProxy)gch.Target;
+		internal static unsafe System.IntPtr GetRmiIDList(System.IntPtr obj)
+		{
+			GCHandle gch = (GCHandle)obj;
+			NativeInternalProxy native = (NativeInternalProxy)gch.Target;
 
-            return native.m_proxy.GetRmiIDListCount;
-        }
+			fixed (RmiID* ret = (&native.m_proxy.RmiIDList[0]))
+			{
+				return new IntPtr((void*)ret);
+			}
+		}
 
-        internal static unsafe bool RmiSend(NativeInternalProxy nativeProxy, HostID[] remotes, RmiContext rmiContext, Message msg, String rmiName, RmiID rmiID)
-        {
-            if (remotes.Length <= 0 || msg.Length <= 0)
-            {
-                return false;
-            }
+#if (UNITY_ENGINE)
+	[AOT.MonoPInvokeCallback(typeof(ProudDelegate.Delegate_1))]
+#endif
+		internal static int GetRmiIDListCount(System.IntPtr obj)
+		{
+			GCHandle gch = (GCHandle)obj;
+			NativeInternalProxy native = (NativeInternalProxy)gch.Target;
+
+			return native.m_proxy.GetRmiIDListCount;
+		}
+
+		internal static unsafe bool RmiSend(NativeInternalProxy nativeProxy, HostID[] remotes, RmiContext rmiContext, Message msg, String rmiName, RmiID rmiID)
+		{
+			if (remotes.Length <= 0 || msg.Length <= 0)
+			{
+				return false;
+			}
 
 #if true
-            bool ret = false;
+			bool ret = false;
 
-            fixed (HostID* remote = remotes)
-            {
-                fixed (byte* data = msg.Data.data)
-                {
-                    NativeRmiContext nativeRmiContext = null;
+			fixed (HostID* remote = remotes)
+			{
+				fixed (byte* data = msg.Data.data)
+				{
+					NativeRmiContext nativeRmiContext = null;
 
-                    try
-                    {
-                        nativeRmiContext = ConvertToNative.RmiContextToNative(rmiContext);
+					try
+					{
+						nativeRmiContext = ConvertToNative.RmiContextToNative(rmiContext);
 
-                        ret = Nettention.Proud.ProudNetClientPlugin.RmiProxy_RmiSend(
-                        nativeProxy.GetNativeProxy(),
-                        new IntPtr((void*)remote), remotes.Length,
-                        nativeRmiContext,
-                        new IntPtr((void*)data), msg.Data.Count,
-                        rmiName,
-                        (int)rmiID);
-                    }
-                    catch (System.Exception ex)
-                    {
-                        nativeProxy.m_proxy.core.NotifyException(HostID.HostID_None, ex);
-                    }
-                    finally
-                    {
-                       if (nativeRmiContext != null)
-                       {
-                           nativeRmiContext.Dispose();
-                       }
-                    }
-                }
-            }
-            return ret;
+						ret = Nettention.Proud.ProudNetClientPlugin.RmiProxy_RmiSend(
+						nativeProxy.GetNativeProxy(),
+						new IntPtr((void*)remote), remotes.Length,
+						nativeRmiContext,
+						new IntPtr((void*)data), msg.Data.Count,
+						rmiName,
+						(int)rmiID);
+					}
+					catch (System.Exception ex)
+					{
+						nativeProxy.m_proxy.core.NotifyException(HostID.HostID_None, ex);
+					}
+					finally
+					{
+						if (nativeRmiContext != null)
+						{
+							nativeRmiContext.Dispose();
+						}
+					}
+				}
+			}
+			return ret;
 #else
-            return false;
+			return false;
 #endif
-        }
-    }
+		}
+	}
 }

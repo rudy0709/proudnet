@@ -34,7 +34,7 @@ using System.Runtime.InteropServices;
 
 namespace Nettention.Proud
 {
-    /**
+	/**
 	\~korean
 	PIDL 컴파일러가 생성한 Stub 클래스의 베이스 클래스
 
@@ -56,19 +56,19 @@ namespace Nettention.Proud
 	\~japanese
 
 	\~
-	 */
+	*/
 	public abstract class RmiStub
 	{
-        internal NativeInternalStub m_native_Internal = null;
+		internal NativeInternalStub m_native_Internal = null;
 
-        public IRmiHost m_core = null;
+		public IRmiHost m_core = null;
 
-        public IRmiHost core
-        {
-            get { return m_core; }
-        }
+		public IRmiHost core
+		{
+			get { return m_core; }
+		}
 
-        /**
+		/**
 		\~korean
 		true로 세팅하면 NotifyCallFromStub을 호출받을 수 있다.
 		그러나, 그 댓가로 실행 속도가 현저히 떨어진다. 디버깅을 할 때만 켜는
@@ -86,9 +86,9 @@ namespace Nettention.Proud
 
 		\~
 		*/
-        public bool enableNotifyCallFromStub = false;
+		public bool enableNotifyCallFromStub = false;
 
-        /**
+		/**
 		\~korean
 		true로 설정하면 BeforeRmiInvocation,AfterRmiInvocation를 콜백한다.
 		그러나 그 댓가로 실행 속도가 약간 떨어진다. 성능 최적화를 위해 RMI 함수 종류별 실행
@@ -106,26 +106,26 @@ namespace Nettention.Proud
 
 		\~
 		*/
-        public bool enableStubProfiling = false;
+		public bool enableStubProfiling = false;
 
-        public RmiStub()
-        {
-            try
-            {
-                m_native_Internal = new NativeInternalStub(this);
-            }
-            catch (System.TypeInitializationException ex)
-            {
-                // c++ ProudNetServerPlugin.dll, ProudNetClientPlugin.dll 파일이 작업 경로에 없을 때
-                throw new System.Exception(ClientNativeExceptionString.TypeInitializationExceptionString);
-            }
-        }
+		public RmiStub()
+		{
+			try
+			{
+				m_native_Internal = new NativeInternalStub(this);
+			}
+			catch (System.TypeInitializationException ex)
+			{
+				// c++ ProudNetServerPlugin.dll, ProudNetClientPlugin.dll 파일이 작업 경로에 없을 때
+				throw new System.Exception(ClientNativeExceptionString.TypeInitializationExceptionString);
+			}
+		}
 
-        ~RmiStub()
-        {
-        }
+		~RmiStub()
+		{
+		}
 
-        /**
+		/**
 		\~korean
 		이 함수를 구현하지 말 것. PIDL 컴파일러의 결과물이 override한다.
 
@@ -138,25 +138,25 @@ namespace Nettention.Proud
 		\~japanese
 
 		\~
-		 */
-        public virtual RmiID[] GetRmiIDList
-        {
-            get;
-            set;
-        }
+		*/
+		public virtual RmiID[] GetRmiIDList
+		{
+			get;
+			set;
+		}
 
-        public virtual int GetRmiIDListCount
-        {
-            get;
-            set;
-        }
+		public virtual int GetRmiIDListCount
+		{
+			get;
+			set;
+		}
 
-        public NativeInternalStub GetNativeInternalStub()
-        {
-            return m_native_Internal;
-        }
+		public NativeInternalStub GetNativeInternalStub()
+		{
+			return m_native_Internal;
+		}
 
-        /**
+		/**
 		\~korean
 		이 함수를 구현하지 말 것. PIDL 컴파일러의 결과물이 override한다.
 
@@ -169,10 +169,10 @@ namespace Nettention.Proud
 		\~japanese
 
 		\~
-		 */
-        public abstract bool ProcessReceivedMessage(ReceivedMessage pa, Object hostTag);
+		*/
+		public abstract bool ProcessReceivedMessage(ReceivedMessage pa, Object hostTag);
 
-        /**
+		/**
 		\~korean
 		RMI가 실행된 직후 호출된다.
 
@@ -185,10 +185,10 @@ namespace Nettention.Proud
 		\~japanese
 
 		\~
-		 */
-        public delegate void AfterRmiInvocationDelegate(AfterRmiSummary summary);
+		*/
+		public delegate void AfterRmiInvocationDelegate(AfterRmiSummary summary);
 
-        /**
+		/**
 		\~korean
 		RMI가 실행되기 직전에 호출된다.
 
@@ -202,9 +202,9 @@ namespace Nettention.Proud
 
 		\~
 		*/
-        public delegate void BeforeRmiInvocationDelegate(BeforeRmiSummary summary);
+		public delegate void BeforeRmiInvocationDelegate(BeforeRmiSummary summary);
 
-        /**
+		/**
 		\~korean
 		유저가 이 함수를 override하면, RMI가 실행되면서 받은 파라메터를 문자열로 모두 표시할 수 있게 해준다.
 		단, 성능이 매우 떨어지게 되므로 주의해서 쓰도록 하자.
@@ -221,16 +221,16 @@ namespace Nettention.Proud
 
 		\~
 		*/
-        public virtual void NotifyCallFromStub(RmiID RMIId, String methodName, String parameters)
-        {
-            // no impl
-        }
+		public virtual void NotifyCallFromStub(RmiID RMIId, String methodName, String parameters)
+		{
+			// no impl
+		}
 
-        public void ShowUnknownHostIDWarning(HostID remoteHostID)
-        {
-            Console.WriteLine(String.Format("Warning: unknown HostID {0} in ProcessReceivedMessage!", (int)remoteHostID));
-        }
+		public void ShowUnknownHostIDWarning(HostID remoteHostID)
+		{
+			Console.WriteLine(String.Format("Warning: unknown HostID {0} in ProcessReceivedMessage!", (int)remoteHostID));
+		}
 	}
 
-	/**	 @} */
+	/**	@} */
 }

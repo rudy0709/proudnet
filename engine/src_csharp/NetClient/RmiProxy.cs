@@ -33,7 +33,7 @@ using System.Text;
 
 namespace Nettention.Proud
 {
-    /**
+	/**
 	\~korean
 	PIDL 컴파일러가 생성한 Proxy 클래스의 베이스 클래스
 
@@ -58,42 +58,42 @@ namespace Nettention.Proud
 	*/
 	public abstract class RmiProxy
 	{
-        internal NativeInternalProxy m_native_Internal = null;
+		internal NativeInternalProxy m_native_Internal = null;
 
-        public IRmiHost m_core = null;
+		public IRmiHost m_core = null;
 
-        public IRmiHost core
-        {
-            get { return m_core; }
-        }
+		public IRmiHost core
+		{
+			get { return m_core; }
+		}
 
-        public bool internalUse = false;
+		public bool internalUse = false;
 
-        public bool enableNotifySendByProxy = true;
+		public bool enableNotifySendByProxy = true;
 
-        public RmiProxy()
-        {
-            try
-            {
-                m_native_Internal = new NativeInternalProxy(this);
-            }
-            catch (System.TypeInitializationException ex)
-            {
-                // c++ ProudNetServerPlugin.dll, ProudNetClientPlugin.dll 파일이 작업 경로에 없을 때
-                throw new System.Exception(ClientNativeExceptionString.TypeInitializationExceptionString);
-            }
-        }
+		public RmiProxy()
+		{
+			try
+			{
+				m_native_Internal = new NativeInternalProxy(this);
+			}
+			catch (System.TypeInitializationException ex)
+			{
+				// c++ ProudNetServerPlugin.dll, ProudNetClientPlugin.dll 파일이 작업 경로에 없을 때
+				throw new System.Exception(ClientNativeExceptionString.TypeInitializationExceptionString);
+			}
+		}
 
-        ~RmiProxy()
-        {
-        }
+		~RmiProxy()
+		{
+		}
 
-        public NativeInternalProxy GetNativeInternalProxy()
-        {
-            return m_native_Internal;
-        }
+		public NativeInternalProxy GetNativeInternalProxy()
+		{
+			return m_native_Internal;
+		}
 
-        /**
+		/**
 		\~korean
 		RMI ID 목록 객체
 
@@ -106,24 +106,24 @@ namespace Nettention.Proud
 		\~japanese
 
 		\~
-		 */
-        public RmiID[] RmiIDList
-        {
-            get
-            {
-                return GetRmiIDList();
-            }
-        }
+		*/
+		public RmiID[] RmiIDList
+		{
+			get
+			{
+				return GetRmiIDList();
+			}
+		}
 
-        public abstract RmiID[] GetRmiIDList();
+		public abstract RmiID[] GetRmiIDList();
 
-        public virtual int GetRmiIDListCount
-        {
-            get;
-            set;
-        }
+		public virtual int GetRmiIDListCount
+		{
+			get;
+			set;
+		}
 
-        /**
+		/**
 		\~korean
 		메시지 송신을 위해 RMI를 호출할 때(즉 proxy에서 호출하기)마다 이 함수가 callback됩니다.
 		프로필러나 RMI 사용 로그를 남기고자 할 때 이 함수를 사용하시면 됩니다. 자세한 내용은 \ref monitor_rmi_proxy  를 참고하십시오.
@@ -166,9 +166,9 @@ namespace Nettention.Proud
 
 		\~
 		*/
-        public virtual void NotifySendByProxy(HostID[] remotes, MessageSummary summary, RmiContext rmiContext, Message msg) { }
+		public virtual void NotifySendByProxy(HostID[] remotes, MessageSummary summary, RmiContext rmiContext, Message msg) { }
 
-        /**
+		/**
 		\~korean
 		내부 함수입니다. 사용자는 이 함수를 오버라이드하지 마십시오.
 
@@ -176,40 +176,40 @@ namespace Nettention.Proud
 		User must not override this function.
 
 		\~chinese
-		 是内部函数，用户不要Override此函数。
+		是内部函数，用户不要Override此函数。
 
 		\~japanese
 
 		\~
 		*/
-        public virtual bool RmiSend(HostID[] remotes, RmiContext rmiContext, Message msg, String rmiName, RmiID rmiID)
-        {
-            if (null == this.core)
-            {
-                throw new NullReferenceException("ProudNet RMI Proxy is not attached yet!");
-            }
+		public virtual bool RmiSend(HostID[] remotes, RmiContext rmiContext, Message msg, String rmiName, RmiID rmiID)
+		{
+			if (null == this.core)
+			{
+				throw new NullReferenceException("ProudNet RMI Proxy is not attached yet!");
+			}
 
-            bool ret = NativeInternalProxy.RmiSend(m_native_Internal, remotes, rmiContext, msg, rmiName, rmiID);
+			bool ret = NativeInternalProxy.RmiSend(m_native_Internal, remotes, rmiContext, msg, rmiName, rmiID);
 
-            if (internalUse == false)
-            {
-                MessageSummary msgSumm = new MessageSummary();
-                msgSumm.payloadLength = sizeof(Byte) + msg.Data.Count;
-                msgSumm.rmiID = rmiID;
-                msgSumm.rmiName = rmiName;
-                msgSumm.encryptMode = rmiContext.encryptMode;
-                msgSumm.compressMode = rmiContext.compressMode;
+			if (internalUse == false)
+			{
+				MessageSummary msgSumm = new MessageSummary();
+				msgSumm.payloadLength = sizeof(Byte) + msg.Data.Count;
+				msgSumm.rmiID = rmiID;
+				msgSumm.rmiName = rmiName;
+				msgSumm.encryptMode = rmiContext.encryptMode;
+				msgSumm.compressMode = rmiContext.compressMode;
 
-                if (enableNotifySendByProxy)
-                {
-                    NotifySendByProxy(remotes, msgSumm, rmiContext, msg);
-                }
-            }
+				if (enableNotifySendByProxy)
+				{
+					NotifySendByProxy(remotes, msgSumm, rmiContext, msg);
+				}
+			}
 
-            return ret;
-        }
+			return ret;
+		}
 
 	}
 
-	/**	 @} */
+	/**	@} */
 }

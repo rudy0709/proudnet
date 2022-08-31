@@ -10,11 +10,11 @@ ProudNet
 
 ProudNet
 
-This program is soley copyrighted by Nettention. 
+This program is soley copyrighted by Nettention.
 Any use, correction, and distribution of this program are subject to the terms and conditions of the License Agreement.
 Any violated use of this program is prohibited and will be cause of immediate termination according to the License Agreement.
 
-** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE. 
+** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE.
 
 ProudNet
 
@@ -37,21 +37,21 @@ namespace Nettention.Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	Message Marshaler class
 	- 사용자 정의 타입을 쓸때에는 이 클래스를 상속받아서 써야 합니다.
 	- PIDL컴파일러 결과물에서 사용할 marshaler입니다.
 
 	\~english TODO:translate needed.
-    
+
 	\~chinese
 	Message Marshaler class
 	- 在使用用户定义类型时需接续此类进行使用。
 	- 在PIDL编译结果物中要使用的marshaler。
 
 	\~japanese
-    
+
 	\~
 	*/
 	public class Marshaler
@@ -129,11 +129,11 @@ namespace Nettention.Proud
 			msg.Read(out b);
 		}
 
-        public static void Read(Message msg, out HostIDArray b)
-        {
-            b = new HostIDArray();
-            msg.Read(out b);
-        }
+		public static void Read(Message msg, out HostIDArray b)
+		{
+			b = new HostIDArray();
+			msg.Read(out b);
+		}
 
 		public static void Read(Message msg, out IPEndPoint b)
 		{
@@ -155,15 +155,15 @@ namespace Nettention.Proud
 			msg.Read(out b);
 		}
 
-        //internal static void Read(Message msg, out LogCategory b)
-        //{
-        //    b = LogCategory.System;
-        //    Byte read = 0;
+		//internal static void Read(Message msg, out LogCategory b)
+		//{
+		//	b = LogCategory.System;
+		//	Byte read = 0;
 
-        //    msg.Read(out read);
+		//	msg.Read(out read);
 
-        //    b = (LogCategory)read;
-        //}
+		//	b = (LogCategory)read;
+		//}
 
 		public static void Read(Message msg, out String b)
 		{
@@ -172,12 +172,12 @@ namespace Nettention.Proud
 			msg.Read(out b);
 		}
 
-        //public static void Read(Message msg, out FrameNumber b)
-        //{
-        //    b = 0;
+		//public static void Read(Message msg, out FrameNumber b)
+		//{
+		//	b = 0;
 
-        //    msg.Read(out b);
-        //}
+		//	msg.Read(out b);
+		//}
 
 		public static void Read(Message msg, out System.Guid b)
 		{
@@ -265,25 +265,25 @@ namespace Nettention.Proud
 			msg.Write(b);
 		}
 
-        public static void Write(Message msg, HostIDArray b)
-        {
-            msg.Write(b);
-        }
+		public static void Write(Message msg, HostIDArray b)
+		{
+			msg.Write(b);
+		}
 
-        //internal static void Write(Message msg, LogCategory b)
-        //{
-        //    msg.Write((Byte)b);
-        //}
+		//internal static void Write(Message msg, LogCategory b)
+		//{
+		//	msg.Write((Byte)b);
+		//}
 
 		public static void Write(Message msg, String b)
 		{
 			msg.Write(b);
 		}
 
-        //public static void Write(Message msg, FrameNumber b)
-        //{
-        //    msg.Write(b);
-        //}
+		//public static void Write(Message msg, FrameNumber b)
+		//{
+		//	msg.Write(b);
+		//}
 
 		public static void Write(Message msg, System.Guid b)
 		{

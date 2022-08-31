@@ -37,44 +37,44 @@ using System.Runtime.InteropServices;
 
 namespace Nettention.Proud
 {
-    internal class ConvertToManaged
-    {
-        // data,length가 가리키는 메모리 블럭을 new C# ByteArray에 채워 리턴한다.
-        internal static unsafe ByteArray NativeDataToManagedByteArray(System.IntPtr data, int length)
-        {
-            if ((length <= 0) || (data == System.IntPtr.Zero))
-            {
-                return null;
-            }
+	internal class ConvertToManaged
+	{
+		// data,length가 가리키는 메모리 블럭을 new C# ByteArray에 채워 리턴한다.
+		internal static unsafe ByteArray NativeDataToManagedByteArray(System.IntPtr data, int length)
+		{
+			if ((length <= 0) || (data == System.IntPtr.Zero))
+			{
+				return null;
+			}
 
-            Proud.ByteArray managed = new ByteArray();
-            managed.SetCount(length);
+			Proud.ByteArray managed = new ByteArray();
+			managed.SetCount(length);
 
-            fixed (byte* ret = managed.data)
-            {
-                ProudNetServerPlugin.CopyNativeDataToManageByteArray(new IntPtr((void*)ret), data, length);
-            }
+			fixed (byte* ret = managed.data)
+			{
+				ProudNetServerPlugin.CopyNativeDataToManageByteArray(new IntPtr((void*)ret), data, length);
+			}
 
-            return managed;
-        }
+			return managed;
+		}
 
-        // C++ byte array 데이터를 new C# ByteArray에 채워 리턴한다.
-        internal static unsafe ByteArray NativeByteArrayToManagedByteArray(Proud.NativeByteArray nativeByteArray)
-        {
-            if ((nativeByteArray == null) || (nativeByteArray.GetCount() <= 0))
-            {
-                return null;
-            }
+		// C++ byte array 데이터를 new C# ByteArray에 채워 리턴한다.
+		internal static unsafe ByteArray NativeByteArrayToManagedByteArray(Proud.NativeByteArray nativeByteArray)
+		{
+			if ((nativeByteArray == null) || (nativeByteArray.GetCount() <= 0))
+			{
+				return null;
+			}
 
-            Proud.ByteArray managed = new ByteArray();
-            managed.SetCount(nativeByteArray.GetCount());
+			Proud.ByteArray managed = new ByteArray();
+			managed.SetCount(nativeByteArray.GetCount());
 
-            fixed (byte* ret = managed.data)
-            {
-                ProudNetServerPlugin.CopyNativeByteArrayToManageByteArray(new IntPtr((void*)ret), nativeByteArray);
-            }
+			fixed (byte* ret = managed.data)
+			{
+				ProudNetServerPlugin.CopyNativeByteArrayToManageByteArray(new IntPtr((void*)ret), nativeByteArray);
+			}
 
-            return managed;
-        }
-    }
+			return managed;
+		}
+	}
 }

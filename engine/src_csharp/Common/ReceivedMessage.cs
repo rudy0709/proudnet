@@ -10,11 +10,11 @@ ProudNet
 
 ProudNet
 
-This program is soley copyrighted by Nettention. 
+This program is soley copyrighted by Nettention.
 Any use, correction, and distribution of this program are subject to the terms and conditions of the License Agreement.
 Any violated use of this program is prohibited and will be cause of immediate termination according to the License Agreement.
 
-** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE. 
+** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE.
 
 */
 using System;
@@ -24,15 +24,15 @@ using System.Net;
 
 namespace Nettention.Proud
 {
-    public class ReceivedMessage
+	public class ReceivedMessage
 	{
 		public Message unsafeMessage = null;
 		public HostID remoteHostID = HostID.HostID_None;
-        public IPEndPoint remoteAddr_onlyUdp = null;
+		public IPEndPoint remoteAddr_onlyUdp = null;
 		public bool relayed = false;
 		public EncryptMode encryptMode = EncryptMode.EM_None;
 		public CompressMode compressMode = CompressMode.CM_None;
-		
+
 		public Message WriteOnlyMessage
 		{
 			get{return unsafeMessage;}
@@ -69,8 +69,7 @@ namespace Nettention.Proud
 	{
 		public ReceivedMessageList()
 		{
-            Capacity = 1000;
+			Capacity = 1000;
 		}
 	};
-
 }

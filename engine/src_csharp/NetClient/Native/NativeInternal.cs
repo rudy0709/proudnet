@@ -35,26 +35,26 @@ using System.Runtime.InteropServices;
 
 namespace Nettention.Proud
 {
-    public class GCHandleList
-    {
-        // C# -> C++로 넘기는 포인터(객체, 함수 등)에 대해서는 가비지 수집이 되지 않도록 하기 위해서
-        // 별도의 리스트 자료구조에 GCHandle를 저장합니다.
-        // 여기에 attach된 proxy, stub들의 handle이 여기 보관된다.
-        private List<GCHandle> m_handleList = new List<GCHandle>();
+	public class GCHandleList
+	{
+		// C# -> C++로 넘기는 포인터(객체, 함수 등)에 대해서는 가비지 수집이 되지 않도록 하기 위해서
+		// 별도의 리스트 자료구조에 GCHandle를 저장합니다.
+		// 여기에 attach된 proxy, stub들의 handle이 여기 보관된다.
+		private List<GCHandle> m_handleList = new List<GCHandle>();
 
-        internal void AddHandle(GCHandle handle)
-        {
-            m_handleList.Add(handle);
-        }
+		internal void AddHandle(GCHandle handle)
+		{
+			m_handleList.Add(handle);
+		}
 
-        internal void FreeAllHandle()
-        {
-            foreach (GCHandle handle in m_handleList)
-            {
-                handle.Free();
-            }
+		internal void FreeAllHandle()
+		{
+			foreach (GCHandle handle in m_handleList)
+			{
+				handle.Free();
+			}
 
-            m_handleList.Clear();
-        }
-    }
+			m_handleList.Clear();
+		}
+	}
 }

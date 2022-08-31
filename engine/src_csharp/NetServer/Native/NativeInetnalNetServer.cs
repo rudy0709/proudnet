@@ -34,140 +34,140 @@ using System.Runtime.InteropServices;
 
 namespace Nettention.Proud
 {
-    internal class NativeInternalNetServer
-    {
-        internal static unsafe bool SendUserMessage(NativeNetServer nativeNetServer, HostID remote, RmiContext rmiContext, ByteArray payload)
-        {
-            if (nativeNetServer == null)
-            {
-                return false;
-            }
+	internal class NativeInternalNetServer
+	{
+		internal static unsafe bool SendUserMessage(NativeNetServer nativeNetServer, HostID remote, RmiContext rmiContext, ByteArray payload)
+		{
+			if (nativeNetServer == null)
+			{
+				return false;
+			}
 
-            bool ret = false;
+			bool ret = false;
 
-            fixed (byte* data = payload.data)
-            {
-                NativeRmiContext native = new NativeRmiContext();
-                try
-                {
-                    native.compressMode = rmiContext.compressMode;
-                    native.encryptMode = rmiContext.encryptMode;
-                    native.maxDirectP2PMulticastCount = rmiContext.maxDirectP2PMulticastCount;
-                    native.relayed = rmiContext.relayed;
-                    native.reliability = rmiContext.reliability;
-                    native.sentFrom = rmiContext.sentFrom;
-                    native.uniqueID = rmiContext.uniqueID;
+			fixed (byte* data = payload.data)
+			{
+				NativeRmiContext native = new NativeRmiContext();
+				try
+				{
+					native.compressMode = rmiContext.compressMode;
+					native.encryptMode = rmiContext.encryptMode;
+					native.maxDirectP2PMulticastCount = rmiContext.maxDirectP2PMulticastCount;
+					native.relayed = rmiContext.relayed;
+					native.reliability = rmiContext.reliability;
+					native.sentFrom = rmiContext.sentFrom;
+					native.uniqueID = rmiContext.uniqueID;
 
-                    ret = nativeNetServer.SendUserMessage(remote, native, new IntPtr((void*)data), payload.Count);
-                }
-                finally
-                {
-                    native.Dispose();
-                    native = null;
-                }
-            }
+					ret = nativeNetServer.SendUserMessage(remote, native, new IntPtr((void*)data), payload.Count);
+				}
+				finally
+				{
+					native.Dispose();
+					native = null;
+				}
+			}
 
-            return ret;
-        }
+			return ret;
+		}
 
-        internal static unsafe bool SendUserMessage(NativeNetServer nativeNetServer, HostID[] remotes, RmiContext rmiContext, ByteArray payload)
-        {
-            if (nativeNetServer == null)
-            {
-                return false;
-            }
+		internal static unsafe bool SendUserMessage(NativeNetServer nativeNetServer, HostID[] remotes, RmiContext rmiContext, ByteArray payload)
+		{
+			if (nativeNetServer == null)
+			{
+				return false;
+			}
 
-            bool ret = false;
+			bool ret = false;
 
-            fixed (HostID* remote = remotes)
-            {
-                fixed (byte* data = payload.data)
-                {
-                    NativeRmiContext native = new NativeRmiContext();
-                    try
-                    {
-                        native.compressMode = rmiContext.compressMode;
-                        native.encryptMode = rmiContext.encryptMode;
-                        native.maxDirectP2PMulticastCount = rmiContext.maxDirectP2PMulticastCount;
-                        native.relayed = rmiContext.relayed;
-                        native.reliability = rmiContext.reliability;
-                        native.sentFrom = rmiContext.sentFrom;
-                        native.uniqueID = rmiContext.uniqueID;
+			fixed (HostID* remote = remotes)
+			{
+				fixed (byte* data = payload.data)
+				{
+					NativeRmiContext native = new NativeRmiContext();
+					try
+					{
+						native.compressMode = rmiContext.compressMode;
+						native.encryptMode = rmiContext.encryptMode;
+						native.maxDirectP2PMulticastCount = rmiContext.maxDirectP2PMulticastCount;
+						native.relayed = rmiContext.relayed;
+						native.reliability = rmiContext.reliability;
+						native.sentFrom = rmiContext.sentFrom;
+						native.uniqueID = rmiContext.uniqueID;
 
-                        ret = nativeNetServer.SendUserMessage(
-                              new SWIGTYPE_p_Proud__HostID(new IntPtr((void*)remote), false)
-                            , remotes.Length
-                            , native
-                            , new IntPtr((void*)data)
-                            , payload.Count);
-                    }
-                    finally
-                    {
-                        native.Dispose();
-                        native = null;
-                    }
-                }
-            }
+						ret = nativeNetServer.SendUserMessage(
+							  new SWIGTYPE_p_Proud__HostID(new IntPtr((void*)remote), false)
+							, remotes.Length
+							, native
+							, new IntPtr((void*)data)
+							, payload.Count);
+					}
+					finally
+					{
+						native.Dispose();
+						native = null;
+					}
+				}
+			}
 
-            return ret;
-        }
+			return ret;
+		}
 
-        internal static unsafe bool JoinP2PGroup(NativeNetServer nativeNetServer, HostID memberHostID, HostID groupHostID, ByteArray message)
-        {
-            if (nativeNetServer == null)
-            {
-                return false;
-            }
+		internal static unsafe bool JoinP2PGroup(NativeNetServer nativeNetServer, HostID memberHostID, HostID groupHostID, ByteArray message)
+		{
+			if (nativeNetServer == null)
+			{
+				return false;
+			}
 
-            bool ret = false;
+			bool ret = false;
 
-            NativeByteArray nativeCustomField = null;
-            try
-            {
-                nativeCustomField = new NativeByteArray();
+			NativeByteArray nativeCustomField = null;
+			try
+			{
+				nativeCustomField = new NativeByteArray();
 
-                if ((message != null) && (message.Count > 0))
-                {
-                    fixed (byte* data = message.data)
-                    {
-                        ProudNetServerPlugin.ManageByteArrayToCopyNativeByteArray(nativeCustomField, new IntPtr((void*)data), message.Count);
-                    }
-                }
+				if ((message != null) && (message.Count > 0))
+				{
+					fixed (byte* data = message.data)
+					{
+						ProudNetServerPlugin.ManageByteArrayToCopyNativeByteArray(nativeCustomField, new IntPtr((void*)data), message.Count);
+					}
+				}
 
-                ret = nativeNetServer.JoinP2PGroup(memberHostID, groupHostID, nativeCustomField);
-            }
-            finally
-            {
-                if (nativeCustomField != null)
-                {
-                    nativeCustomField.Dispose();
-                    nativeCustomField = null;
-                }
-            }
+				ret = nativeNetServer.JoinP2PGroup(memberHostID, groupHostID, nativeCustomField);
+			}
+			finally
+			{
+				if (nativeCustomField != null)
+				{
+					nativeCustomField.Dispose();
+					nativeCustomField = null;
+				}
+			}
 
-            return ret;
-        }
+			return ret;
+		}
 
-        internal static unsafe HostID GetMostSuitableSuperPeerInGroup(NativeNetServer nativeNetServer, HostID groupID, SuperPeerSelectionPolicy policy, HostID[] excludees)
-        {
-            if ((nativeNetServer == null) || (excludees == null) || (excludees.Length < 1))
-            {
-                return HostID.HostID_None;
-            }
+		internal static unsafe HostID GetMostSuitableSuperPeerInGroup(NativeNetServer nativeNetServer, HostID groupID, SuperPeerSelectionPolicy policy, HostID[] excludees)
+		{
+			if ((nativeNetServer == null) || (excludees == null) || (excludees.Length < 1))
+			{
+				return HostID.HostID_None;
+			}
 
-            HostID ret = HostID.HostID_None;
+			HostID ret = HostID.HostID_None;
 
-            fixed (HostID* remote = excludees)
-            {
-                ret = nativeNetServer.GetMostSuitableSuperPeerInGroup(
-                      groupID
-                    , policy
-                    , new SWIGTYPE_p_Proud__HostID(new IntPtr((void*)remote), false)
-                    , excludees.Length
-                );
-            }
+			fixed (HostID* remote = excludees)
+			{
+				ret = nativeNetServer.GetMostSuitableSuperPeerInGroup(
+					  groupID
+					, policy
+					, new SWIGTYPE_p_Proud__HostID(new IntPtr((void*)remote), false)
+					, excludees.Length
+				);
+			}
 
-            return ret;
-        }
-    }
+			return ret;
+		}
+	}
 }

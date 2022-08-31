@@ -31,31 +31,31 @@ using System;
 
 namespace Nettention.Proud
 {
-    /** \addtogroup net_group
-    *  @{
-    */
+	/** \addtogroup net_group
+	*  @{
+	*/
 
-    /**
-    \~korean
-    \brief ProudNet RMI가 참조하는 네트워크 호스트 인터페이스입니다.
-    유저는 이 클래스를 직접 사용할 필요가 없습니다.
+	/**
+	\~korean
+	\brief ProudNet RMI가 참조하는 네트워크 호스트 인터페이스입니다.
+	유저는 이 클래스를 직접 사용할 필요가 없습니다.
 
-    \~english
-    \brief ProudNet Network host interface that is referred by RMI.
-    User does not have to use this class directly.
+	\~english
+	\brief ProudNet Network host interface that is referred by RMI.
+	User does not have to use this class directly.
 
-    \~chinese
-    \brief 是ProudNet RMI所参照的网络主机Interface。
-    用户没有必要直接使用此类。
+	\~chinese
+	\brief 是ProudNet RMI所参照的网络主机Interface。
+	用户没有必要直接使用此类。
 
-    \~japanese
+	\~japanese
 
-    \~
-    */
+	\~
+	*/
 
-    public interface IRmiHost
-    {
-        /**
+	public interface IRmiHost
+	{
+		/**
 		\~korean
 		PIDL 컴파일러의 결과물 중 proxy를 이 객체에 등록한다.
 
@@ -70,9 +70,9 @@ namespace Nettention.Proud
 		\~
 		*/
 
-        void AttachProxy(RmiProxy proxy);
+		void AttachProxy(RmiProxy proxy);
 
-        /**
+		/**
 		\~korean
 		PIDL 컴파일러의 결과물 중 stub을 이 객체에 등록한다.
 
@@ -87,14 +87,14 @@ namespace Nettention.Proud
 		\~
 		*/
 
-        void AttachStub(RmiStub stub);
+		void AttachStub(RmiStub stub);
 
 #if false
-        void DetachProxy(RmiProxy proxy);
+		void DetachProxy(RmiProxy proxy);
 
 		void DetachStub(RmiStub stub);
 #endif
-        /**
+		/**
 		\~korean
 		내부 함수. 사용자는 호출 금지.
 
@@ -109,9 +109,9 @@ namespace Nettention.Proud
 		\~
 		*/
 
-        void ShowNotImplementedRmiWarning(String RMIName);
+		void ShowNotImplementedRmiWarning(String RMIName);
 
-        /**
+		/**
 		\~korean
 		내부 함수. 사용자는 호출 금지.
 
@@ -126,9 +126,9 @@ namespace Nettention.Proud
 		\~
 		*/
 
-        void PostCheckReadMessage(Message msg, String RMIName);
+		void PostCheckReadMessage(Message msg, String RMIName);
 
-        /**
+		/**
 		\~korean
 		내부 함수. 사용자는 호출 금지.
 
@@ -143,9 +143,9 @@ namespace Nettention.Proud
 		\~
 		*/
 
-        bool IsSimplePacketMode();
+		bool IsSimplePacketMode();
 
-        /**
+		/**
 		\~korean
 		내부 함수. 사용자는 호출 금지.
 
@@ -159,22 +159,22 @@ namespace Nettention.Proud
 
 		\~
 		*/
-        void NotifyException(HostID hostID, System.Exception ex);
+		void NotifyException(HostID hostID, System.Exception ex);
 
-        /**
-        \~korean
-        내부 함수. 사용자는 호출 금지.
+		/**
+		\~korean
+		내부 함수. 사용자는 호출 금지.
 
-        \~english
-        Internal function. User must not call this.
+		\~english
+		Internal function. User must not call this.
 
-        \~chinese
-        内部函数，用户禁止呼出。
+		\~chinese
+		内部函数，用户禁止呼出。
 
-        \~japanese
+		\~japanese
 
-        \~
-        */
-        bool IsExceptionEventAllowed();
-    }
+		\~
+		*/
+		bool IsExceptionEventAllowed();
+	}
 }

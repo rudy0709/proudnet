@@ -34,36 +34,36 @@ using System.Runtime.InteropServices;
 
 namespace Nettention.Proud
 {
-    internal class NativeInternalNetClient
-    {
-        internal static unsafe bool SendUserMessage(NativeNetClient natvieNetClient, HostID remote, RmiContext rmiContext, ByteArray payload)
-        {
-            if (natvieNetClient == null)
-            {
-                return false;
-            }
+	internal class NativeInternalNetClient
+	{
+		internal static unsafe bool SendUserMessage(NativeNetClient natvieNetClient, HostID remote, RmiContext rmiContext, ByteArray payload)
+		{
+			if (natvieNetClient == null)
+			{
+				return false;
+			}
 
-            bool ret = false;
+			bool ret = false;
 
-            fixed (byte* data = payload.data)
-            {
-                NativeRmiContext native = null;
-                try
-                {
-                    native = ConvertToNative.RmiContextToNative(rmiContext);
+			fixed (byte* data = payload.data)
+			{
+				NativeRmiContext native = null;
+				try
+				{
+					native = ConvertToNative.RmiContextToNative(rmiContext);
 
-                    ret = natvieNetClient.SendUserMessage(remote, native, new IntPtr((void*)data), payload.Count);
-                }
+					ret = natvieNetClient.SendUserMessage(remote, native, new IntPtr((void*)data), payload.Count);
+				}
 
-                finally
-                {
-                    if (native != null)
-                    {
-                        native.Dispose();
-                    }
-                }
-                return ret;
-            }
-        }
-    }
+				finally
+				{
+					if (native != null)
+					{
+						native.Dispose();
+					}
+				}
+				return ret;
+			}
+		}
+	}
 }

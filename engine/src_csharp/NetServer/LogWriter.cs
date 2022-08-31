@@ -41,7 +41,7 @@ using System.Text;
 
 namespace Nettention.Proud
 {
-    /**
+	/**
 	\~korean
 	파일에 로그를 기록하는 모듈입니다.
 
@@ -50,7 +50,7 @@ namespace Nettention.Proud
 	- WriteLine, WriteLine를 써서 로그를 기록합니다. 저장된 로그는 비동기로 파일에 저장됩니다.
 
 	\~english
-	 Module that records log to a file
+	Module that records log to a file
 
 	General usage
 	- Use LogWriter.Create to create this object. Designates log file name when created.
@@ -66,60 +66,60 @@ namespace Nettention.Proud
 	\~japanese
 	\~
 	*/
-    public class LogWriter : IDisposable
-    {
-        private System.IntPtr m_native_LogWriter = System.IntPtr.Zero;
+	public class LogWriter : IDisposable
+	{
+		private System.IntPtr m_native_LogWriter = System.IntPtr.Zero;
 
-        private LogWriter(string logFileName, int newFileForLineLimit, bool putFileTimeString)
-        {
-            try
-            {
-                m_native_LogWriter = ProudNetServerPlugin.LogWriter_Create(logFileName, newFileForLineLimit, putFileTimeString);
-            }
-            catch (System.TypeInitializationException ex)
-            {
-                // c++ ProudNetServerPlugin.dll, ProudNetClientPlugin.dll 파일이 작업 경로에 없을 때
-                throw new System.Exception(ServerNativeExceptionString.TypeInitializationExceptionString);
-            }
-        }
+		private LogWriter(string logFileName, int newFileForLineLimit, bool putFileTimeString)
+		{
+			try
+			{
+				m_native_LogWriter = ProudNetServerPlugin.LogWriter_Create(logFileName, newFileForLineLimit, putFileTimeString);
+			}
+			catch (System.TypeInitializationException ex)
+			{
+				// c++ ProudNetServerPlugin.dll, ProudNetClientPlugin.dll 파일이 작업 경로에 없을 때
+				throw new System.Exception(ServerNativeExceptionString.TypeInitializationExceptionString);
+			}
+		}
 
-        private bool m_disposed = false;
+		private bool m_disposed = false;
 
-        ~LogWriter()
-        {
-            Dispose(false);
-        }
+		~LogWriter()
+		{
+			Dispose(false);
+		}
 
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
 
-        protected virtual void Dispose(bool disposing)
-        {
-            if (m_disposed)
-                return;
+		protected virtual void Dispose(bool disposing)
+		{
+			if (m_disposed)
+				return;
 
-            if (disposing)
-            {
-                if (m_native_LogWriter != System.IntPtr.Zero)
-                {
-                    ProudNetServerPlugin.LogWriter_Destory(m_native_LogWriter);
-                    m_native_LogWriter = System.IntPtr.Zero;
-                }
-            }
+			if (disposing)
+			{
+				if (m_native_LogWriter != System.IntPtr.Zero)
+				{
+					ProudNetServerPlugin.LogWriter_Destory(m_native_LogWriter);
+					m_native_LogWriter = System.IntPtr.Zero;
+				}
+			}
 
-            m_disposed = true;
-        }
+			m_disposed = true;
+		}
 
-        /**
+		/**
 		\~korean
 		\brief LogWriter 객체를 생성합니다.
-        \param logFileName 로그 파일 이름
+		\param logFileName 로그 파일 이름
 		\param newFileForLineLimit 로그 줄 수가 여기서 지정한 값 이상으로 커지면 새 로그 파일에 기록하기 시작합니다. 0이면 무제한입니다.
 		\param putFileTimeString true를 지정하면 파일명에 현재 시간정보(연월일시분초)를 붙여 파일명 중복을 방지합니다.
-         *
+		*
 		\~english TODO:translate needed.
 
 		\~chinese TODO:translate needed.
@@ -128,12 +128,12 @@ namespace Nettention.Proud
 
 		\~
 		*/
-        public static LogWriter Create(string logFileName, int newFileForLineLimit = 0, bool putFileTimeString = true)
-        {
-            return new LogWriter(logFileName, newFileForLineLimit, putFileTimeString);
-        }
+		public static LogWriter Create(string logFileName, int newFileForLineLimit = 0, bool putFileTimeString = true)
+		{
+			return new LogWriter(logFileName, newFileForLineLimit, putFileTimeString);
+		}
 
-        /**
+		/**
 		\~korean
 		로그 파일을 다른 이름으로 바꿉니다. 기록 중이던 파일은 닫히고 다른 이름으로 바뀐 파일로 새로 열립니다.
 		- 이 함수는 비동기로 실행됩니다.  즉, 즉시 리턴됩니다.
@@ -156,16 +156,16 @@ namespace Nettention.Proud
 		\~japanese
 		\~
 		*/
-        public void SetFileName(string logFileName)
-        {
-            ProudNetServerPlugin.LogWriter_SetFileName(m_native_LogWriter, logFileName);
-        }
+		public void SetFileName(string logFileName)
+		{
+			ProudNetServerPlugin.LogWriter_SetFileName(m_native_LogWriter, logFileName);
+		}
 
-        /**
+		/**
 		\~korean
 		로그 한줄을 ProudNet 양식에 맞춰 파일에 기록합니다.
 		- 이 함수는 비동기로 실행됩니다. 즉, 즉시 리턴됩니다.
-		 -이 함수는 아래 예제처럼 최종 출력 됩니다.
+		-이 함수는 아래 예제처럼 최종 출력 됩니다.
 		  logWriteLineTime: logLevel / logCategory(logHostID): logMessage {logFunction(logLine)}
 		\param logLevel 로그 내용의 심각도
 		\param logCategory 어떤 종류의 로그인지?
@@ -179,12 +179,12 @@ namespace Nettention.Proud
 		\~japanese
 		\~
 		*/
-        public void WriteLine(int logLevel, LogCategory logCategory, HostID logHostID, string logMessage, string logFunction, int logLine)
-        {
-            ProudNetServerPlugin.LogWriter_WriteLine(m_native_LogWriter, logLevel, (int)logCategory, (int)logHostID, logMessage, logFunction, logLine);
-        }
+		public void WriteLine(int logLevel, LogCategory logCategory, HostID logHostID, string logMessage, string logFunction, int logLine)
+		{
+			ProudNetServerPlugin.LogWriter_WriteLine(m_native_LogWriter, logLevel, (int)logCategory, (int)logHostID, logMessage, logFunction, logLine);
+		}
 
-        /**
+		/**
 		\~korean
 		로그 한줄을 파일에 기록합니다.
 		- 이 함수는 비동기로 실행됩니다. 즉, 즉시 리턴됩니다.
@@ -205,12 +205,12 @@ namespace Nettention.Proud
 		\~japanese
 		\~
 		*/
-        public void WriteLine(string logMessage)
-        {
-            ProudNetServerPlugin.LogWriter_WriteLine(m_native_LogWriter, logMessage);
-        }
+		public void WriteLine(string logMessage)
+		{
+			ProudNetServerPlugin.LogWriter_WriteLine(m_native_LogWriter, logMessage);
+		}
 
-        /**
+		/**
 		\~korean
 		- CLogWriter 객체를 제거(종료) 할 때 미처 출력하지 못한 로그들을 마저 출력할지 또는 무시할지 여부를 결정합니다.
 		- 기본값은 false입니다.
@@ -229,9 +229,9 @@ namespace Nettention.Proud
 		TODO:translate needed.
 		\~
 		*/
-        public void SetIgnorePendedWriteOnExit(bool flag)
-        {
-            ProudNetServerPlugin.LogWriter_SetIgnorePendedWriteOnExit(m_native_LogWriter, flag);
-        }
-    }
+		public void SetIgnorePendedWriteOnExit(bool flag)
+		{
+			ProudNetServerPlugin.LogWriter_SetIgnorePendedWriteOnExit(m_native_LogWriter, flag);
+		}
+	}
 }

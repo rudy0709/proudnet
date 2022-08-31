@@ -267,41 +267,41 @@ namespace Nettention.Proud
 		public bool allowRelaySend = true;
 
 		/**
-	   \~korean
-	   강제 릴레이 임계비율 값입니다.
-	   이 값을 조절하면, P2P간 통신 속도보다 릴레이가 더 통신 속도가 빠른 경우 릴레이를 선택할 수 있습니다.
+		\~korean
+		강제 릴레이 임계비율 값입니다.
+		이 값을 조절하면, P2P간 통신 속도보다 릴레이가 더 통신 속도가 빠른 경우 릴레이를 선택할 수 있습니다.
 
-	   - 예를 들어 피어간 패킷 전송 시간이 서버를 통해 릴레이하는 시간보다 3배 느린 경우에는 직접 피어에게 전송할
-	   수 있다 하더라도 서버를 통해 릴레이하고 싶을 수 있습니다. 그러한 경우 이 값을 1/3으로 지정하면 됩니다.
-	   5배 느린 경우에 한해 강제 릴레이를 원할 경우 1/5를 지정하면 됩니다. 0을 지정하면 강제 릴레이를 하지 않습니다.
-	   즉, "Relay p2p ping / Direct p2p ping"이 이 값보다 작은 경우에는 강제로 릴레이로 전송합니다.
-	   - 중국에서는 P2P간 통신 속도보다 서버와 통신하는 속도가 훨씬 원활한 환경이 있다고 알려져 있습니다.
-	   - 기본값은 0입니다.
+		- 예를 들어 피어간 패킷 전송 시간이 서버를 통해 릴레이하는 시간보다 3배 느린 경우에는 직접 피어에게 전송할
+		  수 있다 하더라도 서버를 통해 릴레이하고 싶을 수 있습니다. 그러한 경우 이 값을 1/3으로 지정하면 됩니다.
+		  5배 느린 경우에 한해 강제 릴레이를 원할 경우 1/5를 지정하면 됩니다. 0을 지정하면 강제 릴레이를 하지 않습니다.
+		  즉, "Relay p2p ping / Direct p2p ping"이 이 값보다 작은 경우에는 강제로 릴레이로 전송합니다.
+		- 중국에서는 P2P간 통신 속도보다 서버와 통신하는 속도가 훨씬 원활한 환경이 있다고 알려져 있습니다.
+		- 기본값은 0입니다.
 
-	   \~english
-	   Forced relay critical rate value.
-	   If you change this value, it can select relay instead of P2P communication when relay is faster than P2p communication.
+		\~english
+		Forced relay critical rate value.
+		If you change this value, it can select relay instead of P2P communication when relay is faster than P2p communication.
 
-	   -For example, If packet sending time is 3 times slower than relay through a server, you may relay it through server even it can send to peer directly. This case set this value to 1/3.
-	   Also if it is 5 times slower then set 1/5. If you set 0, it does not do forced relay.
-	   Therefore it does forced relay when "Relay p2p ping / Direct p2p ping" is smaller than this value.
-	   - In China, server-client is faster than P2P.
-	   - Default is 0
+		- For example, If packet sending time is 3 times slower than relay through a server, you may relay it through server even it can send to peer directly. This case set this value to 1/3.
+		  Also if it is 5 times slower then set 1/5. If you set 0, it does not do forced relay.
+		  Therefore it does forced relay when "Relay p2p ping / Direct p2p ping" is smaller than this value.
+		- In China, server-client is faster than P2P.
+		- Default is 0
 
-	   \~chinese
-	   强制relay临界比率值。
-	   如果调节此值，在relay的速度比P2P间的通信速度更快时可以选择用relay进行。
+		\~chinese
+		强制relay临界比率值。
+		如果调节此值，在relay的速度比P2P间的通信速度更快时可以选择用relay进行。
 
-	   - 如Peer之间传送数据的时间比通过服务器进行relay的时间慢3倍，那么即使可以直接向Peer进行传送也会想要通过服务器进行relay。此时可以将此值指定为1/3.
-	   在慢5倍时，想要强制进行relay，则可以指定为1/5，如果指定为0则不进行指定。
-	   即，"Relay p2p ping / Direct p2p ping"比此值小时，可以强制进行relay传送。
-	   - 在中国，与服务器的通信速度会比P2P间的通信速度更快。
-	   - 基本值是0.
+		- 如Peer之间传送数据的时间比通过服务器进行relay的时间慢3倍，那么即使可以直接向Peer进行传送也会想要通过服务器进行relay。此时可以将此值指定为1/3.
+		  在慢5倍时，想要强制进行relay，则可以指定为1/5，如果指定为0则不进行指定。
+		  即，"Relay p2p ping / Direct p2p ping"比此值小时，可以强制进行relay传送。
+		- 在中国，与服务器的通信速度会比P2P间的通信速度更快。
+		- 基本值是0.
 
-	   \~japanese
+		\~japanese
 
-	   \~
-	   */
+		\~
+		*/
 		public double forceRelayThresholdRatio = 0;
 
 		/**
@@ -377,7 +377,7 @@ namespace Nettention.Proud
 			this.reliability = reliability;
 			this.encryptMode = encryptMode;
 
-            this.maxDirectP2PMulticastCount = int.MaxValue;
+			this.maxDirectP2PMulticastCount = int.MaxValue;
 		}
 
 		public void AssureValidation()
@@ -523,5 +523,5 @@ namespace Nettention.Proud
 		public static readonly RmiContext SecureUnreliableSend = new RmiContext(MessagePriority.MessagePriority_Medium, MessageReliability.MessageReliability_Unreliable, EncryptMode.EM_Secure);
 	}
 
-	/**	 @} */
+	/**	@} */
 }

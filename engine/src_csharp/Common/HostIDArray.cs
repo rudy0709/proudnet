@@ -10,11 +10,11 @@ ProudNet
 
 ProudNet
 
-This program is soley copyrighted by Nettention. 
+This program is soley copyrighted by Nettention.
 Any use, correction, and distribution of this program are subject to the terms and conditions of the License Agreement.
 Any violated use of this program is prohibited and will be cause of immediate termination according to the License Agreement.
 
-** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE. 
+** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE.
 
 ProudNet
 
@@ -46,18 +46,18 @@ namespace Nettention.Proud
 		}
 	}
 
-	/** 
-	\~korean 
-	HostID 배열 
-    
-	\~english 
-	HostID array 
-        
+	/**
+	\~korean
+	HostID 배열
+
+	\~english
+	HostID array
+
 	\~chinese
-	HostID排列 
+	HostID排列
 
 	\~japanese
-    
+
 	\~
 	*/
 	public class HostIDArray : FastArray<HostID>

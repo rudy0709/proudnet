@@ -26,9 +26,9 @@ using System.Net;
 
 namespace Nettention.Proud
 {
-    public class NetUtil
-    {
-        /**
+	public class NetUtil
+	{
+		/**
 		\~korean
 		호스트가 갖고 있는 로컬 IP 주소를 모두 얻어냅니다.
 
@@ -41,58 +41,58 @@ namespace Nettention.Proud
 		\~japanese
 		\~
 		*/
-        public static void GetLocalIPAddresses(ref List<string> list)
-        {
-            if (list == null)
-            {
-                throw new System.ArgumentNullException("list");
-            }
+		public static void GetLocalIPAddresses(ref List<string> list)
+		{
+			if (list == null)
+			{
+				throw new System.ArgumentNullException("list");
+			}
 
-            System.IntPtr nativeIPAddresses = System.IntPtr.Zero;
+			System.IntPtr nativeIPAddresses = System.IntPtr.Zero;
 
-            try
-            {
-                nativeIPAddresses = NativeNetUtil.LocalIPAddresses_New();
+			try
+			{
+				nativeIPAddresses = NativeNetUtil.LocalIPAddresses_New();
 
-                int count = NativeNetUtil.GetLocalIPAddresseCount(nativeIPAddresses);
-                for (int i = 0; i < count; ++i)
-                {
-                    string addr = NativeNetUtil.GetLocalIPAddress(nativeIPAddresses, i);
-                    list.Add(addr);
-                }
-            }
-            finally
-            {
-                if (nativeIPAddresses != System.IntPtr.Zero)
-                {
-                    NativeNetUtil.LocalIPAddresses_Delete(nativeIPAddresses);
-                }
-            }
-        }
+				int count = NativeNetUtil.GetLocalIPAddresseCount(nativeIPAddresses);
+				for (int i = 0; i < count; ++i)
+				{
+					string addr = NativeNetUtil.GetLocalIPAddress(nativeIPAddresses, i);
+					list.Add(addr);
+				}
+			}
+			finally
+			{
+				if (nativeIPAddresses != System.IntPtr.Zero)
+				{
+					NativeNetUtil.LocalIPAddresses_Delete(nativeIPAddresses);
+				}
+			}
+		}
 
-        public static int GetIPVersionFromString(string rhs)
-        {
-            return NativeNetUtil.GetIPVersionFromString(rhs);
-        }
+		public static int GetIPVersionFromString(string rhs)
+		{
+			return NativeNetUtil.GetIPVersionFromString(rhs);
+		}
 
-        public static bool IsAddressAny(string address)
-        {
-            return NativeNetUtil.IsAddressAny(address);
-        }
+		public static bool IsAddressAny(string address)
+		{
+			return NativeNetUtil.IsAddressAny(address);
+		}
 
-        public static bool IsAddressUnspecified(string address)
-        {
-            return NativeNetUtil.IsAddressUnspecified(address);
-        }
+		public static bool IsAddressUnspecified(string address)
+		{
+			return NativeNetUtil.IsAddressUnspecified(address);
+		}
 
-        public static bool IsAddressPhysical(string address)
-        {
-            return NativeNetUtil.IsAddressPhysical(address);
-        }
+		public static bool IsAddressPhysical(string address)
+		{
+			return NativeNetUtil.IsAddressPhysical(address);
+		}
 
-        public static bool IsAddressLoopback(string address)
-        {
-            return NativeNetUtil.IsAddressLoopback(address);
-        }
-    }
+		public static bool IsAddressLoopback(string address)
+		{
+			return NativeNetUtil.IsAddressLoopback(address);
+		}
+	}
 }

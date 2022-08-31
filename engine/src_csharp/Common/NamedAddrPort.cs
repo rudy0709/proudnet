@@ -10,11 +10,11 @@ ProudNet
 
 ProudNet
 
-This program is soley copyrighted by Nettention. 
+This program is soley copyrighted by Nettention.
 Any use, correction, and distribution of this program are subject to the terms and conditions of the License Agreement.
 Any violated use of this program is prohibited and will be cause of immediate termination according to the License Agreement.
 
-** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE. 
+** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE.
 
 ProudNet
 
@@ -35,185 +35,184 @@ namespace Nettention.Proud
 {
 	/** \addtogroup net_group
 	*  @{
-	 */
+	*/
 
 
-	/** 
+	/**
 	\~korean
 	문자열과 ushort port로 구성된 클래스 입니다.
 	- 문자열에는 111.222.111.222 형태 또는 game.aaa.com 형식의 이름이 들어갈 수 있다.
-    
+
 	\~english
 	It's similar to AddrPort but string can be inserted in m_addr.
 	- At string, either 111.222.111.222 format or game.aaa.com format can be added.
-        
+
 	\~chinese
 	是以文字列和ushort port所构成的类。
 	- 在文字列当中可以进入111.222.111.222形态或game.aaa.com形式的名。
 
 	\~japanese
-    
+
 	\~
-	  */
+	*/
 	public class NamedAddrPort
 	{
-		/** 
+		/**
 		\~korean
 		호스트 이름
-		- 문자열에는 111.222.111.222 형태 또는 game.aaa.com 형식의 이름이 들어갈 수 있다. 
-        
+		- 문자열에는 111.222.111.222 형태 또는 game.aaa.com 형식의 이름이 들어갈 수 있다.
+
 		\~english
 		Host name
-		- At string, either 111.222.111.222 format or game.aaa.com format can be added. 
-            
+		- At string, either 111.222.111.222 format or game.aaa.com format can be added.
+
 		\~chinese
 		主机名称
 		- 在文字列当中可以进入111.222.111.222形态或game.aaa.com形式的名。
 
 		\~japanese
-    
+
 		\~
-		 */
+		*/
 		public String addr;
-		/** 
+		/**
 		\~korean
 		포트 값
-        
+
 		\~english
 		Port Value
-            
+
 		\~chinese
 		端口值
 
 		\~japanese
-    
+
 		\~
-		  */
+		*/
 		public ushort port;
 
-		/** 
+		/**
 		\~korean
 		빈 주소
-        
+
 		\~english
 		Empty Address
-                    
+
 		\~chinese
 		空地址
 
 		\~japanese
-    
+
 		\~
-		 */
+		*/
 		public static readonly NamedAddrPort Unassigned = new NamedAddrPort("", 0xffff);
 
-		/** 
+		/**
 		\~korean
 		기본 생성자
-        
+
 		\~english TODO:translate needed.
-                    
+
 		\~chinese
 		基本生成者
-    
+
 		\~japanese
-		
+
 		\~
-		 */
+		*/
 		public NamedAddrPort()
 		{
 			this.addr = "";
 			this.port = 0xffff;
 		}
 
-		/** 
+		/**
 		\~korean
 		문자열과 포트를 받아 세팅하는 생성자.
-        
+
 		\~english TODO:translate needed.
-                    
+
 		\~chinese
 		接收文字列和端口后进行设置的生成者。
 
-    
 		\~japanese
-    
+
 		\~
-		 */
+		*/
 		public NamedAddrPort(String addr, ushort port)
 		{
 			this.addr = addr;
 			this.port = port;
 		}
 
-		/** 
+		/**
 		\~korean
 		IPEndPoint를 받아 생성하는 생성자
-        
+
 		\~english TODO:translate needed.
-                    
+
 		\~chinese
 		接收IPEndPoint后生成的生成者。
 
 		\~japanese
-    
+
 		\~
-		 */
+		*/
 		public NamedAddrPort(IPEndPoint addrPort)
 		{
 			this.addr = addrPort.Address.ToString();
 			this.port = (ushort)addrPort.Port;
 		}
 
-		/** 
+		/**
 		\~korean
 		IPEndPoint로 변환하여 리턴합니다.
-        
+
 		\~english TODO:translate needed.
-                    
+
 		\~chinese
 		变换为IPEndPoint后进行Return。
 
 		\~japanese
-    
+
 		\~
-		 */
+		*/
 		public IPEndPoint ToAddrPort()
 		{
 			return new IPEndPoint(IPAddress.Parse(addr), port);
 		}
 
-		/** 
+		/**
 		\~korean
 		String형태로 리턴 합니다. "addr:port"
-        
+
 		\~english
 		Empty Address
-                    
+
 		\~chinese
 		Return为String形态。"addr:port"
 
 		\~japanese
-    
+
 		\~
-		 */
+		*/
 		public override String ToString()
 		{
 			return String.Format("{0}:{1}", addr, port);
 		}
 
-		/** 
-		\~korean 
-		브로드캐스트 주소도 아니고, null 주소도 아닌, 1개 호스트의 1개 포트를 가리키는 정상적인 주소인가? 
-        
-		\~english 
+		/**
+		\~korean
+		브로드캐스트 주소도 아니고, null 주소도 아닌, 1개 호스트의 1개 포트를 가리키는 정상적인 주소인가?
+
+		\~english
 		Is it correct address that point 1 port of 1 host instead of broadcast address, null address?
-                    
+
 		\~chinese
-		是一个既不是宽带地址，也不是null地址的，指向一个主机的一个端口的正常地址吗？ 
+		是一个既不是宽带地址，也不是null地址的，指向一个主机的一个端口的正常地址吗？
 
 		\~japanese
-    
+
 		*/
 		public bool IsUnicastEndpoint()
 		{

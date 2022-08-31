@@ -41,7 +41,7 @@ using System.Text;
 
 namespace Nettention.Proud
 {
-    /**
+	/**
 	\~korean
 	서버사이드 호스트 모듈(CNetServer, CNetClient)을 위한 thread pool 객체입니다.
 
@@ -67,90 +67,90 @@ namespace Nettention.Proud
 	TODO: 상기 주석 다듬은 후 다국어화해야!
 
 	*/
-    public class ThreadPool : IDisposable
-    {
-        // SWIG에서 만들어진 C++ ThreadPool 래핑 클래스.
-        private Proud.NativeThreadPool m_native_ThreadPool = null;
+	public class ThreadPool : IDisposable
+	{
+		// SWIG에서 만들어진 C++ ThreadPool 래핑 클래스.
+		private Proud.NativeThreadPool m_native_ThreadPool = null;
 
-        private bool m_disposed = false;
+		private bool m_disposed = false;
 
-        public ThreadPool(int threadCount)
-        {
-            try
-            {
-                m_native_ThreadPool = NativeThreadPool.Create(threadCount);
-            }
-            catch (System.TypeInitializationException ex)
-            {
-                // c++ ProudNetServerPlugin.dll, ProudNetClientPlugin.dll 파일이 작업 경로에 없을 때
-                throw new System.Exception(ClientNativeExceptionString.TypeInitializationExceptionString);
-            }
-        }
+		public ThreadPool(int threadCount)
+		{
+			try
+			{
+				m_native_ThreadPool = NativeThreadPool.Create(threadCount);
+			}
+			catch (System.TypeInitializationException ex)
+			{
+				// c++ ProudNetServerPlugin.dll, ProudNetClientPlugin.dll 파일이 작업 경로에 없을 때
+				throw new System.Exception(ClientNativeExceptionString.TypeInitializationExceptionString);
+			}
+		}
 
-        ~ThreadPool()
-        {
-            Dispose(false);
-        }
+		~ThreadPool()
+		{
+			Dispose(false);
+		}
 
-        /**
-        \~korean
-         사용자가 명시적으로 호출하지 않도록 합니다.
-		 IDisposable 인터페이스 구현
-        \~english
-        */
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+		/**
+		\~korean
+		사용자가 명시적으로 호출하지 않도록 합니다.
+		IDisposable 인터페이스 구현
+		\~english
+		*/
+		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
 
-        protected virtual void Dispose(bool disposing)
-        {
-            if (m_disposed)
-                return;
+		protected virtual void Dispose(bool disposing)
+		{
+			if (m_disposed)
+				return;
 
-            if (disposing)
-            {
-            }
+			if (disposing)
+			{
+			}
 
-            m_disposed = true;
-        }
+			m_disposed = true;
+		}
 
-        public NativeThreadPool GetNativeThreadPool()
-        {
-            return m_native_ThreadPool;
-        }
+		public NativeThreadPool GetNativeThreadPool()
+		{
+			return m_native_ThreadPool;
+		}
 
-        /**
-        \~korean
-         원하는 수의 스레드로 갯수를 조절한다.
-		 0~512까지 가능.
-		 이 함수는 즉시 리턴되고, 시간이 지나면서 목표치로 가게 된다.
-		 0이 될 경우 사용자는 CThreadPool.Process를 매번 호출해 주어야 한다.
-        \~english
-        */
-        public void SetDesiredThreadCount(int threadCount)
-        {
-            if (m_native_ThreadPool != null)
-            {
-                m_native_ThreadPool.SetDesiredThreadCount(threadCount);
-            }
-        }
+		/**
+		\~korean
+		원하는 수의 스레드로 갯수를 조절한다.
+		0~512까지 가능.
+		이 함수는 즉시 리턴되고, 시간이 지나면서 목표치로 가게 된다.
+		0이 될 경우 사용자는 CThreadPool.Process를 매번 호출해 주어야 한다.
+		\~english
+		*/
+		public void SetDesiredThreadCount(int threadCount)
+		{
+			if (m_native_ThreadPool != null)
+			{
+				m_native_ThreadPool.SetDesiredThreadCount(threadCount);
+			}
+		}
 
-        /**
-        \~korean
-        zero thread pool을 위한, heartbeat 처리를 한다.
+		/**
+		\~korean
+		zero thread pool을 위한, heartbeat 처리를 한다.
 		zero thread pool인 경우 지속적으로 호출해야 한다.
 		인자: 최대 대기 시간. 0을 넣으면 무대기 실행.
-        \~english
-        */
-        public void Process(int timeoutMs)
-        {
-            if (m_native_ThreadPool != null)
-            {
-                m_native_ThreadPool.Process(timeoutMs);
-            }
-        }
+		\~english
+		*/
+		public void Process(int timeoutMs)
+		{
+			if (m_native_ThreadPool != null)
+			{
+				m_native_ThreadPool.Process(timeoutMs);
+			}
+		}
 
-    }
+	}
 }
