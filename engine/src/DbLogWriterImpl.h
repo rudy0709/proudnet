@@ -57,7 +57,6 @@ namespace Proud
 	*/
 	class CDbLogWriterImpl : public CDbLogWriter
 	{
-
 		// mutex
 		CriticalSection m_CS;
 

@@ -15,8 +15,6 @@
 
 namespace Proud
 {
-
-
 	CDisconnectArgs::CDisconnectArgs()
 	{
 		m_gracefulDisconnectTimeoutMs = CNetConfig::DefaultGracefulDisconnectTimeoutMs;

@@ -19,7 +19,6 @@
 
 namespace Proud
 {
-
 	String ByteArray::ToHexString()
 	{
 		String ret;

@@ -101,8 +101,6 @@ namespace Proud
 			return GetTombstone()
 				&& GetTombstone()->m_substance.m_netCoreReferrerHeart;
 		}
-
-
 	};
 
 	typedef CFinalUserWorkItem::Tombstone CFinalUserWorkItem_Tombstone;

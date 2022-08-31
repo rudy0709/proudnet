@@ -75,7 +75,6 @@ namespace Proud
 		m_serializeRecursiveUpdateWork = false;
 		m_autoDeisolateData = true;
 		m_unloadRequestTimeoutTimeMs = CDbConfig::DefaultUnloadRequestTimeoutTimeMs;
-
 	}
 
 	CDbCacheServer2Impl::~CDbCacheServer2Impl(void)
