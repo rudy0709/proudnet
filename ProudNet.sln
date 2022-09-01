@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pidl", "tools\Pidl\Pidl.csproj", "{D1800FFE-76F7-4B11-B9B9-CB4551EA5500}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pidl", "utils\Pidl\Pidl.csproj", "{D1800FFE-76F7-4B11-B9B9-CB4551EA5500}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetPidlBuild", "engine\ProudNetPidlBuild\ProudNetPidlBuild.vcxproj", "{65853479-3CBE-42E6-8B54-1B7D4355DAC6}"
 EndProject
@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cpp", "Cpp", "{28EEA4EE-313
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cshap", "Cshap", "{A243683D-2E38-41AE-8F8D-A463088C7283}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{79B4C79E-8AA4-4888-8AD2-00321C8D9B90}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{79B4C79E-8AA4-4888-8AD2-00321C8D9B90}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unity", "Unity", "{D529C640-C83C-43C3-BEDA-381FC2FAAF1E}"
 EndProject
