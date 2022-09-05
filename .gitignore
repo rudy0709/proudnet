@@ -25,6 +25,8 @@
 *.app
 
 # Temporary files
+desktop.ini
+.DS_Store
 *.bak
 *.aps
 *.user
