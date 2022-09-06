@@ -31,10 +31,10 @@ desktop.ini
 *.aps
 *.user
 .vs/
+Debug*/
+Release*/
 obj/
 bin/
 tmp/
 out/
-Debug*/
-Release*/
 packages/

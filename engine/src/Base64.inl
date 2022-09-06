@@ -1,7 +1,6 @@
 ﻿#include "stdafx.h"
 #include "Base64.h"
 #include "../include/ByteArray.h"
-//222-원본: #include "libtom/crypto/headers/tomcrypt.h"
 #include "../OpenSources/libtomcrypt/headers/tomcrypt.h"
 
 namespace Proud

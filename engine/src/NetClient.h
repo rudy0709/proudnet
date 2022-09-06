@@ -78,10 +78,10 @@ using namespace Proud;
 
 #include "marshaler-private.h"
 
-#include "pidl/NetS2C_stub.h"
-#include "pidl/NetC2C_stub.h"
-#include "pidl/NetC2S_proxy.h"
-#include "pidl/NetC2C_proxy.h"
+#include "NetS2C_stub.h"
+#include "NetC2C_stub.h"
+#include "NetC2S_proxy.h"
+#include "NetC2C_proxy.h"
 #include "IVizAgentDg.h"
 #include "EmergencyLogData.h"
 //#include "SuperSocket.h"

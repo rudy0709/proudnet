@@ -14,16 +14,16 @@
 #include "STLUtil.h"
 #include "DumpServer.h"
 #include "../include/ThreadUtil.h"
-#include "pidl/DumpC2S_stub.cpp"
-#include "pidl/DumpS2C_proxy.cpp"
+#include "DumpC2S_stub.cpp"
+#include "DumpS2C_proxy.cpp"
 #include <conio.h>
 #include "RmiContextImpl.h"
 #include <comdef.h>
 
 // PIDL output이고, dllexport를 해봤자 해커만 좋아한다. 따라서 dll 빌드일 때에는 그냥 중복 소유를 하는게 차라리 낫다.
 #ifdef PROUDNETSERVER_EXPORTS
-#include "pidl/DumpC2S_common.cpp"
-#include "pidl/DumpS2C_common.cpp"
+#include "DumpC2S_common.cpp"
+#include "DumpS2C_common.cpp"
 #endif
 
 using namespace std;
@@ -32,7 +32,6 @@ namespace Proud
 {
 	CDumpServerImpl::CDumpServerImpl(IDumpServerDelegate* dg): m_dg(dg)
 	{
-
 		m_server.Attach(CNetServer::Create());
 		m_server->AttachProxy(&m_s2cProxy);
 		m_server->AttachStub(this);

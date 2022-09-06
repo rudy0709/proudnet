@@ -12,8 +12,8 @@
 #include <new>
 #include "../include/EmergencyLogCommon.h"
 
-#include "pidl/EmergencyC2S_common.cpp"
-#include "pidl/EmergencyS2C_common.cpp"
+#include "EmergencyC2S_common.cpp"
+#include "EmergencyS2C_common.cpp"
 
 namespace Proud
 {

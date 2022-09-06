@@ -5,8 +5,8 @@
 
 #include "../include/dumpcommon.h"
 #include "../include/DumpClient.h"
-#include "pidl/dumps2c_stub.h"
-#include "pidl/dumpc2s_proxy.h"
+#include "dumps2c_stub.h"
+#include "dumpc2s_proxy.h"
 
 namespace Proud
 {

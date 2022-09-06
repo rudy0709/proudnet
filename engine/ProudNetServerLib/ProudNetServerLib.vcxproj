@@ -182,7 +182,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -208,7 +208,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -235,7 +235,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -264,7 +264,7 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -290,7 +290,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -316,7 +316,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -343,7 +343,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -372,7 +372,7 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\ProudNetPidlBuild\out\;..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1q\windows-x86_$(PlatformArchitecture)\include\;..\OpenSources\standalone-asio\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

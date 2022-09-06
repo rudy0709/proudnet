@@ -11,8 +11,8 @@
 #include "../include/dumpcommon.h"
 #include "../include/Enums.h"
 #include "../include/pnguid.h"
-#include "pidl/DumpC2S_common.cpp"
-#include "pidl/DumpS2C_common.cpp"
+#include "DumpC2S_common.cpp"
+#include "DumpS2C_common.cpp"
 
 namespace Proud {
 	const PNGUID _dumpProtocolVersion = { 0xe764a875, 0x4fb, 0x441c, { 0x8b, 0x61, 0x1f, 0x61, 0x7b, 0x87, 0xc1, 0xc3 } };

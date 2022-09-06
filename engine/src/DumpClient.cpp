@@ -13,8 +13,8 @@
 
 #if defined(_WIN32)
 	#include "RmiContextImpl.h"
-	#include "pidl/dumps2c_stub.cpp"
-	#include "pidl/dumpc2s_proxy.cpp"
+	#include "dumps2c_stub.cpp"
+	#include "dumpc2s_proxy.cpp"
 #endif
 
 namespace Proud

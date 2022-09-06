@@ -26,7 +26,7 @@
  * PAUSE-Spin Loop Hint, 4-57
  * http://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-software-developer-instruction-set-reference-manual-325383.html?wapkw=instruction+set+reference
  */
-define __UTIL_LOCK_SPIN_LOCK_PAUSE() __asm__ __volatile__("pause")
+#define __UTIL_LOCK_SPIN_LOCK_PAUSE() __asm__ __volatile__("pause")
 #elif defined(__ia64__) || defined(__ia64)
 /**
  * See: Intel(R) Itanium(R) Architecture Developer's Manual, Vol.3

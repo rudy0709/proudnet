@@ -3,8 +3,8 @@
 #include "../include/ProudNetServer.h"
 #include "../include/dumpcommon.h"
 #include "../include/DumpServer.h"
-#include "pidl/DumpC2S_stub.h"
-#include "pidl/DumpS2C_proxy.h"
+#include "DumpC2S_stub.h"
+#include "DumpS2C_proxy.h"
 
 namespace Proud
 {

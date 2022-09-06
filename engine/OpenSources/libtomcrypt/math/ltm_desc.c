@@ -14,7 +14,6 @@
 
 #ifdef LTM_DESC
 
-//222-원본: #include "../../math/tommath.h"
 #include "../../libtommath/tommath.h"
 
 static const struct {

@@ -5,9 +5,9 @@
 // 그러나 그래봤자 해커만 좋아한다.
 // 따라서 그냥 이렇게 중복 include한다.
 #ifdef PROUDNETSERVER_EXPORTS
-#include "pidl/NetS2C_common.cpp"
-#include "pidl/NetC2S_common.cpp"
-#include "pidl/NetC2C_common.cpp"
+#include "NetS2C_common.cpp"
+#include "NetC2S_common.cpp"
+#include "NetC2C_common.cpp"
 #endif
 
 

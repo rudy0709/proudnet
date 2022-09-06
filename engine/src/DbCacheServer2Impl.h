@@ -13,8 +13,8 @@
 
 #include "marshaler-private.h"
 
-#include "pidl/DB_stub.h"
-#include "pidl/DB_proxy.h"
+#include "DB_stub.h"
+#include "DB_proxy.h"
 
 #include "FastList2.h"
 #include "AsyncWork.h"

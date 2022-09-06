@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "../include/BasicTypes.h"
-//222-원본: #include "zlib/zlib.h"
 #include "../OpenSources/zlib-v1.2.8/zlib.h"
 
 namespace Proud

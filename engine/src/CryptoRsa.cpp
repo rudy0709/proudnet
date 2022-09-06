@@ -10,7 +10,6 @@
 
 #include "stdafx.h"
 #include <new>
-//222-원본: #include "./libtom/crypto/headers/tomcrypt.h"
 #include "../OpenSources/libtomcrypt/headers/tomcrypt.h"
 #include "../include/CryptoRsa.h"
 

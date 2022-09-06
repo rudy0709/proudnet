@@ -13,7 +13,6 @@ namespace Proud
 #if defined(_WIN32)
 		SwitchToThread();
 #else
-
 		sched_yield();
 #endif //defined(_WIN32)
 	}

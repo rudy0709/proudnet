@@ -17,8 +17,8 @@
 #include "../include/ProudNetClient.h"
 #include "RmiContextImpl.h"
 #include "EmergencyLogClient.h"
-#include "pidl/EmergencyS2C_stub.cpp"
-#include "pidl/EmergencyC2S_proxy.cpp"
+#include "EmergencyS2C_stub.cpp"
+#include "EmergencyC2S_proxy.cpp"
 
 namespace Proud
 {

@@ -25,7 +25,6 @@
 #ifdef VIZAGENT
 	#include "VizAgent.h"
 #endif
-//222-원본: #include "./zlib/zlib.h"
 #include "../OpenSources/zlib-v1.2.8/zlib.h"
 #include "UseZlib.h"
 #include "Functors.h"
@@ -33,9 +32,9 @@
 
 //#include "./zlib/compress.c"
 
-#include "pidl/NetS2C_common.cpp"
-#include "pidl/NetC2S_common.cpp"
-#include "pidl/NetC2C_common.cpp"
+#include "NetS2C_common.cpp"
+#include "NetC2S_common.cpp"
+#include "NetC2C_common.cpp"
 
 // #include "LanS2C_common.cpp"
 // #include "LanC2S_common.cpp"
@@ -1768,7 +1767,7 @@ L1:
 
 		/* Q: socket task, user task의 fairness를 위해서, 하나만 처리해야 하지 않나요?
 		   A: PQCS or eventfd.write는 syscall을 유발합니다.
-			  단순 핑퐁 서버의 경우 처리 댓가가 큽니다.
+		      단순 핑퐁 서버의 경우 처리 댓가가 큽니다.
 			  그러한 경우에서도 속도가 나오려면 do until no more를 할 수밖에 없습니다.
 		*/
 		while (true)
