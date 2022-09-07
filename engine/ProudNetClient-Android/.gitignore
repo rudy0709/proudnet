@@ -1,0 +1,11 @@
+# Temporary files
+local.properties
+settings.gradle
+proudnetlib/build.gradle
+*.iml
+.gradle/
+.idea/
+.cxx/
+build/
+libs/
+ndk/

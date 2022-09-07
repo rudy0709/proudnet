@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+
+android {
+    flavorDimensions "static"
+    compileSdkVersion 26
+    externalNativeBuild {
+        cmake {
+            path "../CMakeLists.txt"
+            buildStagingDirectory "./libs/ndk/r25b"
+        }
+    }
+    productFlavors {
+        clang {
+            minSdkVersion 14
+            targetSdkVersion 26
+            versionCode 2
+            versionName "1.1"
+            externalNativeBuild {
+                cmake {
+                    targets 'ProudNetClient_static'
+                    arguments '-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=c++_static'
+                }
+            }
+            ndk{
+                abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86'
+            }
+            dimension "static"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            zipAlignEnabled true
+            externalNativeBuild {
+                cmake {
+                    cFlags '-O0', '-DNDEBUG', '-D_MULTIBYTE',  '-fexceptions', '-fpermissive', '-frtti',  '-Wwrite-strings'
+                    cppFlags '-O0', '-DNDEBUG', '-D_MULTIBYTE',  '-fexceptions', '-fpermissive', '-frtti',  '-Wwrite-strings'
+                }
+            }
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+            zipAlignEnabled false
+            externalNativeBuild {
+                cmake {
+                    cFlags '-O2', '-DDEBUG', '-D_DEBUG', '-D_MULTIBYTE', '-fexceptions', '-fpermissive', '-frtti',  '-Wwrite-strings'
+                    cppFlags '-O2', '-DDEBUG', '-D_DEBUG', '-D_MULTIBYTE', '-fexceptions', '-fpermissive', '-frtti',  '-Wwrite-strings'
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+}
