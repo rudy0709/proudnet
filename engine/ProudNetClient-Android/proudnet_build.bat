@@ -8,7 +8,7 @@ if "%arg1%" == "" (
     echo Usage:
     echo     proudnet_build.bat clean
     echo     or
-    echo     aproudnet_build.bat build [r13b^|r17c^|r20b^|r25b]
+    echo     aproudnet_build.bat build [r22b^|r20b^|r17c^|r13b]
     goto exit
 ) else (
     goto %arg1%
@@ -36,10 +36,10 @@ if "%android_ndk_base_path:~-1%" == "\" (
     set android_ndk_base_path=%android_ndk_base_path:0,-1%
 )
 
-set ndk_version_list[0]=r13b
-set ndk_version_list[1]=r17c
-set ndk_version_list[2]=r20b
-set ndk_version_list[3]=r25b
+set ndk_version_list[0]=r22b
+set ndk_version_list[1]=r20b
+set ndk_version_list[2]=r17c
+set ndk_version_list[3]=r13b
 
 @rem 2번째 인자가 전달된 경우엔 해당 버전의 NDK만을 이용하여 빌드합니다.
 for /l %%i in (0,1,3) do (
@@ -68,6 +68,36 @@ for /l %%i in (0,1,3) do (
         @rem 2) 빌드하기
         copy /y proudnetlib\build.gradle.!ndk_version_list[%%i]! proudnetlib\build.gradle
         call gradlew.bat build -p proudnetlib\
+
+        @rem 3) .a 파일 압축하기
+        set current_path=%~dp0
+        if "%current_path:~-1%" == "\" (
+            set current_path=%current_path:0,-1%
+        )
+
+        @rem 3-1) arm64-v8a
+        set org_lib_path=!current_path!\proudnetlib\libs\ndk\!ndk_version_list[%%i]!\cmake\clangRelease\arm64-v8a
+        set strip_exe_path=!android_ndk_base_path!\android-ndk-!ndk_version_list[%%i]!\toolchains\aarch64-linux-android-4.9\prebuilt\windows-x86_64\aarch64-linux-android\bin
+
+        mkdir !org_lib_path!\stripped
+        copy /y !org_lib_path!\libProudNetClient.a !org_lib_path!\stripped\libProudNetClient.a
+        !strip_exe_path!\strip.exe !org_lib_path!\stripped\libProudNetClient.a
+
+        @rem 3-2) armeabi-v7a
+        set org_lib_path=!current_path!\proudnetlib\libs\ndk\!ndk_version_list[%%i]!\cmake\clangRelease\armeabi-v7a
+        set strip_exe_path=!android_ndk_base_path!\android-ndk-!ndk_version_list[%%i]!\toolchains\arm-linux-androideabi-4.9\prebuilt\windows-x86_64\arm-linux-androideabi\bin
+
+        mkdir !org_lib_path!\stripped
+        copy /y !org_lib_path!\libProudNetClient.a !org_lib_path!\stripped\libProudNetClient.a
+        !strip_exe_path!\strip.exe !org_lib_path!\stripped\libProudNetClient.a
+
+        @rem 3-3) x86
+        set org_lib_path=!current_path!\proudnetlib\libs\ndk\!ndk_version_list[%%i]!\cmake\clangRelease\x86
+        set strip_exe_path=!android_ndk_base_path!\android-ndk-!ndk_version_list[%%i]!\toolchains\x86-4.9\prebuilt\windows-x86_64\i686-linux-android\bin
+
+        mkdir !org_lib_path!\stripped
+        copy /y !org_lib_path!\libProudNetClient.a !org_lib_path!\stripped\libProudNetClient.a
+        !strip_exe_path!\strip.exe !org_lib_path!\stripped\libProudNetClient.a
     )
 )
 
