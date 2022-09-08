@@ -23,6 +23,10 @@ rd /s /q proudnetlib\libs\
 goto exit
 
 :build
+@rem .pidl, ErrorType.yaml 파일을 컴파일합니다.
+..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe ..\ProudNetPidlBuild\*.pidl -outdir ..\src\
+..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe ..\ProudNetPidlBuild\ErrorType.yaml -outdir ..\src\ -incdir ..\src\
+
 @rem 안드로이드 SDK, NDK 경로
 set android_sdk_path=%ANDROID_SDK_HOME%
 if "%android_sdk_path:~-1%" == "\" (
@@ -41,7 +45,7 @@ set ndk_version_list[1]=r20b
 set ndk_version_list[2]=r17c
 set ndk_version_list[3]=r13b
 
-@rem 2번째 인자가 전달된 경우엔 해당 버전의 NDK만을 이용하여 빌드합니다.
+@rem 2번째 인자가 전달된 경우엔 해당 버전의 NDK만을 남기고 나머지 버전의 NDK는 버립니다.
 for /l %%i in (0,1,3) do (
     set temp=!ndk_version_list[%%i]!
     if not "!arg2!" == "" (
@@ -52,6 +56,7 @@ for /l %%i in (0,1,3) do (
     set ndk_version_list[%%i]=!temp!
 )
 
+@rem ndk_version_list 배열에서 값이 남아있는 항목만 빌드합니다.
 for /l %%i in (0,1,3) do (
     if not "!ndk_version_list[%%i]!" == "" (
         echo !ndk_version_list[%%i]! 버전을 빌드합니다...
