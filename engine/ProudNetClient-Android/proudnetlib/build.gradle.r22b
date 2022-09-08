@@ -6,7 +6,7 @@ android {
     externalNativeBuild {
         cmake {
             path "../CMakeLists.txt"
-            buildStagingDirectory "./libs/ndk/r25b"
+            buildStagingDirectory "./libs/ndk/r22b"
         }
     }
     productFlavors {
