@@ -421,28 +421,28 @@ endlocal
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-..\..\utils\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir ..\src\ -incdir ..\src\
+..\..\utils\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir ..\src\ -incdir ..\include\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating %(Filename).inl</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-..\..\utils\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir ..\src\ -incdir ..\src\
+..\..\utils\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir ..\src\ -incdir ..\include\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating %(Filename).inl</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-..\..\utils\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir ..\src\ -incdir ..\src\
+..\..\utils\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir ..\src\ -incdir ..\include\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating %(Filename).inl</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-..\..\utils\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir ..\src\ -incdir ..\src\
+..\..\utils\Pidl\bin\$(Configuration)\PIDL_UnProtect.exe %(FullPath) -outdir ..\src\ -incdir ..\include\
 if %errorlevel% neq 0 echo exit-code: %errorlevel%
 endlocal
 </Command>
