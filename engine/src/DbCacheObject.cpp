@@ -959,18 +959,17 @@ namespace Proud
 	void CDbWriteDoneUpdateListNotify::Success(HostID requester, CPropNode &modifyData, DbmsWritePropNodeListPendArray &modifyDataList)
 	{
 		CriticalSectionLock lock(m_owner->m_cs, true);
+		ByteArray block;
 
 		CLoadedData2Ptr_S loadData = m_owner->GetLoadedDataByRootGuid(modifyData.UUID);
-
 		if ( loadData )
 		{
 			m_owner->UpdateLocalDataList(requester, loadData, m_tag, modifyDataList);
+
+			loadData->m_data._INTERNAL_ChangeToByteArray(block);
+			loadData->m_data._INTERNAL_ClearChangeNode();
 		}
 
-		ByteArray block;
-		loadData->m_data._INTERNAL_ChangeToByteArray(block);
-
-		loadData->m_data._INTERNAL_ClearChangeNode();
 		lock.Unlock();
 
 		m_owner->m_s2cProxy.NotifyUpdateDataListSuccess(requester, g_ReliableSendForPN, m_tag, modifyData.UUID, block, m_blocked);
