@@ -6,10 +6,8 @@ DumpC2S_*
 DumpS2C_*
 EmergencyC2S_*
 EmergencyS2C_*
-ErrorType.h
-ErrorType.inl
-ErrorTypeOldSpec.h
 NetC2C_*
 NetC2S_*
 NetS2C_*
 Viz_*
+ErrorType.inl
