@@ -28,11 +28,11 @@ file(GLOB USER_HEADER
 )
 
 file(GLOB DEV_PIDL_CLIENT
-	*.pidl
+	../ProudNetPidlBuild/*.pidl
 )
 
 file(GLOB DEV_YAML_CLIENT
-	ErrorType.yaml
+	../ProudNetPidlBuild/ErrorType.yaml
 )
 
 file(GLOB DEV_HEADER_CLIENT_WITHOUT_PLATFORM_DEPENDENCY
@@ -342,10 +342,10 @@ file(GLOB DEV_CLIENT_WITHOUT_PLATFORM_DEPENDENCY
 file(GLOB DEV_SRC_CLIENT_WINDOWS
 	${DEV_CLIENT_WITHOUT_PLATFORM_DEPENDENCY}
 	../src/URI.h
-	../src/stacktrace-win32.h
-	../src/pnguid-win32.cpp
-	../src/stacktrace-win32.cpp
 	../src/URI.cpp
+	../src/stacktrace-win32.h
+	../src/stacktrace-win32.cpp
+	../src/pnguid-win32.cpp
 )
 
 file(GLOB DEV_SRC_CLIENT_UNIX
@@ -517,11 +517,11 @@ file(GLOB_RECURSE DEV_SRC_LIBTOM_CRYPTO
 	../OpenSources/libtomcrypt/*.c
 )
 
-list(FILTER DEV_SRC_LIBTOM_CRYPTO EXCLUDE REGEX ".*../OpenSources/libtomcrypt/ciphers/aes/aes_tab.c$")
-list(FILTER DEV_SRC_LIBTOM_CRYPTO EXCLUDE REGEX ".*../OpenSources/libtomcrypt/hashes/sha2/sha224.c$")
-list(FILTER DEV_SRC_LIBTOM_CRYPTO EXCLUDE REGEX ".*../OpenSources/libtomcrypt/hashes/sha2/sha384.c$")
-list(FILTER DEV_SRC_LIBTOM_CRYPTO EXCLUDE REGEX ".*../OpenSources/libtomcrypt/hashes/whirl/whirltab.c$")
-list(FILTER DEV_SRC_LIBTOM_CRYPTO EXCLUDE REGEX ".*../OpenSources/libtomcrypt/prngs/sober128tab.c$")
+list(FILTER DEV_SRC_LIBTOM_CRYPTO EXCLUDE REGEX ".*/OpenSources/libtomcrypt/ciphers/aes/aes_tab.c$")
+list(FILTER DEV_SRC_LIBTOM_CRYPTO EXCLUDE REGEX ".*/OpenSources/libtomcrypt/hashes/sha2/sha224.c$")
+list(FILTER DEV_SRC_LIBTOM_CRYPTO EXCLUDE REGEX ".*/OpenSources/libtomcrypt/hashes/sha2/sha384.c$")
+list(FILTER DEV_SRC_LIBTOM_CRYPTO EXCLUDE REGEX ".*/OpenSources/libtomcrypt/hashes/whirl/whirltab.c$")
+list(FILTER DEV_SRC_LIBTOM_CRYPTO EXCLUDE REGEX ".*/OpenSources/libtomcrypt/prngs/sober128tab.c$")
 list(FILTER USER_HEADER EXCLUDE REGEX ".*ErrorType.h$")
 list(FILTER USER_HEADER EXCLUDE REGEX ".*ErrorTypeOldSpec.h$")
 
@@ -566,89 +566,26 @@ set(CMAKE_CONFIGURATION_TYPES Debug Release)
 #CXX_STANDARD 속성 변경 문장을 보면 윈도우에서도 적용될 것처럼 생겨먹었다.
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-if(XCODE)
-	# MacOS & iOS는 Client에 대해 static library만 만든다.
-	add_library(ProudNetClient_static STATIC ${DEV_SRC_UNITYBUILD_CLIENT} ${DEV_SRC_LIBTOM_CRYPTO} ${DEV_SRC_LIBTOM_MATH} ${DEV_SRC_Z} ${DEV_SRC_ICONV} ../src/swprintf.cpp)
-	set_property(TARGET ProudNetClient_static PROPERTY OUTPUT_NAME ProudNetClient)
+# MacOS & iOS는 Client에 대해 static library만 만든다.
+add_library(ProudNetClient_static STATIC ${DEV_SRC_UNITYBUILD_CLIENT} ${DEV_SRC_LIBTOM_CRYPTO} ${DEV_SRC_LIBTOM_MATH} ${DEV_SRC_Z} ${DEV_SRC_ICONV} ../src/swprintf.cpp)
+set_property(TARGET ProudNetClient_static PROPERTY OUTPUT_NAME ProudNetClient)
 
-	set_property(TARGET ProudNetClient_static PROPERTY XCODE_ATTRIBUTE_ARCHS "$(ARCHS_STANDARD)")
-	set_property(TARGET ProudNetClient_static PROPERTY XCODE_ATTRIBUTE_VALID_ARCHS "armv7 armv7s arm64 arm64e i386 x86_64")
-	set_property(TARGET ProudNetClient_static PROPERTY XCODE_ATTRIBUTE_OTHER_CFLAGS "-fembed-bitcode")
-	set_property(TARGET ProudNetClient_static PROPERTY XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH NO)
-	set_property(TARGET ProudNetClient_static PROPERTY XCODE_ATTRIBUTE_COPY_PHASE_STRIP NO)
+set_property(TARGET ProudNetClient_static PROPERTY XCODE_ATTRIBUTE_ARCHS "$(ARCHS_STANDARD)")
+set_property(TARGET ProudNetClient_static PROPERTY XCODE_ATTRIBUTE_VALID_ARCHS "armv7 armv7s arm64 arm64e i386 x86_64")
+set_property(TARGET ProudNetClient_static PROPERTY XCODE_ATTRIBUTE_OTHER_CFLAGS "-fembed-bitcode")
+set_property(TARGET ProudNetClient_static PROPERTY XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH NO)
+set_property(TARGET ProudNetClient_static PROPERTY XCODE_ATTRIBUTE_COPY_PHASE_STRIP NO)
 
-	#Setting client's preprocessors
-	#You should not use 'COMPILE_DEFINITIONS_<CONFIG>' because it was deprecated since CMake 2.8.12 so it will be ignored.
-	#cf.CMP004 policy
-	set_property(TARGET ProudNetClient_static APPEND PROPERTY COMPILE_DEFINITIONS $<$<CONFIG:DEBUG>:DEBUG _DEBUG> $<$<CONFIG:RELEASE>:NDEBUG>)
+#Setting client's preprocessors
+#You should not use 'COMPILE_DEFINITIONS_<CONFIG>' because it was deprecated since CMake 2.8.12 so it will be ignored.
+#cf.CMP004 policy
+set_property(TARGET ProudNetClient_static APPEND PROPERTY COMPILE_DEFINITIONS $<$<CONFIG:DEBUG>:DEBUG _DEBUG> $<$<CONFIG:RELEASE>:NDEBUG>)
 
-	target_include_directories(ProudNetClient_static PRIVATE
-		"../OpenSources/standalone-asio/include"
-	)
-elseif(ANDROID)
-	# ANDROID는 Client에 대해 static library만 만든다.
-	add_library(ProudNetClient_static STATIC ${DEV_SRC_UNITYBUILD_CLIENT} ${DEV_SRC_LIBTOM_CRYPTO} ${DEV_SRC_LIBTOM_MATH} ${DEV_SRC_Z} ${DEV_SRC_ICONV} ../src/swprintf.cpp)
-	set_property(TARGET ProudNetClient_static PROPERTY OUTPUT_NAME ProudNetClient)
+target_include_directories(ProudNetClient_static PRIVATE
+	"../OpenSources/standalone-asio/include"
+)
 
-	#Setting client's preprocessors
-	#You should not use 'COMPILE_DEFINITIONS_<CONFIG>' because it was deprecated since CMake 2.8.12 so it will be ignored.
-	#cf.CMP004 policy
-	set_property(TARGET ProudNetClient_static APPEND PROPERTY COMPILE_DEFINITIONS $<$<CONFIG:DEBUG>:DEBUG _DEBUG> $<$<CONFIG:RELEASE>:NDEBUG>)
-else()
-	#Client
-	add_library(ProudNetClient_obj OBJECT ${DEV_SRC_UNITYBUILD_CLIENT} ${DEV_SRC_LIBTOM_CRYPTO} ${DEV_SRC_LIBTOM_MATH} ${DEV_SRC_Z} ${DEV_SRC_ICONV} swprintf.cpp $<$<NOT:$<STREQUAL:$<PLATFORM_ID>,"Linux">>:../OpenSources/zlib-v1.2.8/zconf.h>)
-
-	#Use this sentence only for debugging
-	#add_library(ProudNetClient_obj OBJECT ${DEV_SRC_CLIENT_WITHOUT_PLATFORM_DEPENDENCY} ${DEV_SRC_LIBTOM_CRYPTO} ${DEV_SRC_LIBTOM_MATH} ${DEV_SRC_Z} ${DEV_SRC_ICONV} swprintf.cpp $<$<NOT:$<STREQUAL:$<PLATFORM_ID>,"Linux">>:../OpenSources/zlib-v1.2.8/zconf.h>)
-
-	#stackoverflow "is it possible to get cmake to build both a static and shared version" 어쩌고에서 참고
-	set_property(TARGET ProudNetClient_obj PROPERTY POSITION_INDEPENDENT_CODE 1)
-	#set_property(TARGET ProudNetClient_obj PROPERTY LINKER_LANGUAGE NONE)
-
-	add_library(ProudNetClient_static STATIC $<TARGET_OBJECTS:ProudNetClient_obj>)
-	add_library(ProudNetClient_shared SHARED $<TARGET_OBJECTS:ProudNetClient_obj>)
-
-	set_property(TARGET ProudNetClient_static PROPERTY OUTPUT_NAME ProudNetClient)
-	set_property(TARGET ProudNetClient_shared PROPERTY OUTPUT_NAME ProudNetClient)
-
-	#Setting client's preprocessors
-	#You should not use 'COMPILE_DEFINITIONS_<CONFIG>' because it was deprecated since CMake 2.8.12 so it will be ignored.
-	#cf.CMP004 policy
-	set_property(TARGET ProudNetClient_obj APPEND PROPERTY COMPILE_DEFINITIONS PROUDSRCCOPY $<$<CONFIG:DEBUG>:DEBUG _DEBUG> $<$<CONFIG:RELEASE>:NDEBUG>)
-
-	target_include_directories(ProudNetClient_obj PRIVATE
-		"../OpenSources/standalone-asio/include"
-	)
-
-	# Server
-	# note: ${DEV_SRC_LIBTOM_CRYPTO} ${DEV_SRC_LIBTOM_MATH}는 배제한다. server lib는 client lib를 의존하는데 그 안에 이게 다 있으니까.
-	add_library(ProudNetServer_obj OBJECT ${DEV_SRC_UNITYBUILD_SERVER})
-
-	#Use this sentence only for debugging
-	#add_library(ProudNetServer_obj OBJECT ${DEV_SRC_SERVER_WITHOUT_PLATFORM_DEPENDENCY})
-
-	#stackoverflow "is it possible to get cmake to build both a static and shared version" 어쩌고에서 참고
-	set_property(TARGET ProudNetServer_obj PROPERTY POSITION_INDEPENDENT_CODE 1)
-
-	add_library(ProudNetServer_static STATIC $<TARGET_OBJECTS:ProudNetServer_obj>)
-	add_library(ProudNetServer_shared SHARED $<TARGET_OBJECTS:ProudNetServer_obj>)
-
-	#아래의 문장은 리눅스에서는 안넣어도 빌드와 실행이 잘되는 것으로 보이나,
-	#윈도우에서는 넣어야 동작하는 문장이므로 일관성을 위해 넣어둔다.
-	target_link_libraries(ProudNetServer_shared ProudNetClient_shared)
-
-	set_property(TARGET ProudNetServer_static PROPERTY OUTPUT_NAME ProudNetServer)
-	set_property(TARGET ProudNetServer_shared PROPERTY OUTPUT_NAME ProudNetServer)
-
-	#Setting Server's preprocessors
-	set_property(TARGET ProudNetServer_obj APPEND PROPERTY COMPILE_DEFINITIONS PROUDSRCCOPY ASIO_STANDALONE USE_OPENSSL $<$<CONFIG:DEBUG>:DEBUG> $<$<CONFIG:DEBUG>:_DEBUG> $<$<CONFIG:RELEASE>:NDEBUG>)
-
-	target_include_directories(ProudNetServer_obj PRIVATE
-		"../OpenSources/standalone-asio/include"
-	)
-endif()
-
-#모든 변수를 다 출력한다. 디버그용.
+# 모든 변수를 다 출력한다. 디버그용.
 #get_cmake_property(_variableNames VARIABLES)
 #list(SORT _variableNames)
 #foreach(_variableName ${_variableNames})
