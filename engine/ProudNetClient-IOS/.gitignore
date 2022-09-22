@@ -8,4 +8,4 @@ Debug*
 EagerLinkingTBDs/
 ProudNet.build/
 Release*
-#ProudNetClient.xcodeproj/
+ProudNetClient.xcodeproj/
