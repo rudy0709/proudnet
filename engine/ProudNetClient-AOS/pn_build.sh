@@ -50,6 +50,7 @@ build_library_all() {
 	cp -f proudnetlib/build.gradle.$ndk_version proudnetlib/build.gradle
 
 	# 3) 빌드를 시작합니다.
+	export GRADLE_EXIT_CONSOLE=1
 	./gradlew build -p proudnetlib\
 
 	# 4) .a 파일을 압축합니다.
