@@ -1428,7 +1428,7 @@
     <None Include="..\src\CryptoFast.cpp">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="..\src\CryptoRC4.cpp">
+    <None Include="..\src\CryptoRc4.cpp">
       <Filter>Source Files</Filter>
     </None>
     <None Include="..\src\CryptoRsa.cpp">

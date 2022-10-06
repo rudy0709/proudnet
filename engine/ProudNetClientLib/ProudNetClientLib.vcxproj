@@ -823,7 +823,7 @@
     <None Include="..\src\CriticalSect.cpp" />
     <None Include="..\src\CryptoAes.cpp" />
     <None Include="..\src\CryptoFast.cpp" />
-    <None Include="..\src\CryptoRC4.cpp" />
+    <None Include="..\src\CryptoRc4.cpp" />
     <None Include="..\src\CryptoRsa.cpp" />
     <None Include="..\src\CustomValueEventQueue.cpp" />
     <None Include="..\src\DefaultStringEncoder.cpp" />
