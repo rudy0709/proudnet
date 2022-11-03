@@ -17,12 +17,12 @@ exit /b 0
 :clean_library
 	@rem PIDL 컴파일러 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
 	set pn_build_exe=%PN_BUILD_PATH%
-	"%pn_build_exe%" ".\PIDL\PIDL.csproj" "/t:clean" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=16;BuildProjectReferences=false" /m
+	echo ## CommandLine ## : "%pn_build_exe%" ".\PIDL.csproj" "/t:clean" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
+	"%pn_build_exe%" ".\PIDL.csproj" "/t:clean" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
 
 	rd /s /q .\packages\
-	rd /s /q .\utils\
-	rd /s /q .\PIDL\bin\
-	rd /s /q .\PIDL\obj\
+	rd /s /q .\bin\
+	rd /s /q .\obj\
 exit /b 0
 
 :build_library
@@ -35,23 +35,23 @@ exit /b 0
 
 	@rem PIDL 컴파일러 프로젝트를 빌드합니다.
 	set pn_build_exe=%PN_BUILD_PATH%
-	"%pn_build_exe%" ".\PIDL\PIDL.csproj" "/t:build" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=16;BuildProjectReferences=false" /m
+	"%pn_build_exe%" ".\PIDL.csproj" "/t:build" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
 exit /b 0
 
 :rebuild_library
 	@rem PIDL 컴파일러 프로젝트를 리빌드합니다.
 	set pn_build_exe=%PN_BUILD_PATH%
-	"%pn_build_exe%" ".\PIDL\PIDL.csproj" "/t:clean" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=16;BuildProjectReferences=false" /m
-	"%pn_build_exe%" ".\PIDL\PIDL.csproj" "/t:build" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=16;BuildProjectReferences=false" /m
+	"%pn_build_exe%" ".\PIDL.csproj" "/t:clean" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
+	"%pn_build_exe%" ".\PIDL.csproj" "/t:build" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
 exit /b 0
 
 :download_nuget
-	if not exist ".\utils\" (
-		mkdir .\utils\
+	if not exist "..\..\utils\" (
+		mkdir ..\..\utils\
 	)
 
-	if not exist ".\utils\nuget.exe" (
-		powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '.\utils\nuget.exe')"
+	if not exist "..\..\utils\nuget.exe" (
+		powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '..\..\utils\nuget.exe')"
 	)
 exit /b 0
 
@@ -72,7 +72,7 @@ exit /b 0
 	)
 
 	if %packages_flag% == 1 (
-		.\utils\nuget.exe restore -PackagesDirectory .\packages
+		..\..\utils\nuget.exe restore -PackagesDirectory .\packages
 	)
 exit /b 0
 
