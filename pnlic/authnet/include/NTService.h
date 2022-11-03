@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -52,7 +52,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	CNTService 가 필요로 하는 event sink 객체
 
@@ -86,11 +86,11 @@ namespace Proud
 	public:
 		virtual ~INTServiceEvent() {}
 
-		/** 
+		/**
 		\~korean
 		이벤트 로그를 남긴다.
 		\param type EVENTLOG_ERROR_TYPE,EVENTLOG_WARNING_TYPE,EVENTLOG_INFORMATION_TYPE 중 하나
-		\param text 남길 문자열 
+		\param text 남길 문자열
 
 		\~english
 		Leaves event log
@@ -109,7 +109,7 @@ namespace Proud
 		*/
 		virtual void Log(int type, const TCHAR* text) = 0;
 
-		/** 
+		/**
 		\~korean
 		서비스 모듈 메인 함수
 		이 함수는 서비스 모듈에 의해 호출되는 메인 함수이다. 이 함수에 서버 프로그램 메인 루틴이 호출되어야 한다.
@@ -278,7 +278,7 @@ namespace Proud
 
 	class CNTServiceInternal;
 
-	/** 
+	/**
 	\~korean
 	Windows 서비스 (daemon) 모듈 클래스
 	- CNTService 는 singleton 이다. 그냥 Instance()로 접근하면 된다.
@@ -294,7 +294,7 @@ namespace Proud
 	- -install : SCM에 등록한다.
 	- -uninstall : SCM에서 등록 해제한다.
 	- -console : 이 옵션은 서비스를 일반 EXE 형태로 실행하게 한다. 디버깅을 해야 하는 상황 등
-	SCM에서의 실행을 원하지 않는 경우 이 옵션을 써야 한다. 
+	SCM에서의 실행을 원하지 않는 경우 이 옵션을 써야 한다.
 
 	\~english
 	 Windows service (daemon) module class
@@ -368,10 +368,10 @@ namespace Proud
 
 		CNTService(void);
 		~CNTService(void);
- 		
+
 		/*
 		\~korean
-		winmain이나 main에서 보내준 실행 파라메터를 얻는다. 
+		winmain이나 main에서 보내준 실행 파라메터를 얻는다.
 
 		\~english
 		Gets execution parameter either from winmain or main
@@ -383,10 +383,10 @@ namespace Proud
 		*/
 		void GetArgv_Internal(CFastArray<String>& output);
 
- 		
+
 		/*
 		\~korean
-		winmain이나 main에서 보내준 실행 파라메터를 얻는다. 
+		winmain이나 main에서 보내준 실행 파라메터를 얻는다.
 
 		\~english
 		Gets execution parameter either from winmain or main
@@ -397,10 +397,10 @@ namespace Proud
 		winmainやmainから送られた実行パラメータを得ます。
 		*/
 		void GetEnvp_Internal(CFastArray<String>& output);
- 		
+
 		/*
 		\~korean
-		SCM에서 보내준 실행 파라메터를 얻는다. 
+		SCM에서 보내준 실행 파라메터를 얻는다.
 
 		\~english
 		Gets execution parameter from SCM
@@ -413,9 +413,9 @@ namespace Proud
 		*/
 		void GetArgvFromSCM_Internal(CFastArray<String>& output);
 
-		/** 
+		/**
 		\~korean
-		INTServiceEvent 에서 얻은 이름을 리턴한다. 
+		INTServiceEvent 에서 얻은 이름을 리턴한다.
 
 		\~english
 		Returns the name acquired from INTServiceEvent
@@ -428,9 +428,9 @@ namespace Proud
 		*/
 		const TCHAR* GetName();
 
-		/** 
+		/**
 		\~korean
-		SCM에 의해 실행된 상태인가? 
+		SCM에 의해 실행된 상태인가?
 
 		\~english
 		Is it run by SCM?
@@ -447,7 +447,7 @@ namespace Proud
 		String CreateArg();
 		BOOL IsInstalled();
 
-		/** 
+		/**
 		\~korean
 		서비스 모듈 메인 함수. main()이나 ::WinMain()에서 이 메서드를 호출해야 한다. 다음 기능을 담당한다.
 		- 실행 파라메터 처리: 서비스 등록/해제, 콘솔 모드 실행 등
@@ -490,7 +490,7 @@ namespace Proud
 		*/
 		static void WinMain(int argc, char* argv[], char* envp[], CNTServiceStartParameter &param);
 
-		/** 
+		/**
 		\~korean
 		서비스 모듈 메인 함수. main()이나 ::WinMain()에서 이 메서드를 호출해야 한다. 다음 기능을 담당한다.
 		- 실행 파라메터 처리: 서비스 등록/해제, 콘솔 모드 실행 등

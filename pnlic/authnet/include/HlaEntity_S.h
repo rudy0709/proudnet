@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,12 +34,12 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 #ifdef USE_HLA
 #include "HlaDef.h"
 #include "FastMap.h"
 
-namespace Proud 
+namespace Proud
 {
 	class CHlaSessionHostImpl_S;
 	class CHlaSpace_S;
@@ -85,7 +85,7 @@ namespace Proud
 	public:
 		CHlaSessionHostImpl_S* m_ownerHost;
 
-		CHlaEntityManagerBase_S() 
+		CHlaEntityManagerBase_S()
 		{
 			m_ownerHost = NULL;
 		}

@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -53,25 +53,25 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	CRC 체크섬 클래스입니다.
-	
+
 	\~english
 	CRC checksum class
-	
+
 	\~chinese
 	CRC校验总合类。
-	
+
 	\~japanese
 	\~
 	*/
 	class CCrc
 	{
 	public:
-		/** 
+		/**
 		\~korean
-		Crc-16 
+		Crc-16
 		\param data 데이터의 포인터
 		\param length 데이터의 길이
 		\return 체크섬 결과값
@@ -89,41 +89,41 @@ namespace Proud
 		*/
 		PROUD_API static unsigned short Crc16(const uint8_t* data, unsigned int length);
 
-		/** 
+		/**
 		\~korean
-		Crc-ccitt 
+		Crc-ccitt
 		\param data 데이터의 포인터
 		\param length 데이터의 길이
 		\return 체크섬 결과값
-		
+
 		\~english TODO:translate needed.
-		
+
 		\~chinese
 		Crc-ccitt
 		\param data 数据的指针
 		\param length 数据的长度
 		\return 校验综合结果值
-		
+
 		\~japanese
 		\~
 		*/
 		PROUD_API static unsigned short CrcCcitt(const uint8_t* data, unsigned int length);
 
-		/**  
+		/**
 		\~korean
 		Crc-32
 		\param data 데이터의 포인터
 		\param length 데이터의 길이
 		\return 체크섬 결과값
-		
+
 		\~english TODO:translate needed.
-		
+
 		\~chinese
 		Crc-32
 		\param data 数据的指针
 		\param length 数据的长度
 		\return 校验综合结果值
-		
+
 		\~japanese
 		\~
 		*/

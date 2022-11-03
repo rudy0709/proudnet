@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,9 +34,9 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
-namespace Proud 
+namespace Proud
 {
 	/** \addtogroup util_group
 	*  @{
@@ -45,7 +45,7 @@ namespace Proud
 	class CMemoryHeap;
 	class CriticalSection;
 
-	/** 
+	/**
 	\~korean
 	Fast Heap을 접근하는 방식입니다.
 
@@ -60,7 +60,7 @@ namespace Proud
 	*/
 	enum FastHeapAccessMode
 	{
-		/** 
+		/**
 		\~korean
 		단 한개의 스레드만이 Fast Heap을 접근하지만 Fast Heap 내부가 Thread safe하지 않습니다.
 		이 설정은 단 한개의 스레드만이 Fast Heap을 접근한다는 것이 보장될 때만 사용하십시오!
@@ -77,8 +77,8 @@ namespace Proud
 		\~
 		*/
 		FastHeapAccessMode_UnsafeSingleThread,
-		
-		/** 
+
+		/**
 		\~korean
 		여러 스레드에서 Fast Heap을 접근해도 안전하게 작동합니다. 그리고 모든 CPU 코어를 활용하는 작동법을 구사합니다.
 
@@ -94,7 +94,7 @@ namespace Proud
 		FastHeapAccessMode_MultiThreaded,
 	};
 
-	/** 
+	/**
 	\~korean
 	Fast Heap과 Lookaside Allocator의 환경설정을 담고 있습니다.
 
@@ -110,10 +110,10 @@ namespace Proud
 	class CFastHeapSettings
 	{
 	public:
-		/** 
+		/**
 		\~korean
 		만약 메모리 관리자가 ProudNet에서 미리 생성한 전용 Heap이 아닌 다른 Heap을 사용하게 만들고자 한다면 여기에 CMemoryHeap 객체의 포인터를
-		넣으면 됩니다. 
+		넣으면 됩니다.
 		- 이 설정과 관련된 메모리 매니저가 파괴시 여기서 지정한 CMemoryHeap 을 파괴하지는 않습니다.
 		- NULL을 넣으면 ProudNet에서 미리 생성한 전용 Heap을 사용합니다.
 
@@ -121,7 +121,7 @@ namespace Proud
 		If memory manager intends to let other Heap to be used rather than previously created custom Heap from ProudNet then this is where pointer of CMemoryHeap object to be entered.
 		- When the memory manager related to this setting is destructed, CMemoryHeap designated in here is not to be destructed.
 		- When NULL entered, the Heap previously created by ProudNet is used.
-		
+
 		\~chinese
 		如果储存器管理员想制作不是ProudNet事先生成的专用Heap，而是其他Heap的话，在这里填入 CMemoryHeap%对象的指针。
 		- 与此设置相关的储存器管理员被破坏时，并不会破坏在这里指定的 CMemoryHeap%。
@@ -132,12 +132,12 @@ namespace Proud
 		*/
 		CMemoryHeap* m_pHeap;
 
-		/** 
+		/**
 		\~korean
 		스레딩 모드입니다.
 
 		\~english
-		Threading mode 
+		Threading mode
 
 		\~chinese
 		Threading 模式。
@@ -147,7 +147,7 @@ namespace Proud
 		*/
 		FastHeapAccessMode m_accessMode;
 
-		/** 
+		/**
 		\~korean
 		단 한개의 스레드에서만 이 fast heap을 사용하는지 검사하는 Critical section 객체입니다.
 		- fast heap이 FastHeapAccessMode_UnsafeSingleThread 인 경우에만 유효합니다.
@@ -158,7 +158,7 @@ namespace Proud
 		This is Critical section object that checks if only 1 thread uses this fast heap.
 		- Only valid if the fast heap is FastHeapAccessMode_UnsafeSingleThread
 		- If the fast heap is FastHeapAccessMode_UnsafeSingleThread, then this member must be set by user.
-		- This function only operates in debug mode. 
+		- This function only operates in debug mode.
 
 		\~chinese
 		检查是否只在一个线程使用此fast heap的Critical section对象。

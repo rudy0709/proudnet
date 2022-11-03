@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -42,7 +42,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 namespace Proud
 {
-	/** 
+	/**
 	\~korean
 
 	\~english
@@ -77,13 +77,13 @@ namespace Proud
 		Protocol_ReliableSend,
 	};
 
-	/** 
+	/**
 	\~korean
 
 	\~english
 	return values from synch class invocation.
 	\todo you may change this type to what you want
-	
+
 	\~chinese
 
 	\~japanese
@@ -93,17 +93,17 @@ namespace Proud
 	*/
 	typedef unsigned int HlaResult;
 
-	/** 
+	/**
 	\~korean
 
 	\~english
-	means, "synch class call successful" 
-	
+	means, "synch class call successful"
+
 	\~chinese
 
 	\~japanese
 	\~
-	means, "synch class call successful" 
+	means, "synch class call successful"
 	*/
 	static const HlaResult HlaResult_Ok = 0;
 

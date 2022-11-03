@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -52,7 +52,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	랜덤값 생성기
 
@@ -63,7 +63,7 @@ namespace Proud
 	- CRandom 객체를 생성한 후 InitializeSeed()나 SetSeed() 최초 1회 후 GetInt(), GetInt64, GetFloat 등을 쓰면 된다.
 	- 명시적 랜덤 분포를 요구하지 않으면 그냥 StaticGet*()를 사용하라.
 	- 명시적 랜덤 분포를 필요로 하면 이 객체를 만들어서 InitializeSeed()를 최초 한번만 호출한 후
-	Get*()를 사용하라. 
+	Get*()를 사용하라.
 
 	\~english
 	Random value generator
@@ -96,7 +96,7 @@ namespace Proud
 		uint32_t m_dwState[625];
 		uint32_t *m_pdwNext;
 		int m_lLeft;
-	
+
 		uint32_t LoadMersenneTwister();
 		double GetFloat_INTERNAL();
 		static double StaticGetFloat_INTERNAL();
@@ -106,9 +106,9 @@ namespace Proud
 		PROUD_API CRandom();
 		PROUD_API virtual ~CRandom();
 
-		/** 
+		/**
 		\~korean
-		난수생성 seed 값을 설정합니다. 
+		난수생성 seed 값을 설정합니다.
 
 		\~english
 		Set random number creating seed value
@@ -121,9 +121,9 @@ namespace Proud
 		*/
 		PROUD_API void InitializeSeed();
 
-		/** 
+		/**
 		\~korean
-		난수생성 seed 값을 특정 값으로 설정합니다. 
+		난수생성 seed 값을 특정 값으로 설정합니다.
 		\param dwSeed 시드값
 
 		\~english TODO:translate needed.
@@ -138,9 +138,9 @@ namespace Proud
 		*/
 		PROUD_API void SetSeed(uint32_t dwSeed);
 
-		/** 
+		/**
 		\~korean
-		랜덤값을 만든다. INT_MIN~INT_MAX 중 하나이다. 
+		랜덤값을 만든다. INT_MIN~INT_MAX 중 하나이다.
 
 		\~english
 		Creates random value. One value between INT_MIN~INT_MAX
@@ -153,7 +153,7 @@ namespace Proud
 		*/
 		PROUD_API int GetInt();
 
-		/** 
+		/**
 		\~korean
 		랜덤값을 만든다. INT64_MIN~INT64_MAX 중 하나이다.
 
@@ -168,7 +168,7 @@ namespace Proud
 		*/
 		PROUD_API int64_t GetInt64();
 
-		/** 
+		/**
 		\~korean
 		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. thread safe하다.
 
@@ -183,9 +183,9 @@ namespace Proud
 		*/
 		PROUD_API static int StaticGetInt();
 
-		/** 
+		/**
 		\~korean
-		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. thread safe하다. 
+		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. thread safe하다.
 
 		\~english
 		Gets value from CRandom that created with global object. It does thread safe.
@@ -198,9 +198,9 @@ namespace Proud
 		*/
 		PROUD_API static int64_t StaticGetInt64();
 
-		/** 
+		/**
 		\~korean
-		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. 0~1 사이의 부동소수점 값이다. thread safe하다. 
+		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. 0~1 사이의 부동소수점 값이다. thread safe하다.
 
 		\~english
 		Gets value from CRandom that created with global object. It is floating point value between 0 to 1. It does thread safe.
@@ -212,10 +212,10 @@ namespace Proud
 		\~
 		*/
 		PROUD_API double GetFloat();
-		
-		/** 
+
+		/**
 		\~korean
-		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. 0~1 사이의 부동소수점 값이다. thread safe하다. 
+		전역 객체로 만들어진 CRandom 으로부터 값을 구한다. 0~1 사이의 부동소수점 값이다. thread safe하다.
 
 		\~english
 		Gets value from CRandom that created with global object. It is floating point value between 0 to 1. It does thread safe.
@@ -239,7 +239,7 @@ namespace Proud
 			return arr[CRandom::StaticGetInt()%arr.GetSize()];
 	}
 
-#if defined(_WIN32)    
+#if defined(_WIN32)
 	template<typename T>
 	T GetRandomElement(const std::vector<T>& arr)
 	{
@@ -249,7 +249,7 @@ namespace Proud
 			return arr[CRandom::StaticGetInt()%arr.size()];
 	}
 #endif
-    
+
 	/**  @} */
 #if (_MSC_VER>=1400)
 #pragma managed(pop)

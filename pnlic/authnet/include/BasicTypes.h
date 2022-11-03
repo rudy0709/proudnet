@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -37,7 +37,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #pragma once
 
 // 헤더파일과 LIB가 서로 버전이 안맞아서 생기는 삽질을 예방하기 위함
-// 엔진 업데이트를 할 때마다(사소하게라도) 이 값을 바꾸는 것이 권장됨. 
+// 엔진 업데이트를 할 때마다(사소하게라도) 이 값을 바꾸는 것이 권장됨.
 #define PROUDNET_H_LIB_SIGNATURE 105
 
 
@@ -91,7 +91,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #if !defined(_WIN32)
 
 // NOTE: DWORD, UINT_PTR 같은 것들은 uint32_t or uintptr_t 등 stdint에 정의된 타입으로 쓸 것이고, 윈도용으로 따로 재정의하지 말자.
-// 찾기 힘든 버그 나와서 개고생했음. 
+// 찾기 힘든 버그 나와서 개고생했음.
 
 typedef int SOCKET;
 typedef fd_set FD_SET;
@@ -139,7 +139,7 @@ typedef fd_set FD_SET;
 #define PN_OVERRIDE
 #define PN_FINAL
 #define PN_SEALED
-#endif 
+#endif
 
 #define PNMIN(a,b)            (((a) < (b)) ? (a) : (b))
 #define PNMAX(a,b)            (((a) > (b)) ? (a) : (b))
@@ -225,7 +225,7 @@ static inline void CallConstructors(T* pElements, intptr_t nElements)
 	// 			iElement--;
 	// 			pElements[iElement].~T();
 	// 		}
-	// 
+	//
 	// 		throw;
 	// 	}
 }
@@ -277,16 +277,16 @@ ProudNet 还不支持DLL。虽然没有 CAtlStringW%问题，STL 类型参数有
 \~japanese
 \~
 */
-#	define PROUD_API 
-#	define PROUDSRV_API 
+#	define PROUD_API
+#	define PROUDSRV_API
 #else
 ////////////// ProudNet DLL화할 경우 아래를 사용하자.
 #if defined (PROUD_STATIC_LIB)
-#	define PROUD_API 
-#	define PROUDSRV_API 
+#	define PROUD_API
+#	define PROUDSRV_API
 #elif defined(PROUD_EXPORTS)
 #	define PROUD_API __declspec(dllexport)
-#	define PROUDSRV_API 
+#	define PROUDSRV_API
 #elif defined(PROUDSRV_EXPORTS)
 #	define PROUD_API __declspec(dllimport)
 #	define PROUDSRV_API __declspec(dllexport)
@@ -340,7 +340,7 @@ public:
 	// 			pDest[iElement] = pSrc[iElement];
 	// 		}
 	// 	}
-	// 
+	//
 	// 	static void RelocateElements( T* pDest, T* pSrc, size_t nElements )
 	// 	{
 	// 		// A simple memmove works for nearly all types.

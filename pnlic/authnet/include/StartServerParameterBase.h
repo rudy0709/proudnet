@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -438,7 +438,7 @@ The initial values of the server directly affect server functions. Please refer 
 		\~
 		*/
 		CThreadPool* m_externalUserWorkerThreadPool;
-		
+
 		/**
 		\~korean
 		network I/O 관련 루틴을 사용자가 수동으로 생성한 thread pool에서 실행하게 합니다. 자세한 것은 \ref thread_pool_sharing 을 참고하십시오.
@@ -462,7 +462,7 @@ The initial values of the server directly affect server functions. Please refer 
 
 		/**
 		\~korean
-		- OnException 콜백 기능을 사용할 지 여부를 선택합니다. 
+		- OnException 콜백 기능을 사용할 지 여부를 선택합니다.
 		- 기본값은 true입니다.
 		- 만약 false를 지정하면 유저 콜백에서 예상치 못한 Exception 발생 시 OnException이 호출되지 않고 크래시가 발생합니다.
 
@@ -470,7 +470,7 @@ The initial values of the server directly affect server functions. Please refer 
 		- Decide whether it uses OnException callback function or not.
 		- Default value is true.
 		- If setting it as false, when exception occurs during  user callback, crash will occur as OnException is not called.
-		
+
 		\~chinese
 		- 选择是否使用 OnException Callback功能。
 		- 基本值为 true。
@@ -510,7 +510,7 @@ The initial values of the server directly affect server functions. Please refer 
 		- デフォルトではtrueです。
 		\~
 		*/
-		bool m_enableEncryptedMessaging; 
+		bool m_enableEncryptedMessaging;
 	protected:
 		CStartServerParameterBase();
 

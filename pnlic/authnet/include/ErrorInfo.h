@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -54,7 +54,7 @@ namespace Proud
 
 	class ErrorInfo;
 
-	/** 
+	/**
 	\~korean
 	에러 정보를 담는 객체의 스마트 포인터
 	- ErrorInfoPtr 은 자주 생기는 객체도 아니므로 fast alloc을 안쓴다.
@@ -72,7 +72,7 @@ namespace Proud
 	*/
 	typedef RefCount<ErrorInfo> ErrorInfoPtr;
 
-	/** 
+	/**
 	\~korean
 	에러(또는 성공) 정보를 담은 객체입니다.
 
@@ -88,7 +88,7 @@ namespace Proud
 	class ErrorInfo
 	{
 	public:
-		/** 
+		/**
 		\~korean
 		에러의 종류입니다. 에러가 없으면 ErrorType_Ok 입니다.
 
@@ -102,18 +102,18 @@ namespace Proud
 		\~
 		*/
 		ErrorType m_errorType;
-		/** 
+		/**
 		\~korean
-		m_errorType 의 세부 값입니다. 
-		
+		m_errorType 의 세부 값입니다.
+
 		INetClientEvent.OnLeaveServer 와 INetServerEvent.OnClientLeave 에서
 		m_detailType 은 연결 해제의 더 자세한 경위를 나타냅니다.
-		예를 들어 클라이언트 프로그램이 종료하면서 연결이 해제되면 ErrorType_TCPConnectFailure 를, 
+		예를 들어 클라이언트 프로그램이 종료하면서 연결이 해제되면 ErrorType_TCPConnectFailure 를,
 		클라이언트의 전원이나 회선이 끊어져서 해제된 경우면 ErrorType_ConnectServerTimeout 가 들어갑니다.
 
 		\~english
-		Value for m_errorType 
-		
+		Value for m_errorType
+
 		m_detailType indicates how disconnection occurs with more details at INetClientEvent.OnLeaveServer and INetServerEvent.OnClientLeave
 		For an example, it enters ErrorType_TCPConnectFailure when disconnection occurs as client program terminates
  		or enters ErrorType_ConnectServerTimeout when disconnection occurs due to power failure and/or physical cable disconnection.
@@ -134,7 +134,7 @@ namespace Proud
 		에러가 소켓 에러인 경우 소켓 에러 코드
 
 		\~english
-		Error code for socket error 
+		Error code for socket error
 
 		\~chinese
 		错误是socket错误时的socket错误代码。
@@ -161,7 +161,7 @@ namespace Proud
 
 		/**
 		\~korean
-		추가 문자열 정보 
+		추가 문자열 정보
 
 		\~english
 		Information of additional string
@@ -192,7 +192,7 @@ namespace Proud
 		*/
 		ByteArray m_lastReceivedMessage;
 
-#if defined(_WIN32)    
+#if defined(_WIN32)
 
 		/**
 		\~korean
@@ -209,7 +209,7 @@ namespace Proud
 		*/
 		HRESULT m_hResult;
 #endif
-        
+
 		/**
 		\~korean
 		DB에서 사용될 소스입니다.
@@ -231,14 +231,14 @@ namespace Proud
 		// 이 클래스는 ProudNet DLL 경우를 위해 커스텀 할당자를 쓰되 fast heap을 쓰지 않는다.
 		DECLARE_NEW_AND_DELETE
 #pragma pop_macro("new")
-#endif 
+#endif
 
 
 		PROUD_API ErrorInfo();
 
 		/**
 		\~korean
-		ErrorInfo::FromSocketError() 을 통하여 좀 더 간편하게 ErrorInfo 를 만듭니다. 
+		ErrorInfo::FromSocketError() 을 통하여 좀 더 간편하게 ErrorInfo 를 만듭니다.
 		\param code ErrorType
 		\param se 소켓 에러 type
 		\return 생성된 ErrorInfoPtr
@@ -280,12 +280,12 @@ namespace Proud
 		*/
 		PROUD_API static ErrorInfoPtr From(ErrorType errorType, HostID remote = HostID_None, const String &comment = String(), const ByteArray &lastReceivedMessage = ByteArray() );
 
-		/** 
-		\~korean 
+		/**
+		\~korean
 		ErrorInfo 에 저장된 모든 정보를 String 으로 리턴해줍니다.
 
-		\~english 
-		Change error contents to string 
+		\~english
+		Change error contents to string
 
 		\~chinese
 		把所有储存到ErrorInfo的信息返回至String。
@@ -295,9 +295,9 @@ namespace Proud
 		*/
 		PROUD_API String ToString() const;
 
-		/** 
-		\~korean 
-		객체 자신을 새 객체에 사본을 뜹니다. 
+		/**
+		\~korean
+		객체 자신을 새 객체에 사본을 뜹니다.
 
 		\~english TODO:translate needed.
 
@@ -309,11 +309,11 @@ namespace Proud
 		*/
 		ErrorInfo* Clone();
 
-		/** 
-		\~korean 
+		/**
+		\~korean
 		에러 내용을 문자열로 변환한다.
 
-		\~english 
+		\~english
 		Change error contents to string
 
 		\~chinese
@@ -324,11 +324,11 @@ namespace Proud
 		*/
 		PROUD_API static const PNTCHAR* TypeToString(ErrorType e);
 
-		/** 
-		\~korean 
+		/**
+		\~korean
 		ErrorType 값을 문자열로 변환한다. (한국어)
 
-		\~english 
+		\~english
 		Change ErrorType value to string (Korean)
 
 		\~chinese
@@ -339,11 +339,11 @@ namespace Proud
 		*/
 		PROUD_API static const PNTCHAR* TypeToString_Kor(ErrorType e);
 
-		/** 
-		\~korean 
+		/**
+		\~korean
 		ErrorType 값을 문자열로 변환한다. (영어)
 
-		\~english 
+		\~english
 		Change ErrorType value to string (English)
 
 		\~chinese
@@ -354,11 +354,11 @@ namespace Proud
 		*/
 		PROUD_API static const PNTCHAR* TypeToString_Eng(ErrorType e);
 
-		/** 
-		\~korean 
+		/**
+		\~korean
 		ErrorType 값을 문자열로 변환한다. (간체 중국어)
 
-		\~english 
+		\~english
 		Change ErrorType value to string (Simplified Chinese)
 
 		\~chinese

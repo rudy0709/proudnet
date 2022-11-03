@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -80,16 +80,16 @@ namespace Proud
 		}
 	};
 
-	/** 
+	/**
 	\~korean
 	Conditional behavior member를 위한 임시 Class
-	
+
 	\~english
 	a template class for conditional behavior member
-	
+
 	\~chinese
 	为了Conditional behavior member的临时Class。
-	
+
 	\~japanese
 	\~
 	*/

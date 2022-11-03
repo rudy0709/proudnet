@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,14 +34,14 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "Ptr.h"
 #include "FastMap.h"
 
 //#pragma pack(push,8)
 
-namespace Proud 
+namespace Proud
 {
 	class CPooledString;
 

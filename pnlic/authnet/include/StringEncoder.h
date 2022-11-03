@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -39,7 +39,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #include "BasicTypes.h"
 
 namespace Proud
-{	
+{
 	/** \addtogroup util_group
 	*  @{
 	*/
@@ -47,28 +47,28 @@ namespace Proud
 	class CPnIconv;
 	class CStringEncoderImpl;
 
-	/** 
+	/**
 	\~korean
 	iconv 래퍼 클래스입니다.
 	- Create로 생성 후 필요할 때마다 로컬 변수로서 GetIconv-ReleaseIconv를 쓰시면 됩니다.
-	- 여러 스레드에서의 동시 접근을 위한 오브젝트 풀링의 형태로 iconv 객체를 제공합니다. 
-	따라서 속도가 빠릅니다. 
+	- 여러 스레드에서의 동시 접근을 위한 오브젝트 풀링의 형태로 iconv 객체를 제공합니다.
+	따라서 속도가 빠릅니다.
 
-	ProudNet은 문자열 처리를 위해 윈도에서도 이것을 사용해서 작동합니다. 
+	ProudNet은 문자열 처리를 위해 윈도에서도 이것을 사용해서 작동합니다.
 	과거에는 win32 기능을 사용했지만 멀티플랫폼 단일화를 위해서입니다.
 
 	\~english
-	It is a wrapper class. 
-	- After creating by “create”, you can use GetIconv-ReleaseIconv as the local variable whenever needed. 
-	- iconv objective is provided as the form of object pooling for concurrent access to many threads. 
-	As a result of this, it is fast. 
+	It is a wrapper class.
+	- After creating by “create”, you can use GetIconv-ReleaseIconv as the local variable whenever needed.
+	- iconv objective is provided as the form of object pooling for concurrent access to many threads.
+	As a result of this, it is fast.
 
 	ProudNet used win32 function in the past but for unifying multi-platform, it uses this in Windows for string processing.
 
 	\~chinese
 	iconv 是包装类。
 	- 用Create生成后，在必要时以本地变量使用GetIconv-ReleaseIconv即可。
-	- 是在多个线程中为进行同时接近的对象池形式，提供iconv对象。因此速度较快。 
+	- 是在多个线程中为进行同时接近的对象池形式，提供iconv对象。因此速度较快。
 
 	为处理字符串，ProudNet在Windows中也使用此iconv运行。
 	过去使用了win32功能，但现在使用iconv是为了多平台的单一化。
@@ -76,10 +76,10 @@ namespace Proud
 	\~japanese
 	iconv　wrapperクラスです。.
 	- Createで生成してから必要な時にローカル変数として GetIconv-ReleaseIconvを使ってください。
-	- 色々なスレッドでの同時接近のためのオブジェクプーリングの形態で iconv オブジェクトを提供します。 
+	- 色々なスレッドでの同時接近のためのオブジェクプーリングの形態で iconv オブジェクトを提供します。
 	　したがって速度が速いです。
 
-	 ProudNetは文字列処理のためにWindowsでもこれを使って作動します。 
+	 ProudNetは文字列処理のためにWindowsでもこれを使って作動します。
 	 過去には win32機能を使用しましたが、現在はマルチプラットフォーム単一化のために次のように変更されました。
 
 	\~

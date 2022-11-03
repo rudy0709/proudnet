@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -52,9 +52,9 @@ namespace Proud
 	class CReceivedMessage;
 	class CMessage;
 
-	/** 
+	/**
 	\~korean
-	RMI 호출에 관련된 네트워킹 속성 등 
+	RMI 호출에 관련된 네트워킹 속성 등
 
 	\~english
 	Networkign nature related to RMI calling and others
@@ -69,18 +69,18 @@ namespace Proud
 	class RmiContext
 	{
 	public:
-		/** 
+		/**
 		\~korean
 		relay된 메시지인가?
 		- RMI stub에서 채워지는 값입니다.
 		- 만약 클라이언트가 보낸 RMI가 서버를 통해 릴레이(바이패스)되었거나( \ref p2p_comm_overview  참고),
 		서버가 보낸 RMI가 다른 클라이언트를 통해 route되었으면 ( \ref s2c_routed_multicast  참고)
-		이 값은 true가 된 채 RMI 함수가 콜백됩니다. 
+		이 값은 true가 된 채 RMI 함수가 콜백됩니다.
 
 		\~english
 		Is this a relaysed message?
 		- The value filled at RMI stub
-		- If RMI from client is relayed via server(Please refer \ref p2p_comm_overview) or RMI sent by server is routed by other client(Please refer \ref s2c_routed_multicast), 
+		- If RMI from client is relayed via server(Please refer \ref p2p_comm_overview) or RMI sent by server is routed by other client(Please refer \ref s2c_routed_multicast),
   		then RMI function wil be called back while this value keeps to be true.
 
 		\~chinese
@@ -93,10 +93,10 @@ namespace Proud
 		*/
 		bool m_relayed;
 
-		/** 
+		/**
 		\~korean
 		RMI를 송신한 peer의 HostID 이다.
-		- RMI stub에서 채워지는 값이다. 
+		- RMI stub에서 채워지는 값이다.
 
 		\~english
 		HostID of peer that transmitted RMI
@@ -111,11 +111,11 @@ namespace Proud
 		*/
 		HostID m_sentFrom;
 
-		/** 
+		/**
 		\~korean
-		unreliable send인 경우, 
+		unreliable send인 경우,
 		routed multicast를 할 수 있다. 이때 몇개까지 허용하는지를 여기서 지정한다.
-		- 사용자가 지정해야 한다. 
+		- 사용자가 지정해야 한다.
 
 		\~english
 		If unreliable send, can perform routed multicast. This is where to decide how many of them are allowed.
@@ -130,14 +130,14 @@ namespace Proud
 		*/
 		int m_unreliableS2CRoutedMulticastMaxCount;
 
-		/** 
+		/**
 		\~korean
-		unreliable 메시징인 경우에, 
-		routed multicast를 할 수 있다. 이때 얼마 이상의 랙 이하의 피어간 통신에서만 허용하는지를 여기서 지정한다. 
-		- 사용자가 지정해야 한다. 
+		unreliable 메시징인 경우에,
+		routed multicast를 할 수 있다. 이때 얼마 이상의 랙 이하의 피어간 통신에서만 허용하는지를 여기서 지정한다.
+		- 사용자가 지정해야 한다.
 
 		\~english
-		If unreliable messaging, can perform routed multicast. This is where to decide which rate of laggy P2P communications are allowed. 
+		If unreliable messaging, can perform routed multicast. This is where to decide which rate of laggy P2P communications are allowed.
 		- User must define.
 
 		\~chinese
@@ -149,7 +149,7 @@ namespace Proud
 		*/
 		int m_unreliableS2CRoutedMulticastMaxPingMs;
 
-		/** 
+		/**
 		\~korean
 		직접 멀티캐스트를 할 수 있는 최대 갯수
 		- \ref throttling  기법 중 하나이다.
@@ -158,8 +158,8 @@ namespace Proud
 		Relayed P2P로 전송한다. 설령 직접 P2P 통신을 하고 있더라도 말이다. 0을 지정하면 direct P2P 송신 자체를 안함을 의미한다.
 		- 이 기능은 클라이언트가 대량의 멀티캐스트를 하는 경우, 그리고 클라이언트의 업로드 속도의 한계가 큰 경우(예를 들어
 		업로드 속도가 느린 ADSL 회선) 유용하다. 왜냐하면 ProudNet에서는 relayed P2P의 브로드캐스트 과정에서 클라이언트는
-		1개의 relay될 메시지만을 서버에게 보내고, 서버는 그것을 여러 클라이언트들에게 보내주는 역할을 하기 때문이다. 
-		- 기본값: 무제한. 
+		1개의 relay될 메시지만을 서버에게 보내고, 서버는 그것을 여러 클라이언트들에게 보내주는 역할을 하기 때문이다.
+		- 기본값: 무제한.
 		- 클라이언트에서 호출하는 RMI의 파라메터에 전에 이 값을 사용자가 지정할 수 있다. 서버에서는 이 값이 쓰이지 않는다.
 
 		\~english
@@ -168,8 +168,8 @@ namespace Proud
 		- When RMI transmitting to P2P group and the value is set as N, for N many of other peers of P2P group members, it will be trasmitted as direct P2P. (Of course when other peers communicate with direct P2P)
 		  However, it will be transmitted to the other peers as relayed P2P even if they are performing direct P2P communications. If 0 is set then it means there is no P2P transmission at all.
 		- This function is useful when client performs a large amount of multicasts and the speed limit of client upload (e.g. ADSL line with slower upload speed).
-                  During broadcasting relayed P2P in Proudnet, client sends only 1 of message to be relayed then server performs the role that sends it to many other clients. 
-		- Default: infinite 
+                  During broadcasting relayed P2P in Proudnet, client sends only 1 of message to be relayed then server performs the role that sends it to many other clients.
+		- Default: infinite
 		- User can designate this value to RMI parameter before it is called by client. At server, this value is not used.
 
 		\~chinese
@@ -185,7 +185,7 @@ namespace Proud
 		*/
 		int m_maxDirectP2PMulticastCount; // NOTE: 서버간 통신의 경우 등 때문에 사용자가 임의 지정하지 않는한 무제한이다.
 
-		/** 
+		/**
 		\~korean
 		\ref message_unique_id 기능을 위한 고유값입니다.
 		- 기본값은 0입니다. 0인 경우 단일화되지 않습니다.
@@ -209,15 +209,15 @@ namespace Proud
 		*/
 		int64_t m_uniqueID;
 
-		/** 
+		/**
 		\~korean
-		메시지 송신 우선순위 
+		메시지 송신 우선순위
 		- \ref message_priority  참고.
 		- 사용자가 지정해야 한다.
-		- m_reliability가 reliable로 지정된 경우 이 값은 무시된다. 
+		- m_reliability가 reliable로 지정된 경우 이 값은 무시된다.
 
 		\~english
-		Message trnasmission priority 
+		Message trnasmission priority
 		- Please refer \ref message_priority.
 		- User must define.
 		- If m_reliability = reliable then this value is ignored.
@@ -230,13 +230,13 @@ namespace Proud
 
 		\~japanese
 		\~
-		*/		
+		*/
 		MessagePriority m_priority;
 
-		/** 
+		/**
 		\~korean
 		메시지 송신 메서드
-		- 사용자가 지정해야 한다. 
+		- 사용자가 지정해야 한다.
 
 		\~english
 		Message trnasmission method
@@ -251,7 +251,7 @@ namespace Proud
 		*/
 		MessageReliability m_reliability;
 
-		/** 
+		/**
 		\~korean
 		이 값이 false이면 RMI 수신자가 P2P 그룹 등 복수개인 경우 자기 자신에게 보내는 메시징(loopback)을 제외시킵니다.
 		기본값은 true입니다.
@@ -269,10 +269,10 @@ namespace Proud
 		*/
 		bool m_enableLoopback;
 
-		/** 
+		/**
 		\~korean
 		사용자가 지정한 tag 값입니다. \ref host_tag  기능입니다.
-		- 주의! : tag는 네트웍 동기화가 되지 않는 값입니다. 
+		- 주의! : tag는 네트웍 동기화가 되지 않는 값입니다.
 
 		\~english
 		User defined tag value. A \ref host_tag function.
@@ -291,7 +291,7 @@ namespace Proud
 		// true인 경우 이 RMI송신은 JIT P2P 홀펀칭을 트리거한다. Non-PN RMI에서만 false이다.
 		bool m_enableP2PJitTrigger;
 
-		/** 
+		/**
 		\~korean
 		이 값이 false이면 Unreliable로 보내려 할때, 상대가 relay mode이면, 보내지 않습니다.
 		- 기본값은 true입니다.
@@ -309,9 +309,9 @@ namespace Proud
 		*/
 		bool m_allowRelaySend;
 
-        /** 
+        /**
 		\~korean
-		강제 릴레이 임계비율 값입니다. 
+		강제 릴레이 임계비율 값입니다.
 		이 값을 조절하면, P2P간 통신 속도보다 릴레이가 더 통신 속도가 빠른 경우 릴레이를 선택할 수 있습니다.
 
 		- 예를 들어 피어간 패킷 전송 시간이 서버를 통해 릴레이하는 시간보다 3배 느린 경우에는 직접 피어에게 전송할
@@ -319,7 +319,7 @@ namespace Proud
 		5배 느린 경우에 한해 강제 릴레이를 원할 경우 1/5를 지정하면 됩니다. 0을 지정하면 강제 릴레이를 하지 않습니다.
 		즉, "Relay p2p ping / Direct p2p ping"이 이 값보다 작은 경우에는 강제로 릴레이로 전송합니다.
 		- 중국에서는 P2P간 통신 속도보다 서버와 통신하는 속도가 훨씬 원활한 환경이 있다고 알려져 있습니다.
-		- 기본값은 0입니다. 
+		- 기본값은 0입니다.
 
 		\~english
 		Forced relay critical rate value.
@@ -343,8 +343,8 @@ namespace Proud
 		\~
 		*/
         double m_forceRelayThresholdRatio;
-        
-        /** 
+
+        /**
 		\~korean
 		ProudNet 전용 메시지인지에 대한 식별값입니다.
         - 기본 false입니다. false이면 udp 메시지 갯수를 측정합니다.
@@ -364,10 +364,10 @@ namespace Proud
 		\~
 		*/
         bool m_INTERNAL_USE_isProudNetSpecificRmi;
-        
+
         /**
 		\~korean
-		\ref encryption_usage 에서 사용되는 암호화 알고리즘 선택입니다. 
+		\ref encryption_usage 에서 사용되는 암호화 알고리즘 선택입니다.
 		- 기본값은 EM_None 입니다.
 
 		\~english TODO:translate needed.
@@ -378,9 +378,9 @@ namespace Proud
 
 		\~japanese
 		\~
-		*/		
+		*/
         EncryptMode m_encryptMode;
-        
+
 		/**
 		\~korean
         메시지 압축 기능 입니다. 이 값을 CM_None 이외를 선택할 경우 압축을 하여 메시지를 전송합니다.
@@ -419,14 +419,14 @@ namespace Proud
 
 		// 주의: 수정시 ProudClr의 동명 심볼도 수정해야 한다.
 		PROUD_API RmiContext();
-		
+
 		// 주의: 수정시 ProudClr의 동명 심볼도 수정해야 한다.
 		PROUD_API RmiContext( MessagePriority priority, MessageReliability reliability, int unreliableS2CRoutedMulticastMaxCount, EncryptMode encryptMode = EM_None);
 
-		/** 
+		/**
 		\~korean
 		Reliable message로 RMI 호출시 이것을 파라메터로 넣으면 된다.
-		- 유저가 원하면 별도로 RmiContext 객체를 둬도 좋지만 통상적인 경우 RMI 호출시 이것을 그냥 써도 된다. 
+		- 유저가 원하면 별도로 RmiContext 객체를 둬도 좋지만 통상적인 경우 RMI 호출시 이것을 그냥 써도 된다.
 
 		\~english
 		This is to be entered as parameter when calling RMI as reliable message.
@@ -440,11 +440,11 @@ namespace Proud
 		\~
 		*/
 		PROUD_API static RmiContext ReliableSend;
-		
-		/** 
+
+		/**
 		\~korean
 		EM_Fast 모드로 암호화 하여 Reliable message 로 RMI 호출시 이것을 파라메터로 넣으면 된다.
-		- 기타 사항은 ReliableSend 와 같습니다. 
+		- 기타 사항은 ReliableSend 와 같습니다.
 
 		\~english
 		Encrypt with EM_Fast mode then put this as parameter when you call RMI with Reliable message.
@@ -458,11 +458,11 @@ namespace Proud
 		\~
 		*/
 		PROUD_API static RmiContext FastEncryptedReliableSend;
-		
-		/** 
+
+		/**
 		\~korean
 		EM_Secure 모드로 암호화 하여 Reliable message로 RMI 호출시 이것을 파라메터로 넣으면 된다.
-		- 기타 사항은 ReliableSend 와 같습니다. 
+		- 기타 사항은 ReliableSend 와 같습니다.
 
 		\~english
 		Encrypt with EM_Secure mode then put this as parameter when you call RMI with Reliable message.
@@ -476,12 +476,12 @@ namespace Proud
 		\~
 		*/
 		PROUD_API static RmiContext SecureReliableSend;
-		
-		
-		
-		
-		
-		/** 
+
+
+
+
+
+		/**
 		\~korean
 		Unreliable message로 RMI 호출시 이것을 파라메터로 넣으면 된다.
 		- 유저가 원하면 별도로 RmiContext 객체를 둬도 좋지만 통상적인 경우 RMI 호출시 이것을 그냥 써도 된다.
@@ -492,7 +492,7 @@ namespace Proud
 		그 외의 수많은 메시지들은 낮은 비중을 차지한다. 그리고 충분히 검토하지 않고 unreliable send를 쓸 경우 종종
 		장시간의 문제 해결 시간으로 이어지곤 한다. 이러한 경험을 고려했을때 온라인 게임 개발 초기 과정에서는 웬만한 메시지는
 		모두 reliable send를 쓰게 만들다가 네트웍 통신량 프로필링 등을 통해 대부분의 통신량을 차지하지만 누실이 감당되는 메시지들만
-		찾아서 unreliable send로 바꿔주는 것도 좋은 개발 방법이라 말할 수 있다. 
+		찾아서 unreliable send로 바꿔주는 것도 좋은 개발 방법이라 말할 수 있다.
 
 		\~english
 		This is to be entered as parameter when calling RMI as reliable message.
@@ -516,11 +516,11 @@ namespace Proud
 		\~
 		*/
 		PROUD_API static RmiContext UnreliableSend;
-		
-		/** 
+
+		/**
 		\~korean
 		EM_Fast 모드로 암호화 하여 Unreliable message로 RMI 호출시 이것을 파라메터로 넣으면 된다.
-		- 기타 사항은 UnreliableSend 와 같습니다. 
+		- 기타 사항은 UnreliableSend 와 같습니다.
 
 		\~english
 		Encrypt with EM_Fast mode then put this as parameter when you call RMI with Reliable message.
@@ -534,12 +534,12 @@ namespace Proud
 		\~
 		*/
 		PROUD_API static RmiContext FastEncryptedUnreliableSend;
-		
-		
-		/** 
+
+
+		/**
 		\~korean
 		EM_Secure 모드로 암호화 하여 Unreliable message로 RMI 호출시 이것을 파라메터로 넣으면 된다.
-		- 기타 사항은 UnreliableSend와 같습니다. 
+		- 기타 사항은 UnreliableSend와 같습니다.
 
 		\~english
 		Encrypt with EM_Secure mode then put this as parameter when you call RMI with Reliable message.
@@ -558,14 +558,14 @@ namespace Proud
 
 
 
-		/** 
+		/**
 		\~korean
 		Unreliable server to client multicast message로 RMI 호출시 이것을 파라메터로 넣으면 된다.
 		- 유저가 원하면 별도로 RmiContext 객체를 둬도 좋지만 통상적인 경우 RMI 호출시 이것을 그냥 써도 된다.
 		- Medium priority로 지정되어 있다.
 		- 이 기능은, 서버에서 여러개의 클라이언트로 unreliable RMI 브로드캐스트 호출을 할 때 수신자 중 P2P 직접 연결이 되어 있는 것들끼리는
 		P2P를 통한 routed send를 하게 한다. 이 기능은 서버에서의 CPU 사용량을 약간 증가시키는 댓가로 서버에서 클라이언트로의 송신
-		통신량을 절감한다. (대부분의 게임에서 유용하게 쓰일 수 있다.) 
+		통신량을 절감한다. (대부분의 게임에서 유용하게 쓰일 수 있다.)
 
 		\~english
 		This is unreliable server to client multicast message and this is to be entered as parameter when calling RMI.

@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -46,45 +46,45 @@ namespace Proud
 
 	// 주의: 이것도 바꾸면 ProudClr namespace의 동명 심볼도 수정해야 한다.
 
-	/** 
+	/**
 	\~korean
 	압축 모드입니다.
-	
+
 	\~english
 	Compression mode
-	
+
 	\~chinese
 	压缩模式。
-	
+
 	\~japanese
 	\~
 	*/
 	enum CompressMode
 	{
-		/** 
+		/**
 		\~korean
 		압축을 하지 않습니다.
-		
+
 		\~english
 		Do not compress
-		
+
 		\~chinese
 		不要压缩。
-		
+
 		\~japanese
 		\~
 		 */
-		CM_None,		
+		CM_None,
 		/**
-		\~korean 
+		\~korean
 		ZIP 알고리즘으로 압축을 합니다.
-		
+
 		\~english
-		Compress with ZIP algorism 
-		
+		Compress with ZIP algorism
+
 		\~chinese
 		用ZIP来压缩。
-		
+
 		\~japanese
 		\~
 		*/

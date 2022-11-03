@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -51,12 +51,12 @@ namespace Proud
 #pragma managed(push, off)
 #endif
 	extern const char* CannotUseFastHeapForFilledCollectionErrorText;
-    
+
 	/** \addtogroup util_group
 	*  @{
 	*/
 
-	/** 
+	/**
 
 	\~korean
 	매우 빠르게 처리 되는 Linked List.
@@ -70,7 +70,7 @@ namespace Proud
 
 	\~english
 	Linked List that can be processed with extremely fast.
-	- Uses CFastHeap internally. Therefore, has little cost at adding/deleting element. 
+	- Uses CFastHeap internally. Therefore, has little cost at adding/deleting element.
 	  However, it must correctly follow all the rules described in \ref fast_heap.
 	- In contrast with CFastArray, classes can be used with constructor, destructor and copy assignment operator.
 
@@ -103,7 +103,7 @@ namespace Proud
 	template < typename E, typename ETraits = CPNElementTraits< E > >
 	class CFastList
 	{
-	public:	
+	public:
 		typedef typename ETraits::INARGTYPE INARGTYPE;
 
 	private:
@@ -113,7 +113,7 @@ namespace Proud
 			inline CNode()
 			{
 			}
-			inline CNode( INARGTYPE element) 
+			inline CNode( INARGTYPE element)
 				:m_element( element )
 			{
 			}
@@ -142,7 +142,7 @@ namespace Proud
 #if defined(_MSC_VER)
 		__declspec(property(get = GetCount)) intptr_t Count;
 #endif
-        
+
 		inline intptr_t GetCount() const throw()
 		{
 			return( m_nElements );
@@ -151,9 +151,9 @@ namespace Proud
 		/**
 		\~korean
 		\return 아무런 데이터가 없으면 true, 존재하면 false를 리턴
-		
+
 		\~english TODO:translate needed.
-		
+
 		\~chinese
 		\return 没有任何数据的话true，存在的话返回false。
 
@@ -240,7 +240,7 @@ namespace Proud
 		/**
 		\~korean
 		list 의 첫번째 Data를 list내에서 제거하고 리턴해 줍니다.
-		\return list에서 제거된 data 
+		\return list에서 제거된 data
 
 		\~english TODO:translate needed.
 
@@ -552,7 +552,7 @@ namespace Proud
 
 		/**
 		\~korean
-		모든 데이터를 제거. Clear()와 같음. 
+		모든 데이터를 제거. Clear()와 같음.
 
 		\~english TODO:translate needed.
 
@@ -577,10 +577,10 @@ namespace Proud
 			m_pHead = NULL;
 			m_pTail = NULL;
 		}
-		
+
 		/**
-		\~korean 
-		모든 데이터를 제거.RemoveAll()같음. 
+		\~korean
+		모든 데이터를 제거.RemoveAll()같음.
 
 		\~english TODO:translate needed.
 
@@ -733,8 +733,8 @@ namespace Proud
 			return( pNode->m_element );
 		}
 
-		/** 
-		\~korean 
+		/**
+		\~korean
 		현재 노드의 Data 를 얻는다.
 		\param pos 현재 노드의 Position
 		\return 현재 노드의 Data
@@ -756,8 +756,8 @@ namespace Proud
 			return( pNode->m_element );
 		}
 
-		/** 
-		\~korean 
+		/**
+		\~korean
 		현재 노드의 Data 를 const 변수로 얻는다.
 		\param pos 현재 노드의 Position
 		\return 현재 노드의 Data의 const 변수 리턴
@@ -780,7 +780,7 @@ namespace Proud
 		}
 
 		/**
-		\~korean 
+		\~korean
 		현재 Position이 가리키는 노드의 Data를 세팅한다.
 		\param pos 현재 노드의 Position
 		\param element 세팅할 data
@@ -805,7 +805,7 @@ namespace Proud
 
 		/**
 		\~korean
-		현재 Position이 가르키는 node 를 제거하고 다음 Position을 리턴해 준다. 
+		현재 Position이 가르키는 node 를 제거하고 다음 Position을 리턴해 준다.
 		\param pos 제거하고자 하는 node의 Position
 		\return 제거된 Position의 다음 Position
 
@@ -991,8 +991,8 @@ namespace Proud
 			return( NULL );
 		}
 
-		/** 
-		\~korean 
+		/**
+		\~korean
 		헤더로 부터 iElement갯수 만큼의 다음 node의 Position을 리턴
 		\param iElement 다음으로 넘어갈 노드의 갯수
 		\return node의 Position
@@ -1077,7 +1077,7 @@ namespace Proud
 		\~korean
 		현재 Position이 가리키는 node를 list의 마지막으로 보낸다.
 		\param pos 현재 node의 Position
-		 
+
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -1296,7 +1296,7 @@ namespace Proud
 		inline void FreeNode( CNode* pNode ) throw()
 		{
 			CallDestructor<CNode>(pNode);
-			
+
 				CProcHeap::Free(pNode);
 			m_nElements--;
 		}
@@ -1329,12 +1329,12 @@ namespace Proud
 		class const_iterator;
 		friend class const_iterator;
 
-		/** 
+		/**
 		\~korean
 		STL의 const_iterator와 같은 역할을 한다.
 
 		\~english
-		Performs a role as const_iterator of STL 
+		Performs a role as const_iterator of STL
 
 		\~chinese
 		起着与STL的const_iterator一样的作用。
@@ -1363,23 +1363,23 @@ namespace Proud
 				return (_Tmp);
 			}
 
-			inline bool operator==(const const_iterator& a) const 
+			inline bool operator==(const const_iterator& a) const
 			{
 				return value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner;
 			}
 
-			inline bool operator!=(const const_iterator& a) const 
+			inline bool operator!=(const const_iterator& a) const
 			{
 				return !(value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner);
 			}
 
-			inline const E& operator*() const 
+			inline const E& operator*() const
 			{
 				return value_type::m_owner->GetAt(value_type::m_pos);
 			}
 		};
 #endif
-		/** 
+		/**
 		\~korean
 		STL의 iterator와 같은 역할을 한다.
 
@@ -1390,7 +1390,7 @@ namespace Proud
 		起着与STL的iterator一样的作用。
 
 		\~japanese
-		\~ 
+		\~
 		*/
 		class iterator:public value_type
 		{
@@ -1398,38 +1398,38 @@ namespace Proud
 			inline iterator() {}
 			inline iterator(const const_iterator& src):value_type(src) {}
 
-			inline bool operator==(const iterator& a) const 
+			inline bool operator==(const iterator& a) const
 			{
 				return value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner;
 			}
 
-			inline bool operator!=(const iterator& a) const 
+			inline bool operator!=(const iterator& a) const
 			{
 				return !(value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner);
 			}
 
 			inline iterator& operator++()
-			{	
+			{
 				// preincrement
 				value_type::m_owner->GetNext(value_type::m_pos);
 				return (*this);
 			}
 
 			inline iterator operator++(int)
-			{	
+			{
 				// postincrement
 				iterator _Tmp = *this;
 				++*this;
 				return (_Tmp);
 			}
 
-			inline E& operator*() const 
+			inline E& operator*() const
 			{
 				return value_type::m_owner->GetAt(value_type::m_pos);
 			}
 		};
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -1442,7 +1442,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		inline iterator begin() 
+		inline iterator begin()
 		{
 			iterator ret;
 			ret.m_pos = GetHeadPosition();
@@ -1451,7 +1451,7 @@ namespace Proud
 			return ret;
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -1474,7 +1474,7 @@ namespace Proud
 		}
 
 #ifndef PROUDNET_NO_CONST_ITERATOR
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -1496,7 +1496,7 @@ namespace Proud
 			return ret;
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -1519,7 +1519,7 @@ namespace Proud
 		}
 #endif
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -1561,7 +1561,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		inline bool Equals(const CFastList& rhs) const 
+		inline bool Equals(const CFastList& rhs) const
 		{
 			if(rhs.GetCount()!=GetCount())
 				return false;

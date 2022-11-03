@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,12 +34,12 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "HlaEntity_C.h"
-#include "HlaDelagate_Common.h" 
+#include "HlaDelagate_Common.h"
 
-namespace Proud 
+namespace Proud
 {
 	class CHlaEntityManagerBase_C;
 	class CriticalSection;
@@ -47,13 +47,13 @@ namespace Proud
 
 	/**
 	\~korean
-	HLA 세션 클라이언트 메서드 인터페이스입니다. 
+	HLA 세션 클라이언트 메서드 인터페이스입니다.
 
 	\~english TODO:translate needed.
 
 	\~chinese
 	是HLA session玩家方法界面。
-	
+
 	\~japanese
 	\~
 	*/
@@ -62,13 +62,13 @@ namespace Proud
 	public:
 		virtual ~IHlaHost_C() {};
 
-		/** 
+		/**
 		\~korean
-		HLA entity class를 등록합니다. 
-		HLA entity class는 HLA compiler output이어야 합니다. 
+		HLA entity class를 등록합니다.
+		HLA entity class는 HLA compiler output이어야 합니다.
 
 		\~english TODO:translate needed.
-	
+
 		\~chinese
 		登录HLA entity class。
 		HLA entity class得是HLA compiler output。
@@ -78,12 +78,12 @@ namespace Proud
 		*/
 		virtual void HlaAttachEntityTypes(CHlaEntityManagerBase_C* entityManager) = 0;
 
-		/** 
+		/**
 		\~korean
 		이 모듈에 의해 콜백되는 메서드들을 구현한 객체를 받아들입니다.
 
 		\~english TODO:translate needed.
-	
+
 		\~chinese
 		在接收体现被此模块的回拨方法的对象。
 
@@ -92,12 +92,12 @@ namespace Proud
 		*/
  		virtual void HlaSetDelegate(IHlaDelegate_C* dg) = 0;
 
-		/** 
+		/**
 		\~korean
 		사용자는 이 함수를 일정 시간마다 콜 해야 합니다.
 
 		\~english TODO:translate needed.
-	
+
 		\~chinese
 		用户要每隔一段一定时间回拨此函数。
 
@@ -108,15 +108,15 @@ namespace Proud
 
 	};
 
-	/** 
+	/**
 	\~korean
-	HLA 세션 클라이언트에 의해 콜백되는 인터페이스입니다. 
-	
+	HLA 세션 클라이언트에 의해 콜백되는 인터페이스입니다.
+
 	참고
 	- C++ 이외 버전에서는 본 메서드는 delegate callback 형태일 수 있습니다.
-	
+
 	\~english TODO:translate needed.
-	
+
 	\~chinese
 	被HLA session玩家回拨的界面。
 
@@ -131,13 +131,13 @@ namespace Proud
 	public:
 		virtual ~IHlaDelegate_C() {}
 
-		/** 
+		/**
 		\~korean
 		HLA entity가 생성되면 이 메서드가 콜백됩니다.
 		HlaOnLockCriticalSection()에 의해 lock을 시행한 상태에서 호출됩니다.
 
 		\~english TODO:translate needed.
-	
+
 		\~chinese
 		生成HLA entity的话此方法会回拨。
 		被HlaOnLockCriticalSection()执行lock的状态下被呼出。
@@ -147,7 +147,7 @@ namespace Proud
 		*/
 		virtual void HlaOnEntityAppear( CHlaEntity_C* entity ) = 0;
 
-		/** 
+		/**
 		\~korean
 		HLA entity가 파괴되면 이 메서드가 콜백됩니다.
 		당신은 이 함수에서 entity를 다음과 같이 파괴해야 합니다. 안그러면 memory leak으로 이어집니다.
@@ -158,7 +158,7 @@ namespace Proud
 		HlaOnLockCriticalSection()에 의해 lock을 시행한 상태에서 호출됩니다.
 
 		\~english TODO:translate needed.
-	
+
 		\~chinese
 		HLA entity 被破坏的话此方法会回拨。
 		你要在此函数如下破坏entity。否则会造成memory leak。

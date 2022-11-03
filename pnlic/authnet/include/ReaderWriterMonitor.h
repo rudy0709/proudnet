@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -47,7 +47,7 @@ namespace Proud
 #pragma managed(push, off)
 #endif
 
-#if defined(_WIN32)    
+#if defined(_WIN32)
 	class CReaderLock_NORECURSE;
 	class CWriterLock_NORECURSE;
 
@@ -83,11 +83,11 @@ namespace Proud
 		bool m_locked;
 		int m_multipleReaderCount;
 	public:
-		/** 
+		/**
 		\~korean
 		reader lock 객체를 생성자에서 바로 lock할 수 있다.
 		\param cs 적용할 reader lock 객체
-		\param initialLock true이면 생성자에서 바로 lock한다. 
+		\param initialLock true이면 생성자에서 바로 lock한다.
 
 		\~english
 		Reader lock object can be directly locked at constructor.
@@ -114,13 +114,13 @@ namespace Proud
 			}
 		}
 
-		/** 
+		/**
 		\~korean
-		파괴자 
-		- 이미 이 객체가 점유하고 있던 CriticalSection 이 있을 경우 점유 해제를 자동으로 한다. 
+		파괴자
+		- 이미 이 객체가 점유하고 있던 CriticalSection 이 있을 경우 점유 해제를 자동으로 한다.
 
 		\~english
-		Destructor 
+		Destructor
 		- If there is CriticalSection that is occupied by this object already then disoccupation will be performed automatically.
 
 		\~chinese
@@ -136,10 +136,10 @@ namespace Proud
 				Unlock();
 		}
 
-		/** 
+		/**
 		\~korean
 		reader lock을 점유한다.
-		\return 잠그고 나서 얻은 multiple reader의 갯수 
+		\return 잠그고 나서 얻은 multiple reader의 갯수
 
 		\~english
 		Occupies reader lock
@@ -163,9 +163,9 @@ namespace Proud
 			return m_multipleReaderCount;
 		}
 
-		/** 
+		/**
 		\~korean
-		reader lock을 점유 해제한다. 
+		reader lock을 점유 해제한다.
 
 		\~english
 		Withdraws reader lock
@@ -188,11 +188,11 @@ namespace Proud
 		CReaderWriterMonitor_NORECURSE* m_cs;
 		bool m_locked;
 	public:
-		/** 
+		/**
 		\~korean
 		Writer lock 객체를 생성자에서 바로 lock할 수 있다.
 		\param 적용할 Writer lock 객체
-		\param initialLock true이면 생성자에서 바로 lock한다. 
+		\param initialLock true이면 생성자에서 바로 lock한다.
 
 		\~english
 		Writer lock object can be directly locked at constructor.
@@ -218,10 +218,10 @@ namespace Proud
 			}
 		}
 
-		/** 
+		/**
 		\~korean
-		파괴자 
-		- 이미 이 객체가 점유하고 있던 CriticalSection 이 있을 경우 점유 해제를 자동으로 한다. 
+		파괴자
+		- 이미 이 객체가 점유하고 있던 CriticalSection 이 있을 경우 점유 해제를 자동으로 한다.
 
 		\~english
 		Destructor
@@ -240,9 +240,9 @@ namespace Proud
 				Unlock();
 		}
 
-		/** 
+		/**
 		\~korean
-		Writer lock을 점유한다. 
+		Writer lock을 점유한다.
 
 		\~english
 		Occupies writer lock
@@ -259,7 +259,7 @@ namespace Proud
 			m_cs->WriterLock();
 		}
 
-		/** 
+		/**
 		\~korean
 		Writer lock을 점유 해제한다.
 

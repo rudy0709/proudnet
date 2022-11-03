@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -150,7 +150,7 @@ namespace Proud
 		m_serviceStartName 매개 변수에 의해 지정된 계정 이름에 대한 암호을 지정합니다.
 
 		\~english
-		Appoint the password of the account name that has been appointed by m_serviceStartName parameter. 
+		Appoint the password of the account name that has been appointed by m_serviceStartName parameter.
 
 		\~chinese
 		对于因m_serviceStartName变数不同而指定的账户名，指定密码。
@@ -165,7 +165,7 @@ namespace Proud
 		생성자 메서드입니다.
 
 		\~english
-		It is a constructor method. 
+		It is a constructor method.
 
 		\~chinese
 		生成者方法。
@@ -204,7 +204,7 @@ namespace Proud
 		NT 서비스 이름입니다. 최대 문자열 길이는 256자이며, '/'나 '\'는 사용은 불가능합니다.
 
 		\~english
-		It is the name of NT service. Maximum length of character string is 256 and special characters (such as '/' and '\') are not available. 
+		It is the name of NT service. Maximum length of character string is 256 and special characters (such as '/' and '\') are not available.
 
 		\~chinese
 		NT服务的名称。字符窜最大长度为256个字符，且不可使用 '/' 或 '\'。
@@ -219,8 +219,8 @@ namespace Proud
 		CNTService가 필요로 하는 Event Sink 객체입니다.
 
 		\~english
-		It is an Even Sink object that CNTService needs. 
-		
+		It is an Even Sink object that CNTService needs.
+
 		\~chinese
 		CNTService 所需的 Event Sink 对象。
 
@@ -234,7 +234,7 @@ namespace Proud
 		서비스를 등록할 때, CreateService 함수에 사용되는 설정값입니다.
 
 		\~english
-		It is a setting value that is used for CreateService function when registering a service.  
+		It is a setting value that is used for CreateService function when registering a service.
 
 		\~chinese
 		注册服务时， CreateService 函数所使用的设定值。

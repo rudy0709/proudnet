@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -46,7 +46,7 @@ namespace Proud
 #pragma managed(push, off)
 #endif
 
-	/** 
+	/**
 	\~korean
 	EmergencyLog 서버가 요구하는 delegate
 
@@ -90,9 +90,9 @@ namespace Proud
 		*/
 		virtual void OnStartServer(CStartServerParameter &refParam) = 0;
 
-		/** 
+		/**
 		\~korean
-		서버가 종료해야 하는 상황(유저의 요청 등)이면 이 함수가 true를 리턴하면 된다. 
+		서버가 종료해야 하는 상황(유저의 요청 등)이면 이 함수가 true를 리턴하면 된다.
 
 		\~english TODO:translate needed.
 
@@ -103,11 +103,11 @@ namespace Proud
 		\~
 		*/
 		virtual bool MustStopNow() = 0;
-		
-		/** 
+
+		/**
 		\~korean
 		Critical section 객체를 리턴한다. 개발자는 이 함수를 통해 이미 서버가 사용중인 critical section이나
-		별도로 준비한 critical section 객체를 공급해야 한다.  
+		별도로 준비한 critical section 객체를 공급해야 한다.
 
 		\~english TODO:translate needed.
 
@@ -118,11 +118,11 @@ namespace Proud
 		\~
 		*/
 		virtual CriticalSection* GetCriticalSection() = 0;
-		
-		/** 
+
+		/**
 		\~korean
 		서버 시작이 완료됐음을 알리는 이벤트
-		\param err 서버 시작이 성공했으면 NULL이, 그렇지 않으면 ErrorInfo 객체가 들어있다. 
+		\param err 서버 시작이 성공했으면 NULL이, 그렇지 않으면 ErrorInfo 객체가 들어있다.
 
 		\~english TODO:translate needed.
 
@@ -135,12 +135,12 @@ namespace Proud
 		*/
 		virtual void OnServerStartComplete(Proud::ErrorInfo *err) = 0;
 
-		/** 
+		/**
 		\~korean
-		일정 시간마다 호출된다. 
+		일정 시간마다 호출된다.
 
 		\~english TODO:translate needed.
-		 
+
 		\~chinese
 		每隔一段时间进行传呼。
 
@@ -150,7 +150,7 @@ namespace Proud
 		virtual void OnFrameMove() {}
 	};
 
-	/** 
+	/**
 	\~korean
 	EmergencyLog 서버
 	일반적 용도
@@ -175,10 +175,10 @@ namespace Proud
 	public:
 		virtual ~CEmergencyLogServer(void) {}
 
-		/** 
+		/**
 		\~korean
 		이 메서드를 실행하면 로그 서버가 활성화된다. 이 메서드는 서버가 작동을 중지하라는 요청이 IEmergencyLogServerDelegate 에
-		의해 오기 전까지 리턴하지 않는다. 
+		의해 오기 전까지 리턴하지 않는다.
 
 		\~english TODO:translate needed.
 
@@ -190,9 +190,9 @@ namespace Proud
 		*/
 		virtual void RunMainLoop() = 0;
 
-		/** 
+		/**
 		\~korean
-		CEmergencyLogServer 객체를 생성한다. 
+		CEmergencyLogServer 객체를 생성한다.
 
 		\~english TODO:translate needed.
 

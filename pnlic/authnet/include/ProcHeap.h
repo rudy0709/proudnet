@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -33,7 +33,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 ** 注意：著作物に関する上記の明示を除去しないでください。
 
 */
-#pragma once 
+#pragma once
 
 #include "BasicTypes.h"
 
@@ -138,7 +138,7 @@ namespace Proud
 // 		{															\
 // 		return CProcHeap::Free(ptr);							\
 // 		}
-// 
+//
 
 /* UE4 등은 operator new, delete를 override하는데, 이미 자체적으로 obj-pool 등을 쓰는 경우 꼬일 수 있다.
 이 때문에 obj-pool로 다뤄지는 것들은 아래 매크로를 안에서 쓰도록 하자.
@@ -156,4 +156,4 @@ UE4는 throw keyword를 못 쓰므로 ThrowBadAllocException를 쓴다.
  		{															\
  		return CProcHeap::Free(ptr);							\
  		}
- 
+

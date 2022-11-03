@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -50,7 +50,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	밀리초 단위의 정밀도를 가지는 타이머입니다.
 	- CMilisecTimer::New 를 통해 생성하고, delete로 삭제 합니다.
@@ -59,11 +59,11 @@ namespace Proud
 	- 컴퓨터를 켜고 81706년까지 사용할수 있습니다.
 
 	\~english
-	It is a timer whose degree of precision is millisecond. 
+	It is a timer whose degree of precision is millisecond.
 	Create by “CMilisecTimer::New” and delete by “delete”.
-	QueryPerformanceCounter is internally used. 
+	QueryPerformanceCounter is internally used.
 	No problem with precision but wrong calculation might occur depending on Windows version & CPU.
-	Can use it up to  81706 after turning on the computer. 
+	Can use it up to  81706 after turning on the computer.
 
 	\~chinese
 	精确度为毫秒单位的定时器。
@@ -148,9 +148,9 @@ namespace Proud
 		*/
 		PROUD_API virtual void Advance() = 0;
 
-		/** 
+		/**
 		\~korean
-		현재 시간을 얻는다. 
+		현재 시간을 얻는다.
 
 		\~english
 		Gets current time
@@ -162,17 +162,17 @@ namespace Proud
 
 		\~
 		*/
-		PROUD_API virtual int64_t GetTimeMs() = 0; 
-		
-		/** 
+		PROUD_API virtual int64_t GetTimeMs() = 0;
+
+		/**
 		\~korean
 		전에 GetElapsedTimeMs() 호출로 부터 지난시간을 얻습니다.
 		- MMTimer 의 경우, 정밀도에 문제가 있을 수 있습니다.
 		- QPC의 경우, 정확한 시간을 얻긴 하지만, GetTickCount()보다 50배 정도 느리다.
 
 		\~english TODO:translate needed.
-		Gets the time that elapsed between GetElapsedTimeMs() calls 
-		- 
+		Gets the time that elapsed between GetElapsedTimeMs() calls
+		-
 		- Though it gets the precise time but about 50 times slower than GetTickCount().
 
 		\~chinese
@@ -183,11 +183,11 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		PROUD_API virtual int64_t GetElapsedTimeMs() = 0; 
+		PROUD_API virtual int64_t GetElapsedTimeMs() = 0;
 
-		/** 
+		/**
 		\~korean
-		타이머가 정지 상태이면 true를 리턴한다. 
+		타이머가 정지 상태이면 true를 리턴한다.
 
 		\~english
 		Returns true when timer is paused
@@ -198,7 +198,7 @@ namespace Proud
 		\~japanese
 
 		*/
-		PROUD_API virtual bool IsStopped() = 0; 
+		PROUD_API virtual bool IsStopped() = 0;
 
 
 		/**
@@ -216,7 +216,7 @@ namespace Proud
 		PROUD_API static CMilisecTimer* New();
 	};
 
-	/** 
+	/**
 	\~korean
 	매우 정밀한 "현재 시간"을 얻는다. 정밀도는 1ms이며, 값을 얻어오는 부하는 critical section lock 1회이다.
 

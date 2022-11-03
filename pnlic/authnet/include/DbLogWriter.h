@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -52,7 +52,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	LogWriter에서 오류가 났을 때 오류 메시지를 받을 클래스 입니다. 상속 하여 함수를 정의해 주시면 됩니다.
 	- CDbLogWriter 생성시 인자로 넣어주게 됩니다.
@@ -73,13 +73,13 @@ namespace Proud
 	public:
 		virtual void OnLogWriterException(Proud::AdoException &Err)=0;	//LogWriterException(exception객체를 파라미터로)
 	};
-	
-	/** 
+
+	/**
 	\~korean
 	CDbLogWriter 에서 사용되는 구조체
 
 	\~english
-	Structure used in CDbLogWriter 
+	Structure used in CDbLogWriter
 
 	\~chinese
 	在 CDbLogWriter%使用的构造体。
@@ -90,7 +90,7 @@ namespace Proud
 	class CDbLogParameter
 	{
 	public:
-		/** 
+		/**
 		\~korean
 		로그 기록이 남을 데이터베이스로 접근하는 DBMS Connection String입니다. 자세한 것은 \ref logwriter_db 를 참고하십시오.
 
@@ -104,8 +104,8 @@ namespace Proud
 		\~
 		*/
 		String m_dbmsConnectionString;
-		
-		/** 
+
+		/**
 		\~korean
 		로그를 기록하는 주체의 이름입니다. 예를 들어 이 로그를 기록하는 프로세스의 이름, 가령 "BattleServer #33"을 넣으시면 됩니다.
 
@@ -120,7 +120,7 @@ namespace Proud
 		*/
 		String m_loggerName;
 
-		/** 
+		/**
 		\~korean
 		로그를 기록하는 Dbms타입입니다.MsSql,MySql등을 지원합니다.
 
@@ -152,15 +152,15 @@ namespace Proud
 	};
 
 
-	
 
-	/** 
+
+	/**
 	\~korean
 	DBMS 에 로그를 기록합니다. ( \ref logwriter_db  참고)
 
 	일반적 용도
 	- CDbLogWriter 를 사용하기 전에 ProudNet/Sample/DbmsSchema/LogTable.sql 을 실행하여 DbLog 테이블을 생성해야 합니다.
-	- CDbLogWriter.New 를 써서 이 객체를 생성합니다. 
+	- CDbLogWriter.New 를 써서 이 객체를 생성합니다.
 	- WriteLine, WriteLine 를 써서 로그를 기록합니다. 저장된 로그는 비동기로 저장됩니다.
 	- 기본적으로 LoggerName, LogText, DateTime 이 기록됩니다. 유저가 원하는 컬럼을 넣으려면 WriteLine의 CPropNode 를 사용하면 됩니다.
 
@@ -175,7 +175,7 @@ namespace Proud
 
 	\~chinese
 	往DBMS记载log（参考 \ref logwriter_db）
-	
+
 	一般的用途
 	- 使用 CDbLogWriter%之前执行ProudNet/Sample/DbmsSchema/LogTable.sql，要生成DbLogtable。
 	- 使用 CDbLogWriter.New%生成此对象。
@@ -190,7 +190,7 @@ namespace Proud
 	protected:
 		CDbLogWriter() {} // use CDbLogWriter::New() instead.
 	public:
-		/** 
+		/**
 		\~korean
 		CDbLogWriter 인스턴스를 생성합니다.
 		\param logParameter 로그 기록기의 시작을 위한 설정값들입니다.
@@ -213,15 +213,15 @@ namespace Proud
 
 		virtual ~CDbLogWriter() {}
 
-		/** 
+		/**
 		\~korean
-		한 개의 로그를 기록합니다. 
+		한 개의 로그를 기록합니다.
 		- 이 함수는 비동기로 실행됩니다. 즉, 즉시 리턴됩니다.
 		\param logText 찍을 로그 문자열
 		\param pProperties 사용자가 추가한 필드에 들어갈 값들입니다. 사용 예는 \ref logwriter_db 를 참고하십시오.
 
 		\~english
-		Records 1 log 
+		Records 1 log
 		- this function runs as asynchronous. In other words, it will be returned immediately.
 		\param logText log text string
 		\param pProperties Values to be entered to the fields that were added by user. Please refer to \ref logwriter_db.

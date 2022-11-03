@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -179,7 +179,7 @@ namespace Proud
 
 			// 연속 3번 보낸 것을 못 받는다는 것은 80% 이상 패킷 로스라는 의미. 이 정도면 홀펀칭 되어 있어도 막장이다.
 			// 따라서 10->4 하향.
-			// GetFallbackServerUdpToTcpTimeoutMs과 GetFallbackP2PUdpToTcpTimeoutMs은 서로 같은 값이어야. 
+			// GetFallbackServerUdpToTcpTimeoutMs과 GetFallbackP2PUdpToTcpTimeoutMs은 서로 같은 값이어야.
 			// C-S UDP가 증발하건 P2P UDP가 증발하건 한쪽이 증발하면 나머지도 불안한건 매한가지 이므로.
 			return UnreliablePingIntervalMs * 4;
 		}

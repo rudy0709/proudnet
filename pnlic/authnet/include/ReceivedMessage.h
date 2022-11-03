@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -49,9 +49,9 @@ namespace Proud
 #if (_MSC_VER>=1400)
 #pragma managed(push, off)
 #endif
-	/* 
+	/*
 	\~korean
-	수신된 메시지. 내부 용도다. 
+	수신된 메시지. 내부 용도다.
 
 	\~english
 	Received messge. Internal purpose.
@@ -80,7 +80,7 @@ namespace Proud
 		bool m_relayed;
 
 		// ACR
-		int m_messageID; // m_hasMessgeID=true일때만 유효 
+		int m_messageID; // m_hasMessgeID=true일때만 유효
 		bool m_hasMessageID;
 
 		//double m_actionTime;

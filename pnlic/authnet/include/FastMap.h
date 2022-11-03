@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -59,7 +59,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	(Key,Value) pair의 hash 알고리즘 기반 map class입니다. 상세한 내용은 \ref hash_map 에 있습니다.
 	- CAtlMap과 사용법이 동일합니다. 그러면서도 STL.map의 iterator 및 일부 메서드와 동일하게 사용할 수 있습니다.
@@ -73,7 +73,7 @@ namespace Proud
 	\param AllocT AllocType 값 중 하나
 
 	\~english
-	An hash algorithm base map class of (Key,Value) pair. Please refer \ref hash_map for further detail. 
+	An hash algorithm base map class of (Key,Value) pair. Please refer \ref hash_map for further detail.
 	- Has very same usage as CAtlMap while still can be used same as iterator of STL.map and some methods.
 	  Plus, can be used as same format as Dictionary class of .NET framework.
 	- The iterator of this class performs much faster that the iterator of STL.map.
@@ -83,7 +83,7 @@ namespace Proud
 	\param KTraits class that defines the characteristics that handle key type of collection
 	\param VTraits class that defines the characteristics that handle value type of collection
 
-	\~chinese 
+	\~chinese
 	是(Key,Value) pair的hash算法基础的map class。详细内容在\ref hash_map%。
 	- 与 CAtlMap%使用方法一致。而且能与 STL.map%的iterator及一些方法相同使用。加上能与.Net framework 的Dictionary class用于相同形式。
 	- 此类的iterator比 STL.map%的iterator显示出更快的性能。
@@ -141,7 +141,7 @@ namespace Proud
 	};
 
 	CFastMap<Foo, int, FooTraits> fooToIntMap;
-	
+
 	\endcode
 
 	*/
@@ -186,7 +186,7 @@ namespace Proud
 				m_pNext = NULL;
 				m_pPrev = NULL;
 			}
-			inline ~CNode() 
+			inline ~CNode()
 			{
 
 			}
@@ -211,26 +211,26 @@ namespace Proud
 		// hash table. 배열의 N번째 항목은 hash % bin size가 N인 개체들의 linked list head이다.
 		// 할당/해제시 ProudNet DLL시 런타임 오류를 피하기 위해 CFirstHeap을 쓴다.
 		CNode** m_ppBins;
-		
+
 		// 각 bin의 head node는 다른 bin의 tail node이다. 이 변수는 head bin, 즉 다른 bin의 tail node의 다음이 아닌
 		// 노드이다. 즉 iteration의 최초 대상임을 의미한다.
 		CNode* m_pHeadBinHead;
-		
+
 		// 가장 마지막에 들어있는 항목
 		CNode* m_pTailBinTail;
 		// 이 map에 있는 총 항목의 갯수
 		intptr_t m_nElements;
-		
+
 		// hash table 크기
 		uint32_t m_nBins;
-		
+
 		float m_fOptimalLoad;
 		float m_fLoThreshold;
 		float m_fHiThreshold;
 		intptr_t m_nHiRehashThreshold;
 		intptr_t m_nLoRehashThreshold;
 		uint32_t m_nLockCount;
-		
+
 		CFastHeap* m_refHeap;
 	private:
 		void InitVars( uint32_t nBins, float fOptimalLoad, float fLoThreshold, float fHiThreshold )
@@ -246,23 +246,23 @@ namespace Proud
 			m_fHiThreshold= fHiThreshold ;
 			m_nHiRehashThreshold= UINT_MAX ;
 			m_nLoRehashThreshold= 0 ;
-			
+
 			SetOptimalLoad( fOptimalLoad, fLoThreshold, fHiThreshold, false );
 		}
 
 	public:
-		/** 
+		/**
 		\~korean
-		생성자입니다. 
-		
+		생성자입니다.
+
 		\param nBins 기본 해시 테이블의 크기입니다. 솟수로 설정해야 제 성능을 냅니다. 상세한 내용은 \ref hash_map 에 있습니다.
 		\param fOptimalLoad 최적 부하 비율입니다. 상세한 내용은 \ref hash_map_load 에 있습니다.
 		\param fLoThreshold 최소 부하 비율입니다. 상세한 내용은 \ref hash_map_load 에 있습니다.
 		\param fHiThreshold 최대 부하 비율입니다. 상세한 내용은 \ref hash_map_load 에 있습니다.
 
 		\~english
-		This is constructor 
-		
+		This is constructor
+
 		\param nBins The size of base hash table. Performs ok when set with prime number. Please refer \ref hash_map for further detail.
 		\param fOptimalLoad Optimized load proportion. Please refer \ref hash_map for further detail.
 		\param fLoThreshold Minimum load proportion. Please refer \ref hash_map for further detail.
@@ -289,7 +289,7 @@ namespace Proud
 			InitVars(nBins, fOptimalLoad, fLoThreshold, fHiThreshold);
 		}
 
-#if defined(_MSC_VER)        
+#if defined(_MSC_VER)
 		/**
 		\~korean
 		이미 갖고 있는 항목의 갯수를 구한다.
@@ -305,7 +305,7 @@ namespace Proud
 		*/
 		__declspec(property(get = GetCount)) intptr_t Count;
 #endif
-		
+
 		inline intptr_t GetCount() const throw()
 		{
 			return( m_nElements );
@@ -314,17 +314,17 @@ namespace Proud
 		/**
 		\~korean
 		이미 갖고 있는 항목의 갯수를 구한다.
-		
+
 		\~english
 		Gets number of item that already owned
-		
+
 		\~chinese
 		求已拥有项目的数量。
 
 		\~japanese
 		\~
 		*/
-		inline intptr_t size() const 
+		inline intptr_t size() const
 		{
 			return GetCount();
 		}
@@ -332,7 +332,7 @@ namespace Proud
 		/**
 		\~korean
 		텅빈 상태인가?
-		
+
 		\~english
 		Is it empty?
 
@@ -347,18 +347,18 @@ namespace Proud
 			return( m_nElements == 0 );
 		}
 
-		/** 
+		/**
 		\~korean
-		key에 대응하는 value를 얻는다. 
+		key에 대응하는 value를 얻는다.
 		\param [in] key 찾을 키
 		\param [out] value 찾은 키에 대응하는 값이 저장될 곳
 		\return key를 찾았으면 true를 리턴한다.
 
 		\~english
-		Gets value correspnds to key 
+		Gets value correspnds to key
 		\param [in] key key to find
 		\param [out] value a space where the value corresponds to the key found to be stored
-		\return returns true if key is found. 
+		\return returns true if key is found.
 
 		\~chinese
 		获得对应key的value。
@@ -390,7 +390,7 @@ namespace Proud
 			return true;
 		}
 
-		/** 
+		/**
 		\~korean
 		key에 대응하는 value를 찾되, CPair 객체를 리턴한다.
 
@@ -401,7 +401,7 @@ namespace Proud
 		找对应key的value，返回 CPair%对象。
 
 		\~japanese
-		\~ 
+		\~
 		*/
 		const CPair* Lookup( KINARGTYPE key ) const throw()
 		{
@@ -418,7 +418,7 @@ namespace Proud
 			return( pNode );
 		}
 
-		/** 
+		/**
 		\~korean
 		key에 대응하는 value를 찾되, CPair 객체를 리턴한다.
 
@@ -445,8 +445,8 @@ namespace Proud
 
 			return( pNode );
 		}
-		
-		/** 
+
+		/**
 		\~korean
 		key에 대응하는 value 값을 찾는다. 없을 경우 새 entry를 내부적으로 만든다
 
@@ -478,23 +478,23 @@ namespace Proud
 			}
 
 			return( pNode->m_value );
-		}    
-			  
-		/** 
+		}
+
+		/**
 		\~korean
-		key,value pair를 새로 추가한다. 이미 있으면 오버라이트한다. 
+		key,value pair를 새로 추가한다. 이미 있으면 오버라이트한다.
 		\param key 추가할 키값
 		\param value 추가할 값 객체
 		\return 추가를 한 후 추가 위치를 가리키는 포인터. Position이 베이스 클래스이므로 바로 Position을 리턴값으로 간주해도 된다.
 
 		\~english
-		Newly addes key and value pair. If already exist then overwrites. 
+		Newly addes key and value pair. If already exist then overwrites.
 		\param key key value to be added
 		\param value value object to be added
 		\return pointer that points additional location after adding. Since Position is a base class, it is possible to regards Position as return value.
 
 		\~chinese
-		新添加key,value pair。已有的话就覆盖。 
+		新添加key,value pair。已有的话就覆盖。
 		\param key 要添加的key值。
 		\param value 要添加的值对象。
 		\return 添加后指向添加位置的指针。因为Position是默认类，可以直接把Position看作是返回值。
@@ -530,7 +530,7 @@ namespace Proud
 			return pNode;/*( Position( pNode ) ); */
 		}
 
-		/** 
+		/**
 		\~korean
 		일전에 얻은 Position 객체가 가리키는 곳의 value를 새로 넣는다.
 		\param pos value를 넣을 node의 Position
@@ -562,7 +562,7 @@ namespace Proud
 			}
 		}
 
-		/** 
+		/**
 		\~korean
 		\copydoc 제거
 
@@ -595,10 +595,10 @@ namespace Proud
 		/**
 		\~korean
 		완전히 비운다
-		
+
 		\~english
 		Completely empty it
-		
+
 		\~chinese
 		完全腾空。
 
@@ -610,18 +610,18 @@ namespace Proud
 			RemoveAll();
 		}
 
-		/** 
+		/**
 		\~korean
 		key가 가리키는 항목을 찾아 제거한다.
 		\param key 제거할 키
-		\param rehashOnNeed true인 경우, hash table이 충분히 작아진 경우 hash table을 재조정한다. 
-		이때 사용중이던 iterator나 Position 가 있을 경우 이는 무효화됨을 주의해야 한다. 
+		\param rehashOnNeed true인 경우, hash table이 충분히 작아진 경우 hash table을 재조정한다.
+		이때 사용중이던 iterator나 Position 가 있을 경우 이는 무효화됨을 주의해야 한다.
 		\return 찾아서 제거를 했으면 true를 리턴한다. 못찾았으면 false다.
 
 		\~english
 		Finds the clause pointed by key then removes it.
 		\param key key to be removed
-		\param rehashOnNeed if ture then hash table is re-modified when hash table became small enough 
+		\param rehashOnNeed if ture then hash table is re-modified when hash table became small enough
 		Must pay attention to the fact that if there exists either iterator and/or Position during the process, it/they will be nullified.
 		\return returns if found and removed. False if failed to find.
 
@@ -635,7 +635,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		inline bool Remove( KINARGTYPE key,bool rehashOnNeed=false ) 
+		inline bool Remove( KINARGTYPE key,bool rehashOnNeed=false )
 		{
 			return RemoveKey(key,rehashOnNeed);
 		}
@@ -695,12 +695,12 @@ namespace Proud
 			EnableAutoRehash();
 		}
 
-		/** 
+		/**
 		\~korean
 		Position이 가리키는 곳의 key-value pair를 제거한다.
 		\param pos 일전에 얻은 Position 값. 이 값은 유효한 값이어야 한다!
-		\param rehashOnNeed true일 때, hash table이 충분히 작아진 경우 hash table을 재조정한다. 
-		이때 사용중이던 iterator나 Position 가 있을 경우 이는 무효화됨을 주의해야 한다. 
+		\param rehashOnNeed true일 때, hash table이 충분히 작아진 경우 hash table을 재조정한다.
+		이때 사용중이던 iterator나 Position 가 있을 경우 이는 무효화됨을 주의해야 한다.
 
 		\~english
 		Removes key-value pair of where pointed by Position
@@ -715,7 +715,7 @@ namespace Proud
 		要注意，这时在使用的iterator或Position，注意这会变得无效。
 
 		\~japanese
-		\~ 
+		\~
 		*/
 		void RemoveAtPos( Proud::Position pos ,bool rehashOnNeed=false) throw()
 		{
@@ -726,7 +726,7 @@ namespace Proud
 			RemoveNode( pNode ,rehashOnNeed);
 		}
 
-		/** 
+		/**
 		\~korean
 		보유하고 있는 항목 중 맨 앞의 것을 얻는다. 주로 iteration을 위해서 쓰인다.
 		GetNext 등을 써서 다음 항목을 iteration해 나갈 수 있다.
@@ -752,10 +752,10 @@ namespace Proud
 				return( NULL );
 			}
 
-			return Proud::Position(m_pHeadBinHead);			
+			return Proud::Position(m_pHeadBinHead);
 		}
 
-		/** 
+		/**
 		\~korean
 		보유하고 있는 항목 중 맨 뒤의 것을 얻는다.주로 reverse_iteration을 위해서 쓰인다.
 		GetPrev 등을 써서 다음 항목을 iteration해 나갈 수있다.
@@ -786,7 +786,7 @@ namespace Proud
 		}
 
 
-		/** 
+		/**
 		\~korean
 		다음 항목을 얻는다.
 		\param [in,out] pos 다음 항목의 Position값
@@ -824,7 +824,7 @@ namespace Proud
 			value = pNode->m_value;
 		}
 
-		/** 
+		/**
 		\~korean
 		다음 항목을 얻는다.
 		\param pos 가리키고 있는 node의 다음 Position을 얻어온다.
@@ -857,7 +857,7 @@ namespace Proud
 			return( pNode );
 		}
 
-		/** 
+		/**
 		\~korean
 		다음 항목을 얻는다.
 		\param pos pos 가리키고 있는 node의 다음 Position을 얻어온다.
@@ -887,9 +887,9 @@ namespace Proud
 			return( pNode );
 		}
 
-		/** 
+		/**
 		\~korean
-		이전 항목을 얻는다. 
+		이전 항목을 얻는다.
 		\param pos pos가 가르키고 있는 node의 이전 Position을 얻어온다.
 		\return 이전노드의 \ref CPair 값
 
@@ -917,7 +917,7 @@ namespace Proud
 			return( pNode );
 		}
 
-		/** 
+		/**
 		\~korean
 		다음 항목을 얻는다.
 		\param pos 이 pos 가리키고 있는 node의 다음 Position을 얻어온다.
@@ -950,7 +950,7 @@ namespace Proud
 			return( pNode->m_key );
 		}
 
-		/** 
+		/**
 		\~korean
 		다음 항목을 얻는다.
 		\param pos 이 pos 가리키고 있는 node의 다음 Position을 얻어온다.
@@ -983,7 +983,7 @@ namespace Proud
 			return( pNode->m_value );
 		}
 
-		/** 
+		/**
 		\~korean
 		다음 항목을 얻는다.
 		\param pos 이 pos 가리키고 있는 node의 다음 Position을 얻어온다.
@@ -1016,7 +1016,7 @@ namespace Proud
 			return( pNode->m_value );
 		}
 
-		/** 
+		/**
 		\~korean
 		Position이 가리키고 있는 곳의 key와 value를 얻는다.
 		\param pos 노드를 가리키는 Position
@@ -1045,7 +1045,7 @@ namespace Proud
 			value = pNode->m_value;
 		}
 
-		/** 
+		/**
 		\~korean
 		해당 index에 있는 곳의 key와 value를 얻는다.
 		\param index 첫번째 정보로 부터 이 index만큼 다음노드로 이동한다.
@@ -1072,9 +1072,9 @@ namespace Proud
 				node = node->m_pNext;
 
 			return( static_cast< CPair* >( node ) );
-		}      
+		}
 
-		/** 
+		/**
 		\~korean
 		해당 index에 있는 곳의 key와 value를 얻는다.
 		\param index 첫번째 정보로 부터 이 index만큼 다음노드로 이동한다.
@@ -1101,9 +1101,9 @@ namespace Proud
 				node = node->m_pNext;
 
 			 return( static_cast< CPair* >( node ) );
-		}      
+		}
 
-		/** 
+		/**
 		\~korean
 		Position이 가리키고 있는 곳의 key와 value를 얻는다.
 		\param pos Position정보
@@ -1127,7 +1127,7 @@ namespace Proud
 			return( static_cast< CPair* >( pos ) );
 		}
 
-		/** 
+		/**
 		\~korean
 		Position이 가리키고 있는 곳의 key와 value를 얻는다.
 		\param pos Position정보
@@ -1151,7 +1151,7 @@ namespace Proud
 			return( static_cast< const CPair* >( pos ) );
 		}
 
-		/** 
+		/**
 		\~korean
 		Position이 가리키고 있는 곳의 key와 value를 얻는다.
 		\param pos node를 가리키는 Position
@@ -1177,7 +1177,7 @@ namespace Proud
 			return( pNode->m_key );
 		}
 
-		/** 
+		/**
 		\~korean
 		Position이 가리키고 있는 곳의 key와 value를 얻는다.
 		\param pos node를 가리키는 Position
@@ -1203,7 +1203,7 @@ namespace Proud
 			return( pNode->m_value );
 		}
 
-		/** 
+		/**
 		\~korean
 		Position이 가리키고 있는 곳의 key와 value를 얻는다.
 		\param pos node를 가리키는 Position
@@ -1228,7 +1228,7 @@ namespace Proud
 
 			return( pNode->m_value );
 		}
-				
+
 		/**
 		\~korean
 		hash 테이블의 크기를 얻습니다.
@@ -1248,7 +1248,7 @@ namespace Proud
 		}
 
 		/**
-		\~korean 
+		\~korean
 		hash 테이블을 초기화 합니다.
 		- 노드 생성시 자동으로 호출됩니다.
 		\param nBins 헤쉬 사이즈
@@ -1423,7 +1423,7 @@ namespace Proud
 						else
 						{
 							// head bin이다. head bin ptr도 교체 필수
-							pHeadBinHead = pNode; 
+							pHeadBinHead = pNode;
 						}
 
 						pNode->m_pPrev = pOldBinHead->m_pPrev; // pOldBinHead->m_pPrev = NULL OK
@@ -1487,7 +1487,7 @@ namespace Proud
 #endif // ENABLE_REHASH_COUNT
 		}
 
-		/** 
+		/**
 		\~korean
 		맵의 최적 부하를 재설정합니다. 맵의 최적 부하에 대해서는 \ref hash_map_load 에 있습니다.
 
@@ -1534,7 +1534,7 @@ namespace Proud
 			}
 		}
 
-		/** 
+		/**
 		\~korean
 		lookup 최적 성능, 웬만해서는 rehash를 최대한 안하고, 그 대신 메모리를 많이 사용하는 설정.
 		증감폭이 워낙 큰데다 rehash cost가 큰 경우에 유용하다.
@@ -1556,12 +1556,12 @@ namespace Proud
 		*/
 		void SetOptimalLoad_BestLookup(bool rehashNow = false)
 		{
-			SetOptimalLoad(0.1f,0.0000001f,2.1f,rehashNow); 
+			SetOptimalLoad(0.1f,0.0000001f,2.1f,rehashNow);
 		}
 
 
 		/**
-		\~korean 
+		\~korean
 		각 bin을 뒤져서, 최악의 bin, 즉 가장 많은 item을 가진 bin의 item 갯수를 리턴한다.
 
 		\~english TODO:translate needed.
@@ -1607,7 +1607,7 @@ namespace Proud
 			m_enableSlowConsistCheck = true;
 		}
 
-		/** 
+		/**
 		\~korean
 		map 객체의 key들을 모은 배열을 만들어 제공합니다.
 
@@ -1625,7 +1625,7 @@ namespace Proud
 			output.Clear();
 			output.SetCount(GetCount());
 			int c = 0;
-			
+
 			for(ConstIterType i=CFastMap<K,V>::begin();i!=CFastMap<K,V>::end();i++)
 			{
 				output[c] = i.GetFirst();
@@ -1633,7 +1633,7 @@ namespace Proud
 			}
 		}
 
-		/** 
+		/**
 		\~korean
 		map 객체의 value들을 모은 배열을 만들어 제공합니다.
 
@@ -1658,7 +1658,7 @@ namespace Proud
 			}
 		}
 
-		/** 
+		/**
 		\~korean
 		내부 상태가 깨진 것이 없는지 확인한다.
 		- 크기가 크더라도 inline으로 해둬야 빈 함수일때 noop가 된다. (regardless of compilers)
@@ -1803,7 +1803,7 @@ namespace Proud
 				m_pTailBinTail = pNewNode;
 				pNewNode->m_pPrev = NULL;
 				pNewNode->m_pNext = NULL;
-				
+
 				m_ppBins[iBin] = pNewNode;
 
 				m_nElements++; // 마무리
@@ -1827,7 +1827,7 @@ namespace Proud
 					else
 					{
 						// head bin이다. head bin ptr도 교체 필수
-						m_pHeadBinHead = pNewNode; 
+						m_pHeadBinHead = pNewNode;
 					}
 
 					pNewNode->m_pPrev = pOldBinHead->m_pPrev; // pOldBinHead->m_pPrev = NULL OK
@@ -1892,10 +1892,10 @@ namespace Proud
 			if ( rehashOnNeed && (m_nElements < m_nLoRehashThreshold) && !IsLocked() )
 			{
 				Rehash( PickSize( m_nElements ) );
-			} 
+			}
 		}
 
-		/* 
+		/*
 		\~korean
 		특정 key를 가진 node를 찾되 부수 정보도 같이 찾는다. 내부 함수
 		\param [out] iBin node가 속한 bin의 index
@@ -1931,8 +1931,8 @@ namespace Proud
 			}
 
 			// bin에서 key와 같은 항목을 순회하며 찾는다.
-			for ( CNode* pNode = m_ppBins[iBin]; 
-				(pNode != NULL && iBin == pNode->m_nBin); 
+			for ( CNode* pNode = m_ppBins[iBin];
+				(pNode != NULL && iBin == pNode->m_nBin);
 				pNode = pNode->m_pNext )
 			{
 				if ( KTraits::CompareElements( pNode->m_key, key ) )
@@ -1975,7 +1975,7 @@ namespace Proud
 				m_pHeadBinHead = NULL;
 				m_pTailBinTail = NULL;
 			}
-			else 
+			else
 			{
 				// 이 노드가 bin의 마지막 node인 경우 bin entry도 수정한다.
 				if(IsBinUniqueNode(pNode))
@@ -1987,14 +1987,14 @@ namespace Proud
 				if(pNode == m_pHeadBinHead)
 				{
 					m_pHeadBinHead = pNode->m_pNext;
-					pNode->m_pPrev = NULL;	
+					pNode->m_pPrev = NULL;
 				}
 
 				// 이 노드가 전체 bin의 마지막 노드라면 노드 변경..
 				if(pNode == m_pTailBinTail)
 				{
 					m_pTailBinTail = pNode->m_pPrev;
-					pNode->m_pNext = NULL; 
+					pNode->m_pNext = NULL;
 				}
 
 				// 이 노드의 앞뒤를 서로 연결한다.
@@ -2017,7 +2017,7 @@ namespace Proud
 
 			if (pNode->m_pNext != NULL && (pNode->m_pNext->m_nBin) == pNode->m_nBin)
 				return false;
-			
+
 			return true;
 		}
 
@@ -2059,7 +2059,7 @@ namespace Proud
 		}
 
 		public:
-		~CFastMap() 
+		~CFastMap()
 		{
 #if !defined(_WIN32)
 		//try
@@ -2085,7 +2085,7 @@ namespace Proud
 		}
 
 
-		/** 
+		/**
 		\~korean
 		CFastMap 은 복사 가능한 객체이다.
 
@@ -2099,7 +2099,7 @@ namespace Proud
 		\~japanese
 		\~
 		 */
-		CFastMap( const CFastMap& a) 
+		CFastMap( const CFastMap& a)
 		{
 			m_refHeap = a.m_refHeap;
 			m_enableSlowConsistCheck = false;
@@ -2114,7 +2114,7 @@ namespace Proud
 			}
 		}
 
-		/** 
+		/**
 		\~korean
 		CFastMap 은 복사 가능한 객체이다.
 
@@ -2141,7 +2141,7 @@ namespace Proud
 			return *this;
 		}
 
-		/** 
+		/**
 		\~korean
 		CFastMap 은 비정렬 container인지라 비교 연산이 std.map 보다 느립니다.
 
@@ -2173,7 +2173,7 @@ namespace Proud
 		}
 
 	public:
-		/** 
+		/**
 		\~korean
 		key 집합을 모아서 준다.
 
@@ -2196,13 +2196,13 @@ namespace Proud
 			}
 		}
 
-		/** 
+		/**
 		\~korean
-		key가 있는지 확인한다. 
+		key가 있는지 확인한다.
 		\return 키가 있으면 true
 
 		\~english
-		Checks if there is key 
+		Checks if there is key
 		\return If there is key then true
 
 		\~chinese
@@ -2217,7 +2217,7 @@ namespace Proud
 			return find(key) != end();
 		}
 
-		/** 
+		/**
 		\~korean
 		value가 있는지 확인한다.
 
@@ -2240,7 +2240,7 @@ namespace Proud
 			return false;
 		}
 
-		/** 
+		/**
 		\~korean
 		key에 대응하는 value가 있으면 true를 리턴한다.
 
@@ -2257,8 +2257,8 @@ namespace Proud
 		{
 			return Lookup(key, value);
 		}
-		
-		/** 
+
+		/**
 		\~korean
 		새 항목을 추가한다.
 		\param key 추가할 항목의 key
@@ -2284,7 +2284,7 @@ namespace Proud
 		{
 			if(ContainsKey(key))
 				return false;
-			
+
 			(*this)[key] = value;
 			return true;
 		}
@@ -2313,7 +2313,7 @@ namespace Proud
 
 #ifndef PROUDNET_NO_CONST_ITERATOR
 
-		/** 
+		/**
 		\~korean
 		STL의 const_iterator와 같은 역할을 한다.
 
@@ -2347,12 +2347,12 @@ namespace Proud
 				return (_Tmp);
 			}
 
-			inline bool operator==(const const_iterator& a) const 
+			inline bool operator==(const const_iterator& a) const
 			{
 				return value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner;
 			}
 
-			inline bool operator!=(const const_iterator& a) const 
+			inline bool operator!=(const const_iterator& a) const
 			{
 				return !(value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner);
 			}
@@ -2361,18 +2361,18 @@ namespace Proud
 // 			{
 // 				return m_owner->GetKeyAt(m_pos);
 // 			}
-// 
+//
 // 			inline const V& second() const
 // 			{
 // 				return m_owner->GetValueAt(m_pos);
 // 			}
 
-			inline const value_type& operator*() const 
+			inline const value_type& operator*() const
 			{
 				return *this;
 			}
 
-			inline const value_type* operator->() const 
+			inline const value_type* operator->() const
 			{
 				return this;
 			}
@@ -2381,7 +2381,7 @@ namespace Proud
 		class const_reverse_iterator;
 		friend class const_reverse_iterator;
 
-		/** 
+		/**
 		\~korean
 		STL의 iterator과 같은 역할을 한다.
 
@@ -2399,7 +2399,7 @@ namespace Proud
 		public:
 			inline const_reverse_iterator(){}
 			inline const_reverse_iterator(const reverse_iterator& src):value_type(src){}
-			
+
 			const_reverse_iterator& operator++()
 			{
 				// preincrement
@@ -2415,29 +2415,29 @@ namespace Proud
 				return (_Tmp);
 			}
 
-			inline bool operator==(const const_reverse_iterator& a) const 
+			inline bool operator==(const const_reverse_iterator& a) const
 			{
 				return value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner;
 			}
 
-			inline bool operator!=(const const_reverse_iterator& a) const 
+			inline bool operator!=(const const_reverse_iterator& a) const
 			{
 				return !(value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner);
 			}
 
-			inline const value_type& operator*() const 
+			inline const value_type& operator*() const
 			{
 				return *this;
 			}
 
-			inline const value_type* operator->() const 
+			inline const value_type* operator->() const
 			{
 				return this;
 			}
 
 		};
 #endif
-		/** 
+		/**
 		\~korean
 		STL의 iterator와 같은 역할을 한다.
 
@@ -2456,7 +2456,7 @@ namespace Proud
 			inline iterator() {}
 			inline iterator(const const_iterator& src):value_type(src) {}
 
-			/** 
+			/**
 			\~korean
 			STL iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2469,12 +2469,12 @@ namespace Proud
 			\~japanese
 			\~
 			 */
-			inline bool operator==(const iterator& a) const 
+			inline bool operator==(const iterator& a) const
 			{
 				return value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner;
 			}
 
-			/** 
+			/**
 			\~korean
 			STL iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2487,12 +2487,12 @@ namespace Proud
 			\~japanese
 			\~
 			 */
-			inline bool operator!=(const iterator& a) const 
+			inline bool operator!=(const iterator& a) const
 			{
 				return !(value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner);
 			}
 
-			/** 
+			/**
 			\~korean
 			STL iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2506,13 +2506,13 @@ namespace Proud
 			\~
 			 */
 			inline iterator& operator++()
-			{	
+			{
 				// preincrement
 				value_type::m_owner->GetNext(value_type::m_pos);
 				return (*this);
 			}
 
-			/** 
+			/**
 			\~korean
 			STL iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2526,14 +2526,14 @@ namespace Proud
 			\~
 			 */
 			inline iterator operator++(int)
-			{	
+			{
 				// postincrement
 				iterator _Tmp = *this;
 				++*this;
 				return (_Tmp);
 			}
 
-			/** 
+			/**
 			\~korean
 			STL iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2547,13 +2547,13 @@ namespace Proud
 			\~
 			 */
 			inline iterator& operator--()
-			{	
+			{
 				// preincrement
 				value_type::m_owner->GetPrev(value_type::m_pos);
 				return (*this);
 			}
 
-			/** 
+			/**
 			\~korean
 			STL iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2567,13 +2567,13 @@ namespace Proud
 			\~
 			 */
 			inline iterator operator--(int)
-			{	
+			{
 				// predecrement
 				--(*this);
 				return (*this);
 			}
 
-			/** 
+			/**
 			\~korean
 			STL iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2586,12 +2586,12 @@ namespace Proud
 			\~japanese
 			\~
 			 */
-			inline const value_type& operator*() const 
+			inline const value_type& operator*() const
 			{
 				return *this;
 			}
 
-			/** 
+			/**
 			\~korean
 			STL iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2604,13 +2604,13 @@ namespace Proud
 			\~japanese
 			\~
 			 */
-			inline const value_type* operator->() const 
+			inline const value_type* operator->() const
 			{
 				return this;
 			}
 		};
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -2623,7 +2623,7 @@ namespace Proud
 		\~japanese
 		\~
 		 */
-		inline iterator begin() 
+		inline iterator begin()
 		{
 			iterator ret;
 			ret.m_pos = GetStartPosition();
@@ -2632,7 +2632,7 @@ namespace Proud
 			return ret;
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -2654,7 +2654,7 @@ namespace Proud
 			return ret;
 		}
 
-		inline value_type front() 
+		inline value_type front()
 		{
 			if(GetCount()==0)
 				ThrowInvalidArgumentException();
@@ -2662,7 +2662,7 @@ namespace Proud
 			return *begin();
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 iterator와 같은 역할을 한다.
 
@@ -2680,7 +2680,7 @@ namespace Proud
 			inline reverse_iterator() {}
 			inline reverse_iterator(const const_reverse_iterator& src):value_type(src) {}
 
-			/** 
+			/**
 			\~korean
 			STL reverse_iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2693,12 +2693,12 @@ namespace Proud
 			\~japanese
 			\~
 			 */
-			inline bool operator==(const reverse_iterator& a) const 
+			inline bool operator==(const reverse_iterator& a) const
 			{
 				return value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner;
 			}
 
-			/** 
+			/**
 			\~korean
 			STL reverse_iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2711,12 +2711,12 @@ namespace Proud
 			\~japanese
 			\~
 			 */
-			inline bool operator!=(const reverse_iterator& a) const 
+			inline bool operator!=(const reverse_iterator& a) const
 			{
 				return !(value_type::m_pos==a.m_pos && value_type::m_owner==a.m_owner);
 			}
 
-			/** 
+			/**
 			\~korean
 			STL reverse_iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2730,13 +2730,13 @@ namespace Proud
 			\~
 			 */
 			inline reverse_iterator& operator++()
-			{	
+			{
 				// preincrement
 				value_type::m_owner->GetPrev(value_type::m_pos);
 				return (*this);
 			}
 
-			/** 
+			/**
 			\~korean
 			STL reverse_iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2750,14 +2750,14 @@ namespace Proud
 			\~
 			 */
 			inline reverse_iterator operator++(int)
-			{	
+			{
 				// postincrement
 				reverse_iterator _Tmp = *this;
 				++*this;
 				return (_Tmp);
 			}
 
-			/** 
+			/**
 			\~korean
 			STL reverse_iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2771,13 +2771,13 @@ namespace Proud
 			\~
 			 */
 			inline reverse_iterator& operator--()
-			{	
+			{
 				// preincrement
 				value_type::m_owner->GetNext(value_type::m_pos);
 				return (*this);
 			}
 
-			/** 
+			/**
 			\~korean
 			STL reverse_iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2791,13 +2791,13 @@ namespace Proud
 			\~
 			 */
 			inline reverse_iterator operator--(int)
-			{	
+			{
 				// predecrement
 				--(*this);
 				return (*this);
 			}
 
-			/** 
+			/**
 			\~korean
 			STL reverse_iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2810,12 +2810,12 @@ namespace Proud
 			\~japanese
 			\~
 			 */
-			inline const value_type& operator*() const 
+			inline const value_type& operator*() const
 			{
 				return *this;
 			}
 
-			/** 
+			/**
 			\~korean
 			STL reverse_iterator와 같은 역할을 하게 해주는 연산자 함수
 
@@ -2828,13 +2828,13 @@ namespace Proud
 			\~japanese
 			\~
 			 */
-			inline const value_type* operator->() const 
+			inline const value_type* operator->() const
 			{
 				return this;
 			}
 		};
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -2845,9 +2845,9 @@ namespace Proud
 		起着与STL同名方法相同的的作用。
 
 		\~japanese
-		\~ 
+		\~
 		*/
-		inline reverse_iterator rbegin() 
+		inline reverse_iterator rbegin()
 		{
 			reverse_iterator ret;
 			ret.m_pos = GetEndPosition();
@@ -2856,7 +2856,7 @@ namespace Proud
 			return ret;
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -2877,10 +2877,10 @@ namespace Proud
 
 			return ret;
 		}
-		
+
 
 #ifndef PROUDNET_NO_CONST_ITERATOR
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -2891,7 +2891,7 @@ namespace Proud
 		起着与STL同名方法相同的的作用。
 
 		\~japanese
-		\~ 
+		\~
 		*/
 		inline const_iterator begin() const
 		{
@@ -2902,7 +2902,7 @@ namespace Proud
 			return ret;
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -2944,7 +2944,7 @@ namespace Proud
 #endif
 
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -2970,7 +2970,7 @@ namespace Proud
 			return ret;
 		}
 
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -2995,7 +2995,7 @@ namespace Proud
 
 			return ret;
 		}
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -3027,7 +3027,7 @@ namespace Proud
 		}
 
 #ifndef PROUDNET_NO_CONST_ITERATOR
-		/** 
+		/**
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -3059,7 +3059,7 @@ namespace Proud
 		}
 
 #endif
-		/** 
+		/**
 		\~korean
 		내부 버퍼로 CFastHeap 을 사용한다.
 		\param heap CFastHeap 포인터

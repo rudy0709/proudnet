@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -75,7 +75,7 @@ namespace Proud
 		 Stored Procedure의 Recordset에서는 사용할 수 없습니다.
 
 		 \~english
-		 Move to the first record. 
+		 Move to the first record.
 		 It cannot be used at Recordset of Stored Procedure.
 
 		 \~chinese
@@ -96,7 +96,7 @@ namespace Proud
 		 Stored Procedure의 Recordset에서는 사용할 수 없습니다.
 
 		 \~english
-		 Move to the last record. 
+		 Move to the last record.
 		 It cannot be used at Recordset of Stored Procedure.
 
 		 \~chinese
@@ -121,7 +121,7 @@ namespace Proud
 		 It cannot be used at Recordset of Stored Procedure.
 
 		 \~chinese
-		 移动到前 Record 。 
+		 移动到前 Record 。
 		 在Stored Procedure的 Recordset 中无法使用。
 
 		 \~japanese
@@ -131,7 +131,7 @@ namespace Proud
 		 \~
 		 */
 		bool MovePrev();
-		
+
 		/**
 		 \~korean
 		 다음 레코드로 이동합니다.
@@ -139,12 +139,12 @@ namespace Proud
 		 데이터를 얻을 때 이 함수를 먼저 호출해야만 얻을 수 있습니다.
 
 		 \~english
-		 Move to the next record. 
-		 In order to gather this, you need to call this function first when gathering data. 
+		 Move to the next record.
+		 In order to gather this, you need to call this function first when gathering data.
 
 		 \~chinese
 		 移动到下一个 Record 。
-		 获取数据时，必须先呼出该函数才能获取。 
+		 获取数据时，必须先呼出该函数才能获取。
 
 		 \~japanese
 		 次のレコードに移動します。
@@ -160,7 +160,7 @@ namespace Proud
 		 성공/실패를 반환합니다.
 
 		 \~english
-		 In case of bringing many RecordSets, you may convert it to the next RecordSet by using this function. 
+		 In case of bringing many RecordSets, you may convert it to the next RecordSet by using this function.
 
 		 \~chinese
 		 获取多个 RecordSet 时，可以通过该函数转换为下一个 RecordSet。
@@ -177,7 +177,7 @@ namespace Proud
 		 전체 Row 개수를 반환합니다.
 
 		 \~english
-		 Return the total number of Row. 
+		 Return the total number of Row.
 
 		 \~chinese
 		 返还所有 Row个数。
@@ -213,7 +213,7 @@ namespace Proud
 		 전체 Field 개수를 반환합니다.
 
 		 \~english
-		 Return the total number of Fields. 
+		 Return the total number of Fields.
 
 		 \~chinese
 		 返还所有Field个数。
@@ -230,7 +230,7 @@ namespace Proud
 		 BOF는 Index == -1일 때 이며 아직 읽은 데이터가 없는 상태입니다.
 
 		 \~english
-		 BOF indicates Index == -1 and it means there is no data that has been read. 
+		 BOF indicates Index == -1 and it means there is no data that has been read.
 
 		 \~chinese
 		 BOF为 Index == -1 时，是未读数据的状态。
@@ -246,7 +246,7 @@ namespace Proud
 		 EOF는 Index == GetRowCount()일 때 이며 데이터를 모두 읽은 상태입니다.
 
 		 \~english
-		 EOF indicates Index == GetRowCount() and it means all data has been read. 
+		 EOF indicates Index == GetRowCount() and it means all data has been read.
 
 		 \~chinese
 		 EOF为 Index == GetRowCount()时，是已读所有数据的状态。
@@ -331,8 +331,8 @@ namespace Proud
 		 \param fieldIndex Field(Column) Index (ex> 1, 2, 3, ...)
 
 		 \~english
-		 Bring the current size of Field(Column) data. 
-		 In case of NULL, it returns -1. 
+		 Bring the current size of Field(Column) data.
+		 In case of NULL, it returns -1.
 		 \param fieldIndex Field(Column) Index (ex> 1, 2, 3, ...)
 
 		 \~chinese
@@ -355,8 +355,8 @@ namespace Proud
 		 \param fieldName Field(Column) 이름
 
 		 \~english
-		 Bring the current size of Field(Column) data. 
-		 In case of NULL, it returns -1. 
+		 Bring the current size of Field(Column) data.
+		 In case of NULL, it returns -1.
 		 \param fieldname It is the name of Field(Column).
 
 		 \~chinese
@@ -514,7 +514,7 @@ namespace Proud
 
 		 \~english
 		 Return Field(Column) data.
-		 In case you do not know the type of data, use GetFieldSqlType() to get to know. 
+		 In case you do not know the type of data, use GetFieldSqlType() to get to know.
 		 Refer to OdbcEnum.h for Default OdbcDataType that is mapped with OdbcSqlDataType.
 		 ex> int a = recordset.GetFieldValue(1);
 		 \param fieldIndex Field(Column) Index (ex> 1, 2, 3, ...)
@@ -546,7 +546,7 @@ namespace Proud
 
 		 \~english
 		 Return Field(Column) data.
-		 In case you do not know the type of data, use GetFieldSqlType() to get to know. 
+		 In case you do not know the type of data, use GetFieldSqlType() to get to know.
 		 Refer to OdbcEnum.h for Default OdbcDataType that is mapped with OdbcSqlDataType.
 		 ex> int a = recordset.GetFieldValue("name");
 		 \param fieldname It is the name of Field(Column).

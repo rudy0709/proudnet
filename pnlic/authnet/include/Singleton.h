@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -65,7 +65,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	JIT 인스턴싱만 thread safe하게 하는 singleton template
 	- JIT 인스턴싱 과정만 CS lock을 해서 thread safe하게 하고, 생성된 이후부터는 thread unsafe하게 한다.
@@ -74,7 +74,7 @@ namespace Proud
 
 	일반적 용도
 	- 이 클래스의 파생 클래스를 만든다. T에는 파생 클래스의 이름을 넣는다.
-	- Instance()를 이용해서 싱글톤의 레퍼런스를 얻는다. Instance()를 최초로 호출하면 객체가 인스턴스화된다. 
+	- Instance()를 이용해서 싱글톤의 레퍼런스를 얻는다. Instance()를 최초로 호출하면 객체가 인스턴스화된다.
 	- 싱글톤간 파괴 순서를 제어하려면 싱글톤의 생성자에서 의존 대상 싱글톤을 한번 접근해주면 된다.
 
 	사용예
@@ -99,7 +99,7 @@ namespace Proud
 	{
 	public:
 		__declspec(dllexport) Goofie& Instance() // CSingleton.Instance()를 오버라이드하되 DLL에서 export되는 함수로 만든다.
-		{	
+		{
 			return __super::Instance(); // DLL 모듈 메모리 공간 내에 만들어진 instance를 리턴한다.
 		}
 	};
@@ -112,7 +112,7 @@ namespace Proud
 
 	General usage
 	- Creates derivative class to this class. The name of the derivative class is to enter at T.
-	- Gets reference of Singleton using Instance(). Object is instanced when Instance() is called for the first time. 
+	- Gets reference of Singleton using Instance(). Object is instanced when Instance() is called for the first time.
 	- To control the destruction order of Singletons, constructor of Signleton should approach to dependent target Singleton just for once.
 
 	Usage example
@@ -136,7 +136,7 @@ namespace Proud
 	{
 	public:
 		__declspec(dllexport) Goofie& Instance() // Override CSingleton.Instance() but make it as a function exported from DLL.
-		{	
+		{
 			return __super::Instance(); // Returns the instance that is created in DLL module memory space
 		}
 	};
@@ -184,7 +184,7 @@ namespace Proud
 	\~
 
 
-	\~korean 
+	\~korean
 
 	만약 싱글톤끼리 파괴 순서를 보장해야 하는 경우, shared pointer 객체를 얻어서 보관함으로써 파괴 순서를 정의할 수 있습니다.
 
@@ -202,11 +202,11 @@ namespace Proud
 
 
 
-	\~korean 
+	\~korean
 
 	예시 코드
 
-	\~english 
+	\~english
 
 	Example code
 
@@ -240,11 +240,11 @@ namespace Proud
 		User()
 		{
 			// 싱글톤 참조 카운트를 증가시키면서, 싱글톤의 생존을 보장시킵니다.
-			m_mySingleton = MySingleton::GetInstanceAccessor();			
+			m_mySingleton = MySingleton::GetInstanceAccessor();
 		}
 
 		Foo()
-		{			
+		{
 			...
 			// 싱글톤을 접근하려면 이미 갖고 있는 싱글톤 스마트포인터 객체를 통해 접근합니다.
 			m_mySingleton->Something();
@@ -266,19 +266,19 @@ namespace Proud
 	// It is the user that has access to Singleton.
 	class MyGoo
 	{
-		// While MyGoo instance exists, it must have this member in order to assure Singleton’s survival. 
-		// Use this member for Singleton access, of course. 
+		// While MyGoo instance exists, it must have this member in order to assure Singleton’s survival.
+		// Use this member for Singleton access, of course.
 		MySingleton::PtrType m_mySingleton;
 
 		// constructor
 		User()
 		{
 			// It guarantee survival of singleton with increasing singleton refer count.
-			m_mySingleton = MySingleton::GetInstanceAccessor();			
+			m_mySingleton = MySingleton::GetInstanceAccessor();
 		}
 
 		Foo()
-		{			
+		{
 			...
 			// To access singleton, use singleton smartpointer object that already has.
 			// do not use MySingleton::Instance(), but use this member variable.
@@ -309,11 +309,11 @@ namespace Proud
 		User()
 		{
 			// 想增加singleton参照count的话，可以保障singleton的生存。
-			m_mySingleton = MySingleton::GetInstanceAccessor();			
+			m_mySingleton = MySingleton::GetInstanceAccessor();
 		}
 
 		Foo()
-		{			
+		{
 			...
 			// 想接近singleton的话，通过已经拥有的singleton smartpointer对象来接近。
 			m_mySingleton->Something();
@@ -331,7 +331,7 @@ namespace Proud
 	{
 	public:
 		typedef RefCount<T> PtrType;
-		
+
 		// shared ptr로서의 객체를 가져온다.
 		_Noinline static PtrType& GetSharedPtr()  // 리턴값이 &인 이유는, 사용자가 weak ptr로 가져오는 경우 쓸데없는 복사 수행을 막기 위해서다.
 		{

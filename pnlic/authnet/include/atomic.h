@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "pnstdint.h"
 
@@ -66,7 +66,7 @@ s3eBool s3eAtomicCompareAndSwap(int32 oldValue, int32 newValue, int32* target);*
 //#pragma pack(push,8)
 
 
-namespace Proud 
+namespace Proud
 {
 #if (_MSC_VER>=1400)
 #pragma managed(push, off)
@@ -94,7 +94,7 @@ class CSlowAtomic
 {
 public:
 	// 리턴: 변경 후의 값
-	static int32_t Increment32(volatile int32_t *target); 
+	static int32_t Increment32(volatile int32_t *target);
 	// 리턴: 변경 후의 값
 	static int32_t Decrement32(volatile int32_t *target);
 	// 리턴: 변경 전의 값
@@ -106,7 +106,7 @@ public:
 	static int32_t Swap(int32_t newValue, volatile int32_t *target);
 };
 
-	// atomic operation. 
+	// atomic operation.
 	// 주의: 당연하지만, target은 volatile & 32 or 64bit align이 되어 있어야 한다.
 	// 리턴: 변경 후의 값
 	inline int32_t AtomicIncrement32(volatile int32_t *target)
@@ -121,7 +121,7 @@ public:
 #endif
 	}
 
-	// atomic operation. 
+	// atomic operation.
 	// 주의: 당연하지만, target은 volatile & 32 or 64bit align이 되어 있어야 한다.
 	// 리턴: 변경 후의 값
 	inline int32_t AtomicDecrement32(volatile int32_t *target)
@@ -135,7 +135,7 @@ public:
 #endif
 	}
 
-	// atomic operation. 
+	// atomic operation.
 	// 주의: 당연하지만, target은 volatile & 32 or 64bit align이 되어 있어야 한다.
 	// 리턴: 변경 전의 값
 	inline int32_t AtomicCompareAndSwap32(int32_t oldValue, int32_t newValue, volatile int32_t *target)
@@ -151,8 +151,8 @@ public:
 	}
 
 
-#if defined(_WIN64) || defined(__LP64__) 
-	// atomic operation. 
+#if defined(_WIN64) || defined(__LP64__)
+	// atomic operation.
 	// 주의: 당연하지만, target은 volatile & 32 or 64bit align이 되어 있어야 한다.
 	// 리턴: 변경 후의 값
 	inline int64_t AtomicIncrement64(volatile int64_t *target)
@@ -166,7 +166,7 @@ public:
 #endif
 	}
 
-	// atomic operation. 
+	// atomic operation.
 	// 주의: 당연하지만, target은 volatile & 32 or 64bit align이 되어 있어야 한다.
 	// 리턴: 변경 후의 값
 	inline int64_t AtomicDecrement64(volatile int64_t *target)
@@ -180,7 +180,7 @@ public:
 #endif
 	}
 
-	// atomic operation. 
+	// atomic operation.
 	// 주의: 당연하지만, target은 volatile & 32 or 64bit align이 되어 있어야 한다.
 	// 리턴: 타겟 피라미터의 초기값
 	inline int64_t AtomicExchange64(int64_t newValue, volatile int64_t *target)
@@ -195,7 +195,7 @@ public:
 #endif
 	}
 
-	// atomic operation. 
+	// atomic operation.
 	// 주의: 당연하지만, target은 volatile & 32 or 64bit align이 되어 있어야 한다.
 	// 리턴: 변경 전의 값
 	inline int64_t AtomicCompareAndSwap64(int64_t oldValue, int64_t newValue, volatile int64_t *target)
@@ -214,28 +214,28 @@ public:
 	// CPU가 32bit이건 64bit이건 상관없이 쓰는 것들, 가령 object reference count 등에서 사용됨
 	// NOTE:예전에는 #define이었으나, OSX에서 int32_t=int, intptr_t=long이라 컴파일 에러가 발생한다. 그래서 이렇게 수정해서 컴파일 에러를 피함.
 #if defined(_WIN64) || defined(__LP64__) // https://developer.apple.com/library/mac/#documentation/Darwin/Conceptual/64bitPorting/MakingCode64-BitClean/MakingCode64-BitClean.html 참고
-	// atomic operation. 
+	// atomic operation.
 	// 주의: 당연하지만, target은 volatile & 32 or 64bit align이 되어 있어야 한다.
 	inline intptr_t AtomicIncrementPtr(volatile intptr_t *target)
 	{
 		return AtomicIncrement64((int64_t*)target);
 	}
 
-	// atomic operation. 
+	// atomic operation.
 	// 주의: 당연하지만, target은 volatile & 32 or 64bit align이 되어 있어야 한다.
 	inline intptr_t AtomicDecrementPtr(volatile intptr_t *target)
 	{
 		return AtomicDecrement64((int64_t*)target);
 	}
 #else
-	// atomic operation. 
+	// atomic operation.
 	// 주의: 당연하지만, target은 volatile & 32 or 64bit align이 되어 있어야 한다.
 	inline intptr_t AtomicIncrementPtr(volatile intptr_t *target)
 	{
 		return AtomicIncrement32((int32_t*)target);
 	}
 
-	// atomic operation. 
+	// atomic operation.
 	// 주의: 당연하지만, target은 volatile & 32 or 64bit align이 되어 있어야 한다.
 	inline intptr_t AtomicDecrementPtr(volatile intptr_t *target)
 	{

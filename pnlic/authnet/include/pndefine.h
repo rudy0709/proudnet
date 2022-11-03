@@ -12,9 +12,9 @@
 #	define PROUDNET_HAS_ICONV
 #endif
 
-// NOTE: 소켓 모델에 따른 운영체제 define 정의  
+// NOTE: 소켓 모델에 따른 운영체제 define 정의
 //
-#if defined(__MACH__) 
+#if defined(__MACH__)
 #define USE_KQUEUE_ONLY_ON_MACH
 #endif
 
@@ -53,5 +53,5 @@
 
 // critical section or mutex의 thread ID 값을 얻어올수 있는 환경에서만 정의됩니다.
 #if defined (_WIN32) || defined (__linux__) || defined (__ANDROID__) /*|| defined (__MACH__)*/
-#define PN_LOCK_OWNER_SHOWN 
+#define PN_LOCK_OWNER_SHOWN
 #endif

@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #if defined(_WIN32)
 
@@ -67,9 +67,9 @@ namespace Proud
     {
         friend CDbCacheClient2Impl;
         friend CDbCacheServer2Impl;
-        
+
 	private:
-		// forest를 직접 소유함. 
+		// forest를 직접 소유함.
 		CPropNode*	m_Root;
 		// forest에서 guid를 키로 빨리 찾게 하기 위함
 		PropNodeMap		m_propNodeMap;
@@ -85,7 +85,7 @@ namespace Proud
 
 		\~chinese
 		这个加载的DB cache client发送的session的识别者。
-                
+
 		\~japanese
 		\~
 		*/
@@ -96,7 +96,7 @@ namespace Proud
 
 		inline int	GetRemoveCount(){ return (int)m_removePropNodeList.GetCount(); }
 
-		int _INTERNAL_NOACCESSMODE_GetDirtyCount();		
+		int _INTERNAL_NOACCESSMODE_GetDirtyCount();
 		CPropNodePtr _INTERNAL_NOACCESSMODE_GetNode(const Guid& guid);
 		Proud::ErrorType _INTERNAL_NOACCESSMODE_CheckNode(CPropNodePtr node);
 
@@ -108,15 +108,15 @@ namespace Proud
 		Proud::ErrorType _INTERNAL_NOACCESSMODE_RemoveNode(CPropNodePtr node, bool addremovelist);
 		Proud::CPropNodePtr _INTERNAL_NOACCESSMODE_GetRemoveNode(Proud::Guid &removeUUID);
 		Proud::ErrorType _INTERNAL_NOACCESSMODE_AddRemovePropNodeList(CPropNodePtr node);
-		
+
 		void _INTERNAL_NOACCESSMODE_SerializeToMessage(CMessage &msg);
 		void _INTERNAL_NOACCESSMODE_DeserializeFromMessageToChangeList(CMessage &msg);
-		
+
 		Proud::ErrorType _INTERNAL_NOACCESSMODE_MovePropNode(CPropNodePtr nodeToMove, CLoadedData2& destForest, CPropNodePtr& destParentNode);
 		void _INTERNAL_NOACCESSMODE_RecursiveUpdateRootUUID(Proud::Guid& RootUUID, CPropNode* Node);
 		void _INTERNAL_NOACCESSMODE_RecursiveRemove(CPropNode *node);
 		void _INTERNAL_NOACCESSMODE_RecursiveAdd(CPropNodePtr node, PropNodeMap * destMap);
-		
+
 		void _INTERNAL_NOACCESSMODE_DeleteAll();
 
 		void _INTERNAL_NOACCESSMODE_CopyTo(CLoadedData2& to);
@@ -128,7 +128,7 @@ namespace Proud
     protected:
         virtual void	AssertThreadID(eAccessMode eMode) const;
         virtual void	ClearThreadID() const;
-        
+
 	protected:
 		PROUDSRV_API virtual void Change_Serialize(CMessage& msg,bool isReading);
 		PROUDSRV_API virtual CPropNodePtr GetRemoveNode(Proud::Guid removeUUID);
@@ -140,9 +140,9 @@ namespace Proud
         CLoadedData2();
 		CLoadedData2(const CLoadedData2& from);
         PROUDSRV_API virtual ~CLoadedData2();
-		/** 
+		/**
 		\~korean
-		nodeToMove 노드를 destForest의 destParentNode 하위 노드로 이동 시킵니다. 
+		nodeToMove 노드를 destForest의 destParentNode 하위 노드로 이동 시킵니다.
 		nodeToMove의 OwnerUUID,RootUUID가 변경되고
 		nodeToMove의 하위 노드의 RootUUID가 destForest의 RootUUID로 변경됩니다.
 
@@ -154,13 +154,13 @@ namespace Proud
 		\~english TODO:translate needed.
 
 		\~chinese
-		
+
 		\~japanese
 		\~
 		*/
 		Proud::ErrorType MovePropNode(CLoadedData2& destForest, CPropNodePtr nodeToMove, CPropNodePtr destParentNode);
-	
-		/** 
+
+		/**
 		\~korean
 		parent 의 마지막 자식 노드로서 newNode를 넣습니다. parent=NULL인 경우 최상단의 노드로서 newNode가 추가됩니다.
 
@@ -189,7 +189,7 @@ namespace Proud
 		*/
         PROUDSRV_API Proud::ErrorType InsertChild(CPropNodePtr parent, CPropNodePtr newNode);
 
-		/** 
+		/**
 		\~korean
 		이 객체이 이미 붙어있던 CPropNode 객체를 분리해냅니다.
 		분리된 node의 child도 CPropForest 로부터 분리됩니다. 하지만 분리된 node의 child들은 node와의 자식관계를 계속 유지합니다.
@@ -211,7 +211,7 @@ namespace Proud
 		分离的node的child从 CPropForest%分离出来。但是分离node的child们与node继续维持子女关系。
 
 		\param node 需要分离的node。这个 CPropForest%已经处于从属状态。违背这一点返回错误数值。
-		\param addremovelist removePropNodelist是否要添加的与否。 True设定后呼叫UpdateData的话自动在DBMS删除。 
+		\param addremovelist removePropNodelist是否要添加的与否。 True设定后呼叫UpdateData的话自动在DBMS删除。
 		\return 成功的删除的话返回ErrorType_Ok。除此之外别的错误值返回。
 
 		\~japanese
@@ -219,7 +219,7 @@ namespace Proud
 		*/
         PROUDSRV_API virtual Proud::ErrorType RemoveNode(CPropNodePtr node, bool addremovelist=true);
 
-		/** 
+		/**
 		\~korean
 		RemoveNode(node)와 같은 기능을 하지만, UUID로 동작 합니다.
 
@@ -238,7 +238,7 @@ namespace Proud
 		虽然与RemoveNode(node) 一样的技能，但是以UUID来启动。
 
 		\param removeUUID 要删除的Node UUID
-	        \param addremovelist 是否要添加到removePropNodelist的与否。True设定后呼叫UpdateData的话自动在DBMS删除。    
+	        \param addremovelist 是否要添加到removePropNodelist的与否。True设定后呼叫UpdateData的话自动在DBMS删除。
 	        \return 成功的取消的话ErrorType_Ok可以返回。除此之外别的错误值返回。
 
 		\~japanese
@@ -246,7 +246,7 @@ namespace Proud
 		*/
 		PROUDSRV_API virtual Proud::ErrorType RemoveNode(Proud::Guid removeUUID, bool addremovelist=true);
 
-		/** 
+		/**
 		\~korean
 		guid에 해당하는 node를 리턴 합니다.검색 용도로 사용됩니다.
 		\param guid 찾아낼 node의 uuid
@@ -266,8 +266,8 @@ namespace Proud
 		\~
 		*/
 		PROUDSRV_API virtual CPropNodePtr GetNode(const Guid& guid);
-		
-		/** 
+
+		/**
 		\~korean
 		이 객체가 가지고 있는 최상위 데이터 노드를 리턴합니다.
 		\return 성공적이라면, 최상위 노드를 리턴합니다. 실패라면 비어 있는 CPropNodePtr 을 리턴합니다.
@@ -285,7 +285,7 @@ namespace Proud
 		*/
         PROUDSRV_API virtual CPropNodePtr GetRootNode();
 
-		/** 
+		/**
 		\~korean
 		이 객체가 가지고 있는 최상위 데이터 노드의 UUID를 리턴합니다.
 
@@ -300,7 +300,7 @@ namespace Proud
 		*/
         PROUDSRV_API Guid GetRootUUID();
 
-		/** 
+		/**
 		\~korean
 		Session Guid를 얻는다.
 
@@ -314,7 +314,7 @@ namespace Proud
 		*/
 		PROUDSRV_API Guid GetSessionGuid() const;
 
-		/** 
+		/**
 		\~korean
 		\param val SessionGuid를 설정한다.
 
@@ -333,7 +333,7 @@ namespace Proud
 		__declspec(property(get=GetRootUUID)) Guid RootUUID;
 #endif
 
-		/** 
+		/**
 		\~korean
 		데이터를 복사하여 다른 객체를 만듭니다.
 
@@ -348,7 +348,7 @@ namespace Proud
 		*/
 		PROUDSRV_API CLoadedData2Ptr Clone();
 
-		/** 
+		/**
 		\~korean
 		내부 데이터를 ByteArray 로 담습니다.
 		\param output 데이터가 담길 ByteArray 객체 입니다.
@@ -366,7 +366,7 @@ namespace Proud
 		*/
 		PROUDSRV_API void ToByteArray(ByteArray& output);
 
-		/** 
+		/**
 		\~korean
 		input로 부터 데이터를 복사합니다.
 
@@ -379,18 +379,18 @@ namespace Proud
 
 		\~chinese
 		从input复制数据。
-		
+
 		\param input 已被装入的数据 ByteArray%对象。
 
 		\~japanese
 		\~
 		*/
 		PROUDSRV_API void FromByteArray(const ByteArray& input);
-		
+
 		// 트리의 consistent 를 확인 하기 위해서.
 /*		PROUDSRV_API bool IsConsistent();*/
 
-		/** 
+		/**
 		\~korean
 		DBCacheServer2에서 내부적으로 사용하는 함수들 입니다.
 		- 사용자는 사용하지 말아 주세요.
@@ -408,7 +408,7 @@ namespace Proud
 		*/
 		PROUDSRV_API virtual void _INTERNAL_ClearChangeNode();
 
-		/** 
+		/**
 		\~korean
 		DBCacheServer2에서 내부적으로 사용하는 함수들 입니다.
 		- 사용자는 사용하지 말아 주세요.
@@ -426,7 +426,7 @@ namespace Proud
 		*/
 		PROUDSRV_API virtual void _INTERNAL_ChangeToByteArray(ByteArray& outArray);
 
-		/** 
+		/**
 		\~korean
 		DBCacheServer2에서 내부적으로 사용하는 함수들 입니다.
 		- 사용자는 사용하지 말아 주세요.
@@ -444,7 +444,7 @@ namespace Proud
 		*/
 		PROUDSRV_API virtual void _INTERNAL_FromByteArrayToChangeList(const ByteArray &inArray);
 
-		/** 
+		/**
 		\~korean
 		DBCacheServer2에서 내부적으로 사용하는 함수들 입니다.
 		- 사용자는 사용하지 말아 주세요.
@@ -462,7 +462,7 @@ namespace Proud
 		*/
 		PROUDSRV_API virtual const PropNodeList* _INTERNAL_GetRemoveNodeList() const;
 
-		/** 
+		/**
 		\~korean
 		DBCacheServer2에서 내부적으로 사용하는 함수들 입니다.
 		- 사용자는 사용하지 말아 주세요.

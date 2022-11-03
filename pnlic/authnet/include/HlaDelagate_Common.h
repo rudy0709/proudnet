@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,17 +34,17 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 namespace Proud
 {
-	/** 
+	/**
 	\~korean
 	사용자는 이 메서드도 구현해야 합니다.
-	
+
 	참고
-	- C++ 이외 버전에서는 본 메서드는 delegate callback 형태일 수 있습니다. 
-	
+	- C++ 이외 버전에서는 본 메서드는 delegate callback 형태일 수 있습니다.
+
 	\~english TODO:translate needed.
 
 	\~chinese
@@ -60,14 +60,14 @@ namespace Proud
 	{
 	public:
 		virtual ~IHlaDelegate_Common() {}
-		
-		/** 
+
+		/**
 		\~korean
 		HLA 내부 모듈에 의해 잠금 보호가 요청되면 이 메서드가 콜백됩니다. 사용자는 이를 구현해야 합니다.
-		예를 들어, 당신은 이 루틴에서 메모리를 보호할 critical section 잠금을 하실 수 있겠습니다. 
-		
+		예를 들어, 당신은 이 루틴에서 메모리를 보호할 critical section 잠금을 하실 수 있겠습니다.
+
 		\~english TODO:translate needed.
-		
+
 		\~chinese
 		被HLA内部模块邀请锁定保护的话此方法会回拨。用户要体现这个。
 		例如，你可以在此routine进行保护内存的critical section锁定。
@@ -77,12 +77,12 @@ namespace Proud
 		*/
 		virtual void HlaOnLockCriticalSection() = 0;
 
-		/** 
+		/**
 		\~korean
-		HlaOnLockCriticalSection()의 반대 역할을 합니다. 
-		
+		HlaOnLockCriticalSection()의 반대 역할을 합니다.
+
 		\~english TODO:translate needed.
-		
+
 		\~chinese
 		起着HlaOnLockCriticalSection()的相反作用。
 

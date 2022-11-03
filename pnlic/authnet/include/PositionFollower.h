@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -52,7 +52,7 @@ namespace Proud
 
 	class CPositionFollower_Interior;
 
-	/** 
+	/**
 	\~korean
 	remote object의 jittering되는 position,velocity를 linear interpolation으로
 	smoothing 처리하는 class이다.
@@ -64,11 +64,11 @@ namespace Proud
 
 	일반적인 사용법
 	- \ref dead_reckoning  참고
-	
+
 	중력에 대한 고려 사항
 	- 점프 등이 있는 게임에서는 캐릭터가 점프 중 직선 이동이 어색할 수밖에 없다.
 	따라서 점프중에는 중력이 작용해서 계속해서 하향 곡선을 그려야 한다.
-	이럴 때 SetGravity를 통해 중력 값을 미리 넣어둘 수 있다. 
+	이럴 때 SetGravity를 통해 중력 값을 미리 넣어둘 수 있다.
 
 	\~english
 	Class that smoothing processes position,velocity of remote object that are 'jittering'ed into linear interpolation
@@ -79,7 +79,7 @@ namespace Proud
 
 	General usage
 	- Please refer \ref dead_reckoning
-	
+
 	Considerations on gravity
 	- In a game that has jump motions, the character jumps while moving in linear fashion must be somewhat un-natural.
 	So, during jump motion, there must be gravity acting to result downward curve motion.
@@ -109,11 +109,11 @@ namespace Proud
 		PROUD_API CPositionFollower();
 		PROUD_API ~CPositionFollower();
 
-		/** 
+		/**
 		\~korean
 		중력을 세팅한다.
 		- 중력을 세팅하게 되면, follower와 target이 모두 영향을 받는다.
-		예를 들어, 점프를 하는 캐릭터라면 이 메서드가 필요할 것이다. 
+		예를 들어, 점프를 하는 캐릭터라면 이 메서드가 필요할 것이다.
 
 		\~english
 		Sets gravity
@@ -130,13 +130,13 @@ namespace Proud
 		*/
 		PROUD_API void SetGravity(const Vector3 &value);
 
-		/** 
+		/**
 		\~korean
-		position follower가 쫓아갈 투명 오브젝트의 속도를 세팅한다. 
-		- 타 호스트로부터 상대방 캐릭터의 위치를 받으면 이 메서드를 호출할 필요가 있을 것이다. 
+		position follower가 쫓아갈 투명 오브젝트의 속도를 세팅한다.
+		- 타 호스트로부터 상대방 캐릭터의 위치를 받으면 이 메서드를 호출할 필요가 있을 것이다.
 
 		\~english
-		Sets the speed of invisible object that position follower is to follow 
+		Sets the speed of invisible object that position follower is to follow
 		- When the location of opponent character is received from other host, there is a need to call this method.
 
 		\~chinese
@@ -148,10 +148,10 @@ namespace Proud
 		*/
 		PROUD_API void SetTargetVelocity(const Vector3 &value);
 
-		/** 
+		/**
 		\~korean
-		position follower가 쫓아갈 투명 오브젝트의 위치를 세팅한다. 
-		- 타 호스트로부터 상대방 캐릭터의 위치를 받으면 이 메서드를 호출할 필요가 있을 것이다. 
+		position follower가 쫓아갈 투명 오브젝트의 위치를 세팅한다.
+		- 타 호스트로부터 상대방 캐릭터의 위치를 받으면 이 메서드를 호출할 필요가 있을 것이다.
 
 		\~english
 		Sets the location of invisible object that position follower is to follow
@@ -166,9 +166,9 @@ namespace Proud
 		*/
 		PROUD_API void SetTargetPosition(const Vector3 &value);
 
-		/** 
+		/**
 		\~korean
-		spline 형태로 쫓아가는 follower의 위치를 얻는다. 
+		spline 형태로 쫓아가는 follower의 위치를 얻는다.
 
 		\~english
 		Gets the location of follower that moves in spline shape
@@ -181,9 +181,9 @@ namespace Proud
 		*/
 		PROUD_API Vector3 GetSplineFollowerPosition() const;
 
-		/** 
+		/**
 		\~korean
-		spline 형태로 쫓아가는 follower의 현 속도를 얻는다. 
+		spline 형태로 쫓아가는 follower의 현 속도를 얻는다.
 
 		\~english
 		Gets the current speed of follower moves in spline shape
@@ -196,9 +196,9 @@ namespace Proud
 		*/
 		PROUD_API Vector3 GetSplineFollowerVelocity() const;
 
-		/** 
+		/**
 		\~korean
-		마지막으로 입력한 중력 값을 얻는다. 
+		마지막으로 입력한 중력 값을 얻는다.
 
 		\~english
 		Gets the last input value of gravity
@@ -211,9 +211,9 @@ namespace Proud
 		*/
 		PROUD_API Vector3 GetGravity() const;
 
-		/** 
+		/**
 		\~korean
-		position follower가 쫓아가는 목표 지점의 현재 속도를 얻는다. 
+		position follower가 쫓아가는 목표 지점의 현재 속도를 얻는다.
 
 		\~english
 		Gets the current speed of target location that position follower is following
@@ -226,14 +226,14 @@ namespace Proud
 		*/
 		PROUD_API Vector3 GetTargetVelocity() const;
 
-		/** 
+		/**
 		\~korean
-		position follower가 쫓아가는 목표 지점의 현재 위치를 얻는다. 
-		- SetTargetPosition에서 입력한 값과 다를 수 있다. 왜냐하면 FrameMove에 의해 지속적으로 갱신되기 때문이다. 
+		position follower가 쫓아가는 목표 지점의 현재 위치를 얻는다.
+		- SetTargetPosition에서 입력한 값과 다를 수 있다. 왜냐하면 FrameMove에 의해 지속적으로 갱신되기 때문이다.
 
 		\~english
 		Get the current location of target location that position follower is following
-		- Can be different to the value entered in SetTargetPosition since it is continuously updated by FrameMove 
+		- Can be different to the value entered in SetTargetPosition since it is continuously updated by FrameMove
 
 		\~chinese
 		获得position follower追随去的目标地点的现位置。
@@ -244,14 +244,14 @@ namespace Proud
 		*/
 		PROUD_API Vector3 GetTargetPosition() const;
 
-		/** 
+		/**
 		\~korean
 		position follower 자체의 속도를 지정한다.
-		- remote object의 초기 상태를 세팅할 때에 쓰인다.  
+		- remote object의 초기 상태를 세팅할 때에 쓰인다.
 
 		\~english
 		Sets the speed of position follower itself
-		- Used to set the initial condition of remote object 
+		- Used to set the initial condition of remote object
 
 		\~chinese
 		指定position follower本身的速度。
@@ -261,11 +261,11 @@ namespace Proud
 		\~
 		*/
 		PROUD_API void SetFollowerVelocity(const Vector3 &value);
-		
-		/** 
+
+		/**
 		\~korean
 		position follower 자체의 위치를 지정한다.
-		- remote object의 초기 상태를 세팅할 때에 쓰인다.  
+		- remote object의 초기 상태를 세팅할 때에 쓰인다.
 
 		\~english
 		Sets the location of position follower itself
@@ -280,10 +280,10 @@ namespace Proud
 		*/
 		PROUD_API void SetFollowerPosition(const Vector3 &value);
 
-		/** 
+		/**
 		\~korean
 		position follower 자체의 현재 속도를 얻는다.
-		- SetFollowerVelocity에서 입력한 값과 다를 수 있다. 왜냐하면 FrameMove에 의해 지속적으로 갱신되기 때문이다. 
+		- SetFollowerVelocity에서 입력한 값과 다를 수 있다. 왜냐하면 FrameMove에 의해 지속적으로 갱신되기 때문이다.
 
 		\~english
 		Gets the current speed of position follower itself
@@ -298,13 +298,13 @@ namespace Proud
 		*/
 		PROUD_API Vector3 GetFollowerVelocity() const;
 
-		/** 
+		/**
 		\~korean
-		position follower 자체의 현재 위치를 얻는다. 
-		- SetFollowerPosition에서 입력한 값과 다를 수 있다. 왜냐하면 FrameMove에 의해 지속적으로 갱신되기 때문이다. 
+		position follower 자체의 현재 위치를 얻는다.
+		- SetFollowerPosition에서 입력한 값과 다를 수 있다. 왜냐하면 FrameMove에 의해 지속적으로 갱신되기 때문이다.
 
 		\~english
-		Gets the current location of position follower itself 
+		Gets the current location of position follower itself
 		- Can be different to the value entered in SetFollowerPosition since it is continuously updated by FrameMove
 
 		\~chinese
@@ -316,7 +316,7 @@ namespace Proud
 		*/
 		PROUD_API Vector3 GetFollowerPosition() const;
 
-		/** 
+		/**
 		\~korean
 		만약 새로 받은 target position이 follower와의 거리차가 지나치게 큰 경우, 의도적 워프, 리스폰
 		혹은 지나친 랙으로 인한 위치 오차일 수 있다. 이런 경우 위치 보정은 오히려 이상한 결과를 야기한다.
@@ -325,7 +325,7 @@ namespace Proud
 		\param warpThreshold 위치 보정을 무시할 수 있는 임계값으로서의 거리
 
 		\~english
-		If newly received target position is too far from the location of follower, it may be location error due to intentional warp, resapwn or extreme lags. In this case, performing location correction will make the situation worse.	
+		If newly received target position is too far from the location of follower, it may be location error due to intentional warp, resapwn or extreme lags. In this case, performing location correction will make the situation worse.
 		    if warp threshold is set then it does not perform correction but forcefully synchronizes follower with target location.
 		\param warpThreshold distance as critical value that can ignore location correction
 
@@ -339,9 +339,9 @@ namespace Proud
 		*/
 		PROUD_API void SetWarpThreshold(double warpThreshold);
 
-		/** 
+		/**
 		\~korean
-		FrameMove()가 1회 이상 사용되었는가? 
+		FrameMove()가 1회 이상 사용되었는가?
 
 		\~english
 		FrameMove() used more than once?
@@ -354,14 +354,14 @@ namespace Proud
 		*/
 		PROUD_API bool IsFirstUse();
 
-		/** 
+		/**
 		\~korean
 		follower가 target까지 다다르는 시간을 설정한다.
 		- EnableAutoFollowDuration(true)를 호출한 상태이면 이 메서드는 실행이 무시된다. 대신, 내부적으로 적절한
 		duration을 자동으로 찾는다.
 		- 이 값은 일반적으로 SetTargetPosition,SetTarget,SetTargetVelocity가 호출되는 주기보다 약간 길게 잡는 것이 좋다.
-		지나치게 작은 값을 넣으면 움직임이 너무 튀며, 너무 큰 값을 넣으면 움직임의 정확성이 떨어진다. 
-		\param duration follower가 target까지 다다르는 시간(초단위) 
+		지나치게 작은 값을 넣으면 움직임이 너무 튀며, 너무 큰 값을 넣으면 움직임의 정확성이 떨어진다.
+		\param duration follower가 target까지 다다르는 시간(초단위)
 
 		\~english
 		Sets the time taken that follower gets to target
@@ -381,9 +381,9 @@ namespace Proud
 		\~
 		*/
 		PROUD_API void SetFollowDuration(double duration);
-		/** 
+		/**
 		\~korean
-		마지막으로 SetFollowDuration으로 입력한 값을 출력한다. 
+		마지막으로 SetFollowDuration으로 입력한 값을 출력한다.
 
 		\~english
 		Outputs the last value entered to SetFollowDuration
@@ -395,9 +395,9 @@ namespace Proud
 		\~
 		*/
 		PROUD_API double GetFollowDuration();
-		/** 
+		/**
 		\~korean
-		true로 세팅하면 follower가 target까지 다다르는 시간을 자동으로 조절한다. 
+		true로 세팅하면 follower가 target까지 다다르는 시간을 자동으로 조절한다.
 
 		\~english
 		If set as true then it automatically controls the time taken for follower to get to taget.
@@ -410,9 +410,9 @@ namespace Proud
 		*/
 		PROUD_API void EnableAutoFollowDuration(bool val);
 
-		/** 
+		/**
 		\~korean
-		follower가 따라가는 target의 pos, vel을 구한다. 
+		follower가 따라가는 target의 pos, vel을 구한다.
 		\param position 얻어올 타겟의 위치 vector3
 		\param velocity 얻어올 타겟의 속도 vector3
 
@@ -429,11 +429,11 @@ namespace Proud
 		*/
 		PROUD_API void GetTarget(Vector3 &position, Vector3 &velocity) const;
 
-		/** 
+		/**
 		\~korean
-		follower의 position, velocity를 구한다. 
-		\param position 얻어올 Follower의 위치 vector3 
-		\param velocity 얻어올 Follower의 속도 vector3 
+		follower의 position, velocity를 구한다.
+		\param position 얻어올 Follower의 위치 vector3
+		\param velocity 얻어올 Follower의 속도 vector3
 
 		\~english TODO:translate needed.
 		Gets position, velocity of follower
@@ -448,9 +448,9 @@ namespace Proud
 		*/
 		PROUD_API void GetFollower(Vector3 &position, Vector3 &velocity) const;
 
-		/** 
+		/**
 		\~korean
-		SetFollowerVelocity,SetFollowerPosition을 한번에 모두 호출한다. 
+		SetFollowerVelocity,SetFollowerPosition을 한번에 모두 호출한다.
 
 		\~english
 		Calls SetFollowerVelocity,SetFollowerPosition at the same time
@@ -463,10 +463,10 @@ namespace Proud
 		*/
 		PROUD_API void SetFollower(Vector3 position, Vector3 velocity);
 
-		/** 
+		/**
 		\~korean
 		매 타임 프레임마다 이 메서드를 호출해야 한다.
-		\param elapsedTime 한 프레임의 시간(초) 
+		\param elapsedTime 한 프레임의 시간(초)
 
 		\~english
 		This method must be called by each time frame.
@@ -481,7 +481,7 @@ namespace Proud
 		*/
 		PROUD_API virtual void FrameMove(double elapsedTime);
 
-		/** 
+		/**
 		\~korean
 		SetTargetPosition과 SetTargetVelocity를 한번에 모두 호출한다.
 

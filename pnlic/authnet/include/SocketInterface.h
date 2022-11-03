@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -48,12 +48,12 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	SocketSelectContext class
 	- 사용법 예제는 Sample중 SimpleHttpConnect를 참고하시면 됩니다.
 	- socket의 select() non-block model 을 위한 용도
-	- 주의: Wait 호출 후에는 FD_SET의 내용이 바뀐다. 따라서 이 객체는 1회성으로 쓰여야 한다. 
+	- 주의: Wait 호출 후에는 FD_SET의 내용이 바뀐다. 따라서 이 객체는 1회성으로 쓰여야 한다.
 	- Win32에서만 지원하는 기능입니다. iOS, linux에서는 이것 대신 ::poll()을 사용하십시오.
 
 	\~english TODO:translate needed.
@@ -87,17 +87,17 @@ namespace Proud
 	};
 #endif // _WIN32
 
-	/** 
+	/**
 	\~korean
-	Socket Delegate Interface 
-	- Socket에 관련된 에러를 OnSocketWarning 함수에서 받을수 있다. 
+	Socket Delegate Interface
+	- Socket에 관련된 에러를 OnSocketWarning 함수에서 받을수 있다.
 
 	\~english
-	Socket Delegate Interface 
+	Socket Delegate Interface
 	- You can receive Socket related error from OnSocketWarning function.
 
 	\~chinese
-	Socket Delegate Interface 
+	Socket Delegate Interface
 	- Socket相关的错误可以在OnSocketWarning函数里接收。
 
 	\~japanese
@@ -110,14 +110,14 @@ namespace Proud
 		virtual void OnSocketWarning(CSocket* soket, String msg) = 0;
 	};
 
-	/** 
+	/**
 	\~korean
-	CSocket class 
+	CSocket class
 	- Proud의 NetClient 를 쓰지 않고 외부의 Server나 http에 접근할때 쓰면 유용하다.
-	- 내부적으로 Proud::FastSocket 을 사용한다. 
+	- 내부적으로 Proud::FastSocket 을 사용한다.
 
 	\~english
-	CSocket class 
+	CSocket class
 	- It is useful when you access external Server or http without NetClient of ProudNet.
 	- Use Proud::FastSocket internally
 
@@ -139,14 +139,14 @@ namespace Proud
 		virtual bool Bind(int port) = 0;
 		virtual bool Bind( const PNTCHAR* addr, int port ) = 0;
 
-		/** 
+		/**
 		\~kore﻿an
-		Connect 한다. 
-		\param hostAddr host 의 주소 
-		\param hostPort host 의 port 
-		
+		Connect 한다.
+		\param hostAddr host 의 주소
+		\param hostPort host 의 port
+
 		\~english TODO:translate needed.
-		
+
 		\~chinese
 		进行connect。
 		\param hostAddr host的地址。
@@ -164,7 +164,7 @@ namespace Proud
 // 		virtual SocketErrorCode NonBlockSend( BYTE* data, int count) = 0;
 #else
 		/**
-		\~korean 
+		\~korean
 		UDP socket
 		- Recv를 Issue한다.
 		\param length 버퍼의 크기
@@ -182,9 +182,9 @@ namespace Proud
 		\~
 		*/
 		virtual SocketErrorCode IssueRecvFrom(int length) = 0;
-		
+
 		/**
-		\~korean 
+		\~korean
 		UDP socket
 		- Send를 Issue한다.
 		\param data 보낼 data의 배열
@@ -206,9 +206,9 @@ namespace Proud
 		\~
 		*/
 		virtual SocketErrorCode IssueSendTo( uint8_t* data, int count, AddrPort sendTo ) = 0;
-		
+
 		/**
-		\~korean 
+		\~korean
 		TCP socket
 		- Recv를 Issue한다.
 		\param length 버퍼의 크기
@@ -224,11 +224,11 @@ namespace Proud
 
 		\~japanese
 		\~
-		*/	
+		*/
 		virtual SocketErrorCode IssueRecv(int length) = 0;
 
 		/**
-		\~korean 
+		\~korean
 		TCP socket
 		- Send 를 Issue 한다.
 		\param data 보낼 data 의 배열
@@ -272,7 +272,7 @@ namespace Proud
 		\~
 		*/
 		virtual bool GetRecvOverlappedResult(bool waitUntilComplete, OverlappedResult &ret) = 0;
-		
+
 		/**
 		\~korean
 		async issue의 결과를 기다린다.
@@ -297,13 +297,13 @@ namespace Proud
 		*/
 		virtual bool GetSendOverlappedResult(bool waitUntilComplete, OverlappedResult &ret) = 0;
 
-		
+
 #endif
-        
-		/** 
-		\~korean 
-		소켓의 주소를 가져온다. 
-		
+
+		/**
+		\~korean
+		소켓의 주소를 가져온다.
+
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -314,10 +314,10 @@ namespace Proud
 		*/
 		virtual AddrPort GetSockName() = 0;
 
-		/** 
-		\~korean 
-		peer 에 대한 소켓의 주소를 가져온다. 
-		
+		/**
+		\~korean
+		peer 에 대한 소켓의 주소를 가져온다.
+
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -328,10 +328,10 @@ namespace Proud
 		*/
 		virtual AddrPort GetPeerName() = 0;
 
-		/** 
-		\~korean 
-		통신에 대하여 블럭킹 모드를 사용할 것인지 선택한다. 
-		
+		/**
+		\~korean
+		통신에 대하여 블럭킹 모드를 사용할 것인지 선택한다.
+
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -342,10 +342,10 @@ namespace Proud
 		*/
 		virtual void SetBlockingMode(bool isBlockingMode) = 0;
 
-		/** 
-		\~korean 
-		recv 버퍼의 포인터를 얻어온다. 
-		
+		/**
+		\~korean
+		recv 버퍼의 포인터를 얻어온다.
+
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -355,11 +355,11 @@ namespace Proud
 		\~
 		*/
 		virtual uint8_t* GetRecvBufferPtr() = 0;
-		
-		/** 
-		\~korean 
-		recv host의 ip Address를 얻어온다. 
-		
+
+		/**
+		\~korean
+		recv host의 ip Address를 얻어온다.
+
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -370,9 +370,9 @@ namespace Proud
 		*/
 		PROUD_API static String GetIPAddress(String hostName);
 
-		/** 
-		\~korean 
-		CSocket 객체를 생성한다. 
+		/**
+		\~korean
+		CSocket 객체를 생성한다.
 		\param auxSocket socket객체
 		\param dg 소켓의 이벤트를 받을 객체. \ref ISocketDelegate 를 참조
 
@@ -388,10 +388,10 @@ namespace Proud
 		*/
 		PROUD_API static CSocket *New(SOCKET auxSocket,ISocketDelegate* dg);
 
-		/** 
-		\~korean 
-		CSocket 객체를 생성한다. 
-		\param type 소켓의 Type을 정한다.  
+		/**
+		\~korean
+		CSocket 객체를 생성한다.
+		\param type 소켓의 Type을 정한다.
 		\param dg 소켓의 이벤트를 받을 객체. \ref ISocketDelegate 를 참조
 
 		\~english TODO:translate needed.

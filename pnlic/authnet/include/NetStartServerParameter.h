@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -109,7 +109,7 @@ Parameters for NetServer startup.
 		\~english
 		This is a list of UDP host port
 		When m_udpAssignMode is same as Proud.ServerUdpAssignMode_PerClient, this list will be ignored;
-		
+
 		When m_udpAssignMode is same as Proud.ServerUdpAssignMode_Static, this list will work as followings;
 		- in the case the allocation containing 0 value: The UDP sockets, as many as of the number of 0s containing, with random port numbers will be prepared.
 		CNetServer.GetServerUdpAddrPort() is used to get the port numbers that are actually allocated.
@@ -122,7 +122,7 @@ Parameters for NetServer startup.
 		\~chinese
 		是UDP主机端口目录。
 		m_udpAssignMode是 Proud.ServerUdpAssignMode_PerClient%的时候此无关目录。
-		
+
 		m_udpAssignMode是 Proud.ServerUdpAssignMode_Static%的时候此目录会如下运转。
 		- 有0的数组的时候：会预先准备拥有相当于有0数量的任意port号码的UDP socket。
 		此时想获得实际分配的port号码的话，可以使用 CNetServer.GetServerUdpAddrPort()。
@@ -408,7 +408,7 @@ Parameters for NetServer startup.
 		HostID 재사용 기능 옵션입니다.
 		- HostIDGenerationPolicy_Recycle로 설정되어 있을경우 CNetConfig의 HostIDRecycleAllowTimeMs값에 따라 HostID가 재사용되어 집니다.
 		- HostIDGenerationPolicy_NoRecycle로 설정되어 있을경우 INT_MAX까지 Unique한 HostID값을 보장합니다.
-		
+
 		기본값은 HostIDGenerationPolicy_Recycle입니다.
 
 		\~english
@@ -417,21 +417,21 @@ Parameters for NetServer startup.
 		- If HostIDGenerationPolicy_NoRecycle is set, unique HostID (until INT_MAX) will be guaranteed.
 
 		Default value is HostIDGenerationPolicy_Recycle.
-		
+
 		\~chinese
 		HostID是再使用技能选项。
 		- 已设定为 HostIDGenerationPolicy_Recycle 时，随着 CNetConfig的 HostIDRecycleAllowTimeMs 值， HostID被再使用。
 		- 已设定为 HostIDGenerationPolicy_NoRecycle 时 ，保障 Unique 到 INT_MAX 的 HostID值。
 
 		基本值为 HostIDGenerationPolicy_Recycle。
-		
+
 		\~japanese
 		HostID 再使用機能オプションです。
 		- HostIDGenerationPolicy_Recycleと設定されている場合、 CNetConfigのHostIDRecycleAllowTimeMs値によりHostIDが再使用されます。
 		- HostIDGenerationPolicy_NoRecycleと設定されている場合、INT_MAXまでUniqueなHostID値を保障します。
 
 		デフォルト値はHostIDGenerationPolicy_Recycleです。
-		
+
 		\~
 		*/
 		HostIDGenerationPolicy m_hostIDGenerationPolicy;
@@ -440,16 +440,16 @@ Parameters for NetServer startup.
 		\~korean
 		해당 값이 설정되면 NetServer 병목 발생시 경고와 덤프 파일이 생성됩니다.
 		특별한 경우가 아니라면 함부로 이 값을 설정하지 마십시오.
-		
+
 		\~english
-		
-		
+
+
 		\~chinese
-		
-		
+
+
 		\~japanese
-		
-		
+
+
 		\~
 		*/
 		CriticalSectionSettings m_bottleneckWarningSettings;

@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -49,7 +49,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	\ref quantizer  기능을 담당하는 클래스입니다.
 
@@ -67,13 +67,13 @@ namespace Proud
 		double m_min,m_max;
 		uint32_t m_granulation;
 	public:
-		/** 
+		/**
 		\~korean
 		생성자
 		\param min 양자화되는 값은 이 값 이하로는 들어가지 않습니다.
 		\param max 양자화되는 값은 이 값 이상으로는 들어가지 않습니다.
 		\param granulation 양자화되는 값은 정수 타입입니다. 본 값은 양자화되는 값이 0부터 얼마까지의 정수형으로 변환되느냐를 지칭합니다.
-		값이 클수록 양자화된 값의 정밀도가 높지만 양자화된 데이터가 필요로 하는 비트수가 증가하게 됩니다. 
+		값이 클수록 양자화된 값의 정밀도가 높지만 양자화된 데이터가 필요로 하는 비트수가 증가하게 됩니다.
 
 		\~english
 		Constructor
@@ -94,9 +94,9 @@ namespace Proud
 		CQuantizer( double min, double max, uint32_t granulation );
 		~CQuantizer(void);
 
-		/** 
+		/**
 		\~korean
-		양자화를 합니다. 
+		양자화를 합니다.
 
 		\~english
 		Quantizing
@@ -109,9 +109,9 @@ namespace Proud
 		*/
 		uint32_t Quantize(double value);
 
-		/** 
+		/**
 		\~korean
-		양자화된 값을 복원합니다. 
+		양자화된 값을 복원합니다.
 
 		\~english
 		Recover quantized value
@@ -143,9 +143,9 @@ namespace Proud
 			char* ptr = (char*)(m_filledBlock + m_filledBlockLength);
 			// http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.faqs/ka15414.html 에 의하면,
 			// GCC는 char* 타입에 대해서 1byte align을 가정하고 작동하게 되어있다.
-			// 즉, 컴파일러가 알아서 4byte align에 맞게 조작하게 작동된다. 
+			// 즉, 컴파일러가 알아서 4byte align에 맞게 조작하게 작동된다.
 			// 따라서 과거 코드(marmalade에서는 memcpy사용)이 불필요하다. (memcpy(ptr, &a, sizeof(a));)
-			*ptr = a; 
+			*ptr = a;
 			m_filledBlockLength += sizeof(char);
 		}
 
@@ -158,7 +158,7 @@ namespace Proud
 
 			// http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.faqs/ka15414.html 에 의하면,
 			// GCC는 char* 타입에 대해서 1byte align을 가정하고 작동하게 되어있다.
-			// 즉, 컴파일러가 알아서 4byte align에 맞게 조작하게 작동된다. 
+			// 즉, 컴파일러가 알아서 4byte align에 맞게 조작하게 작동된다.
 			// 따라서 과거 코드(marmalade에서는 memcpy사용)이 불필요하다. (memcpy(ptr, &a, sizeof(a));)
 			a = *(char*)(m_src + m_extracteeLength);
 
@@ -173,7 +173,7 @@ namespace Proud
 		// MakeBlock에서 사용됨
 		uint8_t m_filledBlock[100];
 		int m_filledBlockLength;
-		
+
 		// ExtractValue에서 사용됨
 		int64_t m_extractedValue;
 		int m_extracteeLength; // read offset

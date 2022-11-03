@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -49,7 +49,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	특정한 각도를 향해 부드럽게 각도가 변화하도록 한다.
 	각도의 부드러운 움직임을 구현할 때 사용하는 클래스이다.
@@ -205,7 +205,7 @@ namespace Proud
 		\~
 		*/
 		PROUD_API double GetFollowerAngleVelocity();
-        
+
 #if defined(_MSC_VER)
 		__declspec(property(get = GetFollowerAngle, put = SetFollowerAngle)) double followerAngle;
 		__declspec(property(get = GetTargetAngle, put = SetTargetAngle)) double targetAngle;

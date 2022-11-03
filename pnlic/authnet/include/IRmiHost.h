@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -67,7 +67,7 @@ namespace Proud
 	*  @{
 	*/
 
-	class CMessage;	
+	class CMessage;
 	class CSendFragRefs;
 	class ErrorInfo;
 	class IRmiProxy;
@@ -77,10 +77,10 @@ namespace Proud
 
 	struct SendOpt;
 
-	/** 
+	/**
 	\~korean
 	\brief ProudNet RMI가 참조하는 네트워크 호스트 인터페이스입니다.
-	유저는 이 클래스를 직접 사용할 필요가 없습니다. 
+	유저는 이 클래스를 직접 사용할 필요가 없습니다.
 
 	\~english
 	\brief ProudNet Network host interface that is referred by RMI.
@@ -99,9 +99,9 @@ namespace Proud
 	public:
 		virtual ~IRmiHost() {}
 
-		/** 
+		/**
 		\~korean
-		PIDL 컴파일러의 결과물 중 proxy를 이 객체에 등록한다. 
+		PIDL 컴파일러의 결과물 중 proxy를 이 객체에 등록한다.
 
 		\~english
 		Registers proxy among the results of PIDL compiler to this object
@@ -116,9 +116,9 @@ namespace Proud
 		// no-throw version for UE4, etc.
 		void AttachProxy(IRmiProxy *proxy, ErrorInfoPtr& outError);
 
-		/** 
+		/**
 		\~korean
-		PIDL 컴파일러의 결과물 중 stub을 이 객체에 등록한다. 
+		PIDL 컴파일러의 결과물 중 stub을 이 객체에 등록한다.
 
 		\~english
 		Registers stub among the results of PIDL compiler to this object
@@ -132,9 +132,9 @@ namespace Proud
 		virtual void AttachStub(IRmiStub* stub) = 0;
 		// no-throw version for UE4, etc.
 		void AttachStub(IRmiStub* stub, ErrorInfoPtr& outError);
-		/** 
+		/**
 		\~korean
-		AttachProxy 의 반대로서, 이 객체에서 등록 해제를 한다. 
+		AttachProxy 의 반대로서, 이 객체에서 등록 해제를 한다.
 
 		\~english
 		As opposite to AttachProxy, this object cancels the registration.
@@ -148,9 +148,9 @@ namespace Proud
 		virtual void DetachProxy(IRmiProxy* proxy) = 0;
 		// no-throw version for UE4, etc.
 		void DetachProxy(IRmiProxy* proxy, ErrorInfoPtr& outError);
-		/** 
+		/**
 		\~korean
-		AttachStub 의 반대로서, 이 객체에서 등록 해제를 한다. 
+		AttachStub 의 반대로서, 이 객체에서 등록 해제를 한다.
 
 		\~english
 		As opposite to AttachStub, this object cancels the registration.
@@ -171,7 +171,7 @@ namespace Proud
 
 	public:
 
-		/** 
+		/**
 		\~korean
 		simple packet mode를 사용하고 있는지 확인한다.
 
@@ -187,9 +187,9 @@ namespace Proud
 		*/
 		virtual bool IsSimplePacketMode() = 0;
 
-		/** 
+		/**
 		\~korean
-		내부 함수. 사용자는 호출 금지. 
+		내부 함수. 사용자는 호출 금지.
 
 		\~english
 		Internal function. User must not call this.
@@ -204,9 +204,9 @@ namespace Proud
 		virtual void ShowNotImplementedRmiWarning(const PNTCHAR* RMIName) = 0;
 		virtual void PostCheckReadMessage(CMessage& msg, const PNTCHAR* RMIName) = 0;
 
-		/** 
+		/**
 		\~korean
-		내부 함수. 사용자는 호출 금지. 
+		내부 함수. 사용자는 호출 금지.
 
 		\~english
 		Internal function. User must not call this.
@@ -229,9 +229,9 @@ namespace Proud
 #endif
 	};
 
-	/** 
+	/**
 	\~korean
-	\brief clientWorker의 정보를 담는 구조체. 
+	\brief clientWorker의 정보를 담는 구조체.
 
 	\~english
 	\brief Structure that contain information of clientWorker
@@ -270,7 +270,7 @@ namespace Proud
 #endif
 	};
 
-	/** 
+	/**
 	\~korean
 	\brief socket의 정보를 담는 구조체입니다.
 
@@ -286,9 +286,9 @@ namespace Proud
 	class CSocketInfo
 	{
 	public:
-		/** 
+		/**
 		\~korean
-		TCP socket handle입니다. 서버와의 연결을 위한 socket입니다. 
+		TCP socket handle입니다. 서버와의 연결을 위한 socket입니다.
 
 		\~english
 		It is TCP socket handle. This socket is for connecting to server
@@ -301,9 +301,9 @@ namespace Proud
 		*/
 		SOCKET m_tcpSocket;
 
-		/** 
+		/**
 		\~korean
-		UDP socket handle입니다. 서버 혹흔 P2P peer와의 연결을 위한 socket입니다. 
+		UDP socket handle입니다. 서버 혹흔 P2P peer와의 연결을 위한 socket입니다.
 
 		\~english
 		It is UDP socket handle. This socket is for connecting to server or P2P peer.
@@ -328,9 +328,9 @@ namespace Proud
 		}
 	};
 
-	/** 
+	/**
 	\~korean
-	\brief 1개의 스레드에 대한 정보가 담겨져 있는 구조체. 
+	\brief 1개의 스레드에 대한 정보가 담겨져 있는 구조체.
 
 	\~english
 	\brief Construct contains information of 1 thread
@@ -346,7 +346,7 @@ namespace Proud
 	public:
 		/**
 		\~korean
-		Thread의 ID 
+		Thread의 ID
 
 		\~english
 		ID of thread
@@ -363,7 +363,7 @@ namespace Proud
 
 		/**
 		\~korean
-		Thread의 Handle 
+		Thread의 Handle
 
 		\~english
 		Handle of thread
@@ -381,9 +381,9 @@ namespace Proud
 #endif
 	};
 
-	/** 
+	/**
 	\~korean
-	\brief 사용자 프로그램에서 엔진에 전달하는 입력 파라메터 
+	\brief 사용자 프로그램에서 엔진에 전달하는 입력 파라메터
 
 	\~english
 	Input parameter delivered from \brief user program to engine
@@ -394,12 +394,12 @@ namespace Proud
 	\~japanese
 	\~
 	*/
-	class CApplicationHint 
+	class CApplicationHint
 	{
 	public:
-		/** 
+		/**
 		\~korean
-		사용자가 측정한, 응용 프로그램의 프레임 레이트입니다. 
+		사용자가 측정한, 응용 프로그램의 프레임 레이트입니다.
 
 		\~english
 		Frame rate of application program measured by user
@@ -410,7 +410,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		double m_recentFrameRate; 
+		double m_recentFrameRate;
 
 		CApplicationHint()
 		{
@@ -418,9 +418,9 @@ namespace Proud
 		}
 	};
 
-	/** 
+	/**
 	\~korean
-	\brief 통계 정보. 디버깅이나 성능 측정을 위함 
+	\brief 통계 정보. 디버깅이나 성능 측정을 위함
 
 	\~english
 	\brief statistics information. For debugging or performance test
@@ -442,7 +442,7 @@ namespace Proud
 		int m_expectedFrameNumberToReceive;
 		int m_nextFrameNumberToSend;
 
-		/** 
+		/**
 		\~korean
 		송신큐에 쌓여있는 스트림 크기
 
@@ -457,7 +457,7 @@ namespace Proud
 		*/
 		int m_sendStreamCount;
 
-		/** 
+		/**
 		\~korean
 		초송신 윈도에 들어있는 프레임 갯수
 
@@ -471,7 +471,7 @@ namespace Proud
 		\~
 		*/
 		int m_senderWindowDataFrameCount;
-		
+
         /**
 		\~korean
 		재송신 윈도에 들어있는 프레임 갯수
@@ -487,7 +487,7 @@ namespace Proud
 		*/
 		int m_resendFrameCount;
 
-		/** 
+		/**
 		\~korean
 		여지껏 보낸 스트림 크기
 
@@ -502,7 +502,7 @@ namespace Proud
 		*/
 		int m_totalSendStreamLength;
 
-		/** 
+		/**
 		\~korean
 		여지껏 초송신한 프레임 갯수
 		- 초송신한 프레임 갯수에 비해 여지껏 재송신한 프레임 갯수가 지나치게 증가하면 P2P Reliable 메시징이 잘 이루어지지 않음을 의미한다.
@@ -520,7 +520,7 @@ namespace Proud
 		*/
 		int m_totalFirstSendCount;
 
-		/** 
+		/**
 		\~korean
 		여지껏 재송신한 프레임 갯수
 
@@ -568,7 +568,7 @@ namespace Proud
 		}
 	};
 
-	/** 
+	/**
 	\~korean
 	Disconnect()에서 사용하는 인자입니다.
 
@@ -585,9 +585,9 @@ namespace Proud
 		/**
 		\~korean
 		graceful disconnect를 수행하는데 걸리는 최대 시간입니다.
-		이 시간을 넘어서면 Proud.CNetClient.Disconnect()는 무조건 return하게 되고, 서버에서는 클라이언트의 연결 해제를 
-		즉시 인식하지 못합니다. 
-		꼭 필요한 경우가 아니면 이 값을 변경하지 마십시오. 
+		이 시간을 넘어서면 Proud.CNetClient.Disconnect()는 무조건 return하게 되고, 서버에서는 클라이언트의 연결 해제를
+		즉시 인식하지 못합니다.
+		꼭 필요한 경우가 아니면 이 값을 변경하지 마십시오.
 
 		\~english TODO:translate needed.
 

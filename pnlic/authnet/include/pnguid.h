@@ -1,4 +1,4 @@
-﻿#pragma once 
+﻿#pragma once
 
 #include "BasicTypes.h"
 #include "PNString.h"
@@ -15,7 +15,7 @@ namespace Proud
 		uint8_t Data4[8];
 	};
 
-	/** Platform independent Global Unique ID object. 
+	/** Platform independent Global Unique ID object.
 	For Win32 features, refer to Proud::Win32Guid class.
 	*/
 	class Guid:public PNGUID

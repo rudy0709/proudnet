@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -49,72 +49,72 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	서버에 연결하기 위한 정보 구조체
-	
+
 	\~english
 	Informtion structure of making server connection
-	
+
 	\~chinese
 	为了连接服务器的信息构造体。
-	
+
 	\~japanese
 	\~
 	 */
 	class CNetConnectionParam
 	{
 	public:
-		/** 
+		/**
 		\~korean
 		연결할 서버의 주소
 		- 예: 111.222.111.222(IP 주소식) 혹은 game.mydomain.net(호스트 이름식)
 		- 스트레스 테스트를 하는 경우에 한꺼번에 많은 클라이언트가 서버에 접속해야 합니다. 이러한 경우
 		서버 주소가 호스트 이름식인 경우 접속 속도가 매우 느릴 수 있습니다. 따라서 스트레스 테스트를 할 경우
 		서버 주소로 IP 주소식을 쓰는 것을 권장합니다.
-		
+
 		\~english
 		Address of server to coneec to
 		- ex: 111.222.111.222(IP address) or game.mydomain.net(host name)
 		- During a stress test, lots of clients need to be connected to the server at the same time.
 		If the server address is a type of a host name, it can be seriously laggy.
 		It is strongly recommended to use IP address format for server address.
-		
+
 		\~chinese
 		要连接的服务器地址。
 		- 例：111.222.111.222（IP 地址式）或 game.mydomain.net（主机名式）。
 		- 做压力测试的情况一次要连接多个客户端。这种情况服务器地址是主机名式的话，连接速度可能会很慢。因此做压力测试的时候建议把IP地址式用为服务器地址。
-		
+
 		\~japanese
 		\~
 		 */
 		String m_serverIP;
 
-		/** 
+		/**
 		\~korean
 		연결할 서버의 TCP 포트입니다.
-		
+
 		\~english
 		The TCP port of the server to be connected.
-		
+
 		\~chinese
 		要连接的服务器TCP端口。
-		
+
 		\~japanese
 		\~
 		 */
 		uint16_t m_serverPort;
 
- 		/** 
+ 		/**
 		\~korean
 		클라이언트에서 생성하는 UDP socket이 사용할 local port 번호들입니다.
-		
+
 		이 모듈은 서버나 peer와의 연결 각각을 위해 1개의 UDP port를 사용합니다. 이때 m_localUdpPortPool 에서 지정한
 		포트 번호들을 local port로 삼는 UDP socket들을 생성하게 됩니다. 만약 m_localUdpPortPool에서 시정한
 		포트 번호가 없거나 m_localUdpPortPool에서 지정한 포트 번호들이 모두 다른데서 사용중인 경우 임의의
 		포트 번호가 지정되어 UDP socket이 생성됩니다.
 
-		일반적으로는 m_localUdpPortPool 값은 그냥 두시는 것이 좋습니다. 하지만 의도적으로 local UDP socket의 
+		일반적으로는 m_localUdpPortPool 값은 그냥 두시는 것이 좋습니다. 하지만 의도적으로 local UDP socket의
 		port 번호를 강제로 지정하고자 할 때 m_localUdpPortPool 안에 원하시는 값들을 넣으십시오.
 
 		\~english
@@ -122,54 +122,54 @@ namespace Proud
 
 		This host module uses an UDP port for each server or peer connection. Values in m_localUdpPortPool are
 		used for binding local UDP port to every UDP socket created by this module. Arbitrary UDP port number
-		will be taken if m_localUdpPortPool is empty or no available UDP port corresponding to m_localUdpPortPool 
+		will be taken if m_localUdpPortPool is empty or no available UDP port corresponding to m_localUdpPortPool
 		exists.
 
 		In ordinary case, m_localUdpPortPool should be left unchanged. You should add values into m_localUdpPortPool
 		if you want to bind some local UDP ports to UDP sockets created by this module.
-		
+
 		\~chinese
 		在客户端生成的UDP socket要使用的local port号码。
 		此模块为了与服务器或者peer的连接，各使用一个UDP port。这时会生成在m_localUdpPortPool指定的端口号码为local port的UDP socket。
 		如果没有在m_localUdpPortPool指定的端口号码，或者在m_localUdpPortPool指定的端口号码都在别的地方使用中的时候，任意端口号码会被指定并生成UDP socket。
 		一般的情况下，最好不要动m_localUdpPortPool值。但是想强制指定local UDP socket的port的时候，往m_localUdpPortPool里放所需的值。
-		
+
 		\~japanese
 		\~
 		 */
 		CFastArray<int> m_localUdpPortPool;
 
-		/** 
+		/**
 		\~korean
 		서버에 연결하기 전에, 서버와의 프로토콜 매칭을 위한 값입니다.
 		- CNetServer.Start에서 입력했던 protocol version과 서버와의 연결이 성공합니다. 그렇지 않을 경우
 		ErrorType_ProtocolVersionMismatch가 서버 연결 후 응답으로 옵니다.
-		
+
 		\~english
 		This is the value to match the protocol with servers before connecting to the severs.
 		- The connection to the server with the protocol version that was input at CNetServer.Start.
 		If not, ErrorType_ProtocolVerionMismatch is to be returned after connected to the server.
-		
+
 		\~chinese
 		连接服务器之前，为了与服务器protocol匹配的值。
 		- 在 CNetServer.Start%输入的protocol version和服务器连接成功了。否则连接服务器之后会得到ErrorType_ProtocolVersionMismatch。
-		
+
 		\~japanese
 		\~
 		 */
 		Guid m_protocolVersion;
-		/** 
+		/**
 		\~korean
 		서버에 보내는 추가 연결 정보입니다. INetServerEvent.OnConnectionRequest()에서 이 데이터가 받아집니다.
-		
+
 		\~english
 		This is an additional connection info to be sent to the server.
  		This data is received at INetServerEvent.OnConnectRequest().
-		
+
 		\~chinese
 		在服务器发送额外附加连接信息。
 		在 INetServerEvent.OnConnectionRequest()接收数据。
-		
+
 		\~japanese
 		\~
 		 */
@@ -180,12 +180,12 @@ namespace Proud
 		기본값은 false 입니다.
 		true 로 설정할 경우 Reliable P2P 의 전송속도는 1MB/sec를 감당할 수 없습니다.
 		그러나 처리 성능이 가벼워집니다. 더미 클라이언트 테스트를 할 때에만 true 로 설정하십시오.
-		
+
 		\~english
 		Default is false.
 		If setting it as true, Reliable P2P transmission speed cannot support 1MB/sec.
-		But performance will be improved, so set it as true only for dummy client test. 
-		
+		But performance will be improved, so set it as true only for dummy client test.
+
 		\~chinese
 		基本值为false。
 		如果将此设置为true，Reliable P2P的传送速度将无法承载1MB/sec。
@@ -194,16 +194,16 @@ namespace Proud
 		\~japanese
 		デフォルト値は falseです。
 		true に設定する場合Reliable P2Pの転送速度は 1MB/secを耐えることはできません。
-		しかし処理性能がよくなります。ダミークライアントテストをする時だけ true に設定してください。 
+		しかし処理性能がよくなります。ダミークライアントテストをする時だけ true に設定してください。
 
 		\~
 		*/
 		bool m_slowReliableP2P;
 
 		// coalesce interval. 테스트용이므로 평소에는 손대지 말 것. 0이면 기본값 인터벌 값으로 대체됨을 의미하며, 이 값 자체의 기본값은 0이다.
-		int m_tunedNetworkerSendIntervalMs_TEST;	
+		int m_tunedNetworkerSendIntervalMs_TEST;
 
-		/** 
+		/**
 		\~korean
 		\brief Simple network protocol mode.
 
@@ -223,10 +223,10 @@ namespace Proud
 		Setting this to true allows dummy client test via packet capture and replication method.
 		However, it will make service vulnerable to hackers, and does not allow UDP networking
 		and direct P2P communication (will be relayed instead.)
-		You should set this to false for live service. 
+		You should set this to false for live service.
 
 		Notice for packet capture and replay test:
-		- Each dummy client cannot identify self HostID. 
+		- Each dummy client cannot identify self HostID.
 		Unexpected behavior may occur if you call P2P group functions such as CreateP2PGroup().
 
 		\~chinese
@@ -242,12 +242,12 @@ namespace Proud
 		如CreateP2PGroup()，呼叫P2P组相关函数时可能会发生没有预测到的状况。
 
 		\~japanese
-		\brief Simple network protocol mode. 
+		\brief Simple network protocol mode.
 
 		デフォルト値は false です。
 		Packet capture及び複製方式でdummy client テストを可能にするためにこの値を trueに設定してください。
 		ただし、サービスがHackerの攻撃に脆弱になり、 UDP networkingと direct P2P通信を使うことができません。 (代わりに relayで転送します。)
-		Liveサービスのためには falseに設定してください。 
+		Liveサービスのためには falseに設定してください。
 
 		Packet captureとリプレーテスト関連内容
 		各々の dummy client は自分の HostIDの確認ができません。
@@ -314,15 +314,15 @@ namespace Proud
 		/** \ref acr 를 켜거나 끕니다. 기본적으로 꺼져 있습니다. */
 		bool m_enableAutoConnectionRecovery;
 
-		/** 
-		\ref 
+		/**
+		\ref
 		RMI, 이벤트 를 콜백 받을 쓰레드 모델을 지정합니다.
 
 		- SingleThreaded 지정시 사용자는 NetClient.FrameMove 함수를 호출 할 때 RMI, 이벤트가 콜백 됩니다.
 		- MultiThreaded 지정시 RMI, 이벤트 콜백이 멀티 쓰레드로 콜백 됩니다.
 		- UseExternalThreadPool 지정시 m_externalUserWorkerThreadPool 에 지정 된 사용자 정의 쓰레드 풀로 작동 됩니다.
-		기본 옵션은 SingleThreaded 입니다. 
-		
+		기본 옵션은 SingleThreaded 입니다.
+
 		(주의! SingleThreaded 옵션 사용시 사용자는 NetClient.FrameMove 함수를 반드시 호출 해야 합니다.)
 		*/
 		ThreadModel m_userWorkerThreadModel;
@@ -330,7 +330,7 @@ namespace Proud
 		/**
 		\ref
 		네트워크 I/O 처리 작업에 대한 쓰레드 모델을 지정합니다.
-		
+
 		- SingleThreaded 지정시 사용자는 NetClient.FrameMove 함수를 호출 할 때 I/O 처리를 합니다.
 		- MultiThreaded 지정시 전역 공유 쓰레드풀에서 멀티 쓰레드로 처리가 됩니다.
 		- UseExternalThreadPool 지정시 m_externalNetWorkerThreadPool 에 지정 된 사용자 정의 쓰레드 풀로 작동 됩니다.
@@ -355,7 +355,7 @@ namespace Proud
 		m_netWorkerThreadModel 에서 ThreadModel_UseExternalThreadPool 지정 시 반드시 이 값을 세팅 해야 합니다.
 		*/
 		CThreadPool* m_externalNetWorkerThreadPool;
-		
+
 		/**
 		\~korean
 		Timer callback 주기 입니다. \ref server_timer_callback  기능입니다.

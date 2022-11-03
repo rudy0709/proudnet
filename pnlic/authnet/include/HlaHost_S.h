@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,13 +34,13 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #ifdef USE_HLA
 #include "HlaEntity_S.h"
 #include "HlaDelagate_Common.h"
 
-namespace Proud 
+namespace Proud
 {
 	class CHlaEntityManagerBase_S;
 	class CriticalSection;
@@ -64,13 +64,13 @@ namespace Proud
 	public:
 		virtual ~IHlaHost_S() {};
 
-		/** 
+		/**
 		\~korean
-		HLA entity class를 등록합니다. 
-		HLA entity class는 HLA compiler output이어야 합니다. 
+		HLA entity class를 등록합니다.
+		HLA entity class는 HLA compiler output이어야 합니다.
 
 		\~english TODO:translate needed.
-	
+
 		\~chinese
 		登录HLA entity class。
 		HLA entity class得是HLA compiler output。
@@ -80,12 +80,12 @@ namespace Proud
 		*/
 		virtual void HlaAttachEntityTypes(CHlaEntityManagerBase_S* entityManager) = 0;
 
-		/** 
+		/**
 		\~korean
-		이 모듈에 의해 콜백되는 메서드들을 구현한 객체를 받아들입니다. 
+		이 모듈에 의해 콜백되는 메서드들을 구현한 객체를 받아들입니다.
 
 		\~english TODO:translate needed.
-	
+
 		\~chinese
 		在接收体现被此模块的回拨方法的对象。
 
@@ -94,12 +94,12 @@ namespace Proud
 		*/
 		virtual void HlaSetDelegate(IHlaDelegate_S* dg) = 0;
 
-		/** 
+		/**
 		\~korean
-		사용자는 이 함수를 일정 시간마다 콜 해야 합니다. 
+		사용자는 이 함수를 일정 시간마다 콜 해야 합니다.
 
 		\~english TODO:translate needed.
-	
+
 		\~chinese
 		用户要在每隔一段时间拨此函数。
 
@@ -107,7 +107,7 @@ namespace Proud
 
 		*/
 		virtual void HlaFrameMove() = 0;
-		
+
 		virtual CHlaSpace_S* HlaCreateSpace() = 0;
 		virtual void HlaDestroySpace(CHlaSpace_S* space) = 0;
 
@@ -118,15 +118,15 @@ namespace Proud
 		virtual void HlaUnviewSpace(HostID viewerID, CHlaSpace_S* space) = 0;
 	};
 
-	/** 
+	/**
 	\~korean
-	HLA 세션 서버에 의해 콜백되는 인터페이스입니다. 
-	
+	HLA 세션 서버에 의해 콜백되는 인터페이스입니다.
+
 	참고
-	- C++ 이외 버전에서는 본 메서드는 delegate callback 형태일 수 있습니다. 
+	- C++ 이외 버전에서는 본 메서드는 delegate callback 형태일 수 있습니다.
 
 	\~english
-	
+
 	\~chinese
 	被HLA session回拨的的界面。
 

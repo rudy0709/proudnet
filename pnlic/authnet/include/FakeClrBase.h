@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -68,7 +68,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 #if !defined(_WIN32)
 	#define _MALLOCA alloca
-	#define _FREEA(...) 
+	#define _FREEA(...)
 #else
 #if (_MSC_VER>=1400)
 #define _MALLOCA _malloca
@@ -104,7 +104,7 @@ namespace Proud
 	};
 
 #ifdef _WIN32
-	/** 
+	/**
 	\~korean
 	타이머 클래스
 	- 일정 시간마다 이벤트 객체(Proud.Event 참고)를 SetEvent, 즉 시그널한다.
@@ -131,7 +131,7 @@ namespace Proud
 		static void EventSetter(void* ctx);
 
 	public:
-		/** 
+		/**
 		\~korean
 		생성자
 		\param eventHandle 일정 시간마다 시그널을 넣을 이벤트 객체. Proud.Event를 파라메터로 넣어도 된다.
@@ -152,7 +152,7 @@ namespace Proud
 		*/
 		PROUD_API Timer(HANDLE eventHandle, uint32_t interval, DWORD_PTR dwUser = 0);
 
-		/** 
+		/**
 		\~korean
 		파괴자
 		- 객체를 파괴한 직후부터는 이벤트 객체에 시그널을 넣지 않는다.

@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,19 +34,19 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "FastMap.h"
 #include "FastList.h"
 
 namespace Proud
 {
-	/** 
+	/**
 	\~korean
 	유니크한 정수를 생성하되, 재사용가능한 값을 생성하는 역할을 한다.
 	TCP port number처럼, 값을 재사용하되 일정 시간 쿨타임을 두는 형식으로 작동한다.
 	VLQ 최적화를 위해 최소한의 값만 생성해서 다룬다.
-	TODO: Proud.CRecycleHostIDFactory 에서 복사해 왔음. 단, 값 범위 지정과 특정 값을 skip하는 기능은 제거했다. 나중에 소스 공통화하자. 
+	TODO: Proud.CRecycleHostIDFactory 에서 복사해 왔음. 단, 값 범위 지정과 특정 값을 skip하는 기능은 제거했다. 나중에 소스 공통화하자.
 
 	\~english TODO:translate needed.
 
@@ -70,7 +70,7 @@ namespace Proud
 			TYPE m_recycleCount;
 			int64_t m_droppedTime;
 
-			inline CRecycleBucket() 
+			inline CRecycleBucket()
 			{
 				m_number = 0;
 				m_recycleCount = 0;

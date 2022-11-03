@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -41,7 +41,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 namespace Proud
 {
-	/** 
+	/**
 	CFastArray와 같지만 더 낮은 memory fragmentation 효과가 있다.
 	내부에 일정 크기의 내부 배열 데이터 공간을 갖고 있기 때문이다.
 	그러나, 제한 크기 이상은 사용 불가능하다. 그리고 객체 자체가 직접 데이터를 가지므로 크기가 크다.
@@ -50,7 +50,7 @@ namespace Proud
 	class CLowFragMemArray :public CFastArray < TYPE, TYPE_IN_REF, RAWTYPE, INDEXTYPE >
 	{
 		// 위의 의도: 1st 인자는 int지만 (스택에 누가 int64 크기 고정배열이 필요하겠어!) x86 컴파일 호환을 위해 INDEXTYPE이 존재.
-		
+
 		/****************************
 		주의!!! 아래 변수는 PS4에서 잘 작동하지 않는다! 스택 깨먹음!!
 		*/
@@ -71,10 +71,10 @@ namespace Proud
 
 		// Implementation
 	protected:
-#if defined(_MSC_VER)       
+#if defined(_MSC_VER)
 		__declspec(property(get = GetTypedInternalData)) TYPE* TypedInternalData;
 #endif
-		
+
 		inline TYPE* GetTypedInternalData() {
 			return (TYPE*)m_internalData;
 		}
@@ -102,13 +102,13 @@ namespace Proud
 
 		virtual void DataBlock_Free(void* data)
 		{
-			// 하는 일이 없다. 
+			// 하는 일이 없다.
 			// 주의: CFastArray가 m_Data=null 하는 일이 없음을 가정하고 있다!
 		}
 
 		virtual void* DataBlock_Alloc(size_t length)
 		{
-			// 하는 일이 없다. 
+			// 하는 일이 없다.
 			// 주의: CFastArray가 m_Data=null 하는 일이 없음을 가정하고 있다!
 			return this->m_Data;
 		}

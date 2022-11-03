@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -66,7 +66,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	멀티스레드 프로그래밍에서의 이벤트 객체이다.
 
@@ -95,11 +95,11 @@ namespace Proud
 		bool	m_isSignaled;
 #endif
 
-		/** 
+		/**
 		\~korean
 		생성자
 		\param manualReset ::WaitForSingleObject 또는 WaitAny, WaitAll 등을 통해 이 객체의 시그널을 대기하는 스레드가 있는 상태에서
-		시그널이 발생하면 대기가 끝나게 된다. 이때 이벤트 객체가 자동으로 non-singal 상태(event reset)이 되게 할 것이라면 true를 넣도록 한다. 
+		시그널이 발생하면 대기가 끝나게 된다. 이때 이벤트 객체가 자동으로 non-singal 상태(event reset)이 되게 할 것이라면 true를 넣도록 한다.
 		\param initialState 이 이벤트 객체가 시그널을 처음부터 받은 상태로 생성되게 하려면 true
 
 		\~english
@@ -118,7 +118,7 @@ namespace Proud
 		*/
 		PROUD_API Event(bool manualReset, bool initialState);
 
-		/** 
+		/**
 		\~korean
 		기본 옵션으로 생성한다.
 		- auto reset, non signaled로 시작한다.
@@ -136,7 +136,7 @@ namespace Proud
 		*/
 		PROUD_API Event();
 
-		/** 
+		/**
 		\~korean
 		파괴자
 
@@ -151,13 +151,13 @@ namespace Proud
 		*/
 		PROUD_API ~Event();
 
-		/** 
+		/**
 		\~korean
 		이벤트에 시그널을 넣는다.
 
 		\~english
 		Enters signal into event
-		
+
 		\~chinese
 		在事件当中加入信号。
 
@@ -200,7 +200,7 @@ namespace Proud
 #endif
 		}
 
-		/** 
+		/**
 		\~korean
 		시그널을 제거한다.
 
@@ -230,7 +230,7 @@ namespace Proud
 #endif
 		}
 
-		/** 
+		/**
 		\~korean
 		시그널이 올 때까지 기다린다.
 		\param timeOut (밀리초) 시그널 대기 최대 시간. INFINITE를 넣으면 무한정 기다린다.
@@ -247,8 +247,8 @@ namespace Proud
 		\~
 		*/
 		PROUD_API bool WaitOne(uint32_t timeOut);
-		
-		/** 
+
+		/**
 		\~korean
 		시그널이 올 때까지 무한정 기다린다.
 
@@ -263,13 +263,13 @@ namespace Proud
 		*/
 		PROUD_API bool WaitOne();
 
-		/** 
+		/**
 		\~korean
-		입력된 이벤트 객체들 중 하나라도 시그널이 발생할 때까지 기다린다. 
+		입력된 이벤트 객체들 중 하나라도 시그널이 발생할 때까지 기다린다.
 		\return -1 또는 완료 성공한 이벤트 객체의 배열 항목
 
 		\~english
-		Waits until at least one of event objects entered occurs 
+		Waits until at least one of event objects entered occurs
 		\return -1 or allocation clause of event object that has been successfully completed
 
 		\~chinese
@@ -286,13 +286,13 @@ namespace Proud
 		}
 #endif
 
-		/** 
+		/**
 		\~korean
-		입력된 이벤트 객체들 중 하나라도 시그널이 발생할 때까지 기다린다. 
+		입력된 이벤트 객체들 중 하나라도 시그널이 발생할 때까지 기다린다.
 		\return -1 또는 완료 성공한 이벤트 객체의 배열 항목
 
 		\~english
-		Waits until at least one of event objects entered occurs 
+		Waits until at least one of event objects entered occurs
 		\return -1 or allocation clause of event object that has been successfully completed
 
 		\~chinese
@@ -305,8 +305,8 @@ namespace Proud
 #if defined(_WIN32)
 		static int WaitAny(Event** events, int count, uint32_t timeOut);
 #endif
-		
-		/** 
+
+		/**
 		\~korean
 		입력된 이벤트 객체이 모두 시그널이 발생할 때까지 기다린다.
 
@@ -325,8 +325,8 @@ namespace Proud
 			return WaitAll(events, count, PN_INFINITE);
 		}
 #endif
-		
-		/** 
+
+		/**
 		\~korean
 		입력된 이벤트 객체이 모두 시그널이 발생할 때까지 기다린다.
 

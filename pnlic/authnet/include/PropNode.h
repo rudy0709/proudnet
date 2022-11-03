@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -64,10 +64,10 @@ namespace Proud
 	class CProperty;
 
 	/**
-	\~korean 
-	PropCollection의 Message 직렬화 헬퍼 기능 
-	
-	\~english 
+	\~korean
+	PropCollection의 Message 직렬화 헬퍼 기능
+
+	\~english
 	PropCollection's Message serialization helper functions
 
 	\~chinese
@@ -79,10 +79,10 @@ namespace Proud
 	PROUD_API CMessage& operator<<(CMessage& packet, const CProperty &rhs);
 
 	/**
-	\~korean 
-	PropCollection의 Message 병렬화 헬퍼 기능 
-	
-	\~english 
+	\~korean
+	PropCollection의 Message 병렬화 헬퍼 기능
+
+	\~english
 	PropCollection's Message deserialization helper functions
 
 	\~chinese
@@ -93,15 +93,15 @@ namespace Proud
 	*/
 	PROUD_API CMessage& operator>>(CMessage& packet,CProperty &rhs);
 
-	/** 
+	/**
 	\~korean
-	\brief 0개 이상의 Named Property를 가지는 Collection 객체이다. 
-	
+	\brief 0개 이상의 Named Property를 가지는 Collection 객체이다.
+
 	정의
 	- Unique key container associated with one value. 즉,
 	Set of (key as case insensitive string, value as variant).
-	즉, key값으로 대소문자를 안가리는 string이 들어간다는 점을 제외하면 Visual Basic의 
-	Collection과 같은 역할을 한다. 예를 들어, 
+	즉, key값으로 대소문자를 안가리는 string이 들어간다는 점을 제외하면 Visual Basic의
+	Collection과 같은 역할을 한다. 예를 들어,
 	\code
 		{ ('name','baehj'), ('id',123), ('height',176) }
 	\endcode
@@ -125,16 +125,16 @@ namespace Proud
 		_bstr_t name=a.GetField(L"name");  -- name 변수에는 "baehj"가 들어간다.
 		_variant_t serialized=a;  //-- serialized에는 a가 serialize된 형태의 binary type data가 들어간다.
 		PropCollection b;
-		b=serialized;	 //-- b는 a와 같게 된다. 
-	\endcode 
+		b=serialized;	 //-- b는 a와 같게 된다.
+	\endcode
 
 	\~english
-	\brief A collection object that has more than 0 unit of Named Property 
-	
+	\brief A collection object that has more than 0 unit of Named Property
+
 	Definition
 	- Unique key container associated with one value. 즉, Set of (key as case insensitive string, value as variant).
 	  In other words, except the fact that a sting that does not distinguish capital/small letters as key value enters, this acts as Collection of Visual Basic.
-	For an example, 
+	For an example,
 	\code
 		{ ('name','baehj'), ('id',123), ('height',176) }
 	\endcode
@@ -156,8 +156,8 @@ namespace Proud
 		_bstr_t name=a.GetField(L"name");  -- "baehj" enters to name variable.
 		_variant_t serialized=a;  //-- binary type data that a is serialized will enter serialized.
 		PropCollection b;
-		b=serialized;	 //-- b becomes equal to a. 
-	\endcode 
+		b=serialized;	 //-- b becomes equal to a.
+	\endcode
 
 	\~chinese
 	\brief 拥有0个以上Named Property的Collection对象。
@@ -186,7 +186,7 @@ namespace Proud
 		_bstr_t name=a.GetField(L"name");  -- name变数里进入"baehj"。
 		_variant_t serialized=a;  //-- serialized里进入a被serialize形式的binary type data。
 		PropCollection b;
-		b=serialized;	 //-- b与a会相同。 
+		b=serialized;	 //-- b与a会相同。
 	\endcode
 
 	\~japanese
@@ -199,10 +199,10 @@ namespace Proud
 		CStringPool::Holder m_strpool;
 
 	public:
-		/** 
+		/**
 		\~korean
 		field 이름과 값에 대응하는 map 객체이다.
-		- 주의!! iteration을 위해 이 데이터 멤버를 직접 접근하는 것은 허락하나, 읽기 전용으로만 쓰는 것을 허락한다.  
+		- 주의!! iteration을 위해 이 데이터 멤버를 직접 접근하는 것은 허락하나, 읽기 전용으로만 쓰는 것을 허락한다.
 
 		\~english
 		Map object that corresponds to field name and value
@@ -224,7 +224,7 @@ namespace Proud
 		RefCount<CReaderWriterAccessChecker> m_RWAccessChecker;
 #endif // _DEBUG
 	public:
-		class const_iterator 
+		class const_iterator
 		{
 			friend CProperty;
 
@@ -232,13 +232,13 @@ namespace Proud
 			MapType::const_iterator m_intl;
 		public:
 			const_iterator() {}
-			inline const_iterator(const const_iterator &src) 
+			inline const_iterator(const const_iterator &src)
 			{
 //				m_owner = src.m_owner;
 				m_intl = src.m_intl;
 			}
 
-			inline const_iterator& operator=(const const_iterator &src) 
+			inline const_iterator& operator=(const const_iterator &src)
 			{
 //				m_owner = src.m_owner;
 				m_intl = src.m_intl;
@@ -261,12 +261,12 @@ namespace Proud
 				return (_Tmp);
 			}
 
-			inline bool operator==(const const_iterator& a) const 
+			inline bool operator==(const const_iterator& a) const
 			{
 				return m_intl==a.m_intl /*&& m_owner==a.m_owner */;
 			}
 
-			inline bool operator!=(const const_iterator& a) const 
+			inline bool operator!=(const const_iterator& a) const
 			{
 				return !(m_intl==a.m_intl /*&& m_owner==a.m_owner */);
 			}
@@ -283,7 +283,7 @@ namespace Proud
 			{
 				m_intl->SetSecond(val);
 			}
-		
+
 #if defined (WIN32)
 			__declspec(property(get=GetKey)) const String Key;
 			__declspec(property(get=GetValue,put=SetValue)) CVariant Value;
@@ -296,7 +296,7 @@ namespace Proud
 			AssertThreadID(eAccessMode_Read);
 			const_iterator ret;
 			ret.m_intl = m_map.begin();
-			
+
 			ClearThreadID();
 			return ret;
 		}
@@ -372,12 +372,12 @@ namespace Proud
 		virtual void	AssertThreadID(eAccessMode eMode) const;
 		virtual void	ClearThreadID() const;
 	public:
-		/** 
+		/**
 		\~korean
 		이 collection 객체에 있는 특정 (key, value) pair를 구한다.
 		- 이 메서드 대신 Fields[]를 직접 다루는 것이 더 편하므로 권장된다.
 		\return pair의 value. 만약 key에 해당하는 pair가 없으면 empty type variant를 리턴한다.
-		\param name key of pair whose value should be retrieved  
+		\param name key of pair whose value should be retrieved
 
 		\~english
 		Gets a specific (key, value) pair in this collection object
@@ -395,12 +395,12 @@ namespace Proud
 		*/
 		PROUD_API CVariant GetField(const String &name);
 
-		/** 
+		/**
 		\~korean
 		이 collection 객체에 특정 (key, value) pair를 넣는다. 이미 같은 key를 가지는 pair가 있으면 그것을 새걸로 교체한다.
 		- 이 메서드 대신 Fields[]를 직접 다루는 것이 더 편하므로 권장된다.
 		\param name key of pair
-		\param value value of pair  
+		\param value value of pair
 
 		\~english
 		Specific (key, value) pair to be entered to this collection object. If there is the pair that has same key than new comer replaces itself with old one.
@@ -419,10 +419,10 @@ namespace Proud
 		*/
 		PROUD_API virtual void SetField(const String &name,const CVariant &value);
 
-		/** 
+		/**
 		\~korean
 		이 collection 객체에서 특정 (key, value) pair를 제거한다.
-		\param name 제거할 pair의 key 값  
+		\param name 제거할 pair의 key 값
 
 		\~english
 		Removes specific (key, value) pair from this collection object
@@ -437,10 +437,10 @@ namespace Proud
 		*/
 		PROUD_API virtual void RemoveField(const String &name);
 
-		/** 
+		/**
 		\~korean
 		serialize가 되어 있는 bytearray type의 variant의 내용을 deserialize해서 이 객체에 채운다.
-		\param from.. 복사 원본  
+		\param from.. 복사 원본
 
 		\~english
 		The contents of variant of serialized bytearray type are to be deserialized and to be filled to this object.
@@ -462,9 +462,9 @@ namespace Proud
 		PROUD_API virtual void ToByteArray(ByteArray &output);
 
 
-		/** 
+		/**
 		\~korean
-		기본 생성자  
+		기본 생성자
 
 		\~english
 		Base constructor
@@ -480,11 +480,11 @@ namespace Proud
 
 		virtual ~CProperty();
 
-		/** 
-		\~korean 
-		CVariant type과 호환되게 하는 helper function 
-		
-		\~english 
+		/**
+		\~korean
+		CVariant type과 호환되게 하는 helper function
+
+		\~english
 		Helper function that make compatibility with CVariant type
 
 		\~chinese
@@ -495,11 +495,11 @@ namespace Proud
 		*/
 		CProperty(_variant_t from);
 
-		/** 
-		\~korean 
-		_variant_t type과 호환되게 하는 helper function 
-		
-		\~english 
+		/**
+		\~korean
+		_variant_t type과 호환되게 하는 helper function
+
+		\~english
 		Helper function that make compatibility with _variant_t type
 
 		\~chinese
@@ -511,11 +511,11 @@ namespace Proud
 		PROUD_API operator _variant_t() const;
 		PROUD_API operator ByteArrayPtr() const;
 
-		/** 
-		\~korean 
-		복사 생성자 
-		
-		\~english 
+		/**
+		\~korean
+		복사 생성자
+
+		\~english
 		Copy creator
 
 		\~chinese
@@ -546,9 +546,9 @@ namespace Proud
 			return *this;
 		}
 
-		/** 
+		/**
 		\~korean
-		필드의 값을 읽거나 기록할 때 사용한다. 자세한 것은 \ref dbc1_adding_fields  참조.  
+		필드의 값을 읽거나 기록할 때 사용한다. 자세한 것은 \ref dbc1_adding_fields  참조.
 
 		\~english
 		Used to read or write field value. Please refer \ref db_adding_fields
@@ -563,13 +563,13 @@ namespace Proud
 		__declspec(property(get=GetField,put=SetField)) CVariant Fields[];
 #endif
 
-		/** 
+		/**
 		\~korean
-		이 콜렉션 객체의 내용을 문자열로 만들어서 출력한다. 
-		- 디버깅을 할 때 용이하다.  
+		이 콜렉션 객체의 내용을 문자열로 만들어서 출력한다.
+		- 디버깅을 할 때 용이하다.
 
 		\~english
-		Converts the contents of this collection object into text string then outputs 
+		Converts the contents of this collection object into text string then outputs
 		- Useful when debugging
 
 		\~chinese
@@ -594,12 +594,12 @@ namespace Proud
 	class CPropNode;
 	typedef RefCount<CPropNode> CPropNodePtr;
 
-	/** 
-	\~korean 
-	PropCollection의 Message 직렬화 헬퍼 기능 
-	
-	\~english 
-	PropCollection's Message serialization helper functions 
+	/**
+	\~korean
+	PropCollection의 Message 직렬화 헬퍼 기능
+
+	\~english
+	PropCollection's Message serialization helper functions
 
 	\~chinese
 	PropCollection 的Message串联helper功能。
@@ -609,12 +609,12 @@ namespace Proud
 	*/
 	PROUD_API CMessage& operator<<(CMessage& packet,CPropNode &rhs);
 
-	/** 
-	\~korean 
-	PropCollection의 Message 병렬화 헬퍼 기능 
-	
-	\~english 
-	PropCollection's Message deserialization helper functions 
+	/**
+	\~korean
+	PropCollection의 Message 병렬화 헬퍼 기능
+
+	\~english
+	PropCollection's Message deserialization helper functions
 
 	\~chinese
 	PropCollection 的Message并联helper功能。
@@ -624,7 +624,7 @@ namespace Proud
 	*/
 	PROUD_API CMessage& operator>>(CMessage& packet,CPropNode &rhs);
 
-	/** 
+	/**
 	\~korean
 	Property 를 상속받은 클래스로서 CPropForest 의 한개의 노드를 가리킨다.
 	CPropNodePtr 로 생성하여 CLoadedData 의 제공함수들에서 삽입이나 삭제를 하면 된다.
@@ -663,10 +663,10 @@ namespace Proud
 		friend CDbCacheServer2Impl;
 
 	private:
-		//modify by rekfkno1 - 서로 ptr로 참조하고 있으면 영원히 파괴되지 않는 
+		//modify by rekfkno1 - 서로 ptr로 참조하고 있으면 영원히 파괴되지 않는
 		// 현상이 있다!!!! 꼭!!! 포인터로 사용할것...
 
-		/** 
+		/**
 		\~korean
 		객체를 child로 참조하고 있는 Node의 포인터
 
@@ -681,7 +681,7 @@ namespace Proud
 		*/
 		CPropNode*  m_parent;
 
-		/** 
+		/**
 		\~korean
 		객체를 parent로 참조하고 있는 Node의 포인터
 
@@ -696,7 +696,7 @@ namespace Proud
 		*/
 		CPropNode*  m_child;
 
-		/** 
+		/**
 		\~korean
 		객체와 동급의 참조 포인터
 
@@ -710,7 +710,7 @@ namespace Proud
 		\~
 		*/
 		CPropNode*  m_sibling;
- 
+
 		/*
 		sibling 노드의 마지막 포인터를 가지고 있다.
 		*/
@@ -729,7 +729,7 @@ namespace Proud
 		// 로컬 메모리가 변화하면 세팅되는 값.(soft=unilateral, hard=request/response)
 		bool		m_issuedSoft;
 	public:
-		/** 
+		/**
 		\~korean
 		이 노드의 타입이름.
 		- DbCacheSystem 에서는 보통 테이블 이름으로 사용됩니다.
@@ -763,35 +763,35 @@ namespace Proud
 		void	ClearSoftWorkIssued(){m_issuedSoft = false;}
 	public:
 
-		/** 
-		\~korean 
-		자식 노드를 제외한 사본을 생성합니다. 
+		/**
+		\~korean
+		자식 노드를 제외한 사본을 생성합니다.
 
 		\~english
-		Clones of this node without children. 
+		Clones of this node without children.
 
 		\~chinese
 		克隆这个节点没有孩子。(TODO: translation review needed)
 
 		\~japanese
-		\~ 
+		\~
 		*/
 		CPropNodePtr CloneNoChildren();
 
 	public:
 
-		/** 
+		/**
 		\~korean
 		이 node 객체에 특정 (key, value) pair를 넣는다. 이미 같은 key를 가지는 pair가 있으면 그것을 새걸로 교체한다.
 		- 이 메서드 대신 Fields[]를 직접 다루는 것이 더 편하므로 권장된다.
 		\param name key of pair
-		\param value value of pair  
+		\param value value of pair
 
 		\~english
 		Put specific (key, value) pair to node object. If pair with same key is existed then replace it to brandnew one.
 		- We recommend to use Fields[] instead of this method.
 		\param name key of pair
-		\param value value of pair  
+		\param value value of pair
 
 		\~chinese
 		往这个node对象输入特定(key, value) pair。如果存在拥有相同key的pair的话，用新的代替。
@@ -804,10 +804,10 @@ namespace Proud
 		*/
 		PROUD_API virtual void SetField(const String &name,const CVariant &value) PN_OVERRIDE;
 
-		/** 
+		/**
 		\~korean
 		이 node 객체에서 특정 (key, value) pair를 제거한다.
-		\param name 제거할 pair의 key 값  
+		\param name 제거할 pair의 key 값
 
 		\~english
 		Remove specific (key, value) pair from this node object.
@@ -822,7 +822,7 @@ namespace Proud
 		*/
 		PROUD_API virtual void RemoveField(const String &name) PN_OVERRIDE;
 
-		/** 
+		/**
 		\~korean
 		데이터 정보를 ByteArray 에 담습니다.
 		- 보통 사용자는 사용할 일이 없습니다.
@@ -857,14 +857,14 @@ namespace Proud
 		__declspec(property(get=GetUUID)) Guid UUID;
 		__declspec(property(get=GetOwnerUUID)) Guid OwnerUUID;
 		__declspec(property(get=GetRootUUID)) Guid RootUUID;
-		__declspec(property(get=GetStringTypeName,put=SetStringTypeName)) String TypeName; 
+		__declspec(property(get=GetStringTypeName,put=SetStringTypeName)) String TypeName;
 #endif
 
 		bool	IsSoftWorkIssued(){return m_issuedSoft;}
-		
+
 		/**
 		\~korean
-		기본 생성자 
+		기본 생성자
 
 		\~english
 		Base constructor
@@ -911,12 +911,12 @@ namespace Proud
 #endif
 	};
 
-	
 
-	/** 
+
+	/**
 	\~korean
 	CPropForest 는 1개 이상의 tree를 가지는 숲 객체입니다.
-	CPropForest 의 노드는 CPropNode 타입입니다. 
+	CPropForest 의 노드는 CPropNode 타입입니다.
 	- 사용자는 가급적 사용하지 마십시요.
 
 	다음은 사용 예시입니다.
@@ -936,7 +936,7 @@ namespace Proud
 		CPropNode* wendy = new CPropNode;
 		f.InsertChild(jack, wendy);
 
-		// wendy가 신랑 tony와 결혼했습니다. 
+		// wendy가 신랑 tony와 결혼했습니다.
 		CPropNode* tony = new CPropNode;
 		f.InsertSiblingBefore(wendy, tony);
 
@@ -944,14 +944,14 @@ namespace Proud
 		CPropNode* terry = new CPropNode;
 		f.InsertChild(tony, terry);
 
-		// tony가 바람나서 도망갔습니다. terry도 같이 데려가 버렸습니다. 
+		// tony가 바람나서 도망갔습니다. terry도 같이 데려가 버렸습니다.
 		f.RemoveNode(tony);
 
 	\endcode
 
 	\~english
 	CPropForest is a forest type object that has more than 1 tres.
-	    Node of CPropForest is CpropNode type. 
+	    Node of CPropForest is CpropNode type.
 
 	Following is an example for usage.
 	\code
@@ -970,7 +970,7 @@ namespace Proud
 		CPropNode* wendy = new CPropNode;
 		f.InsertChild(jack, wendy);
 
-		// Wendy is married to Tony. 
+		// Wendy is married to Tony.
 		CPropNode* tony = new CPropNode;
 		f.InsertSiblingBefore(wendy, tony);
 
@@ -978,7 +978,7 @@ namespace Proud
 		CPropNode* terry = new CPropNode;
 		f.InsertChild(tony, terry);
 
-		// Tony left haveing an affair. He took Terry as well. 
+		// Tony left haveing an affair. He took Terry as well.
 		f.RemoveNode(tony);
 	\endcode
 
@@ -1004,7 +1004,7 @@ namespace Proud
 		CPropNode* wendy = new CPropNode;
 		f.InsertChild(jack, wendy);
 
-		// wendy与新浪tony结婚了。 
+		// wendy与新浪tony结婚了。
 		CPropNode* tony = new CPropNode;
 		f.InsertSiblingBefore(wendy, tony);
 
@@ -1012,7 +1012,7 @@ namespace Proud
 		CPropNode* terry = new CPropNode;
 		f.InsertChild(tony, terry);
 
-		// tony外遇逃跑了。将Terry也一起带走了。 
+		// tony外遇逃跑了。将Terry也一起带走了。
 		f.RemoveNode(tony);
 
 	\endcode

@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -76,7 +76,7 @@ namespace Proud
 		 데이터베이스에 연결할 때 사용합니다.
 
 		 \~english
-		 It is used when connecting to the database. 
+		 It is used when connecting to the database.
 
 		 \~chinese
 		 连接数据库时使用。
@@ -94,7 +94,7 @@ namespace Proud
 		 ex> conn.Open("DSN=MsSqlDsn;UID=root;PWD=1234")
 
 		 \~english
-		 It is used when connecting to the database. 
+		 It is used when connecting to the database.
 		 ex> conn.Open("DSN=MsSqlDsn;UID=root;PWD=1234")
 
 		 \~chinese
@@ -116,7 +116,7 @@ namespace Proud
 
 		 \~english
 		 It is used when disconnection.
-		 It has an effect on all COdbcCommand objects and COdbcRecordset objects that have been created by this connection. 
+		 It has an effect on all COdbcCommand objects and COdbcRecordset objects that have been created by this connection.
 
 		 \~chinese
 		 连接终了时使用。
@@ -136,8 +136,8 @@ namespace Proud
 		 RollbackTrans() 이나 CommitTrans()을 실행하여 트랜잭션을 종료하면 다시 호출해야 적용 됩니다.
 
 		 \~english
-		 It is used when starting transaction. 
-		 In case transaction ends by executing RollbackTrans() or CommitTrans(), it is applied only when re-calling. 
+		 It is used when starting transaction.
+		 In case transaction ends by executing RollbackTrans() or CommitTrans(), it is applied only when re-calling.
 
 		 \~chinese
 		 Transaction开始时使用。
@@ -156,7 +156,7 @@ namespace Proud
 		 트랜잭션을 Rollback할 때 사용합니다.
 
 		 \~english
-		 It is used when transaction rollback. 
+		 It is used when transaction rollback.
 
 		 \~chinese
 		 Rollback Transaction时使用。
@@ -173,7 +173,7 @@ namespace Proud
 		 트랜잭션을 Commit할 때 사용합니다.
 
 		 \~english
-		 It is used when committing transaction. 
+		 It is used when committing transaction.
 
 		 \~chinese
 		 Transaction Commit 时使用。
@@ -190,7 +190,7 @@ namespace Proud
 		 데이터베이스에 현재 연결중인지 확인할 때 사용합니다.
 
 		 \~english
-		 It is used when checking if connection to the database is normal. 
+		 It is used when checking if connection to the database is normal.
 
 		 \~chinese
 		 确认现在是否与数据库连接时使用。

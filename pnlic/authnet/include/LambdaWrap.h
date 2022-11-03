@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once 
+#pragma once
 
 #include "CallbackContext.h"
 #include <functional>
@@ -44,7 +44,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 namespace Proud
 {
 	// 파라메터 갯수가 몇개든 상관없이 처리 가능한 일반적인 람다식 객체의 베이스 클래스.
-	// 내부적으로 std::function이 없으므로, 항상 고정 크기 클래스임을 보장한다. 
+	// 내부적으로 std::function이 없으므로, 항상 고정 크기 클래스임을 보장한다.
 	// 따라서 미리 빌드된 라이브러리에서의 이식성을 보장한다.
 	// RETURN에는 람다식의 리턴 타입을 넣자. void도 가능.
 	template<typename RETURN>

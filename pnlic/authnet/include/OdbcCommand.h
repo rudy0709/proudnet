@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -56,7 +56,7 @@ namespace Proud
 	 \~english
 	 It is a class that deals with Prepared Statement.
 	 It is useful for continuous use by changing parameter value of a query, differently from Execute in COdbcConnection.
-	 Also used when executing Stored Procedure that Input, Output and  Input&Output parameter need. 
+	 Also used when executing Stored Procedure that Input, Output and  Input&Output parameter need.
 
 	 \~chinese
 	 处理Prepared Statement的class。
@@ -88,7 +88,7 @@ namespace Proud
 		 \~english
 		 It is used when inputting a query.
 		 Input the query as ?. (ex> INSERT INTO test(id, name) VALUES(?, ?)).
-		 Table name and field name cannot be inputted as ?. 
+		 Table name and field name cannot be inputted as ?.
 		 \param conn COdbcConnection Object
 		 \param query Query
 
@@ -132,19 +132,19 @@ namespace Proud
 
 		 \~english
 		 It is used when inputting “Input parameter”.
-		 You can just input data in the form of pointer in case you want to change variables only. 
-		 In case of inputting in the form of pointer, you must check if there is problem occurred by scope of the relevant variable. 
+		 You can just input data in the form of pointer in case you want to change variables only.
+		 In case of inputting in the form of pointer, you must check if there is problem occurred by scope of the relevant variable.
 		 1.         int a = 10;
 		 2.         cmd.AppendInputParameter(a); // It is executed in the form of Call by Value as “a” is copied.
-		 3.         cmd.AppendInputParameter(&a); // It is executed in the form of Call by Pointer that uses “a” address. 
-		 
+		 3.         cmd.AppendInputParameter(&a); // It is executed in the form of Call by Pointer that uses “a” address.
+
 		 Depending on inputted data, sqlType is automatically decided, so in case you input a type you want in the database, you can input OdbcSqlDataType.
-		 ex> In case of inputting variable whose type is int32_t as data whose type is int64_t, 
+		 ex> In case of inputting variable whose type is int32_t as data whose type is int64_t,
 		 1.         int a = 10;
 		 2.         cmd.AppendInputParameter(a, OdbcSqlDataType_BIGINT);
-		 
+
 		 In case of inputting binary data, you must use Proud::COdbcByteData class.
-		 COdbcByteData is only allowed to be inputted by the pointer. 
+		 COdbcByteData is only allowed to be inputted by the pointer.
 		 1. unsigned char byte[10000] = "........................."; // Input 1,000 byte data.
 		 2. COdbcByteData byteData(byte, 1000, 10000);
 		 3. cmd.AppendInputParameter(&byteData);
@@ -156,12 +156,12 @@ namespace Proud
 		 1.         int a = 10;
 		 2.         cmd.AppendInputParameter(a); // a的值被复制，以 Call by Value 形式运行。.
 		 3.         以使用cmd.AppendInputParameter(&a); // a地址值的Call by Pointer 形式运行。
-		 
+
 		 因随着输入数据的不同，sqlType将自动决定，所以如果想在数据库中明确地放入所需type时，输入OdbcSqlDataType即可。
 		 如果想将ex> int32_t type的变数以int64_t type的数据放入数据库时
 		 1.         int a = 10;
 		 2.         cmd.AppendInputParameter(a, OdbcSqlDataType_BIGINT);
-		 
+
 		 输入二进制数据时，应利用 Proud::COdbcByteData class。
 		 COdbcByteData只能用pointer输入。
 		 1. 输入unsigned char byte[10000] = "........................."; // 1000 byte 数据。
@@ -223,16 +223,16 @@ namespace Proud
 
 		 \~english
 		 It is used when designating “Output parameter”.
-		 You can only input data in the form of pointer in order to receive data. 
-		 In case of inputting in the form of pointer, you must check if there is problem occurred by scope of the relevant variable. 
+		 You can only input data in the form of pointer in order to receive data.
+		 In case of inputting in the form of pointer, you must check if there is problem occurred by scope of the relevant variable.
 		 1.         int a;
 		 2.         cmd.AppendOutputParameter(&a);
-		 
+
 		 Depending on inputted data, sqlType is automatically decided, so in case you input a type you want in the database, you can input OdbcSqlDataType.
-		 ex> In case of receiving data whose type is int64_t as variable whose type is int32_t, 
+		 ex> In case of receiving data whose type is int64_t as variable whose type is int32_t,
 		 1.         int a;
 		 2.         cmd.AppendOutputParameter(a, OdbcSqlDataType_BIGINT);
-		 
+
 		 In case of receiving string, you must use GetBuffer와 ReleaseBuffer of Proud::String class before/after execution.
 		 1. String str;
 		 2. str.GetBuffer(100);
@@ -242,26 +242,26 @@ namespace Proud
 		 6. str.GetBuffer(100);       // You must repeat 2, 4 and 5.
 		 7. cmd.Execute();
 		 8. str.ReleaseBuffer();
-		 
-		 In case of receiving binary data, you must use Proud::COdbcByteData class. 
+
+		 In case of receiving binary data, you must use Proud::COdbcByteData class.
 		 COdbcByteData is only allowed to be inputted by the pointer.
 		 1. unsigned char byte[10000];
 		 2. COdbcByteData byteData(byte, 0, 10000);
 		 3. cmd.AppendOutputParameter(&byteData);
 		 4. cmd.Execute();
-		 
+
 		 \~chinese
 		 指定Output参数时使用。
 		 因需接收数据，所以只能以pointer的形式输入数据。
 		 以pointer的形式输入时，需确认因该变数的Scope，是否会发生问题。
 		 1.         int a;
 		 2.         cmd.AppendOutputParameter(&a);
-		 
+
 		 因随着输入数据的不同，sqlType将自动决定，所以如果想在数据库中明确地放入所需type时，输入OdbcSqlDataType即可。
 		 如果想将ex> int32_t type的变数以int64_t type的数据放入数据库时
 		 1.         int a;
 		 2.         cmd.AppendOutputParameter(a, OdbcSqlDataType_BIGINT);
-		 
+
 		 接收字符串时，必须在 Excute 前后使用Proud::String class的 GetBuffer和 ReleaseBuffer。
 		 1. String str;
 		 2. str.GetBuffer(100);
@@ -271,7 +271,7 @@ namespace Proud
 		 6. str.GetBuffer(100);       // 需反复2, 4, 5
 		 7. cmd.Execute();
 		 8. str.ReleaseBuffer();
-		 
+
 		 接收二进制数据时，需使用 Proud::COdbcByteData class。
 		 COdbcByteData只能以pointer的形式输入。
 		 1. unsigned char byte[10000];
@@ -290,7 +290,7 @@ namespace Proud
 		 ex> データベースからint64_tタイプのデータをint32_tタイプの変数で受けたい場合
 		 1.         int a;
 		 2.         cmd.AppendOutputParameter(a, OdbcSqlDataType_BIGINT);
-		 
+
 		 文字列を受ける場合、必ずExcute前後にProud::StringクラスのGetBufferとReleaseBufferを使用してください。
 		 1. String str;
 		 2. str.GetBuffer(100);
@@ -300,7 +300,7 @@ namespace Proud
 		 6. str.GetBuffer(100);       // 2, 4, 5を繰り返してください。
 		 7. cmd.Execute();
 		 8. str.ReleaseBuffer();
-		 
+
 		 パイナリデータを受ける場合Proud::COdbcByteDataクラスを使用してください。
 		 CodbcByteDataはポインターでだけ入力できます。
 		 1. unsigned char byte[10000];
@@ -346,47 +346,47 @@ namespace Proud
 
 		 \~english
 		 It is used when designating “Input&Output parameter”.
-		 You can only input data in the form of pointer in order to receive data. 
-		 In case of inputting in the form of pointer, you must check if there is problem occurred by scope of the relevant variable. 
+		 You can only input data in the form of pointer in order to receive data.
+		 In case of inputting in the form of pointer, you must check if there is problem occurred by scope of the relevant variable.
 		 1.         int a;
 		 2.         cmd.AppendInputOutputParameter(&a);
-		 
+
 		 Depending on inputted data, sqlType is automatically decided, so in case you input a type you want in the database, you can input OdbcSqlDataType.
-		 ex> In case of inputting & outputting variable whose type is int32_t as data whose type is int64_t, 
+		 ex> In case of inputting & outputting variable whose type is int32_t as data whose type is int64_t,
 		 1.         int a;
 		 2.         cmd.AppendInputOutputParameter(a, OdbcSqlDataType_BIGINT);
-		 
+
 		 In case of inputting & outputting string, you must use GetBuffer와 ReleaseBuffer of Proud::String class before/after execution.
 		 1. String str;
-		 2. str = "ABCD";  // 2 and 3 must be right order. 
+		 2. str = "ABCD";  // 2 and 3 must be right order.
 		 3. str.GetBuffer(100);
 		 4. cmd.AppendInputOutputParameter(&str);
 		 5. cmd.Execute();
 		 6. str.ReleaseBuffer();
-		 7. str = "EFGH"; // You must repeat 2,3,5 and 6. 
+		 7. str = "EFGH"; // You must repeat 2,3,5 and 6.
 		 8. str.GetBuffer(100);
 		 9. cmd.Execute();
 		 10. str.ReleaseBuffer();
-		 
-		 In case of receiving binary data, you must use Proud::COdbcByteData class. 
+
+		 In case of receiving binary data, you must use Proud::COdbcByteData class.
 		 COdbcByteData is only allowed to be inputted by the pointer.
 		 1. unsigned char byte[10000];
 		 2. COdbcByteData byteData(byte, 0, 10000);
 		 3. cmd.AppendOutputParameter(&byteData);
 		 4. cmd.Execute();
-		 
+
 		 \~chinese
 		 指定Input&Output参数时使用。
 		 因需接收数据，所以只能以pointer的形式输入数据。
 		 以pointer的形式输入时，需确认因该变数的Scope，是否会发生问题。
 		 1.         int a;
 		 2.         cmd.AppendInputOutputParameter(&a);
-		 
+
 		 因随着输入数据的不同，sqlType将自动决定，所以如果想在数据库中明确地放入所需type时，输入OdbcSqlDataType即可。
 		 如果想将ex> int32_t type的变数以int64_t type的数据放入数据库时
 		 1.         int a;
 		 2.         cmd.AppendInputOutputParameter(a, OdbcSqlDataType_BIGINT);
-		 
+
 		 接收字符串时，必须在 Excute 前后使用Proud::String class的 GetBuffer和 ReleaseBuffer。
 		 1. String str;
 		 2. str = "ABCD";  // 不可调换2, 3的顺序。
@@ -398,7 +398,7 @@ namespace Proud
 		 8. str.GetBuffer(100);
 		 9. cmd.Execute();
 		 10. str.ReleaseBuffer();
-		 
+
 		 接收二进制数据时，需使用 Proud::COdbcByteData class。
 		 COdbcByteData只能以pointer的形式输入。
 		 1. unsigned char byte[10000];
@@ -417,7 +417,7 @@ namespace Proud
 		 ex> int32_tタイプの変数をint64_t タイプのデータでデータベースから入出力したい場合
 		 1.         int a;
 		 2.         cmd.AppendInputOutputParameter(a, OdbcSqlDataType_BIGINT);
-		 
+
 		 文字列を入出力する場合必ずExcute前後にProud::StringクラスのGetBufferとReleaseBufferを使用してください。
 		 1. String str;
 		 2. str = "ABCD";  // 2, 3の順番が変わらないようにご注意ください。
@@ -429,7 +429,7 @@ namespace Proud
 		 8. str.GetBuffer(100);
 		 9. cmd.Execute();
 		 10. str.ReleaseBuffer();
-		 
+
 		 パイナリデータを受ける場合Proud::COdbcByteDataクラスを使用する必要があります。
 		 COdbcByteDataはポインターでだけ入力できます。
 		 1. unsigned char byte[10000];
@@ -452,10 +452,10 @@ namespace Proud
 		 \~english
 		 Set a parameter as NULL.
 		 In case you want to input data as NULL in the database, change the status of NULL to TRUE by using this function.
-		 Once setting is done, the status is continuously used, so in case of restring the status, you must reset it as FALSE after execution. 
+		 Once setting is done, the status is continuously used, so in case of restring the status, you must reset it as FALSE after execution.
 		 \param paramIndex parameter Index (ex> 1, 2, 3, ...)
 		 \param state true or false
-		 
+
 		 \~chinese
 		 将参数设置为 NULL状态。
 		 如果想在DB输入NULL数据时，利用该函数将 NULL 状态变更为TRUE状态。

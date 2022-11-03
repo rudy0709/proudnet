@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.x.x
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -47,13 +47,13 @@ namespace Proud
 	*  @{
 	*/
 
-	/** 
+	/**
 	\~korean
 	CNetClient 용 event sink
 
 	용법
 	- 이 객체를 구현한다.
-	- CNetClient 에 파라메터로 전달한다. 
+	- CNetClient 에 파라메터로 전달한다.
 
 	\~english
 	Event sink for CNetClient
@@ -78,14 +78,14 @@ namespace Proud
 		INetClientEvent() {}
 		virtual ~INetClientEvent() {}
 
-		/** 
+		/**
 		\~korean
 		CNetServer.Connect 를 통해 서버 연결을 시도한 결과가 도착하면 발생하는 이벤트이다.
 
 		\param info 서버 연결 결과를 다음 객체. 서버와의 연결이 성공한 경우 ErrorInfo.m_type 이 success value를 갖는다.
 		서버와의 연결이 실패한 경우 이 값을 열람하면 된다. 자세한 것은 ErrorInfo 클래스 설명을 참고.
 		\param replyFromServer 서버로부터 받은 추가 메시지이다. 이 값은
-		INetServerEvent.OnConnectionRequest 에서 보낸 값이다. 
+		INetServerEvent.OnConnectionRequest 에서 보낸 값이다.
 
 		\~english
 		Event that occurs after arrival of the result of attempt to connect to server through CNetServer.Connect
@@ -106,7 +106,7 @@ namespace Proud
 		*/
 		virtual void OnJoinServerComplete(ErrorInfo *info, const ByteArray &replyFromServer) = 0;
 
-		/** 
+		/**
 		\~korean
 		서버 연결 해제시 발생 이벤트입니다.
 		- 클라이언트에서 먼저 연결 해제(Disconnect 호출)를 한 경우에는 이 이벤트가 발생하지 않습니다.
@@ -130,14 +130,14 @@ namespace Proud
 		*/
 		virtual void OnLeaveServer(ErrorInfo *errorInfo) = 0;
 
-		/** 
+		/**
 		\~korean
 		\ref p2p_group 이 생성되거나 P2P그룹에 새 멤버가 추가되는 경우 이 메서드가 콜백됩니다.
 		로컬 호스트 자신에 대해서도 이것이 호출됩니다.
 
 		예를 들어 클라이언트 A가 이미 들어가 있는 그룹 G에 B가 새로 들어오면
 		A는 (B,G)를 받고, B는 (A,G), (B,G)를 받게 됩니다.
-		
+
 		\param memberHostID 자기 또는 타 peer의 HostID입니다.
 		\param groupHostID P2P 그룹의 HostID입니다.
 		\param memberCount 처리된 후 멤버 수 입니다.
@@ -146,7 +146,7 @@ namespace Proud
 		\~english
 		This method is to be called back either when \ref p2p_group is created or when a new member is added to P2P group.
 		Also called for local host iteself.
-		    
+
 		For an example, if B enters into group G which already has client A in it, then A receives (B,G) and B recieves (A,G) and (B,G).
 		\param memberHostID HostID of itself or other peer
 		\param groupHostID HostID of P2P group
@@ -168,7 +168,7 @@ namespace Proud
 		*/
 		virtual void OnP2PMemberJoin(HostID memberHostID, HostID groupHostID, int memberCount, const ByteArray &customField) = 0;
 
-		/** 
+		/**
 		\~korean
 		\ref p2p_group 이 생성되거나 기존 P2P그룹에서 피어가 탈퇴시 이 메서드가 콜백됩니다.
 		로컬 호스트 자신에 대해서도 이것이 호출됩니다.
@@ -179,7 +179,7 @@ namespace Proud
 
 		\~english
 		This method is to be called back either when \ref p2p_group is created or when a peer withdraws.
-		Also called for local host iteself.	
+		Also called for local host iteself.
 
 		\param memberHostID HostID of itself or other peer
 		\param groupHostID HostID of P2P group
@@ -197,7 +197,7 @@ namespace Proud
 		*/
 		virtual void OnP2PMemberLeave(HostID memberHostID, HostID groupHostID, int memberCount) = 0;
 
-		/** 
+		/**
 		\~korean
 		타 클라이언트와의 P2P 통신 경로(릴레이 혹은 직접)가 바뀌는 순간 이 메서드가 호출됩니다.
 		- 바뀐 후 호출되는 것이므로 CNetClient.GetPeerInfo 를 호출해서 CNetPeerInfo.Proud.CNetPeerInfo.m_RelayedP2P 의 값을 열람해도 됩니다.
@@ -212,7 +212,7 @@ namespace Proud
 		Since it is called after the change so it is ok to call CNetClient.GetPeerInfo to view the value of CNetPeerInfo.Proud.CNetPeerInfo.m_RelayedP2P.
 
 		\param remoteHostID HostID of other peer that is connected via P2P
-		\param reason If the P2P connection is successful then contains ErrorType_Ok. For other values it contain 'why the connection changed to relay'. 
+		\param reason If the P2P connection is successful then contains ErrorType_Ok. For other values it contain 'why the connection changed to relay'.
 
 		\~chinese
 		与其他玩家的P2P通信路径（relay 或者直接）改变的瞬间，此方法会被呼叫。
@@ -235,7 +235,7 @@ namespace Proud
 		virtual void OnP2PMemberOnline(CRemoteOnlineEventArgs &args) {}
 
 
-		/** 
+		/**
 		\~korean
 		서버와의 UDP 통신이 정상적이냐의 여부가 바뀌는 순간 이 메서드가 호출된다.
 		\param reason ErrorType_Ok 인 경우 서버와의 UDP 통신이 정상적으로 수행중이며 서버와의 unreliable RMI 메시징이 UDP를 경유한다.
@@ -256,7 +256,7 @@ namespace Proud
 		*/
 		virtual void OnChangeServerUdpState(ErrorType reason) {}
 
-		/** 
+		/**
 		\~korean
 		서버와의 시간이 동기화 될 때마다 호출된다.
 		서버 시간 동기화는 이 메서드의 호출 횟수가 증가할수록 점차 정확도가 증가한다.
