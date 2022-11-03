@@ -12,7 +12,7 @@
 #include <new>
 #include "../include/NetConfig.h"
 #include "../include/sysutil.h"
-#include "PNVersion.h"
+#include "../../../version/PNVersion.h"
 
 namespace Proud
 {
@@ -37,9 +37,9 @@ namespace Proud
 	int CNetConfig::UdpIssueRecvLength = MtuLength * 2;
 
 	// syscall 횟수를 줄이기 위해 커야 한다. 특히 networker thread off시
-	// io loop가 10Hz 수준까지 떨어지기도 한다. 
+	// io loop가 10Hz 수준까지 떨어지기도 한다.
 	// UDP는 socket buffer가 모자라면 패킷 드랍을 일으키므로 충분히 값이 커야 한다.
-	// ios는 상한선이 1790000byte인데, 이값에는 못 미치더라도 
+	// ios는 상한선이 1790000byte인데, 이값에는 못 미치더라도
 	// 10Hz에서 4MB/sec은 socket buffer 초과로 인한 패킷 드랍은 없어야 한다.
 	int CNetConfig::UdpRecvBufferLength_Client = 1024 * 400;
 
@@ -51,7 +51,7 @@ namespace Proud
 	// 1개의 udp port로 대량의 클라이언트를 처리한다.
 	// 따라서 io loop가 못 쫓아가더라도 패킷 유실을 최소화 하기 위해 가능한 커야 한다.
 	// 512KB=>2MB: 클라우드 서버에서는 소켓의 수가 많지 않으므로 이것이 충분히 커야.
-	int CNetConfig::UdpRecvBufferLength_ServerStaticAssigned = 1024 * 1024 * 2; 
+	int CNetConfig::UdpRecvBufferLength_ServerStaticAssigned = 1024 * 1024 * 2;
 
 	/* syscall 횟수를 줄이기 위해 키워야 하고 서버측 메모리 사용을 줄이기 위해 작아야 한다.
 	*/
@@ -74,7 +74,7 @@ namespace Proud
 	bool CNetConfig::EnableSocketTcpKeepAliveOption = false;
 
 	// reliable UDP의 heartbeat 주기
-	// 처음에는 1ms였으나 게임클라 CPU가 너무 먹는데다 사람이 못 느끼는 수준이므로 (200fps 플러스 알파)정도가 적당. 
+	// 처음에는 1ms였으나 게임클라 CPU가 너무 먹는데다 사람이 못 느끼는 수준이므로 (200fps 플러스 알파)정도가 적당.
 	int64_t CNetConfig::ReliableUdpHeartbeatIntervalMs_Real = 1;
 	int64_t CNetConfig::ReliableUdpHeartbeatIntervalMs_ForDummyTest = 5;
 
@@ -92,11 +92,11 @@ namespace Proud
 	int64_t CNetConfig::DefaultConnectionTimeoutMs = 30000;
 
 	// 사용자가 지정할 수 있는 연결 디스 조건 타임아웃의 최소값. 이 값 이하이면 false positive의 위험이 있다.
-	// reliable ping으로 체크를 하므로 
+	// reliable ping으로 체크를 하므로
 	// 중국에서 막장 gateway dropout에서는 10초 정도 나온다. 따라서 그 값보다는 커야.
 	int64_t CNetConfig::MinConnectionTimeoutMs = 15000;
 
-	// 위와 반대로, 이것은 최대값. 이값을 넘어가면 TCP 자체가 디스를 검출하므로 의미가 없다. 
+	// 위와 반대로, 이것은 최대값. 이값을 넘어가면 TCP 자체가 디스를 검출하므로 의미가 없다.
 	int64_t CNetConfig::MaxConnectionTimeoutMs = 240000;
 
 	// Proud.CNetConfig.EveryRemoteIssueSendOnNeedInterval와 관련됨
@@ -237,7 +237,7 @@ namespace Proud
 	int CNetConfig::StreamGrowBy = 1024;
 
 	// ProudNet net 내부 버전
-	// 과거에는 이것을 바꿀때마다 srcDotNet, srcJava, srcFlash도 동일하게 바꾸었으나, 
+	// 과거에는 이것을 바꿀때마다 srcDotNet, srcJava, srcFlash도 동일하게 바꾸었으나,
 	// 현재는 SWIG native plugin을 적용하면서, 타 언어로의 구현은 퇴역되면서, 더 이상 바꿀 필요 없음.
 	int CNetConfig::InternalNetVersion = 0x0003020a;
 
@@ -297,7 +297,7 @@ namespace Proud
 	bool CNetConfig::ForceCompressedRelayDestListOnly = false;
 
 	// 예전에는 64KB였으나 서버간 통신에서는 더 큰 값을 요구하므로
-	//int CNetConfig::MessageMaxLength = 1024*1024; 
+	//int CNetConfig::MessageMaxLength = 1024*1024;
 
 	bool CNetConfig::EnableMessagePriority = true;
 	CriticalSection& CNetConfig::GetWriteCriticalSection()
@@ -338,10 +338,10 @@ namespace Proud
 	주의! 이걸 변경 전에 Proud.CStartServerParameter.m_enableUpnpUse 사용을 고려하라. */
 	bool CNetConfig::UpnpTcpAddPortMappingByDefault = false;
 
-	// SEOYU때문에 3.3->10 상향. 그러나 나중에 고쳐야 하겠다.	
+	// SEOYU때문에 3.3->10 상향. 그러나 나중에 고쳐야 하겠다.
 	int64_t CNetConfig::ElectSuperPeerIntervalMs = 10000;
 
-	// 60에서 상향. 어차피 재는 간격 길게 잡아도 OK. 	
+	// 60에서 상향. 어차피 재는 간격 길게 잡아도 OK.
 	int64_t CNetConfig::MeasureClientSendSpeedIntervalMs = 120000;
 
 	int64_t CNetConfig::MeasureSendSpeedDurationMs = 500;
@@ -439,7 +439,7 @@ namespace Proud
 	// SEOYU에서 테스트 차 꺼 보기도 하는 값이기도 함.
 	bool CNetConfig::UseIsSameLanToLocalForMaxDirectP2PMulticast = true;
 
-	// 웬만하면 켜 놓을 것. 트래픽이 부담돼서 이것도 끈다면 모를까.	
+	// 웬만하면 켜 놓을 것. 트래픽이 부담돼서 이것도 끈다면 모를까.
 	// SEOYU에서 껐으나 트래픽 부담율이 적어서 다시 켰음. 클섭 통신 뿐이니까.
 	// 2014.03.13 기본값 false로 변경
 	bool CNetConfig::EnableSpeedHackDetectorByDefault = false;
@@ -450,7 +450,7 @@ namespace Proud
 	int CNetConfig::MessageOverloadWarningLimit = 100;
 	int CNetConfig::MessageOverloadWarningLimitTimeMs = 5000;
 
-	// 	int64_t CNetConfig::LanServerMessageOverloadTimerIntervalMs = 5000; 
+	// 	int64_t CNetConfig::LanServerMessageOverloadTimerIntervalMs = 5000;
 	// 	int64_t CNetConfig::LanClientMessageOverloadTimerIntervalMs = 5000;
 	// 	int64_t CNetConfig::NetServerMessageOverloadTimerIntervalMs = 5000;
 	// 	int64_t CNetConfig::NetClientMessageOverloadTimerIntervalMs = 5000;
@@ -458,13 +458,13 @@ namespace Proud
 
 	int64_t CNetConfig::LanRemotePeerHeartBeatTimerIntervalMs = 5000;
 
-	// reliable UDP에서 resend가 이 시간 이상 계속 실패하면 relay fallback을 한다. 
+	// reliable UDP에서 resend가 이 시간 이상 계속 실패하면 relay fallback을 한다.
 	// TCP retransmission timeout과 같은 역할. win32에서도 20초다.
 	int	CNetConfig::P2PFallbackTcpRelayResendTimeIntervalMs = 20000;
 
 	const bool CNetConfig::AllowUseTls = true;
 
-	// 이 값이 true이면, NetClient.Disconnect 및 NetServer.Stop이 장시간 처리 못하고 데드락이 발생해도 
+	// 이 값이 true이면, NetClient.Disconnect 및 NetServer.Stop이 장시간 처리 못하고 데드락이 발생해도
 	// 일정 시간 지나면 무조건 루프를 빠져나온다. 당연히 heap은 망가질 위험이 있다.
 	// 릴리즈할 때 데드락 문제가 생길때만 응급처치용이고, 평소에는 반드시 끌 것.
 	bool CNetConfig::ConcealDeadlockOnDisconnect = false;

@@ -115,7 +115,7 @@
     <ClInclude Include="PacketFrag.h" />
     <ClInclude Include="PnIconv.h" />
     <ClInclude Include="PNS3ETimer.h" />
-    <ClInclude Include="PNVersion.h" />
+    <ClInclude Include="..\..\..\version\PNVersion.h" />
     <ClInclude Include="Poll_Reactor.h" />
     <ClInclude Include="PooledObjectAsLocalVar.h" />
     <ClInclude Include="PooledObjects.h" />
@@ -18854,7 +18854,7 @@
     <ClCompile Include="PNString.cpp" />
     <ClCompile Include="PnThread.cpp" />
     <ClCompile Include="PnTime.cpp" />
-    <ClCompile Include="PNVersion.cpp" />
+    <ClCompile Include="..\..\..\version\PNVersion.cpp" />
     <ClCompile Include="Poll_Reactor.cpp" />
     <ClCompile Include="PooledObjects.cpp" />
     <ClCompile Include="PositionFollower.cpp" />

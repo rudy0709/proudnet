@@ -304,7 +304,7 @@
     <ClCompile Include="PnTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PNVersion.cpp">
+    <ClCompile Include="..\..\..\version\PNVersion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Poll_Reactor.cpp">
@@ -1911,7 +1911,7 @@
     <ClInclude Include="PNS3ETimer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PNVersion.h">
+    <ClInclude Include="..\..\..\version\PNVersion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Poll_Reactor.h">
