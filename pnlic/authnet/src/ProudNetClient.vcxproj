@@ -18952,14 +18952,14 @@
   <ItemGroup>
     <CustomBuild Include="DumpC2S.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -18976,27 +18976,27 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="DumpS2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -19013,27 +19013,27 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="EmergencyC2S.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -19050,27 +19050,27 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="EmergencyS2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -19087,27 +19087,27 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="NetC2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -19124,27 +19124,27 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="NetC2S.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -19161,27 +19161,27 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="NetS2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -19198,27 +19198,27 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Viz.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -19235,27 +19235,27 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="AgentC2S.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -19272,27 +19272,27 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="AgentS2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -19309,27 +19309,27 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="DB.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir .\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -19346,21 +19346,21 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(RootDir)%(Directory)\%(FileName)_common.h;%(RootDir)%(Directory)\%(FileName)_proxy.cpp;%(RootDir)%(Directory)\%(FileName)_proxy.h;%(RootDir)%(Directory)\%(FileName)_stub.cpp;%(RootDir)%(Directory)\%(FileName)_stub.h;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\util\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\pidl\bin\Release\PIDL_UnProtect.exe;%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\iconv-embed\libiconv.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3C517C73-93E9-401D-8D5F-C9C447B63FF0}</ProjectGuid>
+    <ProjectGuid>{D447C486-92D2-4A70-BCFB-38372B197CBB}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Proud</RootNamespace>
     <SccProjectName>
@@ -19372,7 +19372,7 @@
     <SccProvider>
     </SccProvider>
     <ProjectName>AuthNetClient</ProjectName>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -19380,56 +19380,56 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -19460,51 +19460,51 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
-    <OutDir>..\..\lib\$(Platform)\VS2017\$(Configuration)\</OutDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <TargetName>AuthNetClient</TargetName>
-    <IntDir>$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
-    <OutDir>..\..\lib\$(Platform)\VS2017\$(Configuration)\</OutDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <TargetName>AuthNetClient</TargetName>
-    <IntDir>$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>..\..\lib\$(Platform)\VS2017\$(Configuration)\</OutDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <TargetName>AuthNetClient</TargetName>
-    <IntDir>$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>..\..\lib\$(Platform)\VS2017\$(Configuration)\</OutDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <TargetName>AuthNetClient</TargetName>
-    <IntDir>$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
-    <OutDir>..\..\lib\$(Platform)\VS2017\$(Configuration)\</OutDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <TargetName>AuthNetClient</TargetName>
-    <IntDir>$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
-    <OutDir>..\..\lib\$(Platform)\VS2017\$(Configuration)\</OutDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <TargetName>AuthNetClient</TargetName>
-    <IntDir>$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>..\..\lib\$(Platform)\VS2017\$(Configuration)\</OutDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <TargetName>AuthNetClient</TargetName>
-    <IntDir>$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\..\lib\$(Platform)\VS2017\$(Configuration)\</OutDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <TargetName>AuthNetClient</TargetName>
-    <IntDir>$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_NO_NTTNTRACE;_DEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -19529,7 +19529,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_NO_NTTNTRACE;_DEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -19539,6 +19539,7 @@
       </RuntimeTypeInfo>
       <OpenMPSupport>true</OpenMPSupport>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -19550,7 +19551,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_NO_NTTNTRACE;_DEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -19572,13 +19573,14 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_NO_NTTNTRACE;_DEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <ExceptionHandling>Async</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -19593,7 +19595,7 @@
       <FunctionLevelLinking>
       </FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_NO_NTTNTRACE;NDEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -19621,7 +19623,7 @@
       <FunctionLevelLinking>
       </FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_NO_NTTNTRACE;NDEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -19646,7 +19648,7 @@
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_NO_NTTNTRACE;NDEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -19674,7 +19676,7 @@
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_NO_NTTNTRACE;NDEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
