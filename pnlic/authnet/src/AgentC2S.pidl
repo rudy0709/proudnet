@@ -1,0 +1,16 @@
+﻿global AgentC2S 100
+{
+	// Cookie를 전송하여 인증을 요청한다.
+	RequestCredential([in] int cookie);
+
+	// Agent로 보고할 리포트
+	ReportStatusBegin([in] byte type, [in] Proud::String statusText);
+	ReportStatusValue([in] Proud::String key, [in] Proud::String value);
+	ReportStatusEnd();
+
+	// 일정 시간마다 Server App의 상태를 전송합니다.
+	ReportServerAppState([in] float cpuUserTime, [in] float cpuKerenlTime, [in] uint32_t memorySize);
+
+	// 로그를 보냅니다.
+	EventLog([in] int logType, [in] Proud::String txt);
+}

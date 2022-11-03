@@ -1,0 +1,9 @@
+﻿global EmergencyC2S 700
+{
+	EmergencyLogData_Begin([in] int64_t loggingTime, [in] int32_t connectCount, [in] uint32_t remotePeerCount, [in] uint32_t directP2PEnablePeerCount, [in] Proud::String natDeviceName,[in] Proud::HostID peerID,[in] int iopendingcount,[in] uint64_t totalTcpIssueSendBytes);
+	EmergencyLogData_Error([in] int32_t msgSizeErrorCount, [in] int32_t netResetErrorCount, [in] int32_t intrErrorCount, [in] int32_t connResetErrorCount, [in] uint32_t lastErrorCompletionLength);
+	EmergencyLogData_Stats([in] uint64_t totalTcpReceiveBytes, [in] uint64_t totalTcpSendBytes, [in] uint64_t totalUdpSendCount, [in] uint64_t totalUdpSendBytes, [in] uint64_t totalUdpReceiveCount, [in] uint64_t totalUdpReceiveBytes);
+	EmergencyLogData_OSVersion([in] uint32_t osMajorVersion, [in] uint32_t osMinorVersion, [in] uint8_t productType, [in] uint16_t processorArchitecture);
+	EmergencyLogData_LogEvent([in] int logLevel, [in] Proud::LogCategory logCategory, [in] Proud::HostID logHostID, [in] Proud::String logMessage, [in] Proud::String logFunction, [in] int logLine);
+	EmergencyLogData_End([in] uint32_t serverUdpAddrCount, [in] uint32_t remoteUdpAddrCount);
+}
