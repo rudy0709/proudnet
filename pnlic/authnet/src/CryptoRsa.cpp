@@ -10,7 +10,7 @@
 
 #include "stdafx.h"
 #include <new>
-#include "./libtom/crypto/headers/tomcrypt.h"
+#include "../OpenSources/libtom/crypto/headers/tomcrypt.h"
 #include "../include/CryptoRsa.h"
 
 namespace Proud
@@ -18,7 +18,7 @@ namespace Proud
 #if (_MSC_VER>=1400)
 #pragma managed(push, off)
 #endif
-	
+
 	class CRsaProvider:public CSingleton<CRsaProvider>
 	{
 	public:
@@ -55,14 +55,14 @@ namespace Proud
 		}
 
 #if defined(__ORBIS__)
-		if( init_sce_secure_prng() == -1 ) 
+		if( init_sce_secure_prng() == -1 )
 		{
 			throw Exception("REGISTER SCE SECURE ERROR : PRNG");
 		}
 #endif
 
 		ltc_mp = ltm_desc;
-		m_prngIndex = find_prng("fortuna");	
+		m_prngIndex = find_prng("fortuna");
 		m_hashIndex = find_hash("sha1");
 
 		// 128bit 의 엔트로피를 갖도록 설정합니다.
@@ -104,7 +104,7 @@ namespace Proud
 	{
 		// ltc_mt를 초기화한 적이 있어야 한다. 그것을 하는게 CRsaProvider의 생성자이다.
 		CRsaProvider::Instance();
-		
+
 		// XXX 임시로 Unity 호환
 		//return true;
 
@@ -202,12 +202,12 @@ namespace Proud
 		unsigned long blobLen=(unsigned long)randomBlock.GetCount();
 		unsigned long dataSize = blobLen;
 
-		// outlen must be at least the size of the modulus 
+		// outlen must be at least the size of the modulus
 		dataSize = mp_unsigned_bin_size( publicKey.m_key->N );
-		
+
 		outEncryptedSessionKey.SetCount( dataSize );
 
-		int rtn = rsa_encrypt_key( randomBlock.GetData(), blobLen, outEncryptedSessionKey.GetData() , &dataSize, NULL, 0, 
+		int rtn = rsa_encrypt_key( randomBlock.GetData(), blobLen, outEncryptedSessionKey.GetData() , &dataSize, NULL, 0,
                                         &CRsaProvider::Instance().m_prng, CRsaProvider::Instance().m_prngIndex, CRsaProvider::Instance().m_hashIndex, publicKey.m_key);
 		if( rtn != CRYPT_OK )
 		{
@@ -226,7 +226,7 @@ namespace Proud
 	}
 
 	/** public key로 암호화된 sessionKeyBlob을 private key로 암호 해제한 후 리턴한다.
-	\param sessionKey 받은 결과물 
+	\param sessionKey 받은 결과물
 	\return 에러 코드 or NULL */
 	ErrorInfoPtr CCryptoRsa::DecryptSessionKeyByPrivateKey( ByteArray &outRandomBlock, const ByteArray &encryptedSessionKey, const CCryptoRsaKey &privateKey )
 	{
@@ -238,12 +238,12 @@ namespace Proud
 		//return ErrorInfoPtr();
 
 		int stat = 0;
-		
+
 		unsigned long len = (unsigned long)encryptedSessionKey.GetCount();
-		
+
 		// decrypted msg 사이즈는 encrypted msg 보다 사이즈가 항상 작습니다.
 		outRandomBlock.SetCount( len );
-		if( rsa_decrypt_key(encryptedSessionKey.GetData(), (unsigned long)encryptedSessionKey.GetCount() , outRandomBlock.GetData(), &len, NULL, 0, 
+		if( rsa_decrypt_key(encryptedSessionKey.GetData(), (unsigned long)encryptedSessionKey.GetCount() , outRandomBlock.GetData(), &len, NULL, 0,
 			CRsaProvider::Instance().m_hashIndex, &stat, privateKey.m_key ) != CRYPT_OK )
 		{
 			String cmt;
@@ -281,7 +281,7 @@ namespace Proud
 
 		length = length / 8;		// byte 로 변환
 		output.SetCount(length);
-		
+
 		if( fortuna_read( output.GetData() , length , &CRsaProvider::Instance().m_prng ) <= 0 )
 		{
 			// Create Random Block Read Error

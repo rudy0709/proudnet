@@ -25,7 +25,7 @@
 #ifdef VIZAGENT
 	#include "VizAgent.h"
 #endif
-#include "./zlib/zlib.h"
+#include "../OpenSources/zlib/zlib.h"
 #include "UseZlib.h"
 #include "Functors.h"
 #include "ExceptionImpl.h"
@@ -66,7 +66,7 @@ namespace Proud
 
 		if(proxy == NULL)
 			throw Exception(RmiInterfaceErrorText);
-			
+
 		const RmiID* rmiIDList = proxy->GetRmiIDList();
 
 		for(int ii = 0; ii < proxy->GetRmiIDListCount(); ii++)
@@ -112,7 +112,7 @@ namespace Proud
 		if (GetEventSink_NOCSLOCK() != NULL)
 			GetEventSink_NOCSLOCK()->OnError(errorInfo);
 	}
-	
+
 	void CNetCoreImpl::ShowNotImplementedRmiWarning(const PNTCHAR* RMIName)
 	{
 		NTTNTRACE("** 경고: 구현안된 RMI %s가 호출됐음\n", StringT2A(RMIName).GetString());
@@ -174,7 +174,7 @@ namespace Proud
 			}
 		}
 	}
-	
+
 	bool CNetCoreImpl::Send_CompressLayer(const CSendFragRefs &payload,const SendOpt& sendContext,const HostID *sendTo, int numberOfsendTo ,int &compressedPayloadLength)
 	{
 		if(sendContext.m_compressMode != CM_None && payload.GetTotalLength() > 50 && !m_simplePacketMode ) // 12Byte의 헤더가 붙기 때문에 최소 50Byte 이하는 오히려 사이즈가 늘기 쉽다.
@@ -206,7 +206,7 @@ namespace Proud
 				String errorText;
 				errorText.Format(_PNT("Packet compression failed! Error code=%d"), compressResult);
 				EnqueError(ErrorInfo::From(ErrorType_CompressFail, *sendTo, errorText.GetString() ));
-				
+
 				goto L1;
 			}
 
@@ -239,7 +239,7 @@ L1:
 		return Send_SecureLayer(payload, NULL, sendContext,sendTo, numberOfsendTo);
 	}
 
-	
+
 	bool CNetCoreImpl::ProcessMessage_Compressed( CReceivedMessage &receivedInfo, CMessage& uncompressedOutput)
 	{
 		CMessage &compressedMessage = receivedInfo.m_unsafeMessage;
@@ -267,16 +267,16 @@ L1:
 
 		// 압축 해제된 결과물이 들어갈 곳 버퍼 준비
 		uLongf actualUncompressedLength = (uLongf)uncompressedPayloadLength;
-		
+
 		uncompressedOutput.UseInternalBuffer();
 		uncompressedOutput.SetLength(uncompressedPayloadLength);
-		
+
 		// stub 에서 압축정보를 넘겨주기 위해 셋팅.
 		receivedInfo.m_compressMode = CM_Zip;
 
 		// 주의 actualUncompressedLength는 Input Output으로 모두 쓰인다
 		if(ZlibUncompress(uncompressedOutput.GetData(), &actualUncompressedLength,
-					compressedMessage.GetData()+compressedMessage.GetReadOffset(), compressedPayloadLength) != Z_OK 
+					compressedMessage.GetData()+compressedMessage.GetReadOffset(), compressedPayloadLength) != Z_OK
 			|| actualUncompressedLength!=(uLongf)uncompressedPayloadLength)
 		{
 			// 오류. 상태 롤백하자.
@@ -287,7 +287,7 @@ L1:
 		// 압축해제 끝. uncompressedOutput에 잘 저장되었다.
 		return true;
 	}
-	
+
 	bool CNetCoreImpl::Send_SecureLayer(
 		const CSendFragRefs& payload,
 		const CSendFragRefs* compressedPayload,
@@ -452,7 +452,7 @@ L1:
 		}
 		else
 		{
-			
+
 			/*
 			암호화 하지 않을경우 그냥 보낸다.
 			이 경우 HostIDs를 분리하지 않기 때문에 자신에게 보내는 것인지 타 peer 에게 보내는것인지 확인할 수 없다.(compressLayer 에서 HostIDs 를 분리하지 않는다.)
@@ -550,9 +550,9 @@ L1:
 			if(!GetExpectedDecryptCount(receivedInfo.m_remoteHostID, decryptCount2) )
 			{
 // 				CriticalSectionLock clk(GetCriticalSection(),true);
-// 
+//
 // 				CHECK_CRITICALSECTION_DEADLOCK(this);
-// 
+//
 // 				String errtxt;
 // 				errtxt.Format(_PNT("GetExpectedDecryptCount failed!!"));
 // 				EnqueError(ErrorInfo::From(ErrorType_DecryptFail, receivedInfo.m_remoteHostID, errtxt));
@@ -578,11 +578,11 @@ L1:
 			NextDecryptCount(receivedInfo.m_remoteHostID);
 
 		}
-		
+
 		return true;
 	}
 
-	
+
 	CNetCoreImpl::CNetCoreImpl()
 		: m_userTaskQueue(this),
 		m_disposeGarbagedHosts_Timer(CNetConfig::DisposeGarbagedHostsTimeoutMs),
@@ -600,7 +600,7 @@ L1:
 		m_timerCallbackInterval = 0;
 		m_timerCallbackParallelMaxCount = 1;
 		m_timerCallbackContext = NULL;
-		
+
 		m_netThreadPool = NULL;
 		m_userThreadPool = NULL;
 		m_netThread_useExternal = false;
@@ -611,7 +611,7 @@ L1:
 		AllocPreventOutOfMemory();
 	}
 
-	
+
 	CNetCoreImpl::~CNetCoreImpl()
 	{
 		FreePreventOutOfMemory();
@@ -635,7 +635,7 @@ L1:
 		}
 	}
 
-	
+
 	void CNetCoreImpl::CleanupEveryProxyAndStub()
 	{
 		//CWriterLock_NORECURSE clk(m_callbackMon, true);
@@ -654,9 +654,9 @@ L1:
 
 		m_proxyRmiIDList_NOCSLOCK.Clear();
 		m_stubRmiIDList_NOCSLOCK.Clear();
-	}	
+	}
 
-	
+
 	bool CNetCoreImpl::SendUserMessage(const HostID* remotes, int remoteCount, const RmiContext &rmiContext, uint8_t* payload, int payloadLength)
 	{
 		rmiContext.AssureValidation();
@@ -689,14 +689,14 @@ L1:
 	remote가 socket을 버릴 때 호출하는 루틴.
 	이제 이 UDP socket은 송신 완료가 되어도 더 이상 아무것도 송신이슈를 안할 것이며 수신 완료가 있어도 무시될 것이다.
 	CUdpSocketPtr_C에 assign을 하는 모든 곳에 이렇게 넣어서 추후 업데이트때 민감해질 수 있는 위험도 예방하는게 낫겠다.
-	
-	주의: 이 함수를 호출한 스레드는 이후부터 socket을 액세스하면 안된다. 
+
+	주의: 이 함수를 호출한 스레드는 이후부터 socket을 액세스하면 안된다.
 	socket을 참고하고 있던 곳들도 모두 이를 참고하지 않게 바꾸어야 한다.
 	변수가 null을 가지게 바꾸던지, 아니면 remove from collection을 해주어야 한다.
 	왜냐하면, main lock이 해제되는 직후부터 불시에 delete되기 때문이다. */
 	void CNetCoreImpl::GarbageSocket(CSuperSocketPtr socket)
 	{
-		// caller에서 이미 main lock 한 상태이어야 한다. 
+		// caller에서 이미 main lock 한 상태이어야 한다.
 		// 이 함수를 호출한다음 garbage되는 객체를 가리키던 변수들이 null로 세팅되는 과정이
 		// main lock atomic해야 할테니까.
 		// 만약 여기서 실패한다는 것은, 잠재적인 data race를 발생하는 것이므로 꼭 고치자.
@@ -706,7 +706,7 @@ L1:
 
 		m_garbageSocketQueue.PushBack(socket);
 		socket->CloseSocketOnly();
-		
+
 		// socket에서 데이터 수신을 해도 그것을 처리할 host는 더 이상 없다고 처리해 버린다.
 		SocketToHostsMap_RemoveForAnyAddr(socket);
 	}
@@ -719,13 +719,13 @@ L1:
 	이 함수는 마구 호출해도 괜찮다. 즉 멱등성임. */
 	void CNetCoreImpl::GarbageHost(
 		CHostBase *remoteBase,
-		ErrorType errorType, 
-		ErrorType detailType, 
-		const ByteArray& comment, 
+		ErrorType errorType,
+		ErrorType detailType,
+		const ByteArray& comment,
 		const PNTCHAR* where,
 		SocketErrorCode socketErrorCode)
 	{
-		// caller에서 이미 main lock 한 상태이어야 한다. 
+		// caller에서 이미 main lock 한 상태이어야 한다.
 		// 이 함수를 호출한다음 garbage되는 객체를 가리키던 변수들이 null로 세팅되는 과정이
 		// main lock atomic해야 할테니까.
 		// 만약 여기서 실패한다는 것은, 잠재적인 data race를 발생하는 것이므로 꼭 고치자.
@@ -799,7 +799,7 @@ L1:
 			//int64_t currTime = GetPreciseCurrentTimeMs();
 
 			POOLED_ARRAY_LOCAL_VAR(CFastArray<CSuperSocket*>, sendIssuedPool);
-			
+
 			// main lock 한 상태에서 issue send를 할 것들을 추린다. 추려진 것은 usecount+1이 되므로 비파괴 보장된다.
 			{
 				LockMain_AssertIsNotLockedByCurrentThread();
@@ -834,7 +834,7 @@ L1:
 			// 이 함수 안에서 각각에 대해 issue-send를 한 후에 use count-1을 한다.
 			IssueSendFunctor<CNetCoreImpl> functor(this);
 			LowContextSwitchingLoop(
-				sendIssuedPool.GetData(), 
+				sendIssuedPool.GetData(),
 				sendIssuedPool.GetCount(),
 				functor);
 
@@ -852,17 +852,17 @@ L1:
 	// TCP의 경우 항상 콜백되지만 UDP의 경우 coalesce 등으로 인해 바로 호출되지 않는 경우도 있다.
 	// send ready list에 넣고, thread pool이 CustomValueEvent_SendEnqueued를 처리하게 깨운다.
 	// CustomValueEvent_SendEnqueued 안에서 send ready list를 처리한다.
-	// issueSendNow: 즉시 send call이 일어나게 하려면(예:i/o completion이나 TCP) true, 
+	// issueSendNow: 즉시 send call이 일어나게 하려면(예:i/o completion이나 TCP) true,
 	// UDP coalesce 때가 될 때만 send call이 일어나게 하려면 false.
 	void CNetCoreImpl::SendReadyList_Add(CSuperSocket* socket, bool issueSendNow)
 	{
 		Proud::AssertIsLockedByCurrentThread(socket->GetSendQueueCriticalSection());
-		
+
 		// send ready list에도 추가한다. main lock 상태가 아닐 수 있음에 주의.
 		// code profile 결과 이 부분이 무시못하는 허당(정작 할 일이 없음) 99%이므로.
 		bool firstAdd = m_sendReadyList->AddOrSet(socket);
 
-		if (issueSendNow && (firstAdd || CNetConfig::DefensiveSendReadyListAdd)) 
+		if (issueSendNow && (firstAdd || CNetConfig::DefensiveSendReadyListAdd))
 		{
 			m_netThreadPool->PostCustomValueEvent(this, CustomValueEvent_SendEnqueued);
 		}
@@ -889,7 +889,7 @@ L1:
 				m_garbagedSockets.Add((intptr_t)(CSuperSocket*)socket, socket);
 
 				// 이미 socket을 close했기 때문에 뭔가가 수신되더라도 그것을 처리하면 안된다.
-				// 다른 스레드에서 핸들링을 하고 있는 상황? 
+				// 다른 스레드에서 핸들링을 하고 있는 상황?
 				// => 고려할 필요 없음. 여기도 거기도 main lock 상태에서 메시지 핸들링하니까.
 				m_validSendReadyCandidates.Remove(socket);
 				m_sendReadyList->Remove(socket);
@@ -911,7 +911,7 @@ L1:
 
 			if (delNow)
 			{
-				// garbageCS를 풀지 않는다. 
+				// garbageCS를 풀지 않는다.
 				// garbageCS는 superSocket의 콜백이 main lock을 안한 상태에서 오는 경우의 막기 위했던 용도뿐이므로.
 				OnSocketGarbageCollected(iSocket);
 
@@ -936,7 +936,7 @@ L1:
 		{
 			CHostBase* rc = i->GetFirst();
 
-			bool remainwork = (rc->IsInUserTaskQueue() || rc->IsTaskRunning() || !rc->IsDisposeSafe()); 
+			bool remainwork = (rc->IsInUserTaskQueue() || rc->IsTaskRunning() || !rc->IsDisposeSafe());
 			if (!remainwork)
 			{
 				// 이걸 콜백하고.
@@ -954,7 +954,7 @@ L1:
 				}
 
 				i = m_garbagedHosts.erase(i);
-				
+
 				/* 여기서 LoopbackHost 객체나 RemoteServer 객체의 메모리는 해제하지 않습니다.
 				 * NetClient.Disconnect 혹은 NetServer.Stop 함수 마지막 부분에서 메모리를 해제합니다.
 				 */
@@ -1072,7 +1072,7 @@ L1:
 	{
 		AssertIsLockedByCurrentThread();
 
-		// 주의: 이 메서드의 입력변수로서의 데이터버퍼는 스택 할당 데이터이어서는 안된다! 
+		// 주의: 이 메서드의 입력변수로서의 데이터버퍼는 스택 할당 데이터이어서는 안된다!
 		ri.m_unsafeMessage.m_msgBuffer.MustInternalBuffer();
 
 /*//3003!!!!
@@ -1119,8 +1119,8 @@ L1:
 
 
 		// throw exception을 하는 경우 어느 함수에서 발생한 것인지를 넣기 위함.
-		// String이 아닌, char*다. 
-		// 어차피 const string이므로 이렇게 해도 되며, 
+		// String이 아닌, char*다.
+		// 어차피 const string이므로 이렇게 해도 되며,
 		// 그리고 매번 실행할 때마다 여기에 무거운 string assign이 작동되면 성능 낭비.
 		const PNTCHAR* functionName = _PNT("");
 		if (m_allowOnExceptionCallback == false)
@@ -1202,7 +1202,7 @@ L1:
 #endif // ALLOW_CATCH_UNHANDLED_EVEN_FOR_USER_ROUTINE
 		}
 	}
-		
+
 	void CNetCoreImpl::UserWork_FinalReceiveRmi(CFinalUserWorkItem& UWI, CHostBase* subject, CWorkResult* workResult)
 	{
 		AssertIsNotLockedByCurrentThread();
@@ -1449,23 +1449,23 @@ L1:
 
 		if (!(oldReadPointer == 0))
 			EnqueueHackSuspectEvent(NULL, __FUNCTION__, HackType_PacketRig);
-// 
+//
 // 		if (m_hlaSessionHostImpl != NULL)
 // 			m_hlaSessionHostImpl->ProcessMessage(UWI.m_unsafeMessage);
 	}
 
-	
+
 //#ifdef _WIN32
 // 	void CNetCoreImpl::IssueFirstRecv()
 // 	{
 // 		CriticalSectionLock lock(GetCriticalSection(), true);
-// 
+//
 // 		for (CFastArray<CSuperSocketPtr>::iterator i = m_issueFirstRecvNeededSockets.begin(); i != m_issueFirstRecvNeededSockets.end(); i++)
 // 		{
 // 			CSuperSocket* s = *i;
-// 			s->IssueRecv();		
+// 			s->IssueRecv();
 // 		}
-// 		
+//
 // 		// 다 처리했으므로 청소!
 // 		m_issueFirstRecvNeededSockets.Clear();
 // 	}
@@ -1473,11 +1473,11 @@ L1:
 // 	void CNetCoreImpl::IssueFirstRecvNeededSocket_Set(CSuperSocketPtr s)
 // 	{
 // 		CriticalSectionLock lock(GetCriticalSection(), true);
-// 
+//
 // 		m_issueFirstRecvNeededSockets.Add(s);
 // 	}
 //#endif
-	
+
 	void CNetCoreImpl::EnqueueHackSuspectEvent(CHostBase* rc, const char* statement, HackType hackType)
 	{
 		CriticalSectionLock clk(GetCriticalSection(), true);
@@ -1494,7 +1494,7 @@ L1:
 			EnqueLocalEvent(evt, rc);
 		}
 	}
-	
+
 	// 모든 host들을 garbage 처분한다.
 	// 처분한 것들은 m_garbagedHosts에 들어간다.
 	// m_garbagedHosts까지 다 청소되는지는 CanDeleteNow()를 통해 확인하자.
@@ -1546,7 +1546,7 @@ L1:
 	void CNetCoreImpl::EnqueLocalEvent(LocalEvent& e, CHostBase* rc)
 	{
 		AssertIsLockedByCurrentThread();
-		
+
 		if (e.m_errorInfo)
 		{
 			int a = 0;
@@ -1563,7 +1563,7 @@ L1:
 	CHostBase* CNetCoreImpl::AuthedHostMap_Get(HostID hostID)
 	{
 		AssertIsLockedByCurrentThread();
-		
+
 		CHostBase *rc = NULL;
 		m_authedHostMap.TryGetValue(hostID, rc);
 
@@ -1622,8 +1622,8 @@ L1:
 		CFinalUserWorkItem Item;
 
 		/* Q: socket task, user task의 fairness를 위해서, 하나만 처리해야 하지 않나요?
-		   A: PQCS or eventfd.write는 syscall을 유발합니다. 
-		      단순 핑퐁 서버의 경우 처리 댓가가 큽니다. 
+		   A: PQCS or eventfd.write는 syscall을 유발합니다.
+		      단순 핑퐁 서버의 경우 처리 댓가가 큽니다.
 			  그러한 경우에서도 속도가 나오려면 do until no more를 할 수밖에 없습니다.
 		*/
 		while (true)
@@ -1668,7 +1668,7 @@ L1:
 	}
 
 #ifdef _DEBUG
-	// critical section을 제대로 쓰고 있는지 검사한다. 디버그 전용. 
+	// critical section을 제대로 쓰고 있는지 검사한다. 디버그 전용.
 	// Q: 굳이 이렇게 함수 자체를 디버그 전용으로 감싸야 하나요?
 	// A: 안그러면 실행파일 바이너리에 함수 이름이 떡 하니 박힙니다. 해커가 좋아하죠.
 	void CNetCoreImpl::CheckCriticalsectionDeadLock(const PNTCHAR* functionName)

@@ -3,10 +3,10 @@
 
 #ifdef PROUDNET_HAS_ICONV
 // iconv를 제공 안하는 OS들은 이것을 쓴다.
-#include "../iconv-embed/include/iconv.h"
+#include "../OpenSources/iconv-embed/include/iconv.h"
 #else
 #include <iconv.h>
-#endif 
+#endif
 
 #include "../include/StringEncoder.h"
 #include "../include/Exception.h"
@@ -27,7 +27,7 @@ namespace Proud
 	/* KJSA : 2013.06.26
 	*  iconv_t를 사용하기 위해서는 iconv_open 통해 파라미터를 두개를 받아서 초기화를 해주어야 하는데
 	*  CObjectPool 내부에서는 디폴트 생성자 이외 호출할 수 없다.
-	*  따라서 초기화 함수를 통해서 따로 초기화 해주어야 한다.	
+	*  따라서 초기화 함수를 통해서 따로 초기화 해주어야 한다.
 	*/
 	bool CPnIconv::InitializeIconv(const char* src, const char* dest)
 	{
@@ -48,7 +48,7 @@ namespace Proud
 
 	PROUD_API void iconv_string_convert(CStringEncoder* encoder, const char* input, size_t* inbytesleft, char* out, size_t* outbytesleft)
 	{
-		CPnIconv* iconv_obj = encoder->GetIconv();	
+		CPnIconv* iconv_obj = encoder->GetIconv();
 		// 내장된 iconv는 입력 인자가 const인데 linux sdk는 그렇지 않다. (사실 전자가 맞음)
 		// 아무튼 맞춰 주어야 -_-;
 #ifdef PROUDNET_HAS_ICONV
