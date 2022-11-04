@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug_static_CRT|Win32">
@@ -35,126 +35,109 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AgentConnector.h" />
-    <ClInclude Include="Base64.h" />
-    <ClInclude Include="dbcacheclient2blocked.h" />
-    <ClInclude Include="DbCacheClient2Impl.h" />
-    <ClInclude Include="DBCacheJob.h" />
-    <ClInclude Include="DbCacheObject.h" />
-    <ClInclude Include="DbCacheServer2Impl.h" />
-    <ClInclude Include="DbConfig.h" />
-    <ClInclude Include="DbLogWriterImpl.h" />
-    <ClInclude Include="DumpServer.h" />
-    <ClInclude Include="EmergencyLogServer.h" />
-    <ClInclude Include="FallbackableUdpLayer_S.h" />
-    <ClInclude Include="HlaEntityImpl_S.h" />
-    <ClInclude Include="HlaSessionHostImpl_S.h" />
-    <ClInclude Include="HlaSpaceImpl_S.h" />
-    <ClInclude Include="HostIDFactory.h" />
-    <ClInclude Include="IVizAgentDg.h" />
-    <ClInclude Include="dbloadeddata2_s.h" />
-    <ClInclude Include="NetServer.h" />
-    <ClInclude Include="OdbcCommandImpl.h" />
-    <ClInclude Include="OdbcConnectionImpl.h" />
-    <ClInclude Include="OdbcErrorCheck.h" />
-    <ClInclude Include="OdbcHandle.h" />
-    <ClInclude Include="OdbcRecordsetImpl.h" />
-    <ClInclude Include="P2PGroup_S.h" />
-    <ClInclude Include="P2PPair.h" />
-    <ClInclude Include="P2PPair_S.h" />
-    <ClInclude Include="RCPair.h" />
-    <ClInclude Include="ReaderWriterMonitorTester.h" />
-    <ClInclude Include="RemoteClient.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="TcpLayer_S.h" />
-    <ClInclude Include="Tests.h" />
-    <ClInclude Include="TestUdpConnReset.h" />
-    <ClInclude Include="ThreadPoolImpl.h" />
-    <ClInclude Include="TimeEventThreadPool.h" />
-    <ClInclude Include="UdpSocket_S.h" />
-    <ClInclude Include="UserTask.h" />
+    <ClInclude Include="..\src\AgentConnector.h" />
+    <ClInclude Include="..\src\Base64.h" />
+    <ClInclude Include="..\src\dbcacheclient2blocked.h" />
+    <ClInclude Include="..\src\DbCacheClient2Impl.h" />
+    <ClInclude Include="..\src\DBCacheJob.h" />
+    <ClInclude Include="..\src\DbCacheObject.h" />
+    <ClInclude Include="..\src\DbCacheServer2Impl.h" />
+    <ClInclude Include="..\src\DbConfig.h" />
+    <ClInclude Include="..\src\DbLogWriterImpl.h" />
+    <ClInclude Include="..\src\DumpServer.h" />
+    <ClInclude Include="..\src\EmergencyLogServer.h" />
+    <ClInclude Include="..\src\FallbackableUdpLayer_S.h" />
+    <ClInclude Include="..\src\HlaEntityImpl_S.h" />
+    <ClInclude Include="..\src\HlaSessionHostImpl_S.h" />
+    <ClInclude Include="..\src\HlaSpaceImpl_S.h" />
+    <ClInclude Include="..\src\HostIDFactory.h" />
+    <ClInclude Include="..\src\IVizAgentDg.h" />
+    <ClInclude Include="..\src\dbloadeddata2_s.h" />
+    <ClInclude Include="..\src\NetServer.h" />
+    <ClInclude Include="..\src\OdbcCommandImpl.h" />
+    <ClInclude Include="..\src\OdbcConnectionImpl.h" />
+    <ClInclude Include="..\src\OdbcErrorCheck.h" />
+    <ClInclude Include="..\src\OdbcHandle.h" />
+    <ClInclude Include="..\src\OdbcRecordsetImpl.h" />
+    <ClInclude Include="..\src\P2PGroup_S.h" />
+    <ClInclude Include="..\src\P2PPair.h" />
+    <ClInclude Include="..\src\P2PPair_S.h" />
+    <ClInclude Include="..\src\RCPair.h" />
+    <ClInclude Include="..\src\ReaderWriterMonitorTester.h" />
+    <ClInclude Include="..\src\RemoteClient.h" />
+    <ClInclude Include="..\src\stdafx.h" />
+    <ClInclude Include="..\src\TcpLayer_S.h" />
+    <ClInclude Include="..\src\Tests.h" />
+    <ClInclude Include="..\src\TestUdpConnReset.h" />
+    <ClInclude Include="..\src\ThreadPoolImpl.h" />
+    <ClInclude Include="..\src\TimeEventThreadPool.h" />
+    <ClInclude Include="..\src\UdpSocket_S.h" />
+    <ClInclude Include="..\src\UserTask.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="acrimpl_s.cpp" />
-    <ClCompile Include="AdoWrap.cpp" />
-    <ClCompile Include="AgentConnector.cpp" />
-    <ClCompile Include="Base64.cpp" />
-    <ClCompile Include="DbCache2Isolate.cpp" />
-    <ClCompile Include="dbcacheclient2blocked.cpp" />
-    <ClCompile Include="DbCacheClient2Impl.cpp" />
-    <ClCompile Include="dbcacheclient2load.cpp" />
-    <ClCompile Include="DBCacheJob.cpp" />
-    <ClCompile Include="DbCacheObject.cpp" />
-    <ClCompile Include="DbCacheServer2Impl.cpp" />
-    <ClCompile Include="dbcacheserver2load.cpp" />
-    <ClCompile Include="DbConfig.cpp" />
-    <ClCompile Include="DbLoadedData.cpp" />
-    <ClCompile Include="DbLoadedData2.cpp" />
-    <ClCompile Include="DbLogWriter.cpp" />
-    <ClCompile Include="DbLogWriterImpl.cpp" />
-    <ClCompile Include="DumpServer.cpp" />
-    <ClCompile Include="EmergencyLogServer.cpp" />
-    <ClCompile Include="FallbackableUdpLayer_S.cpp" />
-    <ClCompile Include="HlaEntityImpl_S.cpp" />
-    <ClCompile Include="HlaSessionHostImpl_S.cpp" />
-    <ClCompile Include="HlaSpaceImpl_S.cpp" />
-    <ClCompile Include="HostIDFactory.cpp" />
-    <ClCompile Include="dbloadeddata2_s.cpp" />
-    <ClCompile Include="NetClientInfo.cpp" />
-    <ClCompile Include="NetServer.cpp" />
-    <ClCompile Include="NetServerAccept.cpp" />
-    <ClCompile Include="NetServerEvent.cpp" />
-    <ClCompile Include="NetServerStats.cpp" />
-    <ClCompile Include="NetworkerThread_S.cpp" />
-    <ClCompile Include="NTService.cpp" />
-    <ClCompile Include="OdbcByteData.cpp" />
-    <ClCompile Include="OdbcCommand.cpp" />
-    <ClCompile Include="OdbcCommandImpl.cpp" />
-    <ClCompile Include="OdbcConnection.cpp" />
-    <ClCompile Include="OdbcConnectionImpl.cpp" />
-    <ClCompile Include="OdbcErrorCheck.cpp" />
-    <ClCompile Include="OdbcException.cpp" />
-    <ClCompile Include="OdbcHandle.cpp" />
-    <ClCompile Include="OdbcRecordset.cpp" />
-    <ClCompile Include="OdbcRecordsetImpl.cpp" />
-    <ClCompile Include="OdbcVariant.cpp" />
-    <ClCompile Include="P2PGroup_S.cpp" />
-    <ClCompile Include="p2ppair.cpp" />
-    <ClCompile Include="P2PPair_S.cpp" />
-    <ClCompile Include="P2P_S.cpp" />
-    <ClCompile Include="pnguid-win32.cpp" />
-    <ClCompile Include="PropNode.cpp" />
-    <ClCompile Include="ReaderWriterMonitor.cpp" />
-    <ClCompile Include="ReaderWriterMonitorTester.cpp" />
-    <ClCompile Include="RemoteClient.cpp" />
-    <ClCompile Include="ServerParam.cpp" />
-    <ClCompile Include="NetServerStartup.cpp" />
-    <ClCompile Include="stdafxserver.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">stdafx.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">stdafx.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">stdafx.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">stdafx.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx.h</PrecompiledHeaderFile>
-    </ClCompile>
-    <ClCompile Include="SuperPeer_S.cpp" />
-    <ClCompile Include="TcpLayer_S.cpp" />
-    <ClCompile Include="Tests.cpp" />
-    <ClCompile Include="TestUdpConnReset.cpp" />
-    <ClCompile Include="TimeEventThreadPool.cpp" />
-    <ClCompile Include="UdpSocket_S.cpp" />
-    <ClCompile Include="UserTask.cpp" />
-    <ClCompile Include="Variant.cpp" />
+    <ClCompile Include="..\src\acrimpl_s.cpp" />
+    <ClCompile Include="..\src\AdoWrap.cpp" />
+    <ClCompile Include="..\src\AgentConnector.cpp" />
+    <ClCompile Include="..\src\Base64.cpp" />
+    <ClCompile Include="..\src\DbCache2Isolate.cpp" />
+    <ClCompile Include="..\src\dbcacheclient2blocked.cpp" />
+    <ClCompile Include="..\src\DbCacheClient2Impl.cpp" />
+    <ClCompile Include="..\src\dbcacheclient2load.cpp" />
+    <ClCompile Include="..\src\DBCacheJob.cpp" />
+    <ClCompile Include="..\src\DbCacheObject.cpp" />
+    <ClCompile Include="..\src\DbCacheServer2Impl.cpp" />
+    <ClCompile Include="..\src\dbcacheserver2load.cpp" />
+    <ClCompile Include="..\src\DbConfig.cpp" />
+    <ClCompile Include="..\src\DbLoadedData.cpp" />
+    <ClCompile Include="..\src\DbLoadedData2.cpp" />
+    <ClCompile Include="..\src\DbLogWriter.cpp" />
+    <ClCompile Include="..\src\DbLogWriterImpl.cpp" />
+    <ClCompile Include="..\src\DumpServer.cpp" />
+    <ClCompile Include="..\src\EmergencyLogServer.cpp" />
+    <ClCompile Include="..\src\FallbackableUdpLayer_S.cpp" />
+    <ClCompile Include="..\src\HlaEntityImpl_S.cpp" />
+    <ClCompile Include="..\src\HlaSessionHostImpl_S.cpp" />
+    <ClCompile Include="..\src\HlaSpaceImpl_S.cpp" />
+    <ClCompile Include="..\src\HostIDFactory.cpp" />
+    <ClCompile Include="..\src\dbloadeddata2_s.cpp" />
+    <ClCompile Include="..\src\NetClientInfo.cpp" />
+    <ClCompile Include="..\src\NetServer.cpp" />
+    <ClCompile Include="..\src\NetServerAccept.cpp" />
+    <ClCompile Include="..\src\NetServerEvent.cpp" />
+    <ClCompile Include="..\src\NetServerStats.cpp" />
+    <ClCompile Include="..\src\NetworkerThread_S.cpp" />
+    <ClCompile Include="..\src\NTService.cpp" />
+    <ClCompile Include="..\src\OdbcByteData.cpp" />
+    <ClCompile Include="..\src\OdbcCommand.cpp" />
+    <ClCompile Include="..\src\OdbcCommandImpl.cpp" />
+    <ClCompile Include="..\src\OdbcConnection.cpp" />
+    <ClCompile Include="..\src\OdbcConnectionImpl.cpp" />
+    <ClCompile Include="..\src\OdbcErrorCheck.cpp" />
+    <ClCompile Include="..\src\OdbcException.cpp" />
+    <ClCompile Include="..\src\OdbcHandle.cpp" />
+    <ClCompile Include="..\src\OdbcRecordset.cpp" />
+    <ClCompile Include="..\src\OdbcRecordsetImpl.cpp" />
+    <ClCompile Include="..\src\OdbcVariant.cpp" />
+    <ClCompile Include="..\src\P2PGroup_S.cpp" />
+    <ClCompile Include="..\src\p2ppair.cpp" />
+    <ClCompile Include="..\src\P2PPair_S.cpp" />
+    <ClCompile Include="..\src\P2P_S.cpp" />
+    <ClCompile Include="..\src\pnguid-win32.cpp" />
+    <ClCompile Include="..\src\PropNode.cpp" />
+    <ClCompile Include="..\src\ReaderWriterMonitor.cpp" />
+    <ClCompile Include="..\src\ReaderWriterMonitorTester.cpp" />
+    <ClCompile Include="..\src\RemoteClient.cpp" />
+    <ClCompile Include="..\src\ServerParam.cpp" />
+    <ClCompile Include="..\src\NetServerStartup.cpp" />
+    <ClCompile Include="..\src\stdafxserver.cpp" />
+    <ClCompile Include="..\src\SuperPeer_S.cpp" />
+    <ClCompile Include="..\src\TcpLayer_S.cpp" />
+    <ClCompile Include="..\src\Tests.cpp" />
+    <ClCompile Include="..\src\TestUdpConnReset.cpp" />
+    <ClCompile Include="..\src\TimeEventThreadPool.cpp" />
+    <ClCompile Include="..\src\UdpSocket_S.cpp" />
+    <ClCompile Include="..\src\UserTask.cpp" />
+    <ClCompile Include="..\src\Variant.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E29D13E6-F388-44BD-8D07-590D2501B6A1}</ProjectGuid>
@@ -258,47 +241,47 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>AuthNetServer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>AuthNetServer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>AuthNetServer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>AuthNetServer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>AuthNetServer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>AuthNetServer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>AuthNetServer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>AuthNetServer</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_NO_NTTNTRACE;_DEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -326,7 +309,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_NO_NTTNTRACE;_DEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -357,7 +340,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_NO_NTTNTRACE;NDEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -382,7 +365,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_NO_NTTNTRACE;_DEBUG;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -411,7 +394,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>
       </FunctionLevelLinking>
@@ -442,7 +425,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>
       </FunctionLevelLinking>
@@ -477,7 +460,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -508,7 +491,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>

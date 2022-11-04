@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AuthNetServer", "ProudNetServer.vcxproj", "{E29D13E6-F388-44BD-8D07-590D2501B6A1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AuthNetServer", "ProudNetServer\ProudNetServer.vcxproj", "{E29D13E6-F388-44BD-8D07-590D2501B6A1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AuthNetClient", "ProudNetClient.vcxproj", "{D447C486-92D2-4A70-BCFB-38372B197CBB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AuthNetClient", "ProudNetClient\ProudNetClient.vcxproj", "{D447C486-92D2-4A70-BCFB-38372B197CBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
