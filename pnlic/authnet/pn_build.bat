@@ -17,15 +17,13 @@ exit /b 0
 	set pn_build_exe=%PN_BUILD_PATH%
 
 	@rem AuthNet 클라이언트 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-	echo ## CommandLine ## : "%pn_build_exe%" ".\ProudNetClient\ProudNetClient.vcxproj" "/t:clean" "/p:Configuration=Release_static_CRT;Platform=x64;VisualStudioVersion=17;BuildProjectReferences=false" /m
-	"%pn_build_exe%" ".\ProudNetClient\ProudNetClient.vcxproj" "/t:clean" "/p:Configuration=Release_static_CRT;Platform=x64;VisualStudioVersion=17;BuildProjectReferences=false" /m
+	call :compile_command "%pn_build_exe%" ".\ProudNetClient\ProudNetClient.vcxproj" "/t:clean" "/p:Configuration=Release_static_CRT;Platform=x64;VisualStudioVersion=17;BuildProjectReferences=false" /m
 
 	rd /s /q .\ProudNetClient\bin\
 	rd /s /q .\ProudNetClient\obj\
 
 	@rem AuthNet 서버 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-	echo ## CommandLine ## : "%pn_build_exe%" ".\ProudNetServer\ProudNetServer.vcxproj" "/t:clean" "/p:Configuration=Release_static_CRT;Platform=x64;VisualStudioVersion=17;BuildProjectReferences=false" /m
-	"%pn_build_exe%" ".\ProudNetServer\ProudNetServer.vcxproj" "/t:clean" "/p:Configuration=Release_static_CRT;Platform=x64;VisualStudioVersion=17;BuildProjectReferences=false" /m
+	call :compile_command "%pn_build_exe%" ".\ProudNetServer\ProudNetServer.vcxproj" "/t:clean" "/p:Configuration=Release_static_CRT;Platform=x64;VisualStudioVersion=17;BuildProjectReferences=false" /m
 
 	rd /s /q .\ProudNetServer\bin\
 	rd /s /q .\ProudNetServer\obj\
@@ -51,15 +49,18 @@ exit /b 0
 
 	if %client_flag% == 1 (
 		@rem AuthNet 클라이언트 프로젝트를 빌드합니다.
-		echo ## CommandLine ## : "%pn_build_exe%" ".\ProudNetClient\ProudNetClient.vcxproj" "/t:build" "/p:Configuration=Release_static_CRT;Platform=x64;VisualStudioVersion=17;BuildProjectReferences=false" /m
-		"%pn_build_exe%" ".\ProudNetClient\ProudNetClient.vcxproj" "/t:build" "/p:Configuration=Release_static_CRT;Platform=x64;VisualStudioVersion=17;BuildProjectReferences=false" /m
+		call :compile_command "%pn_build_exe%" ".\ProudNetClient\ProudNetClient.vcxproj" "/t:build" "/p:Configuration=Release_static_CRT;Platform=x64;VisualStudioVersion=17;BuildProjectReferences=false" /m
 	)
 
 	if %server_flag% == 1 (
 		@rem AuthNet 서버 프로젝트를 빌드합니다.
-		echo ## CommandLine ## : "%pn_build_exe%" ".\ProudNetServer\ProudNetServer.vcxproj" "/t:build" "/p:Configuration=Release_static_CRT;Platform=x64;VisualStudioVersion=17;BuildProjectReferences=false" /m
-		"%pn_build_exe%" ".\ProudNetServer\ProudNetServer.vcxproj" "/t:build" "/p:Configuration=Release_static_CRT;Platform=x64;VisualStudioVersion=17;BuildProjectReferences=false" /m
+		call :compile_command "%pn_build_exe%" ".\ProudNetServer\ProudNetServer.vcxproj" "/t:build" "/p:Configuration=Release_static_CRT;Platform=x64;VisualStudioVersion=17;BuildProjectReferences=false" /m
 	)
+exit /b 0
+
+:compile_command
+	echo ## CommandLine ## : %1 %2 %3 %4 %5
+	%1 %2 %3 %4 %5
 exit /b 0
 
 call main %1 %2

@@ -15,8 +15,7 @@ exit /b 0
 :clean_library
 	@rem PIDL 컴파일러 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
 	set pn_build_exe=%PN_BUILD_PATH%
-	echo ## CommandLine ## : "%pn_build_exe%" ".\PIDL.csproj" "/t:clean" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
-	"%pn_build_exe%" ".\PIDL.csproj" "/t:clean" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
+	call :compile_command "%pn_build_exe%" ".\PIDL.csproj" "/t:clean" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
 
 	rd /s /q .\packages\
 	rd /s /q .\bin\
@@ -34,8 +33,7 @@ exit /b 0
 	call :download_nuget_packages
 
 	@rem PIDL 컴파일러 프로젝트를 빌드합니다.
-	echo ## CommandLine ## : "%pn_build_exe%" ".\PIDL.csproj" "/t:build" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
-	"%pn_build_exe%" ".\PIDL.csproj" "/t:build" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
+	call :compile_command "%pn_build_exe%" ".\PIDL.csproj" "/t:build" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
 exit /b 0
 
 :download_nuget
@@ -66,6 +64,11 @@ exit /b 0
 	if %packages_flag% == 1 (
 		..\..\utils\nuget.exe restore -PackagesDirectory .\packages
 	)
+exit /b 0
+
+:compile_command
+	echo ## CommandLine ## : %1 %2 %3 %4 %5
+	%1 %2 %3 %4 %5
 exit /b 0
 
 call main %1
