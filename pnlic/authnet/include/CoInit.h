@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1.x.x
+ProudNet v1
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
