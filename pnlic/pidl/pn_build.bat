@@ -5,12 +5,10 @@
 		call :clean_library
 	) else if "%1" == "build" (
 		call :build_library
-	) else if "%1" == "rebuild" (
-		call :rebuild_library
 	) else (
 		@rem 사용법을 출력합니다.
 		echo Usage:
-		echo     pn_build.bat ^<clean ^| build ^| rebuild^>
+		echo     pn_build.bat ^<clean ^| build^>
 	)
 exit /b 0
 
@@ -26,6 +24,8 @@ exit /b 0
 exit /b 0
 
 :build_library
+	set pn_build_exe=%PN_BUILD_PATH%
+
 	@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
 	@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
 	call :download_nuget
@@ -34,14 +34,7 @@ exit /b 0
 	call :download_nuget_packages
 
 	@rem PIDL 컴파일러 프로젝트를 빌드합니다.
-	set pn_build_exe=%PN_BUILD_PATH%
-	"%pn_build_exe%" ".\PIDL.csproj" "/t:build" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
-exit /b 0
-
-:rebuild_library
-	@rem PIDL 컴파일러 프로젝트를 리빌드합니다.
-	set pn_build_exe=%PN_BUILD_PATH%
-	"%pn_build_exe%" ".\PIDL.csproj" "/t:clean" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
+	echo ## CommandLine ## : "%pn_build_exe%" ".\PIDL.csproj" "/t:build" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
 	"%pn_build_exe%" ".\PIDL.csproj" "/t:build" "/p:Configuration=Release;Platform=AnyCPU;VisualStudioVersion=17;BuildProjectReferences=false" /m
 exit /b 0
 
@@ -57,7 +50,6 @@ exit /b 0
 
 :download_nuget_packages
 	set packages_flag=0
-
  	if not exist ".\packages\Antlr4.4.6.6\" (
 		set packages_flag=1
 	)
