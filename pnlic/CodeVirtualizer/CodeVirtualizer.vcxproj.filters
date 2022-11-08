@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="custom_vms">
+      <UniqueIdentifier>{69d0cc7d-2b92-4f81-a971-7b589ed506a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\StealthMode">
+      <UniqueIdentifier>{e51440b8-dd5b-4cf2-bce4-f4bb9d981cb8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+    <Text Include="Include\C\Readme.txt">
+      <Filter>Header Files</Filter>
+    </Text>
+    <Text Include="StealthMode\C\Readme.txt">
+      <Filter>Header Files\StealthMode</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\C\VirtualizerSDK.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\C\VirtualizerSDK_BorlandC_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\C\VirtualizerSDK_CustomVMs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\C\VirtualizerSDK_CustomVMs_BorlandC_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\C\VirtualizerSDK_CustomVMs_GNU_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\C\VirtualizerSDK_CustomVMs_ICL_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\C\VirtualizerSDK_CustomVMs_LCC_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\C\VirtualizerSDK_CustomVMs_VC_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\C\VirtualizerSDK_GNU_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\C\VirtualizerSDK_ICL_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\C\VirtualizerSDK_LCC_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\C\VirtualizerSDK_VC_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StealthMode\C\StealthCodeArea.h">
+      <Filter>Header Files\StealthMode</Filter>
+    </ClInclude>
+    <ClInclude Include="StealthMode\C\StealthCodeArea_Max.h">
+      <Filter>Header Files\StealthMode</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="StealthMode\C\StealthExample.c">
+      <Filter>Header Files\StealthMode</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="custom_vms\fish32_black.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\fish32_red.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\fish32_white.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\fish64_black.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\fish64_red.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\fish64_white.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\puma32_black.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\puma32_red.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\puma32_white.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\puma64_black.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\puma64_red.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\puma64_white.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\shark32_black.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\shark32_red.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\shark32_white.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\shark64_black.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\shark64_red.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\shark64_white.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\tiger32_black.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\tiger32_red.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\tiger32_white.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\tiger64_black.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\tiger64_red.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+    <None Include="custom_vms\tiger64_white.vm">
+      <Filter>custom_vms</Filter>
+    </None>
+  </ItemGroup>
+</Project>
