@@ -1,0 +1,11 @@
+﻿#pragma once
+
+#define MAX_IMAGENAME_SIZE 32
+#define MAX_PATH_LENGTH 8192
+
+enum Restriction
+{
+	MAX_REGKEY_SIZE = 4096,
+	MAX_REGSTRDATA_SIZE = 200,
+	MAX_SIZE_OF_LOAD_FILE = 10240
+};
