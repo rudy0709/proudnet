@@ -1,0 +1,179 @@
+@echo off
+
+set projects=all pidl authnet virtualizer pnlic_sdk pnlicense_manager
+
+:main
+	@rem 도움말을 출력해야 할 지를 검사합니다.
+	call :check_comandline_params %1 %2
+	if %errorlevel% == 1 (
+		@rem 사용법을 출력합니다.
+		echo Usage:
+		echo     pnlic_build.bat clean ^<all ^| pidl ^| authnet ^| virtualizer ^| pnlic_sdk ^| ... ^>
+		echo     pnlic_build.bat build ^<all ^| pidl ^| authnet ^| virtualizer ^| pnlic_sdk ^| ... ^>
+		exit /b
+	)
+
+	@rem 환경변수가 등록되어 있는 지를 체크합니다.
+	if "%PN_BUILD_PATH%" == "" (
+		echo ^>^>^>^> Error : Register the PN_BUILD_PATH environment variable before executing the batch file.
+		exit /b
+	) else (
+		echo ^>^>^>^> Environment-Variable^(PN_BUILD_PATH^) = "%PN_BUILD_PATH%"
+		echo ^>^>^>^>
+	)
+
+	@rem 실행인자에 맞춰 함수를 호출합니다.
+	call :process_library_pidl %1 %2
+	call :process_library_virtualizer %1 %2
+	call :process_library_authnet %1 %2
+	call :process_library_pnlic_sdk %1 %2
+
+exit /b
+
+:process_library_pidl
+	if not "%2" == "all" (
+		if not "%2" == "pidl" (
+			exit /b
+		)
+	)
+
+	if "%1" == "clean" (
+		@rem PIDL 컴파일러 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\PIDL\PIDL.csproj" clean Release AnyCPU
+		rd /s /q .\PIDL\bin\
+		rd /s /q .\PIDL\obj\
+	) else if "%1" == "build" (
+		@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+		@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+		if not exist "..\utils\" (
+			mkdir ..\utils\
+		)
+		if not exist "..\utils\nuget.exe" (
+			powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '..\utils\nuget.exe')"
+		)
+
+		@rem PIDL 컴파일러 프로젝트에서 사용할 NuGet 패키지를 다운로드 받습니다.
+		set packages_flag=0
+		if not exist ".\packages\Antlr4.4.6.6\" (
+			set packages_flag=1
+		)
+		if not exist ".\packages\Antlr4.CodeGenerator.4.6.6\" (
+			set packages_flag=1
+		)
+		if not exist ".\packages\Antlr4.Runtime.4.6.6\" (
+			set packages_flag=1
+		)
+		if not exist ".\packages\YamlDotNet.12.0.2\" (
+			set packages_flag=1
+		)
+
+		if %packages_flag% == 1 (
+			..\utils\nuget.exe restore -PackagesDirectory .\packages
+		)
+
+		@rem PIDL 컴파일러 프로젝트를 빌드합니다.
+		call :compile_command ".\PIDL\PIDL.csproj" build Release AnyCPU
+	)
+exit /b
+
+:process_library_virtualizer
+	if not "%2" == "all" (
+		if not "%2" == "virtualizer" (
+			exit /b
+		)
+	)
+
+	if "%1" == "clean" (
+		@rem CodeVirtualizer 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\CodeVirtualizer\CodeVirtualizer.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\CodeVirtualizer\bin\
+		rd /s /q .\CodeVirtualizer\obj\
+	) else if "%1" == "build" (
+		@rem CodeVirtualizer 클라이언트 프로젝트를 빌드합니다.
+		call :compile_command ".\CodeVirtualizer\CodeVirtualizer.vcxproj" build Release_static_CRT x64
+	)
+exit /b
+
+:process_library_authnet
+	if not "%2" == "all" (
+		if not "%2" == "authnet" (
+			exit /b
+		)
+	)
+
+	if "%1" == "clean" (
+		@rem AuthNet 클라이언트 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\AuthNet\ProudNetClient\ProudNetClient.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\AuthNet\ProudNetClient\bin\
+		rd /s /q .\AuthNet\ProudNetClient\obj\
+
+		@rem AuthNet 서버 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\AuthNet\ProudNetServer\ProudNetServer.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\AuthNet\ProudNetServer\bin\
+		rd /s /q .\AuthNet\ProudNetServer\obj\
+	) else if "%1" == "build" (
+		@rem AuthNet 클라이언트 프로젝트를 빌드합니다.
+		call :compile_command ".\AuthNet\ProudNetClient\ProudNetClient.vcxproj" build Release_static_CRT x64
+
+		@rem AuthNet 서버 프로젝트를 빌드합니다.
+		call :compile_command ".\AuthNet\ProudNetServer\ProudNetServer.vcxproj" build Release_static_CRT x64
+	)
+exit /b
+
+:process_library_pnlic_sdk
+	if not "%2" == "all" (
+		if not "%2" == "pnlic_sdk" (
+			exit /b
+		)
+	)
+
+	if "%1" == "clean" (
+		@rem PNLicenseSDK 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\PNLicenseSDK\PNLicenseSDK.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\PNLicenseSDK\bin\
+		rd /s /q .\PNLicenseSDK\obj\
+	) else if "%1" == "build" (
+		@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+		if not exist "..\utils\CodeVirtualizer\" (
+			mkdir ..\utils\CodeVirtualizer\
+		)
+
+		if not exist "..\utils\CodeVirtualizer\CodeVirtualizer-v2.2.2.zip" (
+			powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '..\utils\CodeVirtualizer\CodeVirtualizer-v2.2.2.zip')"
+		)
+
+		if not exist "..\utils\CodeVirtualizer\Virtualizer.exe" (
+			powershell "(Expand-Archive -Path ..\utils\CodeVirtualizer\CodeVirtualizer-v2.2.2.zip -DestinationPath ..\utils\CodeVirtualizer\)"
+		)
+
+		@rem PNLicenseSDK 클라이언트 프로젝트를 빌드합니다.
+		call :compile_command ".\PNLicenseSDK\PNLicenseSDK.vcxproj" build Release_static_CRT x64
+	)
+exit /b
+
+:compile_command
+	set vs_version=17
+
+	echo ^>^>^>^> CommandLine : "%PN_BUILD_PATH%" %1 "/t:%2" "/p:Configuration=%3;Platform=%4;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
+	echo ^>^>^>^>
+	echo ^>^>^>^> --------------------------------------------------
+	"%PN_BUILD_PATH%" %1 "/t:%2" "/p:Configuration=%3;Platform=%4;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
+	echo ^>^>^>^> --------------------------------------------------
+exit /b
+
+:check_comandline_params
+	@rem 도움말을 출력해야 할 지를 검사합니다.
+	if not "%1" == "clean" (
+		if not "%1" == "build" (
+			exit /b 1
+		)
+	)
+
+	for %%p in (%projects%) do (
+		if "%2" == "%%p" (
+			exit /b 0
+		)
+	)
+exit /b 1
+
+call :main %1 %2
