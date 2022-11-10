@@ -1,0 +1,9 @@
+﻿rename cs(Proud::String,System.String);
+
+global LicenseS2C 550
+{
+	// enum값으로 결과 넘기고 받기, 정보가 있는지 여부, 날짜 만기 여부, 금지 여부
+	NotifyAuthentication([in] BYTE result);
+	NotifyAuthenticationComment([in] BYTE result, [in] Proud::String comment);
+	NotifyRecordServerInfo([in] BYTE result);
+}

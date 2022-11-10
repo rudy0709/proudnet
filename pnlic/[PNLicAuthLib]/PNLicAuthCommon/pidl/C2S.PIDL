@@ -1,0 +1,17 @@
+﻿
+rename cs(Proud::String, System.String);
+rename cs(Proud::ByteArray, Nettention.Proud.ByteArray);
+rename cs(Proud::CFastArray<int>, System.Collections.Generic.List<int>);
+rename cs(Proud::CFastMap<int,float>, System.Collections.Generic.Dictionary<int,float>);
+
+global LicenseC2S 550
+{
+	RequestLicenseKey([in] short year, [in] short month, [in] short day, [in] Proud::String projectName, [in] Proud::String companyName, [in] Proud::String licenseType);
+
+	// CPU ID, 컴퓨터 이름, 사용자 이름, 라이선스 키 
+	// 과거 버전의 인증앱 하위호환 때문에 남겨져 있음
+	RequestAuthentication([in] Proud::String cpuId, [in] Proud::String computerName, [in] Proud::String userName, [in] Proud::String key, [in] Proud::String internalIP, [in] Proud::String licenseType); 
+
+	// 프넷 사용 정보를 인증 서버로 보내어 기록에 남게 한다.
+	RequestRecordServerInfo([in] Proud::String cpuId, [in] Proud::String companyName, [in] Proud::String projectName, [in] Proud::String licenseType, [in] Proud::String sigKey, [in] Proud::String computerName, [in] Proud::String userName, [in] Proud::String processName, [in] Proud::String internalIP, [in] uint8_t ccuNumber); 
+}
