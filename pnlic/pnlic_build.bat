@@ -23,6 +23,9 @@ set projects=all pidl authnet virtualizer pnlic_sdk pnlic pnlic_auth_lib waterma
 	)
 
 	@rem 프로젝트 별로 빌드함수를 호출합니다.
+	if "%1" == "build" (
+		call :download_utils_and_pkgs
+	)
 	call :process_library_pidl %1 %2
 	call :process_library_virtualizer %1 %2
 	call :process_library_authnet %1 %2
@@ -30,6 +33,32 @@ set projects=all pidl authnet virtualizer pnlic_sdk pnlic pnlic_auth_lib waterma
 	call :process_library_pnlic %1 %2
 	call :process_library_pnlic_auth_lib %1 %2
 	call :process_library_watermark %1 %2
+exit /b
+
+:download_utils_and_pkgs
+	call :download_nuget
+
+	@rem PIDL 컴파일러 프로젝트에서 사용할 NuGet 패키지를 다운로드 받습니다.
+	set packages_flag=F
+	if not exist ".\packages\Antlr4.4.6.6\" (
+		set packages_flag=T
+	)
+	if not exist ".\packages\Antlr4.CodeGenerator.4.6.6\" (
+		set packages_flag=T
+	)
+	if not exist ".\packages\Antlr4.Runtime.4.6.6\" (
+		set packages_flag=T
+	)
+	if not exist ".\packages\YamlDotNet.12.0.2\" (
+		set packages_flag=T
+	)
+
+	if "%packages_flag%" == "T" (
+		"..\utils\nuget.exe" restore -PackagesDirectory .\packages
+	)
+
+	@rem CodeVirtualizer 코드 난독화 도구를 다운로드 받아 설치합니다.
+	call :download_virtualizer
 exit /b
 
 :process_library_pidl
@@ -40,43 +69,17 @@ exit /b
 	)
 
 	if "%1" == "clean" (
-		echo "process_library_pidl... clean..."
 		@rem PIDL 컴파일러 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
 		call :compile_command ".\PIDL\PIDL.csproj" clean Release AnyCPU
 		rd /s /q .\PIDL\bin\
 		rd /s /q .\PIDL\obj\
 	) else if "%1" == "build" (
-		echo "process_library_pidl... build..."
-		@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
-		@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
-		if not exist "..\utils\" (
-			mkdir ..\utils\
-		)
-		if not exist "..\utils\nuget.exe" (
-			powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '..\utils\nuget.exe')"
-		)
-
-		@rem PIDL 컴파일러 프로젝트에서 사용할 NuGet 패키지를 다운로드 받습니다.
-		set packages_flag=F
-		if not exist ".\packages\Antlr4.4.6.6\" (
-			set packages_flag=T
-		)
-		if not exist ".\packages\Antlr4.CodeGenerator.4.6.6\" (
-			set packages_flag=T
-		)
-		if not exist ".\packages\Antlr4.Runtime.4.6.6\" (
-			set packages_flag=T
-		)
-		if not exist ".\packages\YamlDotNet.12.0.2\" (
-			set packages_flag=T
-		)
-
-		if "%packages_flag%" == "T" (
-			"..\utils\nuget.exe" restore -PackagesDirectory .\packages
-		)
-
 		@rem PIDL 컴파일러 프로젝트를 빌드합니다.
 		call :compile_command ".\PIDL\PIDL.csproj" build Release AnyCPU
+
+		echo ^>^>^>^> If the error message "The type or namespace name 'PIDLLexer', 'PIDLParser' could not be found" is displayed...
+		echo ^>^>^>^> It was that the newly installed Antlr4*, YamlDotNet package failed to reference.
+		echo ^>^>^>^> A few iterations of the Build command will allow the build to succeed.
 	)
 exit /b
 
@@ -136,10 +139,7 @@ exit /b
 		rd /s /q .\PNLicenseSDK\bin\
 		rd /s /q .\PNLicenseSDK\obj\
 	) else if "%1" == "build" (
-		@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
-		call :download_virtualizer
-
-		@rem PNLicenseSDK 프로젝트를 빌드합니다.
+		@rem PNLicenseSDK 프로젝트를 빌드합니다. (CodeVirtualizer 도구의 라이브러리 활용)
 		call :compile_command ".\PNLicenseSDK\PNLicenseSDK.vcxproj" build Release_static_CRT x64
 	)
 exit /b
@@ -239,17 +239,30 @@ exit /b
 	)
 exit /b 1
 
+:download_nuget
+	@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+	@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+	if not exist "..\utils\" (
+		mkdir ..\utils\
+	)
+
+	if not exist "..\utils\nuget.exe" (
+		powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '..\utils\nuget.exe')"
+	)
+exit /b
+
 :download_virtualizer
-	if not exist "..\utils\CodeVirtualizer\" (
-		mkdir ..\utils\CodeVirtualizer\
+	@rem CodeVirtualizer 코드 난독화 도구를 다운로드 받아 설치합니다.
+	set util_path=..\utils\CodeVirtualizer
+
+	if not exist "%util_path%" (
+		mkdir %util_path%
 	)
 
-	if not exist "..\utils\CodeVirtualizer\CodeVirtualizer-v2.2.2.zip" (
-		powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '..\utils\CodeVirtualizer\CodeVirtualizer-v2.2.2.zip')"
-	)
-
-	if not exist "..\utils\CodeVirtualizer\Virtualizer.exe" (
-		powershell "(Expand-Archive -Path ..\utils\CodeVirtualizer\CodeVirtualizer-v2.2.2.zip -DestinationPath ..\utils\CodeVirtualizer\)"
+	if not exist "%util_path%\Virtualizer.exe" (
+		powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+		powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+		del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
 	)
 exit /b
 
