@@ -1,6 +1,6 @@
 @echo off
 
-set projects=all pidl authnet virtualizer pnlic_sdk pnlic pnlic_auth_lib
+set projects=all pidl authnet virtualizer pnlic_sdk pnlic pnlic_auth_lib watermark
 
 :main
 	@rem 도움말을 출력해야 할 지를 검사합니다.
@@ -8,8 +8,8 @@ set projects=all pidl authnet virtualizer pnlic_sdk pnlic pnlic_auth_lib
 	if "%errorlevel%" == "1" (
 		@rem 사용법을 출력합니다.
 		echo Usage:
-		echo     pnlic_build.bat clean ^<all ^| pidl ^| authnet ^| virtualizer ^| pnlic_sdk ^| pnlic ^| pnlic_auth_lib ^| ... ^>
-		echo     pnlic_build.bat build ^<all ^| pidl ^| authnet ^| virtualizer ^| pnlic_sdk ^| pnlic ^| pnlic_auth_lib ^| ... ^>
+		echo     pnlic_build.bat clean ^<all ^| pidl ^| authnet ^| virtualizer ^| pnlic_sdk ^| pnlic ^| pnlic_auth_lib ^| watermark ^| ... ^>
+		echo     pnlic_build.bat build ^<all ^| pidl ^| authnet ^| virtualizer ^| pnlic_sdk ^| pnlic ^| pnlic_auth_lib ^| watermark ^| ... ^>
 		exit /b
 	)
 
@@ -29,6 +29,7 @@ set projects=all pidl authnet virtualizer pnlic_sdk pnlic pnlic_auth_lib
 	call :process_library_pnlic_sdk %1 %2
 	call :process_library_pnlic %1 %2
 	call :process_library_pnlic_auth_lib %1 %2
+	call :process_library_watermark %1 %2
 exit /b
 
 :process_library_pidl
@@ -136,17 +137,7 @@ exit /b
 		rd /s /q .\PNLicenseSDK\obj\
 	) else if "%1" == "build" (
 		@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
-		if not exist "..\utils\CodeVirtualizer\" (
-			mkdir ..\utils\CodeVirtualizer\
-		)
-
-		if not exist "..\utils\CodeVirtualizer\CodeVirtualizer-v2.2.2.zip" (
-			powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '..\utils\CodeVirtualizer\CodeVirtualizer-v2.2.2.zip')"
-		)
-
-		if not exist "..\utils\CodeVirtualizer\Virtualizer.exe" (
-			powershell "(Expand-Archive -Path ..\utils\CodeVirtualizer\CodeVirtualizer-v2.2.2.zip -DestinationPath ..\utils\CodeVirtualizer\)"
-		)
+		call :download_virtualizer
 
 		@rem PNLicenseSDK 프로젝트를 빌드합니다.
 		call :compile_command ".\PNLicenseSDK\PNLicenseSDK.vcxproj" build Release_static_CRT x64
@@ -197,6 +188,32 @@ exit /b
 	)
 exit /b
 
+:process_library_watermark
+	if not "%2" == "all" (
+		if not "%2" == "watermark" (
+			exit /b
+		)
+	)
+
+	if "%1" == "clean" (
+		@rem WatermarkLib 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\[Watermark]\WatermarkLib\WatermarkLib.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\[Watermark]\WatermarkLib\bin\
+		rd /s /q .\[Watermark]\WatermarkLib\obj\
+
+		@rem WatermarkDll 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\[Watermark]\WatermarkDll\WatermarkDll.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\[Watermark]\WatermarkDll\bin\
+		rd /s /q .\[Watermark]\WatermarkDll\obj\
+	) else if "%1" == "build" (
+		@rem WatermarkLib 프로젝트를 빌드합니다.
+		call :compile_command ".\[Watermark]\WatermarkLib\WatermarkLib.vcxproj" build Release_static_CRT x64
+
+		@rem WatermarkDll 프로젝트를 빌드합니다.
+		call :compile_command ".\[Watermark]\WatermarkDll\WatermarkDll.vcxproj" build Release_static_CRT x64
+	)
+exit /b
+
 :compile_command
 	set vs_version=17
 
@@ -221,5 +238,19 @@ exit /b
 		)
 	)
 exit /b 1
+
+:download_virtualizer
+	if not exist "..\utils\CodeVirtualizer\" (
+		mkdir ..\utils\CodeVirtualizer\
+	)
+
+	if not exist "..\utils\CodeVirtualizer\CodeVirtualizer-v2.2.2.zip" (
+		powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '..\utils\CodeVirtualizer\CodeVirtualizer-v2.2.2.zip')"
+	)
+
+	if not exist "..\utils\CodeVirtualizer\Virtualizer.exe" (
+		powershell "(Expand-Archive -Path ..\utils\CodeVirtualizer\CodeVirtualizer-v2.2.2.zip -DestinationPath ..\utils\CodeVirtualizer\)"
+	)
+exit /b
 
 call :main %1 %2
