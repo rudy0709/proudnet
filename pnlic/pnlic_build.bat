@@ -1,15 +1,15 @@
 @echo off
 
-set projects=all pidl authnet virtualizer pnlic_sdk pnlicense_manager
+set projects=all pidl authnet virtualizer pnlic_sdk pnlic pnlic_auth_lib
 
 :main
 	@rem 도움말을 출력해야 할 지를 검사합니다.
 	call :check_comandline_params %1 %2
-	if %errorlevel% == 1 (
+	if "%errorlevel%" == "1" (
 		@rem 사용법을 출력합니다.
 		echo Usage:
-		echo     pnlic_build.bat clean ^<all ^| pidl ^| authnet ^| virtualizer ^| pnlic_sdk ^| ... ^>
-		echo     pnlic_build.bat build ^<all ^| pidl ^| authnet ^| virtualizer ^| pnlic_sdk ^| ... ^>
+		echo     pnlic_build.bat clean ^<all ^| pidl ^| authnet ^| virtualizer ^| pnlic_sdk ^| pnlic ^| pnlic_auth_lib ^| ... ^>
+		echo     pnlic_build.bat build ^<all ^| pidl ^| authnet ^| virtualizer ^| pnlic_sdk ^| pnlic ^| pnlic_auth_lib ^| ... ^>
 		exit /b
 	)
 
@@ -22,12 +22,13 @@ set projects=all pidl authnet virtualizer pnlic_sdk pnlicense_manager
 		echo ^>^>^>^>
 	)
 
-	@rem 실행인자에 맞춰 함수를 호출합니다.
+	@rem 프로젝트 별로 빌드함수를 호출합니다.
 	call :process_library_pidl %1 %2
 	call :process_library_virtualizer %1 %2
 	call :process_library_authnet %1 %2
 	call :process_library_pnlic_sdk %1 %2
-
+	call :process_library_pnlic %1 %2
+	call :process_library_pnlic_auth_lib %1 %2
 exit /b
 
 :process_library_pidl
@@ -38,11 +39,13 @@ exit /b
 	)
 
 	if "%1" == "clean" (
+		echo "process_library_pidl... clean..."
 		@rem PIDL 컴파일러 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
 		call :compile_command ".\PIDL\PIDL.csproj" clean Release AnyCPU
 		rd /s /q .\PIDL\bin\
 		rd /s /q .\PIDL\obj\
 	) else if "%1" == "build" (
+		echo "process_library_pidl... build..."
 		@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
 		@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
 		if not exist "..\utils\" (
@@ -53,22 +56,22 @@ exit /b
 		)
 
 		@rem PIDL 컴파일러 프로젝트에서 사용할 NuGet 패키지를 다운로드 받습니다.
-		set packages_flag=0
+		set packages_flag=F
 		if not exist ".\packages\Antlr4.4.6.6\" (
-			set packages_flag=1
+			set packages_flag=T
 		)
 		if not exist ".\packages\Antlr4.CodeGenerator.4.6.6\" (
-			set packages_flag=1
+			set packages_flag=T
 		)
 		if not exist ".\packages\Antlr4.Runtime.4.6.6\" (
-			set packages_flag=1
+			set packages_flag=T
 		)
 		if not exist ".\packages\YamlDotNet.12.0.2\" (
-			set packages_flag=1
+			set packages_flag=T
 		)
 
-		if %packages_flag% == 1 (
-			..\utils\nuget.exe restore -PackagesDirectory .\packages
+		if "%packages_flag%" == "T" (
+			"..\utils\nuget.exe" restore -PackagesDirectory .\packages
 		)
 
 		@rem PIDL 컴파일러 프로젝트를 빌드합니다.
@@ -82,14 +85,13 @@ exit /b
 			exit /b
 		)
 	)
-
 	if "%1" == "clean" (
 		@rem CodeVirtualizer 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
 		call :compile_command ".\CodeVirtualizer\CodeVirtualizer.vcxproj" clean Release_static_CRT x64
 		rd /s /q .\CodeVirtualizer\bin\
 		rd /s /q .\CodeVirtualizer\obj\
 	) else if "%1" == "build" (
-		@rem CodeVirtualizer 클라이언트 프로젝트를 빌드합니다.
+		@rem CodeVirtualizer 프로젝트를 빌드합니다.
 		call :compile_command ".\CodeVirtualizer\CodeVirtualizer.vcxproj" build Release_static_CRT x64
 	)
 exit /b
@@ -103,20 +105,20 @@ exit /b
 
 	if "%1" == "clean" (
 		@rem AuthNet 클라이언트 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\AuthNet\ProudNetClient\ProudNetClient.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\AuthNet\ProudNetClient\bin\
-		rd /s /q .\AuthNet\ProudNetClient\obj\
+		call :compile_command ".\[AuthNet]\ProudNetClient\ProudNetClient.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\[AuthNet]\ProudNetClient\bin\
+		rd /s /q .\[AuthNet]\ProudNetClient\obj\
 
 		@rem AuthNet 서버 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\AuthNet\ProudNetServer\ProudNetServer.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\AuthNet\ProudNetServer\bin\
-		rd /s /q .\AuthNet\ProudNetServer\obj\
+		call :compile_command ".\[AuthNet]\ProudNetServer\ProudNetServer.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\[AuthNet]\ProudNetServer\bin\
+		rd /s /q .\[AuthNet]\ProudNetServer\obj\
 	) else if "%1" == "build" (
 		@rem AuthNet 클라이언트 프로젝트를 빌드합니다.
-		call :compile_command ".\AuthNet\ProudNetClient\ProudNetClient.vcxproj" build Release_static_CRT x64
+		call :compile_command ".\[AuthNet]\ProudNetClient\ProudNetClient.vcxproj" build Release_static_CRT x64
 
 		@rem AuthNet 서버 프로젝트를 빌드합니다.
-		call :compile_command ".\AuthNet\ProudNetServer\ProudNetServer.vcxproj" build Release_static_CRT x64
+		call :compile_command ".\[AuthNet]\ProudNetServer\ProudNetServer.vcxproj" build Release_static_CRT x64
 	)
 exit /b
 
@@ -146,8 +148,52 @@ exit /b
 			powershell "(Expand-Archive -Path ..\utils\CodeVirtualizer\CodeVirtualizer-v2.2.2.zip -DestinationPath ..\utils\CodeVirtualizer\)"
 		)
 
-		@rem PNLicenseSDK 클라이언트 프로젝트를 빌드합니다.
+		@rem PNLicenseSDK 프로젝트를 빌드합니다.
 		call :compile_command ".\PNLicenseSDK\PNLicenseSDK.vcxproj" build Release_static_CRT x64
+	)
+exit /b
+
+:process_library_pnlic
+	if not "%2" == "all" (
+		if not "%2" == "pnlic" (
+			exit /b
+		)
+	)
+
+	if "%1" == "clean" (
+		@rem PNLicense 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\PNLicense\PNLicense.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\PNLicense\bin\
+		rd /s /q .\PNLicense\obj\
+	) else if "%1" == "build" (
+		@rem PNLicense 프로젝트를 빌드합니다.
+		call :compile_command ".\PNLicense\PNLicense.vcxproj" build Release_static_CRT x64
+	)
+exit /b
+
+:process_library_pnlic_auth_lib
+	if not "%2" == "all" (
+		if not "%2" == "pnlic_auth_lib" (
+			exit /b
+		)
+	)
+
+	if "%1" == "clean" (
+		@rem PNLicAuthCommon 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\[PNLicAuthLib]\PNLicAuthCommon\PNLicAuthCommon.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\[PNLicAuthLib]\PNLicAuthCommon\bin\
+		rd /s /q .\[PNLicAuthLib]\PNLicAuthCommon\obj\
+
+		@rem PNLicAuthClient 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\[PNLicAuthLib]\PNLicAuthClient\PNLicAuthClient.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\[PNLicAuthLib]\PNLicAuthClient\bin\
+		rd /s /q .\[PNLicAuthLib]\PNLicAuthClient\obj\
+	) else if "%1" == "build" (
+		@rem PNLicAuthCommon 프로젝트를 빌드합니다.
+		call :compile_command ".\[PNLicAuthLib]\PNLicAuthCommon\PNLicAuthCommon.vcxproj" build Release_static_CRT x64
+
+		@rem PNLicAuthClient 프로젝트를 빌드합니다.
+		call :compile_command ".\[PNLicAuthLib]\PNLicAuthClient\PNLicAuthClient.vcxproj" build Release_static_CRT x64
 	)
 exit /b
 
