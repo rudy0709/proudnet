@@ -21,9 +21,9 @@
 #include "PNFileSecureAttribute.h"
 #endif
 
-#include "../AuthNet/src/Base64.h"
-#include "../AuthNet/include/Message.h"
-#include "../AuthNet/include/Exception.h"
+#include "../[AuthNet]/src/Base64.h"
+#include "../[AuthNet]/include/Message.h"
+#include "../[AuthNet]/include/Exception.h"
 
 extern const char *fileOpenType[];
 

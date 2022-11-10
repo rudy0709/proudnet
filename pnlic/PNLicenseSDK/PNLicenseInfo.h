@@ -14,11 +14,11 @@
 #include "PNTime.h"
 #include "PNFileSystem.h"
 
-#include "../AuthNet/src/Base64.h"
-#include "../AuthNet/include/ByteArray.h"
-#include "../AuthNet/include/CryptoRsa.h"
-#include "../AuthNet/include/StringEncoder.h"
-#include "../AuthNet/include/ProudNetCommon.h"
+#include "../[AuthNet]/src/Base64.h"
+#include "../[AuthNet]/include/ByteArray.h"
+#include "../[AuthNet]/include/CryptoRsa.h"
+#include "../[AuthNet]/include/StringEncoder.h"
+#include "../[AuthNet]/include/ProudNetCommon.h"
 
 #ifdef _WIN32
 #define pnttoi(x) _ttoi(x)
