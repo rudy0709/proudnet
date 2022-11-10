@@ -219,6 +219,30 @@
       <AdditionalLibraryDirectories>..\..\CodeVirtualizer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[AuthNet]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicense\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\</AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)
+
+@rem InstallHelper_UnProtect.dll 파일을 난독화합니다.
+if exist "$(TargetDir)InstallHelper.dll" (
+    del /f /q "$(TargetDir)InstallHelper.dll"
+)
+
+pushd .\
+cd "%util_path%"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)InstallHelper.dll
+popd</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -242,6 +266,30 @@
       <AdditionalLibraryDirectories>..\..\CodeVirtualizer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[AuthNet]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicense\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\</AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)
+
+@rem InstallHelper_UnProtect.dll 파일을 난독화합니다.
+if exist "$(TargetDir)InstallHelper.dll" (
+    del /f /q "$(TargetDir)InstallHelper.dll"
+)
+
+pushd .\
+cd "%util_path%"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)InstallHelper.dll
+popd</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
     <ClCompile>
@@ -266,6 +314,30 @@
       <AdditionalLibraryDirectories>..\..\CodeVirtualizer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[AuthNet]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicense\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\</AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)
+
+@rem InstallHelper_UnProtect.dll 파일을 난독화합니다.
+if exist "$(TargetDir)InstallHelper.dll" (
+    del /f /q "$(TargetDir)InstallHelper.dll"
+)
+
+pushd .\
+cd "%util_path%"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)InstallHelper.dll
+popd</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
     <ClCompile>
@@ -289,6 +361,30 @@
       <AdditionalLibraryDirectories>..\..\CodeVirtualizer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[AuthNet]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicense\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\</AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)
+
+@rem InstallHelper_UnProtect.dll 파일을 난독화합니다.
+if exist "$(TargetDir)InstallHelper.dll" (
+    del /f /q "$(TargetDir)InstallHelper.dll"
+)
+
+pushd .\
+cd "%util_path%"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)InstallHelper.dll
+popd</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -314,6 +410,30 @@
       <AdditionalLibraryDirectories>..\..\CodeVirtualizer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[AuthNet]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicense\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\</AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)
+
+@rem InstallHelper_UnProtect.dll 파일을 난독화합니다.
+if exist "$(TargetDir)InstallHelper.dll" (
+    del /f /q "$(TargetDir)InstallHelper.dll"
+)
+
+pushd .\
+cd "%util_path%"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)InstallHelper.dll
+popd</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -339,6 +459,30 @@
       <AdditionalLibraryDirectories>..\..\CodeVirtualizer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[AuthNet]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicense\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\</AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)
+
+@rem InstallHelper_UnProtect.dll 파일을 난독화합니다.
+if exist "$(TargetDir)InstallHelper.dll" (
+    del /f /q "$(TargetDir)InstallHelper.dll"
+)
+
+pushd .\
+cd "%util_path%"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)InstallHelper.dll
+popd</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
     <ClCompile>
@@ -365,6 +509,30 @@
       <AdditionalLibraryDirectories>..\..\CodeVirtualizer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[AuthNet]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicense\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\</AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)
+
+@rem InstallHelper_UnProtect.dll 파일을 난독화합니다.
+if exist "$(TargetDir)InstallHelper.dll" (
+    del /f /q "$(TargetDir)InstallHelper.dll"
+)
+
+pushd .\
+cd "%util_path%"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)InstallHelper.dll
+popd</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
     <ClCompile>
@@ -390,6 +558,30 @@
       <AdditionalLibraryDirectories>..\..\CodeVirtualizer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[AuthNet]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicense\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\</AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)
+
+@rem InstallHelper_UnProtect.dll 파일을 난독화합니다.
+if exist "$(TargetDir)InstallHelper.dll" (
+    del /f /q "$(TargetDir)InstallHelper.dll"
+)
+
+pushd .\
+cd "%util_path%"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)InstallHelper.dll
+popd</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
