@@ -1,0 +1,15 @@
+;LIBRARY	"WaterMarkDll_UnProtect"
+;EXPORTS
+	; 해당 파일에 주석 워터마크를 찍습니다.
+;	WriteCommentWaterMark
+	
+	
+	; 워터마크가 필요한 파일에 대하여 호출하면 300Byte의 여유공간을 가지고 있는 Binary 워터마크가 찍힙니다.
+;	WriteSourceWaterMark
+
+	; 소스 워터마크가 들어있는 Lib파일 안의 300Byte의 여유 공간에 사용자 정보 Binary 워터마크를 기입합니다.
+;	WriteBinaryWaterMark_ChangeLibBinary
+	
+;	CheckLicenseStatus
+
+;	CheckLicenseType
