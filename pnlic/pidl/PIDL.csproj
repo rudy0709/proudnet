@@ -58,6 +58,7 @@
     <NoWarn>3021</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
+    <RunPreBuildEvent>All</RunPreBuildEvent>
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
@@ -332,8 +333,45 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PreBuildEvent>echo #### "'PIDLLexer', 'PIDLParser' 형식 또는 네임스페이스 이름을 찾을 수 없습니다."라는 에러 메시지가 출력된다면... ####
+echo #### 새로 설치된 Antlr4*, YamlDotNet 패키지를 참조하지 못했다는 것입니다. ####
+echo #### Build 명령을 몇번 반복하면 정상적으로 빌드됩니다. ####
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\..\utils
+
+if not exist "%25util_path%25" (
+    mkdir "%25util_path%25"
+)
+if not exist "%25util_path%25\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%25util_path%25\nuget.exe')"
+)
+
+@rem PIDL 컴파일러 프로젝트에서 사용할 NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\packages
+set packages_flag=F
+
+if not exist "%25pkg_path%25\Antlr4.4.6.6\" (
+    set packages_flag=T
+)
+if not exist "%25pkg_path%25\Antlr4.CodeGenerator.4.6.6\" (
+    set packages_flag=T
+)
+if not exist "%25pkg_path%25\Antlr4.Runtime.4.6.6\" (
+    set packages_flag=T
+)
+if not exist "%25pkg_path%25\YamlDotNet.12.0.2\" (
+    set packages_flag=T
+)
+
+if "%25packages_flag%25" == "T" (
+    pushd .\
+    cd $(ProjectDir)
+    echo %25util_path%25\nuget.exe restore -PackagesDirectory "%25pkg_path%25"
+    %25util_path%25\nuget.exe restore -PackagesDirectory "%25pkg_path%25"
+    popd
+)</PreBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
