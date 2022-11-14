@@ -20,7 +20,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ReadMe.txt" />
     <None Include="WaterMark.def" />
   </ItemGroup>
   <ItemGroup>

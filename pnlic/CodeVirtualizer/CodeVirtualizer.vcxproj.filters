@@ -21,7 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
     <Text Include="Include\C\Readme.txt">
       <Filter>Header Files</Filter>
     </Text>

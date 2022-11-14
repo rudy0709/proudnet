@@ -37,8 +37,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E21BD3CA-733E-42FA-926E-525EE35E8C10}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>LinLicenseSDKlib</RootNamespace>
-    <ProjectName>PNLicenseSDK</ProjectName>
+    <RootNamespace>PNLicenseSdk</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -156,7 +155,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -171,27 +170,17 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\[AuthNet]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
       <AdditionalDependencies>AuthNetServer.lib;VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Lib>
     <PreBuildEvent>
-      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
-set util_path=$(ProjectDir)..\..\utils\CodeVirtualizer
-
-if not exist "%util_path%" (
-    mkdir "%util_path%"
-)
-
-if not exist "%util_path%\Virtualizer.exe" (
-    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
-    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
-    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS; %(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -206,27 +195,17 @@ if not exist "%util_path%\Virtualizer.exe" (
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\[AuthNet]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
       <AdditionalDependencies>AuthNetServer.lib;VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Lib>
     <PreBuildEvent>
-      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
-set util_path=$(ProjectDir)..\..\utils\CodeVirtualizer
-
-if not exist "%util_path%" (
-    mkdir "%util_path%"
-)
-
-if not exist "%util_path%\Virtualizer.exe" (
-    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
-    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
-    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>PNLICENSESDK_STATIC; WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS; %(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -241,27 +220,17 @@ if not exist "%util_path%\Virtualizer.exe" (
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\[AuthNet]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
       <AdditionalDependencies>AuthNetServer.lib;VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Lib>
     <PreBuildEvent>
-      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
-set util_path=$(ProjectDir)..\..\utils\CodeVirtualizer
-
-if not exist "%util_path%" (
-    mkdir "%util_path%"
-)
-
-if not exist "%util_path%\Virtualizer.exe" (
-    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
-    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
-    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>PNLICENSESDK_STATIC; WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS; %(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -276,28 +245,18 @@ if not exist "%util_path%\Virtualizer.exe" (
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\[AuthNet]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
       <AdditionalDependencies>AuthNetServer.lib;VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Lib>
     <PreBuildEvent>
-      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
-set util_path=$(ProjectDir)..\..\utils\CodeVirtualizer
-
-if not exist "%util_path%" (
-    mkdir "%util_path%"
-)
-
-if not exist "%util_path%\Virtualizer.exe" (
-    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
-    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
-    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -315,28 +274,18 @@ if not exist "%util_path%\Virtualizer.exe" (
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\[AuthNet]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
       <AdditionalDependencies>AuthNetServer.lib;VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Lib>
     <PreBuildEvent>
-      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
-set util_path=$(ProjectDir)..\..\utils\CodeVirtualizer
-
-if not exist "%util_path%" (
-    mkdir "%util_path%"
-)
-
-if not exist "%util_path%\Virtualizer.exe" (
-    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
-    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
-    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -354,28 +303,18 @@ if not exist "%util_path%\Virtualizer.exe" (
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\[AuthNet]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
       <AdditionalDependencies>AuthNetServer.lib;VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Lib>
     <PreBuildEvent>
-      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
-set util_path=$(ProjectDir)..\..\utils\CodeVirtualizer
-
-if not exist "%util_path%" (
-    mkdir "%util_path%"
-)
-
-if not exist "%util_path%\Virtualizer.exe" (
-    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
-    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
-    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -393,28 +332,18 @@ if not exist "%util_path%\Virtualizer.exe" (
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\[AuthNet]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
       <AdditionalDependencies>AuthNetServer.lib;VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Lib>
     <PreBuildEvent>
-      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
-set util_path=$(ProjectDir)..\..\utils\CodeVirtualizer
-
-if not exist "%util_path%" (
-    mkdir "%util_path%"
-)
-
-if not exist "%util_path%\Virtualizer.exe" (
-    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
-    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
-    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -432,27 +361,14 @@ if not exist "%util_path%\Virtualizer.exe" (
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\[AuthNet]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetServer\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
       <AdditionalDependencies>AuthNetServer.lib;VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Lib>
     <PreBuildEvent>
-      <Command>@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
-set util_path=$(ProjectDir)..\..\utils\CodeVirtualizer
-
-if not exist "%util_path%" (
-    mkdir "%util_path%"
-)
-
-if not exist "%util_path%\Virtualizer.exe" (
-    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
-    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
-    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PNErrorInfo.cpp" />
     <ClCompile Include="PNFileSecureAttribute.cpp" />

@@ -161,7 +161,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="Include\C\Readme.txt" />
-    <Text Include="ReadMe.txt" />
     <Text Include="StealthMode\C\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
