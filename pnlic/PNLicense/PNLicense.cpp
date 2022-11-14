@@ -1,5 +1,5 @@
 ﻿#include "stdafx.h"
-#include "../[AuthNet]/include/ProudNetClient.h"
+#include "../[AuthNetLib]/include/ProudNetClient.h"
 #include "PNLicense.h"
 
 // 사용자가 입력하는 라이선스키를 확인한다.
