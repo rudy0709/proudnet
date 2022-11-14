@@ -191,20 +191,24 @@
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseWarning.exe" (
-    del /f /q "$(TargetDir)PNLicenseWarning.exe"
+      <Command>set proj_name=PNLicenseWarning
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseWarning.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseWarning.exe
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
-@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+@rem .exe 파일을 .inl 파일로 변환합니다.
+"$(ProjectDir)..\[Utils]\PnUtils\bin\Debug\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
@@ -228,20 +232,24 @@ popd
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseWarning.exe" (
-    del /f /q "$(TargetDir)PNLicenseWarning.exe"
+      <Command>set proj_name=PNLicenseWarning
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseWarning.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseWarning.exe
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
-@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+@rem .exe 파일을 .inl 파일로 변환합니다.
+"$(ProjectDir)..\[Utils]\PnUtils\bin\Debug\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -265,20 +273,24 @@ popd
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseWarning.exe" (
-    del /f /q "$(TargetDir)PNLicenseWarning.exe"
+      <Command>set proj_name=PNLicenseWarning
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseWarning.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseWarning.exe
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
-@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+@rem .exe 파일을 .inl 파일로 변환합니다.
+"$(ProjectDir)..\[Utils]\PnUtils\bin\Debug\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
@@ -302,20 +314,24 @@ popd
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseWarning.exe" (
-    del /f /q "$(TargetDir)PNLicenseWarning.exe"
+      <Command>set proj_name=PNLicenseWarning
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseWarning.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseWarning.exe
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
-@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+@rem .exe 파일을 .inl 파일로 변환합니다.
+"$(ProjectDir)..\[Utils]\PnUtils\bin\Debug\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -339,20 +355,24 @@ popd
       <AdditionalDependencies>AuthNetClient.lib;  VirtualizerSDK32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseWarning.exe" (
-    del /f /q "$(TargetDir)PNLicenseWarning.exe"
+      <Command>set proj_name=PNLicenseWarning
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseWarning.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseWarning.exe
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
-@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+@rem .exe 파일을 .inl 파일로 변환합니다.
+"$(ProjectDir)..\[Utils]\PnUtils\bin\Release\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
@@ -383,20 +403,24 @@ popd
       <Message />
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseWarning.exe" (
-    del /f /q "$(TargetDir)PNLicenseWarning.exe"
+      <Command>set proj_name=PNLicenseWarning
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseWarning.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseWarning.exe
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
-@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+@rem .exe 파일을 .inl 파일로 변환합니다.
+"$(ProjectDir)..\[Utils]\PnUtils\bin\Release\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
+</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>
@@ -426,20 +450,24 @@ popd
       <AdditionalDependencies>AuthNetClient.lib;  VirtualizerSDK64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseWarning.exe" (
-    del /f /q "$(TargetDir)PNLicenseWarning.exe"
+      <Command>set proj_name=PNLicenseWarning
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseWarning.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseWarning.exe
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
-@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+@rem .exe 파일을 .inl 파일로 변환합니다.
+"$(ProjectDir)..\[Utils]\PnUtils\bin\Release\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
@@ -465,20 +493,24 @@ popd
       <AdditionalDependencies>AuthNetClient.lib;  VirtualizerSDK64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseWarning.exe" (
-    del /f /q "$(TargetDir)PNLicenseWarning.exe"
+      <Command>set proj_name=PNLicenseWarning
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseWarning.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseWarning.exe
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
-@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+@rem .exe 파일을 .inl 파일로 변환합니다.
+"$(ProjectDir)..\[Utils]\PnUtils\bin\Release\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <PropertyGroup>
