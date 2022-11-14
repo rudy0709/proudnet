@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_static_CRT|Win32">
+      <Configuration>Debug_static_CRT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_static_CRT|x64">
+      <Configuration>Debug_static_CRT</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_static_CRT|Win32">
+      <Configuration>Release_static_CRT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_static_CRT|x64">
+      <Configuration>Release_static_CRT</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E03C66DD-5356-4F4E-AEFE-01B9A495A728}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>PNLicenseHidden</RootNamespace>
+    <ProjectName>PNLicenseHidden</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_UnProtect</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_UnProtect</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_UnProtect</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_UnProtect</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <TargetName>$(ProjectName)_UnProtect</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <TargetName>$(ProjectName)_UnProtect</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <TargetName>$(ProjectName)_UnProtect</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\$(Platform)\VS2017\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <TargetName>$(ProjectName)_UnProtect</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_LIB;WIN32;PROUDSRCCOPY;PNLICENSESDK_STATIC; %(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AuthNetClient.lib; VirtualizerSDK32.lib;</AdditionalDependencies>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)PNLicenseHidden.exe" (
+    del /f /q "$(TargetDir)PNLicenseHidden.exe"
+)
+
+pushd .\
+cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseHidden.exe
+popd
+
+@rem .exe 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseHidden.exe
+
+@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_LIB;WIN32;PROUDSRCCOPY;PNLICENSESDK_STATIC; %(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AuthNetClient.lib; VirtualizerSDK32.lib;</AdditionalDependencies>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)PNLicenseHidden.exe" (
+    del /f /q "$(TargetDir)PNLicenseHidden.exe"
+)
+
+pushd .\
+cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseHidden.exe
+popd
+
+@rem .exe 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseHidden.exe
+
+@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_LIB;WIN32;PROUDSRCCOPY;PNLICENSESDK_STATIC; %(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AuthNetClient.lib; VirtualizerSDK64.lib;</AdditionalDependencies>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)PNLicenseHidden.exe" (
+    del /f /q "$(TargetDir)PNLicenseHidden.exe"
+)
+
+pushd .\
+cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseHidden.exe
+popd
+
+@rem .exe 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseHidden.exe
+
+@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_LIB;WIN32;PROUDSRCCOPY;PNLICENSESDK_STATIC; %(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AuthNetClient.lib; VirtualizerSDK64.lib;</AdditionalDependencies>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)PNLicenseHidden.exe" (
+    del /f /q "$(TargetDir)PNLicenseHidden.exe"
+)
+
+pushd .\
+cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseHidden.exe
+popd
+
+@rem .exe 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseHidden.exe
+
+@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_LIB;WIN32;PROUDSRCCOPY;PNLICENSESDK_STATIC; %(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AuthNetClient.lib; VirtualizerSDK32.lib;</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)PNLicenseHidden.exe" (
+    del /f /q "$(TargetDir)PNLicenseHidden.exe"
+)
+
+pushd .\
+cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseHidden.exe
+popd
+
+@rem .exe 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseHidden.exe
+
+@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_LIB;WIN32;PROUDSRCCOPY;PNLICENSESDK_STATIC; %(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AuthNetClient.lib; VirtualizerSDK32.lib;</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)PNLicenseHidden.exe" (
+    del /f /q "$(TargetDir)PNLicenseHidden.exe"
+)
+
+pushd .\
+cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseHidden.exe
+popd
+
+@rem .exe 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseHidden.exe
+
+@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_LIB;WIN32;PROUDSRCCOPY;PNLICENSESDK_STATIC; %(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AuthNetClient.lib; VirtualizerSDK64.lib;</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)PNLicenseHidden.exe" (
+    del /f /q "$(TargetDir)PNLicenseHidden.exe"
+)
+
+pushd .\
+cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseHidden.exe
+popd
+
+@rem .exe 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseHidden.exe
+
+@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_LIB;WIN32;PROUDSRCCOPY;PNLICENSESDK_STATIC; %(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AuthNetClient.lib; VirtualizerSDK64.lib;</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)PNLicenseHidden.exe" (
+    del /f /q "$(TargetDir)PNLicenseHidden.exe"
+)
+
+pushd .\
+cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseHidden.exe
+popd
+
+@rem .exe 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseHidden.exe
+
+@rem .exe 파일을 .inl 파일로 변환합니다.</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <PropertyGroup>
+    <CustomBuildAfterTargets>Link</CustomBuildAfterTargets>
+    <CustomBuildBeforeTargets>
+    </CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemGroup>
+    <ClCompile Include="..\[PNLicAuthLib]\PNLicAuthCommon\Vars.cpp" />
+    <ClCompile Include="PNLicenseHidden.cpp" />
+    <ClCompile Include="PNLicInformer.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\OnlineActivationTest\PNLicAuthCommon\Vars.h" />
+    <ClInclude Include="PNLicenseHidden.h" />
+    <ClInclude Include="PNLicInformer.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
