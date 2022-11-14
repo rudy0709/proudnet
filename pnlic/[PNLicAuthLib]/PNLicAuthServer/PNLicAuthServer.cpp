@@ -147,6 +147,7 @@ LicenseMessageType CPNLicAuthServer::DBRecordServerInfo(const String &cpuId, con
 	
 	try
 	{
+//222-TO-DO: 계정 정보를 다른 방식으로 관리하자. (암호화 필수)
 		conn.Open(_PNT("Server=192.168.77.209;Database=ndnweb;User Id=webadmin;Password=nettentionfhzjf!@#4")); //Test용 Web팀 DB
 		//conn.Open(_PNT("Server=175.125.93.117,5858;Database=ndnweb;User Id=webadmin;Password=nettenwebadmin2014")); //실 인증DB
 		//conn.Open(_PNT("Data Source=.;Database=ndnweb;Trusted_Connection=yes")); //
