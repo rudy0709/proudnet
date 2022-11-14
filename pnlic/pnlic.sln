@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{7C11619A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Watermark", "Watermark", "{F5EC5E26-B8E3-4E59-B775-291C2E6862C9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PreBuildTask", "[Utils]\PreBuildTask\PreBuildTask.csproj", "{180CDEA9-7741-4A74-A6E3-27263B215905}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PnUtils", "[Utils]\PnUtils\PnUtils.csproj", "{180CDEA9-7741-4A74-A6E3-27263B215905}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pidl", "[Utils]\Pidl\Pidl.csproj", "{DE130CE4-95C2-4DB8-83B3-122C0496AD6D}"
 	ProjectSection(ProjectDependencies) = postProject
