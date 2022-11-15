@@ -207,7 +207,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\[Utils]\PnUtils\bin\Debug\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\[Utils]\PnUtils\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
@@ -247,7 +247,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\[Utils]\PnUtils\bin\Debug\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\[Utils]\PnUtils\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -287,7 +287,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\[Utils]\PnUtils\bin\Debug\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\[Utils]\PnUtils\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
@@ -327,7 +327,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\[Utils]\PnUtils\bin\Debug\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\[Utils]\PnUtils\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -369,7 +369,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\[Utils]\PnUtils\bin\Release\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\[Utils]\PnUtils\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
@@ -411,7 +411,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\[Utils]\PnUtils\bin\Release\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\[Utils]\PnUtils\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -453,7 +453,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\[Utils]\PnUtils\bin\Release\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\[Utils]\PnUtils\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
@@ -495,7 +495,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\[Utils]\PnUtils\bin\Release\netcoreapp3.1\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\[Utils]\PnUtils\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnUtils.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <PropertyGroup>
