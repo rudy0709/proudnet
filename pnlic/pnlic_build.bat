@@ -1,6 +1,6 @@
 @echo off
 
-set projects=all pnutils pidl virtualizer authnet pnlic_sdk pnlic pnlic_auth_lib watermark pnlic_warn pnlic_hidden pnlic_auth_exe
+set projects=all pnutils pidl virtualizer authnet pnlic_mgr pnlic_sdk pnlic pnlic_auth_lib watermark pnlic_warn pnlic_hidden pnlic_auth_exe
 
 :main
 	@rem 도움말을 출력해야 할 지를 검사합니다.
@@ -8,8 +8,8 @@ set projects=all pnutils pidl virtualizer authnet pnlic_sdk pnlic pnlic_auth_lib
 	if "%errorlevel%" == "1" (
 		@rem 사용법을 출력합니다.
 		echo Usage:
-		echo     pnlic_build.bat clean ^<all ^| pnutils ^| pidl ^| virtualizer ^| authnet ^| pnlic_sdk ^| pnlic ^| pnlic_auth_lib ^| watermark ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth_exe^>
-		echo     pnlic_build.bat build ^<all ^| pnutils ^| pidl ^| virtualizer ^| authnet ^| pnlic_sdk ^| pnlic ^| pnlic_auth_lib ^| watermark ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth_exe^>
+		echo     pnlic_build.bat clean ^<all ^| pnutils ^| pidl ^| virtualizer ^| authnet ^| pnlic_mgr ^| pnlic_sdk ^| pnlic ^| pnlic_auth_lib ^| watermark ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth_exe^>
+		echo     pnlic_build.bat build ^<all ^| pnutils ^| pidl ^| virtualizer ^| authnet ^| pnlic_mgr ^| pnlic_sdk ^| pnlic ^| pnlic_auth_lib ^| watermark ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth_exe^>
 		exit /b
 	)
 
@@ -19,6 +19,7 @@ set projects=all pnutils pidl virtualizer authnet pnlic_sdk pnlic pnlic_auth_lib
 	call :process_library_pidl %1 %2
 	call :process_library_virtualizer %1 %2
 	call :process_library_authnet %1 %2
+	call :process_library_pnlic_mgr %1 %2
 	call :process_library_pnlic_sdk %1 %2
 	call :process_library_pnlic %1 %2
 	call :process_library_pnlic_auth_lib %1 %2
@@ -132,6 +133,24 @@ exit /b
 	)
 exit /b
 
+:process_library_pnlic_mgr
+	if not "%2" == "all" (
+		if not "%2" == "pnlic_mgr" (
+			exit /b
+		)
+	)
+
+	if "%1" == "clean" (
+		@rem PNLicenseManager 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\PNLicenseManager\PNLicenseManager.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\PNLicenseManager\bin\
+		rd /s /q .\PNLicenseManager\obj\
+	) else if "%1" == "build" (
+		@rem PNLicenseManager 프로젝트를 빌드합니다.
+		call :compile_command ".\PNLicenseManager\PNLicenseManager.vcxproj" build Release_static_CRT x64
+	)
+exit /b
+
 :process_library_pnlic_sdk
 	if not "%2" == "all" (
 		if not "%2" == "pnlic_sdk" (
@@ -145,7 +164,7 @@ exit /b
 		rd /s /q .\PNLicenseSdk\bin\
 		rd /s /q .\PNLicenseSdk\obj\
 	) else if "%1" == "build" (
-		@rem PNLicenseSdk 프로젝트를 빌드합니다. (CodeVirtualizer 도구의 라이브러리 활용)
+		@rem PNLicenseSdk 프로젝트를 빌드합니다.
 		call :compile_command ".\PNLicenseSdk\PNLicenseSdk.vcxproj" build Release_static_CRT x64
 	)
 exit /b
