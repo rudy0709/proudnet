@@ -176,6 +176,68 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\..\..\utils
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
     <ClCompile>
@@ -190,6 +252,68 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\..\..\utils
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -207,6 +331,68 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\..\..\utils
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
     <ClCompile>
@@ -225,6 +411,68 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\..\..\utils
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -238,6 +486,68 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\..\..\utils
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
     <ClCompile>
@@ -252,6 +562,68 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\..\..\utils
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -269,6 +641,68 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\..\..\utils
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
     <ClCompile>
@@ -287,6 +721,68 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\..\..\utils
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\..\..\utils\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\version\PNVersion.cpp" />
