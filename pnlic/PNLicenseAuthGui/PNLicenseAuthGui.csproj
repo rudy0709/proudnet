@@ -139,6 +139,10 @@
     <Content Include="key.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>@rem PNLicenseAuthGui.exe 실행 시에 필요한 PNLicenseAuth.exe 파일을 복사합니다.
+copy /y $(ProjectDir)..\PNLicenseAuth\bin\$(ConfigurationName)_static_CRT-x86_64\PNLicenseAuth.exe $(TargetDir)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
