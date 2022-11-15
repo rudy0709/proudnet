@@ -14,10 +14,6 @@ set projects=all pnutils pidl virtualizer authnet pnlic_sdk pnlic pnlic_auth_lib
 	)
 
 	@rem 프로젝트 별로 빌드함수를 호출합니다.
-@rem	if "%1" == "build" (
-@rem		call :download_utils_and_pkgs
-@rem	)
-
 	call :check_environment_variable
 	call :process_library_pnutils %1 %2
 	call :process_library_pidl %1 %2
@@ -48,32 +44,6 @@ exit /b
 	echo ^>^>^>^> Environment-Variable^(PN_SIGN_TOOL_PATH^) = "%PN_SIGN_TOOL_PATH%"
 	echo ^>^>^>^>
 exit /b
-
-@rem //222-삭제: :download_utils_and_pkgs
-@rem //222-삭제: 	call :download_nuget
-@rem //222-삭제:
-@rem //222-삭제: 	@rem PIDL 컴파일러 프로젝트에서 사용할 NuGet 패키지를 다운로드 받습니다.
-@rem //222-삭제: 	set packages_flag=F
-@rem //222-삭제: 	if not exist ".\packages\Antlr4.4.6.6\" (
-@rem //222-삭제: 		set packages_flag=T
-@rem //222-삭제: 	)
-@rem //222-삭제: 	if not exist ".\packages\Antlr4.CodeGenerator.4.6.6\" (
-@rem //222-삭제: 		set packages_flag=T
-@rem //222-삭제: 	)
-@rem //222-삭제: 	if not exist ".\packages\Antlr4.Runtime.4.6.6\" (
-@rem //222-삭제: 		set packages_flag=T
-@rem //222-삭제: 	)
-@rem //222-삭제: 	if not exist ".\packages\YamlDotNet.12.0.2\" (
-@rem //222-삭제: 		set packages_flag=T
-@rem //222-삭제: 	)
-@rem //222-삭제:
-@rem //222-삭제: 	if "%packages_flag%" == "T" (
-@rem //222-삭제: 		"..\utils\nuget.exe" restore -PackagesDirectory .\packages
-@rem //222-삭제: 	)
-@rem //222-삭제:
-@rem //222-삭제: 	@rem CodeVirtualizer 코드 난독화 도구를 다운로드 받아 설치합니다.
-@rem //222-삭제: 	call :download_virtualizer
-@rem //222-삭제: exit /b
 
 :process_library_pnutils
 	if not "%2" == "all" (
@@ -344,32 +314,5 @@ exit /b
 		)
 	)
 exit /b 1
-
-:download_nuget
-	@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
-	@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
-	if not exist "..\utils\" (
-		mkdir ..\utils\
-	)
-
-	if not exist "..\utils\nuget.exe" (
-		powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '..\utils\nuget.exe')"
-	)
-exit /b
-
-:download_virtualizer
-	@rem CodeVirtualizer 코드 난독화 도구를 다운로드 받아 설치합니다.
-	set util_path=..\utils\CodeVirtualizer
-
-	if not exist "%util_path%" (
-		mkdir %util_path%
-	)
-
-	if not exist "%util_path%\Virtualizer.exe" (
-		powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
-		powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
-		del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
-	)
-exit /b
 
 call :main %1 %2
