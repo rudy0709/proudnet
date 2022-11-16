@@ -459,9 +459,6 @@ popd
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\..\version\PNVersion.cpp" />
     <ClCompile Include="PNLicenseAuth.cpp" />
     <ClCompile Include="stdafx.cpp">
