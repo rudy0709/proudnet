@@ -190,18 +190,20 @@
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseAuth.exe" (
-    del /f /q "$(TargetDir)PNLicenseAuth.exe"
+      <Command>set proj_name=PNLicenseAuth
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseAuth.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseAuth.exe</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
@@ -224,18 +226,20 @@ popd
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseAuth.exe" (
-    del /f /q "$(TargetDir)PNLicenseAuth.exe"
+      <Command>set proj_name=PNLicenseAuth
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseAuth.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseAuth.exe</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -258,18 +262,20 @@ popd
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseAuth.exe" (
-    del /f /q "$(TargetDir)PNLicenseAuth.exe"
+      <Command>set proj_name=PNLicenseAuth
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseAuth.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseAuth.exe</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
@@ -292,18 +298,20 @@ popd
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseAuth.exe" (
-    del /f /q "$(TargetDir)PNLicenseAuth.exe"
+      <Command>set proj_name=PNLicenseAuth
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseAuth.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseAuth.exe</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -330,18 +338,20 @@ popd
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseAuth.exe" (
-    del /f /q "$(TargetDir)PNLicenseAuth.exe"
+      <Command>set proj_name=PNLicenseAuth
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseAuth.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseAuth.exe</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
@@ -368,18 +378,20 @@ popd
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseAuth.exe" (
-    del /f /q "$(TargetDir)PNLicenseAuth.exe"
+      <Command>set proj_name=PNLicenseAuth
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseAuth.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseAuth.exe</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -406,18 +418,20 @@ popd
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseAuth.exe" (
-    del /f /q "$(TargetDir)PNLicenseAuth.exe"
+      <Command>set proj_name=PNLicenseAuth
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseAuth.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseAuth.exe</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
@@ -444,18 +458,20 @@ popd
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
-      <Command>@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)PNLicenseAuth.exe" (
-    del /f /q "$(TargetDir)PNLicenseAuth.exe"
+      <Command>set proj_name=PNLicenseAuth
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)PNLicenseAuth.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PNLicenseAuth.exe</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
