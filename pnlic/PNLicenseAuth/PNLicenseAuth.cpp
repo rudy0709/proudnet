@@ -1,14 +1,15 @@
 ﻿#include "stdafx.h"
-#include "PNLicenseAuth.h"
 #include <fstream>
+#include "PNLicenseAuth.h"
+#include "../../version/PNVersion.h"
 
-const char *g_pnVersionText = "HERE_SHALL_BE_EDITED_BY_BUILD_HELPER";
+//const char *g_pnVersionText = "HERE_SHALL_BE_EDITED_BY_BUILD_HELPER";
 
 #include "../PNLicenseManager/LicenseType.h"
 
 void GetProudNetVer(String &outProudNetVersion)
 {
-	outProudNetVersion = StringA2T(g_pnVersionText);
+	outProudNetVersion = StringA2T(Proud::g_versionText);
 }
 
 void ShowUsage()

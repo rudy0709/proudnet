@@ -8,6 +8,6 @@
 #include "../[PNLicAuthLib]/PNLicAuthClient/PNLicAuthClient.h"
 
 #pragma comment(lib, "PNLicenseSDK")
-extern const char* g_pnVersionText;
+//extern const char* g_pnVersionText;
 
 using namespace std;
