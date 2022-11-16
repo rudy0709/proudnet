@@ -38,4 +38,5 @@ bin/
 tmp/
 out/
 packages/
-utils/
+utils/CodeVirtualizer/
+utils/nuget.exe
