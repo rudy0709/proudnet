@@ -6,7 +6,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include "..\..\..\version\PNVersion.h"
+#include "../../../version/PNVersion.h"
 
 #if defined(_WIN32)
 #  define PATH_DELIMITER  '\\'
@@ -15,49 +15,45 @@
 #endif
 
 std::vector<std::string> splitPath(const std::string& path);
-std::string joinPath(const std::vector<std::string> path, int count);
-void writeImageInlFile(const std::string &sourceFilePath, const std::string &targetFilePath);
+std::string joinPath(const std::vector<std::string> dirNameList, int count);
+void writeImageInlFile(const std::string &inFilePath, const std::string &outFilePath);
 void printUsage();
 
 int main(int argc, char* argv[]) {
-	std::cout << "Hello World!\n";
-
 	std::string command = "--bin2inl";
 	if (argc < 3 || argv[1] != command) {
 		printUsage();
 		return 0;
 	}
 
-	std::string sourceFilePath = argv[2];
-	std::string targetFilePath = (argc == 4) ? argv[3] : "";
-	if (sourceFilePath == targetFilePath || sourceFilePath.empty() /*== true*/) {
+	std::string inFilePath = argv[2];
+	std::string outFilePath = (argc == 4) ? argv[3] : "";
+	if (inFilePath.empty() /*== true*/ || inFilePath == outFilePath) {
 		printUsage();
 		return 0;
 	}
 
-	if (targetFilePath.empty() /*== true*/) {
-		std::vector<std::string> pathPieces = splitPath(sourceFilePath);
+	if (outFilePath.empty() /*== true*/) {
+		std::vector<std::string> dirNameList = splitPath(inFilePath);
 
-		std::string path = joinPath(pathPieces, (int) pathPieces.size() - 1);
-
-		std::string fullFileName = pathPieces[pathPieces.size() - 1];
+		std::string fullFileName = dirNameList[dirNameList.size() - 1];
 		int index = (int) fullFileName.find_last_of('.');
 		if (index >= 0) {
 			fullFileName.erase(index);
 		}
 
-		targetFilePath = path + "\\" + fullFileName + "Image.inl";
+		std::string path = joinPath(dirNameList, (int) dirNameList.size() - 1);
+		outFilePath = path + PATH_DELIMITER + fullFileName + "Image.inl";
 	}
 
-	std::cout << "src-file-path: " << sourceFilePath << std::endl;//222-»èÁ¦:
-	std::cout << "tar-file-path: " << targetFilePath << std::endl;//222-»èÁ¦:
-	writeImageInlFile(sourceFilePath, targetFilePath);
+	std::cout << "input-file-path:  " << inFilePath << std::endl;
+	std::cout << "output-file-path: " << outFilePath << std::endl;
+	writeImageInlFile(inFilePath, outFilePath);
 	return 0;
 }
 
 std::vector<std::string> splitPath(const std::string& path) {
 	std::vector<std::string> result;
-
 	std::istringstream iss(path);
 	std::string buffer;
 
@@ -65,18 +61,21 @@ std::vector<std::string> splitPath(const std::string& path) {
 		result.push_back(buffer);
 	}
 
+	if (result.size() == 1) {
+		result.insert(result.begin(), ".");
+	}
 	return result;
 }
 
-std::string joinPath(const std::vector<std::string> path, int count) {
+std::string joinPath(const std::vector<std::string> dirNameList, int count) {
 	std::ostringstream result;
 
-	for (const auto& piece : path) {
+	for (const auto& dirName : dirNameList) {
 		if (--count > 0) {
-			result << piece << PATH_DELIMITER;
+			result << dirName << PATH_DELIMITER;
 		}
 		else {
-			result << piece;
+			result << dirName;
 			break;
 		}
 	}
@@ -84,32 +83,32 @@ std::string joinPath(const std::vector<std::string> path, int count) {
 	return result.str();
 }
 
-void writeImageInlFile(const std::string& sourceFilePath, const std::string& targetFilePath) {
-	// .exe ÆÄÀÏÀ» ÀĞ½À´Ï´Ù.
-	std::ifstream srcFile(sourceFilePath, std::ios::binary);
-	std::vector<unsigned char> bytes(std::istreambuf_iterator<char>(srcFile), {});
+void writeImageInlFile(const std::string& inFilePath, const std::string& outFilePath) {
+	// .exe íŒŒì¼ì„ ì½ìŠµë‹ˆë‹¤.
+	std::ifstream inFile(inFilePath, std::ios::binary);
+	std::vector<unsigned char> bytes(std::istreambuf_iterator<char>(inFile), {});
 
-	// Å¸°Ù ÆÄÀÏ¸í¿¡¼­ º¯¼ö¸íÀ» »Ì¾Æ³À´Ï´Ù.
-	std::vector<std::string> pathPieces = splitPath(targetFilePath);
+	// íƒ€ê²Ÿ íŒŒì¼ëª…ì—ì„œ ë³€ìˆ˜ëª…ì„ ë½‘ì•„ëƒ…ë‹ˆë‹¤.
+	std::vector<std::string> pathPieces = splitPath(outFilePath);
 	std::string variableName = pathPieces[pathPieces.size() - 1];
 	int index = (int) variableName.find_last_of('.');
 	variableName.erase(index);
 
-	// ¼Ò½º ÆÄÀÏÀ» .inl Çü½ÄÀ¸·Î º¯È¯ÇÏ¿© Å¸°Ù ÆÄÀÏ¿¡ ÀúÀåÇÕ´Ï´Ù.
-	std::ofstream tarFile(targetFilePath);
+	// ì†ŒìŠ¤ íŒŒì¼ì„ ë°”ì´ë„ˆë¦¬ í˜•ì‹ìœ¼ë¡œ ë³€í™˜í•˜ì—¬ .ini íŒŒì¼ì— ì €ì¥í•©ë‹ˆë‹¤.
+	std::ofstream tarFile(outFilePath);
 	std::ostringstream inlStream;
 
 	inlStream << "#pragma once" << std::endl;
 	inlStream << std::endl;
 	inlStream << "const static unsigned char g_" << variableName << "[] = {" << std::endl;
 
-	for (int i = 0; i < bytes.size(); i++) {
+	for (int i = 0; i < (int) bytes.size(); i++) {
 		inlStream << (int)bytes[i];
 
-		if (i != bytes.size() - 1)
+		if (i != (int) bytes.size() - 1)
 			inlStream << ',';
 
-		// 50°³¸¦ ¾²°í ÁÙ¹Ù²ŞÇÕ´Ï´Ù.
+		// 50ê°œë¥¼ ì“°ê³  ì¤„ë°”ê¿ˆí•©ë‹ˆë‹¤.
 		if (i % 50 == 0) {
 			inlStream << std::endl;
 			tarFile << inlStream.str();
@@ -121,10 +120,9 @@ void writeImageInlFile(const std::string& sourceFilePath, const std::string& tar
 	tarFile.close();
 }
 
-
 void printUsage() {
 	std::cout << ".exe to .inl Converter. - v" << Proud::g_versionText << std::endl;
 	std::cout << "(c) Nettetion Inc. All rights reserved." << std::endl << std::endl;
 	std::cout << "Usage:" << std::endl;
-	std::cout << "    PnUtils.exe --bin2inl <source-file-path> <target-file-path>" << std::endl;
+	std::cout << "    PnUtils.exe --bin2inl <input-file-path> <output-file-path>" << std::endl;
 }
