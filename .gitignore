@@ -31,12 +31,14 @@ desktop.ini
 *.aps
 *.user
 .vs/
+.vscode/
 Debug*/
 Release*/
-obj/
 bin/
-tmp/
+build/
+obj/
 out/
 packages/
+tmp/
 utils/CodeVirtualizer/
 utils/nuget.exe
