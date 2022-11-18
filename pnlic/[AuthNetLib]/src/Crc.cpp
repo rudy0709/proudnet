@@ -1,5 +1,5 @@
 ﻿#include "stdafx.h"
-#include "crc.h"
+#include "Crc.h"
 
 namespace Proud
 {

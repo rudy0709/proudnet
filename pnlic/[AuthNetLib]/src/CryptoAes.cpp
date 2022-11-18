@@ -12,7 +12,7 @@
 #include <new>
 #include "../include/CryptoAes.h"
 #include "../include/Message.h"
-#include "crc.h"
+#include "Crc.h"
 
 namespace Proud
 {

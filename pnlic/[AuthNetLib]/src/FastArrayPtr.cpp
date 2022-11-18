@@ -15,7 +15,7 @@
 #include "../include/FastArrayPtr.h"
 #include "../include/MiniDumper.h"
 #include "../include/sysutil.h"
-#include "FastArayPtrImpl.h"
+#include "FastArrayPtrImpl.h"
 #include "FreeList.h"
 #include "PooledObjectAsLocalVar.h"
 #include "PooledObjects.h"
