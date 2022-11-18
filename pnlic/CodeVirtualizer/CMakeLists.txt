@@ -51,7 +51,16 @@ include_directories(
 )
 
 # compile
-add_compile_options(-fPIC -W -Wall -Wextra -Wno-unknown-pragmas -Wno-unused-variable -Wno-switch -Wno-strict-aliasing -Wno-missing-field-initializers -O2 -std=c++11)
+add_compile_options(
+    -fPIC
+    -W -Wall -Wextra
+    -O2
+    -std=c++11
+)
+add_definitions(
+    -D_LINUX
+    -D_LIB
+)
 
 # link
-add_library(${PROJECT_NAME} ${CUSTOM_VMS} ${HEADERS})
+add_library(${PROJECT_NAME} STATIC ${HEADERS} ${CUSTOM_VMS})
