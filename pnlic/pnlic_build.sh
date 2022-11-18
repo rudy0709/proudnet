@@ -93,6 +93,8 @@ func_process_library_pnlic_auth_lib() {
 	fi
 
 	func_compile_command "[PNLicAuthLib]/PNLicAuthCommon" $1
+	func_compile_command "[PNLicAuthLib]/PNLicAuthClient" $1
+	#func_compile_command "[PNLicAuthLib]/PNLicAuthServer" $1	# AuthServer는 윈도우 전용임
 }
 
 func_compile_command() {
