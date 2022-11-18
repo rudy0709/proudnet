@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+#if defined(_WIN32)
 
 #include "../include/AgentCommon.h"
 #include "AgentC2S_proxy.h"
@@ -61,3 +62,5 @@ namespace Proud
 		DECRMI_AgentS2C_RequestServerAppStop;
 	};
 }
+
+#endif // _WIN32

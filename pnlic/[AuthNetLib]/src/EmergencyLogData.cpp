@@ -1,4 +1,5 @@
-﻿
+﻿#if defined(_WIN32)
+
 #include "stdafx.h"
 #include <new>
 #include "EmergencyLogData.h"
@@ -58,3 +59,5 @@ namespace Proud
 		}
 	}
 }
+
+#endif // _WIN32

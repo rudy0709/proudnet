@@ -1,4 +1,6 @@
-﻿#include "stdafx.h"
+﻿#if defined(_WIN32)
+
+#include "stdafx.h"
 #include "DBCacheJob.h"
 #include "DbCacheServer2Impl.h"
 #include "DB_proxy.h"
@@ -73,3 +75,5 @@ namespace Proud
 	}
 
 }
+
+#endif // _WIN32

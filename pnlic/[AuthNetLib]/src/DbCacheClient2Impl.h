@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#if defined(_WIN32)
+
 #include "../include/DbCacheClient2.h"
 #include "../include/FakeClr.h"
 #include "../include/NetClientInterface.h"
@@ -240,3 +242,5 @@ namespace Proud
 
 	};
 }
+
+#endif // _WIN32

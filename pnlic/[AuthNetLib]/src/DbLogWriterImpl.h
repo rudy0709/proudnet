@@ -20,6 +20,8 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 #pragma once
 
+#if defined(_WIN32)
+
 #include "../include/Semaphore.h"
 #include "../include/DbLogWriter.h"
 #include "FastList2.h"
@@ -100,3 +102,5 @@ namespace Proud
 }
 
 //#pragma pack(pop)
+
+#endif // _WIN32

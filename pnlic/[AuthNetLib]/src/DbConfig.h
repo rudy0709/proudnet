@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#if defined(_WIN32)
+
 #include "../include/ProudNetServer.h"
 
 namespace Proud
@@ -19,3 +21,5 @@ namespace Proud
 	const int64_t OneSecond = 1000;
 
 }
+
+#endif // _WIN32

@@ -8,6 +8,8 @@
 ** 주의: 저작물에 관한 위의 명시를 제거하지 마십시오.
 */
 
+#if defined(_WIN32)
+
 #include "stdafx.h"
 #include <new>
 #include "../include/EmergencyLogCommon.h"
@@ -17,8 +19,8 @@
 
 namespace Proud
 {
-#if defined(_WIN32)
 	const PNGUID guidEmergencyProtocolVersion = { 0xe1b72178, 0xe472, 0x45a4, { 0xaa, 0x3d, 0x9f, 0xe4, 0xcd, 0xb4, 0xc, 0xa0 } };
 	const Guid EmergencyProtocolVersion = Guid(guidEmergencyProtocolVersion);
-#endif
 }
+
+#endif // _WIN32

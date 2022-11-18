@@ -11,6 +11,9 @@ blocked function call을 구현한 모듈.
 내부적으로는 요청-응답형 함수를 이용하여 스레드 대기-깸 방식으로 작동한다.
 
 */
+
+#if defined(_WIN32)
+
 #include "stdafx.h"
 #include "../include/variant-marshaler.h"
 #include "DbCacheClient2Impl.h"
@@ -355,3 +358,4 @@ namespace Proud
 
 }
 
+#endif // _WIN32

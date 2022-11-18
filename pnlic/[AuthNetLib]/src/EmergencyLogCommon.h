@@ -10,6 +10,8 @@
 
 #pragma once
 
+#if defined(_WIN32)
+
 //#include "ProudNet.h"
 
 //#pragma pack(push,8)
@@ -80,5 +82,6 @@ namespace Proud
 #endif
 }
 
-
 //#pragma pack(pop)
+
+#endif // _WIN32

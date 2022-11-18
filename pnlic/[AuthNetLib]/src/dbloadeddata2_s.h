@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#if defined(_WIN32)
+
 #include "../include/DbLoadedData2.h"
 #include "../include/AdoWrap.h"
 #include "../include/IRMIProxy.h"
@@ -199,3 +201,5 @@ namespace Proud
 	};
 
 }
+
+#endif // _WIN32

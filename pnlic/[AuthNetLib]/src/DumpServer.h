@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#if defined(_WIN32)
+
 #include "../include/ProudNetServer.h"
 #include "../include/Dumpcommon.h"
 #include "../include/DumpServer.h"
@@ -82,3 +84,4 @@ namespace Proud
 
 }
 
+#endif // _WIN32

@@ -1,8 +1,9 @@
 ﻿#pragma once
 
+#if defined(_WIN32)
+
 #include "../include/ProudNetCommon.h"
 #include "FastList2.h"
-
 
 namespace Proud
 {
@@ -65,3 +66,5 @@ namespace Proud
 		void CopyTo(CEmergencyLogData& ret);
 	};
 }
+
+#endif // _WIN32

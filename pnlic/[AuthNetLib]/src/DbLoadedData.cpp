@@ -8,6 +8,8 @@
 ** 주의: 저작물에 관한 위의 명시를 제거하지 마십시오.
 */
 
+#if defined(_WIN32)
+
 #include "stdafx.h"
 #include "../include/dbenums.h"
 
@@ -33,3 +35,5 @@ namespace Proud
 		return _PNT("");
 	}
 }
+
+#endif // _WIN32

@@ -1,5 +1,7 @@
 ﻿#pragma once 
 
+#if defined(_WIN32)
+
 #include "../include/Event.h"
 #include "../include/Enums.h"
 
@@ -34,3 +36,5 @@ namespace Proud
 	};
 	typedef RefCount<BlockedEvent> BlockedEventPtr;
 }
+
+#endif // _WIN32

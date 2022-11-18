@@ -12,6 +12,8 @@
 //////////////////////////////////////////////////////////////////////////
 // DB cache에서 data load/unload를 하는 함수,변수는 여기다 모으자.
 
+#if defined(_WIN32)
+
 #include "stdafx.h"
 #include "DbCacheClient2Impl.h"
 #include "dbconfig.h"
@@ -302,3 +304,5 @@ namespace Proud
 	}
 
 }
+
+#endif // _WIN32

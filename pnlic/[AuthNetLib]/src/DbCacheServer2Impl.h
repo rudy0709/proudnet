@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#if defined(_WIN32)
+
 #include "../include/NetServerInterface.h"
 #include "../include/INetServerEvent.h"
 #include "../include/fastlist.h"
@@ -516,3 +518,5 @@ namespace Proud
 	};
 
 }
+
+#endif // _WIN32

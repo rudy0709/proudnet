@@ -8,6 +8,8 @@
 ** 주의: 저작물에 관한 위의 명시를 제거하지 마십시오.
 */
 
+#if defined(_WIN32)
+
 #include "stdafx.h"
 #include "DbConfig.h"
 
@@ -30,3 +32,5 @@ namespace Proud
 	// 복수데이터 로드 기능이 추가되면서 메시지 크기가 커질 수 있으므로 늘림.
 	int CDbConfig::MesssageMaxLength = 1024 * 1024 * 1024;	// 1 GB
 }
+
+#endif // _WIN32

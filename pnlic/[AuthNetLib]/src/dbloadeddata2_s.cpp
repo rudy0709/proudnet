@@ -1,4 +1,6 @@
-﻿#include "stdafx.h"
+﻿#if defined(_WIN32)
+
+#include "stdafx.h"
 #include "dbloadeddata2_S.h"
 #include "DbCacheServer2Impl.h"
 
@@ -148,3 +150,4 @@ namespace Proud
 
 }
 
+#endif // _WIN32

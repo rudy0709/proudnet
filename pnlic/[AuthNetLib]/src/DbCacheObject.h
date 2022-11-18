@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+#if defined(_WIN32)
 
 #include "../include/DbLoadedData.h"
 #include "../include/FastMap.h"
@@ -231,3 +232,4 @@ namespace Proud
 	};
 }
 
+#endif // _WIN32

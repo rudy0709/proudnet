@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#if defined(_WIN32)
+
 #include "../include/EmergencyLogCommon.h"
 #include "../include/EmergencyLogServer.h"
 #include "../include/ProudNetServer.h"
@@ -96,3 +98,5 @@ namespace Proud
 }
 
 #endif
+
+#endif // _WIN32

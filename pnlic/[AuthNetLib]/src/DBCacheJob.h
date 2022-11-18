@@ -1,5 +1,7 @@
 ﻿#pragma once 
 
+#if defined(_WIN32)
+
 #include "../include/Singleton.h"
 #include "../include/FastArray.h"
 #include "../include/IRMIProxy.h"
@@ -101,3 +103,5 @@ namespace Proud
 		CFastArray<ThreadPtr> m_threadList;
 	};
 }
+
+#endif // _WIN32

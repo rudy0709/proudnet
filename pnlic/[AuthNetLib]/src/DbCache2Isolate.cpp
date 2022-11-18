@@ -1,4 +1,6 @@
-﻿#include "stdafx.h"
+﻿#if defined(_WIN32)
+
+#include "stdafx.h"
 #include "../include/variant-marshaler.h"
 #include "DbCacheClient2Impl.h"
 #include "RmiContextImpl.h"
@@ -188,3 +190,5 @@ namespace Proud
 	}
 
 }
+
+#endif // _WIN32
