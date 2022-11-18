@@ -1,4 +1,6 @@
-﻿#include "stdafx.h"
+﻿#if defined(_WIN32)
+
+#include "stdafx.h"
 #include "WinTime.h"
 
 bool CWinTime::FileTimeToLocalTm(FILETIME fileTime, tm *pTm)
@@ -20,3 +22,5 @@ bool CWinTime::FileTimeToGmtTm(FILETIME fileTime, tm *pTm)
 	transTime.GetGmtTm((struct tm*)pTm);
 	return true;
 }
+
+#endif // _WIN32
