@@ -17,6 +17,7 @@ func_main() {
 	func_process_library_pnutils $1 $2
 	#func_process_library_pidl $1 $2		# 리눅스에선 사용하지 않음
 	func_process_library_virtualizer $1 $2
+	func_process_library_authnet $1 $2
 }
 
 func_process_library_pnutils() {
@@ -37,6 +38,16 @@ func_process_library_virtualizer() {
 	fi
 
 	func_compile_command "CodeVirtualizer" $1
+}
+
+func_process_library_authnet() {
+	if [ "$2" != "all" ]; then
+		if [ "$2" != "authnet" ]; then
+			return
+		fi
+	fi
+
+	func_compile_command "[AuthNetLib]/ProudNetClient" $1
 }
 
 func_compile_command() {
