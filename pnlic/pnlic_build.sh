@@ -16,9 +16,10 @@ func_main() {
 	# 프로젝트 별로 빌드함수를 호출합니다.
 	func_process_library_pnutils $1 $2
 	#func_process_library_pidl $1 $2		# 리눅스에선 사용하지 않음
-	func_process_library_virtualizer $1 $2
+	func_process_library_virtualizer $1 $2	#222-체크: 윈도우 환경에선 VirtualizerSDK64.lib 파일을 참조함
 	func_process_library_authnet $1 $2
 	func_process_library_pnlic_mgr $1 $2
+	func_process_library_pnlic_sdk $1 $2	#222-체크: 윈도우 환경에선 VirtualizerSDK64.lib 파일을 참조함
 }
 
 func_process_library_pnutils() {
@@ -60,6 +61,16 @@ func_process_library_pnlic_mgr() {
 	fi
 
 	func_compile_command "PNLicenseManager" $1
+}
+
+func_process_library_pnlic_sdk() {
+	if [ "$2" != "all" ]; then
+		if [ "$2" != "pnlic_sdk" ]; then
+			return
+		fi
+	fi
+
+	func_compile_command "PNLicenseSDK" $1
 }
 
 func_compile_command() {
