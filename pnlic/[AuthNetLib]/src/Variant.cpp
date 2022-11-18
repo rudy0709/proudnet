@@ -9,7 +9,7 @@
 */
 
 #include "stdafx.h"
-#include "../include/variant.h"
+#include "../include/Variant.h"
 #include "../include/ByteArray.h"
 
 namespace Proud

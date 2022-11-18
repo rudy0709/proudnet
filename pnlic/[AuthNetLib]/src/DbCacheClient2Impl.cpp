@@ -11,7 +11,7 @@
 #include "stdafx.h"
 #include "../include/variant-marshaler.h"
 #include "DbCacheClient2Impl.h"
-#include "dbconfig.h"
+#include "DbConfig.h"
 #include "RmiContextImpl.h"
 #include "DB_common.cpp"
 #include "DB_stub.cpp"

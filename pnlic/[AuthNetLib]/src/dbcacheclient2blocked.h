@@ -1,7 +1,7 @@
 ﻿#pragma once 
 
 #include "../include/Event.h"
-#include "../include/enums.h"
+#include "../include/Enums.h"
 
 namespace Proud
 {
