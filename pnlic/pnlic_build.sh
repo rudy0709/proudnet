@@ -20,6 +20,7 @@ func_main() {
 	func_process_library_authnet $1 $2
 	func_process_library_pnlic_mgr $1 $2
 	func_process_library_pnlic_sdk $1 $2	#222-체크: 윈도우 환경에선 VirtualizerSDK64.lib 파일을 참조함
+	func_process_library_pnlic $1 $2
 }
 
 func_process_library_pnutils() {
@@ -71,6 +72,16 @@ func_process_library_pnlic_sdk() {
 	fi
 
 	func_compile_command "PNLicenseSDK" $1
+}
+
+func_process_library_pnlic() {
+	if [ "$2" != "all" ]; then
+		if [ "$2" != "pnlic" ]; then
+			return
+		fi
+	fi
+
+	func_compile_command "PNLicense" $1
 }
 
 func_compile_command() {
