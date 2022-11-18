@@ -48,6 +48,7 @@ func_process_library_authnet() {
 	fi
 
 	func_compile_command "[AuthNetLib]/ProudNetClient" $1
+	func_compile_command "[AuthNetLib]/ProudNetServer" $1
 }
 
 func_compile_command() {
