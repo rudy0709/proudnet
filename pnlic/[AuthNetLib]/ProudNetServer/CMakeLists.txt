@@ -109,13 +109,17 @@ add_compile_options(
     -std=c++11
 )
 add_definitions(
+    -D__x86_64__
+    -D__linux__
     -D_LINUX
     -D_LIB
     -D_NO_NTTNTRACE
     -DPROUD_STATIC_LIB
     -DPROUDSRCCOPY
-    -D__x86_64__
 )
 
 # link
 add_library(${PROJECT_NAME} STATIC ${HEADERS} ${SOURCES})
+target_link_libraries(${PROJECT_NAME}
+    pthread
+)

@@ -1,29 +1,16 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(PNLicenseRunHidden)
+project(PNLicAuthClient)
 
 set(SOURCES
-    ./AppExecuter.inl
-    ./Binary.inl
-    ./LicenseMessage.inl
-    ./MemoryHopper.inl
-    ./PNLic.inl
-    ./PNLicenseManager.cpp
+#    ./main.cpp
+    ./PNLicAuthClient.cpp
     ./stdafx.cpp
 )
 
 set(HEADERS
-    ./Defines.h
-    ./Edgegap.h
-    ./Edgegap.inl
-    ./HiddenAppExecuter.inl
-    ./KernelObjectNames.h
-    ./LicenseMessage.h
-    ./LicenseType.h
-    ./PNLic.h
-    ./PNTypes.h
-    ./RunLicenseApp.h
+    ./CPUID.h
+    ./PNLicAuthClient.h
     ./stdafx.h
-    ./WarningAppExecuter.inl
 )
 
 # compile
@@ -48,5 +35,8 @@ add_definitions(
 # link
 add_library(${PROJECT_NAME} STATIC ${HEADERS} ${SOURCES})
 target_link_libraries(${PROJECT_NAME}
+    -L../../[AuthNetLib]/ProudNetClient/build/ -lAuthNetClient
+    -L../../[AuthNetLib]/ProudNetServer/build/ -lAuthNetServer
+    -L../../PNLicenseSDK/build/ -lPNLicenseSdk
     pthread
 )

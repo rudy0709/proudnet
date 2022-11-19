@@ -18,9 +18,14 @@ add_compile_options(
     -std=c++11
 )
 add_definitions(
+    -D__x86_64__
+    -D__linux__
     -D_LINUX
     -D_CONSOLE
 )
 
 # link
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+target_link_libraries(${PROJECT_NAME}
+    pthread
+)

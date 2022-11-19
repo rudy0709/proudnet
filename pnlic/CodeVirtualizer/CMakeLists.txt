@@ -58,9 +58,14 @@ add_compile_options(
     -std=c++11
 )
 add_definitions(
+    -D__x86_64__
+    -D__linux__
     -D_LINUX
     -D_LIB
 )
 
 # link
 add_library(${PROJECT_NAME} STATIC ${HEADERS} ${CUSTOM_VMS})
+target_link_libraries(${PROJECT_NAME}
+    pthread
+)

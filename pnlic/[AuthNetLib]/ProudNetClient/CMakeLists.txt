@@ -299,12 +299,16 @@ add_compile_options(
     -std=c++11
 )
 add_definitions(
+    -D__x86_64__
+    -D__linux__
     -D_LINUX
     -D_LIB
     -D_NO_NTTNTRACE
     -DPROUD_STATIC_LIB
-    -D__x86_64__
 )
 
 # link
 add_library(${PROJECT_NAME} STATIC ${HEADERS} ${SOURCES} ${OPEN_SRCS_ICONV} ${OPEN_SRCS_LIBTOM_CRYPTO} ${OPEN_SRCS_LIBTOM_MATH} ${OPEN_SRCS_ZLIB})
+target_link_libraries(${PROJECT_NAME}
+    pthread
+)
