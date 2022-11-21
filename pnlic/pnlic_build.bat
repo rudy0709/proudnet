@@ -3,7 +3,7 @@
 set projects=all pnutils pidl virtualizer authnet pnlic_mgr pnlic_sdk pnlic pnlic_auth_lib watermark pnlic_warn pnlic_hidden pnlic_auth_exe
 
 :main
-	@rem 도움말을 출력해야 할 지를 검사합니다.
+	@rem 사용법을 출력해야 할 지를 검사합니다.
 	call :check_comandline_params %1 %2
 	if "%errorlevel%" == "1" (
 		@rem 사용법을 출력합니다.
@@ -320,7 +320,6 @@ exit /b
 exit /b
 
 :check_comandline_params
-	@rem 도움말을 출력해야 할 지를 검사합니다.
 	if not "%1" == "clean" (
 		if not "%1" == "build" (
 			exit /b 1
