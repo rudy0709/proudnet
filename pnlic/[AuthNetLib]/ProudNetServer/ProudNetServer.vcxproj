@@ -66,13 +66,9 @@
     <ClInclude Include="..\src\ReaderWriterMonitorTester.h" />
     <ClInclude Include="..\src\RemoteClient.h" />
     <ClInclude Include="..\src\stdafx.h" />
-    <ClInclude Include="..\src\TcpLayer_S.h" />
     <ClInclude Include="..\src\Tests.h" />
     <ClInclude Include="..\src\TestUdpConnReset.h" />
     <ClInclude Include="..\src\ThreadPoolImpl.h" />
-    <ClInclude Include="..\src\TimeEventThreadPool.h" />
-    <ClInclude Include="..\src\UdpSocket_S.h" />
-    <ClInclude Include="..\src\UserTask.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\acrimpl_s.cpp" />
@@ -131,12 +127,8 @@
     <ClCompile Include="..\src\NetServerStartup.cpp" />
     <ClCompile Include="..\src\stdafxserver.cpp" />
     <ClCompile Include="..\src\SuperPeer_S.cpp" />
-    <ClCompile Include="..\src\TcpLayer_S.cpp" />
     <ClCompile Include="..\src\Tests.cpp" />
     <ClCompile Include="..\src\TestUdpConnReset.cpp" />
-    <ClCompile Include="..\src\TimeEventThreadPool.cpp" />
-    <ClCompile Include="..\src\UdpSocket_S.cpp" />
-    <ClCompile Include="..\src\UserTask.cpp" />
     <ClCompile Include="..\src\Variant.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
