@@ -115,7 +115,7 @@
     <ClCompile Include="..\src\OdbcRecordsetImpl.cpp" />
     <ClCompile Include="..\src\OdbcVariant.cpp" />
     <ClCompile Include="..\src\P2PGroup_S.cpp" />
-    <ClCompile Include="..\src\p2ppair.cpp" />
+    <ClCompile Include="..\src\P2PPair.cpp" />
     <ClCompile Include="..\src\P2PPair_S.cpp" />
     <ClCompile Include="..\src\P2P_S.cpp" />
     <ClCompile Include="..\src\pnguid-win32.cpp" />

@@ -268,7 +268,7 @@
     <ClCompile Include="..\src\acrimpl_s.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\p2ppair.cpp">
+    <ClCompile Include="..\src\P2PPair.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\SuperPeer_S.cpp">
