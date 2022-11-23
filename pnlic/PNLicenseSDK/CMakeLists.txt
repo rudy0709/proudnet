@@ -51,7 +51,7 @@ add_definitions(
 # link
 add_library(${PROJECT_NAME} STATIC ${HEADERS} ${SOURCES})
 target_link_libraries(${PROJECT_NAME}
-    -L../[AuthNetLib]/ProudNetServer/build/ -lAuthNetServer
+    -L../AuthNet/ProudNetServer/build/ -lAuthNetServer
     pthread
 )
 #222-체크: -L../../utils/CodeVirtualizer/Lib/COFF/VirtualizerSDK$(PlatformArchitecture).lib

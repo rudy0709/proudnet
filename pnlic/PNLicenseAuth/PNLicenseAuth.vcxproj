@@ -1,36 +1,36 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug_static_CRT|Win32">
-      <Configuration>Debug_static_CRT</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug_static_CRT|x64">
-      <Configuration>Debug_static_CRT</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_static_CRT|Win32">
+      <Configuration>Debug_static_CRT</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release_static_CRT|Win32">
-      <Configuration>Release_static_CRT</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release_static_CRT|x64">
-      <Configuration>Release_static_CRT</Configuration>
+    <ProjectConfiguration Include="Debug_static_CRT|x64">
+      <Configuration>Debug_static_CRT</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_static_CRT|Win32">
+      <Configuration>Release_static_CRT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_static_CRT|x64">
+      <Configuration>Release_static_CRT</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
@@ -38,7 +38,6 @@
     <ProjectGuid>{E021897F-54D3-46E1-B4CC-B40A32CF9DCD}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>PNLicenseAuth</RootNamespace>
-    <ProjectName>PNLicenseAuth</ProjectName>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -185,8 +184,9 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>AuthNetClient.lib;PNLicAuthCommon.lib;PNLicAuthClient.lib; VirtualizerSDK32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
@@ -221,8 +221,9 @@ popd
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>AuthNetClient.lib;PNLicAuthCommon.lib;PNLicAuthClient.lib; VirtualizerSDK32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
@@ -257,8 +258,9 @@ popd
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>AuthNetClient.lib;PNLicAuthCommon.lib;PNLicAuthClient.lib; VirtualizerSDK64.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
@@ -293,8 +295,9 @@ popd
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>AuthNetClient.lib;PNLicAuthCommon.lib;PNLicAuthClient.lib; VirtualizerSDK64.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
@@ -333,8 +336,9 @@ popd
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>AuthNetClient.lib;PNLicAuthCommon.lib;PNLicAuthClient.lib; VirtualizerSDK32.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
@@ -373,8 +377,9 @@ popd
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>AuthNetClient.lib;PNLicAuthCommon.lib;PNLicAuthClient.lib; VirtualizerSDK32.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
@@ -413,8 +418,9 @@ popd
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>AuthNetClient.lib;PNLicAuthCommon.lib;PNLicAuthClient.lib; VirtualizerSDK64.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
@@ -453,8 +459,9 @@ popd
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>AuthNetClient.lib;PNLicAuthCommon.lib;PNLicAuthClient.lib; VirtualizerSDK64.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\[AuthNetLib]\ProudNetClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthCommon\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\[PNLicAuthLib]\PNLicAuthClient\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\PNLicenseSDK\bin\$(Configuration)-x86_$(PlatformArchitecture)\;..\..\utils\CodeVirtualizer\Lib\COFF\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
@@ -491,6 +498,20 @@ popd
     <ClInclude Include="..\..\version\PNVersion.h" />
     <ClInclude Include="PNLicenseAuth.h" />
     <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PNLicenseSdk\PNLicenseSdk.vcxproj">
+      <Project>{e21bd3ca-733e-42fa-926e-525ee35e8c10}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\AuthNet\ProudNetClient\ProudNetClient.vcxproj">
+      <Project>{d447c486-92d2-4a70-bcfb-38372b197cbb}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\AuthNet\ProudNetServer\ProudNetServer.vcxproj">
+      <Project>{e29d13e6-f388-44bd-8d07-590d2501b6a1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\LicAuthLib\PNLicAuthClient\PNLicAuthClient.vcxproj">
+      <Project>{41852c66-cebe-4064-98c3-67b633db2722}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
