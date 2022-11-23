@@ -1,5 +1,5 @@
 ﻿#include "stdafx.h"
-#include "../[AuthNetLib]/include/ProudNetClient.h"
+#include "../AuthNet/include/ProudNetClient.h"
 #include <iostream>
 #include <thread>
 #include <stdio.h>

@@ -25,12 +25,12 @@
 #include "PNRegistryInfo.h"
 #include "PNLicenseSDK.h"
 
-#include "../[AuthNetLib]/include/CryptoAes.h"
-#include "../[AuthNetLib]/OpenSources/libtom/crypto/headers/tomcrypt.h"
+#include "../AuthNet/include/CryptoAes.h"
+#include "../AuthNet/OpenSources/libtom/crypto/headers/tomcrypt.h"
 #include "../CodeVirtualizer/Include/C/VirtualizerSDK.h"
 
-#include "../[AuthNetLib]/src/PooledObjects.h"
-#include "../[AuthNetLib]/src/DefaultStringEncoder.h"
+#include "../AuthNet/src/PooledObjects.h"
+#include "../AuthNet/src/DefaultStringEncoder.h"
 
 using namespace std;
 using namespace Proud;

@@ -2,7 +2,7 @@
 #include "PNFileSystem.h"
 
 #if defined(__linux__)
-#include "../[AuthNetLib]/src/Base64.cpp"
+#include "../AuthNet/src/Base64.cpp"
 #endif
 
 typedef unsigned char byte;

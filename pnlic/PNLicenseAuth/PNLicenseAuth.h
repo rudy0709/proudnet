@@ -4,8 +4,8 @@
 #include <sys/stat.h>
 
 #include "../PNLicenseSDK/PNLicenseSDK.h"
-#include "../[PNLicAuthLib]/PNLicAuthCommon/Vars.h"
-#include "../[PNLicAuthLib]/PNLicAuthClient/PNLicAuthClient.h"
+#include "../LicAuthLib/PNLicAuthCommon/Vars.h"
+#include "../LicAuthLib/PNLicAuthClient/PNLicAuthClient.h"
 
 #pragma comment(lib, "PNLicenseSDK")
 //extern const char* g_pnVersionText;

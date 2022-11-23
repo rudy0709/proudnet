@@ -3,13 +3,13 @@
 
 #include "../PNLicenseManager/LicenseMessage.inl"
 
-#include "../[PNLicAuthLib]/PNLicAuthCommon/pidl/C2S_common.cpp"
-#include "../[PNLicAuthLib]/PNLicAuthCommon/pidl/S2C_common.cpp"
-#include "../[PNLicAuthLib]/PNLicAuthCommon/pidl/C2S_stub.cpp"
-#include "../[PNLicAuthLib]/PNLicAuthCommon/pidl/S2C_proxy.cpp"
+#include "../LicAuthLib/PNLicAuthCommon/pidl/C2S_common.cpp"
+#include "../LicAuthLib/PNLicAuthCommon/pidl/S2C_common.cpp"
+#include "../LicAuthLib/PNLicAuthCommon/pidl/C2S_stub.cpp"
+#include "../LicAuthLib/PNLicAuthCommon/pidl/S2C_proxy.cpp"
 
-#include "../[PNLicAuthLib]/PNLicAuthCommon/pidl/C2S_proxy.cpp"
-#include "../[PNLicAuthLib]/PNLicAuthCommon/pidl/S2C_stub.cpp"
+#include "../LicAuthLib/PNLicAuthCommon/pidl/C2S_proxy.cpp"
+#include "../LicAuthLib/PNLicAuthCommon/pidl/S2C_stub.cpp"
 #include <regex>
 
 #if defined(__linux__)

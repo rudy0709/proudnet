@@ -3,14 +3,14 @@
 typedef unsigned char BYTE;
 
 
-#include "../[AuthNetLib]/include/ProudNetClient.h"
+#include "../AuthNet/include/ProudNetClient.h"
 #include "../PNLicenseManager/LicenseMessage.h"
 #include "../PNLicenseSDK/PNLicenseSDK.h"
 
-#include "../[PNLicAuthLib]/PNLicAuthClient/CPUID.h"
-#include "../[PNLicAuthLib]/PNLicAuthCommon/Vars.h"
-#include "../[PNLicAuthLib]/PNLicAuthCommon/pidl/S2C_stub.h"
-#include "../[PNLicAuthLib]/PNLicAuthCommon/pidl/C2S_proxy.h"
+#include "../LicAuthLib/PNLicAuthClient/CPUID.h"
+#include "../LicAuthLib/PNLicAuthCommon/Vars.h"
+#include "../LicAuthLib/PNLicAuthCommon/pidl/S2C_stub.h"
+#include "../LicAuthLib/PNLicAuthCommon/pidl/C2S_proxy.h"
 #include <functional>
 
 #if defined(_WIN32)
