@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "../../[AuthNetLib]/include/ProudNetClient.h"
+#include "../../AuthNet/include/ProudNetClient.h"
 #include "WatermarkDll.h"
 
 #include <thread>
