@@ -1,8 +1,8 @@
 ﻿#pragma once
 
-#include "../../[AuthNetLib]/include/ProudNetServer.h"
-#include "../../[AuthNetLib]/include/Tracer.h" 
-#include "../../[AuthNetLib]/include/AdoWrap.h"
+#include "../../AuthNet/include/ProudNetServer.h"
+#include "../../AuthNet/include/Tracer.h" 
+#include "../../AuthNet/include/AdoWrap.h"
 
 #include "../../PNLicenseManager/LicenseMessage.h"
 

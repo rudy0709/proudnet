@@ -35,8 +35,8 @@ add_definitions(
 # link
 add_library(${PROJECT_NAME} STATIC ${HEADERS} ${SOURCES})
 target_link_libraries(${PROJECT_NAME}
-    -L../../[AuthNetLib]/ProudNetClient/build/ -lAuthNetClient
-    -L../../[AuthNetLib]/ProudNetServer/build/ -lAuthNetServer
+    -L../../AuthNet/ProudNetClient/build/ -lAuthNetClient
+    -L../../AuthNet/ProudNetServer/build/ -lAuthNetServer
     -L../../PNLicenseSDK/build/ -lPNLicenseSdk
     pthread
 )

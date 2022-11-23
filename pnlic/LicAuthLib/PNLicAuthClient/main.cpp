@@ -3,7 +3,7 @@
 #include <fstream>
 #include <iostream>
 
-#include "../../[AuthNetLib]/include/ProudNetClient.h"
+#include "../../AuthNet/include/ProudNetClient.h"
 
 void ShowUsage()
 {

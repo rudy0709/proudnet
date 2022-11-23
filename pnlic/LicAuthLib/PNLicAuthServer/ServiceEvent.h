@@ -1,5 +1,5 @@
 ﻿
-#include "../../[AuthNetLib]/include/NTService.h"
+#include "../../AuthNet/include/NTService.h"
 #include "PNLicAuthServer.h"
 
 #define EVENTLOG_SUCCESS                0x0000
