@@ -31,7 +31,7 @@ func_process_library_pnutils() {
 		fi
 	fi
 
-	func_compile_command "[Utils]/PnUtils" $1
+	func_compile_command "Tools/PnImageGen" $1
 }
 
 func_process_library_virtualizer() {
@@ -51,8 +51,8 @@ func_process_library_authnet() {
 		fi
 	fi
 
-	func_compile_command "[AuthNetLib]/ProudNetClient" $1
-	func_compile_command "[AuthNetLib]/ProudNetServer" $1
+	func_compile_command "AuthNet/ProudNetClient" $1
+	func_compile_command "AuthNet/ProudNetServer" $1
 }
 
 func_process_library_pnlic_mgr() {
@@ -92,9 +92,9 @@ func_process_library_pnlic_auth_lib() {
 		fi
 	fi
 
-	func_compile_command "[PNLicAuthLib]/PNLicAuthCommon" $1
-	func_compile_command "[PNLicAuthLib]/PNLicAuthClient" $1
-	#func_compile_command "[PNLicAuthLib]/PNLicAuthServer" $1	# AuthServer는 윈도우 전용임
+	func_compile_command "LicAuthLib/PNLicAuthCommon" $1
+	func_compile_command "LicAuthLib/PNLicAuthClient" $1
+	#func_compile_command "LicAuthLib/PNLicAuthServer" $1	# AuthServer는 윈도우 전용임
 }
 
 func_compile_command() {
