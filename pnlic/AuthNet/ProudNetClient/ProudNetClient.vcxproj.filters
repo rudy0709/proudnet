@@ -2065,9 +2065,6 @@
       <UniqueIdentifier>{c00c4d1a-5b30-4be5-a3e0-638199bae667}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;</Extensions>
     </Filter>
-    <Filter Include="PIDL">
-      <UniqueIdentifier>{f77b904c-3373-4368-b623-16f3aec3fa76}</UniqueIdentifier>
-    </Filter>
     <Filter Include="OpenSource Files">
       <UniqueIdentifier>{4f366df7-36e3-4745-af71-0737976879c6}</UniqueIdentifier>
     </Filter>
@@ -2088,39 +2085,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\src\DumpC2S.pidl">
-      <Filter>PIDL</Filter>
-    </CustomBuild>
-    <CustomBuild Include="..\src\DumpS2C.pidl">
-      <Filter>PIDL</Filter>
-    </CustomBuild>
-    <CustomBuild Include="..\src\EmergencyC2S.pidl">
-      <Filter>PIDL</Filter>
-    </CustomBuild>
-    <CustomBuild Include="..\src\EmergencyS2C.pidl">
-      <Filter>PIDL</Filter>
-    </CustomBuild>
-    <CustomBuild Include="..\src\NetC2C.pidl">
-      <Filter>PIDL</Filter>
-    </CustomBuild>
-    <CustomBuild Include="..\src\NetC2S.pidl">
-      <Filter>PIDL</Filter>
-    </CustomBuild>
-    <CustomBuild Include="..\src\NetS2C.pidl">
-      <Filter>PIDL</Filter>
-    </CustomBuild>
-    <CustomBuild Include="..\src\Viz.pidl">
-      <Filter>PIDL</Filter>
-    </CustomBuild>
-    <CustomBuild Include="..\src\AgentC2S.pidl">
-      <Filter>PIDL</Filter>
-    </CustomBuild>
-    <CustomBuild Include="..\src\AgentS2C.pidl">
-      <Filter>PIDL</Filter>
-    </CustomBuild>
-    <CustomBuild Include="..\src\DB.pidl">
-      <Filter>PIDL</Filter>
-    </CustomBuild>
     <CustomBuild Include="..\OpenSources\libtom\crypto\headers\ProudTomCrypto.h">
       <Filter>OpenSource Files\libtom\crypto</Filter>
     </CustomBuild>
