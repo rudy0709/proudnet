@@ -2423,31 +2423,35 @@ namespace Proud
 			for ( j = i; j < tgtCount; j++ )
 			{
 				P2PConnectionState* state;
-				if ( i != j &&
-					(state = m_p2pConnectionPairList.GetPair(tgt[i].mHostID, tgt[j].mHostID)) != NULL )
-				{
-					if ( !state->IsRelayed() && state->m_recentPingMs < routedSendMaxPing )
-					{
-						info.state = state;
-						info.hostIndex0 = i;
-						info.hostIndex1 = j;
-						m_connectionInfoList.Add(info);
-						int connectioninfolistCount = (int)m_connectionInfoList.GetCount();
-						// 현재 host의 directP2P 연결 갯수를 센다.
-						for ( k = 0; k < connectioninfolistCount; ++k )
-						{
-							if ( m_connectionInfoList[k].hostIndex0 == i )
-								++m_connectionInfoList[k].connectCount0;
-							else if ( m_connectionInfoList[k].hostIndex1 == i )
-								++m_connectionInfoList[k].connectCount1;
 
-							if ( m_connectionInfoList[k].hostIndex0 == j )
-								++m_connectionInfoList[k].connectCount0;
-							else if ( m_connectionInfoList[k].hostIndex1 == j )
-								++m_connectionInfoList[k].connectCount1;
-						}
-						info.Clear();
+				if (i == j) {
+					continue;
+				}
+				if ((state = m_p2pConnectionPairList.GetPair(tgt[i].mHostID, tgt[j].mHostID)) == NULL) {
+					continue;
+				}
+
+				if ( !state->IsRelayed() && state->m_recentPingMs < routedSendMaxPing )
+				{
+					info.state = state;
+					info.hostIndex0 = i;
+					info.hostIndex1 = j;
+					m_connectionInfoList.Add(info);
+					int connectioninfolistCount = (int)m_connectionInfoList.GetCount();
+					// 현재 host의 directP2P 연결 갯수를 센다.
+					for ( k = 0; k < connectioninfolistCount; ++k )
+					{
+						if ( m_connectionInfoList[k].hostIndex0 == i )
+							++m_connectionInfoList[k].connectCount0;
+						else if ( m_connectionInfoList[k].hostIndex1 == i )
+							++m_connectionInfoList[k].connectCount1;
+
+						if ( m_connectionInfoList[k].hostIndex0 == j )
+							++m_connectionInfoList[k].connectCount0;
+						else if ( m_connectionInfoList[k].hostIndex1 == j )
+							++m_connectionInfoList[k].connectCount1;
 					}
+					info.Clear();
 				}
 			}
 		}
