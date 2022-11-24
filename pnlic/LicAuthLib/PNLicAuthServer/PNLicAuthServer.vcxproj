@@ -376,10 +376,10 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AuthNet\ProudNetClient\ProudNetClient.vcxproj">
+    <ProjectReference Include="..\..\AuthNetLib\ProudNetClient\ProudNetClient.vcxproj">
       <Project>{d447c486-92d2-4a70-bcfb-38372b197cbb}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\AuthNet\ProudNetServer\ProudNetServer.vcxproj">
+    <ProjectReference Include="..\..\AuthNetLib\ProudNetServer\ProudNetServer.vcxproj">
       <Project>{e29d13e6-f388-44bd-8d07-590d2501b6a1}</Project>
     </ProjectReference>
     <ProjectReference Include="..\PNLicAuthCommon\PNLicAuthCommon.vcxproj">

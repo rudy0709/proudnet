@@ -28,10 +28,10 @@
 
 // TODO: reference additional headers your program requires here
 
-//#include "../../AuthNet/include/AdoWrap.h"
-// #include "../../AuthNet/include/CoInit.h"
-//#include "../../AuthNet/include/Tracer.h"
-//#include "../../AuthNet/include/NTService.h"
-//#include "../../AuthNet/include/ProudNetServer.h"
+//#include "../../AuthNetLib/include/AdoWrap.h"
+//#include "../../AuthNetLib/include/CoInit.h"
+//#include "../../AuthNetLib/include/Tracer.h"
+//#include "../../AuthNetLib/include/NTService.h"
+//#include "../../AuthNetLib/include/ProudNetServer.h"
 
 //using namespace Proud;

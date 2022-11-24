@@ -1,6 +1,6 @@
 @echo off
 
-set projects=all pnutils pidl authnet pnlic_sdk pnlic pnlic_auth_lib watermark pnlic_warn pnlic_hidden pnlic_auth_exe
+set projects=all image_gen pidl authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidden pnlic_auth watermark
 
 :main
 	@rem 사용법을 출력해야 할 지를 검사합니다.
@@ -8,8 +8,8 @@ set projects=all pnutils pidl authnet pnlic_sdk pnlic pnlic_auth_lib watermark p
 	if "%errorlevel%" == "1" (
 		@rem 사용법을 출력합니다.
 		echo Usage:
-		echo     pnlic_build.bat clean ^<all ^| pnutils ^| pidl ^| authnet ^| pnlic_sdk ^| pnlic ^| pnlic_auth_lib ^| watermark ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth_exe^>
-		echo     pnlic_build.bat build ^<all ^| pnutils ^| pidl ^| authnet ^| pnlic_sdk ^| pnlic ^| pnlic_auth_lib ^| watermark ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth_exe^>
+		echo     pnlic_build.bat clean ^<all ^| image_gen ^| pidl ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark^>
+		echo     pnlic_build.bat build ^<all ^| image_gen ^| pidl ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark^>
 		exit /b
 	)
 
@@ -18,22 +18,22 @@ set projects=all pnutils pidl authnet pnlic_sdk pnlic pnlic_auth_lib watermark p
 	call :check_environment_variable
 
 	@rem   (2) Tool 빌드
-	call :process_library_pnutils %1 %2
+	call :process_library_image_gen %1 %2
 	call :process_library_pidl %1 %2
 
-	@rem   (3) .lib 빌드 / 윈도우 전용의 PNLicAuthServer.exe도 빌드
+	@rem   (3) Library 빌드 (PNLicAuthServer.exe도 포함)
 	@rem call :process_library_virtualizer %1 %2
-	call :process_library_authnet %1 %2
-	call :process_library_pnlic_auth_lib %1 %2
-	@rem call :process_library_pnlic_mgr %1 %2
-	call :process_library_pnlic_sdk %1 %2
-	call :process_library_pnlic %1 %2
+	call :process_library_authnet_lib %1 %2
+	call :process_library_lic_auth_lib %1 %2
+	call :process_library_pnlic_lib %1 %2
 
-	@rem   (3) .dll, .exe 빌드
-	call :process_library_watermark %1 %2
+	@rem   (4) PNLicense 관련 .exe 빌드
 	call :process_library_pnlic_warn %1 %2
 	call :process_library_pnlic_hidden %1 %2
-	call :process_library_pnlic_auth_exe %1 %2
+	call :process_library_pnlic_auth %1 %2
+
+	@rem   (5) Watermark 관련 .lib/.dll 빌드
+	call :process_library_watermark %1 %2
 exit /b
 
 :check_environment_variable
@@ -53,21 +53,21 @@ exit /b
 	echo ^>^>^>^>
 exit /b
 
-:process_library_pnutils
+:process_library_image_gen
 	if not "%2" == "all" (
-		if not "%2" == "pnutils" (
+		if not "%2" == "image_gen" (
 			exit /b
 		)
 	)
 
 	if "%1" == "clean" (
-		@rem PnImageGen 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\Tools\PnImageGen\PnImageGen.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\Tools\PnImageGen\bin\
-		rd /s /q .\Tools\PnImageGen\obj\
+		@rem ImageGen 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\Tools\ImageGen\ImageGen.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\Tools\ImageGen\bin\
+		rd /s /q .\Tools\ImageGen\obj\
 	) else if "%1" == "build" (
-		@rem PnImageGen 프로젝트를 빌드합니다.
-		call :compile_command ".\Tools\PnImageGen\PnImageGen.vcxproj" build Release_static_CRT x64
+		@rem ImageGen 프로젝트를 빌드합니다.
+		call :compile_command ".\Tools\ImageGen\ImageGen.vcxproj" build Release_static_CRT x64
 	)
 exit /b
 
@@ -106,43 +106,43 @@ exit /b
 	)
 exit /b
 
-:process_library_authnet
+:process_library_authnet_lib
 	if not "%2" == "all" (
-		if not "%2" == "authnet" (
+		if not "%2" == "authnet_lib" (
 			exit /b
 		)
 	)
 
 	if "%1" == "clean" (
 		@rem AuthNet PIDL 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\AuthNet\ProudNetPidl\ProudNetPidl.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\AuthNet\ProudNetPidl\bin\
-		rd /s /q .\AuthNet\ProudNetPidl\obj\
+		call :compile_command ".\AuthNetLib\ProudNetPidl\ProudNetPidl.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\AuthNetLib\ProudNetPidl\bin\
+		rd /s /q .\AuthNetLib\ProudNetPidl\obj\
 
 		@rem AuthNet 클라이언트 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\AuthNet\ProudNetClient\ProudNetClient.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\AuthNet\ProudNetClient\bin\
-		rd /s /q .\AuthNet\ProudNetClient\obj\
+		call :compile_command ".\AuthNetLib\ProudNetClient\ProudNetClient.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\AuthNetLib\ProudNetClient\bin\
+		rd /s /q .\AuthNetLib\ProudNetClient\obj\
 
 		@rem AuthNet 서버 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\AuthNet\ProudNetServer\ProudNetServer.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\AuthNet\ProudNetServer\bin\
-		rd /s /q .\AuthNet\ProudNetServer\obj\
+		call :compile_command ".\AuthNetLib\ProudNetServer\ProudNetServer.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\AuthNetLib\ProudNetServer\bin\
+		rd /s /q .\AuthNetLib\ProudNetServer\obj\
 	) else if "%1" == "build" (
 		@rem AuthNet PIDL 프로젝트를 빌드합니다.
-		call :compile_command ".\AuthNet\ProudNetPidl\ProudNetPidl.vcxproj" build Release_static_CRT x64
+		call :compile_command ".\AuthNetLib\ProudNetPidl\ProudNetPidl.vcxproj" build Release_static_CRT x64
 
 		@rem AuthNet 클라이언트 프로젝트를 빌드합니다.
-		call :compile_command ".\AuthNet\ProudNetClient\ProudNetClient.vcxproj" build Release_static_CRT x64
+		call :compile_command ".\AuthNetLib\ProudNetClient\ProudNetClient.vcxproj" build Release_static_CRT x64
 
 		@rem AuthNet 서버 프로젝트를 빌드합니다.
-		call :compile_command ".\AuthNet\ProudNetServer\ProudNetServer.vcxproj" build Release_static_CRT x64
+		call :compile_command ".\AuthNetLib\ProudNetServer\ProudNetServer.vcxproj" build Release_static_CRT x64
 	)
 exit /b
 
-:process_library_pnlic_auth_lib
+:process_library_lic_auth_lib
 	if not "%2" == "all" (
-		if not "%2" == "pnlic_auth_lib" (
+		if not "%2" == "lic_auth_lib" (
 			exit /b
 		)
 	)
@@ -174,83 +174,37 @@ exit /b
 	)
 exit /b
 
-:process_library_pnlic_mgr
+:process_library_pnlic_lib
 	if not "%2" == "all" (
-		if not "%2" == "pnlic_mgr" (
+		if not "%2" == "pnlic_lib" (
 			exit /b
 		)
 	)
 
 	if "%1" == "clean" (
-		@rem PNLicenseManager 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\PNLicenseManager\PNLicenseManager.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\PNLicenseManager\bin\
-		rd /s /q .\PNLicenseManager\obj\
-	) else if "%1" == "build" (
-		@rem PNLicenseManager 프로젝트를 빌드합니다.
-		call :compile_command ".\PNLicenseManager\PNLicenseManager.vcxproj" build Release_static_CRT x64
-	)
-exit /b
+@rem		@rem PNLicenseManager 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+@rem		call :compile_command ".\PNLicenseManager\PNLicenseManager.vcxproj" clean Release_static_CRT x64
+@rem		rd /s /q .\PNLicenseManager\bin\
+@rem		rd /s /q .\PNLicenseManager\obj\
 
-:process_library_pnlic_sdk
-	if not "%2" == "all" (
-		if not "%2" == "pnlic_sdk" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
 		@rem PNLicenseSdk 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
 		call :compile_command ".\PNLicenseSdk\PNLicenseSdk.vcxproj" clean Release_static_CRT x64
 		rd /s /q .\PNLicenseSdk\bin\
 		rd /s /q .\PNLicenseSdk\obj\
-	) else if "%1" == "build" (
-		@rem PNLicenseSdk 프로젝트를 빌드합니다.
-		call :compile_command ".\PNLicenseSdk\PNLicenseSdk.vcxproj" build Release_static_CRT x64
-	)
-exit /b
 
-:process_library_pnlic
-	if not "%2" == "all" (
-		if not "%2" == "pnlic" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
 		@rem PNLicense 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
 		call :compile_command ".\PNLicense\PNLicense.vcxproj" clean Release_static_CRT x64
 		rd /s /q .\PNLicense\bin\
 		rd /s /q .\PNLicense\obj\
 	) else if "%1" == "build" (
+@rem		@rem PNLicenseManager 프로젝트를 빌드합니다.
+@rem		call :compile_command ".\PNLicenseManager\PNLicenseManager.vcxproj" build Release_static_CRT x64
+
+		@rem PNLicenseSdk 프로젝트를 빌드합니다.
+		call :compile_command ".\PNLicenseSdk\PNLicenseSdk.vcxproj" build Release_static_CRT x64
+
 		@rem PNLicense 프로젝트를 빌드합니다.
 		call :compile_command ".\PNLicense\PNLicense.vcxproj" build Release_static_CRT x64
-	)
-exit /b
-
-:process_library_watermark
-	if not "%2" == "all" (
-		if not "%2" == "watermark" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
-		@rem WatermarkLib 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\Watermark\WatermarkLib\WatermarkLib.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\Watermark\WatermarkLib\bin\
-		rd /s /q .\Watermark\WatermarkLib\obj\
-
-		@rem WatermarkDll 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\Watermark\WatermarkDll\WatermarkDll.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\Watermark\WatermarkDll\bin\
-		rd /s /q .\Watermark\WatermarkDll\obj\
-	) else if "%1" == "build" (
-		@rem WatermarkLib 프로젝트를 빌드합니다.
-		call :compile_command ".\Watermark\WatermarkLib\WatermarkLib.vcxproj" build Release_static_CRT x64
-
-		@rem WatermarkDll 프로젝트를 빌드합니다.
-		call :compile_command ".\Watermark\WatermarkDll\WatermarkDll.vcxproj" build Release_static_CRT x64
 	)
 exit /b
 
@@ -290,9 +244,9 @@ exit /b
 	)
 exit /b
 
-:process_library_pnlic_auth_exe
+:process_library_pnlic_auth
 	if not "%2" == "all" (
-		if not "%2" == "pnlic_auth_exe" (
+		if not "%2" == "pnlic_auth" (
 			exit /b
 		)
 	)
@@ -313,6 +267,32 @@ exit /b
 
 		@rem PNLicenseAuthGui 프로젝트를 빌드합니다.
 		call :compile_command ".\PNLicenseAuthGui\PNLicenseAuthGui.csproj" build Release AnyCPU
+	)
+exit /b
+
+:process_library_watermark
+	if not "%2" == "all" (
+		if not "%2" == "watermark" (
+			exit /b
+		)
+	)
+
+	if "%1" == "clean" (
+		@rem WatermarkLib 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\Watermark\WatermarkLib\WatermarkLib.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\Watermark\WatermarkLib\bin\
+		rd /s /q .\Watermark\WatermarkLib\obj\
+
+		@rem WatermarkDll 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\Watermark\WatermarkDll\WatermarkDll.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\Watermark\WatermarkDll\bin\
+		rd /s /q .\Watermark\WatermarkDll\obj\
+	) else if "%1" == "build" (
+		@rem WatermarkLib 프로젝트를 빌드합니다.
+		call :compile_command ".\Watermark\WatermarkLib\WatermarkLib.vcxproj" build Release_static_CRT x64
+
+		@rem WatermarkDll 프로젝트를 빌드합니다.
+		call :compile_command ".\Watermark\WatermarkDll\WatermarkDll.vcxproj" build Release_static_CRT x64
 	)
 exit /b
 

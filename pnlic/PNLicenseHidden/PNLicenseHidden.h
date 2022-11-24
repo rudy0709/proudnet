@@ -9,8 +9,8 @@
 #if defined(__linux__)
 #include <sys/wait.h>
 #include <sys/stat.h>
-#include "../AuthNet/include/pnmutex.h"
-#include "../AuthNet/include/ThreadUtil.h"
+#include "../AuthNetLib/include/pnmutex.h"
+#include "../AuthNetLib/include/ThreadUtil.h"
 #endif
 
 #include <string.h>

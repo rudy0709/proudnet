@@ -503,10 +503,10 @@ popd
     <ProjectReference Include="..\PNLicenseSdk\PNLicenseSdk.vcxproj">
       <Project>{e21bd3ca-733e-42fa-926e-525ee35e8c10}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\AuthNet\ProudNetClient\ProudNetClient.vcxproj">
+    <ProjectReference Include="..\AuthNetLib\ProudNetClient\ProudNetClient.vcxproj">
       <Project>{d447c486-92d2-4a70-bcfb-38372b197cbb}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\AuthNet\ProudNetServer\ProudNetServer.vcxproj">
+    <ProjectReference Include="..\AuthNetLib\ProudNetServer\ProudNetServer.vcxproj">
       <Project>{e29d13e6-f388-44bd-8d07-590d2501b6a1}</Project>
     </ProjectReference>
     <ProjectReference Include="..\LicAuthLib\PNLicAuthClient\PNLicAuthClient.vcxproj">

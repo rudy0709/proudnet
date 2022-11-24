@@ -51,8 +51,8 @@ func_process_library_authnet() {
 		fi
 	fi
 
-	func_compile_command "AuthNet/ProudNetClient" $1
-	func_compile_command "AuthNet/ProudNetServer" $1
+	func_compile_command "AuthNetLib/ProudNetClient" $1
+	func_compile_command "AuthNetLib/ProudNetServer" $1
 }
 
 func_process_library_pnlic_mgr() {

@@ -4,7 +4,7 @@
 //static String g_serverIp = L"175.125.93.117";
 
 
-#include "../../AuthNet/include/ProudNetCommon.h"
+#include "../../AuthNetLib/include/ProudNetCommon.h"
 
 using namespace std;
 using namespace Proud;

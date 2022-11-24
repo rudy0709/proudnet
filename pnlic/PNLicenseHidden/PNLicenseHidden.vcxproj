@@ -201,7 +201,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\PnImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
@@ -244,7 +244,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\PnImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -287,7 +287,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\PnImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
@@ -330,7 +330,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\PnImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -380,7 +380,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\PnImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
@@ -430,7 +430,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\PnImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -480,7 +480,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\PnImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
@@ -530,7 +530,7 @@ popd
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\PnImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\PnImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
+"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <PropertyGroup>
@@ -562,10 +562,10 @@ popd
     <ProjectReference Include="..\PNLicenseSdk\PNLicenseSdk.vcxproj">
       <Project>{e21bd3ca-733e-42fa-926e-525ee35e8c10}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\AuthNet\ProudNetClient\ProudNetClient.vcxproj">
+    <ProjectReference Include="..\AuthNetLib\ProudNetClient\ProudNetClient.vcxproj">
       <Project>{d447c486-92d2-4a70-bcfb-38372b197cbb}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\AuthNet\ProudNetServer\ProudNetServer.vcxproj">
+    <ProjectReference Include="..\AuthNetLib\ProudNetServer\ProudNetServer.vcxproj">
       <Project>{e29d13e6-f388-44bd-8d07-590d2501b6a1}</Project>
     </ProjectReference>
   </ItemGroup>

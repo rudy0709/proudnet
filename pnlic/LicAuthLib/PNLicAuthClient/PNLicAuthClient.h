@@ -3,7 +3,7 @@
 typedef unsigned char BYTE;
 
 #include "CPUID.h"
-#include "../../AuthNet/include/ProudNetClient.h"
+#include "../../AuthNetLib/include/ProudNetClient.h"
 #include "../../PNLicenseManager/LicenseMessage.h"
 #include "../../PNLicenseSDK/PNLicenseSDK.h"
 

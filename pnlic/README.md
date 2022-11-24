@@ -12,16 +12,16 @@
     - C# : v1.8.0
         - `…\proudnet\version\PNVersion.cs`
 - `PIDL 컴파일러` 프로젝트
-    - 솔루션의 최초 빌드가 실패할 수 있습니다.<br/>
-    이는 `PIDL 컴파일러` 프로젝트의 빌드가 실패했기 때문일 가능성이 높습니다.<br/>
-    `PIDL 컴파일러` 프로젝트의 빌드를 몇번 반복하면 성공하게 됩니다.
+    - Visual Studio에서 솔루션의 첫 빌드 시에는 빌드를 성공하지 못하는 경우가 있습니다.<br/>
+    이는 `Antlr4*`, `YamlDotNet` 패키지를 제대로 참조하지 못해 `PIDL 컴파일러` 프로젝트의 빌드가 실패했기 때문일 가능성이 높습니다.<br/>
+    프로젝트의 빌드를 몇번 반복하거나 Visual Studio를 재실행한 후에 빌드하면 성공하게 됩니다.
 <br/>
 <br/>
 <br/>
 # 빌드 순서
 `CodeVirtualizer`, `PNLicenseManager` 프로젝트는 다른 프로젝트에서 헤더파일을 참조할 뿐이기 때문에 빌드하지 않아도 됩니다.<br/>
  
-1. `PnImageGen` 프로젝트
+1. `ImageGen` 프로젝트
     - .exe 파일을 .inl 파일로 변환하는 도구 (내부용)
     - Post-Build Event 등록
         - nuget 오픈소스 다운로드
