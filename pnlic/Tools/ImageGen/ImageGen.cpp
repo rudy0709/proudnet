@@ -1,4 +1,4 @@
-﻿// PnImageGen.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿// ImageGen.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <fstream>
@@ -124,5 +124,5 @@ void printUsage() {
 	std::cout << ".exe to .inl Converter. - v" << Proud::g_versionText << std::endl;
 	std::cout << "(c) Nettetion Inc. All rights reserved." << std::endl << std::endl;
 	std::cout << "Usage:" << std::endl;
-	std::cout << "    PnImageGen.exe --bin2inl <input-file-path> <output-file-path>" << std::endl;
+	std::cout << "    ImageGen.exe --bin2inl <input-file-path> <output-file-path>" << std::endl;
 }

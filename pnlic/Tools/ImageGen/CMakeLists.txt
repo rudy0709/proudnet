@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(PnImageGen)
+project(ImageGen)
 
 set(SOURCES
-    PnImageGen.cpp
+    ImageGen.cpp
     ../../../version/PNVersion.cpp
 )
 
