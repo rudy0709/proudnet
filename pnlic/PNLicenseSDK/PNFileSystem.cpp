@@ -107,6 +107,7 @@ bool CPNFileSystem::CreateAllUserWritableRegistryFile(String filePath, OpenType 
 	{
 		CloseHandle(hFile);
 	}
+	return true;
 #else
 
 	std::ios_base::openmode accessMode;
@@ -139,6 +140,7 @@ bool CPNFileSystem::CreateAllUserWritableRegistryFile(String filePath, OpenType 
 		file.close();
 	}
 	ChangeFileAttrib(filePath.GetString(), 0666);
+	return true;
 #endif
 }
 
