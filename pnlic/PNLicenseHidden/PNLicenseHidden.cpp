@@ -7,7 +7,7 @@
 
 // 아래 inl파일을 만들어내려면, BuildHelper나 pnlic-generate-test-image.bat 를 사용하세요.
 #if defined(__linux__)
-#include "../PNLicenseManager/linux/PNLicenseWarningImage.inl"
+#include "../PNLicenseManager/PNLicenseWarningImage.inl"
 #include <sys/types.h>
 #include <signal.h>
 #else
