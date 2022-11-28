@@ -3,7 +3,7 @@ project(AuthNetClient)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCES
+file(GLOB SOURCES
     ../src/acrimpl.cpp
     ../src/acrimpl_c.cpp
     ../src/AddrPort.cpp
@@ -11,7 +11,7 @@ set(SOURCES
     ../src/AsyncWork.cpp
     ../src/atomic.cpp
     ../src/BufferSegment.cpp
-    ../src/CoInit.cpp
+    #../src/CoInit.cpp
     ../src/ConnectParam.cpp
     ../src/Crc.cpp
     ../src/CriticalSect.cpp
@@ -24,9 +24,9 @@ set(SOURCES
     ../src/DeviationDetector.cpp
     ../src/DumpClient.cpp
     ../src/DumpCommon.cpp
-    ../src/EmergencyLogClient.cpp
-    ../src/EmergencyLogCommon.cpp
-    ../src/EmergencyLogData.cpp
+    #../src/EmergencyLogClient.cpp
+    #../src/EmergencyLogCommon.cpp
+    #../src/EmergencyLogData.cpp
     ../src/Enums.cpp
     ../src/Epoll_Reactor.cpp
     ../src/ErrorInfo.cpp
@@ -158,27 +158,25 @@ set(SOURCES
     ../src/VizMessageSummary.cpp
 )
 
-set(HEADERS
+file(GLOB_RECURSE HEADERS
     ../src/acrimpl.h
     ../src/acrimpl_c.h
     ../src/AsyncWork.h
     ../src/BufferSegment.h
     ../src/CachedTimes.h
     ../src/CollUtil.h
-    ../src/Crc.h
     ../src/CriticalSectImpl.h
     ../src/CustomValueEventQueue.h
     ../src/DefaultStringEncoder.h
     ../src/DeviationDetector.h
     ../src/DumpClient.h
     ../src/EmergencyLogClient.h
-    ../src/EmergencyLogCommon.h
     ../src/EmergencyLogData.h
     ../src/enumimpl.h
     ../src/Epoll_Reactor.h
     ../src/FakeWinsock.h
+    ../src/FastArayPtrImpl.h
     ../src/FastArrayImpl.h
-    ../src/FastArrayPtrImpl.h
     ../src/FastHeapImpl.h
     ../src/FastList2.h
     ../src/FastMap2.h
@@ -223,8 +221,8 @@ set(HEADERS
     ../src/PNS3ETimer.h
     ../../../version/PNVersion.h
     ../src/Poll_Reactor.h
-    ../src/PooledObjects.h
     ../src/PooledObjectAsLocalVar.h
+    ../src/PooledObjects.h
     ../src/PtrImpl.h
     ../src/qpcmilisectimer.h
     ../src/quicksort.h
@@ -252,6 +250,7 @@ set(HEADERS
     ../src/SocketPtrAndSerial.h
     ../src/SocketUtil.h
     ../src/SpinLock.h
+    ../src/stdafx.h
     ../src/STLUtil.h
     ../src/StreamQueue.h
     ../src/SuperSocket.h
@@ -265,10 +264,15 @@ set(HEADERS
     ../src/Upnp.h
     ../src/URI.h
     ../src/UseCount.h
-    ../src/UserTaskQueue.h
     ../src/UseZlib.h
+    ../src/UserTaskQueue.h
     ../src/VizAgent.h
     ../src/VizMessageSummary.h
+)
+
+file(GLOB SRCS_LINUX
+    ../src/ifaddrs.h
+    ../src/ifaddrs.c
 )
 
 file(GLOB_RECURSE OPEN_SRCS_ICONV
@@ -276,28 +280,467 @@ file(GLOB_RECURSE OPEN_SRCS_ICONV
     ../OpenSources/iconv-embed/*.c
 )
 
-file(GLOB_RECURSE OPEN_SRCS_LIBTOM_CRYPTO
-    ../OpenSources/libtom/crypto/*.h
-    ../OpenSources/libtom/crypto/*.c
+#file(GLOB_RECURSE OPEN_SRCS_LIBTOM_CRYPTO
+#    ../OpenSources/libtom/crypto/*.h
+#    ../OpenSources/libtom/crypto/*.c
+#)
+file(GLOB OPEN_SRCS_LIBTOM_CRYPTO
+    ../OpenSources/libtom/crypto/ciphers/aes/aes.c
+    #../OpenSources/libtom/crypto/ciphers/aes/aes_tab.c
+    ../OpenSources/libtom/crypto/ciphers/anubis.c
+    ../OpenSources/libtom/crypto/ciphers/blowfish.c
+    ../OpenSources/libtom/crypto/ciphers/cast5.c
+    ../OpenSources/libtom/crypto/ciphers/des.c
+    ../OpenSources/libtom/crypto/ciphers/kasumi.c
+    ../OpenSources/libtom/crypto/ciphers/khazad.c
+    ../OpenSources/libtom/crypto/ciphers/kseed.c
+    ../OpenSources/libtom/crypto/ciphers/multi2.c
+    ../OpenSources/libtom/crypto/ciphers/noekeon.c
+    ../OpenSources/libtom/crypto/ciphers/rc2.c
+    ../OpenSources/libtom/crypto/ciphers/rc5.c
+    ../OpenSources/libtom/crypto/ciphers/rc6.c
+    ../OpenSources/libtom/crypto/ciphers/safer/safer.c
+    ../OpenSources/libtom/crypto/ciphers/safer/saferp.c
+    #../OpenSources/libtom/crypto/ciphers/safer/safer_tab.c
+    ../OpenSources/libtom/crypto/ciphers/skipjack.c
+    ../OpenSources/libtom/crypto/ciphers/twofish/twofish.c
+    #../OpenSources/libtom/crypto/ciphers/twofish/twofish_tab.c
+    ../OpenSources/libtom/crypto/ciphers/xtea.c
+    ../OpenSources/libtom/crypto/encauth/ccm/ccm_memory.c
+    ../OpenSources/libtom/crypto/encauth/ccm/ccm_test.c
+    ../OpenSources/libtom/crypto/encauth/eax/eax_addheader.c
+    ../OpenSources/libtom/crypto/encauth/eax/eax_decrypt.c
+    ../OpenSources/libtom/crypto/encauth/eax/eax_decrypt_verify_memory.c
+    ../OpenSources/libtom/crypto/encauth/eax/eax_done.c
+    ../OpenSources/libtom/crypto/encauth/eax/eax_encrypt.c
+    ../OpenSources/libtom/crypto/encauth/eax/eax_encrypt_authenticate_memory.c
+    ../OpenSources/libtom/crypto/encauth/eax/eax_init.c
+    ../OpenSources/libtom/crypto/encauth/eax/eax_test.c
+    ../OpenSources/libtom/crypto/encauth/gcm/gcm_add_aad.c
+    ../OpenSources/libtom/crypto/encauth/gcm/gcm_add_iv.c
+    ../OpenSources/libtom/crypto/encauth/gcm/gcm_done.c
+    ../OpenSources/libtom/crypto/encauth/gcm/gcm_gf_mult.c
+    ../OpenSources/libtom/crypto/encauth/gcm/gcm_init.c
+    ../OpenSources/libtom/crypto/encauth/gcm/gcm_memory.c
+    ../OpenSources/libtom/crypto/encauth/gcm/gcm_mult_h.c
+    ../OpenSources/libtom/crypto/encauth/gcm/gcm_process.c
+    ../OpenSources/libtom/crypto/encauth/gcm/gcm_reset.c
+    ../OpenSources/libtom/crypto/encauth/gcm/gcm_test.c
+    ../OpenSources/libtom/crypto/encauth/ocb/ocb_decrypt.c
+    ../OpenSources/libtom/crypto/encauth/ocb/ocb_decrypt_verify_memory.c
+    ../OpenSources/libtom/crypto/encauth/ocb/ocb_done_decrypt.c
+    ../OpenSources/libtom/crypto/encauth/ocb/ocb_done_encrypt.c
+    ../OpenSources/libtom/crypto/encauth/ocb/ocb_encrypt.c
+    ../OpenSources/libtom/crypto/encauth/ocb/ocb_encrypt_authenticate_memory.c
+    ../OpenSources/libtom/crypto/encauth/ocb/ocb_init.c
+    ../OpenSources/libtom/crypto/encauth/ocb/ocb_ntz.c
+    ../OpenSources/libtom/crypto/encauth/ocb/ocb_shift_xor.c
+    ../OpenSources/libtom/crypto/encauth/ocb/ocb_test.c
+    ../OpenSources/libtom/crypto/encauth/ocb/s_ocb_done.c
+    ../OpenSources/libtom/crypto/hashes/chc/chc.c
+    ../OpenSources/libtom/crypto/hashes/helper/hash_file.c
+    ../OpenSources/libtom/crypto/hashes/helper/hash_filehandle.c
+    ../OpenSources/libtom/crypto/hashes/helper/hash_memory.c
+    ../OpenSources/libtom/crypto/hashes/helper/hash_memory_multi.c
+    ../OpenSources/libtom/crypto/hashes/md2.c
+    ../OpenSources/libtom/crypto/hashes/md4.c
+    ../OpenSources/libtom/crypto/hashes/md5.c
+    ../OpenSources/libtom/crypto/hashes/rmd128.c
+    ../OpenSources/libtom/crypto/hashes/rmd160.c
+    ../OpenSources/libtom/crypto/hashes/rmd256.c
+    ../OpenSources/libtom/crypto/hashes/rmd320.c
+    ../OpenSources/libtom/crypto/hashes/sha1.c
+    #../OpenSources/libtom/crypto/hashes/sha2/sha224.c
+    ../OpenSources/libtom/crypto/hashes/sha2/sha256.c
+    #../OpenSources/libtom/crypto/hashes/sha2/sha384.c
+    ../OpenSources/libtom/crypto/hashes/sha2/sha512.c
+    ../OpenSources/libtom/crypto/hashes/tiger.c
+    ../OpenSources/libtom/crypto/hashes/whirl/whirl.c
+    #../OpenSources/libtom/crypto/hashes/whirl/whirltab.c
+    ../OpenSources/libtom/crypto/mac/f9/f9_done.c
+    ../OpenSources/libtom/crypto/mac/f9/f9_file.c
+    ../OpenSources/libtom/crypto/mac/f9/f9_init.c
+    ../OpenSources/libtom/crypto/mac/f9/f9_memory.c
+    ../OpenSources/libtom/crypto/mac/f9/f9_memory_multi.c
+    ../OpenSources/libtom/crypto/mac/f9/f9_process.c
+    ../OpenSources/libtom/crypto/mac/f9/f9_test.c
+    ../OpenSources/libtom/crypto/mac/hmac/hmac_done.c
+    ../OpenSources/libtom/crypto/mac/hmac/hmac_file.c
+    ../OpenSources/libtom/crypto/mac/hmac/hmac_init.c
+    ../OpenSources/libtom/crypto/mac/hmac/hmac_memory.c
+    ../OpenSources/libtom/crypto/mac/hmac/hmac_memory_multi.c
+    ../OpenSources/libtom/crypto/mac/hmac/hmac_process.c
+    ../OpenSources/libtom/crypto/mac/hmac/hmac_test.c
+    ../OpenSources/libtom/crypto/mac/omac/omac_done.c
+    ../OpenSources/libtom/crypto/mac/omac/omac_file.c
+    ../OpenSources/libtom/crypto/mac/omac/omac_init.c
+    ../OpenSources/libtom/crypto/mac/omac/omac_memory.c
+    ../OpenSources/libtom/crypto/mac/omac/omac_memory_multi.c
+    ../OpenSources/libtom/crypto/mac/omac/omac_process.c
+    ../OpenSources/libtom/crypto/mac/omac/omac_test.c
+    ../OpenSources/libtom/crypto/mac/pelican/pelican.c
+    ../OpenSources/libtom/crypto/mac/pelican/pelican_memory.c
+    ../OpenSources/libtom/crypto/mac/pelican/pelican_test.c
+    ../OpenSources/libtom/crypto/mac/pmac/pmac_done.c
+    ../OpenSources/libtom/crypto/mac/pmac/pmac_file.c
+    ../OpenSources/libtom/crypto/mac/pmac/pmac_init.c
+    ../OpenSources/libtom/crypto/mac/pmac/pmac_memory.c
+    ../OpenSources/libtom/crypto/mac/pmac/pmac_memory_multi.c
+    ../OpenSources/libtom/crypto/mac/pmac/pmac_ntz.c
+    ../OpenSources/libtom/crypto/mac/pmac/pmac_process.c
+    ../OpenSources/libtom/crypto/mac/pmac/pmac_shift_xor.c
+    ../OpenSources/libtom/crypto/mac/pmac/pmac_test.c
+    ../OpenSources/libtom/crypto/mac/xcbc/xcbc_done.c
+    ../OpenSources/libtom/crypto/mac/xcbc/xcbc_file.c
+    ../OpenSources/libtom/crypto/mac/xcbc/xcbc_init.c
+    ../OpenSources/libtom/crypto/mac/xcbc/xcbc_memory.c
+    ../OpenSources/libtom/crypto/mac/xcbc/xcbc_memory_multi.c
+    ../OpenSources/libtom/crypto/mac/xcbc/xcbc_process.c
+    ../OpenSources/libtom/crypto/mac/xcbc/xcbc_test.c
+    ../OpenSources/libtom/crypto/math/fp/ltc_ecc_fp_mulmod.c
+    ../OpenSources/libtom/crypto/math/gmp_desc.c
+    ../OpenSources/libtom/crypto/math/ltm_desc.c
+    ../OpenSources/libtom/crypto/math/multi.c
+    ../OpenSources/libtom/crypto/math/rand_prime.c
+    ../OpenSources/libtom/crypto/math/tfm_desc.c
+    ../OpenSources/libtom/crypto/misc/base64/base64_decode.c
+    ../OpenSources/libtom/crypto/misc/base64/base64_encode.c
+    ../OpenSources/libtom/crypto/misc/burn_stack.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_argchk.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_cipher_descriptor.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_cipher_is_valid.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_find_cipher.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_find_cipher_any.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_find_cipher_id.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_find_hash.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_find_hash_any.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_find_hash_id.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_find_hash_oid.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_find_prng.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_fsa.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_hash_descriptor.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_hash_is_valid.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_ltc_mp_descriptor.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_prng_descriptor.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_prng_is_valid.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_register_cipher.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_register_hash.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_register_prng.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_unregister_cipher.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_unregister_hash.c
+    ../OpenSources/libtom/crypto/misc/crypt/crypt_unregister_prng.c
+    ../OpenSources/libtom/crypto/misc/error_to_string.c
+    ../OpenSources/libtom/crypto/misc/pkcs5/pkcs_5_1.c
+    ../OpenSources/libtom/crypto/misc/pkcs5/pkcs_5_2.c
+    ../OpenSources/libtom/crypto/misc/zeromem.c
+    ../OpenSources/libtom/crypto/modes/cbc/cbc_decrypt.c
+    ../OpenSources/libtom/crypto/modes/cbc/cbc_done.c
+    ../OpenSources/libtom/crypto/modes/cbc/cbc_encrypt.c
+    ../OpenSources/libtom/crypto/modes/cbc/cbc_getiv.c
+    ../OpenSources/libtom/crypto/modes/cbc/cbc_setiv.c
+    ../OpenSources/libtom/crypto/modes/cbc/cbc_start.c
+    ../OpenSources/libtom/crypto/modes/cfb/cfb_decrypt.c
+    ../OpenSources/libtom/crypto/modes/cfb/cfb_done.c
+    ../OpenSources/libtom/crypto/modes/cfb/cfb_encrypt.c
+    ../OpenSources/libtom/crypto/modes/cfb/cfb_getiv.c
+    ../OpenSources/libtom/crypto/modes/cfb/cfb_setiv.c
+    ../OpenSources/libtom/crypto/modes/cfb/cfb_start.c
+    ../OpenSources/libtom/crypto/modes/ctr/ctr_decrypt.c
+    ../OpenSources/libtom/crypto/modes/ctr/ctr_done.c
+    ../OpenSources/libtom/crypto/modes/ctr/ctr_encrypt.c
+    ../OpenSources/libtom/crypto/modes/ctr/ctr_getiv.c
+    ../OpenSources/libtom/crypto/modes/ctr/ctr_setiv.c
+    ../OpenSources/libtom/crypto/modes/ctr/ctr_start.c
+    ../OpenSources/libtom/crypto/modes/ctr/ctr_test.c
+    ../OpenSources/libtom/crypto/modes/ecb/ecb_decrypt.c
+    ../OpenSources/libtom/crypto/modes/ecb/ecb_done.c
+    ../OpenSources/libtom/crypto/modes/ecb/ecb_encrypt.c
+    ../OpenSources/libtom/crypto/modes/ecb/ecb_start.c
+    ../OpenSources/libtom/crypto/modes/f8/f8_decrypt.c
+    ../OpenSources/libtom/crypto/modes/f8/f8_done.c
+    ../OpenSources/libtom/crypto/modes/f8/f8_encrypt.c
+    ../OpenSources/libtom/crypto/modes/f8/f8_getiv.c
+    ../OpenSources/libtom/crypto/modes/f8/f8_setiv.c
+    ../OpenSources/libtom/crypto/modes/f8/f8_start.c
+    ../OpenSources/libtom/crypto/modes/f8/f8_test_mode.c
+    ../OpenSources/libtom/crypto/modes/lrw/lrw_decrypt.c
+    ../OpenSources/libtom/crypto/modes/lrw/lrw_done.c
+    ../OpenSources/libtom/crypto/modes/lrw/lrw_encrypt.c
+    ../OpenSources/libtom/crypto/modes/lrw/lrw_getiv.c
+    ../OpenSources/libtom/crypto/modes/lrw/lrw_process.c
+    ../OpenSources/libtom/crypto/modes/lrw/lrw_setiv.c
+    ../OpenSources/libtom/crypto/modes/lrw/lrw_start.c
+    ../OpenSources/libtom/crypto/modes/lrw/lrw_test.c
+    ../OpenSources/libtom/crypto/modes/ofb/ofb_decrypt.c
+    ../OpenSources/libtom/crypto/modes/ofb/ofb_done.c
+    ../OpenSources/libtom/crypto/modes/ofb/ofb_encrypt.c
+    ../OpenSources/libtom/crypto/modes/ofb/ofb_getiv.c
+    ../OpenSources/libtom/crypto/modes/ofb/ofb_setiv.c
+    ../OpenSources/libtom/crypto/modes/ofb/ofb_start.c
+    ../OpenSources/libtom/crypto/modes/xts/xts_decrypt.c
+    ../OpenSources/libtom/crypto/modes/xts/xts_done.c
+    ../OpenSources/libtom/crypto/modes/xts/xts_encrypt.c
+    ../OpenSources/libtom/crypto/modes/xts/xts_init.c
+    ../OpenSources/libtom/crypto/modes/xts/xts_mult_x.c
+    ../OpenSources/libtom/crypto/modes/xts/xts_test.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/bit/der_decode_bit_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/bit/der_encode_bit_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/bit/der_length_bit_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/boolean/der_decode_boolean.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/boolean/der_encode_boolean.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/boolean/der_length_boolean.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/choice/der_decode_choice.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/ia5/der_decode_ia5_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/ia5/der_encode_ia5_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/ia5/der_length_ia5_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/integer/der_decode_integer.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/integer/der_encode_integer.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/integer/der_length_integer.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/object_identifier/der_decode_object_identifier.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/object_identifier/der_encode_object_identifier.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/object_identifier/der_length_object_identifier.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/octet/der_decode_octet_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/octet/der_encode_octet_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/octet/der_length_octet_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/printable_string/der_decode_printable_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/printable_string/der_encode_printable_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/printable_string/der_length_printable_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/sequence/der_decode_sequence_ex.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/sequence/der_decode_sequence_flexi.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/sequence/der_decode_sequence_multi.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/sequence/der_encode_sequence_ex.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/sequence/der_encode_sequence_multi.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/sequence/der_length_sequence.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/sequence/der_sequence_free.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/set/der_encode_set.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/set/der_encode_setof.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/short_integer/der_decode_short_integer.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/short_integer/der_encode_short_integer.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/short_integer/der_length_short_integer.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/utctime/der_decode_utctime.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/utctime/der_encode_utctime.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/utctime/der_length_utctime.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/utf8/der_decode_utf8_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/utf8/der_encode_utf8_string.c
+    ../OpenSources/libtom/crypto/pk/asn1/der/utf8/der_length_utf8_string.c
+    ../OpenSources/libtom/crypto/pk/dsa/dsa_decrypt_key.c
+    ../OpenSources/libtom/crypto/pk/dsa/dsa_encrypt_key.c
+    ../OpenSources/libtom/crypto/pk/dsa/dsa_export.c
+    ../OpenSources/libtom/crypto/pk/dsa/dsa_free.c
+    ../OpenSources/libtom/crypto/pk/dsa/dsa_import.c
+    ../OpenSources/libtom/crypto/pk/dsa/dsa_make_key.c
+    ../OpenSources/libtom/crypto/pk/dsa/dsa_shared_secret.c
+    ../OpenSources/libtom/crypto/pk/dsa/dsa_sign_hash.c
+    ../OpenSources/libtom/crypto/pk/dsa/dsa_verify_hash.c
+    ../OpenSources/libtom/crypto/pk/dsa/dsa_verify_key.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_ansi_x963_export.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_ansi_x963_import.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_decrypt_key.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_encrypt_key.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_export.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_free.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_get_size.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_import.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_make_key.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_shared_secret.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_sign_hash.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_sizes.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_test.c
+    ../OpenSources/libtom/crypto/pk/ecc/ecc_verify_hash.c
+    ../OpenSources/libtom/crypto/pk/ecc/ltc_ecc_is_valid_idx.c
+    ../OpenSources/libtom/crypto/pk/ecc/ltc_ecc_map.c
+    ../OpenSources/libtom/crypto/pk/ecc/ltc_ecc_mul2add.c
+    ../OpenSources/libtom/crypto/pk/ecc/ltc_ecc_mulmod.c
+    ../OpenSources/libtom/crypto/pk/ecc/ltc_ecc_mulmod_timing.c
+    ../OpenSources/libtom/crypto/pk/ecc/ltc_ecc_points.c
+    ../OpenSources/libtom/crypto/pk/ecc/ltc_ecc_projective_add_point.c
+    ../OpenSources/libtom/crypto/pk/ecc/ltc_ecc_projective_dbl_point.c
+    ../OpenSources/libtom/crypto/pk/katja/katja_decrypt_key.c
+    ../OpenSources/libtom/crypto/pk/katja/katja_encrypt_key.c
+    ../OpenSources/libtom/crypto/pk/katja/katja_export.c
+    ../OpenSources/libtom/crypto/pk/katja/katja_exptmod.c
+    ../OpenSources/libtom/crypto/pk/katja/katja_free.c
+    ../OpenSources/libtom/crypto/pk/katja/katja_import.c
+    ../OpenSources/libtom/crypto/pk/katja/katja_make_key.c
+    ../OpenSources/libtom/crypto/pk/pkcs1/pkcs_1_i2osp.c
+    ../OpenSources/libtom/crypto/pk/pkcs1/pkcs_1_mgf1.c
+    ../OpenSources/libtom/crypto/pk/pkcs1/pkcs_1_oaep_decode.c
+    ../OpenSources/libtom/crypto/pk/pkcs1/pkcs_1_oaep_encode.c
+    ../OpenSources/libtom/crypto/pk/pkcs1/pkcs_1_os2ip.c
+    ../OpenSources/libtom/crypto/pk/pkcs1/pkcs_1_pss_decode.c
+    ../OpenSources/libtom/crypto/pk/pkcs1/pkcs_1_pss_encode.c
+    ../OpenSources/libtom/crypto/pk/pkcs1/pkcs_1_v1_5_decode.c
+    ../OpenSources/libtom/crypto/pk/pkcs1/pkcs_1_v1_5_encode.c
+    ../OpenSources/libtom/crypto/pk/rsa/rsa_decrypt_key.c
+    ../OpenSources/libtom/crypto/pk/rsa/rsa_encrypt_key.c
+    ../OpenSources/libtom/crypto/pk/rsa/rsa_export.c
+    ../OpenSources/libtom/crypto/pk/rsa/rsa_exptmod.c
+    ../OpenSources/libtom/crypto/pk/rsa/rsa_free.c
+    ../OpenSources/libtom/crypto/pk/rsa/rsa_import.c
+    ../OpenSources/libtom/crypto/pk/rsa/rsa_make_key.c
+    ../OpenSources/libtom/crypto/pk/rsa/rsa_sign_hash.c
+    ../OpenSources/libtom/crypto/pk/rsa/rsa_verify_hash.c
+    ../OpenSources/libtom/crypto/prngs/fortuna.c
+    ../OpenSources/libtom/crypto/prngs/rc4.c
+    ../OpenSources/libtom/crypto/prngs/rng_get_bytes.c
+    ../OpenSources/libtom/crypto/prngs/rng_make_prng.c
+    #../OpenSources/libtom/crypto/prngs/sober128.c
+    #../OpenSources/libtom/crypto/prngs/sober128tab.c
+    ../OpenSources/libtom/crypto/prngs/sprng.c
+    ../OpenSources/libtom/crypto/prngs/yarrow.c
 )
 
-file(GLOB_RECURSE OPEN_SRCS_LIBTOM_MATH
-    ../OpenSources/libtom/math/*.h
-    ../OpenSources/libtom/math/*.c
+#file(GLOB_RECURSE OPEN_SRCS_LIBTOM_MATH
+#    ../OpenSources/libtom/math/*.h
+#    ../OpenSources/libtom/math/*.c
+#)
+file(GLOB OPEN_SRCS_LIBTOM_MATH
+    ../OpenSources/libtom/math/bncore.c
+    ../OpenSources/libtom/math/bn_error.c
+    ../OpenSources/libtom/math/bn_fast_mp_invmod.c
+    ../OpenSources/libtom/math/bn_fast_mp_montgomery_reduce.c
+    ../OpenSources/libtom/math/bn_fast_s_mp_mul_digs.c
+    ../OpenSources/libtom/math/bn_fast_s_mp_mul_high_digs.c
+    ../OpenSources/libtom/math/bn_fast_s_mp_sqr.c
+    ../OpenSources/libtom/math/bn_mp_2expt.c
+    ../OpenSources/libtom/math/bn_mp_abs.c
+    ../OpenSources/libtom/math/bn_mp_add.c
+    ../OpenSources/libtom/math/bn_mp_addmod.c
+    ../OpenSources/libtom/math/bn_mp_add_d.c
+    ../OpenSources/libtom/math/bn_mp_and.c
+    ../OpenSources/libtom/math/bn_mp_clamp.c
+    ../OpenSources/libtom/math/bn_mp_clear.c
+    ../OpenSources/libtom/math/bn_mp_clear_multi.c
+    ../OpenSources/libtom/math/bn_mp_cmp.c
+    ../OpenSources/libtom/math/bn_mp_cmp_d.c
+    ../OpenSources/libtom/math/bn_mp_cmp_mag.c
+    ../OpenSources/libtom/math/bn_mp_cnt_lsb.c
+    ../OpenSources/libtom/math/bn_mp_copy.c
+    ../OpenSources/libtom/math/bn_mp_count_bits.c
+    ../OpenSources/libtom/math/bn_mp_div.c
+    ../OpenSources/libtom/math/bn_mp_div_2.c
+    ../OpenSources/libtom/math/bn_mp_div_2d.c
+    ../OpenSources/libtom/math/bn_mp_div_3.c
+    ../OpenSources/libtom/math/bn_mp_div_d.c
+    ../OpenSources/libtom/math/bn_mp_dr_is_modulus.c
+    ../OpenSources/libtom/math/bn_mp_dr_reduce.c
+    ../OpenSources/libtom/math/bn_mp_dr_setup.c
+    ../OpenSources/libtom/math/bn_mp_exch.c
+    ../OpenSources/libtom/math/bn_mp_exptmod.c
+    ../OpenSources/libtom/math/bn_mp_exptmod_fast.c
+    ../OpenSources/libtom/math/bn_mp_expt_d.c
+    ../OpenSources/libtom/math/bn_mp_exteuclid.c
+    ../OpenSources/libtom/math/bn_mp_fread.c
+    ../OpenSources/libtom/math/bn_mp_fwrite.c
+    ../OpenSources/libtom/math/bn_mp_gcd.c
+    ../OpenSources/libtom/math/bn_mp_get_int.c
+    ../OpenSources/libtom/math/bn_mp_grow.c
+    ../OpenSources/libtom/math/bn_mp_init.c
+    ../OpenSources/libtom/math/bn_mp_init_copy.c
+    ../OpenSources/libtom/math/bn_mp_init_multi.c
+    ../OpenSources/libtom/math/bn_mp_init_set.c
+    ../OpenSources/libtom/math/bn_mp_init_set_int.c
+    ../OpenSources/libtom/math/bn_mp_init_size.c
+    ../OpenSources/libtom/math/bn_mp_invmod.c
+    ../OpenSources/libtom/math/bn_mp_invmod_slow.c
+    ../OpenSources/libtom/math/bn_mp_is_square.c
+    ../OpenSources/libtom/math/bn_mp_jacobi.c
+    ../OpenSources/libtom/math/bn_mp_karatsuba_mul.c
+    ../OpenSources/libtom/math/bn_mp_karatsuba_sqr.c
+    ../OpenSources/libtom/math/bn_mp_lcm.c
+    ../OpenSources/libtom/math/bn_mp_lshd.c
+    ../OpenSources/libtom/math/bn_mp_mod.c
+    ../OpenSources/libtom/math/bn_mp_mod_2d.c
+    ../OpenSources/libtom/math/bn_mp_mod_d.c
+    ../OpenSources/libtom/math/bn_mp_montgomery_calc_normalization.c
+    ../OpenSources/libtom/math/bn_mp_montgomery_reduce.c
+    ../OpenSources/libtom/math/bn_mp_montgomery_setup.c
+    ../OpenSources/libtom/math/bn_mp_mul.c
+    ../OpenSources/libtom/math/bn_mp_mulmod.c
+    ../OpenSources/libtom/math/bn_mp_mul_2.c
+    ../OpenSources/libtom/math/bn_mp_mul_2d.c
+    ../OpenSources/libtom/math/bn_mp_mul_d.c
+    ../OpenSources/libtom/math/bn_mp_neg.c
+    ../OpenSources/libtom/math/bn_mp_n_root.c
+    ../OpenSources/libtom/math/bn_mp_or.c
+    ../OpenSources/libtom/math/bn_mp_prime_fermat.c
+    ../OpenSources/libtom/math/bn_mp_prime_is_divisible.c
+    ../OpenSources/libtom/math/bn_mp_prime_is_prime.c
+    ../OpenSources/libtom/math/bn_mp_prime_miller_rabin.c
+    ../OpenSources/libtom/math/bn_mp_prime_next_prime.c
+    ../OpenSources/libtom/math/bn_mp_prime_rabin_miller_trials.c
+    ../OpenSources/libtom/math/bn_mp_prime_random_ex.c
+    ../OpenSources/libtom/math/bn_mp_radix_size.c
+    ../OpenSources/libtom/math/bn_mp_radix_smap.c
+    ../OpenSources/libtom/math/bn_mp_rand.c
+    ../OpenSources/libtom/math/bn_mp_read_radix.c
+    ../OpenSources/libtom/math/bn_mp_read_signed_bin.c
+    ../OpenSources/libtom/math/bn_mp_read_unsigned_bin.c
+    ../OpenSources/libtom/math/bn_mp_reduce.c
+    ../OpenSources/libtom/math/bn_mp_reduce_2k.c
+    ../OpenSources/libtom/math/bn_mp_reduce_2k_l.c
+    ../OpenSources/libtom/math/bn_mp_reduce_2k_setup.c
+    ../OpenSources/libtom/math/bn_mp_reduce_2k_setup_l.c
+    ../OpenSources/libtom/math/bn_mp_reduce_is_2k.c
+    ../OpenSources/libtom/math/bn_mp_reduce_is_2k_l.c
+    ../OpenSources/libtom/math/bn_mp_reduce_setup.c
+    ../OpenSources/libtom/math/bn_mp_rshd.c
+    ../OpenSources/libtom/math/bn_mp_set.c
+    ../OpenSources/libtom/math/bn_mp_set_int.c
+    ../OpenSources/libtom/math/bn_mp_shrink.c
+    ../OpenSources/libtom/math/bn_mp_signed_bin_size.c
+    ../OpenSources/libtom/math/bn_mp_sqr.c
+    ../OpenSources/libtom/math/bn_mp_sqrmod.c
+    ../OpenSources/libtom/math/bn_mp_sqrt.c
+    ../OpenSources/libtom/math/bn_mp_sub.c
+    ../OpenSources/libtom/math/bn_mp_submod.c
+    ../OpenSources/libtom/math/bn_mp_sub_d.c
+    ../OpenSources/libtom/math/bn_mp_toom_mul.c
+    ../OpenSources/libtom/math/bn_mp_toom_sqr.c
+    ../OpenSources/libtom/math/bn_mp_toradix.c
+    ../OpenSources/libtom/math/bn_mp_toradix_n.c
+    ../OpenSources/libtom/math/bn_mp_to_signed_bin.c
+    ../OpenSources/libtom/math/bn_mp_to_signed_bin_n.c
+    ../OpenSources/libtom/math/bn_mp_to_unsigned_bin.c
+    ../OpenSources/libtom/math/bn_mp_to_unsigned_bin_n.c
+    ../OpenSources/libtom/math/bn_mp_unsigned_bin_size.c
+    ../OpenSources/libtom/math/bn_mp_xor.c
+    ../OpenSources/libtom/math/bn_mp_zero.c
+    ../OpenSources/libtom/math/bn_prime_tab.c
+    ../OpenSources/libtom/math/bn_reverse.c
+    ../OpenSources/libtom/math/bn_s_mp_add.c
+    ../OpenSources/libtom/math/bn_s_mp_exptmod.c
+    ../OpenSources/libtom/math/bn_s_mp_mul_digs.c
+    ../OpenSources/libtom/math/bn_s_mp_mul_high_digs.c
+    ../OpenSources/libtom/math/bn_s_mp_sqr.c
+    ../OpenSources/libtom/math/bn_s_mp_sub.c
 )
 
-file(GLOB_RECURSE OPEN_SRCS_ZLIB
-    ../OpenSources/zlib/*.h
-    ../OpenSources/zlib/*.c
+#file(GLOB_RECURSE OPEN_SRCS_ZLIB
+#    ../OpenSources/zlib/*.h
+#    ../OpenSources/zlib/*.c
+#)
+file(GLOB OPEN_SRCS_ZLIB
+    ../OpenSources/zlib/adler32.c
+    ../OpenSources/zlib/compress.c
+    ../OpenSources/zlib/crc32.c
+    ../OpenSources/zlib/deflate.c
+    ../OpenSources/zlib/gzclose.c
+    ../OpenSources/zlib/gzlib.c
+    #../OpenSources/zlib/gzread.c
+    ../OpenSources/zlib/gzwrite.c
+    ../OpenSources/zlib/infback.c
+    ../OpenSources/zlib/inffast.c
+    ../OpenSources/zlib/inflate.c
+    ../OpenSources/zlib/inftrees.c
+    ../OpenSources/zlib/trees.c
+    ../OpenSources/zlib/uncompr.c
+    ../OpenSources/zlib/zutil.c
 )
 
-# compile
-add_compile_options(
-    -fPIC
-    -W -Wall -Wextra
-    -O2
-    -std=c++11
-)
+# options
 add_definitions(
     -D__x86_64__
     -D__linux__
@@ -305,10 +748,21 @@ add_definitions(
     -D_LIB
     -D_NO_NTTNTRACE
     -DPROUD_STATIC_LIB
+    -DPROUDSRCCOPY
+)
+
+add_compile_options(
+    -fPIC
+    -W -Wall -Wextra
+#        -Wno-unused-but-set-variable -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable
+#        -Wno-comment -Wno-extra -Wno-ignored-qualifiers -Wno-missing-field-initializers -Wno-parentheses -Wno-reorder
+#        -Wno-sign-compare -Wno-strict-aliasing -Wno-type-limits -Wno-unknown-pragmas
+    -O2
+    -std=c++11
 )
 
 # link
-add_library(${PROJECT_NAME} STATIC ${HEADERS} ${SOURCES} ${OPEN_SRCS_ICONV} ${OPEN_SRCS_LIBTOM_CRYPTO} ${OPEN_SRCS_LIBTOM_MATH} ${OPEN_SRCS_ZLIB})
+add_library(${PROJECT_NAME} STATIC ${OPEN_SRCS_ICONV} ${OPEN_SRCS_LIBTOM_CRYPTO} ${OPEN_SRCS_LIBTOM_MATH} ${OPEN_SRCS_ZLIB} ${SRCS_LINUX} ${HEADERS} ${SOURCES})
 target_link_libraries(${PROJECT_NAME}
-    pthread
+    -lpthread
 )

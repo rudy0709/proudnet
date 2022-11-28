@@ -1,42 +1,40 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(PNLicAuthClient)
 
-set(SOURCES
-#    ./main.cpp
+file(GLOB SOURCES
+    ./main.cpp
     ./PNLicAuthClient.cpp
     ./stdafx.cpp
 )
 
-set(HEADERS
+file(GLOB HEADERS
     ./CPUID.h
     ./PNLicAuthClient.h
     ./stdafx.h
 )
 
-# compile
-add_compile_options(
-    -fPIC
-    -W -Wall -Wextra
-    -O2
-    -std=c++11
-)
+# options
 add_definitions(
     -D__x86_64__
     -D__linux__
     -D_LINUX
     -D_LIB
-    -D_CRT_SECURE_NO_WARNINGS
     -D_NO_NTTNTRACE
-    -DPROUD_STATIC_LIB
     -DPNLICENSESDK_STATIC
     -DPROUDSRCCOPY
+)
+
+add_compile_options(
+    -fPIC
+    -W -Wall -Wextra
+#        -Wno-unused-but-set-variable -Wno-unused-parameter
+#        -Wno-comment -Wno-extra -Wno-ignored-qualifiers
+    -O2
+    -std=c++11
 )
 
 # link
 add_library(${PROJECT_NAME} STATIC ${HEADERS} ${SOURCES})
 target_link_libraries(${PROJECT_NAME}
-    -L../../AuthNetLib/ProudNetClient/build/ -lAuthNetClient
-    -L../../AuthNetLib/ProudNetServer/build/ -lAuthNetServer
-    -L../../PNLicenseSDK/build/ -lPNLicenseSdk
-    pthread
+    -lpthread
 )

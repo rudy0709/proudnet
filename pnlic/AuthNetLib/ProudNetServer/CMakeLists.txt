@@ -3,27 +3,27 @@ project(AuthNetServer)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCES
+file(GLOB SOURCES
     ../src/acrimpl_s.cpp
-    ../src/AdoWrap.cpp
-    ../src/AgentConnector.cpp
+    #../src/AdoWrap.cpp
+    #../src/AgentConnector.cpp
     ../src/Base64.cpp
-    ../src/DbCache2Isolate.cpp
-    ../src/dbcacheclient2blocked.cpp
-    ../src/DbCacheClient2Impl.cpp
-    ../src/dbcacheclient2load.cpp
-    ../src/DBCacheJob.cpp
-    ../src/DbCacheObject.cpp
-    ../src/DbCacheServer2Impl.cpp
-    ../src/dbcacheserver2load.cpp
-    ../src/DbConfig.cpp
-    ../src/DbLoadedData.cpp
-    ../src/DbLoadedData2.cpp
-    ../src/dbloadeddata2_s.cpp
-    ../src/DbLogWriter.cpp
-    ../src/DbLogWriterImpl.cpp
-    ../src/DumpServer.cpp
-    ../src/EmergencyLogServer.cpp
+    #../src/DbCache2Isolate.cpp
+    #../src/dbcacheclient2blocked.cpp
+    #../src/DbCacheClient2Impl.cpp
+    #../src/dbcacheclient2load.cpp
+    #../src/DBCacheJob.cpp
+    #../src/DbCacheObject.cpp
+    #../src/DbCacheServer2Impl.cpp
+    #../src/dbcacheserver2load.cpp
+    #../src/DbConfig.cpp
+    #../src/DbLoadedData.cpp
+    #../src/DbLoadedData2.cpp
+    #../src/dbloadeddata2_s.cpp
+    #../src/DbLogWriter.cpp
+    #../src/DbLogWriterImpl.cpp
+    #../src/DumpServer.cpp
+    #../src/EmergencyLogServer.cpp
     ../src/FallbackableUdpLayer_S.cpp
     ../src/HlaEntityImpl_S.cpp
     ../src/HlaSessionHostImpl_S.cpp
@@ -36,7 +36,7 @@ set(SOURCES
     ../src/NetServerStartup.cpp
     ../src/NetServerStats.cpp
     ../src/NetworkerThread_S.cpp
-    ../src/NTService.cpp
+    #../src/NTService.cpp
     ../src/OdbcByteData.cpp
     ../src/OdbcCommand.cpp
     ../src/OdbcCommandImpl.cpp
@@ -52,7 +52,6 @@ set(SOURCES
     ../src/P2PPair.cpp
     ../src/P2PPair_S.cpp
     ../src/P2P_S.cpp
-    ../src/pnguid-win32.cpp
     ../src/PropNode.cpp
     ../src/ReaderWriterMonitor.cpp
     ../src/ReaderWriterMonitorTester.cpp
@@ -65,19 +64,19 @@ set(SOURCES
     ../src/Variant.cpp
 )
 
-set(HEADERS
+file(GLOB HEADERS
     ../src/AgentConnector.h
     ../src/Base64.h
-    ../src/dbcacheclient2blocked.h
-    ../src/DbCacheClient2Impl.h
-    ../src/DBCacheJob.h
-    ../src/DbCacheObject.h
-    ../src/DbCacheServer2Impl.h
-    ../src/DbConfig.h
-    ../src/dbloadeddata2_s.h
-    ../src/DbLogWriterImpl.h
-    ../src/DumpServer.h
-    ../src/EmergencyLogServer.h
+    #../src/dbcacheclient2blocked.h
+    #../src/DbCacheClient2Impl.h
+    #../src/DBCacheJob.h
+    #../src/DbCacheObject.h
+    #../src/DbCacheServer2Impl.h
+    #../src/DbConfig.h
+    #../src/dbloadeddata2_s.h
+    #../src/DbLogWriterImpl.h
+    #../src/DumpServer.h
+    #../src/EmergencyLogServer.h
     ../src/FallbackableUdpLayer_S.h
     ../src/HlaEntityImpl_S.h
     ../src/HlaSessionHostImpl_S.h
@@ -96,18 +95,13 @@ set(HEADERS
     ../src/RCPair.h
     ../src/ReaderWriterMonitorTester.h
     ../src/RemoteClient.h
+    ../src/stdafx.h
     ../src/Tests.h
     ../src/TestUdpConnReset.h
     ../src/ThreadPoolImpl.h
 )
 
-# compile
-add_compile_options(
-    -fPIC
-    -W -Wall -Wextra
-    -O2
-    -std=c++11
-)
+# options
 add_definitions(
     -D__x86_64__
     -D__linux__
@@ -118,8 +112,17 @@ add_definitions(
     -DPROUDSRCCOPY
 )
 
+add_compile_options(
+    -fPIC
+    -W -Wall -Wextra
+#        -Wno-unused-parameter -Wno-unused-variable
+#        -Wno-comment -Wno-extra -Wno-ignored-qualifiers -Wno-reorder -Wno-unknown-pragmas -Wno-unused-but-set-variable
+    -O2
+    -std=c++11
+)
+
 # link
 add_library(${PROJECT_NAME} STATIC ${HEADERS} ${SOURCES})
 target_link_libraries(${PROJECT_NAME}
-    pthread
+    -lpthread
 )
