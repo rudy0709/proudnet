@@ -1,6 +1,6 @@
 #!/bin/bash
 
-projects=(all pnutils virtualizer authnet pnlic_mgr pnlic_sdk pnlic pnlic_auth_lib watermark pnlic_warn pnlic_hidden pnlic_auth_exe)
+projects=(all tools authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidden pnlic_auth)
 
 func_main() {
 	# 사용법을 출력해야 할 지를 검사합니다.
@@ -8,45 +8,69 @@ func_main() {
 	if [ $? == 1 ]; then
 		# 사용법을 출력합니다.
 		echo "Usage:"
-		echo "    pnlic_build.bat clean <all | pnutils | virtualizer | authnet | pnlic_mgr | pnlic_sdk | pnlic | pnlic_auth_lib | watermark | pnlic_warn | pnlic_hidden | pnlic_auth_exe>"
-		echo "    pnlic_build.bat build <all | pnutils | virtualizer | authnet | pnlic_mgr | pnlic_sdk | pnlic | pnlic_auth_lib | watermark | pnlic_warn | pnlic_hidden | pnlic_auth_exe>"
+		echo "    pnlic_build.bat clean <all | tools | authnet_lib | lic_auth_lib | pnlic_lib | pnlic_warn | pnlic_hidden | pnlic_auth>"
+		echo "    pnlic_build.bat build <all | tools | authnet_lib | lic_auth_lib | pnlic_lib | pnlic_warn | pnlic_hidden | pnlic_auth>"
 		return
 	fi
 
 	# 프로젝트 별로 빌드함수를 호출합니다.
-	func_process_library_pnutils $1 $2
-	#func_process_library_pidl $1 $2		# 리눅스에선 사용하지 않음
-	func_process_library_virtualizer $1 $2	#222-체크: 윈도우 환경에선 VirtualizerSDK64.lib 파일을 참조함
-	func_process_library_authnet $1 $2
-	func_process_library_pnlic_mgr $1 $2
-	func_process_library_pnlic_sdk $1 $2	#222-체크: 윈도우 환경에선 VirtualizerSDK64.lib 파일을 참조함
-	func_process_library_pnlic $1 $2
-	func_process_library_pnlic_auth_lib $1 $2
+	#   (1) 환경변수 체크
+	func_check_environment_variable
+
+	#   (2) Tool 빌드
+	func_process_library_tools $1 $2
+
+	#   (3) 공용 Library 빌드 (PNLicAuthServer.exe도 포함)
+	func_process_library_authnet_lib $1 $2
+	func_process_library_lic_auth_lib $1 $2
+	func_process_library_pnlic_lib $1 $2
+
+	#   (4) PNLicense 관련 .exe 빌드
+	func_process_library_pnlic_warn $1 $2
+	func_process_library_pnlic_hidden $1 $2
+	func_process_library_pnlic_auth $1 $2
 }
 
-func_process_library_pnutils() {
+func_check_environment_variable() {
+	# 환경변수가 등록되어 있는 지를 체크합니다.
+	if [ "${PN_BUILD_GCC_PATH}" == "" ]; then
+		# 예시 : /usr/bin/gcc
+		echo ">>>> Error : Register the PN_BUILD_GCC_PATH environment variable before executing the batch file."
+		return
+	fi
+
+	if [ "${PN_BUILD_GPP_PATH}" == "" ]; then
+		# 예시 : /usr/bin/g++
+		echo ">>>> Error : Register the PN_BUILD_GPP_PATH environment variable before executing the batch file."
+		return
+	fi
+
+	if [ "${CMAKE_MODULE_PATH}" == "" ]; then
+		# 예시 : /usr/local/cmake-3.25.0/bin/cmake
+		echo ">>>> Error : Register the CMAKE_MODULE_PATH environment variable before executing the batch file."
+		return
+	fi
+
+	echo ">>>> Environment-Variable(PN_BUILD_GCC_PATH) = ${PN_BUILD_GCC_PATH}"
+	echo ">>>> Environment-Variable(PN_BUILD_GPP_PATH) = ${PN_BUILD_GPP_PATH}"
+	echo ">>>> Environment-Variable(CMAKE_MODULE_PATH) = ${CMAKE_MODULE_PATH}"
+	echo ">>>>"
+}
+
+func_process_library_tools() {
 	if [ "$2" != "all" ]; then
-		if [ "$2" != "pnutils" ]; then
+		if [ "$2" != "tools" ]; then
 			return
 		fi
 	fi
 
-	func_compile_command "Tools/PnImageGen" $1
+	func_compile_command "Tools/ImageGen" $1
+	#func_compile_command "Tools/Pidl" $1		# 리눅스에선 사용하지 않음
 }
 
-func_process_library_virtualizer() {
+func_process_library_authnet_lib() {
 	if [ "$2" != "all" ]; then
-		if [ "$2" != "virtualizer" ]; then
-			return
-		fi
-	fi
-
-	func_compile_command "CodeVirtualizer" $1
-}
-
-func_process_library_authnet() {
-	if [ "$2" != "all" ]; then
-		if [ "$2" != "authnet" ]; then
+		if [ "$2" != "authnet_lib" ]; then
 			return
 		fi
 	fi
@@ -55,46 +79,62 @@ func_process_library_authnet() {
 	func_compile_command "AuthNetLib/ProudNetServer" $1
 }
 
-func_process_library_pnlic_mgr() {
+func_process_library_lic_auth_lib() {
 	if [ "$2" != "all" ]; then
-		if [ "$2" != "pnlic_mgr" ]; then
-			return
-		fi
-	fi
-
-	func_compile_command "PNLicenseManager" $1
-}
-
-func_process_library_pnlic_sdk() {
-	if [ "$2" != "all" ]; then
-		if [ "$2" != "pnlic_sdk" ]; then
-			return
-		fi
-	fi
-
-	func_compile_command "PNLicenseSDK" $1
-}
-
-func_process_library_pnlic() {
-	if [ "$2" != "all" ]; then
-		if [ "$2" != "pnlic" ]; then
-			return
-		fi
-	fi
-
-	func_compile_command "PNLicense" $1
-}
-
-func_process_library_pnlic_auth_lib() {
-	if [ "$2" != "all" ]; then
-		if [ "$2" != "pnlic_auth_lib" ]; then
+		if [ "$2" != "lic_auth_lib" ]; then
 			return
 		fi
 	fi
 
 	func_compile_command "LicAuthLib/PNLicAuthCommon" $1
 	func_compile_command "LicAuthLib/PNLicAuthClient" $1
-	#func_compile_command "LicAuthLib/PNLicAuthServer" $1	# AuthServer는 윈도우 전용임
+}
+
+func_process_library_pnlic_lib() {
+	if [ "$2" != "all" ]; then
+		if [ "$2" != "pnlic_lib" ]; then
+			return
+		fi
+	fi
+
+	func_compile_command "PNLicenseSDK" $1
+	func_compile_command "PNLicense" $1
+}
+
+func_process_library_pnlic_warn() {
+	if [ "$2" != "all" ]; then
+		if [ "$2" != "pnlic_warn" ]; then
+			return
+		fi
+	fi
+
+	if [ "$1" == "clean" ]; then
+		rm -f PNLicenseManager/PNLicenseWarningImage.inl
+	fi
+	func_compile_command "PNLicenseWarning" $1
+}
+
+func_process_library_pnlic_hidden() {
+	if [ "$2" != "all" ]; then
+		if [ "$2" != "pnlic_hidden" ]; then
+			return
+		fi
+	fi
+
+	if [ "$1" == "clean" ]; then
+		rm -f PNLicenseManager/PNLicenseHiddenImage.inl
+	fi
+	func_compile_command "PNLicenseHidden" $1
+}
+
+func_process_library_pnlic_auth() {
+	if [ "$2" != "all" ]; then
+		if [ "$2" != "pnlic_auth" ]; then
+			return
+		fi
+	fi
+
+	func_compile_command "PNLicenseAuth" $1
 }
 
 func_compile_command() {
@@ -102,20 +142,20 @@ func_compile_command() {
 
 	if [ "$2" == "clean" ]; then
 		# 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		echo ">>>> CommandLine : make -C $1/build/ clean"
+		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build $1/build/ --config Release --target clean"
 		echo ">>>> CommandLine : rm -rf $1/build/"
 		echo ">>>>"
 		echo ">>>> --------------------------------------------------"
-		make -C $1/build/ clean
+		${CMAKE_MODULE_PATH} --build $1/build/ --config Release --target clean
 		rm -rf $1/build/
 	elif [ "$2" == "build" ]; then
 		# 프로젝트를 빌드합니다.
-		echo ">>>> CommandLine : cmake -DCMAKE_BUILD_TYPE=Release -B $1/build/ ./"
-		echo ">>>> CommandLine : make -C $1/build/"
+		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S$1 -B$1/build/ $1/"
+		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build $1/build/ --config Release --target all"
 		echo ">>>>"
 		echo ">>>> --------------------------------------------------"
-		cmake -DCMAKE_BUILD_TYPE=Release -B $1/build/ $1/
-		make -C $1/build/
+		${CMAKE_MODULE_PATH} -G "Unix Makefiles" -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S$1 -B$1/build/ $1/
+		${CMAKE_MODULE_PATH} --build $1/build/ --config Release --target all
 	fi
 
 	echo ">>>> $1 =================================================="
