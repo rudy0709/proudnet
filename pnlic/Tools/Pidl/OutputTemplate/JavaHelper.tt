@@ -1,0 +1,21 @@
+﻿<#@ include file="AllHelper.tt"#>
+
+<#+ 
+    // method declaration statement을 생성하는 subprogram.
+    void MethodDecl(Parsed_Method mt)   
+    {
+#>
+<#=mt.m_name#>(int remote,com.nettention.proud.RmiContext rmiContext<#+ ParamDefs(mt,true);#>)
+<#+
+    }
+#>
+
+<#+ 
+    // method declaration statement을 생성하는 subprogram.
+    void MultiMethodDecl(Parsed_Method mt)   
+    {
+#>
+<#=mt.m_name#>(int[] remotes,com.nettention.proud.RmiContext rmiContext<#+ ParamDefs(mt,true);#>)
+<#+
+    }
+#>
