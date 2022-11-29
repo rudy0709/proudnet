@@ -30,8 +30,8 @@ func_main() {
 	func_process_library_pnlic_hidden $1 $2
 	func_process_library_pnlic_auth $1 $2
 
-	#   (5) Watermark 관련 .lib/.dll 빌드 - 리눅스 환경에선 빌드하지 않음
-	#func_process_library_watermark $1 $2
+	#   (5) Watermark 관련 .lib/.dll 빌드
+	#func_process_library_watermark $1 $2			# 리눅스 환경에선 빌드하지 않음
 }
 
 func_check_environment_variable() {
@@ -68,7 +68,7 @@ func_process_library_tools() {
 	fi
 
 	func_compile_command "Tools/ImageGen" $1
-	#func_compile_command "Tools/Pidl" $1		# 리눅스에선 사용하지 않음
+	#func_compile_command "Tools/Pidl" $1			# 리눅스 환경에선 빌드하지 않음
 }
 
 func_process_library_authnet_lib() {
@@ -139,6 +139,7 @@ func_process_library_pnlic_auth() {
 	fi
 
 	func_compile_command "PNLicenseAuth" $1
+	#func_compile_command "PNLicenseAuthGui" $1		# 리눅스 환경에선 빌드하지 않음
 }
 
 func_compile_command() {
