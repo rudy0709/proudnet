@@ -166,7 +166,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PNLICENSESDK_STATIC;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -209,7 +209,7 @@ popd
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PNLICENSESDK_STATIC;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -252,7 +252,7 @@ popd
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PNLICENSESDK_STATIC;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -295,7 +295,7 @@ popd
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PNLICENSESDK_STATIC;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -338,7 +338,7 @@ popd
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CONSOLE;_WINSOCKAPI_;PNLICENSESDK_STATIC;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -388,7 +388,7 @@ popd
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CONSOLE;_WINSOCKAPI_;PNLICENSESDK_STATIC;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -438,7 +438,7 @@ popd
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;NDEBUG;_CONSOLE;_WINSOCKAPI_;PNLICENSESDK_STATIC;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -488,7 +488,7 @@ popd
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;NDEBUG;_CONSOLE;_WINSOCKAPI_;PNLICENSESDK_STATIC;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>

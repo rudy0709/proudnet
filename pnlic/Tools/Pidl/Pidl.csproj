@@ -67,6 +67,11 @@
     </Compile>
     <Compile Include="BaseTemplate.cs" />
     <Compile Include="ErrorTypeYaml.cs" />
+    <Compile Include="OutputTemplate\AllHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllHelper.tt</DependentUpon>
+    </Compile>
     <Compile Include="OutputTemplate\CppComponentImpl.cs">
       <DependentUpon>CppComponentImpl.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -76,6 +81,16 @@
       <DependentUpon>CppComponentDecl.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="OutputTemplate\CppHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CppHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutputTemplate\CSHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CSHelper.tt</DependentUpon>
     </Compile>
     <Compile Include="OutputTemplate\ErrorTypeCS.cs">
       <DependentUpon>ErrorTypeCS.tt</DependentUpon>
@@ -96,6 +111,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ErrorTypeInlH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutputTemplate\JavaHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JavaHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutputTemplate\UCHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UCHelper.tt</DependentUpon>
     </Compile>
     <Compile Include="Parsed.cs" />
     <Compile Include="Lang.cs" />
@@ -179,7 +204,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="OutputTemplate\AllHelper.tt" />
+    <None Include="OutputTemplate\AllHelper.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AllHelper.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </None>
     <None Include="OutputTemplate\CppCommonCpp.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CppCommonCpp.cs</LastGenOutput>
@@ -187,6 +216,8 @@
     </None>
     <None Include="OutputTemplate\CppHelper.tt">
       <CustomToolNamespace>PIDL</CustomToolNamespace>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CppHelper.cs</LastGenOutput>
     </None>
     <None Include="OutputTemplate\CSCommon.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -198,7 +229,11 @@
       <LastGenOutput>CppCommonH.cs</LastGenOutput>
       <CustomToolNamespace>PIDL</CustomToolNamespace>
     </None>
-    <None Include="OutputTemplate\CSHelper.tt" />
+    <None Include="OutputTemplate\CSHelper.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CSHelper.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </None>
     <None Include="OutputTemplate\JavaCommon.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>JavaCommon.cs</LastGenOutput>
@@ -219,13 +254,21 @@
       <LastGenOutput>CppProxyH.cs</LastGenOutput>
       <CustomToolNamespace>PIDL</CustomToolNamespace>
     </None>
-    <None Include="OutputTemplate\JavaHelper.tt" />
+    <None Include="OutputTemplate\JavaHelper.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>JavaHelper.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </None>
     <None Include="OutputTemplate\JavaProxy.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>JavaProxy.cs</LastGenOutput>
       <CustomToolNamespace>PIDL</CustomToolNamespace>
     </None>
-    <None Include="OutputTemplate\UCHelper.tt" />
+    <None Include="OutputTemplate\UCHelper.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UCHelper.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </None>
     <None Include="OutputTemplate\UCProxy.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UCProxy.cs</LastGenOutput>
