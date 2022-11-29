@@ -1,6 +1,6 @@
 @echo off
 
-set projects=all image_gen pidl authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidden pnlic_auth watermark
+set projects=all tools authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidden pnlic_auth watermark
 
 :main
 	@rem 사용법을 출력해야 할 지를 검사합니다.
@@ -8,8 +8,8 @@ set projects=all image_gen pidl authnet_lib lic_auth_lib pnlic_lib pnlic_warn pn
 	if "%errorlevel%" == "1" (
 		@rem 사용법을 출력합니다.
 		echo Usage:
-		echo     pnlic_build.bat clean ^<all ^| image_gen ^| pidl ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark^>
-		echo     pnlic_build.bat build ^<all ^| image_gen ^| pidl ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark^>
+		echo     pnlic_build.bat clean ^<all ^| tools ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark^>
+		echo     pnlic_build.bat build ^<all ^| tools ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark^>
 		exit /b
 	)
 
@@ -18,11 +18,9 @@ set projects=all image_gen pidl authnet_lib lic_auth_lib pnlic_lib pnlic_warn pn
 	call :check_environment_variable
 
 	@rem   (2) Tool 빌드
-	call :process_library_image_gen %1 %2
-	call :process_library_pidl %1 %2
+	call :process_library_tools %1 %2
 
-	@rem   (3) Library 빌드 (PNLicAuthServer.exe도 포함)
-	@rem call :process_library_virtualizer %1 %2
+	@rem   (3) 공용 Library 빌드 (PNLicAuthServer.exe도 포함)
 	call :process_library_authnet_lib %1 %2
 	call :process_library_lic_auth_lib %1 %2
 	call :process_library_pnlic_lib %1 %2
@@ -39,11 +37,13 @@ exit /b
 :check_environment_variable
 	@rem 환경변수가 등록되어 있는 지를 체크합니다.
 	if "%PN_BUILD_PATH%" == "" (
+		@rem 예시 : C:\Program Files\Microsoft Visual Studio\2022\Professional\Msbuild\Current\Bin\MSBuild.exe
 		echo ^>^>^>^> Error : Register the PN_BUILD_PATH environment variable before executing the batch file.
 		exit /b
 	)
 
 	if "%PN_SIGN_TOOL_PATH%" == "" (
+		@rem 예시 : C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe
 		echo ^>^>^>^> Error : Register the PN_SIGN_TOOL_PATH environment variable before executing the batch file.
 		exit /b
 	)
@@ -53,9 +53,9 @@ exit /b
 	echo ^>^>^>^>
 exit /b
 
-:process_library_image_gen
+:process_library_tools
 	if not "%2" == "all" (
-		if not "%2" == "image_gen" (
+		if not "%2" == "tools" (
 			exit /b
 		)
 	)
@@ -65,44 +65,17 @@ exit /b
 		call :compile_command ".\Tools\ImageGen\ImageGen.vcxproj" clean Release_static_CRT x64
 		rd /s /q .\Tools\ImageGen\bin\
 		rd /s /q .\Tools\ImageGen\obj\
-	) else if "%1" == "build" (
-		@rem ImageGen 프로젝트를 빌드합니다.
-		call :compile_command ".\Tools\ImageGen\ImageGen.vcxproj" build Release_static_CRT x64
-	)
-exit /b
 
-:process_library_pidl
-	if not "%2" == "all" (
-		if not "%2" == "pidl" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
 		@rem PIDL 컴파일러 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
 		call :compile_command ".\Tools\PIDL\PIDL.csproj" clean Release AnyCPU
 		rd /s /q .\Tools\PIDL\bin\
 		rd /s /q .\Tools\PIDL\obj\
 	) else if "%1" == "build" (
+		@rem ImageGen 프로젝트를 빌드합니다.
+		call :compile_command ".\Tools\ImageGen\ImageGen.vcxproj" build Release_static_CRT x64
+
 		@rem PIDL 컴파일러 프로젝트를 빌드합니다.
 		call :compile_command ".\Tools\PIDL\PIDL.csproj" build Release AnyCPU
-	)
-exit /b
-
-:process_library_virtualizer
-	if not "%2" == "all" (
-		if not "%2" == "virtualizer" (
-			exit /b
-		)
-	)
-	if "%1" == "clean" (
-		@rem CodeVirtualizer 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\CodeVirtualizer\CodeVirtualizer.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\CodeVirtualizer\bin\
-		rd /s /q .\CodeVirtualizer\obj\
-	) else if "%1" == "build" (
-		@rem CodeVirtualizer 프로젝트를 빌드합니다.
-		call :compile_command ".\CodeVirtualizer\CodeVirtualizer.vcxproj" build Release_static_CRT x64
 	)
 exit /b
 
@@ -182,10 +155,10 @@ exit /b
 	)
 
 	if "%1" == "clean" (
-@rem		@rem PNLicenseManager 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-@rem		call :compile_command ".\PNLicenseManager\PNLicenseManager.vcxproj" clean Release_static_CRT x64
-@rem		rd /s /q .\PNLicenseManager\bin\
-@rem		rd /s /q .\PNLicenseManager\obj\
+		@rem PNLicenseManager 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
+		call :compile_command ".\PNLicenseManager\PNLicenseManager.vcxproj" clean Release_static_CRT x64
+		rd /s /q .\PNLicenseManager\bin\
+		rd /s /q .\PNLicenseManager\obj\
 
 		@rem PNLicenseSdk 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
 		call :compile_command ".\PNLicenseSdk\PNLicenseSdk.vcxproj" clean Release_static_CRT x64
@@ -197,8 +170,8 @@ exit /b
 		rd /s /q .\PNLicense\bin\
 		rd /s /q .\PNLicense\obj\
 	) else if "%1" == "build" (
-@rem		@rem PNLicenseManager 프로젝트를 빌드합니다.
-@rem		call :compile_command ".\PNLicenseManager\PNLicenseManager.vcxproj" build Release_static_CRT x64
+		@rem PNLicenseManager 프로젝트를 빌드합니다.
+		call :compile_command ".\PNLicenseManager\PNLicenseManager.vcxproj" build Release_static_CRT x64
 
 		@rem PNLicenseSdk 프로젝트를 빌드합니다.
 		call :compile_command ".\PNLicenseSdk\PNLicenseSdk.vcxproj" build Release_static_CRT x64
@@ -220,6 +193,7 @@ exit /b
 		call :compile_command ".\PNLicenseWarning\PNLicenseWarning.vcxproj" clean Release_static_CRT x64
 		rd /s /q .\PNLicenseWarning\bin\
 		rd /s /q .\PNLicenseWarning\obj\
+		del /f ..\PNLicenseManager\PNLicenseWarningImage.inl
 	) else if "%1" == "build" (
 		@rem PNLicenseWarning 프로젝트를 빌드합니다.
 		call :compile_command ".\PNLicenseWarning\PNLicenseWarning.vcxproj" build Release_static_CRT x64

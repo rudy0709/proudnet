@@ -20,7 +20,7 @@ func_main() {
 	#   (2) Tool 빌드
 	func_process_library_tools $1 $2
 
-	#   (3) 공용 Library 빌드 (PNLicAuthServer.exe도 포함)
+	#   (3) 공용 Library 빌드
 	func_process_library_authnet_lib $1 $2
 	func_process_library_lic_auth_lib $1 $2
 	func_process_library_pnlic_lib $1 $2
@@ -29,6 +29,9 @@ func_main() {
 	func_process_library_pnlic_warn $1 $2
 	func_process_library_pnlic_hidden $1 $2
 	func_process_library_pnlic_auth $1 $2
+
+	#   (5) Watermark 관련 .lib/.dll 빌드 - 리눅스 환경에선 빌드하지 않음
+	#func_process_library_watermark $1 $2
 }
 
 func_check_environment_variable() {
@@ -97,6 +100,7 @@ func_process_library_pnlic_lib() {
 		fi
 	fi
 
+	func_compile_command "PNLicenseManager" $1
 	func_compile_command "PNLicenseSDK" $1
 	func_compile_command "PNLicense" $1
 }
