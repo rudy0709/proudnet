@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include "Vars.h"
+#include "../../../version/PNVersion.h"
 
 PNGUID uuid = { 0xabf9ab5, 0xd8b6, 0x4af4, { 0xae, 0x55, 0x38, 0x12, 0x21, 0x9b, 0x34, 0x6c } };
 
@@ -9,4 +10,4 @@ String g_serverIp = _PNT("52.78.194.36");  //2022.11.10 : _PNT("52.78.40.135");
 String g_serverHostName = _PNT("auth2.nettention.com");
 int g_port = 80;
 Guid g_protocolVersion = Guid(uuid);
-//const char* g_ProudNetVersion = "HERE_SHALL_BE_EDITED_BY_BUILD_HELPER";
+const char* g_ProudNetVersion = Proud::g_versionText/*"HERE_SHALL_BE_EDITED_BY_BUILD_HELPER"*/;

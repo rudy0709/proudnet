@@ -13,4 +13,4 @@ extern Proud::String g_serverIp;
 extern Proud::String g_serverHostName;
 extern int g_port;
 extern Proud::Guid g_protocolVersion;
-//extern const char* g_ProudNetVersion;
+extern const char* g_ProudNetVersion;
