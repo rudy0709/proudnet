@@ -17,7 +17,7 @@ file(GLOB SOURCES
     ../src/CriticalSect.cpp
     ../src/CryptoAes.cpp
     ../src/CryptoFast.cpp
-    ../src/CryptoRC4.cpp
+    ../src/CryptoRc4.cpp
     ../src/CryptoRsa.cpp
     ../src/CustomValueEventQueue.cpp
     ../src/DefaultStringEncoder.cpp
