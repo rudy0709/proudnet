@@ -5,11 +5,11 @@ set(CMAKE_CXX_STANDARD 11)
 
 file(GLOB SOURCES
     ImageGen.cpp
-    ../../../version/PNVersion.cpp
+    ../../version/PNVersion.cpp
 )
 
 file(GLOB HEADERS
-    ../../../version/PNVersion.h
+    ../../version/PNVersion.h
 )
 
 # options

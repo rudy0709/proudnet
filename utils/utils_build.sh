@@ -15,6 +15,79 @@ func_main() {
 		echo "    ${filename} build <all | code-virtualizer | image-gen | pidl-compiler>"
 		return
 	fi
+
+	# 프로젝트 별로 빌드함수를 호출합니다.
+	#   (1) 환경변수 체크
+	func_check_environment_variable
+
+	#   (2) CodeVirtualizer 프로젝트 빌드
+	func_build_project_code_virtualizer $1 $2
+
+	#   (3) ImageGen 프로젝트 빌드
+	func_build_project_image_gen $1 $2
+
+	##   (4) Pidl 컴파일러 프로젝트 빌드
+	func_build_project_pidl_compiler $1 $2
+}
+
+func_check_environment_variable() {
+	# 환경변수가 등록되어 있는 지를 체크합니다.
+	if [ "${PN_BUILD_GCC_PATH}" == "" ]; then
+		# 예시 : /usr/bin/gcc
+		echo ">>>> Error : Register the PN_BUILD_GCC_PATH environment variable before executing the batch file."
+		return
+	fi
+
+	if [ "${PN_BUILD_GPP_PATH}" == "" ]; then
+		# 예시 : /usr/bin/g++
+		echo ">>>> Error : Register the PN_BUILD_GPP_PATH environment variable before executing the batch file."
+		return
+	fi
+
+	if [ "${CMAKE_MODULE_PATH}" == "" ]; then
+		# 예시 : /usr/local/cmake-3.25.0/bin/cmake
+		echo ">>>> Error : Register the CMAKE_MODULE_PATH environment variable before executing the batch file."
+		return
+	fi
+
+	echo ">>>> Environment-Variable(PN_BUILD_GCC_PATH) = ${PN_BUILD_GCC_PATH}"
+	echo ">>>> Environment-Variable(PN_BUILD_GPP_PATH) = ${PN_BUILD_GPP_PATH}"
+	echo ">>>> Environment-Variable(CMAKE_MODULE_PATH) = ${CMAKE_MODULE_PATH}"
+	echo ">>>>"
+}
+
+func_build_project_code_virtualizer() {
+	if [ "$2" != "all" ]; then
+		if [ "$2" != "code-virtualizer" ]; then
+			return
+		fi
+	fi
+
+	func_compile_command "CodeVirtualizer" $1
+}
+
+func_build_project_image_gen() {
+	if [ "$2" != "all" ]; then
+		if [ "$2" != "image-gen" ]; then
+			return
+		fi
+	fi
+
+	func_compile_command "ImageGen" $1
+}
+
+func_build_project_pidl_compiler() {
+	if [ "$2" != "all" ]; then
+		if [ "$2" != "pidl-compiler" ]; then
+			return
+		fi
+	fi
+
+	#func_compile_command "Pidl" $1
+	echo ">>>> 'PIDL 컴파일러' =================================================="
+	echo ">>>> 윈도우 환경에서 생성된 .pidl 파일의 결과물을 사용하기 때문에 'PIDL 컴파일러' 프로젝트를 빌드하지 않습니다."
+	echo ">>>> 'PIDL 컴파일러' =================================================="
+	echo ""
 }
 
 func_compile_command() {
