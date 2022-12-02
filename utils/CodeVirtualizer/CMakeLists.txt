@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(CodeVirtualizer)
 
-set(CUSTOM_VMS
+file(GLOB CUSTOM_VMS
     ./custom_vms/fish32_black.vm
     ./custom_vms/fish32_red.vm
     ./custom_vms/fish32_white.vm
@@ -28,7 +28,11 @@ set(CUSTOM_VMS
     ./custom_vms/tiger64_white.vm
 )
 
-set(HEADERS
+file(GLOB SOURCES
+    ./StealthMode/C/StealthExample.c
+)
+
+file(GLOB HEADERS
     ./Include/C/VirtualizerSDK.h
     ./Include/C/VirtualizerSDK_BorlandC_inline.h
     ./Include/C/VirtualizerSDK_CustomVMs.h
@@ -65,7 +69,7 @@ add_definitions(
 )
 
 # link
-add_library(${PROJECT_NAME} STATIC ${HEADERS} ${CUSTOM_VMS})
+add_library(${PROJECT_NAME} STATIC ${CUSTOM_VMS} ${HEADERS} ${SOURCES})
 target_link_libraries(${PROJECT_NAME}
     pthread
 )
