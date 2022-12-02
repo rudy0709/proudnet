@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_static_CRT|Win32">
+      <Configuration>Debug_static_CRT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_static_CRT|x64">
+      <Configuration>Debug_static_CRT</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_static_CRT|Win32">
+      <Configuration>Release_static_CRT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_static_CRT|x64">
+      <Configuration>Release_static_CRT</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{8c2a2eb8-c3df-4efa-b753-a15dd44665e2}</ProjectGuid>
+    <RootNamespace>ImageGen</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>@rem 환경변수가 등록되어 있는 지를 체크합니다.
+if "%PN_BUILD_PATH%" == "" (
+    echo #### Error : PN_BUILD_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+    exit /b
+)
+
+if "%PN_SIGN_TOOL_PATH%" == "" (
+    echo #### Error : PN_SIGN_TOOL_PATH 환경변수를 등록해 주세요.
+    echo ####   기본값 : "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+    exit /b
+)
+
+@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+set util_path=$(ProjectDir)..\
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+if not exist "%util_path%\nuget.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+)
+
+@rem NuGet 패키지를 다운로드 받습니다.
+set pkg_path=$(ProjectDir)..\packages
+set pkg_flag=F
+
+if not exist "%pkg_path%\Antlr4.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.CodeGenerator.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\Antlr4.Runtime.4.6.6\" (
+    set pkg_flag=T
+)
+if not exist "%pkg_path%\YamlDotNet.12.0.2\" (
+    set pkg_flag=T
+)
+
+if "%pkg_flag%" == "T" (
+    pushd .\
+    cd $(ProjectDir)..\Pidl\
+    %util_path%\nuget.exe restore -PackagesDirectory "%pkg_path%"
+    popd
+)
+
+@rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\CodeVirtualizer
+
+if not exist "%util_path%" (
+    mkdir "%util_path%"
+)
+
+if not exist "%util_path%\Virtualizer.exe" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%util_path%\CodeVirtualizer-v2.2.2.zip')"
+    powershell "(Expand-Archive -Path %util_path%\CodeVirtualizer-v2.2.2.zip -DestinationPath %util_path%)"
+    del /f /q "%util_path%\CodeVirtualizer-v2.2.2.zip"
+)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\version\PNVersion.cpp" />
+    <ClCompile Include="ImageGen.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\version\PNVersion.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

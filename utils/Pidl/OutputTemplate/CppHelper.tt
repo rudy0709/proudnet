@@ -1,0 +1,123 @@
+﻿<#@ include file="AllHelper.tt" #>
+
+
+<#+ 
+// method declaration statement을 생성하는 subprogram. 
+// includeName이 false이면 name은 빼고 출력한다. 
+// PS4 C++에서 일부 컴파일러가 안 쓰이는 변수명이 있으면 경고를 내는걸 막기 위함.
+void MethodDecl(Parsed_Method method, bool includeName)
+{
+#>
+<#= method.m_name #> <#+ MethodParam(method, includeName); #>
+<#+
+}
+#>
+
+<#+ // method declaration statement을 생성하는 subprogram. 
+void MultiMethodDecl(Parsed_Method method)
+{
+#>
+<#=method.m_name#> <#+ MultiMethodParam(method); #>
+<#+
+}
+#>
+
+<#+
+void MethodParam(Parsed_Method method, bool includeName)
+{
+	if(includeName)
+		Write("( ::Proud::HostID remote, ::Proud::RmiContext& rmiContext ");
+	else
+		Write("( ::Proud::HostID, ::Proud::RmiContext& ");
+	ParamDefs_cpp(method, true, includeName);
+	Write(")");
+} 
+#>
+
+<#+
+void MultiMethodParam(Parsed_Method method)
+{
+#>
+( ::Proud::HostID *remotes, int remoteCount, ::Proud::RmiContext &rmiContext<#+ParamDefs_cpp(method, true, true);#>)  <#+
+} 
+#>
+
+<#+
+// parameter definition을 콤마를 사이에 두고 출력한다. e.g. `int a,int b,int c`
+void ParamDefs_cpp(Parsed_Method method, bool startWithComma, bool includeName)
+{
+    int i=0;
+    foreach(Parsed_Param pa in method.m_params)            
+    {   
+		// ikpil.choi 2017-03-02 : 각 토큰 기입 후 무조건 한칸 띄우는 규칙으로 기준 정립, 마지막 var name 토큰은 띄우지 않는다.
+        if(startWithComma || i > 0) Write(", ");
+        if(false == pa.m_paramAttrs.HasType(ParamAttrType.Mutable)) Write("const ");
+
+        Write($"{pa.m_type} ");
+
+        if(true == pa.m_paramAttrs.HasType(ParamAttrType.Ref)) Write("& ");
+
+        if(includeName)
+        {
+            Write(pa.m_name);
+        }
+        i++;
+    }
+}
+#>
+
+<#+ 
+// RMI name declaration.
+// It is the unique pointer that indicates RMI name such as RMI profiler.
+void DeclRmiNames(string postfix, Parsed_GlobalInterface gi)
+{
+    foreach(var mt in gi.m_methods)
+    {
+#>
+static const PNTCHAR* RmiName_<#=mt.m_name#>;
+<#+ 
+    } // for each method #>
+static const PNTCHAR* RmiName_First;
+<#+
+}
+#>
+
+<#+
+// RMI name definition.
+// It is the unique pointer that indicates RMI name such as RMI profiler.
+void DefRmiNames_cpp(string postfix, Parsed_GlobalInterface gi)
+{
+    foreach(var mt in gi.m_methods)
+    {
+#>
+#ifdef USE_RMI_NAME_STRING
+const PNTCHAR* <#=postfix#>::RmiName_<#=mt.m_name#> =_PNT("<#=mt.m_name#>");
+#else
+const PNTCHAR* <#=postfix#>::RmiName_<#=mt.m_name#> =_PNT("");
+#endif
+<#+ 
+    } // for each method 
+#>
+const PNTCHAR* <#=postfix#>::RmiName_First = <#=gi.GetFirstRmiNameOrNone("RmiName_", "_PNT(", ")" )#>;
+<#+
+}
+#>
+
+<#+ void MakeParameterText(string parameterString,Parsed_Method mt) 
+	{
+		int count=0;
+		foreach(var p in mt.m_params)
+		{
+			if(count > 0)
+			{
+#>				
+parameterString += _PNT(", ");
+<#+
+			}
+#>
+::Proud::AppendTextOut(parameterString,<#=p.m_name#>);	
+<#+
+			count++;
+		}
+	}
+#>

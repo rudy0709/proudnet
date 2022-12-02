@@ -40,5 +40,15 @@ obj/
 out/
 packages/
 tmp/
-utils/CodeVirtualizer/
+utils/CodeVirtualizer/Examples/
+utils/CodeVirtualizer/Lib/
+utils/CodeVirtualizer/languages/
+utils/CodeVirtualizer/CVlicense*
+utils/CodeVirtualizer/CVlog.txt
+utils/CodeVirtualizer/Code Virtualizer Help.chm
+utils/CodeVirtualizer/LICENSE.TXT
+utils/CodeVirtualizer/ProtectProudNet.bat
+utils/CodeVirtualizer/ProtectionFinishes.wav
+utils/CodeVirtualizer/ProudNet.cv
+utils/CodeVirtualizer/Virtualizer.ini
 utils/nuget.exe
