@@ -46,16 +46,13 @@ namespace PIDL
             var cppHText = new ErrorTypeH().TransformText();
 
             Console.WriteLine("Generating ErrorType.h...");
-            File.WriteAllText(Path.Combine(cppSourceDir, @"..\include\ErrorType.h"), cppHText, Encoding.UTF8);
+            File.WriteAllText(Path.Combine(cppSourceDir, @"..\include\ErrorType.h".Replace('\\', Path.DirectorySeparatorChar)), cppHText, Encoding.UTF8);
 
             Console.WriteLine("Generating ErrorTypeOldSpec.h...");
-            File.WriteAllText(Path.Combine(cppSourceDir, @"..\include\ErrorTypeOldSpec.h"), new ErrorTypeHOldSpec().TransformText(), Encoding.UTF8);
+            File.WriteAllText(Path.Combine(cppSourceDir, @"..\include\ErrorTypeOldSpec.h".Replace('\\', Path.DirectorySeparatorChar)), new ErrorTypeHOldSpec().TransformText(), Encoding.UTF8);
 
             Console.WriteLine("Generating ErrorType.inl...");
             File.WriteAllText(Path.Combine(cppSourceDir, @"ErrorType.inl"), new ErrorTypeInlH().TransformText(), Encoding.UTF8);
-
-            Console.WriteLine("Generating ErrorType.cs...");
-            File.WriteAllText(Path.Combine(cppSourceDir, @"ErrorType.cs"), new ErrorTypeCS().TransformText(), Encoding.UTF8);
 
             return 0;
         }

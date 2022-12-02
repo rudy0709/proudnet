@@ -21,31 +21,13 @@ namespace PIDL
         public Parsed_ParamAttrs m_paramAttrs = new Parsed_ParamAttrs();
         public string m_type;
         public string m_name;
+
     }
-
-    public class Parsed_Field
-    {
-        public Parsed_AttrList m_attrList = new Parsed_AttrList();
-        public string m_type;
-        public string m_name;
-        public string m_defaultValue;
-
-        // "= xxxx" 혹은 ""를 리턴.
-        public string GetOptionalDefaultValueAssignStatement()
-        {
-            if (m_defaultValue != null)
-            {
-                return " = " + m_defaultValue;
-            }
-            else
-                return "";
-        }
-    }
-
 
     public class Parsed_ParamAttr
     {
         public ParamAttrType m_type = ParamAttrType.None;
+
     }
 
     public class Parsed_ParamAttrs : List<Parsed_ParamAttr>

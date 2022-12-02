@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Antlr4.Runtime;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,19 +9,16 @@ namespace PIDL
 {
     public class Parsed_Root
     {
+        // 사용자가 정의한 RMI 함수 그룹
         public List<Parsed_GlobalInterface> m_globalInterfaces = new List<Parsed_GlobalInterface>();
+
         public Parsed_Usings m_imports = new Parsed_Usings();
         public Parsed_Usings m_usings = new Parsed_Usings();
         public Parsed_Usings m_includes = new Parsed_Usings();
         public Parsed_PackageDef m_package; // java나 actionscript에서 파일당 1회 선언되는 package name
-        public List<Parsed_Component> m_components = new List<Parsed_Component>();
 
-        public List<string> m_codeSnippets = new List<string>();
-
-        // Component 안에 멤버 함수들이 어떤 dllexport 매크로를 써야 하는지가 여기 정해진다.
-        public string m_dllExportMacroName = "";
-
-        public Parsed_Module m_module = null;
+        public List<Parsed_Class> m_classes = new List<Parsed_Class>();
+        public List<Parsed_Enum> m_enums = new List<Parsed_Enum>();
 
         // 파싱 결과물을 출력 파일 만들기를 하기 쉽게 정리해준다.
         public void RefineParsed()
@@ -49,8 +46,6 @@ namespace PIDL
                 if (gi.m_accessibility == null)
                     gi.m_accessibility = "internal";
             }
-
-            m_dllExportMacroName = App.m_dllExportMacroName;
         }
     }
 
@@ -108,49 +103,27 @@ namespace PIDL
         // 없으면 => 리턴값 예: _PNT("")
         public string GetFirstRmiNameOrNone(string prefix, string stringLiteralPrefix, string stringLiteralPostfix)
         {
-            if (m_methods.Count == 0)
+            if(m_methods.Count == 0)
             {
-                return stringLiteralPrefix + "\"\"" + stringLiteralPostfix;
+                return stringLiteralPrefix + "\"\""+stringLiteralPostfix;
             }
             else
                 return prefix + m_methods[0].m_name;
         }
 
         // xx_xxx 형태로 만든다.
-        public string GetUnderbarizedName()
-        {
-            return m_name.Replace(".", "_").Replace("::", "_");
+        public string GetUnderbarizedName() {
+            return m_name.Replace(".", "_").Replace("::","_");
         }
 
-        string[] tokens = { ".", "::" };
-
-        // C++에서는 namespace xx::xx { 대신 namespace xx { namespace xx {  이렇게 해줘야 하위호환이 된다.
-        // 이러한 형태로 만들어준다.
         public string GetCppNestedNamespaceDefinition()
         {
-            var names = m_name.Split(tokens, StringSplitOptions.RemoveEmptyEntries);
-
-            string ret = "";
-            foreach (var name in names)
-            {
-                // C# 6.0 보간 문자열 표현식으로 변경
-                ret += $"namespace {name} {{";
-                ret += Environment.NewLine;
-            }
-            return ret;
+            return App.GetCppNestedNamespaceDefinition(m_name, false/*여기서는 class name이 없이 순수 namespace 이름만 갖고 있어서*/);
         }
         // 위 함수의 반대 역할. 즉 } } 같은걸 만든다.
         public string GetCppNestedNamespaceDefinitionEnd()
         {
-            var names = m_name.Split(tokens, StringSplitOptions.RemoveEmptyEntries);
-
-            string ret = "";
-            foreach (var name in names)
-            {
-                ret += "}";
-                ret += Environment.NewLine;
-            }
-            return ret;
+            return App.GetCppNestedNamespaceDefinitionEnd(m_name, false/*여기서는 class name이 없이 순수 namespace 이름만 갖고 있어서*/);
         }
     }
 
@@ -197,7 +170,7 @@ namespace PIDL
         public string m_messageID;
 
         // [id=12345] 등, method 별 추가된 attribute에 대한 처리를 한다.
-        public void ProcessAttribute(string name, string value)
+        public void ProcessAttribute(IToken start, string name, string value)
         {
             if (name.ToLower() == "id")
             {
@@ -205,7 +178,7 @@ namespace PIDL
             }
             else
             {
-                throw new Exception("Invalid attribute method. It must be id=xxxx or something.");
+                throw new PIDLException(start, "Invalid Method Attribute. It must be id=xxxx or something.");
             }
         }
     }
@@ -216,99 +189,4 @@ namespace PIDL
         public string m_name; // marshaler 클래스 이름
 
     }
-
-    // component xxxx { ... } 의 파싱 결과물
-    public class Parsed_Component
-    {
-        // 예: MyCompany.MyGame.Player
-        public string m_className;
-
-        // xxxx 앞단에 선언한 속성들 가령 TypeID가 여기 들어간다.
-        public Parsed_AttrList m_attrList;
-
-        // 멤버 변수들
-        public List<Parsed_Field> m_fields = new List<Parsed_Field>();
-
-        public List<string> m_codeSnippets = new List<string>();
-
-        public string GetNamespaceStartStatement()
-        {
-            string ret = "";
-            var namespaces = m_className.Split(new string[] { App.GetMemberSpecificationSymbol() }, StringSplitOptions.None);
-            for (int i = 0; i < namespaces.Length - 1; i++)
-            {
-                ret += "namespace " + namespaces[i] + " { ";
-            }
-
-            return ret;
-        }
-
-        public string GetNamespaceEndStatement()
-        {
-            string ret = "";
-            var namespaces = m_className.Split(new string[] { App.GetMemberSpecificationSymbol() }, StringSplitOptions.None);
-            for (int i = 0; i < namespaces.Length - 1; i++)
-            {
-                ret += " } ";
-            }
-
-            return ret;
-        }
-
-        // 예: MyCompany.MyGame.Player => Player
-        public string GetClassNameOnly()
-        {
-            var namespaces = m_className.Split(new string[] { App.GetMemberSpecificationSymbol() }, StringSplitOptions.None);
-            return namespaces[namespaces.Length - 1];
-        }
-
-        
-        public void CheckValidation()
-        {
-        }
-
-        // T::TypeID를 만든다. 
-        // MD5 hash의 첫 16바이트를 가져온다. 이것을 UUID 형태의 문자열로 표현한다.
-        // 예: {0x89d95cc3,0x4e1d,0x5173,{0x3c,0xea,0x1b,0x38,0xb3,0x93,0x85,0xb8}}
-        // 매우 낮은 확률로 다른 class 이름과 충돌한다.
-        public string GetTypeID()
-        {
-            StringBuilder sb = new StringBuilder();
-            using (SHA256 hash = SHA256Managed.Create())
-            {
-                var s1 = hash.ComputeHash(Encoding.ASCII.GetBytes(m_className));
-                var s2 = s1.Take(16).ToArray();
-                Guid g = new Guid(s2);
-                var s3 = g.ToString("X");
-                return s3;
-            }
-        }
-    }
-
-    public class Parsed_AttrList
-    {
-        // attr 들은 이 안에 들어간다. key는 attr의 name이다.
-        public Dictionary<string, Parsed_Attr> m_attrMap = new Dictionary<string, Parsed_Attr>();
-
-        public void Add(Parsed_Attr item)
-        {
-            m_attrMap.Add(item.m_name, item);
-        }
-    }
-
-    public class Parsed_Attr
-    {
-        // attr 이름
-        public string m_name;
-        // attr 속성. 가령 xxx(yyy)로 지정했으면 yyy가 여기 들어간다.
-        public string m_value;
-    }
-
-    public class Parsed_Module
-    {
-        // 모듈 이름
-        public string m_name;
-    }
-
-
 }

@@ -1,4 +1,4 @@
-﻿<#@ include file="AllHelper.tt" #>
+﻿<#@ include file="AllHelper.ttinclude" #>
 
 
 <#+ 
@@ -103,21 +103,4 @@ const PNTCHAR* <#=postfix#>::RmiName_First = <#=gi.GetFirstRmiNameOrNone("RmiNam
 }
 #>
 
-<#+ void MakeParameterText(string parameterString,Parsed_Method mt) 
-	{
-		int count=0;
-		foreach(var p in mt.m_params)
-		{
-			if(count > 0)
-			{
-#>				
-parameterString += _PNT(", ");
-<#+
-			}
-#>
-::Proud::AppendTextOut(parameterString,<#=p.m_name#>);	
-<#+
-			count++;
-		}
-	}
-#>
+

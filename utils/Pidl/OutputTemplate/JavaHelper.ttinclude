@@ -1,4 +1,4 @@
-﻿<#@ include file="AllHelper.tt"#>
+﻿<#@ include file="AllHelper.ttinclude"#>
 
 <#+ 
     // method declaration statement을 생성하는 subprogram.

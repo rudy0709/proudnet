@@ -2,38 +2,35 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("PIDL")]
-[assembly: AssemblyDescription("PIDL Compiler")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Nettention Co., Ltd.")]
-[assembly: AssemblyProduct("ProudNet")]
-[assembly: AssemblyCopyright("Copyright © Nettention Co., Ltd. All Rights Reserved.")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("PIDL")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
+// Setting ComVisible to false makes the types in this assembly not visible
+// to COM components.  If you need to access a type in this assembly from
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("66788690-042d-4191-a7db-005d353e27ee")]
+[assembly: Guid("cf24b0ec-9dab-4235-81ff-f89bdfb4f640")]
 
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
+// You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-
-// Embed ANTLR DLL (obfuscation 과정중에 수행 됨)
-[assembly: Obfuscation(Feature = "embed Antlr4.Runtime.dll", Exclude = false)]

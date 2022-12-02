@@ -16,7 +16,6 @@ namespace PIDL
         static public string m_ProxyCPPFileName, m_ProxyHFileName, m_ProxyCSFileName, m_StubCPPFileName, m_StubHFileName, m_StubCSFileName, m_StubERHFileName;
         static public string m_CommonHFileName, m_CommonCPPFileName, m_CommonCSFileName;
         static public string m_ProxyCPPFilePathName, m_ProxyHFilePathName, m_ProxyCSFilePathName, m_StubCPPFilePathName, m_StubHFilePathName, m_StubCSFilePathName, m_StubERHFilePathName;
-        static public string m_ComponentCPPDeclFilePathName, m_ComponentCPPImplFilePathName;
         static public string m_CommonHFilePathName, m_CommonCPPFilePathName, m_CommonCSFilePathName;
         static public string m_ProxyCPPFileNameWithoutExtension, m_ProxyHFileNameWithoutExtension, m_StubCPPFileNameWithoutExtension, m_StubHFileNameWithoutExtension;
         static public string m_CommonJavaFileName, m_CommonJavaFilePathName, m_CommonJavaFileNameWithoutExtension;
@@ -45,8 +44,6 @@ namespace PIDL
                 DeleteFile(m_StubHFilePathName);
                 DeleteFile(m_CommonCPPFilePathName);
                 DeleteFile(m_CommonHFilePathName);
-                DeleteFile(m_ComponentCPPDeclFilePathName);
-                DeleteFile(m_ComponentCPPImplFilePathName);
             }
             if (g_lang == Lang.CS)
             {
@@ -76,29 +73,36 @@ namespace PIDL
                 case Lang.CPP:
                     CreateOutputFile(m_CommonHFilePathName, new CppCommonH().TransformText());
                     CreateOutputFile(m_CommonCPPFilePathName, new CppCommonCpp().TransformText());
-                    CreateOutputFile(m_ProxyHFilePathName, new CppProxyH().TransformText());
-                    CreateOutputFile(m_ProxyCPPFilePathName, new CppProxyCpp().TransformText());
-                    CreateOutputFile(m_StubHFilePathName, new CppStubH().TransformText());
-                    CreateOutputFile(m_StubCPPFilePathName, new CppStubCpp().TransformText());
-                    if(App.g_parsed.m_components.Count>0)
+                    if (g_parsed.m_globalInterfaces.Count > 0)
                     {
-                        CreateOutputFile(m_ComponentCPPDeclFilePathName, new CppComponentDecl().TransformText());
-                        CreateOutputFile(m_ComponentCPPImplFilePathName, new CppComponentImpl().TransformText());
+                        CreateOutputFile(m_ProxyHFilePathName, new CppProxyH().TransformText());
+                        CreateOutputFile(m_ProxyCPPFilePathName, new CppProxyCpp().TransformText());
+                        CreateOutputFile(m_StubHFilePathName, new CppStubH().TransformText());
+                        CreateOutputFile(m_StubCPPFilePathName, new CppStubCpp().TransformText());
                     }
                     break;
                 case Lang.CS:
                     CreateOutputFile(m_CommonCSFilePathName, new CSCommon().TransformText());
-                    CreateOutputFile(m_ProxyCSFilePathName, new CSProxy().TransformText());
-                    CreateOutputFile(m_StubCSFilePathName, new CSStub().TransformText());
+                    if (g_parsed.m_globalInterfaces.Count > 0)
+                    {
+                        CreateOutputFile(m_ProxyCSFilePathName, new CSProxy().TransformText());
+                        CreateOutputFile(m_StubCSFilePathName, new CSStub().TransformText());
+                    }
                     break;
                 case Lang.JAVA:
                     CreateOutputFile(m_CommonJavaFilePathName, new JavaCommon().TransformText());
-                    CreateOutputFile(m_ProxyJavaFilePathName, new JavaProxy().TransformText());
-                    CreateOutputFile(m_StubJavaFilePathName, new JavaStub().TransformText());
+                    if (g_parsed.m_globalInterfaces.Count > 0)
+                    {
+                        CreateOutputFile(m_ProxyJavaFilePathName, new JavaProxy().TransformText());
+                        CreateOutputFile(m_StubJavaFilePathName, new JavaStub().TransformText());
+                    }
                     break;
                 case Lang.UC:
-                    CreateOutputFile(m_ProxyUCFilePathName, new UCProxy().TransformText());
-                    CreateOutputFile(m_StubUCFilePathName, new UCStub().TransformText());
+                    if (g_parsed.m_globalInterfaces.Count > 0)
+                    {
+                        CreateOutputFile(m_ProxyUCFilePathName, new UCProxy().TransformText());
+                        CreateOutputFile(m_StubUCFilePathName, new UCStub().TransformText());
+                    }
                     break;
                 default:
                     throw new Exception("Cannot generate files! Lang is undefined!");
@@ -226,15 +230,5 @@ namespace PIDL
 
             return ret.ToString();
         }
-
-        // Component 안에 멤버 함수들이 어떤 dllexport 매크로를 써야 하는지가 여기 정해진다.
-        static public string m_dllExportMacroName = "";
-
-        // dllexport에 사용되는 매크로 이름이 들어간다.
-        public static void SetExportDef(string macroName)
-        {
-            m_dllExportMacroName = macroName;
-        }
-
     }
 }

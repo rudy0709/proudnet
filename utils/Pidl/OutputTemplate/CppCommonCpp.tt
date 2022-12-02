@@ -42,3 +42,19 @@ foreach(var gi in App.g_parsed.m_globalInterfaces)
 <#
 }
 #>
+
+
+
+<#
+foreach(var classObj in App.g_parsed.m_classes)
+{
+	Write(App.GetCppNestedNamespaceDefinition(classObj.m_name, true));
+    foreach (var item in classObj.m_variables) 
+    {
+#>
+        <#=item.GetCppDefinitionStatement(classObj.m_name)#>        
+<#
+    }
+	Write(App.GetCppNestedNamespaceDefinitionEnd(classObj.m_name, true)); 
+} 
+#>

@@ -35,4 +35,74 @@ foreach(var gi in App.g_parsed.m_globalInterfaces)
 
 <#=gi.GetCppNestedNamespaceDefinitionEnd()#>
 
-<# } // for each 'include' #> 
+<# 
+} // for each 'globalInterface' 
+#> 
+
+// Forward declarations
+
+<# 
+// #PIDL_enum_and_class PIDL 파일에 class,enum 정의해놓은 것은 common file에 생성된다. 
+foreach(var enumObj in App.g_parsed.m_enums)           
+{
+	Write(App.GetCppNestedNamespaceDefinition(enumObj.m_name, true));
+#>
+	enum class <#=App.GetLeafName(enumObj.m_name)#>;
+<#
+	Write(App.GetCppNestedNamespaceDefinitionEnd(enumObj.m_name, true));
+}	    	          
+
+foreach(var classObj in App.g_parsed.m_classes)
+{
+	Write(App.GetCppNestedNamespaceDefinition(classObj.m_name, true));
+#>
+	class <#=App.GetLeafName(classObj.m_name)#>;
+<#
+	Write(App.GetCppNestedNamespaceDefinitionEnd(classObj.m_name, true));
+}	    	          
+#>
+
+// Declarations
+
+<#
+foreach(var enumObj in App.g_parsed.m_enums)
+{
+	Write(App.GetCppNestedNamespaceDefinition(enumObj.m_name, true));
+#>
+	enum class <#=App.GetLeafName(enumObj.m_name)#>
+	{
+<# 
+		foreach (var item in enumObj.m_items) 
+		{
+#>
+            <#=item.GetDefinitionStatement()#>,
+<#
+        }
+#>
+	};
+<#
+	Write(App.GetCppNestedNamespaceDefinitionEnd(enumObj.m_name, true)); 
+} 
+#>
+
+<#
+foreach(var classObj in App.g_parsed.m_classes)			
+{
+	Write(App.GetCppNestedNamespaceDefinition(classObj.m_name, true));
+#>
+	class <#=App.GetLeafName(classObj.m_name)#>
+	{
+<# 
+		foreach (var item in classObj.m_variables) 
+		{
+#>
+            <#=item.GetCppDeclarationStatement()#>
+<#
+        }
+#>
+	};
+<#
+	Write(App.GetCppNestedNamespaceDefinitionEnd(classObj.m_name, true)); 
+} 
+#>
+

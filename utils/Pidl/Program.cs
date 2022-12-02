@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Antlr4.Runtime;
+using System.Reflection;
+
+[assembly: Obfuscation(Feature = "embed Antlr4.Runtime.dll", Exclude = false)]
 
 namespace PIDL
 {
@@ -28,7 +31,7 @@ namespace PIDL
                 return 1;
             }
 
-            // TODO: 불법복제 방지 루틴을 여기 추가하자.
+            // 불법복제 방지 루틴을 구현하게 되면 여기다 구현하자. 
 
             // 실행 아규먼트를 분석한다.
             try
@@ -131,7 +134,7 @@ namespace PIDL
         static int ProcessPIDL(string inputFileFullPath, string outDir)
         {
             string fileName = null;
-            PIDLLexer lexer = null;
+            PIDLSpecLexer lexer = null;
             StreamReader ifileStream = null;
             try
             {
@@ -179,9 +182,6 @@ namespace PIDL
                 Util.ModifyFileName(inputFileFullPath, ("_stub"), (".uc"), outDirP, out App.m_StubUCFilePathName, out App.m_StubUCFileName, out App.m_StubUCFileNameWithoutExtension);
                 Util.ModifyFileName(inputFileFullPath, ("_stubER"), (".h"), outDirP, out App.m_StubERHFilePathName, out App.m_StubERHFileName, out tempExtName);
 
-                Util.ModifyFileName(inputFileFullPath, "", ".tlh", outDirP, out App.m_ComponentCPPDeclFilePathName, out tempExtName, out tempExtName);
-                Util.ModifyFileName(inputFileFullPath, "", ".tli", outDirP, out App.m_ComponentCPPImplFilePathName, out tempExtName, out tempExtName);
-
                 // 컴파일을 하기 전에 생성될 파일들을 먼저 지운다. 이미 있으면.
                 App.DeleteOutputFiles();
 
@@ -193,16 +193,16 @@ namespace PIDL
                 ifileStream = new StreamReader(inputFileFullPath);
                 fileName = Path.GetFileName(inputFileFullPath);
                 var input = new AntlrInputStream(ifileStream.ReadToEnd());
-                lexer = new PIDLLexer(input);
+                lexer = new PIDLSpecLexer(input);
                 //lexer.GrammarFileName = fileName;
                 var tokens = new CommonTokenStream(lexer);
-                var parser = new PIDLParser(tokens);
+                var parser = new PIDLSpecParser(tokens);
                 // parse error를 throw exception하게 한다. 이게 없으면 listener에서 처리해야 함.
-                parser.ErrorHandler = new BailErrorStrategy(); 
+                parser.ErrorHandler = new BailErrorStrategy();
                 //parser.GrammarFileName = fileName;
                 //parser.strateg(new ParseErrorListener());
                 var cp = parser.compilationUnit();
-                
+
                 App.g_parsed = cp.ret;
                 App.g_parsed.RefineParsed();
 
@@ -282,41 +282,24 @@ namespace PIDL
                 string token = e2.OffendingToken.Text;
                 int line = e2.OffendingToken.Line;
                 int column = e2.OffendingToken.Column;
-                Console.WriteLine("{0}({1},{2}): error: Syntax near {3}.", inputFileFullPath, line, column + 1, token);
+                Console.WriteLine($"{inputFileFullPath}({line},{column + 1}): error: Syntax near {token}.");
             }
-
-        /*    catch (Antlr4.Runtime. ANTLRException e)
-            {
-                string p1 = "", p3 = "??", p4 = "";
-                int p2;
-                p1 = fileName;
-                p2 = lexer.getLine();
-
-                try
-                {
-                    p3 = lexer.nextToken().getText();
-                }
-                catch (ANTLRException)
-                {
-                    // ignore it. leave p3.
-                }
-
-                p4 = e.what();
-                Console.WriteLine("{0}({1}): Syntax error near {2}. Error: {3}", p1, p2, p3, p4);
-                App.DeleteOutputFiles();
-
-                return 1;
-            }*/
             catch (RecognitionException e)
             {
-                Console.WriteLine(e.ToString());
-//                Console.WriteLine(fileName + ": " + e.ToString());
+                //Console.WriteLine(e.Message);                
+                Console.WriteLine(inputFileFullPath + ": " + e.Message);
                 App.DeleteOutputFiles();
                 return 1;
+            }
+            catch (PIDLException e)
+            {
+                int line = e.line;
+                int column = e.column;
+                Console.WriteLine($"{inputFileFullPath}({line},{column + 1}): {e.comment}");
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Console.WriteLine(e.Message);
                 App.DeleteOutputFiles();
                 return 1;
             }
@@ -328,7 +311,6 @@ namespace PIDL
 
             return 0;
         }
-        
 
     }
 

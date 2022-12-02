@@ -1,37 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.props" Condition="Exists('..\packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DE130CE4-95C2-4DB8-83B3-122C0496AD6D}</ProjectGuid>
+    <ProjectGuid>{CF24B0EC-9DAB-4235-81FF-F89BDFB4F640}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PIDL</RootNamespace>
     <AssemblyName>PIDL_UnProtect</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -43,9 +26,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>true</Prefer32Bit>
-    <NoWarn>3021</NoWarn>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -55,47 +35,62 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <NoWarn>3021</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup>
-    <RunPreBuildEvent>All</RunPreBuildEvent>
-    <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\..\version\PNVersion.cs">
       <Link>PNVersion.cs</Link>
     </Compile>
+    <Compile Include="App.cs" />
     <Compile Include="BaseTemplate.cs" />
+    <Compile Include="EnumAndClass.cs" />
+    <Compile Include="ErrorHandler.cs" />
     <Compile Include="ErrorTypeYaml.cs" />
-    <Compile Include="OutputTemplate\AllHelper.cs">
+    <Compile Include="Lang.cs" />
+    <Compile Include="LicenseInfo.cs" />
+    <Compile Include="OutputTemplate\CppCommonCpp.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AllHelper.tt</DependentUpon>
+      <DependentUpon>CppCommonCpp.tt</DependentUpon>
     </Compile>
-    <Compile Include="OutputTemplate\CppComponentImpl.cs">
-      <DependentUpon>CppComponentImpl.tt</DependentUpon>
+    <Compile Include="OutputTemplate\CppCommonH.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>CppCommonH.tt</DependentUpon>
     </Compile>
-    <Compile Include="OutputTemplate\CppComponentDecl.cs">
-      <DependentUpon>CppComponentDecl.tt</DependentUpon>
+    <Compile Include="OutputTemplate\CppProxyCpp.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>CppProxyCpp.tt</DependentUpon>
     </Compile>
-    <Compile Include="OutputTemplate\CppHelper.cs">
+    <Compile Include="OutputTemplate\CppProxyH.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CppHelper.tt</DependentUpon>
+      <DependentUpon>CppProxyH.tt</DependentUpon>
     </Compile>
-    <Compile Include="OutputTemplate\CSHelper.cs">
+    <Compile Include="OutputTemplate\CppStubCpp.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CSHelper.tt</DependentUpon>
+      <DependentUpon>CppStubCpp.tt</DependentUpon>
     </Compile>
-    <Compile Include="OutputTemplate\ErrorTypeCS.cs">
-      <DependentUpon>ErrorTypeCS.tt</DependentUpon>
+    <Compile Include="OutputTemplate\CppStubH.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>CppStubH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutputTemplate\CSCommon.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CSCommon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutputTemplate\CSProxy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CSProxy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutputTemplate\CSStub.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CSStub.tt</DependentUpon>
     </Compile>
     <Compile Include="OutputTemplate\ErrorTypeH.cs">
       <AutoGen>True</AutoGen>
@@ -112,218 +107,109 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ErrorTypeInlH.tt</DependentUpon>
     </Compile>
-    <Compile Include="OutputTemplate\JavaHelper.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JavaHelper.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OutputTemplate\UCHelper.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UCHelper.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Parsed.cs" />
-    <Compile Include="Lang.cs" />
-    <Compile Include="LicenseInfo.cs" />
-    <Compile Include="App.cs" />
-    <Compile Include="OutputTemplate\CppCommonCpp.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CppCommonCpp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OutputTemplate\CSCommon.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CSCommon.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OutputTemplate\CppCommonH.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CppCommonH.tt</DependentUpon>
-    </Compile>
     <Compile Include="OutputTemplate\JavaCommon.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>JavaCommon.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OutputTemplate\CppProxyCpp.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CppProxyCpp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OutputTemplate\CSProxy.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CSProxy.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OutputTemplate\CppProxyH.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CppProxyH.tt</DependentUpon>
     </Compile>
     <Compile Include="OutputTemplate\JavaProxy.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>JavaProxy.tt</DependentUpon>
     </Compile>
-    <Compile Include="OutputTemplate\UCProxy.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UCProxy.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OutputTemplate\CppStubCpp.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CppStubCpp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OutputTemplate\CSStub.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CSStub.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OutputTemplate\CppStubH.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CppStubH.tt</DependentUpon>
-    </Compile>
     <Compile Include="OutputTemplate\JavaStub.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>JavaStub.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutputTemplate\UCProxy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UCProxy.tt</DependentUpon>
     </Compile>
     <Compile Include="OutputTemplate\UCStub.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UCStub.tt</DependentUpon>
     </Compile>
+    <Compile Include="Parsed.cs" />
+    <Compile Include="Parsed_Class.cs" />
+    <Compile Include="Parsed_Enum.cs" />
     <Compile Include="Parsed_Param.cs" />
-    <Compile Include="ErrorHandler.cs" />
+    <Compile Include="PIDLException.cs" />
+    <Compile Include="PIDLSpec.g4.lexer.cs">
+      <DependentUpon>PIDLSpec.g4</DependentUpon>
+    </Compile>
+    <Compile Include="PIDLSpec.g4.parser.cs">
+      <DependentUpon>PIDLSpec.g4</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="OutputTemplate\AllHelper.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>AllHelper.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\CppCommonCpp.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CppCommonCpp.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\CppHelper.tt">
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CppHelper.cs</LastGenOutput>
-    </None>
-    <None Include="OutputTemplate\CSCommon.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CSCommon.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\CppCommonH.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CppCommonH.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\CSHelper.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CSHelper.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\JavaCommon.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>JavaCommon.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\CppProxyCpp.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CppProxyCpp.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\CSProxy.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CSProxy.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\CppProxyH.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CppProxyH.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\JavaHelper.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>JavaHelper.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\JavaProxy.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>JavaProxy.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\UCHelper.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>UCHelper.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\UCProxy.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>UCProxy.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\CppStubCpp.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CppStubCpp.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\CSStub.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CSStub.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\CppStubH.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CppStubH.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\JavaStub.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>JavaStub.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\UCStub.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>UCStub.cs</LastGenOutput>
-      <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <Antlr4 Include="PIDL.g4">
+    <None Include="OutputTemplate\AllHelper.ttinclude" />
+    <None Include="OutputTemplate\CppHelper.ttinclude" />
+    <None Include="OutputTemplate\CSHelper.ttinclude" />
+    <None Include="OutputTemplate\JavaHelper.ttinclude" />
+    <None Include="OutputTemplate\UCHelper.ttinclude" />
+    <Antlr4 Include="PIDLSpec.g4">
+      <Generator>MSBuild:Compile</Generator>
       <CustomToolNamespace>PIDL</CustomToolNamespace>
       <Listener>False</Listener>
       <Visitor>False</Visitor>
+      <TargetLanguage>CSharp</TargetLanguage>
     </Antlr4>
     <None Include="packages.config" />
-    <None Include="Test.pidl" />
+    <None Include="Test.pidl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="OutputTemplate\CppComponentDecl.tt">
+    <Content Include="OutputTemplate\CppCommonCpp.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CppComponentDecl.cs</LastGenOutput>
+      <LastGenOutput>CppCommonCpp.cs</LastGenOutput>
       <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <None Include="OutputTemplate\CppComponentImpl.tt">
+    </Content>
+    <Content Include="OutputTemplate\CppCommonH.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CppComponentImpl.cs</LastGenOutput>
+      <LastGenOutput>CppCommonH.cs</LastGenOutput>
       <CustomToolNamespace>PIDL</CustomToolNamespace>
-    </None>
-    <Content Include="OutputTemplate\ErrorTypeCS.tt">
+    </Content>
+    <Content Include="OutputTemplate\CppProxyCpp.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ErrorTypeCS.cs</LastGenOutput>
+      <LastGenOutput>CppProxyCpp.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </Content>
+    <Content Include="OutputTemplate\CppProxyH.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CppProxyH.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </Content>
+    <Content Include="OutputTemplate\CppStubCpp.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CppStubCpp.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </Content>
+    <Content Include="OutputTemplate\CppStubH.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CppStubH.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </Content>
+    <Content Include="OutputTemplate\CSCommon.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CSCommon.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </Content>
+    <Content Include="OutputTemplate\CSProxy.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CSProxy.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </Content>
+    <Content Include="OutputTemplate\CSStub.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CSStub.cs</LastGenOutput>
       <CustomToolNamespace>PIDL</CustomToolNamespace>
     </Content>
     <Content Include="OutputTemplate\ErrorTypeH.tt">
@@ -341,44 +227,45 @@
       <LastGenOutput>ErrorTypeInlH.cs</LastGenOutput>
       <CustomToolNamespace>PIDL</CustomToolNamespace>
     </Content>
+    <Content Include="OutputTemplate\JavaCommon.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>JavaCommon.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </Content>
+    <Content Include="OutputTemplate\JavaProxy.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>JavaProxy.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </Content>
+    <Content Include="OutputTemplate\JavaStub.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>JavaStub.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </Content>
+    <Content Include="OutputTemplate\UCProxy.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UCProxy.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </Content>
+    <Content Include="OutputTemplate\UCStub.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UCStub.cs</LastGenOutput>
+      <CustomToolNamespace>PIDL</CustomToolNamespace>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5.1 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Antlr4.Runtime, Version=4.6.0.0, Culture=neutral, PublicKeyToken=09abb75b9ed49849, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr4.Runtime.4.6.6\lib\net45\Antlr4.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.XML" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="YamlDotNet, Version=12.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
-      <HintPath>..\packages\YamlDotNet.12.0.2\lib\net47\YamlDotNet.dll</HintPath>
+      <HintPath>..\packages\YamlDotNet.12.0.2\lib\net45\YamlDotNet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
-  </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
@@ -387,16 +274,4 @@
     <Error Condition="!Exists('..\packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.targets'))" />
   </Target>
   <Import Project="..\packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.targets" Condition="Exists('..\packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.targets')" />
-  <PropertyGroup>
-    <PostBuildEvent>echo #### "'PIDLLexer', 'PIDLParser' 형식 또는 네임스페이스 이름을 찾을 수 없습니다."라는 에러 메시지가 출력된다면... ####
-echo #### 새로 설치된 Antlr4*, YamlDotNet 패키지를 참조하지 못했다는 것입니다. ####
-echo #### Build 명령을 몇번 반복하거나 Visual Studio를 재실행하면 정상적으로 빌드됩니다. ####</PostBuildEvent>
-  </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

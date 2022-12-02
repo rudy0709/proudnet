@@ -5,7 +5,7 @@ Visual Studio Addon 설치: ANTLR Tools, T4 template tools
 본 파일을 수정하면 Debug or Release 하위 폴더에 parser,lexer 소스코드가 생성되며 자동 참조됩니다.
 */
 
-grammar PIDL;
+grammar PIDLSpec;
 
 @parser::header {
 using System;
@@ -28,91 +28,11 @@ compilationUnit returns [ Parsed_Root ret ]
 			| a_using=usingDef { $ret.m_usings.AddOnLangMatch($a_using.ret); }
 			| a_package = packageDefinition { $ret.m_package = $a_package.ret; }
 			| global_interface=globalInterfaceDef { $ret.m_globalInterfaces.Add($global_interface.ret); } 
+			| a_classDef = classDef { $ret.m_classes.Add($a_classDef.ret); }
+			| a_enumDef = enumDef { $ret.m_enums.Add($a_enumDef.ret); }
 			| aliasDef
-			| c = componentDef { $ret.m_components.Add($c.ret); }
-			| dllExportDef
-			| m=moduleDef { $ret.m_module = $m.ret; }
-			| sn = codeSnippetDef { $ret.m_codeSnippets.Add($sn.ret); }
 		) *
 		EOF
-	;
-
-dllExportDef
-	:
-		KW_DLLEXPORT def=IDENTIFIER { App.SetExportDef($def.text); }
-		SEMICOLON
-	;
-
-moduleDef returns [ Parsed_Module ret ]
-@init { $ret = new Parsed_Module(); }
-	:
-		KW_MODULE name=IDENTIFIER { $ret.m_name = $name.text; }
-		SEMICOLON
-	;
-
-// 예시: component MyGame.Player {... }
-componentDef returns [ Parsed_Component ret]
-@init { $ret = new Parsed_Component(); }
-	:		
-		(a=attrListDef { $ret.m_attrList = $a.ret; })? // attr 지정은 사용자 선택사항이다.
-		KW_COMPONENT c = variableType { $ret.m_className = $c.ret; }
-		OPEN_BRACE 
-			(f=componentFieldDef { $ret.m_fields.Add($f.ret); }
-			| sn = codeSnippetDef { $ret.m_codeSnippets.Add($sn.ret); }
-			)*
-		CLOSE_BRACE
-		SEMICOLON?
-		{ $ret.CheckValidation(); }		
-	;
-
-codeSnippetDef returns [ string ret ]
-	:
-		OPEN_SNIPPET
-		t=anyTerm { $ret=$t.text; }
-		CLOSE_SNIPPET
-	;
-
-attrListDef returns [ Parsed_AttrList ret ]
-@init { $ret = new Parsed_AttrList(); }
-	:
-		OPEN_BRACKET
-		(a=attrDef { $ret.Add($a.ret); })*
-		CLOSE_BRACKET
-	;
-
-// 예시: xxx(yyy) 혹은 xxx 혹은 xxx(123) 혹은 xxx("asdasd")
-attrDef returns [ Parsed_Attr ret ]
-@init { $ret = new Parsed_Attr(); }
-	:
-		// name
-		i=IDENTIFIER { $ret.m_name = $i.text; }  
-		// value
-		(									   
-			OPEN_PARENS 
-			(
-				v=IDENTIFIER {$ret.m_value = $v.text; } 
-				| n=INTEGER_LITERAL {$ret.m_value = $n.text; } 
-				| s=STRING_LITERAL {$ret.m_value = $s.text; }
-			)
-			CLOSE_PARENS 
-		)?
-	;
-
-// 예시: map<string, int*> myField1 = GetSomething(); 
-//       map<string, int*> myField1; 
-componentFieldDef returns [ Parsed_Field ret ]
-@init { $ret = new Parsed_Field(); }
-	:
-		(a=attrListDef { $ret.m_attrList = $a.ret; } ) ? 
-		t=variableType n=IDENTIFIER { $ret.m_type = $t.ret; $ret.m_name = $n.text; }
-		(ASSIGNMENT d=anyTerm { $ret.m_defaultValue = $d.text; } )?
-		SEMICOLON
-		
-	;
-
-anyTerm 
-	:
-		.*?
 	;
 
 aliasDef 
@@ -243,7 +163,7 @@ methodDef returns [ Parsed_Method ret ]
 methodMode returns [ Parsed_MethodMode ret ]
 @init { $ret = new Parsed_MethodMode(); }	
 	:	OPEN_BRACKET
-		name=IDENTIFIER ASSIGNMENT value_=messageIdDef { $ret.ProcessAttribute($name.text, $value_.ret); }
+		name=IDENTIFIER ASSIGNMENT value_=messageIdDef { $ret.ProcessAttribute($value_.start, $name.text, $value_.ret); }
 		CLOSE_BRACKET
 	;	
 
@@ -278,7 +198,7 @@ variableType returns [ string ret ]
 			v1=IDENTIFIER { $ret=$v1.text; }  // e.g. someValue
 			| v2=IDENTIFIER DOT child2=variableType { $ret = $v2.text+App.GetMemberSpecificationSymbol()+$child2.ret; } // e.g. obj.someValue
 			| v3=IDENTIFIER DOUBLE_COLON child3=variableType { $ret = $v3.text + App.GetMemberSpecificationSymbol() + $child3.ret; } // e.g. obj::someValue
-			| v4=IDENTIFIER LT child4=variableTypeTuple GT { $ret = $v4.text + "<" + $child4.ret + ">"; } // e.g. obj<someValue>	
+			| v4=IDENTIFIER LT child4=variableTypeTuple GT { $ret = $v4.text + "<" + $child4.ret + ">"; } // e.g. obj<someValue>
 			| v5=IDENTIFIER STAR { $ret += $v5.text+"*"; }  // 포인터 타입
 			| v6=IDENTIFIER AMP { $ret += $v6.text+"&"; }  // 리퍼런스 타입
 		)
@@ -299,7 +219,7 @@ variableTypeTuple returns [string ret] // e.g. int someValue
 // RMI param mode
 paramAttrs returns [ Parsed_ParamAttrs ret ]
 @init { $ret = new Parsed_ParamAttrs(); }
-	:	OPEN_BRACKET
+	:	st = OPEN_BRACKET
 		paramAttrVal = paramAttr { $ret.Add($paramAttrVal.ret); } 	
 		(
 			COMMA paramAttrVal=paramAttr { $ret.Add($paramAttrVal.ret); } 
@@ -309,7 +229,7 @@ paramAttrs returns [ Parsed_ParamAttrs ret ]
 			var x = $ret.GetInvalidErrorText();
 			if(x != null)
 			{
-				throw new Exception(x);
+				throw new PIDLException($st.line, $st.pos, x);
 			}
 			$ret.FillDefaults();
 		}
@@ -322,7 +242,7 @@ paramAttr returns [ Parsed_ParamAttr ret ]
 		KW_BYVAL { $ret.m_type = ParamAttrType.Value; } |
 		KW_REF { $ret.m_type = ParamAttrType.Ref; } |
 		KW_MUTABLE{ $ret.m_type = ParamAttrType.Mutable; } |
-		KW_CONST { $ret.m_type = ParamAttrType.Const; } |
+		KW_const { $ret.m_type = ParamAttrType.Const; } |
 	;
 
 // Java or actionscript Package statement: "package" followed by an identifier.
@@ -350,8 +270,65 @@ modifier returns [ string ret ]
 
 		;
 
+typeAttrDef returns [ Parsed_TypeAttr ret ]
+	@init { $ret = new Parsed_TypeAttr(); }
+	:
+	(
+	KW_public { $ret.Set(Parsed_TypeAttrEnum.Public); } 
+	| KW_private { $ret.Set(Parsed_TypeAttrEnum.Private); } 
+	| KW_internal { $ret.Set(Parsed_TypeAttrEnum.Internal); } 
+	) *
+	;
+
+enumDef returns [ Parsed_Enum ret ]				// #PIDL_enum_and_class
+@init { $ret = new Parsed_Enum(); }
+	:	ta=typeAttrDef ENUM name=variableType { $ret.m_attr=$ta.ret; $ret.m_name = $name.ret; }
+		OPEN_BRACE 
+		(
+			i=enumItemDef { $ret.m_items.Add($i.ret); } ( COMMA i2=enumItemDef { $ret.m_items.Add($i2.ret); })*
+		)*
+		CLOSE_BRACE 
+		
+		;
+
+enumItemDef returns [ Parsed_EnumItem ret ]
+@init { $ret = new Parsed_EnumItem(); }
+	: name=IDENTIFIER { $ret.m_name = $name.text; } (ASSIGNMENT v=INTEGER_LITERAL { $ret.m_value = $v.text; }  )?
+	;
+
+classDef returns [ Parsed_Class ret ]				// #PIDL_enum_and_class
+	@init { $ret = new Parsed_Class(); }
+	:
+		ta=typeAttrDef CLASS className = variableType	{ $ret.m_attr = $ta.ret; $ret.m_name = $className.ret; }
+		OPEN_BRACE						
+		(v = variableDef { App.AssureStaticConstVariable($v.ret); $ret.m_variables.Add($v.ret); } )*
+		CLOSE_BRACE
+	;
+
+variableDef returns [ Parsed_Variable ret ]
+	@init { $ret = new Parsed_Variable(); }
+	:
+	va = variableAttrDef { $ret.m_attr = $va.ret; } 
+	vt = variableType vn=IDENTIFIER { $ret.m_type = $vt.ret; $ret.m_name = $vn.text; } (ASSIGNMENT vv = valueDef { $ret.m_value = $vv.ret; } )? SEMICOLON
+	;
+
+variableAttrDef returns [ Parsed_VariableAttr ret ] 
+	@init { $ret = new Parsed_VariableAttr(); }
+	:
+	(KW_const { $ret.m_isConst = true; } 
+	| KW_static { $ret.m_isStatic = true; } 
+	| KW_public { $ret.Set(Parsed_TypeAttrEnum.Public); } 
+	| KW_private { $ret.Set(Parsed_TypeAttrEnum.Private); } 	
+	) *
+	;
 
 
+valueDef returns [ Parsed_Value ret ]
+	@init { $ret = new Parsed_Value(); }
+	:
+	i=INTEGER_LITERAL {$ret.m_text = $i.text; } 
+	| s=STRING_LITERAL {$ret.m_text = $s.text; $ret.m_isStringLiteral = true; }
+	;
 
 KW_IMPORT: 'import';
 KW_INTERFCE: 'interface';
@@ -360,9 +337,6 @@ KW_IMOPORT: 'import';
 KW_USING: 'using';
 KW_INCLUDE: 'include';
 KW_GLOBAL: 'global';
-KW_COMPONENT: 'component';
-KW_DLLEXPORT: 'dllexport';
-KW_MODULE: 'module';
 KW_MARSHALER: 'marshaler';
 KW_ACCESS: 'access';
 
@@ -370,7 +344,6 @@ KW_IN: 		'in';
 KW_BYVAL: 		'byval';
 KW_REF: 		'ref';
 KW_MUTABLE: 		'mutable';
-KW_CONST: 		'const';
 KW_PACKAGE: 'package';		
 
 KW_private : 'private';
@@ -478,8 +451,8 @@ fragment Unicode_escape_sequence
 //CATCH : 'catch';
 //CHAR : 'char';
 //CHECKED : 'checked';
-//CLASS : 'class';
-//CONST : 'const';
+CLASS : 'class';
+KW_const : 'const';
 //CONTINUE : 'continue';
 //DECIMAL : 'decimal';
 //DEFAULT : 'default';
@@ -489,7 +462,7 @@ fragment Unicode_escape_sequence
 //DOUBLE : 'double';
 //DYNAMIC: 'dynamic';
 //ELSE : 'else';
-//ENUM : 'enum';
+ENUM : 'enum';
 //EQUALS: 'equals';
 //EVENT : 'event';
 //EXPLICIT : 'explicit';
@@ -509,7 +482,7 @@ fragment Unicode_escape_sequence
 //IN : 'in';
 //INT : 'int';
 //INTERFACE : 'interface';
-//INTERNAL : 'internal';
+KW_internal : 'internal';
 //INTO : 'into';
 //IS : 'is';
 //JOIN: 'join';
@@ -764,8 +737,6 @@ OPEN_BRACKET : '[';
 CLOSE_BRACKET : ']';
 OPEN_PARENS : '(';
 CLOSE_PARENS : ')';
-OPEN_SNIPPET : '%{';
-CLOSE_SNIPPET : '%}';
 DOT : '.';
 COMMA : ',';
 COLON : ':';

@@ -22,8 +22,6 @@ rename cs(XXX,YYY);
 rename cs(Proud::CFastArray, List);
 //rename cs(FAC<YAC>, PAC);
 
-dllexport PN2TESTSERVERDATA_API
-
 using(cs) System.XXX;
 
 [marshaler(as)=A.B,marshaler(cs)=C.D,access=public]
@@ -48,30 +46,3 @@ global Test4.Test5 333
 	Foo();
 	Hoo([in] Proud::CFastArray<int> x);
 }
-
-component MyGame.Player
-{
-	float a = 33.44;
-	string b = L"xxx";
-	map<int, obj*> someMap;
-}
-
-
-component Player
-{
-	HostID clientHostID = HostID_None;
-	String playerName;
-}
-
-component RoomInfo
-{
-	String roomName; // 방의 이름
-	
-	// 이렇게 사용자는 포인터 타입도 사용할 수 있다. Component ptr도 가능하다. 다만 Component의 경우 리로드시 값이 바뀐다.
-	[DoNotMonitor] // 이것이 선언되면 서버메모리뷰어에서 변화를 감지하지 않는다.
-	CFastMap<HostID, Entity*> players;
-
-	// 일정 시간마다 증가하는 값. 서버메모리뷰어의 유닛테스트 용으로 쓰인다.
-	int roomField1 = 0;
-}
-

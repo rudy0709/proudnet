@@ -1,4 +1,4 @@
-﻿<#@ include file="AllHelper.tt" #>
+﻿<#@ include file="AllHelper.ttinclude" #>
 
 <#+
     void DefRmiIDList(string prefix,Parsed_GlobalInterface gi)
