@@ -1,7 +1,0 @@
- // --- File generated automatically from Oreans VM Generator (16/6/2015) ---
-
-{$IFDEF WIN64}
-  asm DB $EB, $10, $43, $56, $20, $20, 1, 2, $00, $00, $00, $00, $00, $00, $43, $56, $20, $20 end;
-{$ELSE}
-  asm DB $EB, $10, $43, $56, $20, $20, 0, 2, $00, $00, $00, $00, $00, $00, $43, $56, $20, $20 end;
-{$ENDIF}
