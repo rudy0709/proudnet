@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{aedd0dea-5416-4fcb-8af0-6a6d0955e699}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProudNetWrap">
+      <UniqueIdentifier>{a7d9fbe6-a236-4375-8e58-d1f01e3087bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{14291583-90fc-426f-835b-ad31f17f2f79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SWIG Files">
+      <UniqueIdentifier>{d81f8191-93a1-45ec-970a-20b73b13b063}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ProudNetClientPlugin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)EventWrap.h">
+      <Filter>ProudNetWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)NativeType.h">
+      <Filter>ProudNetWrap</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)EventWrap.cpp">
+      <Filter>ProudNetWrap</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ProudNetClientPlugin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)IncludeSwig.cpp">
+      <Filter>SWIG Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

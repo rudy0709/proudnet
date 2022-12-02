@@ -1,0 +1,26 @@
+projects:
+  - name: ProudNetClientDll_Win32.vcxproj
+    guid: "{E9DC7D1A-0000-1111-2222-809B12D6ABC4}"
+  - name: ProudNetClientDll_x64.vcxproj
+    guid: "{F9DC7D1A-0000-1111-2222-809B12D6ABC5}"
+  - name: ProudNetClient_v141_Win32.vcxproj
+    guid: "{E9DC7D1A-0000-1111-2222-809B12D6ABC6}"
+  - name: ProudNetClient_v141_x64.vcxproj
+    guid: "{F9DC7D1A-0000-1111-2222-809B12D6ABC7}"
+  - name: ProudNetInclude_v141_Win32.vcxproj
+    guid: "{E9DC7D1A-0000-1111-2222-809B12D6ABC8}"
+  - name: ProudNetInclude_v141_x64.vcxproj
+    guid: "{F9DC7D1A-0000-1111-2222-809B12D6ABC9}"
+  - name: ProudNetPidlBuild_v141_Win32.vcxproj
+    guid: "{19DC7D1A-0000-1111-2222-809B12D6ABC4}"
+  - name: ProudNetPidlBuild_v141_x64.vcxproj
+    guid: "{29DC7D1A-0000-1111-2222-809B12D6ABC5}"
+  - name: ProudNetServerDll_Win32.vcxproj
+    guid: "{39DC7D1A-0000-1111-2222-809B12D6ABC4}"
+  - name: ProudNetServerDll_x64.vcxproj
+    guid: "{49DC7D1A-0000-1111-2222-809B12D6ABC5}"
+  - name: ProudNetServer_v141_Win32.vcxproj
+    guid: "{59DC7D1A-0000-1111-2222-809B12D6ABC4}"
+  - name: ProudNetServer_v141_x64.vcxproj
+    guid: "{69DC7D1A-0000-1111-2222-809B12D6ABC5}"
+  

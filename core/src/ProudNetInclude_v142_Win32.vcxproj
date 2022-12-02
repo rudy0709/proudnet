@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_static_CRT|Win32">
+      <Configuration>Debug_static_CRT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_static_CRT|Win32">
+      <Configuration>Release_static_CRT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9BD0D2B2-7FF5-3608-A1EF-572311844DD5}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>Win32</Platform>
+    <ProjectName>ProudNetInclude_v142_Win32</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ProudNetInclude_v142_Win32.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ProudNetInclude_v142_Win32</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ProudNetInclude_v142_Win32.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ProudNetInclude_v142_Win32</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Debug_static_CRT\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">ProudNetInclude_v142_Win32.dir\Debug_static_CRT\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">ProudNetInclude_v142_Win32</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Release_static_CRT\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">ProudNetInclude_v142_Win32.dir\Release_static_CRT\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">ProudNetInclude_v142_Win32</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
+    <ClCompile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug_static_CRT"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR=\"Debug_static_CRT\"</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
+    <ClCompile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release_static_CRT"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release_static_CRT\"</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\ProudNet\include\AddrPort.h" />
+    <ClInclude Include="..\..\ProudNet\include\AdoWrap.h" />
+    <ClInclude Include="..\..\ProudNet\include\AgentCommon.h" />
+    <ClInclude Include="..\..\ProudNet\include\AtlDependent.inl" />
+    <ClInclude Include="..\..\ProudNet\include\Base64Encode.h" />
+    <ClInclude Include="..\..\ProudNet\include\BasicTypes.h" />
+    <ClInclude Include="..\..\ProudNet\include\Behavior.h" />
+    <ClInclude Include="..\..\ProudNet\include\BiasManagedPointer.h" />
+    <ClInclude Include="..\..\ProudNet\include\BiasManagedPointer.inl" />
+    <ClInclude Include="..\..\ProudNet\include\ByteArray.h" />
+    <ClInclude Include="..\..\ProudNet\include\ByteArrayPtr.h" />
+    <ClInclude Include="..\..\ProudNet\include\CallCtorDtor.h" />
+    <ClInclude Include="..\..\ProudNet\include\CallbackContext.h" />
+    <ClInclude Include="..\..\ProudNet\include\ClassBehavior.h" />
+    <ClInclude Include="..\..\ProudNet\include\CoInit.h" />
+    <ClInclude Include="..\..\ProudNet\include\CompactScalarValue.h" />
+    <ClInclude Include="..\..\ProudNet\include\CompressEnum.h" />
+    <ClInclude Include="..\..\ProudNet\include\ConnectParam.h" />
+    <ClInclude Include="..\..\ProudNet\include\CriticalSect.h" />
+    <ClInclude Include="..\..\ProudNet\include\CryptoAes.h" />
+    <ClInclude Include="..\..\ProudNet\include\CryptoFast.h" />
+    <ClInclude Include="..\..\ProudNet\include\CryptoRsa.h" />
+    <ClInclude Include="..\..\ProudNet\include\DbCacheClient.h" />
+    <ClInclude Include="..\..\ProudNet\include\DbCacheClient2.h" />
+    <ClInclude Include="..\..\ProudNet\include\DbCacheServer.h" />
+    <ClInclude Include="..\..\ProudNet\include\DbCacheServer2.h" />
+    <ClInclude Include="..\..\ProudNet\include\DbLoadedData.h" />
+    <ClInclude Include="..\..\ProudNet\include\DbLoadedData2.h" />
+    <ClInclude Include="..\..\ProudNet\include\DbLogWriter.h" />
+    <ClInclude Include="..\..\ProudNet\include\Deque.h" />
+    <ClInclude Include="..\..\ProudNet\include\DumpClient.h" />
+    <ClInclude Include="..\..\ProudNet\include\DumpServer.h" />
+    <ClInclude Include="..\..\ProudNet\include\EmergencyLogCommon.h" />
+    <ClInclude Include="..\..\ProudNet\include\EmergencyLogServer.h" />
+    <ClInclude Include="..\..\ProudNet\include\EncryptEnum.h" />
+    <ClInclude Include="..\..\ProudNet\include\Enums.h" />
+    <ClInclude Include="..\..\ProudNet\include\ErrorInfo.h" />
+    <ClInclude Include="..\..\ProudNet\include\Event.h" />
+    <ClInclude Include="..\..\ProudNet\include\Exception.h" />
+    <ClInclude Include="..\..\ProudNet\include\ExternalBufferArray.h" />
+    <ClInclude Include="..\..\ProudNet\include\FakeCLRRandom.h" />
+    <ClInclude Include="..\..\ProudNet\include\FakeClr.h" />
+    <ClInclude Include="..\..\ProudNet\include\FakeClrBase.h" />
+    <ClInclude Include="..\..\ProudNet\include\FastArray.h" />
+    <ClInclude Include="..\..\ProudNet\include\FastArrayPtr.h" />
+    <ClInclude Include="..\..\ProudNet\include\FastColl.h" />
+    <ClInclude Include="..\..\ProudNet\include\FastHeap.h" />
+    <ClInclude Include="..\..\ProudNet\include\FastHeapSettings.h" />
+    <ClInclude Include="..\..\ProudNet\include\FastList.h" />
+    <ClInclude Include="..\..\ProudNet\include\FastMap.h" />
+    <ClInclude Include="..\..\ProudNet\include\FastRefCount.h" />
+    <ClInclude Include="..\..\ProudNet\include\FastSet.h" />
+    <ClInclude Include="..\..\ProudNet\include\FixedLengthArray.h" />
+    <ClInclude Include="..\..\ProudNet\include\HashString.h" />
+    <ClInclude Include="..\..\ProudNet\include\HlaDef.h" />
+    <ClInclude Include="..\..\ProudNet\include\HlaDelagate_Common.h" />
+    <ClInclude Include="..\..\ProudNet\include\HlaEntity_C.h" />
+    <ClInclude Include="..\..\ProudNet\include\HlaEntity_S.h" />
+    <ClInclude Include="..\..\ProudNet\include\HlaField.h" />
+    <ClInclude Include="..\..\ProudNet\include\HlaHost_C.h" />
+    <ClInclude Include="..\..\ProudNet\include\HlaHost_S.h" />
+    <ClInclude Include="..\..\ProudNet\include\HlaRuntime.h" />
+    <ClInclude Include="..\..\ProudNet\include\HlaSpace_S.h" />
+    <ClInclude Include="..\..\ProudNet\include\Hla_C.h" />
+    <ClInclude Include="..\..\ProudNet\include\Hla_S.h" />
+    <ClInclude Include="..\..\ProudNet\include\HostIDArray.h" />
+    <ClInclude Include="..\..\ProudNet\include\INetClientEvent.h" />
+    <ClInclude Include="..\..\ProudNet\include\INetCoreEvent.h" />
+    <ClInclude Include="..\..\ProudNet\include\INetServerEvent.h" />
+    <ClInclude Include="..\..\ProudNet\include\IRMIProxy.h" />
+    <ClInclude Include="..\..\ProudNet\include\IRMIStub.h" />
+    <ClInclude Include="..\..\ProudNet\include\IRmiHost.h" />
+    <ClInclude Include="..\..\ProudNet\include\LambdaEventHandler.h" />
+    <ClInclude Include="..\..\ProudNet\include\LambdaWrap.h" />
+    <ClInclude Include="..\..\ProudNet\include\ListNode.h" />
+    <ClInclude Include="..\..\ProudNet\include\LookasideAllocator.h" />
+    <ClInclude Include="..\..\ProudNet\include\Marshaler.h" />
+    <ClInclude Include="..\..\ProudNet\include\Message.h" />
+    <ClInclude Include="..\..\ProudNet\include\Message.inl" />
+    <ClInclude Include="..\..\ProudNet\include\MessageSummary.h" />
+    <ClInclude Include="..\..\ProudNet\include\MfcDependent.inl" />
+    <ClInclude Include="..\..\ProudNet\include\MilisecTimer.h" />
+    <ClInclude Include="..\..\ProudNet\include\MiniDumpAction.h" />
+    <ClInclude Include="..\..\ProudNet\include\MiniDumper.h" />
+    <ClInclude Include="..\..\ProudNet\include\NTService.h" />
+    <ClInclude Include="..\..\ProudNet\include\NTServiceStartParameter.h" />
+    <ClInclude Include="..\..\ProudNet\include\NdkLog.h" />
+    <ClInclude Include="..\..\ProudNet\include\NetClientInfo.h" />
+    <ClInclude Include="..\..\ProudNet\include\NetClientInterface.h" />
+    <ClInclude Include="..\..\ProudNet\include\NetClientStats.h" />
+    <ClInclude Include="..\..\ProudNet\include\NetConfig.h" />
+    <ClInclude Include="..\..\ProudNet\include\NetCoreStats.h" />
+    <ClInclude Include="..\..\ProudNet\include\NetPeerInfo.h" />
+    <ClInclude Include="..\..\ProudNet\include\NetPtr.h" />
+    <ClInclude Include="..\..\ProudNet\include\NetServerInterface.h" />
+    <ClInclude Include="..\..\ProudNet\include\NetServerStats.h" />
+    <ClInclude Include="..\..\ProudNet\include\NetStartServerParameter.h" />
+    <ClInclude Include="..\..\ProudNet\include\NetVariant.h" />
+    <ClInclude Include="..\..\ProudNet\include\NetVariant.inl" />
+    <ClInclude Include="..\..\ProudNet\include\OdbcByteData.h" />
+    <ClInclude Include="..\..\ProudNet\include\OdbcCommand.h" />
+    <ClInclude Include="..\..\ProudNet\include\OdbcConnection.h" />
+    <ClInclude Include="..\..\ProudNet\include\OdbcEnum.h" />
+    <ClInclude Include="..\..\ProudNet\include\OdbcException.h" />
+    <ClInclude Include="..\..\ProudNet\include\OdbcRecordset.h" />
+    <ClInclude Include="..\..\ProudNet\include\OdbcVariant.h" />
+    <ClInclude Include="..\..\ProudNet\include\OdbcWrap.h" />
+    <ClInclude Include="..\..\ProudNet\include\OrbisIPv6.h" />
+    <ClInclude Include="..\..\ProudNet\include\P2PGroup.h" />
+    <ClInclude Include="..\..\ProudNet\include\PNCrc.h" />
+    <ClInclude Include="..\..\ProudNet\include\PNElementTraits.h" />
+    <ClInclude Include="..\..\ProudNet\include\PNPath.h" />
+    <ClInclude Include="..\..\ProudNet\include\PNSemaphore.h" />
+    <ClInclude Include="..\..\ProudNet\include\PNString.h" />
+    <ClInclude Include="..\..\ProudNet\include\PNStringTraits.h" />
+    <ClInclude Include="..\..\ProudNet\include\PNStringTraitsImpl.inl" />
+    <ClInclude Include="..\..\ProudNet\include\PnThread.h" />
+    <ClInclude Include="..\..\ProudNet\include\PnTime.h" />
+    <ClInclude Include="..\..\ProudNet\include\ProcHeap.h" />
+    <ClInclude Include="..\..\ProudNet\include\PropNode.h" />
+    <ClInclude Include="..\..\ProudNet\include\ProudDB.h" />
+    <ClInclude Include="..\..\ProudNet\include\ProudNetClient.h" />
+    <ClInclude Include="..\..\ProudNet\include\ProudNetCommon.h" />
+    <ClInclude Include="..\..\ProudNet\include\ProudNetServer.h" />
+    <ClInclude Include="..\..\ProudNet\include\Ptr.h" />
+    <ClInclude Include="..\..\ProudNet\include\Quantizer.h" />
+    <ClInclude Include="..\..\ProudNet\include\RMIContext.h" />
+    <ClInclude Include="..\..\ProudNet\include\Random.h" />
+    <ClInclude Include="..\..\ProudNet\include\ReaderWriterMonitor.h" />
+    <ClInclude Include="..\..\ProudNet\include\ReceivedMessage.h" />
+    <ClInclude Include="..\..\ProudNet\include\RecycleNumerFactoryT.h" />
+    <ClInclude Include="..\..\ProudNet\include\Relayer.h" />
+    <ClInclude Include="..\..\ProudNet\include\RmiContext.inl" />
+    <ClInclude Include="..\..\ProudNet\include\RoundTripLatencyTest.h" />
+    <ClInclude Include="..\..\ProudNet\include\STLMarshal.inl" />
+    <ClInclude Include="..\..\ProudNet\include\SafeMemory.h" />
+    <ClInclude Include="..\..\ProudNet\include\SafeMemoryCRT.h" />
+    <ClInclude Include="..\..\ProudNet\include\SendData.h" />
+    <ClInclude Include="..\..\ProudNet\include\ServerParam.h" />
+    <ClInclude Include="..\..\ProudNet\include\ServerUdpAssignMode.h" />
+    <ClInclude Include="..\..\ProudNet\include\Singleton.h" />
+    <ClInclude Include="..\..\ProudNet\include\SocketEnum.h" />
+    <ClInclude Include="..\..\ProudNet\include\SocketInterface.h" />
+    <ClInclude Include="..\..\ProudNet\include\StackNew.h" />
+    <ClInclude Include="..\..\ProudNet\include\StartServerParameterBase.h" />
+    <ClInclude Include="..\..\ProudNet\include\StringEncoder.h" />
+    <ClInclude Include="..\..\ProudNet\include\SysTime.h" />
+    <ClInclude Include="..\..\ProudNet\include\ThreadPool.h" />
+    <ClInclude Include="..\..\ProudNet\include\ThreadUtil.h" />
+    <ClInclude Include="..\..\ProudNet\include\TimeUtil.h" />
+    <ClInclude Include="..\..\ProudNet\include\TimerThread.h" />
+    <ClInclude Include="..\..\ProudNet\include\Tracer.h" />
+    <ClInclude Include="..\..\ProudNet\include\UnsafeMem.h" />
+    <ClInclude Include="..\..\ProudNet\include\Variant.h" />
+    <ClInclude Include="..\..\ProudNet\include\acr.h" />
+    <ClInclude Include="..\..\ProudNet\include\atomic.h" />
+    <ClInclude Include="..\..\ProudNet\include\d3dxmarshal.inl" />
+    <ClInclude Include="..\..\ProudNet\include\dbenums.h" />
+    <ClInclude Include="..\..\ProudNet\include\dumpcommon.h" />
+    <ClInclude Include="..\..\ProudNet\include\favorite.h" />
+    <ClInclude Include="..\..\ProudNet\include\numutil.h" />
+    <ClInclude Include="..\..\ProudNet\include\pndefine.h" />
+    <ClInclude Include="..\..\ProudNet\include\pnguid-win32.h" />
+    <ClInclude Include="..\..\ProudNet\include\pnguid.h" />
+    <ClInclude Include="..\..\ProudNet\include\pnmutex.h" />
+    <ClInclude Include="..\..\ProudNet\include\pnstdint.h" />
+    <ClInclude Include="..\..\ProudNet\include\pntchar.h" />
+    <ClInclude Include="..\..\ProudNet\include\quicksort.h" />
+    <ClInclude Include="..\..\ProudNet\include\stacktrace.h" />
+    <ClInclude Include="..\..\ProudNet\include\strpool.h" />
+    <ClInclude Include="..\..\ProudNet\include\sysutil.h" />
+    <ClInclude Include="..\..\ProudNet\include\throw.h" />
+    <ClInclude Include="..\..\ProudNet\include\variant-marshaler.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3D67A396-9A2F-4CCC-A329-2683717A3BE0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nettention.Proud</RootNamespace>
+    <AssemblyName>ProudDotNetClient</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>..\Bin\ProudDotNetClient.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\PrivateCSharpSource\Common\CompactScalarValue.cs">
+      <Link>NetCommon\CompactScalarValue.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\Common\FastArray.cs">
+      <Link>NetCommon\FastArray.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\Common\HostIDArray.cs">
+      <Link>NetCommon\HostIDArray.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\Common\Marshaler.cs">
+      <Link>NetCommon\Marshaler.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\Common\Message.cs">
+      <Link>NetCommon\Message.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\Common\MessageSummary.cs">
+      <Link>NetCommon\MessageSummary.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\Common\PreciseCurrentTime.cs">
+      <Link>NetCommon\PreciseCurrentTime.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\Common\ReceivedMessage.cs">
+      <Link>NetCommon\ReceivedMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\Common\RmiContext.cs">
+      <Link>NetCommon\RmiContext.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\Common\Sysutil.cs">
+      <Link>NetCommon\Sysutil.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\NetClient\IRmiHost.cs">
+      <Link>NetClient\IRmiHost.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\NetClient\Native\NativeConvert.cs">
+      <Link>NetClient\Native\NativeConvert.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\NetClient\Native\NativeInternal.cs">
+      <Link>NetClient\Native\NativeInternal.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\NetClient\Native\NativeInternalNetClientEvent.cs">
+      <Link>NetClient\Native\NativeInternalNetClientEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\NetClient\Native\NativeInternalProxy.cs">
+      <Link>NetClient\Native\NativeInternalProxy.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\NetClient\Native\NativeInternalStub.cs">
+      <Link>NetClient\Native\NativeInternalStub.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\NetClient\NetClient.cs">
+      <Link>NetClient\NetClient.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\NetClient\NetUtil.cs">
+      <Link>NetClient\NetUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\NetClient\ProudDelegate.cs">
+      <Link>NetClient\ProudDelegate.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\NetClient\RmiProxy.cs">
+      <Link>NetClient\RmiProxy.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\NetClient\RmiStub.cs">
+      <Link>NetClient\RmiStub.cs</Link>
+    </Compile>
+    <Compile Include="..\PrivateCSharpSource\NetClient\ThreadPool.cs">
+      <Link>NetClient\ThreadPool.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NativeNetUtil.cs">
+      <Link>NetClient\PInvoke\NativeNetUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NativeReceivedMessage.cs">
+      <Link>NetClient\PInvoke\NativeReceivedMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NativeThreadPool.cs">
+      <Link>NetClient\PInvoke\NativeThreadPool.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\RoundTripLatencyTestResult.cs">
+      <Link>NetClient\PInvoke\RoundTripLatencyTestResult.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\StartRoundTripLatencyTestParameter.cs">
+      <Link>NetClient\PInvoke\StartRoundTripLatencyTestParameter.cs</Link>
+    </Compile>
+    <Compile Include="NetClient\Native\NativeInternalNetClient.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\ProudNetClientPlugin\AddrPort.cs">
+      <Link>NetClient\PInvoke\AddrPort.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ApplicationHint.cs">
+      <Link>NetClient\PInvoke\ApplicationHint.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ClientWorkerInfo.cs">
+      <Link>NetClient\PInvoke\ClientWorkerInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\CompressMode.cs">
+      <Link>NetClient\PInvoke\CompressMode.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ConnectionState.cs">
+      <Link>NetClient\PInvoke\ConnectionState.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\DirectP2PInfo.cs">
+      <Link>NetClient\PInvoke\DirectP2PInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\DirectP2PStartCondition.cs">
+      <Link>NetClient\PInvoke\DirectP2PStartCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\DisconnectArgs.cs">
+      <Link>NetClient\PInvoke\DisconnectArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\EncryptLevel.cs">
+      <Link>NetClient\PInvoke\EncryptLevel.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\EncryptMode.cs">
+      <Link>NetClient\PInvoke\EncryptMode.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ErrorInfo.cs">
+      <Link>NetClient\PInvoke\ErrorInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ErrorReaction.cs">
+      <Link>NetClient\PInvoke\ErrorReaction.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ErrorType.cs">
+      <Link>NetClient\PInvoke\ErrorType.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ExceptionType.cs">
+      <Link>NetClient\PInvoke\ExceptionType.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\FallbackMethod.cs">
+      <Link>NetClient\PInvoke\FallbackMethod.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\FastEncryptLevel.cs">
+      <Link>NetClient\PInvoke\FastEncryptLevel.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\FrameMoveResult.cs">
+      <Link>NetClient\PInvoke\FrameMoveResult.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\GrowPolicy.cs">
+      <Link>NetClient\PInvoke\GrowPolicy.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\Guid.cs">
+      <Link>NetClient\PInvoke\Guid.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\HackType.cs">
+      <Link>NetClient\PInvoke\HackType.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\HostID.cs">
+      <Link>NetClient\PInvoke\HostID.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\HostIDGenerationPolicy.cs">
+      <Link>NetClient\PInvoke\HostIDGenerationPolicy.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\HostType.cs">
+      <Link>NetClient\PInvoke\HostType.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\IntArray.cs">
+      <Link>NetClient\PInvoke\IntArray.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\LogCategory.cs">
+      <Link>NetClient\PInvoke\LogCategory.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\MessagePriority.cs">
+      <Link>NetClient\PInvoke\MessagePriority.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\MessageReliability.cs">
+      <Link>NetClient\PInvoke\MessageReliability.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NamedAddrPort.cs">
+      <Link>NetClient\PInvoke\NamedAddrPort.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NativeByteArray.cs">
+      <Link>NetClient\PInvoke\NativeByteArray.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NativeException.cs">
+      <Link>NetClient\PInvoke\NativeException.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NativeHostIDArray.cs">
+      <Link>NetClient\PInvoke\NativeHostIDArray.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NativeNetClient.cs">
+      <Link>NetClient\PInvoke\NativeNetClient.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NativeRmiContext.cs">
+      <Link>NetClient\PInvoke\NativeRmiContext.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NetClientConfig.cs">
+      <Link>NetClient\PInvoke\NetClientConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NetClientStats.cs">
+      <Link>NetClient\PInvoke\NetClientStats.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NetConnectionParam.cs">
+      <Link>NetClient\PInvoke\NetConnectionParam.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NetCoreStats.cs">
+      <Link>NetClient\PInvoke\NetCoreStats.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\NetPeerInfo.cs">
+      <Link>NetClient\PInvoke\NetPeerInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ProudNetClientPlugin.cs">
+      <Link>NetClient\PInvoke\ProudNetClientPlugin.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ProudNetClientPluginPINVOKE.cs">
+      <Link>NetClient\PInvoke\ProudNetClientPluginPINVOKE.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ReliableUdpHostStats.cs">
+      <Link>NetClient\PInvoke\ReliableUdpHostStats.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\RemoteOfflineEventArgs.cs">
+      <Link>NetClient\PInvoke\RemoteOfflineEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\RemoteOnlineEventArgs.cs">
+      <Link>NetClient\PInvoke\RemoteOnlineEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\RmiID.cs">
+      <Link>NetClient\PInvoke\RmiID.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ServerConnectionState.cs">
+      <Link>NetClient\PInvoke\ServerConnectionState.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\SocketInfo.cs">
+      <Link>NetClient\PInvoke\SocketInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ThreadModel.cs">
+      <Link>NetClient\PInvoke\ThreadModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ValueCompareType.cs">
+      <Link>NetClient\PInvoke\ValueCompareType.cs</Link>
+    </Compile>
+    <Compile Include="..\ProudNetClientPlugin\ValueOperType.cs">
+      <Link>NetClient\PInvoke\ValueOperType.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

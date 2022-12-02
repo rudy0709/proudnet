@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Wrapper">
+      <UniqueIdentifier>{609d7431-7d65-4c02-9052-6790b930852e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{fddd7267-b13b-42ba-9a69-d34d2c7d0e86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{3f80ed0f-7fe6-4f92-8760-a7f423ed6938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files">
+      <UniqueIdentifier>{32413c83-f340-447d-a333-7fe974ee35fa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ProudNetClientWinPlugin_wrap.cxx">
+      <Filter>Wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="NetInterfaceClr.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProudNetClientPlugin.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ProudNetClientWinPlugin_wrap.h">
+      <Filter>Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="NetInterfaceClr.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProudNetClientPlugin.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ProudNetClientPlugin.i">
+      <Filter>Interface</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

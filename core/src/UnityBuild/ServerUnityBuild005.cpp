@@ -1,0 +1,25 @@
+﻿#include "stdafx.h"
+#include  "../P2P_S.cpp"
+#include  "../PropNode.cpp"
+#include  "../Tests.cpp"
+#include  "../RemoteClient.cpp"
+#include "../AdoWrap.cpp"
+#ifdef _WIN32
+#include "../DbCache2Isolate.cpp"
+#include "../dbcacheclient2blocked.cpp"
+#include "../DbCacheClient2Impl.cpp"
+#include "../dbcacheclient2load.cpp"
+#include "../DBCacheJob.cpp"
+#include "../DbCacheObject.cpp"
+#include "../DbCacheServer2Impl.cpp"
+#include "../dbcacheserver2load.cpp"
+#endif
+#include "../DbConfig.cpp"
+#ifdef _WIN32
+#include "../DbLoadedData.cpp"
+#include "../DbLoadedData2.cpp"
+#include "../dbloadeddata2_s.cpp"
+#include "../DbLogWriter.cpp"
+#include "../DbLogWriterImpl.cpp"
+#include "../Variant.cpp"
+#endif

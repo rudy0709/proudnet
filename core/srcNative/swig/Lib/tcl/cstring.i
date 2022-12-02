@@ -1,0 +1,1 @@
+﻿%include <typemaps/cstring.swg>

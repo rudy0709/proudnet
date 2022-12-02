@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{ce38b4cf-a920-4f0e-8858-d5c9f33e59fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\ProudNet">
+      <UniqueIdentifier>{83977257-f5d1-43b7-9fc1-4978d3f4bee0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\PrivateSwigInterface\ProudNetServer.i">
+      <Filter>Interface</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\ProudNetServerCPlusIncludes.i">
+      <Filter>Interface</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\ProudNetTypeMaps.i">
+      <Filter>Interface</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\ProudReName.i">
+      <Filter>Interface</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_acr.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_addrport.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_bytearray.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_disconnectargs.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_enum.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_errorinfo.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_exception.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_fastarray.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_functiontype.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_guid.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_hostidarray.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_hostidset.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_int.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_irmihost.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_messagesummary.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_netclient.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_netclientevent.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_netclientinfo.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_netconfig.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_netconnectionparam.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_netcoreevent.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_netpeerinfo.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_netserver.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_netserverevent.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_receivedmessage.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_rmicontext.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_rmiproxy.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_rmistub.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_serverparameter.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_socketinfo.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_string.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\PrivateSwigInterface\pn_threadpool.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="Post-BuildEvent.bat" />
+    <None Include="Pre-BuildEvent.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ProudNetServerPlugin.i" />
+  </ItemGroup>
+</Project>

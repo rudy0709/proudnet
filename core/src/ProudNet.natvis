@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="Proud::RefCount&lt;*&gt;">
+    <DisplayString Condition="m_tombstone == 0">empty</DisplayString>
+    <DisplayString Condition="m_tombstone != 0">RefCount {*m_tombstone-&gt;m_ptr} [{m_tombstone-&gt;m_count} strong ref] [{*m_tombstone}]</DisplayString>
+    <Expand>
+      <Item Condition="m_tombstone != 0" Name="[ptr]">m_tombstone-&gt;m_ptr</Item>
+    </Expand>
+  </Type>
+
+  <Type Name="Proud::CFastArray&lt;*&gt;">
+    <DisplayString>{{size={m_Length}}}</DisplayString>
+    <Expand>
+      <Item Name="size" ExcludeView="simple">m_Length</Item>
+      <Item Name="capacity" ExcludeView="simple">m_Capacity</Item>
+      <ArrayItems>
+        <Size>m_Length</Size>
+        <ValuePointer>m_Data</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+
+  <Type Name="Proud::CFastList&lt;*&gt;">
+    <DisplayString>{{size={m_nElements}}}</DisplayString>
+    <Expand>
+      <Item Name="size" ExcludeView="simple">m_nElements</Item>
+      <LinkedListItems>
+        <Size>m_nElements</Size>
+        <HeadPointer>m_pHead</HeadPointer>
+        <NextPointer>m_pNext</NextPointer>
+        <ValueNode>m_element</ValueNode>
+      </LinkedListItems>
+    </Expand>
+  </Type>
+
+
+
+  <Type Name="Proud::CFastMap&lt;*,*,*,*&gt;">
+    <AlternativeType Name="Proud::CFastMap2&lt;*,*,*&gt;"/>
+    <DisplayString>{{Count = {m_nElements}}}</DisplayString>
+    <Expand>
+      <Item Name="size" ExcludeView="simple">m_nElements</Item>
+      <LinkedListItems>
+        <Size>m_nElements</Size>
+        <HeadPointer>m_pHeadBinHead</HeadPointer>
+        <NextPointer>m_pNext</NextPointer>
+        <ValueNode>this</ValueNode>
+      </LinkedListItems>
+    </Expand>
+  </Type>
+  
+  <Type Name="Proud::CFastMap&lt;*,*,*,*&gt;::CNode">
+    <AlternativeType Name="Proud::CFastMap2&lt;*,*,*,*&gt;::CNode"/>
+    <DisplayString>({m_key}, {m_value})</DisplayString>
+    <Expand>
+      <Item Name="[Key]">m_key</Item>
+      <Item Name="[Value]">m_value</Item>
+    </Expand>
+  </Type>
+ 
+  <Type Name="Proud::StringT&lt;*&gt;">
+    <DisplayString>{{{m_strPtr}}} </DisplayString >
+  </Type>
+
+</AutoVisualizer>

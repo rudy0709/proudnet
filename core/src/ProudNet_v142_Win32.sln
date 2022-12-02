@@ -1,0 +1,108 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{08FBF581-CCB3-3A99-B001-F88CB4492F42}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4B39A7ED-04B5-32C7-8029-98456AB25F30} = {4B39A7ED-04B5-32C7-8029-98456AB25F30}
+		{6785FB45-FD7D-30E9-9318-349EA6AC2B33} = {6785FB45-FD7D-30E9-9318-349EA6AC2B33}
+		{9BD0D2B2-7FF5-3608-A1EF-572311844DD5} = {9BD0D2B2-7FF5-3608-A1EF-572311844DD5}
+		{B05A8B1B-820E-3B95-A0DC-B574C06C0EBC} = {B05A8B1B-820E-3B95-A0DC-B574C06C0EBC}
+		{5F385DB0-6E90-35C9-87A6-3B92B38600F2} = {5F385DB0-6E90-35C9-87A6-3B92B38600F2}
+		{E92CE3DD-758C-3D29-9D4E-14101A8EF955} = {E92CE3DD-758C-3D29-9D4E-14101A8EF955}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetClientDll_Win32", "ProudNetClientDll_Win32.vcxproj", "{4B39A7ED-04B5-32C7-8029-98456AB25F30}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B05A8B1B-820E-3B95-A0DC-B574C06C0EBC} = {B05A8B1B-820E-3B95-A0DC-B574C06C0EBC}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetClient_v142_Win32", "ProudNetClient_v142_Win32.vcxproj", "{6785FB45-FD7D-30E9-9318-349EA6AC2B33}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B05A8B1B-820E-3B95-A0DC-B574C06C0EBC} = {B05A8B1B-820E-3B95-A0DC-B574C06C0EBC}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetInclude_v142_Win32", "ProudNetInclude_v142_Win32.vcxproj", "{9BD0D2B2-7FF5-3608-A1EF-572311844DD5}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetPidlBuild_v142_Win32", "ProudNetPidlBuild_v142_Win32.vcxproj", "{B05A8B1B-820E-3B95-A0DC-B574C06C0EBC}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetServerDll_Win32", "ProudNetServerDll_Win32.vcxproj", "{5F385DB0-6E90-35C9-87A6-3B92B38600F2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4B39A7ED-04B5-32C7-8029-98456AB25F30} = {4B39A7ED-04B5-32C7-8029-98456AB25F30}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetServer_v142_Win32", "ProudNetServer_v142_Win32.vcxproj", "{E92CE3DD-758C-3D29-9D4E-14101A8EF955}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6785FB45-FD7D-30E9-9318-349EA6AC2B33} = {6785FB45-FD7D-30E9-9318-349EA6AC2B33}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		Debug_static_CRT|Win32 = Debug_static_CRT|Win32
+		Release_static_CRT|Win32 = Release_static_CRT|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08FBF581-CCB3-3A99-B001-F88CB4492F42}.Debug|Win32.ActiveCfg = Debug|Win32
+		{08FBF581-CCB3-3A99-B001-F88CB4492F42}.Release|Win32.ActiveCfg = Release|Win32
+		{08FBF581-CCB3-3A99-B001-F88CB4492F42}.Debug_static_CRT|Win32.ActiveCfg = Debug_static_CRT|Win32
+		{08FBF581-CCB3-3A99-B001-F88CB4492F42}.Release_static_CRT|Win32.ActiveCfg = Release_static_CRT|Win32
+		{4B39A7ED-04B5-32C7-8029-98456AB25F30}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4B39A7ED-04B5-32C7-8029-98456AB25F30}.Debug|Win32.Build.0 = Debug|Win32
+		{4B39A7ED-04B5-32C7-8029-98456AB25F30}.Release|Win32.ActiveCfg = Release|Win32
+		{4B39A7ED-04B5-32C7-8029-98456AB25F30}.Release|Win32.Build.0 = Release|Win32
+		{4B39A7ED-04B5-32C7-8029-98456AB25F30}.Debug_static_CRT|Win32.ActiveCfg = Debug_static_CRT|Win32
+		{4B39A7ED-04B5-32C7-8029-98456AB25F30}.Debug_static_CRT|Win32.Build.0 = Debug_static_CRT|Win32
+		{4B39A7ED-04B5-32C7-8029-98456AB25F30}.Release_static_CRT|Win32.ActiveCfg = Release_static_CRT|Win32
+		{4B39A7ED-04B5-32C7-8029-98456AB25F30}.Release_static_CRT|Win32.Build.0 = Release_static_CRT|Win32
+		{6785FB45-FD7D-30E9-9318-349EA6AC2B33}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6785FB45-FD7D-30E9-9318-349EA6AC2B33}.Debug|Win32.Build.0 = Debug|Win32
+		{6785FB45-FD7D-30E9-9318-349EA6AC2B33}.Release|Win32.ActiveCfg = Release|Win32
+		{6785FB45-FD7D-30E9-9318-349EA6AC2B33}.Release|Win32.Build.0 = Release|Win32
+		{6785FB45-FD7D-30E9-9318-349EA6AC2B33}.Debug_static_CRT|Win32.ActiveCfg = Debug_static_CRT|Win32
+		{6785FB45-FD7D-30E9-9318-349EA6AC2B33}.Debug_static_CRT|Win32.Build.0 = Debug_static_CRT|Win32
+		{6785FB45-FD7D-30E9-9318-349EA6AC2B33}.Release_static_CRT|Win32.ActiveCfg = Release_static_CRT|Win32
+		{6785FB45-FD7D-30E9-9318-349EA6AC2B33}.Release_static_CRT|Win32.Build.0 = Release_static_CRT|Win32
+		{9BD0D2B2-7FF5-3608-A1EF-572311844DD5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9BD0D2B2-7FF5-3608-A1EF-572311844DD5}.Debug|Win32.Build.0 = Debug|Win32
+		{9BD0D2B2-7FF5-3608-A1EF-572311844DD5}.Release|Win32.ActiveCfg = Release|Win32
+		{9BD0D2B2-7FF5-3608-A1EF-572311844DD5}.Release|Win32.Build.0 = Release|Win32
+		{9BD0D2B2-7FF5-3608-A1EF-572311844DD5}.Debug_static_CRT|Win32.ActiveCfg = Debug_static_CRT|Win32
+		{9BD0D2B2-7FF5-3608-A1EF-572311844DD5}.Debug_static_CRT|Win32.Build.0 = Debug_static_CRT|Win32
+		{9BD0D2B2-7FF5-3608-A1EF-572311844DD5}.Release_static_CRT|Win32.ActiveCfg = Release_static_CRT|Win32
+		{9BD0D2B2-7FF5-3608-A1EF-572311844DD5}.Release_static_CRT|Win32.Build.0 = Release_static_CRT|Win32
+		{B05A8B1B-820E-3B95-A0DC-B574C06C0EBC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B05A8B1B-820E-3B95-A0DC-B574C06C0EBC}.Debug|Win32.Build.0 = Debug|Win32
+		{B05A8B1B-820E-3B95-A0DC-B574C06C0EBC}.Release|Win32.ActiveCfg = Release|Win32
+		{B05A8B1B-820E-3B95-A0DC-B574C06C0EBC}.Release|Win32.Build.0 = Release|Win32
+		{B05A8B1B-820E-3B95-A0DC-B574C06C0EBC}.Debug_static_CRT|Win32.ActiveCfg = Debug_static_CRT|Win32
+		{B05A8B1B-820E-3B95-A0DC-B574C06C0EBC}.Debug_static_CRT|Win32.Build.0 = Debug_static_CRT|Win32
+		{B05A8B1B-820E-3B95-A0DC-B574C06C0EBC}.Release_static_CRT|Win32.ActiveCfg = Release_static_CRT|Win32
+		{B05A8B1B-820E-3B95-A0DC-B574C06C0EBC}.Release_static_CRT|Win32.Build.0 = Release_static_CRT|Win32
+		{5F385DB0-6E90-35C9-87A6-3B92B38600F2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5F385DB0-6E90-35C9-87A6-3B92B38600F2}.Debug|Win32.Build.0 = Debug|Win32
+		{5F385DB0-6E90-35C9-87A6-3B92B38600F2}.Release|Win32.ActiveCfg = Release|Win32
+		{5F385DB0-6E90-35C9-87A6-3B92B38600F2}.Release|Win32.Build.0 = Release|Win32
+		{5F385DB0-6E90-35C9-87A6-3B92B38600F2}.Debug_static_CRT|Win32.ActiveCfg = Debug_static_CRT|Win32
+		{5F385DB0-6E90-35C9-87A6-3B92B38600F2}.Debug_static_CRT|Win32.Build.0 = Debug_static_CRT|Win32
+		{5F385DB0-6E90-35C9-87A6-3B92B38600F2}.Release_static_CRT|Win32.ActiveCfg = Release_static_CRT|Win32
+		{5F385DB0-6E90-35C9-87A6-3B92B38600F2}.Release_static_CRT|Win32.Build.0 = Release_static_CRT|Win32
+		{E92CE3DD-758C-3D29-9D4E-14101A8EF955}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E92CE3DD-758C-3D29-9D4E-14101A8EF955}.Debug|Win32.Build.0 = Debug|Win32
+		{E92CE3DD-758C-3D29-9D4E-14101A8EF955}.Release|Win32.ActiveCfg = Release|Win32
+		{E92CE3DD-758C-3D29-9D4E-14101A8EF955}.Release|Win32.Build.0 = Release|Win32
+		{E92CE3DD-758C-3D29-9D4E-14101A8EF955}.Debug_static_CRT|Win32.ActiveCfg = Debug_static_CRT|Win32
+		{E92CE3DD-758C-3D29-9D4E-14101A8EF955}.Debug_static_CRT|Win32.Build.0 = Debug_static_CRT|Win32
+		{E92CE3DD-758C-3D29-9D4E-14101A8EF955}.Release_static_CRT|Win32.ActiveCfg = Release_static_CRT|Win32
+		{E92CE3DD-758C-3D29-9D4E-14101A8EF955}.Release_static_CRT|Win32.Build.0 = Release_static_CRT|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83BCCC71-7C1E-3A94-B4CD-4BB3DCF7C5BC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

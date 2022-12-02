@@ -1,0 +1,8 @@
+﻿global AgentS2C 150
+{
+	// 인증 완료
+	NotifyCredential([in] bool authentication);
+
+	// ServerApp을 종료시키라는 메시지를 보낸다.
+	RequestServerAppStop();
+}

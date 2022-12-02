@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="csharp">
+      <UniqueIdentifier>{5fb47051-af15-444a-8073-6f6bd5f41ae3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="csharp\arrays_csharp.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\boost_intrusive_ptr.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\boost_shared_ptr.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\csharp.swg">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\csharphead.swg">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\csharpkw.swg">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\director.swg">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\enums.swg">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\enumsimple.swg">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\enumtypesafe.swg">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\std_auto_ptr.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\std_common.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\std_deque.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\std_except.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\std_map.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\std_pair.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\std_shared_ptr.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\std_string.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\std_vector.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\std_wstring.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\stl.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\swigtype_inout.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\typemaps.i">
+      <Filter>csharp</Filter>
+    </None>
+    <None Include="csharp\wchar.i">
+      <Filter>csharp</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>
