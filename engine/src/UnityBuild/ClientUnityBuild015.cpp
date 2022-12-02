@@ -1,8 +1,0 @@
-﻿#include "stdafx.h"
-#include  "../ProcessAllEvents.cpp"
-#include  "../ReaderWriterMonitor.cpp"
-#include  "../NetConfig.cpp"
-#include  "../NetCore.cpp"
-#include  "../NetCoreEvent.cpp"
-#include  "../NetCoreStats.cpp"
-#include  "../NetPeerInfo.cpp"

@@ -1,6 +1,0 @@
-﻿global DumpC2S 600
-{
-	Dump_Start();
-	Dump_Chunk([in] Proud::ByteArray chunk);
-	Dump_End();
-}

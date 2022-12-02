@@ -1,2 +1,0 @@
-﻿
-%feature("director") Proud::INetCoreEvent;
