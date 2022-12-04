@@ -1,0 +1,78 @@
+﻿<# // 모든 언어 공통으로 사용되는 템플릿 파일
+#>
+
+<#+
+    // parameter definition list를 생성하는 subprogram. C++은 제외.
+    void ParamDefs(Parsed_Method mt, bool startWithComma)
+    {
+        int cnt=0;
+        foreach(var p in mt.m_params)
+        {
+            if(cnt>0 || startWithComma) Write(", ");
+            Write(p.m_type); Write(" "); Write(p.m_name);            
+            cnt++;
+        }
+    }
+#>
+
+<#+
+	// Writes like this, for example: const string RmiName_xxx = "xxx";
+	// if 'hide' is true, "xxx" will be "".
+    void DefRmiNames_all(string stringType, Parsed_GlobalInterface gi, bool hide)
+    {
+#>
+// RMI name declaration.
+// It is the unique pointer that indicates RMI name such as RMI profiler.
+<#+
+        foreach(var mt in gi.m_methods)
+        {		
+#>
+<#=stringType#> RmiName_<#=mt.m_name#>="<#+ if(hide) Write(""); else Write(mt.m_name); #>";
+<#+
+        }
+#>       
+<#=stringType#> RmiName_First = <#+ if(hide) Write("\"\""); else Write(gi.GetFirstRmiNameOrNone("RmiName_", "", "" )); #>;
+<#+
+    }
+#>
+
+
+
+<#+
+    void Paramcalls(Parsed_Method mt,bool startWithComma)  
+    {
+        int cnt = 0;
+        foreach(var p in mt.m_params)
+        {
+            if(cnt>0 || startWithComma) Write(", ");
+            Write(p.m_name);
+            cnt++;
+        }         
+    }        
+#>
+
+<#+
+    void ImportDecl(string keyword)
+    {
+        foreach(var ii in App.g_parsed.m_imports)
+        {
+#>
+<#=keyword#> <#=ii.m_name#>;
+<#+
+        }
+    }
+#>
+
+<#+   
+    // e.g. package MyPackage;
+    void PackageDecl()
+    {
+        if(App.g_parsed.m_package != null)
+        {
+#>
+package <#=App.g_parsed.m_package.m_name#>;
+<#+
+        }
+    }
+#>
+
