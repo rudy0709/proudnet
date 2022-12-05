@@ -41,6 +41,12 @@ exit /b
 		exit /b
 	)
 
+	if "%PN_OBFUSCATION_TOOL_PATH%" == "" (
+		@rem 예시 : C:\Program Files (x86)\Gapotchenko\Eazfuscator.NET\Eazfuscator.NET.exe
+		echo ^>^>^>^> Error : Register the PN_OBFUSCATION_TOOL_PATH environment variable before executing the batch file.
+		exit /b
+	)
+
 	if "%PN_SIGN_TOOL_PATH%" == "" (
 		@rem 예시 : C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe
 		echo ^>^>^>^> Error : Register the PN_SIGN_TOOL_PATH environment variable before executing the batch file.
@@ -48,6 +54,7 @@ exit /b
 	)
 
 	echo ^>^>^>^> Environment-Variable^(PN_BUILD_PATH^) = "%PN_BUILD_PATH%"
+	echo ^>^>^>^> Environment-Variable^(PN_OBFUSCATION_TOOL_PATH^) = "%PN_OBFUSCATION_TOOL_PATH%"
 	echo ^>^>^>^> Environment-Variable^(PN_SIGN_TOOL_PATH^) = "%PN_SIGN_TOOL_PATH%"
 	echo ^>^>^>^>
 exit /b
