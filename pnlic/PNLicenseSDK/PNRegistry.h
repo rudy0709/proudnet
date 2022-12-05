@@ -27,7 +27,7 @@
 
 #include "../AuthNetLib/include/CryptoAes.h"
 #include "../AuthNetLib/OpenSources/libtom/crypto/headers/tomcrypt.h"
-#include "../CodeVirtualizer/Include/C/VirtualizerSDK.h"
+#include "VirtualizerSDK.h"  // .../utils/CodeVirtualizer/Include/C/
 
 #include "../AuthNetLib/src/PooledObjects.h"
 #include "../AuthNetLib/src/DefaultStringEncoder.h"

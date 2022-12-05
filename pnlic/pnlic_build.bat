@@ -1,6 +1,6 @@
 @echo off
 
-set projects=all tools authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidden pnlic_auth watermark
+set projects=all pidl authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidden pnlic_auth watermark
 
 :main
 	@rem 사용법을 출력해야 할 지를 검사합니다.
@@ -8,8 +8,8 @@ set projects=all tools authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidde
 	if "%errorlevel%" == "1" (
 		@rem 사용법을 출력합니다.
 		echo Usage:
-		echo     pnlic_build.bat clean ^<all ^| tools ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark^>
-		echo     pnlic_build.bat build ^<all ^| tools ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark^>
+		echo     pnlic_build.bat clean ^<all ^| pidl ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark^>
+		echo     pnlic_build.bat build ^<all ^| pidl ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark^>
 		exit /b
 	)
 
@@ -18,20 +18,20 @@ set projects=all tools authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidde
 	call :check_environment_variable
 
 	@rem   (2) Tool 빌드
-	call :process_library_tools %1 %2
+	call :build_library_pidl %1 %2
 
 	@rem   (3) 공용 Library 빌드 (PNLicAuthServer.exe도 포함)
-	call :process_library_authnet_lib %1 %2
-	call :process_library_lic_auth_lib %1 %2
-	call :process_library_pnlic_lib %1 %2
+	call :build_library_authnet_lib %1 %2
+	call :build_library_lic_auth_lib %1 %2
+	call :build_library_pnlic_lib %1 %2
 
 	@rem   (4) PNLicense 관련 .exe 빌드
-	call :process_library_pnlic_warn %1 %2
-	call :process_library_pnlic_hidden %1 %2
-	call :process_library_pnlic_auth %1 %2
+	call :build_library_pnlic_warn %1 %2
+	call :build_library_pnlic_hidden %1 %2
+	call :build_library_pnlic_auth %1 %2
 
 	@rem   (5) Watermark 관련 .lib/.dll 빌드
-	call :process_library_watermark %1 %2
+	call :build_library_watermark %1 %2
 exit /b
 
 :check_environment_variable
@@ -53,33 +53,25 @@ exit /b
 	echo ^>^>^>^>
 exit /b
 
-:process_library_tools
+:build_library_pidl
 	if not "%2" == "all" (
-		if not "%2" == "tools" (
+		if not "%2" == "pidl" (
 			exit /b
 		)
 	)
 
 	if "%1" == "clean" (
-		@rem ImageGen 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\Tools\ImageGen\ImageGen.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\Tools\ImageGen\bin\
-		rd /s /q .\Tools\ImageGen\obj\
-
 		@rem PIDL 컴파일러 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\Tools\PIDL\PIDL.csproj" clean Release AnyCPU
-		rd /s /q .\Tools\PIDL\bin\
-		rd /s /q .\Tools\PIDL\obj\
+		call :compile_command ".\Pidl\Pidl.csproj" clean Release AnyCPU
+		rd /s /q .\Pidl\bin\
+		rd /s /q .\Pidl\obj\
 	) else if "%1" == "build" (
-		@rem ImageGen 프로젝트를 빌드합니다.
-		call :compile_command ".\Tools\ImageGen\ImageGen.vcxproj" build Release_static_CRT x64
-
 		@rem PIDL 컴파일러 프로젝트를 빌드합니다.
-		call :compile_command ".\Tools\PIDL\PIDL.csproj" build Release AnyCPU
+		call :compile_command ".\Pidl\Pidl.csproj" build Release AnyCPU
 	)
 exit /b
 
-:process_library_authnet_lib
+:build_library_authnet_lib
 	if not "%2" == "all" (
 		if not "%2" == "authnet_lib" (
 			exit /b
@@ -113,7 +105,7 @@ exit /b
 	)
 exit /b
 
-:process_library_lic_auth_lib
+:build_library_lic_auth_lib
 	if not "%2" == "all" (
 		if not "%2" == "lic_auth_lib" (
 			exit /b
@@ -147,7 +139,7 @@ exit /b
 	)
 exit /b
 
-:process_library_pnlic_lib
+:build_library_pnlic_lib
 	if not "%2" == "all" (
 		if not "%2" == "pnlic_lib" (
 			exit /b
@@ -181,7 +173,7 @@ exit /b
 	)
 exit /b
 
-:process_library_pnlic_warn
+:build_library_pnlic_warn
 	if not "%2" == "all" (
 		if not "%2" == "pnlic_warn" (
 			exit /b
@@ -193,14 +185,14 @@ exit /b
 		call :compile_command ".\PNLicenseWarning\PNLicenseWarning.vcxproj" clean Release_static_CRT x64
 		rd /s /q .\PNLicenseWarning\bin\
 		rd /s /q .\PNLicenseWarning\obj\
-		del /f ..\PNLicenseManager\PNLicenseWarningImage.inl
+		del /f .\PNLicenseManager\PNLicenseWarningImage.inl
 	) else if "%1" == "build" (
 		@rem PNLicenseWarning 프로젝트를 빌드합니다.
 		call :compile_command ".\PNLicenseWarning\PNLicenseWarning.vcxproj" build Release_static_CRT x64
 	)
 exit /b
 
-:process_library_pnlic_hidden
+:build_library_pnlic_hidden
 	if not "%2" == "all" (
 		if not "%2" == "pnlic_hidden" (
 			exit /b
@@ -212,13 +204,14 @@ exit /b
 		call :compile_command ".\PNLicenseHidden\PNLicenseHidden.vcxproj" clean Release_static_CRT x64
 		rd /s /q .\PNLicenseHidden\bin\
 		rd /s /q .\PNLicenseHidden\obj\
+		del /f .\PNLicenseManager\PNLicenseHiddenImage.inl
 	) else if "%1" == "build" (
 		@rem PNLicenseHidden 프로젝트를 빌드합니다.
 		call :compile_command ".\PNLicenseHidden\PNLicenseHidden.vcxproj" build Release_static_CRT x64
 	)
 exit /b
 
-:process_library_pnlic_auth
+:build_library_pnlic_auth
 	if not "%2" == "all" (
 		if not "%2" == "pnlic_auth" (
 			exit /b
@@ -244,7 +237,7 @@ exit /b
 	)
 exit /b
 
-:process_library_watermark
+:build_library_watermark
 	if not "%2" == "all" (
 		if not "%2" == "watermark" (
 			exit /b

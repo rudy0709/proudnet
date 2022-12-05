@@ -21,7 +21,7 @@
 #include "../PNLicenseSDK/PNLicenseSDK.h"
 #include "../PNLicenseManager/PNTypes.h"
 
-#include "../CodeVirtualizer/Include/C/VirtualizerSDK.h"
+#include "VirtualizerSDK.h"  // .../utils/CodeVirtualizer/Include/C/
 
 #include "../PNLicenseManager/LicenseType.h"
 

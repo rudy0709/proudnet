@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PNLicenseAuthGui</RootNamespace>
-    <AssemblyName>PNLicenseAuthGui</AssemblyName>
+    <AssemblyName>PNLicenseAuthGui_UnCodeSign</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -140,13 +140,31 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>set proj_name=PNLicenseAuth
+    <PostBuildEvent>SETLOCAL ENABLEDELAYEDEXPANSION
+
+@rem PNLicenseAuth.exe 파일경로를 찾습니다.
+set pnlicenseauth_path=
+
+set folders=$(ConfigurationName)-x86_32 $(ConfigurationName)-x86_64 $(ConfigurationName)_static_CRT-x86_32 $(ConfigurationName)_static_CRT-x86_64
+for %25%25f in (%25folders%25) do (
+    set file_path=$(ProjectDir)..\PNLicenseAuth\bin\%25%25f\PNLicenseAuth.exe
+    if exist !file_path! (
+        set pnlicenseauth_path=!file_path!
+    )
+)
+
+if "%25pnlicenseauth_path%25" == "" (
+    echo #### PNLicenseAuth.exe 파일을 찾을 수 없습니다.
+    echo #### PNLicenseAuth 프로젝트들을 먼저 빌드해야 합니다.
+    exit
+)
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%25PN_SIGN_TOOL_PATH%25" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)$(TargetName)$(TargetExt)
+copy /y $(TargetPath) $(ProjectName)$(TargetExt)
+"%25PN_SIGN_TOOL_PATH%25" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)$(ProjectName)$(TargetExt)
 
 @rem PNLicenseAuthGui.exe 실행 시에 필요한 PNLicenseAuth.exe 파일을 복사합니다.
-copy /y $(ProjectDir)..\%25proj_name%25\bin\$(ConfigurationName)_static_CRT-x86_64\%25proj_name%25.exe $(TargetDir)</PostBuildEvent>
+copy /y "%25pnlicenseauth_path%25" $(TargetDir)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

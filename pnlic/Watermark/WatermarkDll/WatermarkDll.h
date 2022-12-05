@@ -7,7 +7,7 @@
 #include "..\..\PNLicenseManager\LicenseMessage.h"
 #include "..\..\PNLicense\PNLicense.h"
 
-#include "..\..\CodeVirtualizer\CodeVirtualizer.h"
+#include "..\..\..\utils\CodeVirtualizer\CodeVirtualizer.h"
 #include "..\..\LicAuthLib\PNLicAuthClient\PNLicAuthClient.h"
 
 #define DLLEXPORT extern "C" __declspec(dllexport)

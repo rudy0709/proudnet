@@ -177,8 +177,7 @@
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
@@ -214,8 +213,7 @@ popd
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
@@ -251,8 +249,7 @@ popd
       <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
@@ -288,8 +285,7 @@ popd
       <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
@@ -326,8 +322,7 @@ popd
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>
@@ -367,8 +362,7 @@ popd
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>
@@ -408,8 +402,7 @@ popd
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>
@@ -449,8 +442,7 @@ popd
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_CONSOLE;_WINSOCKAPI_;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>

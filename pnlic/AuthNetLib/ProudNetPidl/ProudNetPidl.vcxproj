@@ -229,14 +229,14 @@
   <ItemGroup>
     <CustomBuild Include="AgentC2S.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -256,14 +256,14 @@
     </CustomBuild>
     <CustomBuild Include="AgentS2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -283,14 +283,14 @@
     </CustomBuild>
     <CustomBuild Include="DB.PIDL">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -310,14 +310,14 @@
     </CustomBuild>
     <CustomBuild Include="DumpC2S.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -337,14 +337,14 @@
     </CustomBuild>
     <CustomBuild Include="DumpS2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -364,14 +364,14 @@
     </CustomBuild>
     <CustomBuild Include="EmergencyC2S.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -391,14 +391,14 @@
     </CustomBuild>
     <CustomBuild Include="EmergencyS2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -418,14 +418,14 @@
     </CustomBuild>
     <CustomBuild Include="NetC2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -445,14 +445,14 @@
     </CustomBuild>
     <CustomBuild Include="NetC2S.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -472,14 +472,14 @@
     </CustomBuild>
     <CustomBuild Include="NetS2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(FileName).pidl ...</Message>
@@ -499,14 +499,14 @@
     </CustomBuild>
     <CustomBuild Include="Viz.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Tools\PIDL\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">..\..\Pidl\bin\Debug\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">..\..\Pidl\bin\Release\PIDL_UnProtect.exe "%(FullPath)" -outdir ..\src\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(FileName).pidl ...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(FileName).pidl ...</Message>

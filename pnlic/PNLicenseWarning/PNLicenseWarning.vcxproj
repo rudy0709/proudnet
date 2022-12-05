@@ -176,6 +176,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -185,7 +186,25 @@
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>set proj_name=PNLicenseWarning
+      <Command>SETLOCAL ENABLEDELAYEDEXPANSION
+set proj_name=PNLicenseWarning
+
+@rem ImageGen.exe 파일 유무를 체크합니다.
+set imagegen_path=""
+
+set folders=Release-x86_32 Release-x86_64 Release_static_CRT-x86_32 Release_static_CRT-x86_64
+for %%f in (%folders%) do (
+    set file_path=$(ProjectDir)..\..\utils\ImageGen\bin\%%f\ImageGen.exe
+    if exist !file_path! (
+        set imagegen_path=!file_path!
+    )
+)
+
+if "%imagegen_path%" == "" (
+    echo #### ImageGen.exe 파일을 찾을 수 없습니다.
+    echo #### utils/ 폴더 내의 프로젝트들을 먼저 빌드해야 합니다.
+    exit
+)
 
 @rem .exe 파일을 난독화합니다.
 if exist "$(TargetDir)%proj_name%.exe" (
@@ -194,16 +213,22 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
-</Command>
+"%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+if exist %inl_path% (
+    del /f %inl_path%
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
     <ClCompile>
@@ -220,6 +245,7 @@ popd
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -229,7 +255,25 @@ popd
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>set proj_name=PNLicenseWarning
+      <Command>SETLOCAL ENABLEDELAYEDEXPANSION
+set proj_name=PNLicenseWarning
+
+@rem ImageGen.exe 파일 유무를 체크합니다.
+set imagegen_path=""
+
+set folders=Release-x86_32 Release-x86_64 Release_static_CRT-x86_32 Release_static_CRT-x86_64
+for %%f in (%folders%) do (
+    set file_path=$(ProjectDir)..\..\utils\ImageGen\bin\%%f\ImageGen.exe
+    if exist !file_path! (
+        set imagegen_path=!file_path!
+    )
+)
+
+if "%imagegen_path%" == "" (
+    echo #### ImageGen.exe 파일을 찾을 수 없습니다.
+    echo #### utils/ 폴더 내의 프로젝트들을 먼저 빌드해야 합니다.
+    exit
+)
 
 @rem .exe 파일을 난독화합니다.
 if exist "$(TargetDir)%proj_name%.exe" (
@@ -238,16 +282,22 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
-</Command>
+"%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+if exist %inl_path% (
+    del /f %inl_path%
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -264,6 +314,7 @@ popd
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -273,7 +324,25 @@ popd
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>set proj_name=PNLicenseWarning
+      <Command>SETLOCAL ENABLEDELAYEDEXPANSION
+set proj_name=PNLicenseWarning
+
+@rem ImageGen.exe 파일 유무를 체크합니다.
+set imagegen_path=""
+
+set folders=Release-x86_32 Release-x86_64 Release_static_CRT-x86_32 Release_static_CRT-x86_64
+for %%f in (%folders%) do (
+    set file_path=$(ProjectDir)..\..\utils\ImageGen\bin\%%f\ImageGen.exe
+    if exist !file_path! (
+        set imagegen_path=!file_path!
+    )
+)
+
+if "%imagegen_path%" == "" (
+    echo #### ImageGen.exe 파일을 찾을 수 없습니다.
+    echo #### utils/ 폴더 내의 프로젝트들을 먼저 빌드해야 합니다.
+    exit
+)
 
 @rem .exe 파일을 난독화합니다.
 if exist "$(TargetDir)%proj_name%.exe" (
@@ -282,16 +351,22 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
-</Command>
+"%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+if exist %inl_path% (
+    del /f %inl_path%
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
     <ClCompile>
@@ -308,6 +383,7 @@ popd
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -317,7 +393,25 @@ popd
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>set proj_name=PNLicenseWarning
+      <Command>SETLOCAL ENABLEDELAYEDEXPANSION
+set proj_name=PNLicenseWarning
+
+@rem ImageGen.exe 파일 유무를 체크합니다.
+set imagegen_path=""
+
+set folders=Release-x86_32 Release-x86_64 Release_static_CRT-x86_32 Release_static_CRT-x86_64
+for %%f in (%folders%) do (
+    set file_path=$(ProjectDir)..\..\utils\ImageGen\bin\%%f\ImageGen.exe
+    if exist !file_path! (
+        set imagegen_path=!file_path!
+    )
+)
+
+if "%imagegen_path%" == "" (
+    echo #### ImageGen.exe 파일을 찾을 수 없습니다.
+    echo #### utils/ 폴더 내의 프로젝트들을 먼저 빌드해야 합니다.
+    exit
+)
 
 @rem .exe 파일을 난독화합니다.
 if exist "$(TargetDir)%proj_name%.exe" (
@@ -326,16 +420,22 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
-</Command>
+"%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+if exist %inl_path% (
+    del /f %inl_path%
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -357,6 +457,7 @@ popd
       <OmitFramePointers>true</OmitFramePointers>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FunctionLevelLinking>true</FunctionLevelLinking>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -368,7 +469,25 @@ popd
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>set proj_name=PNLicenseWarning
+      <Command>SETLOCAL ENABLEDELAYEDEXPANSION
+set proj_name=PNLicenseWarning
+
+@rem ImageGen.exe 파일 유무를 체크합니다.
+set imagegen_path=""
+
+set folders=Release-x86_32 Release-x86_64 Release_static_CRT-x86_32 Release_static_CRT-x86_64
+for %%f in (%folders%) do (
+    set file_path=$(ProjectDir)..\..\utils\ImageGen\bin\%%f\ImageGen.exe
+    if exist !file_path! (
+        set imagegen_path=!file_path!
+    )
+)
+
+if "%imagegen_path%" == "" (
+    echo #### ImageGen.exe 파일을 찾을 수 없습니다.
+    echo #### utils/ 폴더 내의 프로젝트들을 먼저 빌드해야 합니다.
+    exit
+)
 
 @rem .exe 파일을 난독화합니다.
 if exist "$(TargetDir)%proj_name%.exe" (
@@ -377,16 +496,22 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
-</Command>
+"%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+if exist %inl_path% (
+    del /f %inl_path%
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
     <ClCompile>
@@ -408,6 +533,7 @@ popd
       <OmitFramePointers>true</OmitFramePointers>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FunctionLevelLinking>true</FunctionLevelLinking>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -419,7 +545,25 @@ popd
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>set proj_name=PNLicenseWarning
+      <Command>SETLOCAL ENABLEDELAYEDEXPANSION
+set proj_name=PNLicenseWarning
+
+@rem ImageGen.exe 파일 유무를 체크합니다.
+set imagegen_path=""
+
+set folders=Release-x86_32 Release-x86_64 Release_static_CRT-x86_32 Release_static_CRT-x86_64
+for %%f in (%folders%) do (
+    set file_path=$(ProjectDir)..\..\utils\ImageGen\bin\%%f\ImageGen.exe
+    if exist !file_path! (
+        set imagegen_path=!file_path!
+    )
+)
+
+if "%imagegen_path%" == "" (
+    echo #### ImageGen.exe 파일을 찾을 수 없습니다.
+    echo #### utils/ 폴더 내의 프로젝트들을 먼저 빌드해야 합니다.
+    exit
+)
 
 @rem .exe 파일을 난독화합니다.
 if exist "$(TargetDir)%proj_name%.exe" (
@@ -428,16 +572,22 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
-</Command>
+"%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+if exist %inl_path% (
+    del /f %inl_path%
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -459,6 +609,7 @@ popd
       <OmitFramePointers>true</OmitFramePointers>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FunctionLevelLinking>true</FunctionLevelLinking>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -470,7 +621,25 @@ popd
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>set proj_name=PNLicenseWarning
+      <Command>SETLOCAL ENABLEDELAYEDEXPANSION
+set proj_name=PNLicenseWarning
+
+@rem ImageGen.exe 파일 유무를 체크합니다.
+set imagegen_path=""
+
+set folders=Release-x86_32 Release-x86_64 Release_static_CRT-x86_32 Release_static_CRT-x86_64
+for %%f in (%folders%) do (
+    set file_path=$(ProjectDir)..\..\utils\ImageGen\bin\%%f\ImageGen.exe
+    if exist !file_path! (
+        set imagegen_path=!file_path!
+    )
+)
+
+if "%imagegen_path%" == "" (
+    echo #### ImageGen.exe 파일을 찾을 수 없습니다.
+    echo #### utils/ 폴더 내의 프로젝트들을 먼저 빌드해야 합니다.
+    exit
+)
 
 @rem .exe 파일을 난독화합니다.
 if exist "$(TargetDir)%proj_name%.exe" (
@@ -479,16 +648,22 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
-</Command>
+"%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+if exist %inl_path% (
+    del /f %inl_path%
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
     <ClCompile>
@@ -510,6 +685,7 @@ popd
       <OmitFramePointers>true</OmitFramePointers>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FunctionLevelLinking>true</FunctionLevelLinking>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -521,7 +697,25 @@ popd
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>set proj_name=PNLicenseWarning
+      <Command>SETLOCAL ENABLEDELAYEDEXPANSION
+set proj_name=PNLicenseWarning
+
+@rem ImageGen.exe 파일 유무를 체크합니다.
+set imagegen_path=""
+
+set folders=Release-x86_32 Release-x86_64 Release_static_CRT-x86_32 Release_static_CRT-x86_64
+for %%f in (%folders%) do (
+    set file_path=$(ProjectDir)..\..\utils\ImageGen\bin\%%f\ImageGen.exe
+    if exist !file_path! (
+        set imagegen_path=!file_path!
+    )
+)
+
+if "%imagegen_path%" == "" (
+    echo #### ImageGen.exe 파일을 찾을 수 없습니다.
+    echo #### utils/ 폴더 내의 프로젝트들을 먼저 빌드해야 합니다.
+    exit
+)
 
 @rem .exe 파일을 난독화합니다.
 if exist "$(TargetDir)%proj_name%.exe" (
@@ -530,16 +724,22 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
 "%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
-"$(ProjectDir)..\Tools\ImageGen\bin\$(Configuration)-x86_$(PlatformArchitecture)\ImageGen.exe" --bin2inl "$(TargetDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
-</Command>
+"%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+if exist %inl_path% (
+    del /f %inl_path%
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="PNLicenseWarning.cpp" />
