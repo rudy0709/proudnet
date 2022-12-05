@@ -13,5 +13,4 @@
 
 	// 로그를 보냅니다.
 	EventLog([in] int logType, [in] Proud::String txt);
-
 }
