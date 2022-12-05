@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("PIDL")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("PIDL Compiler")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PIDL")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCompany("Nettention Co., Ltd.")]
+[assembly: AssemblyProduct("ProudNet")]
+[assembly: AssemblyCopyright("Copyright © Nettention Co., Ltd. All Rights Reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

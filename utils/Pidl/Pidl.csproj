@@ -36,6 +36,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr4.Runtime, Version=4.6.0.0, Culture=neutral, PublicKeyToken=09abb75b9ed49849, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr4.Runtime.4.6.6\lib\net45\Antlr4.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="YamlDotNet, Version=12.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
+      <HintPath>..\packages\YamlDotNet.12.0.2\lib\net47\YamlDotNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\version\PNVersion.cs">
       <Link>PNVersion.cs</Link>
@@ -252,18 +264,10 @@
       <LastGenOutput>UCStub.cs</LastGenOutput>
       <CustomToolNamespace>PIDL</CustomToolNamespace>
     </Content>
+    <Content Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Antlr4.Runtime, Version=4.6.0.0, Culture=neutral, PublicKeyToken=09abb75b9ed49849, processorArchitecture=MSIL">
-      <HintPath>..\packages\Antlr4.Runtime.4.6.6\lib\net45\Antlr4.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="YamlDotNet, Version=12.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
-      <HintPath>..\packages\YamlDotNet.12.0.2\lib\net45\YamlDotNet.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -274,4 +278,14 @@
     <Error Condition="!Exists('..\packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.targets'))" />
   </Target>
   <Import Project="..\packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.targets" Condition="Exists('..\packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>@rem 실행파일의 난독화 및 디지털 서명을 위해 복사합니다.
+copy /y $(TargetPath) $(TargetDir)PIDL.exe
+
+@rem 실행파일을 난독화합니다.
+"%25PN_OBFUSCATION_TOOL_PATH%25" $(TargetDir)PIDL.exe
+
+@rem 난독화된 실행파일에 디지털 서며을 추가합니다.
+"%25PN_SIGN_TOOL_PATH%25" sign /f $(ProjectDir)..\codeSign/202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PIDL.exe</PostBuildEvent>
+  </PropertyGroup>
 </Project>
