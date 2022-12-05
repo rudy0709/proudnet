@@ -17,6 +17,10 @@ file(GLOB HEADERS
 )
 
 # options
+include_directories(
+    ../../utils/CodeVirtualizer/Include/C/
+)
+
 add_definitions(
     -D__x86_64__
     -D__linux__

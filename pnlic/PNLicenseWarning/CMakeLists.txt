@@ -14,6 +14,10 @@ file(GLOB HEADERS
 )
 
 # options
+include_directories(
+    ../../utils/CodeVirtualizer/Include/C/
+)
+
 add_definitions(
     -D__x86_64__
     -D__linux__
@@ -45,6 +49,10 @@ target_link_libraries(${PROJECT_NAME}
 )
 
 # event
+add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
+    COMMAND rm -f ${CMAKE_SOURCE_DIR}/../PNLicenseManager/${PROJECT_NAME}Image.inl
+)
+
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_SOURCE_DIR}/../Tools/ImageGen/build/ImageGen --bin2inl ${CMAKE_SOURCE_DIR}/build/${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/../PNLicenseManager/${PROJECT_NAME}Image.inl
+    COMMAND ${CMAKE_SOURCE_DIR}/../../utils/ImageGen/build/ImageGen --bin2inl ${CMAKE_SOURCE_DIR}/build/${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/../PNLicenseManager/${PROJECT_NAME}Image.inl
 )
