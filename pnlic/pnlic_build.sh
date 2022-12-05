@@ -1,6 +1,6 @@
 #!/bin/bash
 
-projects=(all tools authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidden pnlic_auth)
+projects=(all authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidden pnlic_auth)
 
 func_main() {
 	# 사용법을 출력해야 할 지를 검사합니다.
@@ -8,8 +8,8 @@ func_main() {
 	if [ $? == 1 ]; then
 		# 사용법을 출력합니다.
 		echo "Usage:"
-		echo "    pnlic_build.bat clean <all | tools | authnet_lib | lic_auth_lib | pnlic_lib | pnlic_warn | pnlic_hidden | pnlic_auth>"
-		echo "    pnlic_build.bat build <all | tools | authnet_lib | lic_auth_lib | pnlic_lib | pnlic_warn | pnlic_hidden | pnlic_auth>"
+		echo "    pnlic_build.bat clean <all | authnet_lib | lic_auth_lib | pnlic_lib | pnlic_warn | pnlic_hidden | pnlic_auth>"
+		echo "    pnlic_build.bat build <all | authnet_lib | lic_auth_lib | pnlic_lib | pnlic_warn | pnlic_hidden | pnlic_auth>"
 		return
 	fi
 
@@ -18,20 +18,20 @@ func_main() {
 	func_check_environment_variable
 
 	#   (2) Tool 빌드
-	func_process_library_tools $1 $2
+	#func_build_library_pidl $1 $2				# 리눅스 환경에선 빌드하지 않음
 
 	#   (3) 공용 Library 빌드
-	func_process_library_authnet_lib $1 $2
-	func_process_library_lic_auth_lib $1 $2
-	func_process_library_pnlic_lib $1 $2
+	func_build_library_authnet_lib $1 $2
+	func_build_library_lic_auth_lib $1 $2
+	func_build_library_pnlic_lib $1 $2
 
 	#   (4) PNLicense 관련 .exe 빌드
-	func_process_library_pnlic_warn $1 $2
-	func_process_library_pnlic_hidden $1 $2
-	func_process_library_pnlic_auth $1 $2
+	func_build_library_pnlic_warn $1 $2
+	func_build_library_pnlic_hidden $1 $2
+	func_build_library_pnlic_auth $1 $2
 
 	#   (5) Watermark 관련 .lib/.dll 빌드
-	#func_process_library_watermark $1 $2			# 리눅스 환경에선 빌드하지 않음
+	#func_build_library_watermark $1 $2			# 리눅스 환경에선 빌드하지 않음
 }
 
 func_check_environment_variable() {
@@ -60,29 +60,19 @@ func_check_environment_variable() {
 	echo ">>>>"
 }
 
-func_process_library_tools() {
-	if [ "$2" != "all" ]; then
-		if [ "$2" != "tools" ]; then
-			return
-		fi
-	fi
-
-	func_compile_command "Tools/ImageGen" $1
-	#func_compile_command "Tools/Pidl" $1			# 리눅스 환경에선 빌드하지 않음
-}
-
-func_process_library_authnet_lib() {
+func_build_library_authnet_lib() {
 	if [ "$2" != "all" ]; then
 		if [ "$2" != "authnet_lib" ]; then
 			return
 		fi
 	fi
 
+	#func_compile_command "AuthNetLib/ProudNetPidl" $1		# 리눅스 환경에선 빌드하지 않음
 	func_compile_command "AuthNetLib/ProudNetClient" $1
 	func_compile_command "AuthNetLib/ProudNetServer" $1
 }
 
-func_process_library_lic_auth_lib() {
+func_build_library_lic_auth_lib() {
 	if [ "$2" != "all" ]; then
 		if [ "$2" != "lic_auth_lib" ]; then
 			return
@@ -91,9 +81,10 @@ func_process_library_lic_auth_lib() {
 
 	func_compile_command "LicAuthLib/PNLicAuthCommon" $1
 	func_compile_command "LicAuthLib/PNLicAuthClient" $1
+	#func_compile_command "LicAuthLib/PNLicAuthServer" $1	# 리눅스 환경에선 빌드하지 않음
 }
 
-func_process_library_pnlic_lib() {
+func_build_library_pnlic_lib() {
 	if [ "$2" != "all" ]; then
 		if [ "$2" != "pnlic_lib" ]; then
 			return
@@ -105,7 +96,7 @@ func_process_library_pnlic_lib() {
 	func_compile_command "PNLicense" $1
 }
 
-func_process_library_pnlic_warn() {
+func_build_library_pnlic_warn() {
 	if [ "$2" != "all" ]; then
 		if [ "$2" != "pnlic_warn" ]; then
 			return
@@ -118,7 +109,7 @@ func_process_library_pnlic_warn() {
 	func_compile_command "PNLicenseWarning" $1
 }
 
-func_process_library_pnlic_hidden() {
+func_build_library_pnlic_hidden() {
 	if [ "$2" != "all" ]; then
 		if [ "$2" != "pnlic_hidden" ]; then
 			return
@@ -131,7 +122,7 @@ func_process_library_pnlic_hidden() {
 	func_compile_command "PNLicenseHidden" $1
 }
 
-func_process_library_pnlic_auth() {
+func_build_library_pnlic_auth() {
 	if [ "$2" != "all" ]; then
 		if [ "$2" != "pnlic_auth" ]; then
 			return
@@ -139,7 +130,7 @@ func_process_library_pnlic_auth() {
 	fi
 
 	func_compile_command "PNLicenseAuth" $1
-	#func_compile_command "PNLicenseAuthGui" $1		# 리눅스 환경에선 빌드하지 않음
+	#func_compile_command "PNLicenseAuthGui" $1				# 리눅스 환경에선 빌드하지 않음
 }
 
 func_compile_command() {
