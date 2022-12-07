@@ -48,9 +48,9 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #endif
 
 #ifdef _WIN64
-#include "./_x64/msado15.tlh"
+#include "./x86_64/msado15.tlh"
 #else
-#include "msado15.tlh"
+#include "./x86_32/msado15.tlh"
 #endif
 
 #ifdef _MSC_VER

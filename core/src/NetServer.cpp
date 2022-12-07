@@ -53,12 +53,12 @@
 #include "quicksort.h"
 
 #ifndef PROUDSRCCOPY
-#include "../PNLic/PNLicenseManager/PNLic.h"
-#include "../PNLic/PNLicenseManager/Binary.inl"
-#include "../PNLic/PNLicenseManager/PNLic.inl"
+#include "../../pnlic/PNLicenseManager/PNLic.h"
+#include "../../pnlic/PNLicenseManager/Binary.inl"
+#include "../../pnlic/PNLicenseManager/PNLic.inl"
 
 #include "../include/pnguid-win32.h"
-#include "../PNLic/PNLicenseManager/AppExecuter.inl"
+#include "../../pnlic/PNLicenseManager/AppExecuter.inl"
 
 #endif
 

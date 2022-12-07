@@ -7,7 +7,7 @@
 //#include "../include/ThreadPool.h"
 
 #ifndef PROUDSRCCOPY
-#include "../PNLic/PNLicenseManager/PNLic.h"
+#include "../../pnlic/PNLicenseManager/PNLic.h"
 #endif
 
 #include "quicksort.h"

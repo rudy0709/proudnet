@@ -12,7 +12,7 @@
 #include <new>
 #include "../include/NetConfig.h"
 #include "../include/sysutil.h"
-#include "PNVersion.h"
+#include "../../version/PNVersion.h"
 
 namespace Proud
 {

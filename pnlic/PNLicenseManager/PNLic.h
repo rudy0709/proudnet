@@ -18,12 +18,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../src/enumimpl.h"	// RuntimePlatform enum
-#include "../../include/CriticalSect.h"
-#include "../../include/AddrPort.h"
-#include "../../src/FastMap2.h"
+#include "../../core/src/enumimpl.h"	// RuntimePlatform enum
+#include "../../core/include/CriticalSect.h"
+#include "../../core/include/AddrPort.h"
+#include "../../core/src/FastMap2.h"
 
-#include "../../include/LambdaWrap.h"
+#include "../../core/include/LambdaWrap.h"
 
 using namespace Proud;
 

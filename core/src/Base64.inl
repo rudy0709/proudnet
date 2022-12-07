@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "Base64.h"
 #include "../include/ByteArray.h"
-#include "libtom/crypto/headers/tomcrypt.h"
+#include "../OpenSources/libtom/crypto/headers/tomcrypt.h"
 
 namespace Proud
 {

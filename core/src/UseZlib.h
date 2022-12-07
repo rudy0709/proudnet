@@ -1,7 +1,7 @@
 ﻿#pragma once 
 
 #include "../include/BasicTypes.h"
-#include "zlib/zlib.h"
+#include "../OpenSources/zlib/zlib.h"
 
 namespace Proud 
 {

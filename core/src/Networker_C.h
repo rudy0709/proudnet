@@ -26,7 +26,7 @@
 #include "FastArrayImpl.h"
 #include "PtrImpl.h"
 #include "Upnp.h"
-#include "FastArayPtrImpl.h"
+#include "FastArrayPtrImpl.h"
 //#include "GlobalTimerThread.h"
 #include "IntraTracer.h"
 //#include "ThreadPoolImpl.h"

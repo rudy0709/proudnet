@@ -25,7 +25,7 @@
 #ifdef VIZAGENT
 	#include "VizAgent.h"
 #endif
-#include "./zlib/zlib.h"
+#include "../OpenSources/zlib/zlib.h"
 #include "UseZlib.h"
 #include "Functors.h"
 #include "ExceptionImpl.h"

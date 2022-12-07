@@ -3,7 +3,7 @@
 
 #ifdef PROUDNET_HAS_ICONV
 // iconv를 제공 안하는 OS들은 이것을 쓴다.
-#include "../iconv-embed/include/iconv.h"
+#include "../OpenSources/iconv-embed/include/iconv.h"
 #else
 #include <iconv.h>
 #endif 

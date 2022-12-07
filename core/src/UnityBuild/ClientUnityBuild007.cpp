@@ -1,5 +1,5 @@
 ﻿#include "stdafx.h"
-#include  "../PNVersion.cpp"
+#include  "../../../version/PNVersion.cpp"
 #include  "../Poll_Reactor.cpp"
 #include  "../PooledObjects.cpp"
 #include  "../Ptr.cpp"

@@ -10,7 +10,7 @@
 
 #include "stdafx.h"
 #include <new>
-#include "./libtom/crypto/headers/tomcrypt.h"
+#include "../OpenSources/libtom/crypto/headers/tomcrypt.h"
 #include "../include/CryptoRsa.h"
 
 #if defined(__ORBIS__) && defined(_DEBUG)

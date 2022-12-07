@@ -14,7 +14,7 @@
 #include "../include/CriticalSect.h"
 #include "../include/FastArrayPtr.h"
 #include "../include/MiniDumper.h"
-#include "FastArayPtrImpl.h"
+#include "FastArrayPtrImpl.h"
 #include "FreeList.h"
 #include "PooledObjectAsLocalVar.h"
 #include "FavoriteLV.h"
