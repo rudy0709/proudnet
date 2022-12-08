@@ -1,2213 +1,2194 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\src\ConnectParam.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\DumpClient.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\EmergencyLogClient.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NetClient.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NetClientManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Networker_C.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\P2PGroup_C.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ReliableUDP.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\RemotePeer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\stdafxclient.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Upnp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\VizAgent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\VizMessageSummary.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\RemoteServer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\acrimpl_c.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NetClientConnect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UdpSocket_C.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\TcpLayer_C.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ISendDest_C.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\HlaEntityImpl_C.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\HlaSessionHostImpl_C.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\P2P_C.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\RemotePeerRecycle_C.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\iconv-embed\iconv.c">
-      <Filter>OpenSource Files\iconv</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\iconv-embed\localcharset.c">
-      <Filter>OpenSource Files\iconv</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\iconv-embed\relocatable.c">
-      <Filter>OpenSource Files\iconv</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\acrimpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\AddrPort.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\AngleFollower.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\AsyncWork.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\atomic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\BufferSegment.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\CoInit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Crc.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\CriticalSect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\CryptoAes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\CryptoFast.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\CryptoRc4.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\CryptoRsa.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\CustomValueEventQueue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\DefaultStringEncoder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\DeviationDetector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\DumpCommon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\EmergencyLogCommon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\EmergencyLogData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Enums.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Epoll_Reactor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ErrorInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Event.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Exception.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ExternalBufferArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FakeClrBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FakeCLRRandom.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FakeWinsock.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FastArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FastArrayImpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FastArrayPtr.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FastHeap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FastHeapImpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FastHeapSettings.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FastSocket.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FilterTag.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FinalUserWorkItem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\GlobalTimerThread.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\HeartbeatWork.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\HlaCritSec.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\HlaField.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\IOCP.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\IRmiHost.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\IRMIProxy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\IRMIStub.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Kqueue_Reactor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\LeanDynamicCast.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\LeanType.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ListNode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\LogWriterImpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\LookasideAllocator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\LookasideAllocatorImpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\LoopbackHost.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Marshaler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Message.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\MilisecTimerImpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\MiniDumper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mmmilisectimer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mmtime64.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NetConfig.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NetCore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NetCoreEvent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NetPeerInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NetSettings.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NetUtil.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NumUtil.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\P2PGroup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PacketFrag.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\pnguid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PnIconv.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\pnmutex.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PNPath.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PNString.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PnThread.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PnTime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\version\PNVersion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Poll_Reactor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PooledObjects.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PositionFollower.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Ptr.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PtrImpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\qpcmilisectimer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Quantizer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Random.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ReliableUDPConfig.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ReliableUDPFrame.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ReliableUdpHelper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ReliableUDPHost.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\RemoteBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ReportError.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\RMIContext.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Semaphore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SendBrake.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SendData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SendMessage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SendReadyList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SingletonImpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Socket.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SocketToHostsMap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SocketUtil.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\stdafxcommon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\StreamQueue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\StringEncorder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\strpool.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SuperSocket.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SuperSocketProactor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SuperSocketReactor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SuperSocketSend.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SysTime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\sysutil.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\TCPLayer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ThreadPoolImpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ThreadUtil.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\TimeAlarm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\TimeEventThreadPool.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\TimeOfDayTimer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\TimerThread.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\TimeUtil.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Tracer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UnreliableMessageLossMeasurer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\URI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UseCount.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UseZlib.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\variant-marshaler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\adler32.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\compress.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\crc32.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\deflate.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\gzclose.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\gzlib.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\gzwrite.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\infback.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\inffast.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\inflate.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\inftrees.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\trees.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\uncompr.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\zlib\zutil.c">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\aes\aes.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\aes\aes_tab.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\anubis.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\blowfish.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\cast5.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\des.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\kasumi.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\khazad.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\kseed.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\multi2.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\noekeon.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\rc2.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\rc5.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\rc6.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\safer\safer.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\safer\saferp.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\safer\safer_tab.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\skipjack.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\twofish\twofish.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\twofish\twofish_tab.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\xtea.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ccm\ccm_memory.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ccm\ccm_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_addheader.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_decrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_decrypt_verify_memory.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_encrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_encrypt_authenticate_memory.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_init.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_add_aad.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_add_iv.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_gf_mult.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_init.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_memory.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_mult_h.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_process.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_reset.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_decrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_decrypt_verify_memory.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_done_decrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_done_encrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_encrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_encrypt_authenticate_memory.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_init.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_ntz.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_shift_xor.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\s_ocb_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\chc\chc.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\helper\hash_file.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\helper\hash_filehandle.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\helper\hash_memory.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\helper\hash_memory_multi.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\md2.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\md4.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\md5.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\rmd128.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\rmd160.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\rmd256.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\rmd320.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha1.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha2\sha224.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha2\sha256.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha2\sha384.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha2\sha512.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\tiger.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\whirl\whirl.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\whirl\whirltab.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_file.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_init.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_memory.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_memory_multi.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_process.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_file.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_init.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_memory.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_memory_multi.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_process.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_file.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_init.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_memory.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_memory_multi.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_process.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pelican\pelican.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pelican\pelican_memory.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pelican\pelican_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_file.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_init.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_memory.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_memory_multi.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_ntz.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_process.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_shift_xor.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_file.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_init.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_memory.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_memory_multi.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_process.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\math\gmp_desc.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\math\ltm_desc.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\math\multi.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\math\rand_prime.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\math\tfm_desc.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\base64\base64_decode.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\base64\base64_encode.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\burn_stack.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_argchk.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_cipher_descriptor.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_cipher_is_valid.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_cipher.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_cipher_any.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_cipher_id.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_hash.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_hash_any.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_hash_id.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_hash_oid.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_prng.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_fsa.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_hash_descriptor.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_hash_is_valid.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_ltc_mp_descriptor.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_prng_descriptor.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_prng_is_valid.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_register_cipher.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_register_hash.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_register_prng.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_unregister_cipher.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_unregister_hash.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_unregister_prng.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\error_to_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\pkcs5\pkcs_5_1.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\pkcs5\pkcs_5_2.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\misc\zeromem.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cbc\cbc_decrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cbc\cbc_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cbc\cbc_encrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cbc\cbc_getiv.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cbc\cbc_setiv.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cbc\cbc_start.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cfb\cfb_decrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cfb\cfb_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cfb\cfb_encrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cfb\cfb_getiv.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cfb\cfb_setiv.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cfb\cfb_start.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_decrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_encrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_getiv.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_setiv.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_start.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ecb\ecb_decrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ecb\ecb_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ecb\ecb_encrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ecb\ecb_start.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_decrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_encrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_getiv.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_setiv.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_start.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_test_mode.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_decrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_encrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_getiv.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_process.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_setiv.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_start.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ofb\ofb_decrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ofb\ofb_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ofb\ofb_encrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ofb\ofb_getiv.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ofb\ofb_setiv.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ofb\ofb_start.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\xts\xts_decrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\xts\xts_done.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\xts\xts_encrypt.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\xts\xts_init.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\xts\xts_mult_x.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\modes\xts\xts_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\bit\der_decode_bit_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\bit\der_encode_bit_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\bit\der_length_bit_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\boolean\der_decode_boolean.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\boolean\der_encode_boolean.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\boolean\der_length_boolean.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\choice\der_decode_choice.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\ia5\der_decode_ia5_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\ia5\der_encode_ia5_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\ia5\der_length_ia5_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\integer\der_decode_integer.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\integer\der_encode_integer.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\integer\der_length_integer.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\object_identifier\der_decode_object_identifier.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\object_identifier\der_encode_object_identifier.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\object_identifier\der_length_object_identifier.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\octet\der_decode_octet_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\octet\der_encode_octet_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\octet\der_length_octet_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\printable_string\der_decode_printable_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\printable_string\der_encode_printable_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\printable_string\der_length_printable_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_decode_sequence_ex.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_decode_sequence_flexi.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_decode_sequence_multi.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_encode_sequence_ex.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_encode_sequence_multi.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_length_sequence.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_sequence_free.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\set\der_encode_set.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\set\der_encode_setof.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\short_integer\der_decode_short_integer.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\short_integer\der_encode_short_integer.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\short_integer\der_length_short_integer.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\utctime\der_decode_utctime.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\utctime\der_encode_utctime.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\utctime\der_length_utctime.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\utf8\der_decode_utf8_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\utf8\der_encode_utf8_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\utf8\der_length_utf8_string.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_decrypt_key.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_encrypt_key.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_export.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_free.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_import.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_make_key.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_shared_secret.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_sign_hash.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_verify_hash.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_verify_key.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_decrypt_key.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_encrypt_key.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_export.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_exptmod.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_free.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_import.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_make_key.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_i2osp.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_mgf1.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_oaep_decode.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_oaep_encode.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_os2ip.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_pss_decode.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_pss_encode.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_v1_5_decode.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_v1_5_encode.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_decrypt_key.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_encrypt_key.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_export.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_exptmod.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_free.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_import.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_make_key.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_sign_hash.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_verify_hash.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\fortuna.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\rc4.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\rng_get_bytes.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\rng_make_prng.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\sober128.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\sober128tab.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\sprng.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\yarrow.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bncore.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_error.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_fast_mp_invmod.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_fast_mp_montgomery_reduce.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_fast_s_mp_mul_digs.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_fast_s_mp_mul_high_digs.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_fast_s_mp_sqr.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_2expt.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_abs.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_add.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_addmod.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_add_d.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_and.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_clamp.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_clear.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_clear_multi.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_cmp.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_cmp_d.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_cmp_mag.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_cnt_lsb.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_copy.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_count_bits.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_div.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_div_2.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_div_2d.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_div_3.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_div_d.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_dr_is_modulus.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_dr_reduce.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_dr_setup.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_exch.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_exptmod.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_exptmod_fast.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_expt_d.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_exteuclid.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_fread.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_fwrite.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_gcd.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_get_int.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_grow.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_init.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_init_copy.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_init_multi.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_init_set.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_init_set_int.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_init_size.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_invmod.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_invmod_slow.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_is_square.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_jacobi.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_karatsuba_mul.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_karatsuba_sqr.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_lcm.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_lshd.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mod.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mod_2d.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mod_d.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_montgomery_calc_normalization.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_montgomery_reduce.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_montgomery_setup.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mul.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mulmod.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mul_2.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mul_2d.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mul_d.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_neg.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_n_root.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_or.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_fermat.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_is_divisible.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_is_prime.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_miller_rabin.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_next_prime.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_rabin_miller_trials.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_random_ex.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_radix_size.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_radix_smap.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_rand.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_read_radix.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_read_signed_bin.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_read_unsigned_bin.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_2k.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_2k_l.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_2k_setup.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_2k_setup_l.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_is_2k.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_is_2k_l.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_setup.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_rshd.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_set.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_set_int.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_shrink.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_signed_bin_size.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sqr.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sqrmod.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sqrt.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sub.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_submod.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sub_d.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toom_mul.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toom_sqr.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toradix.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toradix_n.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_to_signed_bin.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_to_signed_bin_n.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_to_unsigned_bin.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_to_unsigned_bin_n.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_unsigned_bin_size.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_xor.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_zero.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_prime_tab.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_reverse.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_add.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_exptmod.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_mul_digs.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_mul_high_digs.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_sqr.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_sub.c">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NetClientSend.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NetCoreStats.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NetClientStats.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\UserTaskQueue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\src\DumpClient.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\EmergencyLogClient.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\NetClient.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\NetClientManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Networker_C.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\P2PGroup_C.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ReliableUDP.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\RemotePeer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Upnp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\VizAgent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\VizMessageSummary.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\RemoteServer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\acrimpl_c.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ISendDest_C.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\HlaSessionHostImpl_C.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\HlaEntityImpl_C.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\acrimpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\AsyncWork.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\BufferSegment.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\CachedTimes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\CollUtil.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\CriticalSectImpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\CustomValueEventQueue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\DefaultStringEncoder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\DeviationDetector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\EmergencyLogData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\enumimpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Epoll_Reactor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\FakeWinsock.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\FastArayPtrImpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\FastArrayImpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\FastHeapImpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\FastList2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\FastMap2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\FastSocket.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\FilterTag.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\FinalUserWorkItem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\FragHeader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\FreeList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Functors.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\GlobalTimerThread.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\HeartbeatWork.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\HlaCritSec.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\IHostObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\IntraTracer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\IOCP.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ioevent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Kqueue_Reactor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\LeanDynamicCast.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\LeanType.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\LicenseType.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\iconv-embed\localcharset.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\LocalEvent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\LogWriterImpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\LookasideAllocatorImpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\LoopbackHost.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\LowContextSwitchingLoop.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\MilisecTimerImpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mmmilisectimer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mmtime64.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\NetCore.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\NetSettings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\NetUtil.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\NumUtil.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PacketFrag.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PnIconv.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PNS3ETimer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\version\PNVersion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Poll_Reactor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PooledObjectAsLocalVar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PooledObjects.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PtrImpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\qpcmilisectimer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\quicksort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Reactor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Relayer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ReliableUDPConfig.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ReliableUDPFrame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ReliableUdpHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ReliableUDPHost.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\iconv-embed\relocatable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\RemoteBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ReportError.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ReusableLocalVar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\RmiContextImpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SendBrake.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SendDestInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SendFragRefs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SendMessage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SendOpt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SendReadyList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Socket.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SocketPtrAndSerial.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SocketUtil.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\STLUtil.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\StreamQueue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SuperSocket.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\TCPLayer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ThreadPoolImpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\TimeAlarm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\TimeEventThreadPool.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\TimeOfDayTimer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\UniqueID.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\UnreliableMessageLossMeasurer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\URI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\UseCount.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\UseZlib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\zlib\zconf.h">
-      <Filter>OpenSource Files\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\libtom\math\ProudTomMath.h">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\libtom\math\tommath.h">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\libtom\math\tommath_class.h">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OpenSources\libtom\math\tommath_superclass.h">
-      <Filter>OpenSource Files\libtom\math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\UserTaskQueue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\RunOnScopeOut.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SpinLock.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{cef420d3-f709-4629-922d-3cd2b2c92761}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{c00c4d1a-5b30-4be5-a3e0-638199bae667}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;</Extensions>
     </Filter>
-    <Filter Include="OpenSource Files">
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{cef420d3-f709-4629-922d-3cd2b2c92761}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Open Source Libraries">
       <UniqueIdentifier>{4f366df7-36e3-4745-af71-0737976879c6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="OpenSource Files\libtom">
-      <UniqueIdentifier>{e7b795ba-b0df-47ac-937b-db10a3376a31}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="OpenSource Files\libtom\crypto">
-      <UniqueIdentifier>{f40dab68-de7f-4381-b77a-34b51151f859}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="OpenSource Files\libtom\math">
-      <UniqueIdentifier>{cd2ee78f-f4da-4932-8606-86518bfe541f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="OpenSource Files\iconv">
+    <Filter Include="Open Source Libraries\iconv">
       <UniqueIdentifier>{fa4a34b1-0d31-4308-8ce1-032a64cb7847}</UniqueIdentifier>
     </Filter>
-    <Filter Include="OpenSource Files\zlib">
+    <Filter Include="Open Source Libraries\libtom">
+      <UniqueIdentifier>{e7b795ba-b0df-47ac-937b-db10a3376a31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Open Source Libraries\libtom\crypto">
+      <UniqueIdentifier>{f40dab68-de7f-4381-b77a-34b51151f859}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Open Source Libraries\libtom\math">
+      <UniqueIdentifier>{cd2ee78f-f4da-4932-8606-86518bfe541f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Open Source Libraries\zlib">
       <UniqueIdentifier>{4e464532-cc61-44d2-83aa-ff030a7618eb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\OpenSources\libtom\crypto\headers\ProudTomCrypto.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="..\src\acrimpl.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\acrimpl_c.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\AddrPort.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\AngleFollower.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\AsyncWork.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\atomic.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\BufferSegment.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\CoInit.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\ConnectParam.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\Crc.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\CriticalSect.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\CryptoAes.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\CryptoFast.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\CryptoRc4.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\CryptoRsa.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\CustomValueEventQueue.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DefaultStringEncoder.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DeviationDetector.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DumpClient.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DumpCommon.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\EmergencyLogClient.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\EmergencyLogCommon.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\EmergencyLogData.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\Enums.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\Epoll_Reactor.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\ErrorInfo.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\Event.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\Exception.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\ExternalBufferArray.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FakeClrBase.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FakeCLRRandom.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FakeWinsock.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FastArray.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FastArrayImpl.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FastArrayPtr.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FastHeap.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FastHeapImpl.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FastHeapSettings.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FastSocket.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FilterTag.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FinalUserWorkItem.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\GlobalTimerThread.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\HeartbeatWork.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\HlaCritSec.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\HlaEntityImpl_C.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\HlaField.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\HlaSessionHostImpl_C.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\IOCP.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\IRmiHost.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\IRMIProxy.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\IRMIStub.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\ISendDest_C.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\Kqueue_Reactor.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\LeanDynamicCast.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\LeanType.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\ListNode.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\LogWriterImpl.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\LookasideAllocator.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\LookasideAllocatorImpl.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\LoopbackHost.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\Marshaler.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\Message.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\MilisecTimerImpl.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\MiniDumper.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\mmmilisectimer.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\mmtime64.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetClient.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetClientConnect.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetClientManager.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetClientSend.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetClientStats.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetConfig.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetCore.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetCoreEvent.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetCoreStats.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetPeerInfo.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetSettings.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetUtil.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\Networker_C.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NumUtil.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\P2P_C.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\P2PGroup.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\P2PGroup_C.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\PacketFrag.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\pnguid.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\PnIconv.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\pnmutex.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\PNPath.cpp">
+      <Filter>Source Files</Filter>
+    </None>
     <None Include="..\src\PNS3ETimer.cpp">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\math\fp\ltc_ecc_fp_mulmod.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\PNString.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\PnThread.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_ansi_x963_export.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\PnTime.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_ansi_x963_import.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\..\..\version\PNVersion.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_decrypt_key.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\Poll_Reactor.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_encrypt_key.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\PooledObjects.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_export.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\PositionFollower.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_free.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\Ptr.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_get_size.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\PtrImpl.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_import.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\qpcmilisectimer.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_make_key.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\Quantizer.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_shared_secret.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\Random.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_sign_hash.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\ReliableUDP.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_sizes.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\ReliableUDPConfig.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_test.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\ReliableUDPFrame.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_verify_hash.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\ReliableUdpHelper.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_is_valid_idx.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\ReliableUDPHost.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_map.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\RemoteBase.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_mul2add.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\RemotePeer.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_mulmod.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\RemotePeerRecycle_C.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_mulmod_timing.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\RemoteServer.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_points.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\ReportError.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_projective_add_point.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\RMIContext.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_projective_dbl_point.c">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\Semaphore.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\SendBrake.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_argchk.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\SendData.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_cfg.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\SendMessage.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_cipher.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\SendReadyList.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_custom.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\SingletonImpl.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_hash.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\Socket.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_mac.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\SocketToHostsMap.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_macros.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\SocketUtil.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_math.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\stdafxclient.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_misc.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\stdafxcommon.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_pk.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\StreamQueue.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_pkcs.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\StringEncorder.cpp">
+      <Filter>Source Files</Filter>
     </None>
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_prng.h">
-      <Filter>OpenSource Files\libtom\crypto</Filter>
+    <None Include="..\src\strpool.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\SuperSocket.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\SuperSocketProactor.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\SuperSocketReactor.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\SuperSocketSend.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\SysTime.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\sysutil.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\TCPLayer.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\TcpLayer_C.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\ThreadPoolImpl.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\ThreadUtil.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\TimeAlarm.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\TimeEventThreadPool.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\TimeOfDayTimer.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\TimerThread.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\TimeUtil.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\Tracer.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\UdpSocket_C.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\UnreliableMessageLossMeasurer.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\Upnp.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\URI.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\UseCount.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\UserTaskQueue.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\UseZlib.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\variant-marshaler.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\VizAgent.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\VizMessageSummary.cpp">
+      <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\OpenSources\iconv-embed\libiconv.rc">
-      <Filter>OpenSource Files\iconv</Filter>
-    </ResourceCompile>
+    <None Include="..\src\acrimpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\acrimpl_c.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\AsyncWork.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\BufferSegment.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\CachedTimes.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\CollUtil.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\CriticalSectImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\CustomValueEventQueue.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\DefaultStringEncoder.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\DeviationDetector.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\DumpClient.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\EmergencyLogClient.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\EmergencyLogData.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\enumimpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\Epoll_Reactor.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FakeWinsock.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FastArrayImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FastArrayPtrImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FastHeapImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FastList2.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FastMap2.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FastSocket.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FilterTag.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FinalUserWorkItem.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FragHeader.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FreeList.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\Functors.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\GlobalTimerThread.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\HeartbeatWork.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\HlaCritSec.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\HlaEntityImpl_C.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\HlaSessionHostImpl_C.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\IHostObject.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\IntraTracer.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\IOCP.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\ioevent.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\ISendDest_C.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\Kqueue_Reactor.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\LeanDynamicCast.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\LeanType.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\LicenseType.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\LocalEvent.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\LogWriterImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\LookasideAllocatorImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\LoopbackHost.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\LowContextSwitchingLoop.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\MilisecTimerImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\mmmilisectimer.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\mmtime64.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\NetClient.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\NetClientManager.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\NetCore.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\NetSettings.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\NetUtil.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\Networker_C.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\NumUtil.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\P2PGroup_C.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\PacketFrag.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\PnIconv.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\PNS3ETimer.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\..\..\version\PNVersion.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\Poll_Reactor.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\PooledObjectAsLocalVar.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\PooledObjects.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\PtrImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\qpcmilisectimer.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\quicksort.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\Reactor.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\Relayer.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\ReliableUDP.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\ReliableUDPConfig.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\ReliableUDPFrame.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\ReliableUdpHelper.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\ReliableUDPHost.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\RemoteBase.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\RemotePeer.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\RemoteServer.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\ReportError.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\ReusableLocalVar.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\RmiContextImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\RunOnScopeOut.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\SendBrake.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\SendDestInfo.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\SendFragRefs.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\SendMessage.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\SendOpt.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\SendReadyList.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\Socket.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\SocketPtrAndSerial.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\SocketUtil.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\SpinLock.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\STLUtil.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\StreamQueue.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\SuperSocket.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\TCPLayer.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\ThreadPoolImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\TimeAlarm.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\TimeEventThreadPool.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\TimeOfDayTimer.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\UniqueID.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\UnreliableMessageLossMeasurer.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\Upnp.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\URI.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\UseCount.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\UserTaskQueue.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\UseZlib.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\VizAgent.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\VizMessageSummary.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\stdafx.h">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\OpenSources\iconv-embed\iconv.c">
+      <Filter>Open Source Libraries\iconv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\iconv-embed\localcharset.c">
+      <Filter>Open Source Libraries\iconv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\iconv-embed\relocatable.c">
+      <Filter>Open Source Libraries\iconv</Filter>
+    </ClCompile>
+    <ClInclude Include="..\OpenSources\iconv-embed\localcharset.h">
+      <Filter>Open Source Libraries\iconv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\iconv-embed\relocatable.h">
+      <Filter>Open Source Libraries\iconv</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\aes\aes.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\safer\safer.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\safer\saferp.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\twofish\twofish.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\anubis.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\blowfish.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\cast5.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\des.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\kasumi.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\khazad.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\kseed.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\multi2.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\noekeon.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\rc2.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\rc5.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\rc6.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\skipjack.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\xtea.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ccm\ccm_memory.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ccm\ccm_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_addheader.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_decrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_decrypt_verify_memory.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_encrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_encrypt_authenticate_memory.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_init.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\eax\eax_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_add_aad.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_add_iv.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_gf_mult.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_init.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_memory.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_mult_h.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_process.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_reset.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\gcm\gcm_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_decrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_decrypt_verify_memory.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_done_decrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_done_encrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_encrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_encrypt_authenticate_memory.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_init.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_ntz.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_shift_xor.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\ocb_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ocb\s_ocb_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\chc\chc.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\helper\hash_file.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\helper\hash_filehandle.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\helper\hash_memory.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\helper\hash_memory_multi.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha2\sha256.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha2\sha512.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\whirl\whirl.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\md2.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\md4.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\md5.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\rmd128.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\rmd160.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\rmd256.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\rmd320.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha1.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\tiger.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_file.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_init.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_memory.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_memory_multi.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_process.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_file.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_init.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_memory.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_memory_multi.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_process.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\hmac\hmac_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_file.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_init.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_memory.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_memory_multi.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_process.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\omac\omac_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pelican\pelican.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pelican\pelican_memory.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pelican\pelican_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_file.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_init.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_memory.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_memory_multi.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_ntz.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_process.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_shift_xor.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\pmac\pmac_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_file.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_init.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_memory.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_memory_multi.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_process.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\math\fp\ltc_ecc_fp_mulmod.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\math\gmp_desc.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\math\ltm_desc.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\math\multi.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\math\rand_prime.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\math\tfm_desc.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\base64\base64_decode.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\base64\base64_encode.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\burn_stack.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_argchk.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_cipher_descriptor.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_cipher_is_valid.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_cipher.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_cipher_any.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_cipher_id.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_hash.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_hash_any.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_hash_id.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_hash_oid.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_find_prng.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_fsa.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_hash_descriptor.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_hash_is_valid.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_ltc_mp_descriptor.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_prng_descriptor.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_prng_is_valid.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_register_cipher.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_register_hash.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_register_prng.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_unregister_cipher.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_unregister_hash.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\crypt\crypt_unregister_prng.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\error_to_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\pkcs5\pkcs_5_1.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\pkcs5\pkcs_5_2.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\misc\zeromem.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cbc\cbc_decrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cbc\cbc_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cbc\cbc_encrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cbc\cbc_getiv.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cbc\cbc_setiv.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cbc\cbc_start.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cfb\cfb_decrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cfb\cfb_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cfb\cfb_encrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cfb\cfb_getiv.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cfb\cfb_setiv.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\cfb\cfb_start.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_decrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_encrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_getiv.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_setiv.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_start.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ctr\ctr_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ecb\ecb_decrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ecb\ecb_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ecb\ecb_encrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ecb\ecb_start.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_decrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_encrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_getiv.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_setiv.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_start.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\f8\f8_test_mode.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_decrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_encrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_getiv.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_process.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_setiv.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_start.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\lrw\lrw_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ofb\ofb_decrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ofb\ofb_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ofb\ofb_encrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ofb\ofb_getiv.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ofb\ofb_setiv.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\ofb\ofb_start.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\xts\xts_decrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\xts\xts_done.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\xts\xts_encrypt.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\xts\xts_init.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\xts\xts_mult_x.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\modes\xts\xts_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\bit\der_decode_bit_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\bit\der_encode_bit_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\bit\der_length_bit_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\boolean\der_decode_boolean.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\boolean\der_encode_boolean.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\boolean\der_length_boolean.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\choice\der_decode_choice.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\ia5\der_decode_ia5_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\ia5\der_encode_ia5_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\ia5\der_length_ia5_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\integer\der_decode_integer.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\integer\der_encode_integer.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\integer\der_length_integer.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\object_identifier\der_decode_object_identifier.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\object_identifier\der_encode_object_identifier.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\object_identifier\der_length_object_identifier.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\octet\der_decode_octet_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\octet\der_encode_octet_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\octet\der_length_octet_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\printable_string\der_decode_printable_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\printable_string\der_encode_printable_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\printable_string\der_length_printable_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_decode_sequence_ex.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_decode_sequence_flexi.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_decode_sequence_multi.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_encode_sequence_ex.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_encode_sequence_multi.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_length_sequence.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\sequence\der_sequence_free.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\set\der_encode_set.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\set\der_encode_setof.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\short_integer\der_decode_short_integer.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\short_integer\der_encode_short_integer.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\short_integer\der_length_short_integer.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\utctime\der_decode_utctime.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\utctime\der_encode_utctime.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\utctime\der_length_utctime.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\utf8\der_decode_utf8_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\utf8\der_encode_utf8_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\asn1\der\utf8\der_length_utf8_string.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_decrypt_key.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_encrypt_key.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_export.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_free.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_import.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_make_key.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_shared_secret.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_sign_hash.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_verify_hash.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_verify_key.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_ansi_x963_export.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_ansi_x963_import.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_decrypt_key.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_encrypt_key.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_export.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_free.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_get_size.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_import.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_make_key.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_shared_secret.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_sign_hash.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_sizes.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_test.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_verify_hash.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_is_valid_idx.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_map.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_mul2add.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_mulmod.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_mulmod_timing.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_points.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_projective_add_point.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_projective_dbl_point.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_decrypt_key.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_encrypt_key.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_export.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_exptmod.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_free.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_import.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_make_key.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_i2osp.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_mgf1.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_oaep_decode.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_oaep_encode.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_os2ip.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_pss_decode.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_pss_encode.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_v1_5_decode.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\pkcs1\pkcs_1_v1_5_encode.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_decrypt_key.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_encrypt_key.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_export.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_exptmod.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_free.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_import.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_make_key.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_sign_hash.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\rsa\rsa_verify_hash.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\fortuna.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\rc4.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\rng_get_bytes.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\rng_make_prng.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\sober128.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\sprng.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\yarrow.c">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClCompile>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_argchk.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_cfg.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_cipher.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_custom.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_hash.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_mac.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_macros.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_math.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_misc.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_pk.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_pkcs.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_prng.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\ProudTomCrypto.h">
+      <Filter>Open Source Libraries\libtom\crypto</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_error.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_fast_mp_invmod.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_fast_mp_montgomery_reduce.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_fast_s_mp_mul_digs.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_fast_s_mp_mul_high_digs.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_fast_s_mp_sqr.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_2expt.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_abs.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_add.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_add_d.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_addmod.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_and.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_clamp.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_clear.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_clear_multi.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_cmp.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_cmp_d.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_cmp_mag.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_cnt_lsb.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_copy.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_count_bits.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_div.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_div_2.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_div_2d.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_div_3.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_div_d.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_dr_is_modulus.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_dr_reduce.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_dr_setup.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_exch.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_expt_d.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_exptmod.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_exptmod_fast.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_exteuclid.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_fread.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_fwrite.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_gcd.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_get_int.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_grow.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_init.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_init_copy.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_init_multi.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_init_set.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_init_set_int.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_init_size.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_invmod.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_invmod_slow.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_is_square.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_jacobi.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_karatsuba_mul.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_karatsuba_sqr.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_lcm.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_lshd.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mod.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mod_2d.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mod_d.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_montgomery_calc_normalization.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_montgomery_reduce.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_montgomery_setup.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mul.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mul_2.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mul_2d.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mul_d.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mulmod.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_n_root.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_neg.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_or.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_fermat.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_is_divisible.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_is_prime.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_miller_rabin.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_next_prime.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_rabin_miller_trials.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_random_ex.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_radix_size.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_radix_smap.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_rand.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_read_radix.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_read_signed_bin.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_read_unsigned_bin.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_2k.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_2k_l.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_2k_setup.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_2k_setup_l.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_is_2k.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_is_2k_l.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_reduce_setup.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_rshd.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_set.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_set_int.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_shrink.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_signed_bin_size.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sqr.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sqrmod.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sqrt.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sub.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sub_d.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_submod.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_to_signed_bin.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_to_signed_bin_n.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_to_unsigned_bin.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_to_unsigned_bin_n.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toom_mul.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toom_sqr.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toradix.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toradix_n.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_unsigned_bin_size.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_xor.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_zero.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_prime_tab.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_reverse.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_add.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_exptmod.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_mul_digs.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_mul_high_digs.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_sqr.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_sub.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\math\bncore.c">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClCompile>
+    <ClInclude Include="..\OpenSources\libtom\math\tommath.h">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\math\tommath_class.h">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\math\tommath_superclass.h">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenSources\libtom\math\ProudTomMath.h">
+      <Filter>Open Source Libraries\libtom\math</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\OpenSources\zlib\adler32.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\compress.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\crc32.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\deflate.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\gzclose.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\gzlib.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\gzread.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\gzwrite.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\infback.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\inffast.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\inflate.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\inftrees.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\trees.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\uncompr.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenSources\zlib\zutil.c">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClCompile>
+    <ClInclude Include="..\OpenSources\zlib\zconf.h">
+      <Filter>Open Source Libraries\zlib</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -662,6 +662,7 @@ file(GLOB OPEN_SRCS_LIBTOM_MATH
     ../OpenSources/libtom/math/bn_mp_mul_2.c
     ../OpenSources/libtom/math/bn_mp_mul_2d.c
     ../OpenSources/libtom/math/bn_mp_mul_d.c
+    ../OpenSources/libtom/math/bn_mp_mulmod.c
     ../OpenSources/libtom/math/bn_mp_neg.c
     ../OpenSources/libtom/math/bn_mp_n_root.c
     ../OpenSources/libtom/math/bn_mp_or.c
@@ -729,7 +730,7 @@ file(GLOB OPEN_SRCS_ZLIB
     ../OpenSources/zlib/deflate.c
     ../OpenSources/zlib/gzclose.c
     ../OpenSources/zlib/gzlib.c
-    #../OpenSources/zlib/gzread.c
+    ../OpenSources/zlib/gzread.c
     ../OpenSources/zlib/gzwrite.c
     ../OpenSources/zlib/infback.c
     ../OpenSources/zlib/inffast.c

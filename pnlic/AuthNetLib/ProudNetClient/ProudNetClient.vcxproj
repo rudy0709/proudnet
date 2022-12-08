@@ -9,14 +9,6 @@
       <Configuration>Debug_static_CRT</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug_static_CRT|x64">
-      <Configuration>Debug_static_CRT</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
@@ -24,6 +16,14 @@
     <ProjectConfiguration Include="Release_static_CRT|Win32">
       <Configuration>Release_static_CRT</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_static_CRT|x64">
+      <Configuration>Debug_static_CRT</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
@@ -34,208 +34,540 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D447C486-92D2-4A70-BCFB-38372B197CBB}</ProjectGuid>
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Proud</RootNamespace>
+    <ProjectName>AuthNetClient</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <TargetName>AuthNetClient</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <TargetName>AuthNetClient</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <TargetName>AuthNetClient</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <TargetName>AuthNetClient</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <TargetName>AuthNetClient</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <TargetName>AuthNetClient</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <TargetName>AuthNetClient</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <TargetName>AuthNetClient</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Lib>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Lib>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat />
+    </ClCompile>
+    <Lib>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat />
+    </ClCompile>
+    <Lib>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Lib>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Lib>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat />
+    </ClCompile>
+    <Lib>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat />
+    </ClCompile>
+    <Lib>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\OpenSources\iconv-embed\localcharset.h" />
-    <ClInclude Include="..\OpenSources\iconv-embed\relocatable.h" />
-    <ClInclude Include="..\src\acrimpl.h" />
-    <ClInclude Include="..\src\acrimpl_c.h" />
-    <ClInclude Include="..\src\AsyncWork.h" />
-    <ClInclude Include="..\src\BufferSegment.h" />
-    <ClInclude Include="..\src\CachedTimes.h" />
-    <ClInclude Include="..\src\CollUtil.h" />
-    <ClInclude Include="..\src\CriticalSectImpl.h" />
-    <ClInclude Include="..\src\CustomValueEventQueue.h" />
-    <ClInclude Include="..\src\DefaultStringEncoder.h" />
-    <ClInclude Include="..\src\DeviationDetector.h" />
-    <ClInclude Include="..\src\DumpClient.h" />
-    <ClInclude Include="..\src\EmergencyLogClient.h" />
-    <ClInclude Include="..\src\EmergencyLogData.h" />
-    <ClInclude Include="..\src\enumimpl.h" />
-    <ClInclude Include="..\src\Epoll_Reactor.h" />
-    <ClInclude Include="..\src\FakeWinsock.h" />
-    <ClInclude Include="..\src\FastArayPtrImpl.h" />
-    <ClInclude Include="..\src\FastArrayImpl.h" />
-    <ClInclude Include="..\src\FastHeapImpl.h" />
-    <ClInclude Include="..\src\FastList2.h" />
-    <ClInclude Include="..\src\FastMap2.h" />
-    <ClInclude Include="..\src\FastSocket.h" />
-    <ClInclude Include="..\src\FilterTag.h" />
-    <ClInclude Include="..\src\FinalUserWorkItem.h" />
-    <ClInclude Include="..\src\FragHeader.h" />
-    <ClInclude Include="..\src\FreeList.h" />
-    <ClInclude Include="..\src\Functors.h" />
-    <ClInclude Include="..\src\GlobalTimerThread.h" />
-    <ClInclude Include="..\src\HeartbeatWork.h" />
-    <ClInclude Include="..\src\HlaCritSec.h" />
-    <ClInclude Include="..\src\HlaEntityImpl_C.h" />
-    <ClInclude Include="..\src\HlaSessionHostImpl_C.h" />
-    <ClInclude Include="..\src\IHostObject.h" />
-    <ClInclude Include="..\src\IntraTracer.h" />
-    <ClInclude Include="..\src\IOCP.h" />
-    <ClInclude Include="..\src\ioevent.h" />
-    <ClInclude Include="..\src\ISendDest_C.h" />
-    <ClInclude Include="..\src\Kqueue_Reactor.h" />
-    <ClInclude Include="..\src\LeanDynamicCast.h" />
-    <ClInclude Include="..\src\LeanType.h" />
-    <CustomBuild Include="..\OpenSources\libtom\crypto\headers\ProudTomCrypto.h" />
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt.h" />
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_argchk.h" />
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_cfg.h" />
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_cipher.h" />
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_custom.h" />
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_hash.h" />
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_mac.h" />
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_macros.h" />
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_math.h" />
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_misc.h" />
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_pk.h" />
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_pkcs.h" />
-    <None Include="..\OpenSources\libtom\crypto\headers\tomcrypt_prng.h" />
-    <ClInclude Include="..\OpenSources\libtom\math\ProudTomMath.h" />
-    <ClInclude Include="..\OpenSources\libtom\math\tommath.h" />
-    <ClInclude Include="..\OpenSources\libtom\math\tommath_class.h" />
-    <ClInclude Include="..\OpenSources\libtom\math\tommath_superclass.h" />
-    <ClInclude Include="..\src\LicenseType.h" />
-    <ClInclude Include="..\src\LocalEvent.h" />
-    <ClInclude Include="..\src\LogWriterImpl.h" />
-    <ClInclude Include="..\src\LookasideAllocatorImpl.h" />
-    <ClInclude Include="..\src\LoopbackHost.h" />
-    <ClInclude Include="..\src\LowContextSwitchingLoop.h" />
-    <ClInclude Include="..\src\MilisecTimerImpl.h" />
-    <ClInclude Include="..\src\mmmilisectimer.h" />
-    <ClInclude Include="..\src\mmtime64.h" />
-    <ClInclude Include="..\src\NetClient.h" />
-    <ClInclude Include="..\src\NetClientManager.h" />
-    <ClInclude Include="..\src\NetCore.h" />
-    <ClInclude Include="..\src\NetSettings.h" />
-    <ClInclude Include="..\src\NetUtil.h" />
-    <ClInclude Include="..\src\Networker_C.h" />
-    <ClInclude Include="..\src\NumUtil.h" />
-    <ClInclude Include="..\src\P2PGroup_C.h" />
-    <ClInclude Include="..\src\PacketFrag.h" />
-    <ClInclude Include="..\src\PnIconv.h" />
-    <ClInclude Include="..\src\PNS3ETimer.h" />
-    <ClInclude Include="..\..\..\version\PNVersion.h" />
-    <ClInclude Include="..\src\Poll_Reactor.h" />
-    <ClInclude Include="..\src\PooledObjectAsLocalVar.h" />
-    <ClInclude Include="..\src\PooledObjects.h" />
-    <ClInclude Include="..\src\PtrImpl.h" />
-    <ClInclude Include="..\src\qpcmilisectimer.h" />
-    <ClInclude Include="..\src\quicksort.h" />
-    <ClInclude Include="..\src\Reactor.h" />
-    <ClInclude Include="..\src\Relayer.h" />
-    <ClInclude Include="..\src\ReliableUDP.h" />
-    <ClInclude Include="..\src\ReliableUDPConfig.h" />
-    <ClInclude Include="..\src\ReliableUDPFrame.h" />
-    <ClInclude Include="..\src\ReliableUdpHelper.h" />
-    <ClInclude Include="..\src\ReliableUDPHost.h" />
-    <ClInclude Include="..\src\RemoteBase.h" />
-    <ClInclude Include="..\src\RemotePeer.h" />
-    <ClInclude Include="..\src\RemoteServer.h" />
-    <ClInclude Include="..\src\ReportError.h" />
-    <ClInclude Include="..\src\ReusableLocalVar.h" />
-    <ClInclude Include="..\src\RmiContextImpl.h" />
-    <ClInclude Include="..\src\RunOnScopeOut.h" />
-    <ClInclude Include="..\src\SendBrake.h" />
-    <ClInclude Include="..\src\SendDestInfo.h" />
-    <ClInclude Include="..\src\SendFragRefs.h" />
-    <ClInclude Include="..\src\SendMessage.h" />
-    <ClInclude Include="..\src\SendOpt.h" />
-    <ClInclude Include="..\src\SendReadyList.h" />
-    <ClInclude Include="..\src\Socket.h" />
-    <ClInclude Include="..\src\SocketPtrAndSerial.h" />
-    <ClInclude Include="..\src\SocketUtil.h" />
-    <ClInclude Include="..\src\SpinLock.h" />
-    <ClInclude Include="..\src\stdafx.h" />
-    <ClInclude Include="..\src\STLUtil.h" />
-    <ClInclude Include="..\src\StreamQueue.h" />
-    <ClInclude Include="..\src\SuperSocket.h" />
-    <ClInclude Include="..\src\TCPLayer.h" />
-    <ClInclude Include="..\src\ThreadPoolImpl.h" />
-    <ClInclude Include="..\src\TimeAlarm.h" />
-    <ClInclude Include="..\src\TimeEventThreadPool.h" />
-    <ClInclude Include="..\src\TimeOfDayTimer.h" />
-    <ClInclude Include="..\src\UniqueID.h" />
-    <ClInclude Include="..\src\UnreliableMessageLossMeasurer.h" />
-    <ClInclude Include="..\src\Upnp.h" />
-    <ClInclude Include="..\src\URI.h" />
-    <ClInclude Include="..\src\UseCount.h" />
-    <ClInclude Include="..\src\UserTaskQueue.h" />
-    <ClInclude Include="..\src\UseZlib.h" />
-    <ClInclude Include="..\src\VizAgent.h" />
-    <ClInclude Include="..\src\VizMessageSummary.h" />
-    <ClInclude Include="..\OpenSources\zlib\zconf.h" />
+    <None Include="..\src\acrimpl.cpp" />
+    <None Include="..\src\acrimpl_c.cpp" />
+    <None Include="..\src\AddrPort.cpp" />
+    <None Include="..\src\AngleFollower.cpp" />
+    <None Include="..\src\AsyncWork.cpp" />
+    <None Include="..\src\atomic.cpp" />
+    <None Include="..\src\BufferSegment.cpp" />
+    <None Include="..\src\CoInit.cpp" />
+    <None Include="..\src\ConnectParam.cpp" />
+    <None Include="..\src\Crc.cpp" />
+    <None Include="..\src\CriticalSect.cpp" />
+    <None Include="..\src\CryptoAes.cpp" />
+    <None Include="..\src\CryptoFast.cpp" />
+    <None Include="..\src\CryptoRc4.cpp" />
+    <None Include="..\src\CryptoRsa.cpp" />
+    <None Include="..\src\CustomValueEventQueue.cpp" />
+    <None Include="..\src\DefaultStringEncoder.cpp" />
+    <None Include="..\src\DeviationDetector.cpp" />
+    <None Include="..\src\DumpClient.cpp" />
+    <None Include="..\src\DumpCommon.cpp" />
+    <None Include="..\src\EmergencyLogClient.cpp" />
+    <None Include="..\src\EmergencyLogCommon.cpp" />
+    <None Include="..\src\EmergencyLogData.cpp" />
+    <None Include="..\src\Enums.cpp" />
+    <None Include="..\src\Epoll_Reactor.cpp" />
+    <None Include="..\src\ErrorInfo.cpp" />
+    <None Include="..\src\Event.cpp" />
+    <None Include="..\src\Exception.cpp" />
+    <None Include="..\src\ExternalBufferArray.cpp" />
+    <None Include="..\src\FakeClrBase.cpp" />
+    <None Include="..\src\FakeCLRRandom.cpp" />
+    <None Include="..\src\FakeWinsock.cpp" />
+    <None Include="..\src\FastArray.cpp" />
+    <None Include="..\src\FastArrayImpl.cpp" />
+    <None Include="..\src\FastArrayPtr.cpp" />
+    <None Include="..\src\FastHeap.cpp" />
+    <None Include="..\src\FastHeapImpl.cpp" />
+    <None Include="..\src\FastHeapSettings.cpp" />
+    <None Include="..\src\FastSocket.cpp" />
+    <None Include="..\src\FilterTag.cpp" />
+    <None Include="..\src\FinalUserWorkItem.cpp" />
+    <None Include="..\src\GlobalTimerThread.cpp" />
+    <None Include="..\src\HeartbeatWork.cpp" />
+    <None Include="..\src\HlaCritSec.cpp" />
+    <None Include="..\src\HlaEntityImpl_C.cpp" />
+    <None Include="..\src\HlaField.cpp" />
+    <None Include="..\src\HlaSessionHostImpl_C.cpp" />
+    <None Include="..\src\IOCP.cpp" />
+    <None Include="..\src\IRmiHost.cpp" />
+    <None Include="..\src\IRMIProxy.cpp" />
+    <None Include="..\src\IRMIStub.cpp" />
+    <None Include="..\src\ISendDest_C.cpp" />
+    <None Include="..\src\Kqueue_Reactor.cpp" />
+    <None Include="..\src\LeanDynamicCast.cpp" />
+    <None Include="..\src\LeanType.cpp" />
+    <None Include="..\src\ListNode.cpp" />
+    <None Include="..\src\LogWriterImpl.cpp" />
+    <None Include="..\src\LookasideAllocator.cpp" />
+    <None Include="..\src\LookasideAllocatorImpl.cpp" />
+    <None Include="..\src\LoopbackHost.cpp" />
+    <None Include="..\src\Marshaler.cpp" />
+    <None Include="..\src\Message.cpp" />
+    <None Include="..\src\MilisecTimerImpl.cpp" />
+    <None Include="..\src\MiniDumper.cpp" />
+    <None Include="..\src\mmmilisectimer.cpp" />
+    <None Include="..\src\mmtime64.cpp" />
+    <None Include="..\src\NetClient.cpp" />
+    <None Include="..\src\NetClientConnect.cpp" />
+    <None Include="..\src\NetClientManager.cpp" />
+    <None Include="..\src\NetClientSend.cpp" />
+    <None Include="..\src\NetClientStats.cpp" />
+    <None Include="..\src\NetConfig.cpp" />
+    <None Include="..\src\NetCore.cpp" />
+    <None Include="..\src\NetCoreEvent.cpp" />
+    <None Include="..\src\NetCoreStats.cpp" />
+    <None Include="..\src\NetPeerInfo.cpp" />
+    <None Include="..\src\NetSettings.cpp" />
+    <None Include="..\src\NetUtil.cpp" />
+    <None Include="..\src\Networker_C.cpp" />
+    <None Include="..\src\NumUtil.cpp" />
+    <None Include="..\src\P2P_C.cpp" />
+    <None Include="..\src\P2PGroup.cpp" />
+    <None Include="..\src\P2PGroup_C.cpp" />
+    <None Include="..\src\PacketFrag.cpp" />
+    <None Include="..\src\pnguid.cpp" />
+    <None Include="..\src\PnIconv.cpp" />
+    <None Include="..\src\pnmutex.cpp" />
+    <None Include="..\src\PNPath.cpp" />
+    <None Include="..\src\PNS3ETimer.cpp" />
+    <None Include="..\src\PNString.cpp" />
+    <None Include="..\src\PnThread.cpp" />
+    <None Include="..\src\PnTime.cpp" />
+    <None Include="..\..\..\version\PNVersion.cpp" />
+    <None Include="..\src\Poll_Reactor.cpp" />
+    <None Include="..\src\PooledObjects.cpp" />
+    <None Include="..\src\PositionFollower.cpp" />
+    <None Include="..\src\Ptr.cpp" />
+    <None Include="..\src\PtrImpl.cpp" />
+    <None Include="..\src\qpcmilisectimer.cpp" />
+    <None Include="..\src\Quantizer.cpp" />
+    <None Include="..\src\Random.cpp" />
+    <None Include="..\src\ReliableUDP.cpp" />
+    <None Include="..\src\ReliableUDPConfig.cpp" />
+    <None Include="..\src\ReliableUDPFrame.cpp" />
+    <None Include="..\src\ReliableUdpHelper.cpp" />
+    <None Include="..\src\ReliableUDPHost.cpp" />
+    <None Include="..\src\RemoteBase.cpp" />
+    <None Include="..\src\RemotePeer.cpp" />
+    <None Include="..\src\RemotePeerRecycle_C.cpp" />
+    <None Include="..\src\RemoteServer.cpp" />
+    <None Include="..\src\ReportError.cpp" />
+    <None Include="..\src\RMIContext.cpp" />
+    <None Include="..\src\Semaphore.cpp" />
+    <None Include="..\src\SendBrake.cpp" />
+    <None Include="..\src\SendData.cpp" />
+    <None Include="..\src\SendMessage.cpp" />
+    <None Include="..\src\SendReadyList.cpp" />
+    <None Include="..\src\SingletonImpl.cpp" />
+    <None Include="..\src\Socket.cpp" />
+    <None Include="..\src\SocketToHostsMap.cpp" />
+    <None Include="..\src\SocketUtil.cpp" />
+    <None Include="..\src\stdafxclient.cpp" />
+    <None Include="..\src\stdafxcommon.cpp" />
+    <None Include="..\src\StreamQueue.cpp" />
+    <None Include="..\src\StringEncorder.cpp" />
+    <None Include="..\src\strpool.cpp" />
+    <None Include="..\src\SuperSocket.cpp" />
+    <None Include="..\src\SuperSocketProactor.cpp" />
+    <None Include="..\src\SuperSocketReactor.cpp" />
+    <None Include="..\src\SuperSocketSend.cpp" />
+    <None Include="..\src\SysTime.cpp" />
+    <None Include="..\src\sysutil.cpp" />
+    <None Include="..\src\TCPLayer.cpp" />
+    <None Include="..\src\TcpLayer_C.cpp" />
+    <None Include="..\src\ThreadPoolImpl.cpp" />
+    <None Include="..\src\ThreadUtil.cpp" />
+    <None Include="..\src\TimeAlarm.cpp" />
+    <None Include="..\src\TimeEventThreadPool.cpp" />
+    <None Include="..\src\TimeOfDayTimer.cpp" />
+    <None Include="..\src\TimerThread.cpp" />
+    <None Include="..\src\TimeUtil.cpp" />
+    <None Include="..\src\Tracer.cpp" />
+    <None Include="..\src\UdpSocket_C.cpp" />
+    <None Include="..\src\UnreliableMessageLossMeasurer.cpp" />
+    <None Include="..\src\Upnp.cpp" />
+    <None Include="..\src\URI.cpp" />
+    <None Include="..\src\UseCount.cpp" />
+    <None Include="..\src\UserTaskQueue.cpp" />
+    <None Include="..\src\UseZlib.cpp" />
+    <None Include="..\src\variant-marshaler.cpp" />
+    <None Include="..\src\VizAgent.cpp" />
+    <None Include="..\src\VizMessageSummary.cpp" />
+    <None Include="..\src\stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\acrimpl.h" />
+    <None Include="..\src\acrimpl_c.h" />
+    <None Include="..\src\AsyncWork.h" />
+    <None Include="..\src\BufferSegment.h" />
+    <None Include="..\src\CachedTimes.h" />
+    <None Include="..\src\CollUtil.h" />
+    <None Include="..\src\CriticalSectImpl.h" />
+    <None Include="..\src\CustomValueEventQueue.h" />
+    <None Include="..\src\DefaultStringEncoder.h" />
+    <None Include="..\src\DeviationDetector.h" />
+    <None Include="..\src\DumpClient.h" />
+    <None Include="..\src\EmergencyLogClient.h" />
+    <None Include="..\src\EmergencyLogData.h" />
+    <None Include="..\src\enumimpl.h" />
+    <None Include="..\src\Epoll_Reactor.h" />
+    <None Include="..\src\FakeWinsock.h" />
+    <None Include="..\src\FastArrayImpl.h" />
+    <None Include="..\src\FastArrayPtrImpl.h" />
+    <None Include="..\src\FastHeapImpl.h" />
+    <None Include="..\src\FastList2.h" />
+    <None Include="..\src\FastMap2.h" />
+    <None Include="..\src\FastSocket.h" />
+    <None Include="..\src\FilterTag.h" />
+    <None Include="..\src\FinalUserWorkItem.h" />
+    <None Include="..\src\FragHeader.h" />
+    <None Include="..\src\FreeList.h" />
+    <None Include="..\src\Functors.h" />
+    <None Include="..\src\GlobalTimerThread.h" />
+    <None Include="..\src\HeartbeatWork.h" />
+    <None Include="..\src\HlaCritSec.h" />
+    <None Include="..\src\HlaEntityImpl_C.h" />
+    <None Include="..\src\HlaSessionHostImpl_C.h" />
+    <None Include="..\src\IHostObject.h" />
+    <None Include="..\src\IntraTracer.h" />
+    <None Include="..\src\IOCP.h" />
+    <None Include="..\src\ioevent.h" />
+    <None Include="..\src\ISendDest_C.h" />
+    <None Include="..\src\Kqueue_Reactor.h" />
+    <None Include="..\src\LeanDynamicCast.h" />
+    <None Include="..\src\LeanType.h" />
+    <None Include="..\src\LicenseType.h" />
+    <None Include="..\src\LocalEvent.h" />
+    <None Include="..\src\LogWriterImpl.h" />
+    <None Include="..\src\LookasideAllocatorImpl.h" />
+    <None Include="..\src\LoopbackHost.h" />
+    <None Include="..\src\LowContextSwitchingLoop.h" />
+    <None Include="..\src\MilisecTimerImpl.h" />
+    <None Include="..\src\mmmilisectimer.h" />
+    <None Include="..\src\mmtime64.h" />
+    <None Include="..\src\NetClient.h" />
+    <None Include="..\src\NetClientManager.h" />
+    <None Include="..\src\NetCore.h" />
+    <None Include="..\src\NetSettings.h" />
+    <None Include="..\src\NetUtil.h" />
+    <None Include="..\src\Networker_C.h" />
+    <None Include="..\src\NumUtil.h" />
+    <None Include="..\src\P2PGroup_C.h" />
+    <None Include="..\src\PacketFrag.h" />
+    <None Include="..\src\PnIconv.h" />
+    <None Include="..\src\PNS3ETimer.h" />
+    <None Include="..\..\..\version\PNVersion.h" />
+    <None Include="..\src\Poll_Reactor.h" />
+    <None Include="..\src\PooledObjectAsLocalVar.h" />
+    <None Include="..\src\PooledObjects.h" />
+    <None Include="..\src\PtrImpl.h" />
+    <None Include="..\src\qpcmilisectimer.h" />
+    <None Include="..\src\quicksort.h" />
+    <None Include="..\src\Reactor.h" />
+    <None Include="..\src\Relayer.h" />
+    <None Include="..\src\ReliableUDP.h" />
+    <None Include="..\src\ReliableUDPConfig.h" />
+    <None Include="..\src\ReliableUDPFrame.h" />
+    <None Include="..\src\ReliableUdpHelper.h" />
+    <None Include="..\src\ReliableUDPHost.h" />
+    <None Include="..\src\RemoteBase.h" />
+    <None Include="..\src\RemotePeer.h" />
+    <None Include="..\src\RemoteServer.h" />
+    <None Include="..\src\ReportError.h" />
+    <None Include="..\src\ReusableLocalVar.h" />
+    <None Include="..\src\RmiContextImpl.h" />
+    <None Include="..\src\RunOnScopeOut.h" />
+    <None Include="..\src\SendBrake.h" />
+    <None Include="..\src\SendDestInfo.h" />
+    <None Include="..\src\SendFragRefs.h" />
+    <None Include="..\src\SendMessage.h" />
+    <None Include="..\src\SendOpt.h" />
+    <None Include="..\src\SendReadyList.h" />
+    <None Include="..\src\Socket.h" />
+    <None Include="..\src\SocketPtrAndSerial.h" />
+    <None Include="..\src\SocketUtil.h" />
+    <None Include="..\src\SpinLock.h" />
+    <None Include="..\src\STLUtil.h" />
+    <None Include="..\src\StreamQueue.h" />
+    <None Include="..\src\SuperSocket.h" />
+    <None Include="..\src\TCPLayer.h" />
+    <None Include="..\src\ThreadPoolImpl.h" />
+    <None Include="..\src\TimeAlarm.h" />
+    <None Include="..\src\TimeEventThreadPool.h" />
+    <None Include="..\src\TimeOfDayTimer.h" />
+    <None Include="..\src\UniqueID.h" />
+    <None Include="..\src\UnreliableMessageLossMeasurer.h" />
+    <None Include="..\src\Upnp.h" />
+    <None Include="..\src\URI.h" />
+    <None Include="..\src\UseCount.h" />
+    <None Include="..\src\UserTaskQueue.h" />
+    <None Include="..\src\UseZlib.h" />
+    <None Include="..\src\VizAgent.h" />
+    <None Include="..\src\VizMessageSummary.h" />
+    <None Include="..\src\stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\OpenSources\iconv-embed\iconv.c" />
     <ClCompile Include="..\OpenSources\iconv-embed\localcharset.c" />
     <ClCompile Include="..\OpenSources\iconv-embed\relocatable.c" />
-    <ClCompile Include="..\src\acrimpl.cpp" />
-    <ClCompile Include="..\src\acrimpl_c.cpp" />
-    <ClCompile Include="..\src\AddrPort.cpp" />
-    <ClCompile Include="..\src\AngleFollower.cpp" />
-    <ClCompile Include="..\src\AsyncWork.cpp" />
-    <ClCompile Include="..\src\atomic.cpp" />
-    <ClCompile Include="..\src\BufferSegment.cpp" />
-    <ClCompile Include="..\src\CoInit.cpp" />
-    <ClCompile Include="..\src\ConnectParam.cpp" />
-    <ClCompile Include="..\src\Crc.cpp" />
-    <ClCompile Include="..\src\CriticalSect.cpp" />
-    <ClCompile Include="..\src\CryptoAes.cpp" />
-    <ClCompile Include="..\src\CryptoFast.cpp" />
-    <ClCompile Include="..\src\CryptoRc4.cpp" />
-    <ClCompile Include="..\src\CryptoRsa.cpp" />
-    <ClCompile Include="..\src\CustomValueEventQueue.cpp" />
-    <ClCompile Include="..\src\DefaultStringEncoder.cpp" />
-    <ClCompile Include="..\src\DeviationDetector.cpp" />
-    <ClCompile Include="..\src\DumpClient.cpp" />
-    <ClCompile Include="..\src\DumpCommon.cpp" />
-    <ClCompile Include="..\src\EmergencyLogClient.cpp" />
-    <ClCompile Include="..\src\EmergencyLogCommon.cpp" />
-    <ClCompile Include="..\src\EmergencyLogData.cpp" />
-    <ClCompile Include="..\src\Enums.cpp" />
-    <ClCompile Include="..\src\Epoll_Reactor.cpp" />
-    <ClCompile Include="..\src\ErrorInfo.cpp" />
-    <ClCompile Include="..\src\Event.cpp" />
-    <ClCompile Include="..\src\Exception.cpp" />
-    <ClCompile Include="..\src\ExternalBufferArray.cpp" />
-    <ClCompile Include="..\src\FakeClrBase.cpp" />
-    <ClCompile Include="..\src\FakeCLRRandom.cpp" />
-    <ClCompile Include="..\src\FakeWinsock.cpp" />
-    <ClCompile Include="..\src\FastArray.cpp" />
-    <ClCompile Include="..\src\FastArrayImpl.cpp" />
-    <ClCompile Include="..\src\FastArrayPtr.cpp" />
-    <ClCompile Include="..\src\FastHeap.cpp" />
-    <ClCompile Include="..\src\FastHeapImpl.cpp" />
-    <ClCompile Include="..\src\FastHeapSettings.cpp" />
-    <ClCompile Include="..\src\FastSocket.cpp" />
-    <ClCompile Include="..\src\FilterTag.cpp" />
-    <ClCompile Include="..\src\FinalUserWorkItem.cpp" />
-    <ClCompile Include="..\src\GlobalTimerThread.cpp" />
-    <ClCompile Include="..\src\HeartbeatWork.cpp" />
-    <ClCompile Include="..\src\HlaCritSec.cpp" />
-    <ClCompile Include="..\src\HlaEntityImpl_C.cpp" />
-    <ClCompile Include="..\src\HlaField.cpp" />
-    <ClCompile Include="..\src\HlaSessionHostImpl_C.cpp" />
-    <ClCompile Include="..\src\IOCP.cpp" />
-    <ClCompile Include="..\src\IRmiHost.cpp" />
-    <ClCompile Include="..\src\IRMIProxy.cpp" />
-    <ClCompile Include="..\src\IRMIStub.cpp" />
-    <ClCompile Include="..\src\ISendDest_C.cpp" />
-    <ClCompile Include="..\src\Kqueue_Reactor.cpp" />
-    <ClCompile Include="..\src\LeanDynamicCast.cpp" />
-    <ClCompile Include="..\src\LeanType.cpp" />
+    <ClInclude Include="..\OpenSources\iconv-embed\localcharset.h" />
+    <ClInclude Include="..\OpenSources\iconv-embed\relocatable.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\aes\aes.c" />
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\aes\aes_tab.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">true</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\safer\safer.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\safer\saferp.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\twofish\twofish.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\anubis.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\blowfish.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\cast5.c" />
@@ -248,30 +580,7 @@
     <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\rc2.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\rc5.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\rc6.c" />
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\safer\safer.c" />
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\safer\saferp.c" />
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\safer\safer_tab.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\skipjack.c" />
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\twofish\twofish.c" />
-    <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\twofish\twofish_tab.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\OpenSources\libtom\crypto\ciphers\xtea.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ccm\ccm_memory.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\encauth\ccm\ccm_test.c" />
@@ -309,6 +618,9 @@
     <ClCompile Include="..\OpenSources\libtom\crypto\hashes\helper\hash_filehandle.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\hashes\helper\hash_memory.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\hashes\helper\hash_memory_multi.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha2\sha256.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha2\sha512.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\whirl\whirl.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\hashes\md2.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\hashes\md4.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\hashes\md5.c" />
@@ -317,40 +629,7 @@
     <ClCompile Include="..\OpenSources\libtom\crypto\hashes\rmd256.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\hashes\rmd320.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha1.c" />
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha2\sha224.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha2\sha256.c" />
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha2\sha384.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\sha2\sha512.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\hashes\tiger.c" />
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\whirl\whirl.c" />
-    <ClCompile Include="..\OpenSources\libtom\crypto\hashes\whirl\whirltab.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_done.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_file.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\mac\f9\f9_init.c" />
@@ -391,7 +670,7 @@
     <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_memory_multi.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_process.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\mac\xcbc\xcbc_test.c" />
-    <None Include="..\OpenSources\libtom\crypto\math\fp\ltc_ecc_fp_mulmod.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\math\fp\ltc_ecc_fp_mulmod.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\math\gmp_desc.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\math\ltm_desc.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\math\multi.c" />
@@ -528,29 +807,29 @@
     <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_sign_hash.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_verify_hash.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\pk\dsa\dsa_verify_key.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_ansi_x963_export.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_ansi_x963_import.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_decrypt_key.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_encrypt_key.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_export.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_free.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_get_size.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_import.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_make_key.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_shared_secret.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_sign_hash.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_sizes.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_test.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_verify_hash.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_is_valid_idx.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_map.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_mul2add.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_mulmod.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_mulmod_timing.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_points.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_projective_add_point.c" />
-    <None Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_projective_dbl_point.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_ansi_x963_export.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_ansi_x963_import.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_decrypt_key.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_encrypt_key.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_export.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_free.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_get_size.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_import.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_make_key.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_shared_secret.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_sign_hash.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_sizes.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_test.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ecc_verify_hash.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_is_valid_idx.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_map.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_mul2add.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_mulmod.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_mulmod_timing.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_points.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_projective_add_point.c" />
+    <ClCompile Include="..\OpenSources\libtom\crypto\pk\ecc\ltc_ecc_projective_dbl_point.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_decrypt_key.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_encrypt_key.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\pk\katja\katja_export.c" />
@@ -581,19 +860,24 @@
     <ClCompile Include="..\OpenSources\libtom\crypto\prngs\rng_get_bytes.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\prngs\rng_make_prng.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\prngs\sober128.c" />
-    <ClCompile Include="..\OpenSources\libtom\crypto\prngs\sober128tab.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\OpenSources\libtom\crypto\prngs\sprng.c" />
     <ClCompile Include="..\OpenSources\libtom\crypto\prngs\yarrow.c" />
-    <ClCompile Include="..\OpenSources\libtom\math\bncore.c" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt.h" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_argchk.h" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_cfg.h" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_cipher.h" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_custom.h" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_hash.h" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_mac.h" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_macros.h" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_math.h" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_misc.h" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_pk.h" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_pkcs.h" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\tomcrypt_prng.h" />
+    <ClInclude Include="..\OpenSources\libtom\crypto\headers\ProudTomCrypto.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="..\OpenSources\libtom\math\bn_error.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_fast_mp_invmod.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_fast_mp_montgomery_reduce.c" />
@@ -603,8 +887,8 @@
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_2expt.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_abs.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_add.c" />
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_addmod.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_add_d.c" />
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_addmod.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_and.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_clamp.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_clear.c" />
@@ -624,9 +908,9 @@
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_dr_reduce.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_dr_setup.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_exch.c" />
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_expt_d.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_exptmod.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_exptmod_fast.c" />
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_expt_d.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_exteuclid.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_fread.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_fwrite.c" />
@@ -654,12 +938,12 @@
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_montgomery_reduce.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_montgomery_setup.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mul.c" />
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mulmod.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mul_2.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mul_2d.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mul_d.c" />
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_neg.c" />
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_mulmod.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_n_root.c" />
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_neg.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_or.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_fermat.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_prime_is_divisible.c" />
@@ -691,16 +975,16 @@
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sqrmod.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sqrt.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sub.c" />
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_submod.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_sub_d.c" />
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toom_mul.c" />
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toom_sqr.c" />
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toradix.c" />
-    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toradix_n.c" />
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_submod.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_to_signed_bin.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_to_signed_bin_n.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_to_unsigned_bin.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_to_unsigned_bin_n.c" />
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toom_mul.c" />
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toom_sqr.c" />
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toradix.c" />
+    <ClCompile Include="..\OpenSources\libtom\math\bn_mp_toradix_n.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_unsigned_bin_size.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_xor.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_mp_zero.c" />
@@ -712,45 +996,20 @@
     <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_mul_high_digs.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_sqr.c" />
     <ClCompile Include="..\OpenSources\libtom\math\bn_s_mp_sub.c" />
-    <ClCompile Include="..\src\ListNode.cpp" />
-    <ClCompile Include="..\src\LogWriterImpl.cpp" />
-    <ClCompile Include="..\src\LookasideAllocator.cpp" />
-    <ClCompile Include="..\src\LookasideAllocatorImpl.cpp" />
-    <ClCompile Include="..\src\LoopbackHost.cpp" />
-    <ClCompile Include="..\src\Marshaler.cpp" />
-    <ClCompile Include="..\src\Message.cpp" />
-    <ClCompile Include="..\src\MilisecTimerImpl.cpp" />
-    <ClCompile Include="..\src\MiniDumper.cpp" />
-    <ClCompile Include="..\src\mmmilisectimer.cpp" />
-    <ClCompile Include="..\src\mmtime64.cpp" />
-    <ClCompile Include="..\src\NetClient.cpp" />
-    <ClCompile Include="..\src\NetClientManager.cpp" />
-    <ClCompile Include="..\src\NetClientSend.cpp" />
-    <ClCompile Include="..\src\NetClientStats.cpp" />
-    <ClCompile Include="..\src\NetConfig.cpp" />
-    <ClCompile Include="..\src\NetCore.cpp" />
-    <ClCompile Include="..\src\NetCoreEvent.cpp" />
-    <ClCompile Include="..\src\NetCoreStats.cpp" />
-    <ClCompile Include="..\src\NetPeerInfo.cpp" />
-    <ClCompile Include="..\src\NetSettings.cpp" />
-    <ClCompile Include="..\src\NetUtil.cpp" />
-    <ClCompile Include="..\src\Networker_C.cpp" />
-    <ClCompile Include="..\src\NumUtil.cpp" />
-    <ClCompile Include="..\src\P2PGroup.cpp" />
-    <ClCompile Include="..\src\P2PGroup_C.cpp" />
-    <ClCompile Include="..\src\P2P_C.cpp" />
-    <ClCompile Include="..\src\PacketFrag.cpp" />
-    <ClCompile Include="..\src\pnguid.cpp" />
-    <ClCompile Include="..\src\PnIconv.cpp" />
-    <ClCompile Include="..\src\pnmutex.cpp" />
-    <ClCompile Include="..\src\PNPath.cpp" />
-    <ClCompile Include="..\src\UserTaskQueue.cpp" />
+    <ClCompile Include="..\OpenSources\libtom\math\bncore.c" />
+    <ClInclude Include="..\OpenSources\libtom\math\tommath.h" />
+    <ClInclude Include="..\OpenSources\libtom\math\tommath_class.h" />
+    <ClInclude Include="..\OpenSources\libtom\math\tommath_superclass.h" />
+    <ClInclude Include="..\OpenSources\libtom\math\ProudTomMath.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="..\OpenSources\zlib\adler32.c" />
     <ClCompile Include="..\OpenSources\zlib\compress.c" />
     <ClCompile Include="..\OpenSources\zlib\crc32.c" />
     <ClCompile Include="..\OpenSources\zlib\deflate.c" />
     <ClCompile Include="..\OpenSources\zlib\gzclose.c" />
     <ClCompile Include="..\OpenSources\zlib\gzlib.c" />
+    <ClCompile Include="..\OpenSources\zlib\gzread.c" />
     <ClCompile Include="..\OpenSources\zlib\gzwrite.c" />
     <ClCompile Include="..\OpenSources\zlib\infback.c" />
     <ClCompile Include="..\OpenSources\zlib\inffast.c" />
@@ -759,387 +1018,13 @@
     <ClCompile Include="..\OpenSources\zlib\trees.c" />
     <ClCompile Include="..\OpenSources\zlib\uncompr.c" />
     <ClCompile Include="..\OpenSources\zlib\zutil.c" />
-    <None Include="..\src\PNS3ETimer.cpp" />
-    <ClCompile Include="..\src\PNString.cpp" />
-    <ClCompile Include="..\src\PnThread.cpp" />
-    <ClCompile Include="..\src\PnTime.cpp" />
-    <ClCompile Include="..\..\..\version\PNVersion.cpp" />
-    <ClCompile Include="..\src\Poll_Reactor.cpp" />
-    <ClCompile Include="..\src\PooledObjects.cpp" />
-    <ClCompile Include="..\src\PositionFollower.cpp" />
-    <ClCompile Include="..\src\Ptr.cpp" />
-    <ClCompile Include="..\src\PtrImpl.cpp" />
-    <ClCompile Include="..\src\qpcmilisectimer.cpp" />
-    <ClCompile Include="..\src\Quantizer.cpp" />
-    <ClCompile Include="..\src\Random.cpp" />
-    <ClCompile Include="..\src\ReliableUDP.cpp" />
-    <ClCompile Include="..\src\ReliableUDPConfig.cpp" />
-    <ClCompile Include="..\src\ReliableUDPFrame.cpp" />
-    <ClCompile Include="..\src\ReliableUdpHelper.cpp" />
-    <ClCompile Include="..\src\ReliableUDPHost.cpp" />
-    <ClCompile Include="..\src\RemoteBase.cpp" />
-    <ClCompile Include="..\src\RemotePeer.cpp" />
-    <ClCompile Include="..\src\RemotePeerRecycle_C.cpp" />
-    <ClCompile Include="..\src\RemoteServer.cpp" />
-    <ClCompile Include="..\src\NetClientConnect.cpp" />
-    <ClCompile Include="..\src\ReportError.cpp" />
-    <ClCompile Include="..\src\RMIContext.cpp" />
-    <ClCompile Include="..\src\Semaphore.cpp" />
-    <ClCompile Include="..\src\SendBrake.cpp" />
-    <ClCompile Include="..\src\SendData.cpp" />
-    <ClCompile Include="..\src\SendMessage.cpp" />
-    <ClCompile Include="..\src\SendReadyList.cpp" />
-    <ClCompile Include="..\src\SingletonImpl.cpp" />
-    <ClCompile Include="..\src\Socket.cpp" />
-    <ClCompile Include="..\src\SocketToHostsMap.cpp" />
-    <ClCompile Include="..\src\SocketUtil.cpp" />
-    <ClCompile Include="..\src\stdafxclient.cpp" />
-    <ClCompile Include="..\src\stdafxcommon.cpp" />
-    <ClCompile Include="..\src\StreamQueue.cpp" />
-    <ClCompile Include="..\src\StringEncorder.cpp" />
-    <ClCompile Include="..\src\strpool.cpp" />
-    <ClCompile Include="..\src\SuperSocket.cpp" />
-    <ClCompile Include="..\src\SuperSocketProactor.cpp" />
-    <ClCompile Include="..\src\SuperSocketReactor.cpp" />
-    <ClCompile Include="..\src\SuperSocketSend.cpp" />
-    <ClCompile Include="..\src\SysTime.cpp" />
-    <ClCompile Include="..\src\sysutil.cpp" />
-    <ClCompile Include="..\src\TCPLayer.cpp" />
-    <ClCompile Include="..\src\TcpLayer_C.cpp" />
-    <ClCompile Include="..\src\ThreadPoolImpl.cpp" />
-    <ClCompile Include="..\src\ThreadUtil.cpp" />
-    <ClCompile Include="..\src\TimeAlarm.cpp" />
-    <ClCompile Include="..\src\TimeEventThreadPool.cpp" />
-    <ClCompile Include="..\src\TimeOfDayTimer.cpp" />
-    <ClCompile Include="..\src\TimerThread.cpp" />
-    <ClCompile Include="..\src\TimeUtil.cpp" />
-    <ClCompile Include="..\src\Tracer.cpp" />
-    <ClCompile Include="..\src\UdpSocket_C.cpp" />
-    <ClCompile Include="..\src\UnreliableMessageLossMeasurer.cpp" />
-    <ClCompile Include="..\src\Upnp.cpp" />
-    <ClCompile Include="..\src\URI.cpp" />
-    <ClCompile Include="..\src\UseCount.cpp" />
-    <ClCompile Include="..\src\UseZlib.cpp" />
-    <ClCompile Include="..\src\variant-marshaler.cpp" />
-    <ClCompile Include="..\src\VizAgent.cpp" />
-    <ClCompile Include="..\src\VizMessageSummary.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="..\OpenSources\iconv-embed\libiconv.rc" />
+    <ClInclude Include="..\OpenSources\zlib\zconf.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProudNetPidl\ProudNetPidl.vcxproj">
       <Project>{51ad545d-cdd6-4671-a373-4b57f56796f1}</Project>
     </ProjectReference>
   </ItemGroup>
-  <PropertyGroup Label="Globals">
-    <ProjectGuid>{D447C486-92D2-4A70-BCFB-38372B197CBB}</ProjectGuid>
-    <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Proud</RootNamespace>
-    <ProjectName>AuthNetClient</ProjectName>
-    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>AuthNetClient</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
-    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>AuthNetClient</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>AuthNetClient</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
-    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>AuthNetClient</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>AuthNetClient</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
-    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>AuthNetClient</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>AuthNetClient</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
-    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>AuthNetClient</TargetName>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_LIB;_WINSOCKAPI_;_CRT_SECURE_NO_WARNINGS;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-    </ClCompile>
-    <Lib>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Lib>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_LIB;_WINSOCKAPI_;_CRT_SECURE_NO_WARNINGS;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-    </ClCompile>
-    <Lib>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Lib>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_LIB;_WINSOCKAPI_;_CRT_SECURE_NO_WARNINGS;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-    </ClCompile>
-    <Lib>
-      <TargetMachine>MachineX64</TargetMachine>
-    </Lib>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
-    <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_LIB;_WINSOCKAPI_;_CRT_SECURE_NO_WARNINGS;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-    </ClCompile>
-    <Lib>
-      <TargetMachine>MachineX64</TargetMachine>
-    </Lib>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_LIB;_WINSOCKAPI_;_CRT_SECURE_NO_WARNINGS;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>true</OmitFramePointers>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-    </ClCompile>
-    <Lib>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Lib>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_LIB;_WINSOCKAPI_;_CRT_SECURE_NO_WARNINGS;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>true</OmitFramePointers>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-    </ClCompile>
-    <Lib>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Lib>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_LIB;_WINSOCKAPI_;_CRT_SECURE_NO_WARNINGS;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>true</OmitFramePointers>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-    </ClCompile>
-    <Lib>
-      <TargetMachine>MachineX64</TargetMachine>
-    </Lib>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
-    <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_LIB;_WINSOCKAPI_;_CRT_SECURE_NO_WARNINGS;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>true</OmitFramePointers>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-    </ClCompile>
-    <Lib>
-      <TargetMachine>MachineX64</TargetMachine>
-    </Lib>
-  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

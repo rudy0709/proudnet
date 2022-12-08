@@ -35,6 +35,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\version\PNVersion.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Create</PrecompiledHeader>
@@ -47,6 +48,7 @@
     <ClCompile Include="Vars.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\version\PNVersion.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Vars.h" />
   </ItemGroup>
