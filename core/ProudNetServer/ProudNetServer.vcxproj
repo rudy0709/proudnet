@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_static_CRT|Win32">
+      <Configuration>Debug_static_CRT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_static_CRT|Win32">
+      <Configuration>Release_static_CRT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_static_CRT|x64">
+      <Configuration>Debug_static_CRT</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_static_CRT|x64">
+      <Configuration>Release_static_CRT</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{bb904d7e-618e-4757-be6f-d726f21b9481}</ProjectGuid>
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ProudNetServer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
+    </ClCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
+    </ClCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
+    </ClCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;ASIO_STANDALONE;USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
+    </ClCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\src\acrimpl_s.cpp" />
+    <None Include="..\src\AdoWrap.cpp" />
+    <None Include="..\src\DbCache2Isolate.cpp" />
+    <None Include="..\src\dbcacheclient2blocked.cpp" />
+    <None Include="..\src\DbCacheClient2Impl.cpp" />
+    <None Include="..\src\dbcacheclient2load.cpp" />
+    <None Include="..\src\DBCacheJob.cpp" />
+    <None Include="..\src\DbCacheObject.cpp" />
+    <None Include="..\src\DbCacheServer2Impl.cpp" />
+    <None Include="..\src\dbcacheserver2load.cpp" />
+    <None Include="..\src\DbConfig.cpp" />
+    <None Include="..\src\DbLoadedData.cpp" />
+    <None Include="..\src\DbLoadedData2.cpp" />
+    <None Include="..\src\dbloadeddata2_s.cpp" />
+    <None Include="..\src\DbLogWriter.cpp" />
+    <None Include="..\src\DbLogWriterImpl.cpp" />
+    <None Include="..\src\DumpServer.cpp" />
+    <None Include="..\src\EmergencyLogServer.cpp" />
+    <None Include="..\src\FallbackableUdpLayer_S.cpp" />
+    <None Include="..\src\HlaEntityImpl_S.cpp" />
+    <None Include="..\src\HlaSessionHostImpl_S.cpp" />
+    <None Include="..\src\HlaSpaceImpl_S.cpp" />
+    <None Include="..\src\HostIDFactory.cpp" />
+    <None Include="..\src\LoopbackHost_S.cpp" />
+    <None Include="..\src\NetClientInfo.cpp" />
+    <None Include="..\src\NetServer.cpp" />
+    <None Include="..\src\NetServerAccept.cpp" />
+    <None Include="..\src\NetServerEvent.cpp" />
+    <None Include="..\src\NetServerP2P.cpp" />
+    <None Include="..\src\NetServerSend.cpp" />
+    <None Include="..\src\NetServerStartup.cpp" />
+    <None Include="..\src\NetServerStartup_WebSocket.cpp" />
+    <None Include="..\src\NetServerStats.cpp" />
+    <None Include="..\src\NetServerUdp.cpp" />
+    <None Include="..\src\NetworkerThread_S.cpp" />
+    <None Include="..\src\NTService.cpp" />
+    <None Include="..\src\OdbcByteData.cpp" />
+    <None Include="..\src\OdbcCommand.cpp" />
+    <None Include="..\src\OdbcCommandImpl.cpp" />
+    <None Include="..\src\OdbcConnection.cpp" />
+    <None Include="..\src\OdbcConnectionImpl.cpp" />
+    <None Include="..\src\OdbcErrorCheck.cpp" />
+    <None Include="..\src\OdbcException.cpp" />
+    <None Include="..\src\OdbcHandle.cpp" />
+    <None Include="..\src\OdbcRecordset.cpp" />
+    <None Include="..\src\OdbcRecordsetImpl.cpp" />
+    <None Include="..\src\OdbcVariant.cpp" />
+    <None Include="..\src\P2PGroup_S.cpp" />
+    <None Include="..\src\p2ppair.cpp" />
+    <None Include="..\src\P2PPair_S.cpp" />
+    <None Include="..\src\P2P_S.cpp" />
+    <None Include="..\src\PooledObjects_S.cpp" />
+    <None Include="..\src\PropNode.cpp" />
+    <None Include="..\src\ReaderWriterMonitor.cpp" />
+    <None Include="..\src\ReaderWriterMonitorTester.cpp" />
+    <None Include="..\src\RemoteClient.cpp" />
+    <None Include="..\src\ServerParam.cpp" />
+    <None Include="..\src\SuperPeer_S.cpp" />
+    <None Include="..\src\TcpLayer_S.cpp" />
+    <None Include="..\src\TestUdpConnReset.cpp" />
+    <None Include="..\src\UdpSocket_S.cpp" />
+    <None Include="..\src\UserTask.cpp" />
+    <None Include="..\src\Variant.cpp" />
+    <None Include="..\src\variant-marshaler.cpp" />
+    <None Include="..\src\WebSocket.cpp" />
+    <ClCompile Include="..\src\stdafx.cpp" />
+</ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\crypto.hpp" />
+    <None Include="..\src\dbcacheclient2blocked.h" />
+    <None Include="..\src\DbCacheClient2Impl.h" />
+    <None Include="..\src\DBCacheJob.h" />
+    <None Include="..\src\DbCacheObject.h" />
+    <None Include="..\src\DbCacheServer2Impl.h" />
+    <None Include="..\src\DbConfig.h" />
+    <None Include="..\src\dbloadeddata2_s.h" />
+    <None Include="..\src\DbLogWriterImpl.h" />
+    <None Include="..\src\DumpServer.h" />
+    <None Include="..\src\EmergencyLogServer.h" />
+    <None Include="..\src\FallbackableUdpLayer_S.h" />
+    <None Include="..\src\FavoriteLV_S.h" />
+    <None Include="..\src\HlaEntityImpl_S.h" />
+    <None Include="..\src\HlaSessionHostImpl_S.h" />
+    <None Include="..\src\HlaSpaceImpl_S.h" />
+    <None Include="..\src\HostIDFactory.h" />
+    <None Include="..\src\IVizAgentDg.h" />
+    <None Include="..\src\LoopbackHost_S.h" />
+    <None Include="..\src\NetServer.h" />
+    <None Include="..\src\OdbcCommandImpl.h" />
+    <None Include="..\src\OdbcConnectionImpl.h" />
+    <None Include="..\src\OdbcErrorCheck.h" />
+    <None Include="..\src\OdbcHandle.h" />
+    <None Include="..\src\OdbcRecordsetImpl.h" />
+    <None Include="..\src\P2PGroup_S.h" />
+    <None Include="..\src\P2PPair.h" />
+    <None Include="..\src\P2PPair_S.h" />
+    <None Include="..\src\PooledObjects_C.h" />
+    <None Include="..\src\PooledObjects_S.h" />
+    <None Include="..\src\RCPair.h" />
+    <None Include="..\src\ReaderWriterMonitorTester.h" />
+    <None Include="..\src\RemoteClient.h" />
+    <None Include="..\src\SendDest_S.h" />
+    <None Include="..\src\server_ws.hpp" />
+    <None Include="..\src\server_wss.hpp" />
+    <None Include="..\src\SuperPeer_S.h" />
+    <None Include="..\src\TcpLayer_S.h" />
+    <None Include="..\src\TestUdpConnReset.h" />
+    <None Include="..\src\ThreadPoolImpl.h" />
+    <None Include="..\src\UdpSocket_S.h" />
+    <None Include="..\src\UserTask.h" />
+    <None Include="..\src\WebSocket.h" />
+    <None Include="..\src\stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\NetServerImpl.inl" />
+    <None Include="..\src\NetServer_WebSocket.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild001.cpp" />
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild002.cpp" />
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild003.cpp" />
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild004.cpp" />
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild005.cpp" />
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild006.cpp" />
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild007.cpp" />
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild008.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProudNetPidl\ProudNetPidl.vcxproj">
+      <Project>{90a8b9fe-5e62-4af4-bbd0-65dc5cc6dcda}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

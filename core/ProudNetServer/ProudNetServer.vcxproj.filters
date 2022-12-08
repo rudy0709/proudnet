@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Unity Build Files">
+      <UniqueIdentifier>{f8213772-3ade-4c7e-8768-c27effe3a5ee}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\acrimpl_s.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\AdoWrap.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DbCache2Isolate.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\dbcacheclient2blocked.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DbCacheClient2Impl.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\dbcacheclient2load.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DBCacheJob.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DbCacheObject.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DbCacheServer2Impl.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\dbcacheserver2load.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DbConfig.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DbLoadedData.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DbLoadedData2.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\dbloadeddata2_s.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DbLogWriter.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DbLogWriterImpl.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\DumpServer.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\EmergencyLogServer.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FallbackableUdpLayer_S.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\HlaEntityImpl_S.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\HlaSessionHostImpl_S.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\HlaSpaceImpl_S.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\HostIDFactory.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\LoopbackHost_S.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetClientInfo.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetServer.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetServerAccept.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetServerEvent.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetServerP2P.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetServerSend.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetServerStartup.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetServerStartup_WebSocket.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetServerStats.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetServerUdp.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NetworkerThread_S.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\NTService.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\OdbcByteData.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\OdbcCommand.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\OdbcCommandImpl.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\OdbcConnection.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\OdbcConnectionImpl.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\OdbcErrorCheck.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\OdbcException.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\OdbcHandle.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\OdbcRecordset.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\OdbcRecordsetImpl.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\OdbcVariant.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\P2P_S.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\P2PGroup_S.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\p2ppair.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\P2PPair_S.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\PooledObjects_S.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\PropNode.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\ReaderWriterMonitor.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\ReaderWriterMonitorTester.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\RemoteClient.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\ServerParam.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\SuperPeer_S.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\TcpLayer_S.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\TestUdpConnReset.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\UdpSocket_S.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\UserTask.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\Variant.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\variant-marshaler.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\WebSocket.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\crypto.hpp">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\dbcacheclient2blocked.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\DbCacheClient2Impl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\DBCacheJob.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\DbCacheObject.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\DbCacheServer2Impl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\DbConfig.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\dbloadeddata2_s.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\DbLogWriterImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\DumpServer.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\EmergencyLogServer.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FallbackableUdpLayer_S.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FavoriteLV_S.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\HlaEntityImpl_S.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\HlaSessionHostImpl_S.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\HlaSpaceImpl_S.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\HostIDFactory.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\IVizAgentDg.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\LoopbackHost_S.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\NetServer.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\OdbcCommandImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\OdbcConnectionImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\OdbcErrorCheck.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\OdbcHandle.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\OdbcRecordsetImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\P2PGroup_S.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\P2PPair.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\P2PPair_S.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\PooledObjects_C.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\PooledObjects_S.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\RCPair.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\ReaderWriterMonitorTester.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\RemoteClient.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\SendDest_S.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\server_ws.hpp">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\server_wss.hpp">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\SuperPeer_S.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\TcpLayer_S.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\TestUdpConnReset.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\ThreadPoolImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\UdpSocket_S.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\UserTask.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\WebSocket.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\stdafx.h">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\NetServer_WebSocket.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\NetServerImpl.inl">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild001.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild002.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild003.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild004.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild005.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild006.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild007.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnityBuild\ServerUnityBuild008.cpp">
+      <Filter>Unity Build Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
