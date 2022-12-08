@@ -87,6 +87,10 @@ namespace Proud
         STARTUPINFO si;
         PROCESS_INFORMATION pi;
 
+        ZeroMemory(&si, sizeof(si));
+        si.cb = sizeof(si);
+        ZeroMemory(&pi, sizeof(pi));
+
         // 주의 윈도우의 네임드 파이프는 반드시 지켜야 하는 이름 포맷이 있다 !!!
         // 히든앱과 히든앱 생성 스레드간에 연결될 파이프의 이름
         TSTRING pipeName;
@@ -131,10 +135,6 @@ namespace Proud
 
             return pi;
         }
-
-        ZeroMemory(&si, sizeof(si));
-        si.cb = sizeof(si);
-        ZeroMemory(&pi, sizeof(pi));
 
         TCHAR* tmpStr = new TCHAR[m_strArgList.length() + 1];
         _tcscpy(tmpStr, m_strArgList.c_str());
