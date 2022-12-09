@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Unity Build Files">
-      <UniqueIdentifier>{f8213772-3ade-4c7e-8768-c27effe3a5ee}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Open Source Libraries">
       <UniqueIdentifier>{da52a8c8-babc-4b53-abd6-4139533dcff7}</UniqueIdentifier>
     </Filter>
@@ -33,6 +30,9 @@
     </Filter>
     <Filter Include="Open Source Libraries\zlib">
       <UniqueIdentifier>{043813a4-60b5-452d-9bd5-abb9ee9fb2ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unity Build Files">
+      <UniqueIdentifier>{f8213772-3ade-4c7e-8768-c27effe3a5ee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -333,9 +333,6 @@
     <None Include="..\src\PnTime.cpp">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="..\..\version\PNVersion.cpp">
-      <Filter>Source Files</Filter>
-    </None>
     <None Include="..\src\Poll_Reactor.cpp">
       <Filter>Source Files</Filter>
     </None>
@@ -519,8 +516,17 @@
     <None Include="..\src\VizMessageSummary.cpp">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="..\src\stdafx.cpp">
+    <ClCompile Include="..\src\stdafx.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <None Include="..\..\version\PNVersion.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\src\FastArrayPtrImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\..\version\PNVersion.h">
+      <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -585,9 +591,6 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="..\src\FastArrayImpl.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FastArrayPtrImpl.h">
       <Filter>Header Files</Filter>
     </None>
     <None Include="..\src\FastHeapImpl.h">
@@ -738,9 +741,6 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="..\src\PNS3ETimer.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\..\version\PNVersion.h">
       <Filter>Header Files</Filter>
     </None>
     <None Include="..\src\Poll_Reactor.h">
