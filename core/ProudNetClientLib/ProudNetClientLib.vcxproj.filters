@@ -522,12 +522,6 @@
     <None Include="..\..\version\PNVersion.cpp">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="..\src\FastArrayPtrImpl.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\..\version\PNVersion.h">
-      <Filter>Header Files</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\acrimpl.h">
@@ -591,6 +585,9 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="..\src\FastArrayImpl.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\src\FastArrayPtrImpl.h">
       <Filter>Header Files</Filter>
     </None>
     <None Include="..\src\FastHeapImpl.h">
@@ -903,6 +900,9 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="..\src\stdafx.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\..\version\PNVersion.h">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
