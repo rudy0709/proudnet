@@ -52,7 +52,7 @@ namespace PIDL
             File.WriteAllText(Path.Combine(cppSourceDir, @"..\include\ErrorTypeOldSpec.h".Replace('\\', Path.DirectorySeparatorChar)), new ErrorTypeHOldSpec().TransformText(), Encoding.UTF8);
 
             Console.WriteLine("Generating ErrorType.inl...");
-            File.WriteAllText(Path.Combine(cppSourceDir, @"ErrorType.inl"), new ErrorTypeInlH().TransformText(), Encoding.UTF8);
+            File.WriteAllText(Path.Combine(cppSourceDir, @"..\src\ErrorType.inl"), new ErrorTypeInlH().TransformText(), Encoding.UTF8);
 
             return 0;
         }
