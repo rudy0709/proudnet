@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
@@ -10,6 +9,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetServerLib", "ProudNetServerLib\ProudNetServerLib.vcxproj", "{BB904D7E-618E-4757-BE6F-D726F21B9481}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetClientDll", "ProudNetClientDll\ProudNetClientDll.vcxproj", "{27F56D43-CA4C-49FD-BBF9-34E5AA644CAC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProudNetServerDll", "ProudNetServerDll\ProudNetServerDll.vcxproj", "{32A29BB7-74E4-48D0-8AB6-723924CA83B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +88,22 @@ Global
 		{27F56D43-CA4C-49FD-BBF9-34E5AA644CAC}.Release|x64.Build.0 = Release|x64
 		{27F56D43-CA4C-49FD-BBF9-34E5AA644CAC}.Release|x86.ActiveCfg = Release|Win32
 		{27F56D43-CA4C-49FD-BBF9-34E5AA644CAC}.Release|x86.Build.0 = Release|Win32
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Debug_static_CRT|x64.ActiveCfg = Debug_static_CRT|x64
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Debug_static_CRT|x64.Build.0 = Debug_static_CRT|x64
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Debug_static_CRT|x86.ActiveCfg = Debug|Win32
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Debug_static_CRT|x86.Build.0 = Debug|Win32
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Debug|x64.ActiveCfg = Debug|x64
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Debug|x64.Build.0 = Debug|x64
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Debug|x86.ActiveCfg = Debug|Win32
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Debug|x86.Build.0 = Debug|Win32
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Release_static_CRT|x64.ActiveCfg = Release_static_CRT|x64
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Release_static_CRT|x64.Build.0 = Release_static_CRT|x64
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Release_static_CRT|x86.ActiveCfg = Release|Win32
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Release_static_CRT|x86.Build.0 = Release|Win32
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Release|x64.ActiveCfg = Release|x64
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Release|x64.Build.0 = Release|x64
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Release|x86.ActiveCfg = Release|Win32
+		{32A29BB7-74E4-48D0-8AB6-723924CA83B0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
