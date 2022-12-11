@@ -430,8 +430,8 @@
     <ClCompile Include="..\src\UnityBuild\ServerUnityBuild008.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProudNetPidl\ProudNetPidl.vcxproj">
-      <Project>{90a8b9fe-5e62-4af4-bbd0-65dc5cc6dcda}</Project>
+    <ProjectReference Include="..\ProudNetClientLib\ProudNetClientLib.vcxproj">
+      <Project>{11f32acb-e192-31b7-be6b-3f130264aaa0}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
