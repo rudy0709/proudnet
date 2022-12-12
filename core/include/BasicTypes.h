@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet 0.1.11111-test
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -39,9 +39,9 @@ Any violated use of this program is prohibited and will be cause of immediate te
 // 사용자가 프라우드넷 같은 라이브러리의 헤더파일과 LIB가 서로 버전이 안맞게 사용하면 찾기 힘든 런타임오류가 된다. 
 // 이를 링크오류로 끌어올리는 역할을 한다.
 #ifdef _DEBUG
-#define PROUDNET_H_LIB_SIGNATURE VER_2296310563_DEBUG
+#define PROUDNET_H_LIB_SIGNATURE VER_3233192701_DEBUG
 #else
-#define PROUDNET_H_LIB_SIGNATURE VER_2296310563_RELEASE 
+#define PROUDNET_H_LIB_SIGNATURE VER_3233192701_RELEASE 
 #endif
 
 #include <assert.h>

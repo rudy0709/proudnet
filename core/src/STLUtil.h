@@ -299,8 +299,6 @@ namespace Proud
 	cout<<(*i);
 	}
 	*/
+
 #define PN_FOREACH(TYPE, VAR, i) for(TYPE::iterator i=VAR.begin();i!=VAR.end();i++)
-
-	
-
-	}
+}

@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet HERE_SHALL_BE_EDITED_BY_BUILD_HELPER
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
