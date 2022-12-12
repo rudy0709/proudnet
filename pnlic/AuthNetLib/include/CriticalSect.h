@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -62,7 +62,7 @@ namespace Proud
 	class CriticalSection_Standard;
 
 	uint32_t GetAppropriateSpinCount();
-
+	
 	/** parameters for critical section initialization.
 	*/
 	class CriticalSectionSettings
@@ -74,7 +74,7 @@ namespace Proud
 #ifdef _WIN32
 		/// true if you want to perform faster for Windows 6 or later.
 		bool m_fasterForWindows6;
-#endif
+#endif		
 		/**
 		\~korean
 		병목 발생시 덤프 파일을 저장할 이름을 설정합니다.
@@ -86,7 +86,7 @@ namespace Proud
 		*/
 		String m_bottleneckWarningDumpFileName;
 
-		/**
+		/** 
 		\~korean
 		병목 발생시 덤프 파일을 저장할 경로를 설정합니다.
 		(ex. L"C:/")
@@ -117,7 +117,7 @@ namespace Proud
 	class LockBottleneckDetectorResult
 	{
 	public:
-		LockResult m_lockResult;
+		LockResult m_lockResult; 
 		int32_t m_owningThread; // lock을 성공시킨 스레드의 ID
 	};
 
@@ -126,7 +126,7 @@ namespace Proud
 	/** \addtogroup util_group
 	*  @{
 	*/
-	/**
+	/** 
 	\~korean
 	Critical section 클래스
 	- MFC의 CCriticalSection보다 기능이 더 보강되어 있다.
@@ -165,13 +165,13 @@ namespace Proud
 
 		/** Initializes a critical section object. */
 		PROUD_API CriticalSection(CriticalSectionSettings &settings);
-
+		
 	private:
 		void _Initialize(CriticalSectionSettings &settings);
 		void _Uninitialize();
-
+		
 		void _BottleneckDetectorAwareLock(int32_t timeout, LockBottleneckDetectorResult& result);
-
+		
 		void Lock_internal();
 		inline bool IsBottleneckWarningEnabled()
 		{
@@ -179,7 +179,7 @@ namespace Proud
 		}
 
 	public:
-		/**
+		/** 
 		\~korean
 		파괴자
 		- 파괴하기 전에, 이 critical section을 점유하고 있는 스레드가 없어야 한다!
@@ -194,7 +194,7 @@ namespace Proud
 		  */
 		PROUD_API ~CriticalSection(void);
 
-		/**
+		/** 
 		\~korean
 		critical section을 이 메서드를 호출하는 스레드가 점유한다.
 		잘못된 호출이 일어났을 시 MessageBox를 띄워줍니다.
@@ -208,7 +208,7 @@ namespace Proud
 		 */
 		PROUD_API void Lock();
 
-		/**
+		/** 
 		\~korean
 		critical section을 이 메서드를 호출하는 스레드가 점유한다.
 		잘못된 호출이 일어났을 시 아무 처리하지 않고 넘어갑니다.
@@ -221,8 +221,8 @@ namespace Proud
 		\~
 		 */
 		PROUD_API void UnsafeLock();
-
-		/**
+		
+		/** 
 		\~korean
 		critical section을 이 메서드를 호출하는 스레드가 점유 해제한다.
 		\~english
@@ -234,13 +234,13 @@ namespace Proud
 		 */
 		PROUD_API void Unlock();
 
-		/**
+		/** 
 		\~korean
-		EnterCriticalSection 대신 TryEnterCriticalSection을 사용한다.
+		EnterCriticalSection 대신 TryEnterCriticalSection을 사용한다. 
 		\return 성공적으로 잠금 했으면 true.
 		\~english
 		Use TryEnterCriticalSection rather than EnterCriticalSection.
-		\return If it locked successfully, it is true.
+		\return If it locked successfully, it is true. 
 		\~chinese
 		TryEnterCriticalSection代替EnterCriticalSection使用。
 		\return 锁定成功的话true。
@@ -274,7 +274,7 @@ namespace Proud
 
 	//typedef RefCount<CriticalSection,false> CriticalSectionPtr;
 
-	/**
+	/** 
 	\~korean
 	\brief CriticalSection 객체를 lock access하는 객체
 	- 반드시 로컬 변수로 생성하여 하나의 쓰레드 내에서만 사용한다.
@@ -295,19 +295,19 @@ namespace Proud
 		CriticalSection* m_cs;
 
 		// 몇 번의 Lock을 호출했는가?
-		// 주의: m_cs의 실제 lock 횟수와 다를 수 있다.
+		// 주의: m_cs의 실제 lock 횟수와 다를 수 있다. 
 		// 이 값은 이 CriticalSectionLock에 의해서 Lock한 것들만 카운팅한다.
 		int m_recursionCount;
 
 	public:
-		/**
+		/** 
 		\~korean
 		critical section 객체를 생성자에서 바로 lock할 수 있다.
 		\param cs 사용할 critical section 객체
 		\param initialLock true이면 생성자에서 바로 lock한다.
 		\~english
 		It is possible to directly lock the critical section object at constructor.
-		\param cs The critical section object to use
+		\param cs The critical section object to use 
 		\param initialLock If it is true then the constructor immediately locks it.
 		\~chinese
 		在生成者可以立即lock critical section对象。
@@ -321,7 +321,7 @@ namespace Proud
 			SetCriticalSection(cs, initialLock);
 		}
 
-		/**
+		/** 
 		\~korean
 		critical section을 나중에 세팅할때에 사용할 생성자입니다.
 		\~english
@@ -347,33 +347,33 @@ namespace Proud
 		}
 		// 쓰일 일이 없어 보이지만, 현재 스레드가 이 critsec을 잠그고 있는 상태인지 검사를 해야 할 때가 있어서
 		// 이 함수는 존재함.
-		inline CriticalSection* GetCriticalSection() const
+		inline CriticalSection* GetCriticalSection() const 
 		{
 			return m_cs;
 		}
 
-		/**
+		/** 
 		\~korean
 		잠금이 되어있나?
 		\~english
-		Is it locked?
+		Is it locked? 
 		\~chinese
 		锁定了吗？
 		\~japanese
 		\~
 		 */
-		bool IsLocked() const
+		bool IsLocked() const 
 		{
 			assert(m_recursionCount >= 0);
 			return m_recursionCount > 0;
 		}
 
-		/**
+		/** 
 		\~korean
-		파괴자
+		파괴자 
 		- 이미 이 객체가 점유하고 있던 CriticalSection이 있을 경우 점유 해제를 자동으로 한다.
 		\~english
-		Destructor
+		Destructor 
 		- If there is a Critical Section occupied by this object then it automatically relieves.
 		\~chinese
 		破坏者
@@ -390,7 +390,7 @@ namespace Proud
 			}
 		}
 
-		/**
+		/** 
 		\~korean
 		critical section을 점유한다.
 		\~english
@@ -406,7 +406,7 @@ namespace Proud
 			++m_recursionCount;
 		}
 
-		/**
+		/** 
 		\~korean
 		Try Lock을 수행한다.
 		\return CriticalSection.TryLock()과 같은 값
@@ -436,7 +436,7 @@ namespace Proud
 			++m_recursionCount;
 		}
 
-		/**
+		/** 
 		\~korean
 		critical section을 점유 해제한다.
 		\~english
@@ -460,9 +460,9 @@ namespace Proud
 		락이 중첩된 횟수를 조회한다.
 
 		\~english
-
+		
 		\~chinese
-
+		
 		\~japanese
 		\~
 		*/

@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,11 +34,11 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once
+#pragma once 
 
 //#pragma pack(push,8)
 
-namespace Proud
+namespace Proud 
 {
 #if (_MSC_VER>=1400)
 #pragma managed(push, off)
@@ -48,24 +48,24 @@ namespace Proud
 	*  @{
 	*/
 
-	/**
+	/** 
 	\~korean
-	고정 크기의 배열 클래스.
+	고정 크기의 배열 클래스. 
 	- T data[] 형식의 고정 크기 단순 배열을 bounds checking을 하려면 이 클래스로 대체해서 안정성을 도모할 수 있다.
 
 	일반적 용도
-	- CAtlArray 를 카피해다 만들었으므로 CAtlArray 와 사용법이 거의 유사하다. 단, static이니 당연하지만, 삽입/제거/청소 등의 기능이 빠져있다.
+	- CAtlArray 를 카피해다 만들었으므로 CAtlArray 와 사용법이 거의 유사하다. 단, static이니 당연하지만, 삽입/제거/청소 등의 기능이 빠져있다. 
 
 	주의사항
 	- 기존 정적 배열을 CFixedLengthArray 로 바꿀 경우 _countof()나 sizeof()를 쓰는 경우가 있을 터인데, 이러한 부분을 찾아서 수정해야 한다.
 	예컨대 _countof()는 항상 1을 리턴할 것이기 때문이다.
 
 	\~english
-	Array class with fixed size
+	Array class with fixed size 
 	- To 'bounds check' a simple, fixed size array of T data[] format, it is possible to replace with this class to draw stability.
 
 	General usage
-	- Has similar usage of CAtlArray since this is copied and made from it, but it does not have insertion/removal/cleanup functions since it is static. (of course...)
+	- Has similar usage of CAtlArray since this is copied and made from it, but it does not have insertion/removal/cleanup functions since it is static. (of course...) 
 
 	Note
 	- If replacing the existing static array with CFixedLengthArray then there can be cases that either _countof() or sizeof() is used. << must modify them correctly.
@@ -86,7 +86,7 @@ namespace Proud
 	\~
 	*/
 	template<int size,typename TYPE, typename ARG_TYPE = const TYPE&>
-	class CFixedLengthArray
+	class CFixedLengthArray 
 	{
 	public:
 
@@ -144,7 +144,7 @@ namespace Proud
 
 		/**
 		\~korean
-		배열 항목 접근자
+		배열 항목 접근자 
 
 		\~english
 		Array item accessor
@@ -162,7 +162,7 @@ namespace Proud
 		배열 항목 접근자
 
 		\~english
-		Array item accessor
+		Array item accessor 
 
 		\~chinese
 		数组项目访问者。
@@ -170,14 +170,14 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		inline TYPE& GetAt(int nIndex) { CheckValidIndex(nIndex); return m_data[nIndex]; }
+		inline TYPE& GetAt(int nIndex) { CheckValidIndex(nIndex); return m_data[nIndex]; }	
 
 		/**
 		\~korean
 		배열 항목 접근자
 
 		\~english
-		Array item accessor
+		Array item accessor 
 
 		\~chinese
 		数组项目访问者。
@@ -260,8 +260,8 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		inline const TYPE& operator[](int nIndex) const{CheckValidIndex(nIndex); return m_data[nIndex];}
-
+		inline const TYPE& operator[](int nIndex) const{CheckValidIndex(nIndex); return m_data[nIndex];}	
+		
 		/**
 		\~korean
 		배열 항목 접근자

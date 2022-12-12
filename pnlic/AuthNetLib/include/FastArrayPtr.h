@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -51,7 +51,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #pragma warning(disable:4324)
 #pragma warning(disable:4290)
 //#pragma pack(push,8)
-#endif
+#endif 
 
 namespace Proud
 {

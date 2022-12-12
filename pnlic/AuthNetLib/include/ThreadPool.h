@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -170,7 +170,7 @@ namespace Proud
 		// 인자: 최대 대기 시간. 0을 넣으면 무대기 실행.
 		// TODO: 위 주석을 정제하여 사용자가 좋아하게 하고, zero thread pool에 대한 피처도 advanced usage 항목에 추가하도록 하자.
 		virtual void Process(int timeoutMs) = 0;
-
+		
 	};
 
 	/**  @} */

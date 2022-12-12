@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -50,11 +50,11 @@ namespace Proud
 
 
 	extern const char* CannotUseFastHeapForFilledCollectionErrorText;
-
+	
 	PROUD_API void ShowLibSignatureMismatchError();
 	extern int LibSignature;
 
-	/**
+	/** 
 	\~korean
 	이 객체의 배열 크기가 증가할 때 가중치 타입
 
@@ -69,9 +69,9 @@ namespace Proud
 	 */
 	enum GrowPolicy
 	{
-		/**
+		/** 
 		\~korean
-		균형
+		균형 
 
 		\~english
 		Balance
@@ -83,7 +83,7 @@ namespace Proud
 		\~
 		*/
 		GrowPolicy_Normal,
-		/**
+		/** 
 		\~korean
 		고성능. 대신 메모리 사용량이 많음
 
@@ -97,7 +97,7 @@ namespace Proud
 		\~
 		*/
 		GrowPolicy_HighSpeed,
-		/**
+		/** 
 		\~korean
 		메모리 절감. 대신 배열 크기가 증가시 복사 부하로 인한 저성능.
 
@@ -130,7 +130,7 @@ namespace Proud
 		typedef T type;
 	};
 
-	/**
+	/** 
 	\~korean
 	배열 클래스
 
@@ -141,8 +141,8 @@ namespace Proud
 	주요 특징
 	- heap 접근을 최소화하기 위해 auto memory shrink를 하지 않습니다.
 	즉 capacity는 절대 줄지 않습니다. 따라서 메모리 과다 사용의 문제점을 고려해야 한다면 이 객체의 사용을 피하는 것이 좋습니다.
-	- 내부적으로 \ref fast_heap 을 써서 heap 접근으로 인한 부하를 절약할 수 있습니다.
-	기본적으로 이 기능은 꺼져있습니다. 그러나, UseFastHeap으로 변경 가능합니다.
+	- 내부적으로 \ref fast_heap 을 써서 heap 접근으로 인한 부하를 절약할 수 있습니다. 
+	기본적으로 이 기능은 꺼져있습니다. 그러나, UseFastHeap으로 변경 가능합니다. 
 	- .Net framework의 List<>, STL.vector, CAtlArray의 메서드 이름을 모두 쓸 수 있습니다. 그리고 STL.vector.iterator와 같은 역할의
 	iterator class도 제공하고 있습니다.
 
@@ -156,31 +156,31 @@ namespace Proud
 	예를 들어 패킷 크기의 경우 웬만하면 2GB를 넘는 것을 안 다루므로 int32를 권장합니다. 로컬 프로세스에서만 다루는 것이면 intPtr을 권합니다. 네트워크 통계 등 32bit로는 불충분한 값을 다루면
 	int64를 권합니다.
 
-	\~english
+	\~english 
 	Array class
 
-	Performance increase function for primitive type
+	Performance increase function for primitive type	
 	- The performance that manages array increases when RAWTYPE=true due to array factors are regarded as primitive type such as int. (In order to maximize the performance, sometimes memcpy can be used internally.)
-	- However, only specific primitive types such as int, bool and byte can be used. It can be dangerous that the type with separate constructor, destructor and duplicator is used as array clause.
+	- However, only specific primitive types such as int, bool and byte can be used. It can be dangerous that the type with separate constructor, destructor and duplicator is used as array clause. 
 
-	Major characteristics
+	Major characteristics	
 	- Does not perform auto memory shrink in order to minimize heap access
-	  In other words, capacity never decreases. Therefore, if the circumstances must consider the side-effects of using too much memory then this object must not be used.
+	  In other words, capacity never decreases. Therefore, if the circumstances must consider the side-effects of using too much memory then this object must not be used.  
 	- Internally, by using \ref fast_heap, it is possible to decrease the load cuased by heap access.
 	  By default, this feature is off. But it can be changed by UseFastHeap.
-	- Can use the metohd names of List<> of .Net framework, STL.vector and CAtlArray. And provides interator class that acts as STL.vector.iterator
+	- Can use the metohd names of List<> of .Net framework, STL.vector and CAtlArray. And provides interator class that acts as STL.vector.iterator 
 
 	\param T Clause type of array
 	\param T_IN_REF Set to true if you want the value to be passed by reference, or false for by value. Type of 8 or less of bytes such as int is passed faster if by value is selected.
 	\param RAWTYPE To check if the type is safe even if array element is processed as “raw memory copy”. int is safe but std.string is not safe.
-	In case element type of array is not related to constructor, destructor and copy assignment operator, you can set it as “true”.
+	In case element type of array is not related to constructor, destructor and copy assignment operator, you can set it as “true”. 
 	If setting it as “true”, constructor, destructor and copy assignment will not be called for progression of construction, destruction and copy of array element that internally occurs when inserting & deleting & changing size.
-	Therefore, processing speed will be improved.
-	Default is “false”.
+	Therefore, processing speed will be improved. 
+	Default is “false”. 
 	\param INDEXTYPE It is strongly recommended to use the maximum size of array and one of index types like int32,int64 and intPtr.
-	Casting load between int32 and int64 should be considered, so using the appropriate one is recommended.
-	For example, packet size should be int32 because it does not exceed 2GB and if it is only for local process, intPtr is recommended.
-	int64 is appropriate when int32 cannot deal with accurate value like network statistics.
+	Casting load between int32 and int64 should be considered, so using the appropriate one is recommended. 
+	For example, packet size should be int32 because it does not exceed 2GB and if it is only for local process, intPtr is recommended. 
+	int64 is appropriate when int32 cannot deal with accurate value like network statistics.  
 
 	\~chinese
 	数组类
@@ -218,12 +218,12 @@ namespace Proud
 	protected:
 		/* 이 값들은 상속된 클래스에서 직접 조작할 수 있다.
 		Q: 패치워크 아닌가요?
-		A: 있을 것은 있어야 하고 없을 것은 없어야 한다는 구현 정책에 위배되지만,
+		A: 있을 것은 있어야 하고 없을 것은 없어야 한다는 구현 정책에 위배되지만, 
 		min capacity나 capacity 등이 여기서 자주 액세스되기 때문에 이들 상태 변수가 따로 있는 것이 차라리 직관적입니다.
 		*/
-
-		// 배열 데이터
-		T* m_Data;
+		
+		// 배열 데이터 
+		T* m_Data; 
 		// 배열의 현재 크기
 		INDEXTYPE m_Length;
 		// 배열 데이터 블럭의 실제 할당된 크기
@@ -281,7 +281,7 @@ namespace Proud
 		}
 	public:
 
-		/**
+		/** 
 		\~korean
 		기본 생성자
 
@@ -300,7 +300,7 @@ namespace Proud
 			InitVars();
 		}
 
-		/**
+		/** 
 		\~korean
 		외부 데이터를 복사해오는 생성자
 		\param data 데이터 배열의 포인터 입니다.
@@ -326,10 +326,10 @@ namespace Proud
 			InsertRange(0, data, count);
 		}
 
-		/**
+		/** 
 		\~korean
 		외부 데이터를 복사해오는 생성자
-		\param src 복사할 CFastArray
+		\param src 복사할 CFastArray 
 
 		\~english TODO:translate needed.
 		Constructor that duplicates external data
@@ -368,7 +368,7 @@ namespace Proud
 			}
 		}
 
-		/**
+		/** 
 		\~korean
 		이 객체의 배열 크기가 증가할 때 가중치 타입을 설정. 자세한 내용은 GrowPolicy을 참조
 		\param val 배열의 증가 가중치에 대한 type
@@ -389,12 +389,12 @@ namespace Proud
 			m_growPolicy = val;
 		}
 
-		/**
+		/** 
 		\~korean
 		기존 grow policy(이 객체의 배열 크기가 증가할 때 가중치 타입) 얻기
 
 		\~english
-		Getting existing grow policy
+		Getting existing grow policy 
 
 		\~chinese
 		获取之前grow policy（此对象的数组大小增加时的加重值类型）。
@@ -407,10 +407,10 @@ namespace Proud
 			return m_growPolicy;
 		}
 
-		/**
-		\~korean
-		최소 버퍼 크기를 설정한다. 버퍼(capacity)크기가 증가할 때 최소한 이 사이즈보다 크게 설정한다.
-		\param newCapacity 최소 Capacity size
+		/** 
+		\~korean 
+		최소 버퍼 크기를 설정한다. 버퍼(capacity)크기가 증가할 때 최소한 이 사이즈보다 크게 설정한다. 
+		\param newCapacity 최소 Capacity size 
 
 		\~english TODO:translate needed.
 
@@ -429,7 +429,7 @@ namespace Proud
 			//SetCapacity(m_minCapacity); 이러면 세팅만 했는데도 엄한 할당을! 즐!
 		}
 
-		/**
+		/** 
 		\~korean
 		배열이 갖고 있는 버퍼(캐퍼서티)를 조절한다.
 		- 캐퍼서티는 증가만 할 뿐, 줄어들지는 않는다.
@@ -462,8 +462,8 @@ namespace Proud
 					m_Data = (T*)DataBlock_Alloc(newCapacity * sizeof(T));
 
 					// capacity만 세팅한 것이므로 ctor,dtor 호출 NO!
-				}
-				else
+				}				
+				else 
 				{
 					// 있던 캐퍼의 증가
 					if(RAWTYPE)
@@ -477,8 +477,8 @@ namespace Proud
 
 						// realloc은 구 블럭으로의 복사도 겸하니까 여기서 또 복사 불필요
 					}
-					else	// raw type이 아닌 경우
-					{
+					else	// raw type이 아닌 경우 
+					{	
 						T* oldData = m_Data;
 						T* newData;
 
@@ -501,7 +501,7 @@ namespace Proud
 			}
 		}
 
-		/**
+		/** 
 		\~korean
 		배열 크기를 조절한다
 		- 배열 크기 조절시 capacity가 충분히 증가한다.
@@ -522,7 +522,7 @@ namespace Proud
 		 */
 		inline void SetCount(INDEXTYPE newVal) // 성능이 중요하므로 루틴이 커도 inline
 		{
-			/*
+			/* 
 			\~korean
 			크기 조절시 발생하는 사항
 			- 0->N: 버퍼 생성
@@ -603,17 +603,17 @@ namespace Proud
 		/**
 		\~korean
 		배열 크기
-
+		
 		\~english
 		Array size
-
+		
 		\~chinese
 		数组大小
-
+		
 		\~japanese
 		\~
 		*/
-		inline INDEXTYPE GetCount() const
+		inline INDEXTYPE GetCount() const 
 		{
 			return m_Length;
 		}
@@ -675,7 +675,7 @@ namespace Proud
 #endif
 		}
 
-#if defined(_MSC_VER)
+#if defined(_MSC_VER)        
 		/**
 		\~korean
 		배열 크기
@@ -697,7 +697,7 @@ namespace Proud
 		index가 가리키는 배열 항목
 
 		\~english
-		Array item that pointed by index
+		Array item that pointed by index 
 
 		\~chinese
 		Index所指的数组项目。
@@ -705,7 +705,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		inline T_IN ElementAt(INDEXTYPE index) const
+		inline T_IN ElementAt(INDEXTYPE index) const 
 		{
 			BoundCheck(index);
 			return m_Data[index];
@@ -713,7 +713,7 @@ namespace Proud
 
 		/**
 		\~korean
-		index가 가리키는 배열 항목
+		index가 가리키는 배열 항목 
 
 		\~english
 		Array item that pointed by index
@@ -724,7 +724,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		inline T& ElementAt(INDEXTYPE index)
+		inline T& ElementAt(INDEXTYPE index) 
 		{
 			BoundCheck(index);
 			return m_Data[index];
@@ -735,7 +735,7 @@ namespace Proud
 		index가 가리키는 배열 항목
 
 		\~english
-		Array item that pointed by index
+		Array item that pointed by index 
 
 		\~chinese
 		Index所指的数组项目。
@@ -750,7 +750,7 @@ namespace Proud
 
 		/**
 		\~korean
-		index가 가리키는 배열 항목
+		index가 가리키는 배열 항목 
 
 		\~english
 		Array item that pointed by index
@@ -844,8 +844,8 @@ namespace Proud
 
 		/**
 		\~korean
-		배열 뒤에 새로운 배열 추가
-		\param data 새로 추가할 배열의 포인터
+		배열 뒤에 새로운 배열 추가 
+		\param data 새로 추가할 배열의 포인터 
 		\param count 추가할 배열의 크기
 
 		\~english TODO:translate needed.
@@ -855,7 +855,7 @@ namespace Proud
 
 		\~chinese
 		数组后添加新的数组。
-		\param data 要新添加的指针。
+		\param data 要新添加的指针。 
 		\param count 要添加的数组大小。
 
 		\~japanese
@@ -872,7 +872,7 @@ namespace Proud
 				return;
 
 			INDEXTYPE oldCount = m_Length;
-
+	
 			// 공간 확보
 			SetCount(m_Length + count);
 			INDEXTYPE indexAt = oldCount;
@@ -894,15 +894,15 @@ namespace Proud
 			}
 		}
 
-		/**
-		\~korean
-		배열 중간에 배열 추가. indexAt이 가리키는 부분을 뒤로 밀어놓고 틈새에 추가한다.
+		/** 
+		\~korean 
+		배열 중간에 배열 추가. indexAt이 가리키는 부분을 뒤로 밀어놓고 틈새에 추가한다. 
 		\param indexAt 이 index 번호의 다음부터 추가 됩니다.
 		\param data data 삽입할 배열의 포인터 입니다.
 		\param count 삽입할 배열의 크기
 
 		\~english TODO:translate needed.
-		Add array to middle of array. Move back part that pointed by indexAt then add to the gap
+		Add array to middle of array. Move back part that pointed by indexAt then add to the gap 
 
 
 
@@ -922,7 +922,7 @@ namespace Proud
 				ThrowInvalidArgumentException();
 
 			INDEXTYPE oldCount =  m_Length;
-
+		
 			// 공간 확보
 			SetCount(m_Length + count);
 
@@ -962,15 +962,15 @@ namespace Proud
 			}
 		}
 
-		/**
-		\~korean
-		dest의 크기를 count로 조정 후 src의 일부나 전체를 dest로 복사한다.
+		/** 
+		\~korean 
+		dest의 크기를 count로 조정 후 src의 일부나 전체를 dest로 복사한다. 
 		\param dest 배열을 dest로 복사합니다.
 		\param srcOffset 배열 내 srcOffset 이후 Data부터 dest로 복사 한다.
 		\param count count갯수 만큼의 배열을 복사 한다.
 
 		\~english TODO:translate needed.
-		Change size of dest with count then copy a part of src or all with dest
+		Change size of dest with count then copy a part of src or all with dest 
 
 
 
@@ -1007,9 +1007,9 @@ namespace Proud
 			}
 		}
 
-		/**
-		\~korean
-		\param dest 배열을 dest로 복사한다.
+		/** 
+		\~korean 
+		\param dest 배열을 dest로 복사한다. 
 
 		\~english
 		\param dest copy array to dest.
@@ -1041,14 +1041,14 @@ namespace Proud
 			}
 		}
 
-		/**
-		\~korean
-		index번째 항목부터 count만큼 제거한다.
+		/** 
+		\~korean 
+		index번째 항목부터 count만큼 제거한다. 
 		\param index 제거할 배열의 index
 		\param count index로부터 count수 만큼 제거한다.
 
 		\~english TODO:translate needed.
-		Remove from index th list as many as count
+		Remove from index th list as many as count 
 
 
 
@@ -1091,11 +1091,11 @@ namespace Proud
 		}
 
 		/**
-		\~korean
-		\param index index에 해당하는 data를 제거한다.
+		\~korean 
+		\param index index에 해당하는 data를 제거한다. 
 
-		\~english
-		\param index Remove index th item
+		\~english 
+		\param index Remove index th item 
 
 		\~chinese
 		\param index 删除等于index的data。
@@ -1109,10 +1109,10 @@ namespace Proud
 		}
 
 		/**
-		\~korean
+		\~korean 
 		\param value value와 같은 값을 가지는 배열 앞에서부터 찾아서 찾으면 제거한다.
 
-		\~english
+		\~english 
 		\param value Seek same value as value from the first then remove it
 
 		\~chinese
@@ -1138,10 +1138,10 @@ namespace Proud
 		}
 
 		/**
-		\~korean
+		\~korean 
 		복사 대입 연산자
 
-		\~english
+		\~english 
 		Copy assignment operator
 
 		\~chinese
@@ -1156,14 +1156,14 @@ namespace Proud
 			return *this;
 		}
 
-		/**
+		/** 
 		\~korean
 		\param value value와 같은 값을 가지는 배열 항목이 있는지 확인한다.
 		\return value와 같은 값을 가지는 배열 항목이 있으면 그 인덱스를 리턴한다. 찾지 못하면 -1을 리턴한다.
 
 		\~english
 		\param value check if there is an array that has the same value as “value”.
-		\return If there is the array that has the same value as “value”, the index is returned. If not found, -1 will be returned.
+		\return If there is the array that has the same value as “value”, the index is returned. If not found, -1 will be returned. 
 
 		\~chinese
 		\param value 确认是否有与value一样值的数组项目。
@@ -1175,7 +1175,7 @@ namespace Proud
 		inline INDEXTYPE FindByValue(T_IN value)
 		{
 			T* src = GetData();
-
+	
 			for (INDEXTYPE i = 0;i <  m_Length;i++)
 			{
 				if (value == src[i])
@@ -1184,7 +1184,7 @@ namespace Proud
 			return -1;
 		}
 
-		/**
+		/** 
 		\~korean
 		- 주의: 단순 메모리 비교다. 이 점을 주의할 것.
 		\param rhs rhs와 내용이 동일한지 체크한다.
@@ -1203,19 +1203,19 @@ namespace Proud
 		inline bool Equals(const CFastArray &rhs) const
 		{
 			if(rhs.m_Length!=m_Length)
-				return false;
+				return false; 
 
 			// 단순 메모리 비교다.
 			const T* p_rhs = rhs.GetData();
 			const T* p_lhs = GetData();
-
+			
 			if(RAWTYPE)
 			{
 				return memcmp(p_rhs,p_lhs,rhs.m_Length * sizeof(T)) == 0;
 			}
 			else
 			{
-
+				
 				for (INDEXTYPE i=0;i<m_Length;i++)
 				{
 					if(p_rhs[i] != p_lhs[i])
@@ -1240,7 +1240,7 @@ namespace Proud
 		class const_iterator;
 		friend class const_iterator;
 
-		/**
+		/** 
 		\~korean
 		STL의 const_iterator와 같은 역할을 한다.
 
@@ -1257,8 +1257,8 @@ namespace Proud
 		{
 			friend class CFastArray;
 		public:
-			const CFastArray* m_owner;
-			INDEXTYPE m_pos;
+			const CFastArray* m_owner;  
+			INDEXTYPE m_pos; 
 
 			inline const_iterator() {}
 			inline const_iterator(const iterator& src) { m_owner=src.m_owner; m_pos=src.m_pos; }
@@ -1282,24 +1282,24 @@ namespace Proud
 				return (_Tmp);
 			}
 
-			inline bool operator==(const const_iterator& a) const
+			inline bool operator==(const const_iterator& a) const 
 			{
 				return m_pos==a.m_pos && m_owner==a.m_owner;
 			}
 
-			inline bool operator!=(const const_iterator& a) const
+			inline bool operator!=(const const_iterator& a) const 
 			{
 				return !(m_pos==a.m_pos && m_owner==a.m_owner);
 			}
 
-			inline T_IN operator*() const
+			inline T_IN operator*() const 
 			{
 				return m_owner->ElementAt(m_pos);
 			}
 
 		};
 #endif
-		/**
+		/** 
 		\~korean
 		STL의 iterator와 같은 역할을 한다.
 
@@ -1341,7 +1341,7 @@ namespace Proud
 				return (_Tmp);
 			}
 
-			inline T_IN operator*() const
+			inline T_IN operator*() const 
 			{
 				return m_owner->ElementAt(m_pos);
 			}
@@ -1351,23 +1351,23 @@ namespace Proud
 				return m_owner->ElementAt(m_pos);
 			}
 
-			inline bool operator==(const iterator& a) const
+			inline bool operator==(const iterator& a) const 
 			{
 				return m_pos==a.m_pos && m_owner==a.m_owner;
 			}
 
-			inline bool operator!=(const iterator& a) const
+			inline bool operator!=(const iterator& a) const 
 			{
 				return !(m_pos==a.m_pos && m_owner==a.m_owner);
 			}
 		};
 
-		/**
+		/** 
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
 		\~english
-		Acts similar as same name method of STL
+		Acts similar as same name method of STL 
 
 		\~chinese
 		起着与STL的同名方法一样的作用。
@@ -1375,7 +1375,7 @@ namespace Proud
 		\~japanese
 		\~
 		 */
-		inline iterator begin()
+		inline iterator begin() 
 		{
 			iterator ret;
 			ret.m_pos = 0;
@@ -1384,7 +1384,7 @@ namespace Proud
 			return ret;
 		}
 
-		/**
+		/** 
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -1407,7 +1407,7 @@ namespace Proud
 		}
 
 #ifndef PROUDNET_NO_CONST_ITERATOR
-			/**
+			/** 
 			\~korean
 			STL의 동명 메서드와 같은 역할을 한다.
 
@@ -1429,7 +1429,7 @@ namespace Proud
 			return ret;
 		}
 
-		/**
+		/** 
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 
@@ -1451,7 +1451,7 @@ namespace Proud
 			return ret;
 		}
 #endif
-		/**
+		/** 
 		\~korean
 		STL의 동명 메서드와 같은 역할을 한다.
 		\param iter iter가 가르키는 데이터를 제거한다.
@@ -1501,18 +1501,18 @@ namespace Proud
 
 			T ret = GetData()[cnt - 1];
 			SetCount(cnt - 1);
-
+			
 			return ret;
 		}
 
-		/**
+		/** 
 		\~korean
-		맨 마지막 항목을 index가 가리키는 곳으로 옮긴 후 맨 마지막 항목을 제거한다.
+		맨 마지막 항목을 index가 가리키는 곳으로 옮긴 후 맨 마지막 항목을 제거한다. 
 		순서가 상관없는 콜렉션에서 허리 항목을 제거할 때 Remove 대신 쓰면 효과적이다.
 		\param index 제거할 index
 
 		\~english TODO:translate needed.
-		Moves the last clause to where index point then eliminates the last clause
+		Moves the last clause to where index point then eliminates the last clause 
 		It is effective to use this instead of Remove to remove mid-part of a collection of no meaningful orders.
 
 

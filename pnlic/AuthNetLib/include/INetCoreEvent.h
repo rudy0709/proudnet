@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -48,7 +48,7 @@ namespace Proud
 	*/
 
 	class RmiContext;
-	/**
+	/** 
 	\~korean
 	ProudNet용 event sink
 	- 파생 클래스에서 사용됨.
@@ -74,7 +74,7 @@ namespace Proud
 	public:
 		virtual ~INetCoreEvent();
 
-		/**
+		/** 
 		\~korean
 		내부 에러 발생시 호출됨
 		\param errorInfo 에러 정보. ErrorInfo::ToString() 을 통하여 필요한 정보를 쉽게 얻으실 수 있습니다. 자세한 것은 ErrorInfo 도움말에 있습니다.
@@ -92,10 +92,10 @@ namespace Proud
 		*/
 		virtual void OnError(ErrorInfo *errorInfo) = 0;
 
-		/**
+		/** 
 		\~korean
 		내부 경고 발생시 호출됨. 에러보다는 낮은 수위의 문제를 보고함.
-		\param errorInfo 에러 정보. ErrorInfo::ToString() 을 통하여 필요한 정보를 쉽게 얻으실 수 있습니다. 자세한 것은 ErrorInfo 도움말에 있습니다.
+		\param errorInfo 에러 정보. ErrorInfo::ToString() 을 통하여 필요한 정보를 쉽게 얻으실 수 있습니다. 자세한 것은 ErrorInfo 도움말에 있습니다. 
 
 		\~english TODO:translate needed.
 		It will be called when warning is occured internally. It reports problem that lower critical than error.
@@ -112,7 +112,7 @@ namespace Proud
 		*/
 		virtual void OnWarning(ErrorInfo *errorInfo) = 0;
 
-		/**
+		/** 
 		\~korean
 		내부 알림 발생시 호출됨. 내부 상황 추적 등을 위한 것으로 문제 상황을 말하는 것은 아님.
 		\param errorInfo 에러 정보. ErrorInfo::ToString() 을 통하여 필요한 정보를 쉽게 얻으실 수 있습니다.
@@ -132,7 +132,7 @@ namespace Proud
 		*/
 		virtual void OnInformation(ErrorInfo *errorInfo) = 0;
 
-		/**
+		/** 
 		\~korean
 		Proud.Exception 으로 통합
 		- 일반적으로 유저 코드에서 나는 에러를 처리한다.
@@ -144,11 +144,11 @@ namespace Proud
 
 		\~english
 		Merge to Proud.Exception
-		- It handles error that occur from user code.
-		- User realize things that user needed.
-		- You can use Exceptiontype that obtain Exception object.
-		- It process _com_error, void*, std::exception, etc. Also there is OnUnhandledException() that handle catch(...)
-		- void* can obtain exceptional object type by casting. For example, it uses obtaining MFC CException.
+		- It handles error that occur from user code. 
+		- User realize things that user needed. 
+		- You can use Exceptiontype that obtain Exception object. 
+		- It process _com_error, void*, std::exception, etc. Also there is OnUnhandledException() that handle catch(...) 
+		- void* can obtain exceptional object type by casting. For example, it uses obtaining MFC CException. 
 
  		\~chinese
 		合并为 Proud.Exception%。
@@ -164,7 +164,7 @@ namespace Proud
 		*/
 		virtual void OnException(Exception &e) = 0;
 
-		/**
+		/** 
 		\~korean
 		RMI가 호출이 들어왔으나 Attach된 Stub 중에 대응하는 RMI가 전혀 없으면 이것이 콜백된다.
 
@@ -179,12 +179,12 @@ namespace Proud
 		*/
 		virtual void OnNoRmiProcessed(RmiID rmiID) = 0;
 
-		/**
+		/** 
 		\~korean
 		사용자가 정의한 메시지를 수신하면 이 함수가 콜백됩니다. 사용자는 이 함수를 오버라이드해서 원하는 처리를 할 수 있습니다.
 		자세한 것은 \ref send_user_message 를 참고하십시오.
-		- Visual Studio 2005 이상의 컴파일러에서는 override 키워드 사용을 권장합니다.
-
+		- Visual Studio 2005 이상의 컴파일러에서는 override 키워드 사용을 권장합니다. 
+		
 		\param sender 메시지를 송신한 호스트입니다.
 		\param rmiContext 수신 부가 정보입니다.
 		\param payload 수신된 메시지 본문입니다.
@@ -215,13 +215,13 @@ namespace Proud
 		*/
 		virtual void OnReceiveUserMessage(HostID sender, const RmiContext &rmiContext, uint8_t* payload, int payloadLength);
 
-		/**
+		/** 
 		\~korean
-		일정 시간마다 user worker thread pool에서 콜백되는 함수입니다. \ref server_timer_callback 기능입니다.
+		일정 시간마다 user worker thread pool에서 콜백되는 함수입니다. \ref server_timer_callback 기능입니다. 		
 		\param context CStartServerParameter.m_timerCallbackContext 에서 입력된 값과 동일합니다.
 
 		\~english
-		Function called back at user worker thread pool periodically. This is a \ref server_timer_callback function.
+		Function called back at user worker thread pool periodically. This is a \ref server_timer_callback function.		
 		\param context same as the value entered at CStartLanServerParameter.m_timerCallbackContext
 
 		\~chinese
@@ -231,9 +231,9 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		virtual void OnTick(void* context){}
-
-		/**
+		virtual void OnTick(void* context){}	
+		
+		/** 
 		\~korean
 		RMI 호출 또는 이벤트 발생으로 인해 user worker에서 callback이 호출되기 직전에 호출됩니다.
 		프로그램 실행 성능 측정을 위해 사용하셔도 됩니다.
@@ -250,7 +250,7 @@ namespace Proud
 		\~
 		*/
 		virtual void OnUserWorkerThreadCallbackBegin(CUserWorkerThreadCallbackContext* ctx){}
-		/**
+		/** 
 		\~korean
 		RMI 호출 또는 이벤트 발생으로 인해 user worker에서 callback이 리턴한 직후에 호출됩니다.
 		프로그램 실행 성능 측정을 위해 사용하셔도 됩니다.

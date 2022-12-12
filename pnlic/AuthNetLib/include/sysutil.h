@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -46,21 +46,21 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #pragma managed(push, off)
 #endif
 
-#ifdef _WIN32
+#ifdef _WIN32 
 #pragma comment(lib, "Shlwapi.lib") // PathCombine() 등을 쓰므로.
 #endif
-
+	   
 namespace Proud
 {
-
+	   
 	/** \addtogroup util_group
 	*  @{
 	*/
 
-	/**
-	\~korean
-	CPU갯수를 구한다.
-
+	/** 
+	\~korean 
+	CPU갯수를 구한다. 	
+	
 	\~englich TODO:translate needed.
 
 	\~chinese
@@ -70,11 +70,11 @@ namespace Proud
 	\~
 	*/
 	PROUD_API uint32_t GetNoofProcessors();
-
-	/**
-	\~korean
-	프로세스의 이름을 얻어온다.
-
+	
+	/** 
+	\~korean 
+	프로세스의 이름을 얻어온다.	
+	
 	\~english TODO:translate needed.
 
 	\~chinese
@@ -84,12 +84,12 @@ namespace Proud
 	\~
 	*/
 	PROUD_API String GetProcessName();
-
-
-	/**
-	 \~korean
-	 ProudNet 사용자가 실수한 경우에만 보여주는 에러다.
-	 - CNetConfig::UserMisuseErrorReaction 의 type에 따라서 MessageBox혹은 디버그뷰로 확인 할 수 있는 에러를 출력해준다.
+	
+	
+	/** 
+	 \~korean 
+	 ProudNet 사용자가 실수한 경우에만 보여주는 에러다. 
+	 - CNetConfig::UserMisuseErrorReaction 의 type에 따라서 MessageBox혹은 디버그뷰로 확인 할 수 있는 에러를 출력해준다. 
 	 \param text Error Comment
 
 	 \~english TODO:translate needed.
@@ -99,17 +99,17 @@ namespace Proud
 	 - 根据 CNetConfig::UserMisuseErrorReaction%的type，打印用MessageBox或者调试view可以确认的错误。
 	 \param text Error Comment
 
-	 \~japanese
+	 \~japanese	 
 	 \~
 	 */
 	PROUD_API void ShowUserMisuseError(const PNTCHAR* text);
 
 
-	/**
-	\~korean
+	/** 
+	\~korean 
 	debug output or console에 디버깅용 문구를 출력합니다. newline은 추가되지 않습니다.
 
-	\~english
+	\~english 
 	Prints text for debugging to debugger output window or console, without newline.
 
 	\~chinese
@@ -122,12 +122,12 @@ namespace Proud
 
 
 #ifdef _WIN32
-	/**
-	\~korean
-	물리적 메모리 점유율을 구한다.
-
+	/** 
+	\~korean 
+	물리적 메모리 점유율을 구한다. 
+	
 	\~english TODO:translate needed.
-
+	
 	\~chinese
 	求物理内存占有率。
 
@@ -136,12 +136,12 @@ namespace Proud
 	*/
 	PROUD_API size_t GetOccupiedPhysicalMemory();
 
-	/**
-	\~korean
-	총 메모리를 구한다.
-
-	\~english TODO:translate needed.
-
+	/** 
+	\~korean 
+	총 메모리를 구한다. 	
+	
+	\~english TODO:translate needed.	
+	
 	\~chinese
 	求总内存。
 
@@ -150,12 +150,12 @@ namespace Proud
 	*/
 	PROUD_API size_t GetTotalPhysicalMemory();
 
-	/**
-	\~korean
-	컴퓨터 이름을 구한다.
-
-	\~english TODO:translate needed.
-
+	/** 
+	\~korean 
+	컴퓨터 이름을 구한다.	
+	
+	\~english TODO:translate needed.	
+	
 	\~chinese
 	求电脑名称。
 
@@ -163,12 +163,12 @@ namespace Proud
 	\~
 	*/
 	PROUD_API String GetComputerName();
-
-	/**
+	
+	/** 
 	\~korean
 	Windows XP, 2003에서만 지원하는 기능으로 low-fragmentation heap을 쓴다.
 	- 이걸 쓰면 SMP 환경에서 heap 접근 속도가 대폭 향상된다. 물론 low-fragmentation의 이익도 얻는다.
-	따라서 가능하면 이것을 쓰는 것이 강력 권장된다.
+	따라서 가능하면 이것을 쓰는 것이 강력 권장된다. 
 	- 이 메서드는 Windows 98 등에서는 지원되지 않는데, 이런 경우 이 메서드는 아무 것도 하지 않는다.
 	하지만 Windows 98에서 필요 Win32 API를 못 찾아 에러가 발생하지는 않는다.
 
@@ -183,7 +183,7 @@ namespace Proud
 	\~
 	*/
 	PROUD_API bool EnableLowFragmentationHeap();
-
+	
 	/**
 	\~korean
 	이 프로그램이 실행되고 있는 폴더를 찾아서 current directory로 세팅한다.
@@ -201,7 +201,7 @@ namespace Proud
 	PROUD_API void SetCurrentDirectoryWhereProgramExists();
 
 	/**
-	\~korean
+	\~korean 
 	현재 Process가 Service Mode로 실행중인지 여부를 검사합니다.
 	\return 서비스모드면 1 아니면 0
 
@@ -216,7 +216,7 @@ namespace Proud
 	*/
 	PROUD_API bool IsServiceMode();
 
-	/**
+	/** 
 	\~korean
 	GetQueuedCompletionStatusEx 사용 가능 여부를 검사한다. Server2008이상만 사용할수 있다고 알려져 있다.
 	\return 사용가능하면 1 아니면 0
@@ -232,12 +232,12 @@ namespace Proud
 	*/
 	PROUD_API bool IsGqcsExSupported();
 
-	/**
-	\~korean
-	HyperThreading를 지원하는지를 검사한다.
-
-	\~english TODO:translate needed.
-
+	/** 
+	\~korean 
+	HyperThreading를 지원하는지를 검사한다.	
+	
+	\~english TODO:translate needed.	
+	
 	\~chinese
 	检查是否支持HyperThreading。
 
@@ -245,13 +245,13 @@ namespace Proud
 	\~
 	*/
 	PROUD_API bool IsHyperThreading();
-
-	/**
+	
+	/** 
 	\~korean
-	비트가 1인 수를 체크합니다.
-	\param bitMask 비트를 검사할 변수
-	\return 비트가 1인 수
-
+	비트가 1인 수를 체크합니다. 
+	\param bitMask 비트를 검사할 변수 
+	\return 비트가 1인 수 	
+	
 	\~english TODO:translate needed.
 
 	\~chinese
@@ -334,10 +334,10 @@ namespace Proud
 		/*))inout */ PDWORD ReturnLength
 		);
 
-	/**
-	\~korean
-	파일의 절대 경로 이름을 구한다. 이미 절대 경로 이름이면 그대로 리턴한다.
-
+	/** 
+	\~korean 
+	파일의 절대 경로 이름을 구한다. 이미 절대 경로 이름이면 그대로 리턴한다. 	
+	
 	\~english TODO:translate needed.
 
 	\~chinese
@@ -348,10 +348,10 @@ namespace Proud
 	*/
 	PROUD_API String GetFullPath(const TCHAR* fileName);
 
-	/**
-	\~korean
-	디렉토리를 생성하고 풀패스를 구한다.
-
+	/** 
+	\~korean 
+	디렉토리를 생성하고 풀패스를 구한다. 	
+	
 	\~english TODO:translate needed.
 
 	\~chinese
@@ -362,10 +362,10 @@ namespace Proud
 	*/
 	PROUD_API bool CreateFullDirectory(const TCHAR* lpPathName, String& outCreatedDirectory);
 
-	/**
-	\~korean
-	현재 디렉토리를 구한다.
-
+	/** 
+	\~korean 
+	현재 디렉토리를 구한다. 
+	
 	\~english TODO:translate needed.
 
 	\~chinese
@@ -376,12 +376,12 @@ namespace Proud
 	*/
 	PROUD_API String GetCurrentDirectory();
 
-	/**
+	/** 
 	\~korean
 	타이머 유저 콜백 함수
 	- 타이머 콜백 또는 등록된 대기 콜백을 위한 시작 주소를 제공하는 어플리케이션 정의 함수 이다.
 	이 주소는 CreateTimerQueueTimer와 RegisterWaitForSingleObject 함수로 지정 한다.
-
+	
 	WaitOrTimerCallbackProc 타입은 콜백 함수로의 포인터를 정의한다. WaitOrTimerCallbackProc은 어플리케이션 정의 함수 이름을 위한 플레이스홀더 이다.
 
 	\param [in] lpParameter 스레드 데이터는 CreateTimerQueueTimer 및 RegisterWaitForSingleObject 함수의 파라미터를 사용하는 함수로 보내진다.
@@ -389,7 +389,7 @@ namespace Proud
 
 	\~english
 	Timer user callback function
-	- An application-defined function that serves as the starting address for a timer callback or a registered wait callback.
+	- An application-defined function that serves as the starting address for a timer callback or a registered wait callback. 
 	Specify this address when calling the CreateTimerQueueTimer, RegisterWaitForSingleObject function.
 
 	The WaitOrTimerCallbackProc type defines a pointer to this callback function. WaitOrTimerCallback is a placeholder for the application-defined function name.
@@ -410,7 +410,7 @@ namespace Proud
 	\~japanese
 	\~
 	*/
-	typedef VOID (NTAPI * WaitOrTimerCallbackProc) (PVOID lpParameter , BOOLEAN TimerOrWaitFired );
+	typedef VOID (NTAPI * WaitOrTimerCallbackProc) (PVOID lpParameter , BOOLEAN TimerOrWaitFired );   
 
 	typedef WINBASEAPI
 		HANDLE
@@ -454,22 +454,22 @@ namespace Proud
 		/*__in  */uint32_t Flags
 		);
 
-	/**
+	/** 
 	\~korean
 	Windows NT 전용 API를 동적으로 얻어오는 클래스
 	- Windows 98에서는 비록 호출은 못하지만 아예 해당 API가 없어서 exe 실행 조차도 못하는 문제는 해결할 필요가
-	있을때 이 클래스가 유용하다.
-	- 평소에는 쓸 필요가 없다. 다만, Windows 98에서도 작동해야 하는 모듈을 만든다면 유용하다.
+	있을때 이 클래스가 유용하다. 
+	- 평소에는 쓸 필요가 없다. 다만, Windows 98에서도 작동해야 하는 모듈을 만든다면 유용하다. 
 
 	\~english
 	Class that gets Windows NT custom API as dynamic
-	- Though it cannot be called by Windows 98 but this can be very useful sovling troubles that even exe cannot be run.
+	- Though it cannot be called by Windows 98 but this can be very useful sovling troubles that even exe cannot be run. 
 	- Does not need to be used normally. But useful when creating a module that is to run on Windows 98.
 
 	\~chinese
 	把Windows NT专用API以动态获取的类。
 	- 虽然在Windows 98不能呼叫，但需要解决因没有对应的API而根本无法实行exe的问题时，此类会有效果。
-	- 平时没有必要使用。但是制造在Windows 98也能运转的模块时会有用。
+	- 平时没有必要使用。但是制造在Windows 98也能运转的模块时会有用。 
 
 	\~japanese
 	\~
@@ -481,7 +481,7 @@ namespace Proud
 		//static CKernel32Api g_instance;
 	public:
 		CKernel32Api();
-
+	
 		PROUD_API static CKernel32Api& Instance();
 
 		// 함수 포인터 멤버 변수들
@@ -518,9 +518,9 @@ namespace Proud
 	/**
 	\~korean
 	현재 프로세스에서 사용되고 있는 총 스레드의 수를 얻어온다.
-
+	
 	\~english TODO:translate needed.
-
+	
 	\~chinese
 	获得现在使用中的总线程数。
 
@@ -528,8 +528,8 @@ namespace Proud
 	\~
 	*/
 	PROUD_API int GetTotalThreadCount();
-
-#endif
+	
+#endif 
 
 	/**  @} */
 
@@ -545,10 +545,10 @@ namespace Proud
 	#else
 		#define NTTNTRACE(...) //VC++에서는 C4390 경고가 나옴. 그래서 위의 것이 사용됨.
 	#endif
-#endif
+#endif 
 
 	// _MAX_PATH는 260밖에 안된다. 요즘 세대에서 이것은 너무 작다. 이것을 쓰자.
-	const int LongMaxPath = 4000;
+	const int LongMaxPath = 4000; 
 
 	// non-win32에 없는 것들을 유사 형태로 타 플랫폼을 위해 구현
 	// 일부러 namespace Proud 안에 두었다. 없는 것을 global namespace에 구현하는 경우 타사가 구현한 것과 충돌할 수 있으니.

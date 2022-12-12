@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -54,9 +54,9 @@ namespace Proud
 	class CP2PGroup;
 	typedef RefCount<CP2PGroup> CP2PGroupPtr;
 
-	/**
+	/** 
 	\~korean
-	P2P 그룹 정보 구조체
+	P2P 그룹 정보 구조체 
 
 	\~english
 	Information construct of P2P group
@@ -70,12 +70,12 @@ namespace Proud
 	class CP2PGroup
 	{
 	public:
-		/**
+		/** 
 		\~korean
-		그룹 ID
+		그룹 ID 
 
 		\~english
-		Group ID
+		Group ID 
 
 		\~chinese
 		组ID
@@ -84,9 +84,9 @@ namespace Proud
 		\~
 		*/
 		HostID m_groupHostID;
-		/**
+		/** 
 		\~korean
-		그룹에 소속된 client peer들의 HostID
+		그룹에 소속된 client peer들의 HostID 
 
 		\~english
 		HostID of client peer that is possessed by group
@@ -109,10 +109,10 @@ namespace Proud
 #pragma pop_macro("new")
 #endif
 	};
-	/**
+	/** 
 	\~korean
 	P2P 그룹 리스트
-	- 보다 자세한 사용법은 베이스 클래스를 참고할 것.
+	- 보다 자세한 사용법은 베이스 클래스를 참고할 것. 
 
 	\~english
 	 P2P group list
@@ -136,12 +136,12 @@ namespace Proud
 		DECLARE_NEW_AND_DELETE
 #pragma pop_macro("new")
 #endif //__MARMALADE__
-#endif //SWIG
+#endif //SWIG 
 	};
 
 	/**
 	\~korean
-	\brief \ref p2p_group  한 개의 사용자 지정 설정입니다.
+	\brief \ref p2p_group  한 개의 사용자 지정 설정입니다. 
 	필요한 경우가 아닌 이상 이 객체를 사용하실 필요는 없습니다.
 
 	\~english TODO:translate needed.
@@ -159,8 +159,8 @@ namespace Proud
 		/**
 		\~korean
 		true이면 그룹 멤버간 Direct P2P 통신을 제공합니다. 기본값은 true입니다.
-		그룹을 맺되 멤버간 P2P 통신을 차단하고자 할 때 이 값을 false로 설정하면 됩니다.
-
+		그룹을 맺되 멤버간 P2P 통신을 차단하고자 할 때 이 값을 false로 설정하면 됩니다. 
+		
 		그룹 내 멤버간 이미 타 그룹 종속에 의해 서로 Direct P2P를 이미 하고 있는 상태인 경우, 이 값을 false로 설정하는 것이 그들의 Direct P2P를 차단하지는 않습니다.
 
 		\~english TODO:translate needed.
@@ -176,7 +176,7 @@ namespace Proud
 	*/
 		bool m_enableDirectP2P;
 
-		CP2PGroupOption();
+		CP2PGroupOption();		
 
 		static PROUD_API CP2PGroupOption Default;
 	};

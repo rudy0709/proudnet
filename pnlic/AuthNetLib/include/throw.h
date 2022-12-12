@@ -1,4 +1,4 @@
-﻿#pragma once
+﻿#pragma once 
 
 /* The _Noreturn keyword of draft C1X.  */
 // iconv 소스에서 발췌.
@@ -30,13 +30,13 @@
 namespace Proud
 {
 	/* C++ exception을 throw 하는 구문을 래핑한 함수들.
-
+	
 	Q: 왜 직접 throw를 안하고 함수로 래핑했나요?
 	A: NDK, PS4, UE4 등 일부 상황에서는 throw keyword를 못 씁니다. 즉 exception handling을 금하는 컴파일러 설정을 씁니다.
 	이러한 상황에서는 이렇게 함수로 래핑된 것을 쓸 수밖에 없습니다.
 	한편, 그러한 곳에서는, 호출되는 함수X가 throw를 하면 안되지만, 호출되는 함수에서 호출하는 내부 함수들Y은 throw를 하더라도,
-	X에서 catch를 해준다면, 문제 없습니다.
-
+	X에서 catch를 해준다면, 문제 없습니다. 
+	
 	Q: exception.h에 있으면 될텐데요?
 	A: exception.h는 pnstring.h를 include하는데, pnstring.h는 아래 함수들을 씁니다.
 	*/

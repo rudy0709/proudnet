@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -41,7 +41,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 #if defined(_MSC_VER)
 #pragma warning(disable:4290) // 이 경고는 VC++에서만 발생하니 막자
-#endif
+#endif 
 
 namespace Proud
 {
@@ -50,7 +50,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/**
+	/** 
 	\~korean
 	ByteArray 에 smart pointer 기능이 추가된 형태. 네트워크 패킷 형태로 쓰이므로 32-64 변환에도 민감. 따라서 intPtr이 아닌 int32 타입이다.
 	ByteArray 가 typedef가 아닌 상속 클래스이기 때문에 필요한 메서드를 이 객체도 오버라이드해야
@@ -91,12 +91,12 @@ namespace Proud
 		static void FreeTombstone(Tombstone* tombstone);
 	public:
 
-		/**
+		/** 
 		\~korean
 		기본 생성자
 
 		\~english
-		Default constructor
+		Default constructor 
 
 		\~chinese
 		基本生成者。
@@ -109,7 +109,7 @@ namespace Proud
 			m_tombstone = NULL;
 		}
 
-		/**
+		/** 
 		\~korean
 		복사 생성자
 		- src의 성향도 복사해온다.
@@ -126,7 +126,7 @@ namespace Proud
 		\~
 		 */
 		inline ByteArrayPtr(const ByteArrayPtr& src)
-		{
+		{			
 			if(src.m_tombstone)
 			{
 				AtomicIncrement32(&src.m_tombstone->m_refCount);
@@ -176,7 +176,7 @@ namespace Proud
 			{
 				ThrowArrayIsNullError();
 			}
-
+			
 			return -1;
 		}
 
@@ -189,7 +189,7 @@ namespace Proud
 
 				return m_externalBuffer.GetCount();
 		}
-
+		
 #if defined(_MSC_VER)
 		__declspec(property(get = GetCount)) int Count;
 #endif
@@ -208,9 +208,9 @@ namespace Proud
 				ThrowException(ArrayPtrIsNotNullError);
 		}
 
-		/**
+		/** 
 		\~korean
-		\param length 변경할 Capacity 사이즈
+		\param length 변경할 Capacity 사이즈 
 
 		\~english TODO:translate needed.
 		\param length
@@ -237,11 +237,11 @@ namespace Proud
 			}
 		}
 
-		/**
+		/** 
 		\~korean
-		배열의 사이즈를 setting 한다.
-		\param length 변경할 배열의 사이즈
-
+		배열의 사이즈를 setting 한다. 
+		\param length 변경할 배열의 사이즈 
+		
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -280,8 +280,8 @@ namespace Proud
 		/**
 		\~korean
 		1 BYTE 단위의 Data를 추가합니다.
-		\param data 추가할 BYTE
-
+		\param data 추가할 BYTE 
+		
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -296,12 +296,12 @@ namespace Proud
 			AddRange(&data, 1);
 		}
 
-		/**
+		/** 
 		\~korean
 		현재의 배열에 BYTE배열 data를 추가 합니다.
 		\param data 추가할 BYTE배열 포인터
 		\param count 배열의 크기
-
+		
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -332,12 +332,12 @@ namespace Proud
 			}
 		}
 
-		/*
-		\~korean
-		현재의 배열에 BYTE배열 data를 추가 합니다.
+		/* 
+		\~korean 
+		현재의 배열에 BYTE배열 data를 추가 합니다. 
 		\param indexAt 배열내에서 indexAt번째뒤에 삽입합니다. 원래의 indexAt뒤의 데이터는 삽입된 데이터 뒤로 밀립니다.
-		\param data 추가할 BYTE배열 포인터
-		\param count 배열의 크기
+		\param data 추가할 BYTE배열 포인터 
+		\param count 배열의 크기 
 
 		\~english TODO:translate needed.
 
@@ -404,7 +404,7 @@ namespace Proud
 		\~korean
 		배열내의 하나의 데이터를 제거합니다.
 		\param index 제거할 배열의 index값
-
+		
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -419,10 +419,10 @@ namespace Proud
 			RemoveRange(index, 1);
 		}
 
-		/**
-		\~korean
+		/** 
+		\~korean 
 		배열을 비웁니다. capacity는 변화하지 않습니다.
-
+		
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -438,7 +438,7 @@ namespace Proud
 		}
 
 		/**
-		\~korean
+		\~korean 
 		\return Data배열의 포인터를 리턴합니다.
 
 		\~english TODO:translate needed.
@@ -483,7 +483,7 @@ namespace Proud
 			return m_tombstone->m_objByteArray.GetData();
 		}
 
-		/**
+		/** 
 		\~korean
 		\return 배열의 복사본을 리턴합니다.
 
@@ -501,14 +501,14 @@ namespace Proud
 				ThrowException(MustNotExternalBufferError);
 
 			ByteArrayPtr ret;
-
+			
 			if(m_tombstone)
-			{
+			{				
 				ret.UseInternalBuffer();
 				ret.SetCount(GetCount());
 			}
 			CopyRangeTo(ret, 0, GetCount());
-
+			
 			return ret;
 		}
 
@@ -531,7 +531,7 @@ namespace Proud
 		\~
 		*/
 		template<typename BYTEARRAYT>
-		inline void CopyRangeToT(BYTEARRAYT &dest, int srcOffset, int count) const
+		inline void CopyRangeToT(BYTEARRAYT &dest, int srcOffset, int count) const 
 		{
 			if (count <= 0)
 				return;
@@ -563,7 +563,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		void CopyRangeTo(ByteArrayPtr &dest, int srcOffset, int count) const
+		void CopyRangeTo(ByteArrayPtr &dest, int srcOffset, int count) const 
 		{
 			CopyRangeToT<ByteArrayPtr>(dest,srcOffset,count);
 		}
@@ -586,7 +586,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		void CopyRangeTo(ByteArray& dest, int srcOffset, int count) const
+		void CopyRangeTo(ByteArray& dest, int srcOffset, int count) const 
 		{
 			CopyRangeToT<ByteArray>(dest,srcOffset,count);
 		}
@@ -624,7 +624,7 @@ namespace Proud
 		}
 
 
-		/**
+		/** 
 		\~korean
 		\return 이 객체의 배열 크기가 증가할 때 가중치 타입
 
@@ -636,20 +636,20 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		inline GrowPolicy GetGrowPolicy() const
+		inline GrowPolicy GetGrowPolicy() const 
 		{
 			if (m_tombstone != NULL)
 				m_tombstone->m_objByteArray.GetGrowPolicy();
-
+			
 			return GrowPolicy_Normal;
 		}
 
 		/**
-		\~korean
-		이 객체의 배열 크기가 증가할 때 가중치 타입을 설정한다.
-		자세한 내용은 GrowPolicy 을 참조
-		\param val 증가할 때의 가중치 타입
-
+		\~korean 
+		이 객체의 배열 크기가 증가할 때 가중치 타입을 설정한다. 
+		자세한 내용은 GrowPolicy 을 참조 
+		\param val 증가할 때의 가중치 타입 
+		
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -660,7 +660,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		void SetGrowPolicy(GrowPolicy val)
+		void SetGrowPolicy(GrowPolicy val) 
 		{
 			if (m_tombstone != NULL)
 				m_tombstone->m_objByteArray.SetGrowPolicy(val);
@@ -670,21 +670,21 @@ namespace Proud
 			}
 		}
 
-		/**
-		\~korean
-		최소 버퍼 크기를 설정한다. 버퍼(capacity)크기가 증가할 때 최소한 이 사이즈보다 크게 설정한다.
-		\param val 최소 Capacity size
+		/** 
+		\~korean 
+		최소 버퍼 크기를 설정한다. 버퍼(capacity)크기가 증가할 때 최소한 이 사이즈보다 크게 설정한다. 
+		\param val 최소 Capacity size 
 
 		\~english TODO:translate needed.
 
 		\~chinese
 		设置最小buffer的大小。当Buffer（Capacity）大小增加时至少要设置成比此大小大的值。
-		\param val 最小Capacity size
+		\param val 最小Capacity size 
 
 		\~japanese
 		\~
 		*/
-		void SetMinCapacity(int val)
+		void SetMinCapacity(int val) 
 		{
 			if(m_tombstone)
 				m_tombstone->m_objByteArray.SetMinCapacity(val);
@@ -710,7 +710,7 @@ namespace Proud
 		{
 			if(!m_externalBuffer.IsNull())
 				ThrowException(AlreadyHasExternalBufferError);
-
+			
 			if(!m_tombstone)
 			{
 				m_tombstone = NewTombstone();
@@ -721,10 +721,10 @@ namespace Proud
 		/**
 		\~korean
 		이걸 초기에 호출하면 이 객체는 외부 버퍼를 사용한다.
-
-		\~english
-		If you call this at the beginning, this object use external buffer
-
+		
+		\~english 
+		If you call this at the beginning, this object use external buffer 
+		
 		\~chinese
 		在初期呼出这个，此客体将使用外部Buffer。
 
@@ -745,7 +745,7 @@ namespace Proud
 		\~korean
 		UseInternalBuffer, UseExternalBuffer 를 재사용하려면 이 메서드를 호출할 것.
 
-		\~english
+		\~english 
 		Call this method if you want to reuse UseInternalBuffer,UseExternalBuffer
 
 		\~chinese
@@ -760,9 +760,9 @@ namespace Proud
 			m_externalBuffer.Uninit();
 		}
 
-		/**
-		\~korean
-		\return NULL이면 true, NULL이 아니면 false를 리턴한다.
+		/** 
+		\~korean 
+		\return NULL이면 true, NULL이 아니면 false를 리턴한다. 
 
 		\~english TODO:translate needed.
 
@@ -783,7 +783,7 @@ namespace Proud
 // 			return *m_tombstone;
 // 		}
 
-		/**
+		/** 
 		\~korean
 		내부 버퍼를 사용하고 있는 것이 아니면 예외를 발생시킨다.
 
@@ -803,7 +803,7 @@ namespace Proud
 			}
 		}
 
-		/**
+		/** 
 		\~korean
 		rhs와 내용이 동일한지 체크한다.
 		- 주의: 단순 메모리 비교다. 이 점을 주의할 것.
@@ -836,9 +836,9 @@ namespace Proud
 			return memcmp(p_rhs, p_lhs, rhs.GetCount() * sizeof(uint8_t)) == 0;
 		}
 
-
+		
 	};
-
+	
 	/**  @} */
 
 

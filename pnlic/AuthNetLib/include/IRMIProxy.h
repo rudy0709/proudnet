@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -54,7 +54,7 @@ namespace Proud
 	class CMessage;
 	class MessageSummary;
 
-	/**
+	/** 
 	\~korean
 	PIDL 컴파일러가 생성한 Proxy 클래스의 베이스 클래스
 
@@ -83,7 +83,7 @@ namespace Proud
 		bool m_internalUse; // true이면 ProudNet 전용. 사용자는 건들지 말것
 		int m_signature;
 
-		/**
+		/** 
 		\~korean
 		true로 세팅하면 NotifySendByProxy 을 호출받을 수 있다.
 		- true로 설정하면 실행 성능이 조금 떨어진다. 하지만 이 성능 차이도 아까운 상황이라면 이 값을 false로 설정해주면 된다.
@@ -104,7 +104,7 @@ namespace Proud
 		*/
 		bool m_enableNotifySendByProxy;
 
-		/**
+		/** 
 		\~korean
 		사용자는 이 함수를 오버라이드하지 마십시오.
 
@@ -118,7 +118,7 @@ namespace Proud
 		\~
 		*/
 		virtual RmiID* GetRmiIDList() = 0;
-		/**
+		/** 
 		\~korean
 		사용자는 이 함수를 오버라이드하지 마십시오.
 
@@ -132,15 +132,15 @@ namespace Proud
 		\~
 		*/
 		virtual int GetRmiIDListCount() = 0;
-
-		/**
+	
+		/** 
 		\~korean
 		메시지 송신을 위해 RMI를 호출할 때(즉 proxy에서 호출하기)마다 이 함수가 callback됩니다.
 		프로필러나 RMI 사용 로그를 남기고자 할 때 이 함수를 사용하시면 됩니다. 자세한 내용은 \ref monitor_rmi_proxy  를 참고하십시오.
-		- 수신자가 여럿인 경우 여러번 호출됩니다.
+		- 수신자가 여럿인 경우 여러번 호출됩니다. 
 		- 기본 함수는 아무것도 하지 않습니다.
-
-		또한 송신 직전에 RmiContext 를 최종 수정할 수 있는 기회를 제공합니다.
+		
+		또한 송신 직전에 RmiContext 를 최종 수정할 수 있는 기회를 제공합니다. 
 		(기회를 주는 이유: 송신시 잘못된 값이 있으면 경고와 함께 최종 수정을 위함입니다.
 		오픈베타시점에서는 문제 분석과 해결을 동시에 해야 하니까요. )
 		\param sendTo 수신자
@@ -151,8 +151,8 @@ namespace Proud
 		This function is called back every time RMI is called for message send(e.g. calling from proxy).
 		This function is used when there is a need to leave porfiler or RMI use log. Please refer to \ref monitor_rmi_proxy.
 		- Multiple reciever cause multiple calling.
-		- Base function does not do anything.
-
+		- Base function does not do anything. 
+		
 		Plus, this provides a cance to finally modify RmiContext before sending.
 		(Why the last chance is given: for the case there is an incorrect value and to notify, warn and modify finally. During OBT, we need to do prob analysis and solving at the same time.)
 		\param sendTo reciever
@@ -175,15 +175,15 @@ namespace Proud
 		\~
 		*/
 		PROUD_API virtual void NotifySendByProxy(const HostID* remotes, int remoteCount, const MessageSummary &summary, RmiContext &rmiContext, const CMessage &msg);
-
-		/**
+		
+		/** 	
 		\~korean
-		내부 함수입니다. 사용자는 이 함수를 오버라이드하지 마십시오.
+		내부 함수입니다. 사용자는 이 함수를 오버라이드하지 마십시오. 
 		ProudClr 에서 오버라이드하기위해 public 으로 해야함
 
 		\~english
 		User must not override this function.
-		Must be public in order to override at ProudClr
+		Must be public in order to override at ProudClr 
 
 		\~chinese
 		内部函数。用户不要覆盖此函数。

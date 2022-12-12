@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -53,10 +53,10 @@ namespace Proud
 	class Deque: public std::deque<T>
 	{
         typedef typename std::deque<T> DeqType;
-
+        
 	public:
 		/**
-		\~korean
+		\~korean 
 		\return Data의 수를 리턴합니다.
 
 		\~english TODO:translate needed.
@@ -78,7 +78,7 @@ namespace Proud
         inline bool IsEmpty() const { return DeqType::empty(); }
 
 		/**
-		\~korean
+		\~korean 
 		큐에 Data를 추가합니다.
 		\param data 추가할 Data입니다.
 
@@ -97,7 +97,7 @@ namespace Proud
 		}
 
 		/**
-		\~korean
+		\~korean 
 		가장 앞에 있는 Data를 복사받습니다.
 		\param [out] ret 복사받을 reference입니다.
 
@@ -116,7 +116,7 @@ namespace Proud
 		}
 
 		/**
-		\~korean
+		\~korean 
 		\return 가장 앞의 데이터
 
 		\~english TODO:translate needed.
@@ -133,7 +133,7 @@ namespace Proud
 		}
 
 		/**
-		\~korean
+		\~korean 
 		가장 앞의 데이터를 큐에서 제거하고 리턴받습니다.
 		\return 가장 앞에 있었던 데이터
 

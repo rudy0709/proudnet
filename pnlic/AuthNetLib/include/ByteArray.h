@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -70,7 +70,7 @@ namespace Proud
 		typedef CFastArray<uint8_t, false, true, int> Base;
 // 		PROUD_API static void* LookasideAllocator_Alloc(size_t length);
 // 		PROUD_API static void LookasideAllocator_Free(void* ptr);
-
+        
 	public:
 //#ifndef __MARMALADE__
 //#pragma push_macro("new")
@@ -87,7 +87,7 @@ namespace Proud
 //#pragma pop_macro("new")
 //#endif // __MARMALADE__
 
-		/**
+		/** 
 		\~korean
 		기본 생성자
 
@@ -104,21 +104,21 @@ namespace Proud
 		{
 		}
 
-		/**
+		/** 
 		\~korean
 		외부 데이터를 복사해오는 생성자
 		\param data 복사해올 BYTE배열의 포인터
 		\param count count 만큼을 복사한다.
 
 		\~english TODO:translate needed.
-		Constructor copies external data
+		Constructor copies external data 
 		\param data
 		\param count
 
 		\~chinese
 		复制外部数据的生成者。
 		\param date 要复制的BYTE排列的指针。
-		\param count 复制相当于count的量。
+		\param count 复制相当于count的量。 
 
 		\~japanese
 		\~
@@ -127,7 +127,7 @@ namespace Proud
 		{
 		}
 
-		/**
+		/** 
 		\~korean
 		외부 데이터를 복사해오는 생성자
 		\param src 복사할 ByteArray 원본
@@ -161,7 +161,7 @@ namespace Proud
 // 		{
 // 		}
 
-		/**
+		/** 
 		\~korean
 		배열을 16진수의 String으로 변환하여 return해준다.
 		\return String으로 변환된 16진수 배열 (예 L"FFAB123")
@@ -196,7 +196,7 @@ namespace Proud
 		*/
 		bool FromHexString(String text);
 	};
-
+	
 	/**  @} */
 }
 

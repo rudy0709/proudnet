@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once
+#pragma once 
 
 #if defined(_WIN32)
 #include "Ptr.h"
@@ -301,7 +301,7 @@ namespace Proud
 			public:
 				/**
 				\~korean
-				DBCacheClient의 메소드들 중 message를 인자로 받는 요청들은
+				DBCacheClient의 메소드들 중 message를 인자로 받는 요청들은 
 				해당 요청으로 인해 영향을 받는 다른 Loader 혹은 요청자에게 message를 전달 할 수 있습니다.
 				그 message를 전달받는 파라메터가 바로 이것입니다.
 
@@ -397,7 +397,7 @@ namespace Proud
 				\~
 				*/
 				CPropNodePtr m_data;
-
+				
 				/**
 				\~korean
 				- 실패 시 실패한 사유.
@@ -464,7 +464,7 @@ namespace Proud
 				CItem();
 			};
 			typedef CFastArray<CItem> Items;
-
+			
 			/**
 			\~korean
 			요청에 관련된 데이터 트리들을 담은 목록입니다.

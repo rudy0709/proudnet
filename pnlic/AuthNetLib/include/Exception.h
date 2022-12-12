@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -54,8 +54,8 @@ namespace Proud
 	*  @{
 	*/
 	class ErrorInfo;
-
-	/**
+	
+	/** 
 	\~korean
 	Exception Type 객체
 	- type으로 구분하여 해당 exception 객체의 포인터 및 정보를 얻을수 있습니다.
@@ -73,7 +73,7 @@ namespace Proud
 	*/
 	enum ExceptionType
 	{
-		/**
+		/** 
 		\~korean
 		없음
 
@@ -88,7 +88,7 @@ namespace Proud
 		*/
 		ExceptionType_None = 0,
 
-		/**
+		/** 
 		\~korean
 		 Exception(LPCWSTR pFormat, ...); 으로 생성된 Exception
 
@@ -103,7 +103,7 @@ namespace Proud
 		*/
 		ExceptionType_String,
 
-		/**
+		/** 
 		\~korean
 		Exception(std::exception& src); 으로 생성된 Exception
 
@@ -118,7 +118,7 @@ namespace Proud
 		*/
 		ExceptionType_Std,
 
-		/**
+		/** 
 		\~korean
 		Exception(_com_error& src); 으로 생성된 Exception
 
@@ -133,7 +133,7 @@ namespace Proud
 		*/
 		ExceptionType_ComError,
 
-		/**
+		/** 
 		\~korean
 		Exception(void* src); 으로 생성된 Exception
 
@@ -163,7 +163,7 @@ namespace Proud
 		*/
 		ExceptionType_ErrorInfo,
 
-		/**
+		/** 
 		\~korean
 		Exception() 으로 생성된 UnhandleException
 
@@ -196,7 +196,7 @@ namespace Proud
 		ExceptionType_Clr
 	};
 
-	/**
+	/** 
 	\~korean
 	printf()처럼 에러 메시지를 받아 보낼 수 있는 exception 객체.
 	통상 다음과 같이 쓴다.
@@ -224,9 +224,9 @@ namespace Proud
 	class Exception : public std::exception // std::exception은 defacto C++ 표준임. 지우지 말 것!
 	{
 	public:
-		/**
+		/** 
 		\~korean
-		Exception 을 유발시킨 remote 의 hostID
+		Exception 을 유발시킨 remote 의 hostID 
 
 		\~english
 		hostID of remote that occured Exception
@@ -237,9 +237,9 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		HostID m_remote;
+		HostID m_remote;  
 
-		/**
+		/** 
 		\~korean
 		void*형 Exception 객체의 포인터를 저장한다.
 
@@ -254,12 +254,12 @@ namespace Proud
 		*/
 		void* m_pVoidSource;
 
-		/**
+		/** 
 		\~korean
-		std::exception 객체의 포인터를 저장한다.
+		std::exception 객체의 포인터를 저장한다. 
 
 		\~english
-		Save pointer of std::exception object
+		Save pointer of std::exception object 
 
 		\~chinese
 		储存 std::exception%对象的指针。
@@ -269,7 +269,7 @@ namespace Proud
 		*/
 		std::exception *m_pStdSource;
 
-		/**
+		/** 
 		\~korean
 		Exception Type 객체
 
@@ -354,7 +354,7 @@ namespace Proud
 		PROUD_API Exception(void* src);
 		PROUD_API ~Exception(void) throw();
 
-		/**
+		/** 
 		\~korean
 		Exception 에 대한 문자열 포인터를 리턴합니다.
 

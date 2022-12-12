@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -50,7 +50,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/**
+	/** 
 	\~korean
 	Tracer.h 파일을 Include해야 합니다.
 	파일에 로그를 기록하는 모듈입니다. ( \ref logwriter_file  참고)
@@ -85,8 +85,8 @@ namespace Proud
 			eLogTypeDefault,
 			eLogTypeUserDefine
 		};
-
-		/**
+	
+		/** 
 		\~korean
 		\brief 새 CLogWriter 객체를 생성합니다.
 		\param logFileName 로그 파일 이름
@@ -111,19 +111,19 @@ namespace Proud
 	public:
 		virtual ~CLogWriter();
 
-		/**
+		/** 
 		\~korean
-		로그 파일을 다른 이름으로 바꿉니다. 기록 중이던 파일은 닫히고 다른 이름으로 바뀐 파일로 새로 열립니다.
+		로그 파일을 다른 이름으로 바꿉니다. 기록 중이던 파일은 닫히고 다른 이름으로 바뀐 파일로 새로 열립니다. 
 		- 이 함수는 비동기로 실행됩니다.  즉, 즉시 리턴됩니다.
-		- 만약 로그 파일을 다른 이름으로 바꾸는 것이 실패하면 이 함수는 오류를 리턴하지 않습니다. 그 대신 로그를 기록하는 함수를
-		사용할 때 Proud.Exception 예외가 발생할 것입니다.
-		\param logFileName 새 로그 파일 이름
+		- 만약 로그 파일을 다른 이름으로 바꾸는 것이 실패하면 이 함수는 오류를 리턴하지 않습니다. 그 대신 로그를 기록하는 함수를 
+		사용할 때 Proud.Exception 예외가 발생할 것입니다. 
+		\param logFileName 새 로그 파일 이름 
 
 		\~english
 		Replaces log file name to other name. The file that was being recorded is closed and opened with a new file name.
 		- This function is asynchronous so returned immediately.
 		- If renaming fails then error will not be returned. Instead, when using the function that records the log will cause 'Proud.Exception' exception.
-		\param logFileName new log file name
+		\param logFileName new log file name 
 
 		\~chinese
 		把log文件修改为其他名字。记录中的文件将会关闭，之后打开修改为其他名字的文件。
@@ -136,11 +136,11 @@ namespace Proud
 		*/
 		virtual void SetFileName(const String& logFileName) = 0;
 
-		/**
+		/** 
 		\~korean
 		로그 한줄을 ProudNet 양식에 맞춰 파일에 기록합니다.
 		- 이 함수는 비동기로 실행됩니다. 즉, 즉시 리턴됩니다.
-		 -이 함수는 아래 예제처럼 최종 출력 됩니다.
+		 -이 함수는 아래 예제처럼 최종 출력 됩니다. 
 		  logWriteLineTime: logLevel / logCategory(logHostID): logMessage {logFunction(logLine)}
 		\param logLevel 로그 내용의 심각도
 		\param logCategory 어떤 종류의 로그인지?
@@ -161,7 +161,7 @@ namespace Proud
 		로그 한줄을 파일에 기록합니다.
 		- 이 함수는 비동기로 실행됩니다. 즉, 즉시 리턴됩니다.
 		- 단, void WriteLine(TraceID TID, LPCWSTR text) 와 달리 아무런 헤더를 포함하지 않습니다.
-		\param logMessage 로그를 찍을 문자열.
+		\param logMessage 로그를 찍을 문자열. 
 		- String 형태 또는 WriteLine(String::NewFormat(L"Test Log %d", 10)) 형태로 사용 가능합니다.
 
 		\~english
@@ -191,8 +191,8 @@ namespace Proud
 		- false로 설정된 경우 출력하지 못한 로그들을 모두 출력 할 때 까지 종료가 지연됩니다.
 
 		\param flag 이 옵션을 사용할지 여부입니다.
-
-		\~english
+		
+		\~english 
 		TODO:translate needed.
 
 		\~chinese

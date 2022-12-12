@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -37,9 +37,9 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #include <atlcomtime.h>
 #include <atlstr.h>
 
-/** 이 모듈은 MFC나 D3DX에 의존적인 심볼들을 포함한다.
+/** 이 모듈은 MFC나 D3DX에 의존적인 심볼들을 포함한다. 
 - __forceinline으로 선언된 이유는 compile time에서 코드를 생성하되 MFC 사용 여부에 따라 실 인스턴스 타입이
-달라지는 클래스(CString 등)이 ProudNet과 충돌하지 않게 하기 위함이다.
+달라지는 클래스(CString 등)이 ProudNet과 충돌하지 않게 하기 위함이다. 
 물론, ProudNet에는 아래 심볼들이 컴파일되어 들어가있지 않다. */
 namespace Proud
 {
@@ -163,14 +163,14 @@ namespace Proud
 	// 		a<<b.x<<b.y;
 	// 		return a;
 	// 	}
-	//
-	//
+	// 
+	// 
 	// 	__forceinline CMessage& operator>>(CMessage& a,CPoint &b)
 	// 	{
 	// 		a>>b.x>>b.y;
 	// 		return a;
 	// 	}
-	//
+	// 
 	// 	__forceinline void AppendTextOut(String &a,CPoint &b)
 	// 	{
 	// 		String txt;
@@ -335,7 +335,7 @@ namespace Proud
 				packet.Write((uint64_t)rhs.decVal.Lo64);
 			}
 				break;
-			case VT_CLSID:
+			case VT_CLSID:			
 			{
 				String val = StringW2T(rhs.bstrVal);
 				packet.WriteString(val);
@@ -361,7 +361,7 @@ namespace Proud
 		{
 			rhs.ChangeType(vt);
 		}
-
+		
 		switch (vt)
 		{
 			case VT_I1:

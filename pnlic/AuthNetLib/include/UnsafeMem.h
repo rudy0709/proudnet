@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,11 +34,11 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once
+#pragma once 
 
 //#pragma pack(push,8)
 
-namespace Proud
+namespace Proud 
 {
 #if (_MSC_VER>=1400)
 #pragma managed(push, off)
@@ -46,27 +46,27 @@ namespace Proud
 
 	// 작은 크기의 데이터에 대한 memcpy. memcpy 자체는 내부적으로 SIMD 최적화를 하지만 CPU 상황이라던지 여러가지를 알아보는 코스트가 크다.
 	// 오히려 작은 크기는 이게 더 빠름.
-	inline void SmallMemcpy(uint8_t*dst, const uint8_t*src, size_t size)
-	{
+	inline void SmallMemcpy(uint8_t*dst, const uint8_t*src, size_t size)  
+	{ 
 		static const size_t sizetSize = sizeof(size_t);
 
-		size_t i;
+		size_t i; 
 		//BYTE *a = (BYTE *)src; 2009.12.15 : 참조되는곳이 없어서 주석처리함
-		size_t pad = size%sizetSize;
+		size_t pad = size%sizetSize; 
 		size_t blsize = size/sizetSize;
-		for(i = 0; i < blsize; i++)
-		{
-			*(size_t*)dst = *(size_t*)src;
-			dst +=sizetSize;
-			src +=sizetSize;
-		}
-		for (i = 0; i < pad; i++)
-		{
-			*(uint8_t *)dst = *(uint8_t *)src;
-			dst++;
-			src++;
-		}
-	}
+		for(i = 0; i < blsize; i++) 
+		{ 
+			*(size_t*)dst = *(size_t*)src; 
+			dst +=sizetSize; 
+			src +=sizetSize; 
+		} 
+		for (i = 0; i < pad; i++) 
+		{ 
+			*(uint8_t *)dst = *(uint8_t *)src; 
+			dst++; 
+			src++; 
+		} 
+	} 
 
 	inline void UnsafeFastMemmove(void *dest,const void* src,size_t length)
 	{
@@ -86,7 +86,7 @@ namespace Proud
 		if ( length == 0 )
 			return;
 
-#if defined(__MARMALADE__) || defined(__ANDROID__) || defined(__arm__) // RVCT를 쓰는 경우 __packed keyword를 쓰면 되지만 gcc를 쓰므로
+#if defined(__MARMALADE__) || defined(__ANDROID__) || defined(__arm__) // RVCT를 쓰는 경우 __packed keyword를 쓰면 되지만 gcc를 쓰므로 
 		memcpy(dest,src,length);
 		// memmove_s나 memcpy_s는 memmove, memcpy보다 훨씬 느리다. 여러가지 바운드 체크와 내부적인 zeromem 처리가 있기 때문이다.
 		// 따라서 이걸 그냥 쓴다.

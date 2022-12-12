@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once
+#pragma once 
 
 #include "PNString.h"
 #if !defined(_WIN32)
@@ -49,7 +49,7 @@ struct tagDBTIMESTAMP;
 typedef tagDBTIMESTAMP DBTIMESTAMP;
 #endif // _WIN32
 
-namespace Proud
+namespace Proud 
 {
 #if defined(_WIN32)
 
@@ -57,9 +57,9 @@ namespace Proud
 	*  @{
 	*/
 
-	/**
+	/** 
 	\~korean
-	두 날짜시간의 시간차
+	두 날짜시간의 시간차   
 
 	\~english
 	Time difference between two different dates
@@ -74,9 +74,9 @@ namespace Proud
 	{
 		// Constructors
 	public:
-		/**
+		/** 
 		\~korean
-		생성자
+		생성자  
 
 		\~english
 		Constructor
@@ -89,9 +89,9 @@ namespace Proud
 		*/
 		CPnTimeSpan() throw();
 
-		/**
+		/** 
 		\~korean
-		생성자
+		생성자  
 
 		\~english
 		Constructor
@@ -103,9 +103,9 @@ namespace Proud
 		\~
 		*/
 		CPnTimeSpan(double dblSpanSrc) throw();
-		/**
+		/** 
 		\~korean
-		생성자
+		생성자  
 
 		\~english
 		Constructor
@@ -132,12 +132,12 @@ namespace Proud
 		void SetStatus(DateTimeSpanStatus status) throw();
 		DateTimeSpanStatus GetStatus() const throw();
 
-		/**
+		/** 
 		\~korean
-		일,시,분,초,밀리초로 총계 환산한다.
+		일,시,분,초,밀리초로 총계 환산한다.  
 
 		\~english
-		Converts into day,hour,minute,second,millisecond format.
+		Converts into day,hour,minute,second,millisecond format. 
 
 		\~chinese
 		用日、时、分、秒、毫秒 总计换算。
@@ -147,12 +147,12 @@ namespace Proud
 		*/
 		double GetTotalDays() const throw();    // span in days (about -3.65e6 to 3.65e6)
 
-		/**
+		/** 
 		\~korean
-		일,시,분,초,밀리초로 총계 환산한다.
+		일,시,분,초,밀리초로 총계 환산한다.  
 
 		\~english
-		Converts into day,hour,minute,second,millisecond format.
+		Converts into day,hour,minute,second,millisecond format. 
 
 		\~chinese
 		用日、时、分、秒、毫秒 总计换算。
@@ -161,9 +161,9 @@ namespace Proud
 		\~		*/
 		double GetTotalHours() const throw();   // span in hours (about -8.77e7 to 8.77e6)
 
-		/**
+		/** 
 		\~korean
-		일,시,분,초,밀리초로 총계 환산한다.
+		일,시,분,초,밀리초로 총계 환산한다.  
 
 		\~english
 		Converts into day,hour,minute,second,millisecond format.
@@ -176,12 +176,12 @@ namespace Proud
 		*/
 		double GetTotalMinutes() const throw(); // span in minutes (about -5.26e9 to 5.26e9)
 
-		/**
+		/** 
 		\~korean
-		일,시,분,초,밀리초로 총계 환산한다.
+		일,시,분,초,밀리초로 총계 환산한다.  
 
 		\~english
-		Converts into day,hour,minute,second,millisecond format.
+		Converts into day,hour,minute,second,millisecond format. 
 
 		\~chinese
 		用日、时、分、秒、毫秒 总计换算。
@@ -191,12 +191,12 @@ namespace Proud
 		*/
 		double GetTotalSeconds() const throw(); // span in seconds (about -3.16e11 to 3.16e11)
 
-		/**
+		/** 
 		\~korean
-		일,시,분,초,밀리초로 총계 환산한다.
+		일,시,분,초,밀리초로 총계 환산한다.  
 
 		\~english
-		Converts into day,hour,minute,second,millisecond format.
+		Converts into day,hour,minute,second,millisecond format. 
 
 		\~chinese
 		用日、时、分、秒、毫秒 总计换算。
@@ -206,9 +206,9 @@ namespace Proud
 		*/
 		double GetTotalMilliseconds() const throw();	// span in milliseconds
 
-		/**
+		/** 
 		\~korean
-		일,시,분,초를 얻는다.
+		일,시,분,초를 얻는다.  
 
 		\~english
 		Gets day,hour,minute,second.
@@ -221,9 +221,9 @@ namespace Proud
 		*/
 		int32_t GetDays() const throw();       // component days in span
 
-		/**
+		/** 
 		\~korean
-		일,시,분,초를 얻는다.
+		일,시,분,초를 얻는다.  
 
 		\~english
 		Gets day,hour,minute,second.
@@ -236,9 +236,9 @@ namespace Proud
 		*/
 		int32_t GetHours() const throw();      // component hours in span (-23 to 23)
 
-		/**
+		/** 
 		\~korean
-		일,시,분,초를 얻는다.
+		일,시,분,초를 얻는다.  
 
 		\~english
 		Gets day,hour,minute,second.
@@ -251,9 +251,9 @@ namespace Proud
 		*/
 		int32_t GetMinutes() const throw();    // component minutes in span (-59 to 59)
 
-		/**
+		/** 
 		\~korean
-		일,시,분,초를 얻는다.
+		일,시,분,초를 얻는다.  
 
 		\~english
 		Gets day,hour,minute,second.
@@ -268,9 +268,9 @@ namespace Proud
 
 		int GetMilliseconds() const throw();
 
-		/**
+		/** 
 		\~korean
-		복사 대입 연산자
+		복사 대입 연산자  
 
 		\~english
 		Copy assignment operator
@@ -283,9 +283,9 @@ namespace Proud
 		*/
 		CPnTimeSpan& operator=(double dblSpanSrc) throw();
 
-		/**
+		/** 
 		\~korean
-		비교 연산자
+		비교 연산자  
 
 		\~english
 		Comparison operator
@@ -297,9 +297,9 @@ namespace Proud
 		\~
 		*/
 		bool operator==(const CPnTimeSpan& dateSpan) const throw();
-		/**
+		/** 
 		\~korean
-		비교 연산자
+		비교 연산자  
 
 		\~english
 		Comparison operator
@@ -311,9 +311,9 @@ namespace Proud
 		\~
 		*/
 		bool operator!=(const CPnTimeSpan& dateSpan) const throw();
-		/**
+		/** 
 		\~korean
-		비교 연산자
+		비교 연산자  
 
 		\~english
 		Comparison operator
@@ -326,9 +326,9 @@ namespace Proud
 		*/
 		bool operator<(const CPnTimeSpan& dateSpan) const throw();
 
-		/**
+		/** 
 		\~korean
-		비교 연산자
+		비교 연산자  
 
 		\~english
 		Comparison operator
@@ -341,9 +341,9 @@ namespace Proud
 		*/
 		bool operator>(const CPnTimeSpan& dateSpan) const throw();
 
-		/**
+		/** 
 		\~korean
-		비교 연산자
+		비교 연산자  
 
 		\~english
 		Comparison operator
@@ -356,9 +356,9 @@ namespace Proud
 		*/
 		bool operator<=(const CPnTimeSpan& dateSpan) const throw();
 
-		/**
+		/** 
 		\~korean
-		비교 연산자
+		비교 연산자  
 
 		\~english
 		Comparison operator
@@ -371,9 +371,9 @@ namespace Proud
 		*/
 		bool operator>=(const CPnTimeSpan& dateSpan) const throw();
 
-		/**
+		/** 
 		\~korean
-		날짜 사칙연산자
+		날짜 사칙연산자  
 
 		\~english
 		Four-fundamental operator for date
@@ -386,9 +386,9 @@ namespace Proud
 		*/
 		CPnTimeSpan operator+(const CPnTimeSpan& dateSpan) const throw();
 
-		/**
+		/** 
 		\~korean
-		날짜 사칙연산자
+		날짜 사칙연산자  
 
 		\~english
 		Four-fundamental operator for date
@@ -401,9 +401,9 @@ namespace Proud
 		*/
 		CPnTimeSpan operator-(const CPnTimeSpan& dateSpan) const throw();
 
-		/**
+		/** 
 		\~korean
-		날짜 사칙연산자
+		날짜 사칙연산자  
 
 		\~english
 		Four-fundamental operator for date
@@ -416,9 +416,9 @@ namespace Proud
 		*/
 		CPnTimeSpan& operator+=(const CPnTimeSpan dateSpan) throw();
 
-		/**
+		/** 
 		\~korean
-		날짜 사칙연산자
+		날짜 사칙연산자  
 
 		\~english
 		Four-fundamental operator for date
@@ -431,9 +431,9 @@ namespace Proud
 		*/
 		CPnTimeSpan& operator-=(const CPnTimeSpan dateSpan) throw();
 
-		/**
+		/** 
 		\~korean
-		날짜 사칙연산자
+		날짜 사칙연산자  
 
 		\~english
 		Four-fundamental operator for date
@@ -448,9 +448,9 @@ namespace Proud
 
 //		operator double() const throw();
 
-		/**
+		/** 
 		\~korean
-		날짜시간 설정
+		날짜시간 설정  
 
 		\~english
 		Setting date and time
@@ -463,9 +463,9 @@ namespace Proud
 		*/
 		void SetDateTimeSpan(int32_t lDays, int nHours, int nMins, int nSecs, int nMillisecs) throw();
 
-		/**
+		/** 
 		\~korean
-		날짜시간을 문자열로 만든다.
+		날짜시간을 문자열로 만든다.  
 
 		\~english
 		Converts date and time into text string
@@ -478,9 +478,9 @@ namespace Proud
 		*/
 		String Format(const TCHAR *pFormat) const;
 
-		/**
+		/** 
 		\~korean
-		날짜시간을 문자열로 만든다.
+		날짜시간을 문자열로 만든다.  
 
 		\~english
 		Converts date and time into text string
@@ -500,12 +500,12 @@ namespace Proud
 		static const double OLE_DATETIME_HALFSECOND;
 	};
 
-	/**
+	/** 
 	\~korean
 	날짜시간 데이터 타입
 
 	\~english
-	Date and time data type
+	Date and time data type  
 
 	\~chinese
 	日期时间数据类型。
@@ -519,9 +519,9 @@ namespace Proud
 	public:
 		static CPnTime GetCurrentTime() throw();
 
-		/**
+		/** 
 		\~korean
-		생성자
+		생성자  
 
 		\~english
 		Constructor
@@ -534,9 +534,9 @@ namespace Proud
 		*/
 		CPnTime() throw();
 
-		/**
+		/** 
 		\~korean
-		생성자
+		생성자  
 
 		\~english
 		Constructor
@@ -580,9 +580,9 @@ namespace Proud
 		*/
 		//CPnTime(__time64_t timeSrc) throw();
 
-		/**
+		/** 
 		\~korean
-		생성자
+		생성자 
 
 		\~english
 		Constructor
@@ -595,9 +595,9 @@ namespace Proud
 		*/
 		CPnTime(const SYSTEMTIME& systimeSrc) throw();
 
-		/**
+		/** 
 		\~korea
-		생성자
+		생성자  
 
 		\~english
 		Constructor
@@ -610,9 +610,9 @@ namespace Proud
 		*/
 		CPnTime(const FILETIME& filetimeSrc) throw();
 
-		/**
+		/** 
 		\~korean
-		생성자
+		생성자  
 
 		\~english
 		Constructor
@@ -626,9 +626,9 @@ namespace Proud
 		CPnTime(int nYear, int nMonth, int nDay,
 			int nHour, int nMin, int nSec, int nMillisec) throw();
 
-		/**
+		/** 
 		\~korean
-		생성자
+		생성자  
 
 		\~english
 		Constructor
@@ -641,9 +641,9 @@ namespace Proud
 		*/
 		CPnTime(uint16_t wDosDate, uint16_t wDosTime) throw();
 
-		/**
+		/** 
 		\~korean
-		DATE 타입으로부터 이 객체를 생성
+		DATE 타입으로부터 이 객체를 생성   
 
 		\~english
 		Creates this object from date type
@@ -661,9 +661,9 @@ namespace Proud
 		bool GetAsDBTIMESTAMP( DBTIMESTAMP& dbts ) const throw();
 #endif // _WIN32
 
-		/**
+		/** 
 		\~korean
-		날짜시간의 유효 상태
+		날짜시간의 유효 상태 
 
 		\~english
 		Valid state of date and time
@@ -676,9 +676,9 @@ namespace Proud
 		*/
 		enum DateTimeStatus
 		{
-			/**
+			/** 
 			\~korean
-			에러
+			에러 
 
 			\~english
 			Error
@@ -691,9 +691,9 @@ namespace Proud
 			*/
 			error = -1,
 
-			/**
+			/** 
 			\~korean
-			유효
+			유효 
 
 			\~english
 			Valid
@@ -706,7 +706,7 @@ namespace Proud
 			*/
 			valid = 0,
 
-			/**
+			/** 
 			\~korean
 			잘못된 날짜 (범위 초과 등)
 
@@ -723,7 +723,7 @@ namespace Proud
 			*/
 			invalid = 1,
 
-			/**
+			/** 
 			\~korean
 			말 그대로 값이 없음.
 
@@ -740,7 +740,7 @@ namespace Proud
 			*/
 			null = 2
 		};
-
+		
 		DATE m_dt;
 		DateTimeStatus m_status;
 
@@ -750,7 +750,7 @@ namespace Proud
 		bool GetAsSystemTime(SYSTEMTIME& sysTime) const throw();
 		bool GetAsUDATE( UDATE& udate ) const throw();
 
-		/**
+		/** 
 		\~korean
 		연도를 얻는다.
 
@@ -765,7 +765,7 @@ namespace Proud
 		*/
 		int GetYear() const throw();
 
-		/**
+		/** 
 		\~korean
 		월 값을 얻는다.
 
@@ -780,7 +780,7 @@ namespace Proud
 		*/
 		int GetMonth() const throw();
 
-		/**
+		/** 
 		\~korean
 		일 값을 얻는다.
 
@@ -795,7 +795,7 @@ namespace Proud
 		*/
 		int GetDay() const throw();
 
-		/**
+		/** 
 		\~korean
 		시 값을 얻는다.
 
@@ -810,7 +810,7 @@ namespace Proud
 		*/
 		int GetHour() const throw();
 
-		/**
+		/** 
 		\~korean
 		분 값을 얻는다.
 
@@ -825,7 +825,7 @@ namespace Proud
 		*/
 		int GetMinute() const throw();
 
-		/**
+		/** 
 		\~korean
 		초 값을 얻는다.
 
@@ -840,7 +840,7 @@ namespace Proud
 		*/
 		int GetSecond() const throw();
 
-		/**
+		/** 
 		\~korean
 		 밀리초 값을 얻는다.
 
@@ -855,12 +855,12 @@ namespace Proud
 		*/
 		int GetMillisecond() const throw();
 
-		/**
+		/** 
 		\~korean
 		요일 값을 얻는다. (1: 일요일, 2: 월요일...)
 
 		\~english
-		Gets day of the week value (1: Sunday, 2: Monday...)
+		Gets day of the week value (1: Sunday, 2: Monday...) 
 
 		\~chinese
 		获得星期值。（1：星期日、2：星期一。。。）
@@ -870,12 +870,12 @@ namespace Proud
 		*/
 		int GetDayOfWeek() const throw();
 
-		/**
+		/** 
 		\~korean
 		1년중 몇번째 날인지를 얻는다. (1: 1월 1일)
 
 		\~english
-		Gets which day in a year (1: 1st January)
+		Gets which day in a year (1: 1st January) 
 
 		\~chinese
 		获得是一年中的哪一天。（1：一月一日）
@@ -885,9 +885,9 @@ namespace Proud
 		*/
 		int GetDayOfYear() const throw();
 
-		/**
+		/** 
 		\~korean
-		복사 대입 연산자
+		복사 대입 연산자  
 
 		\~english
 		Copy assignment operator
@@ -901,10 +901,10 @@ namespace Proud
 		CPnTime& operator=(const VARIANT& varSrc) throw();
 		//CPnTime& operator=(DATE dtSrc) throw();
 
-//
+// 		
 		/*
 		\~korean
-		복사 대입 연산자
+		복사 대입 연산자  
 
 		\~english
 		Copy assignment operator
@@ -914,7 +914,7 @@ namespace Proud
 		*/
 // 		CPnTime& operator=(const __time32_t& timeSrc) throw();
 
-		/**
+		/** 
 		\~korean
 		복사 대입 연산자
 
@@ -929,9 +929,9 @@ namespace Proud
 		*/
 //		CPnTime& operator=(const __time64_t& timeSrc) throw();
 
-		/**
+		/** 
 		\~korean
-		복사 대입 연산자
+		복사 대입 연산자  
 
 		\~english
 		Copy assignment operator
@@ -944,9 +944,9 @@ namespace Proud
 		*/
 		CPnTime& operator=(const SYSTEMTIME& systimeSrc) throw();
 
-		/**
+		/** 
 		\~korean
-		복사 대입 연산자
+		복사 대입 연산자  
 
 		\~english
 		Copy assignment operator
@@ -959,9 +959,9 @@ namespace Proud
 		*/
 		CPnTime& operator=(const FILETIME& filetimeSrc) throw();
 
-		/**
+		/** 
 		\~korean
-		복사 대입 연산자
+		복사 대입 연산자  
 
 		\~english
 		Copy assignment operator
@@ -974,9 +974,9 @@ namespace Proud
 		*/
 		CPnTime& operator=(const UDATE& udate) throw();
 
-		/**
+		/** 
 		\~korean
-		비교 연산자
+		비교 연산자 
 
 		\~english
 		Comparison operator
@@ -989,9 +989,9 @@ namespace Proud
 		*/
 		bool operator==(const CPnTime& date) const throw();
 
-		/**
+		/** 
 		\~korean
-		비교 연산자
+		비교 연산자 
 
 		\~english
 		Comparison operator
@@ -1004,9 +1004,9 @@ namespace Proud
 		*/
 		bool operator!=(const CPnTime& date) const throw();
 
-		/**
+		/** 
 		\~korean
-		비교 연산자
+		비교 연산자  
 
 		\~english
 		Comparison operator
@@ -1019,9 +1019,9 @@ namespace Proud
 		*/
 		bool operator<(const CPnTime& date) const throw();
 
-		/**
+		/** 
 		\~korean
-		비교 연산자
+		비교 연산자 
 
 		\~english
 		Comparison operator
@@ -1034,9 +1034,9 @@ namespace Proud
 		*/
 		bool operator>(const CPnTime& date) const throw();
 
-		/**
+		/** 
 		\~korean
-		비교 연산자
+		비교 연산자 
 
 		\~english
 		Comparison operator
@@ -1049,9 +1049,9 @@ namespace Proud
 		*/
 		bool operator<=(const CPnTime& date) const throw();
 
-		/**
+		/** 
 		\~korean
-		비교 연산자
+		비교 연산자 
 
 		\~english
 		Comparison operator
@@ -1064,7 +1064,7 @@ namespace Proud
 		*/
 		bool operator>=(const CPnTime& date) const throw();
 
-		/**
+		/** 
 		\~korean
 		날짜 사칙연산자
 
@@ -1079,12 +1079,12 @@ namespace Proud
 		*/
 		CPnTime operator+(CPnTimeSpan dateSpan) const throw();
 
-		/**
+		/** 
 		\~korean
-		날짜 사칙연산자
+		날짜 사칙연산자  
 
 		\~english
-		Four-fundamental operator for date
+		Four-fundamental operator for date 
 
 		\~chinese
 		日期四则运算符。
@@ -1093,13 +1093,13 @@ namespace Proud
 		\~
 		*/
 		CPnTime operator-(CPnTimeSpan dateSpan) const throw();
-
-		/**
+		
+		/** 
 		\~korean
-		날짜 사칙연산자
+		날짜 사칙연산자  
 
 		\~english
-		Four-fundamental operator for date
+		Four-fundamental operator for date 
 
 		\~chinese
 		日期四则运算符。
@@ -1109,12 +1109,12 @@ namespace Proud
 		*/
 		CPnTime& operator+=(CPnTimeSpan dateSpan) throw();
 
-		/**
+		/** 
 		\~korean
-		날짜 사칙연산자
+		날짜 사칙연산자  
 
 		\~english
-		Four-fundamental operator for date
+		Four-fundamental operator for date 
 
 		\~chinese
 		日期四则运算符。
@@ -1124,12 +1124,12 @@ namespace Proud
 		*/
 		CPnTime& operator-=(CPnTimeSpan dateSpan) throw();
 
-		/**
+		/** 
 		\~korean
-		날짜 사칙연산자
+		날짜 사칙연산자 
 
 		\~english
-		Four-fundamental operator for date
+		Four-fundamental operator for date 
 
 		\~chinese
 		日期四则运算符。
@@ -1141,9 +1141,9 @@ namespace Proud
 
 		//operator DATE() const throw();
 
-		/**
+		/** 
 		\~korean
-		날짜시간 설정
+		날짜시간 설정 
 
 		\~english
 		Setting date and time
@@ -1157,9 +1157,9 @@ namespace Proud
 		int SetDateTime(int nYear, int nMonth, int nDay,
 			int nHour, int nMin, int nSec, int nMillisec) throw();
 
-		/**
+		/** 
 		\~korean
-		날짜시간 설정
+		날짜시간 설정 
 
 		\~english
 		Setting date and time
@@ -1172,9 +1172,9 @@ namespace Proud
 		*/
 		int SetDate(int nYear, int nMonth, int nDay) throw();
 
-		/**
+		/** 
 		\~korean
-		날짜시간 설정
+		날짜시간 설정  
 
 		\~english
 		Setting date and time
@@ -1187,9 +1187,9 @@ namespace Proud
 		*/
 		int SetTime(int nHour, int nMin, int nSec, int nMillisec) throw();
 
-		/**
+		/** 
 		\~korean
-		날짜시간을 문자열로부터 얻는다.
+		날짜시간을 문자열로부터 얻는다. 
 
 		\~english
 		Gets date and time from text string
@@ -1203,9 +1203,9 @@ namespace Proud
 		bool ParseDateTime(const TCHAR* lpszDate, uint32_t dwFlags = 0,
 			LCID lcid = LANG_USER_DEFAULT) throw();
 
-		/**
+		/** 
 		\~korean
-		날짜시간을 문자열로 만든다.
+		날짜시간을 문자열로 만든다. 
 
 		\~english
 		Converts date and time into text string
@@ -1218,12 +1218,12 @@ namespace Proud
 		*/
 		String Format(uint32_t dwFlags = 0, LCID lcid = LANG_USER_DEFAULT) const;
 
-		/**
+		/** 
 		\~korean
-		날짜시간을 문자열로 만든다.
+		날짜시간을 문자열로 만든다.  
 
 		\~english
-		Converts date and time into text string
+		Converts date and time into text string 
 
 		\~chinese
 		把日期时间转换成字符串。
@@ -1233,12 +1233,12 @@ namespace Proud
 		*/
 		String Format(const TCHAR* lpszFormat) const;
 
-		/**
+		/** 
 		\~korean
-		날짜시간을 문자열로 만든다.
+		날짜시간을 문자열로 만든다.  
 
 		\~english
-		Converts date and time into text string
+		Converts date and time into text string 
 
 		\~chinese
 		把日期时间转换成字符串。
@@ -1253,7 +1253,7 @@ namespace Proud
 		static double DoubleFromDate( DATE date ) throw();
 		static DATE DateFromDouble( double f ) throw();
 
-		void CheckRange();
+		void CheckRange();	
 		BOOL ConvertSystemTimeToVariantTime(const SYSTEMTIME& systimeSrc);
 
 	};

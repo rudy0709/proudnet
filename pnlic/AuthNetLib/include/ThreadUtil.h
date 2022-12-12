@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -53,10 +53,10 @@ namespace Proud
 {
 /*	이 함수들은 Windows Vista 이후에나 쓸 수 있음. 따라서 막음.
 
-	// 변수 하나 갖고 critical section으로 보호되는 read/write는 오버액션.
-	// 32bit OS에서 64bit 값을 volatile keyword에만 의존해서 i/o하는 것은 non-atomic. 즉 tearing의 위험이 있음.
+	// 변수 하나 갖고 critical section으로 보호되는 read/write는 오버액션. 
+	// 32bit OS에서 64bit 값을 volatile keyword에만 의존해서 i/o하는 것은 non-atomic. 즉 tearing의 위험이 있음. 
 	// 이를 예방하고자 이 함수들이 있음
-	// 인자 값은, align(8)이 되어 있어야 함
+	// 인자 값은, align(8)이 되어 있어야 함 
 	inline double InterlockedRead(volatile double* src)
 	{
 		LONGLONG *src2 = (LONGLONG*)src;
@@ -75,8 +75,8 @@ namespace Proud
 	/** \addtogroup util_group
 	*  @{
 	*/
-
-	/**
+	
+	/** 
 	\~korean
 	CTimerQueue::NewTimer 를 사용시 넘겨주는 파라메터 입니다.
 
@@ -91,13 +91,13 @@ namespace Proud
 	*/
 #if defined(_WIN32)
 	struct NewTimerParam{
-		/**
-		\~korean
-		매 시간마다 콜백 되어질 함수를 설정합니다.
-
-		\~english
+		/** 
+		\~korean 
+		매 시간마다 콜백 되어질 함수를 설정합니다. 
+		
+		\~english 
 		Set function that will callback every hours
-
+		
 		\~chinese
 		设置每段时间被回调的函数。
 
@@ -105,14 +105,14 @@ namespace Proud
 		\~
 		*/
 		WaitOrTimerCallbackProc m_callback;
-
-		/**
-		\~korean
-		Callback 되어지는 포인터값을 지정합니다.
-
-		\~english
+		
+		/** 
+		\~korean 
+		Callback 되어지는 포인터값을 지정합니다. 
+		
+		\~english 
 		Designate pointer value that can callback
-
+		
 		\~chinese
 		指定callback的指针值。
 
@@ -120,29 +120,29 @@ namespace Proud
 		\~
 		*/
 		void *m_pCtx;
-
-		/**
-		\~korean
-		매번 Callback 되어지는 시간을 입력합니다.
-
-		\~english
+		
+		/** 
+		\~korean 
+		매번 Callback 되어지는 시간을 입력합니다. 
+		
+		\~english 
 		Enter the time to callback
-
+		
 		\~chinese
 		输入每次callback的时间。
 
 		\~japanese
 		\~
 		*/
-		uint32_t m_period;
-
-		/**
-		\~korean
-		DueTime 으로 지정된 시간 이후 부터 Callback 이 시작됩니다.
-
+		uint32_t m_period;	
+		
+		/** 
+		\~korean 
+		DueTime 으로 지정된 시간 이후 부터 Callback 이 시작됩니다. 
+		
 		\~english
 		Callback will start time which is set by Duetime
-
+		
 		\~chinese
 		从指定为DueTime时间以后开始进行callback。
 
@@ -150,25 +150,25 @@ namespace Proud
 		\~
 		*/
 		uint32_t m_DueTime;
-
+		
 		NewTimerParam() : m_callback(0), m_pCtx(0), m_period(0), m_DueTime(0) {}
 		NewTimerParam(WaitOrTimerCallbackProc callback, void *pCtx, uint32_t period, uint32_t DueTime);
 	};
 
 	class CTimerQueueTimer;
 
-	/**
+	/** 
 	\~korean
 	스레드에 이름을 지정한다. 이렇게 하면 디버거 스레드 뷰에서 각 스레드에 이름이 표시된다.
 	- 디버깅이 편해질 것이다.
-	- 보다 자세한 내용은
-	ms-help://MS.VSCC.2003/MS.MSDNQTR.2003APR.1033/vsdebug/html/vxtskSettingThreadName.htm 참고
+	- 보다 자세한 내용은 
+	ms-help://MS.VSCC.2003/MS.MSDNQTR.2003APR.1033/vsdebug/html/vxtskSettingThreadName.htm 참고 
 
 	\~english
 	Designates a name to thread. By doing so, each thread will have their names shown at debugger thread view.
 	- Debugging will be easier.
-	- Please refer
-	ms-help://MS.VSCC.2003/MS.MSDNQTR.2003APR.1033/vsdebug/html/vxtskSettingThreadName.htm
+	- Please refer 
+	ms-help://MS.VSCC.2003/MS.MSDNQTR.2003APR.1033/vsdebug/html/vxtskSettingThreadName.htm 
 
 	\~chinese
 	给线程指定名字。这样的话在调试线程view里会显示每个线程的名字。
@@ -181,9 +181,9 @@ namespace Proud
 	*/
 	PROUD_API void SetThreadName( uint32_t dwThreadID, const char* szThreadName);
 
-	/**
+	/** 
 	\~korean
-	이 스레드의 실제 핸들을 구한다.
+	이 스레드의 실제 핸들을 구한다. 
 
 	\~english
 	Gets the real handle of this thread
@@ -196,13 +196,13 @@ namespace Proud
 	*/
 	PROUD_API HANDLE GetCurrentRealThread();
 
-	/**
+	/** 
 	\~korean
 	운영체제에서 제공하는 Thread Pool에서 일정 시간마다의 tick event를 실행할 수 있게 하는
 	싱글톤 클래스이다.
 	- CTimerQueueTimer 와 혼용된다.
 	- 자세한 것은 \ref timer_queue 를 참고바람
-	- Windows 98 이하 버전에서는 쓸 수 없다.
+	- Windows 98 이하 버전에서는 쓸 수 없다. 
 
 	\~english
 	Singleton class that can execute periodic tick event at thread pool provided by OS
@@ -229,21 +229,21 @@ namespace Proud
 		CTimerQueue();
 		~CTimerQueue();
 
-		/**
+		/** 
 		\~korean
 		일정 시간마다 유저 함수의 호출을 등록한다.
-		- 유저 함수 호출을 등록하면 CTimerQueueTimer 객체가 리턴된다.
-		- 유저 함수 호출은 CTimerQueue 싱글톤에 여럿을 중복해서 등록해도 된다.
-
+		- 유저 함수 호출을 등록하면 CTimerQueueTimer 객체가 리턴된다. 
+		- 유저 함수 호출은 CTimerQueue 싱글톤에 여럿을 중복해서 등록해도 된다. 
+		
 		\param callback 일정 시간마다 호출될 유저 함수
 		\param ctx callback에 전달될 유저 파라메터
-		\param period 유저 함수가 호출될 주기(밀리초)
+		\param period 유저 함수가 호출될 주기(밀리초) 
 
 		\~english
 		Periodically registeres user function calling
-		- Once registered then CTimerQueueTimer object is returned.
-		- Calling user function can be repeatedly registered at CTimerQueue singleton.
-
+		- Once registered then CTimerQueueTimer object is returned. 
+		- Calling user function can be repeatedly registered at CTimerQueue singleton. 
+		
 		\param callback User function to be called periodically
 		\param ctx user parameter to be delivered to callback
 		\param period the period that user function to be called in millisecond
@@ -268,13 +268,13 @@ namespace Proud
 		}
 	};
 
-	/**
+	/** 
 	\~korean
 	일정 시간마다 스레드 풀에서 주어진 함수를 호출하는 타이머 객체
 	- 자세한 것은 \ref timer_queue 를 참고바람
 	- CTimerQueue.NewTimer 에 의해서 리턴되는 객체의 타입이다. 이 객체를 파괴하기 전까지 CTimerQueue.NewTimer 에 의해
 	등록된 함수가 일정 시간마다 스레드 풀에서 실행된다.
-	- 서버 용도로 쓰는 것을 권장한다. Windows 98 이하 버전에서는 쓸 수 없다.
+	- 서버 용도로 쓰는 것을 권장한다. Windows 98 이하 버전에서는 쓸 수 없다. 
 
 	\~english
 	Timer object that periodicaly calls the functions provided by thread pool
@@ -299,7 +299,7 @@ namespace Proud
 		HANDLE m_timer;
 		Event m_endEvent;
 
-		CTimerQueueTimer() {} // 명시적 생성 금지
+		CTimerQueueTimer() {} // 명시적 생성 금지 
 	public:
 
 		PROUD_API ~CTimerQueueTimer();
@@ -307,7 +307,7 @@ namespace Proud
 #ifdef _WIN32
 #pragma push_macro("new")
 #undef new
-		// 이 클래스는 ProudNet DLL 경우를 위해 커스텀 할당자를 쓰되 fast heap을 쓰지 않는다.
+		// 이 클래스는 ProudNet DLL 경우를 위해 커스텀 할당자를 쓰되 fast heap을 쓰지 않는다. 
 		DECLARE_NEW_AND_DELETE
 #pragma pop_macro("new")
 #endif

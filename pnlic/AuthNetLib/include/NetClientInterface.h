@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -47,7 +47,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #include "Enums.h"
 #include "EncryptEnum.h"
 #include "RMIContext.h"
-#include "ErrorInfo.h"
+#include "ErrorInfo.h" 
 #include "NetClientStats.h"
 
 #define PN_DEPRECATED /*__declspec(deprecated) */
@@ -74,7 +74,7 @@ namespace Proud
 	class CNetConnectionParam;
 	class CNetPeerInfo;
 	class CP2PGroup;
-
+	
 	class CSendFragRefs;
 	class ErrorInfo;
 	class INetClientEvent;
@@ -82,12 +82,12 @@ namespace Proud
 	class IRmiStub;
 	class ReliableUdpHostStats;
 	struct SendOpt;
+	
 
-
-	/**
+	/** 
 	\~korean
 	\brief 클라이언트 FrameMove 처리 결과
-	- FrameMove에서 메시지와 이벤트가 얼마나 처리 되었는지 의 결과 입니다.
+	- FrameMove에서 메시지와 이벤트가 얼마나 처리 되었는지 의 결과 입니다. 
 
 	\~english
 	\brief client FrameMove process result
@@ -104,9 +104,9 @@ namespace Proud
 	{
 	public:
 
-		/**
+		/** 
 		\~korean
-		FrameMove 호출 이후 RMI 호출 횟수입니다.
+		FrameMove 호출 이후 RMI 호출 횟수입니다. 
 
 		\~english
 		Number of RMI caling after calling FrameMove
@@ -119,9 +119,9 @@ namespace Proud
 		*/
 		uint32_t	m_processedMessageCount;
 
-		/**
+		/** 
 		\~korean
-		FrameMove 호출 이후 INetClientEvent 콜백 횟수입니다.
+		FrameMove 호출 이후 INetClientEvent 콜백 횟수입니다. 
 
 		\~english
 		Number of INetClientEvent callback after calling FrameMove
@@ -142,9 +142,9 @@ namespace Proud
 		}
 	};
 
-	/**
+	/** 
 	\~korean
-	\brief 서버와의 연결 상태를 얻은 결과
+	\brief 서버와의 연결 상태를 얻은 결과 
 
 	\~english
 	\brief Acquired result of the connection status to server
@@ -158,10 +158,10 @@ namespace Proud
 	class CServerConnectionState
 	{
 	public:
-		/**
+		/** 
 		\~korean
 		서버와의 UDP 연결이 잘 되어 있는 상태이면 true이다.
-		이게 false인 경우, unreliable 메시징은 TCP를 통해 시행된다.
+		이게 false인 경우, unreliable 메시징은 TCP를 통해 시행된다. 
 
 		\~english
 		True if UDP connection to server is well
@@ -173,7 +173,7 @@ namespace Proud
 
 		\~japanese
 		\~
-		*/
+		*/ 
 		bool m_realUdpEnabled;
 
 		CServerConnectionState()
@@ -182,13 +182,13 @@ namespace Proud
 		}
 	};
 
-	/**
+	/** 
 	\~korean
-	\brief ProudNet 내부에서 Direct P2P 통신을 위해 보유하고 있는 주소 등의 정보입니다.
+	\brief ProudNet 내부에서 Direct P2P 통신을 위해 보유하고 있는 주소 등의 정보입니다. 
 	CNetClient.GetDirectP2PInfo 등에서 사용됩니다.
 
 	\~english
-	\brief Information that contains addresses and others for internal P2P communication in ProudNet.
+	\brief Information that contains addresses and others for internal P2P communication in ProudNet. 
 	Used at CNetClient.GetDirectP2PInfo and so on.
 
 	\~chinese
@@ -200,13 +200,13 @@ namespace Proud
 	class CDirectP2PInfo
 	{
 	public:
-		/**
+		/** 
 		\~korean
-		CNetClient가 상대 피어와의 Direct P2P 통신을 위해 갖고 있는 UDP 소켓의 로컬 주소
-		- CNetClient.GetLocalUdpSocketAddr와 같은 값이다.
+		CNetClient가 상대 피어와의 Direct P2P 통신을 위해 갖고 있는 UDP 소켓의 로컬 주소 
+		- CNetClient.GetLocalUdpSocketAddr와 같은 값이다. 
 
 		\~english
-		Local address of UDP socket possessed by CNetClient for it to use direct P2P communication with opponent peer
+		Local address of UDP socket possessed by CNetClient for it to use direct P2P communication with opponent peer 
 		- Has same value as CNetClient.GetLocalUdpSocketAddr
 
 		\~chinese
@@ -217,14 +217,14 @@ namespace Proud
 		\~
 		*/
 		AddrPort m_localUdpSocketAddr;
-
-		/**
+		
+		/** 
 		\~korean
-		상대 피어에게 Direct P2P로 패킷을 송신시 상대 피어의 착신 주소이다.
-		socket API sendto()에 쓰이기도 한다.
+		상대 피어에게 Direct P2P로 패킷을 송신시 상대 피어의 착신 주소이다. 
+		socket API sendto()에 쓰이기도 한다. 
 
 		\~english
-		Reception address of opponent peer when packets sent through Direct P2P
+		Reception address of opponent peer when packets sent through Direct P2P 
 		Can be used at socket API sendto()
 
 		\~chinese
@@ -235,14 +235,14 @@ namespace Proud
 		\~
 		*/
 		AddrPort m_localToRemoteAddr;
-
-		/**
+		
+		/** 
 		\~korean
-		상대 피어로부터 Direct P2P 로 패킷을 수신시 상대 피어의 송신 주소이다.
-		socket API recvfrom()에 쓰이기도 한다.
+		상대 피어로부터 Direct P2P 로 패킷을 수신시 상대 피어의 송신 주소이다. 
+		socket API recvfrom()에 쓰이기도 한다. 
 
 		\~english
-		Transmission address of opponent peer when packets received through Direct P2P
+		Transmission address of opponent peer when packets received through Direct P2P 
 		Can be used at socket API recvfrom()
 
 		\~chinese
@@ -253,7 +253,7 @@ namespace Proud
 		\~
 		*/
 		AddrPort m_remoteToLocalAddr;
-
+		
 		inline CDirectP2PInfo()
 		{
 			m_localToRemoteAddr = AddrPort::Unassigned;
@@ -261,9 +261,9 @@ namespace Proud
 			m_localUdpSocketAddr = AddrPort::Unassigned;
 		}
 
-		/**
+		/** 
 		\~korean
-		P2P 홀펀칭이 성사되어서 확보된 정보인가?
+		P2P 홀펀칭이 성사되어서 확보된 정보인가? 
 
 		\~english
 		Is this acquired after P2P hole-punching is completed?
@@ -280,12 +280,12 @@ namespace Proud
 		}
 	};
 
-	/**
+	/** 
 	\~korean
 	\brief 네트워크 클라이언트
 
 	게임 클라이언트와 게임 서버의 네트워킹과 네트워크 클라이언트간의 P2P 통신을 위한 클라이언트입니다.
-
+	
 	자세한 내용은 \ref client_overview 에 있습니다.
 
 	\~english
@@ -310,9 +310,9 @@ namespace Proud
 	public:
 		virtual ~CNetClient() {}
 
-		/**
+		/** 
 		\~korean
-		새 인스턴스를 생성합니다.
+		새 인스턴스를 생성합니다. 
 
 		\~english
 		Creates new instance.
@@ -325,10 +325,10 @@ namespace Proud
 		*/
 		static CNetClient* Create();
 
-		/*
+		/* 
 		\~korean
 		가상으로 랙 유발을 시킨다. 송신, 수신시에 모두 적용된다.
-		통상적으로 300,100이 약간 심한 랙 환경을 흉내낸다.
+		통상적으로 300,100이 약간 심한 랙 환경을 흉내낸다. 
 
 		\~english
 		Virtually causes laggy situation. Applies to both transmission and reception.	Usually, 300,100 causes an average laggy situation.
@@ -344,19 +344,19 @@ namespace Proud
 		virtual void SimulateBadTraffic(uint32_t minExtraPing, uint32_t extraPingVariance) = 0;
 #endif // DEPRECATE_SIMLAG
 
-		/**
+		/** 
 		\~korean
 		서버 연결 과정을 시작합니다.
 		- 이 함수는 즉시 리턴합니다. 따라서, 이 함수가 리턴했다고 해서 서버와의 연결이 모두 끝난 것은 아닙니다.
 		- 이 함수 호출 후 INetClientEvent.OnJoinServerComplete() 이벤트가 도착한 후에야 서버 연결의 성사 여부를 파악할 수 있습니다.
-
+		
 		\param param 연결할 서버 정보입니다.
 		\return 이미 다른 서버에 연결된 상태이면 false를 리턴한다. 성공적으로 연결 요청을 시작했으면 true가 리턴됩니다.
-
+		
 		\~english
-
+		
 		Initialtes server connection request.
-
+		
 		- This function returns immediately. Being this function returned does not mean that the connection to server is completed.
 		- It is possible to verify if connection to server is completed only after INetClientEvent.OnJoinServerComplete event arrives after calling this function.
 
@@ -376,11 +376,11 @@ namespace Proud
 		*/
 		virtual bool Connect(const CNetConnectionParam &connectionInfo) = 0;
 		virtual bool Connect(const CNetConnectionParam &connectionInfo, ErrorInfoPtr &outError) = 0;
-
-		/**
+		
+		/** 
 		\~korean
-		서버와의 연결을 해제한다. 아울러 모든 P2P 그룹에서도 탈퇴한다.
-		- 자세한 것은 동명 메서드 참조
+		서버와의 연결을 해제한다. 아울러 모든 P2P 그룹에서도 탈퇴한다. 
+		- 자세한 것은 동명 메서드 참조 
 
 		\~english
 		 Terminates the connection to server and withdraws from all P2P group.
@@ -395,23 +395,23 @@ namespace Proud
 		*/
 		virtual void Disconnect() = 0;
 
-		/**
+		/** 
 		\~korean
-		서버와의 연결을 해제한다. 아울러 모든 P2P 그룹에서도 탈퇴한다.
+		서버와의 연결을 해제한다. 아울러 모든 P2P 그룹에서도 탈퇴한다. 
 		\param gracefulDisconnectTimeout 서버와의 연결을 해제하는 과정을 처리하기 위해 클라이언트는 일정 시간의
 		시간을 요구한다. 이 값은 서버와의 연결을 해제하는 데까지 허락하는 최대 시간(초)이다.
 		이 값은 통상적으로 1 이내가 적당하지만, 너무 지나치게 작은 값을 잡는 경우, 클라이언트는 서버와의
-		연결을 종료했지만 서버측에서 클라이언트의 연결 해제를 즉시 감지하지 못하는 경우가 있을 수 있다.
-		\param comment 여기에 채워진 데이터는 INetServerEvent.OnClientLeave에서 받아진다.
-		즉 클라이언트가 서버와의 연결을 해제하되 서버에게 마지막으로 데이터를 보내고자 할 때(예: 접속을 끊는 이유를 보내기) 유용하다.
-		gracefulDisconnectTimeout가 너무 짧으면 못 갈수 있다.
+		연결을 종료했지만 서버측에서 클라이언트의 연결 해제를 즉시 감지하지 못하는 경우가 있을 수 있다. 
+		\param comment 여기에 채워진 데이터는 INetServerEvent.OnClientLeave에서 받아진다. 
+		즉 클라이언트가 서버와의 연결을 해제하되 서버에게 마지막으로 데이터를 보내고자 할 때(예: 접속을 끊는 이유를 보내기) 유용하다. 
+		gracefulDisconnectTimeout가 너무 짧으면 못 갈수 있다. 
 
 		\~english
 		Terminates the connection to server and withdraws from all P2P group.
 		\param gracefulDisconnectTimeout Client requires a certain amount of time in order to process the steps to terminate the connection to server. This value is the maximum time(in second) that allowed to complete the termination.
 		Usually 1 is reasonable for the value but if it is too small then there can be some cases that server cannot detect clinet's diconnection immediately after client terminated the connection.
-		\param comment The data filled in here will be received at INetServerEvent.OnClientLeave.
-		In other words, it is useful when client need to send its last data to server before terminating its connection to server.(e.g. sending why terminating the connection)
+		\param comment The data filled in here will be received at INetServerEvent.OnClientLeave. 
+		In other words, it is useful when client need to send its last data to server before terminating its connection to server.(e.g. sending why terminating the connection) 
 		If gracefulDisconnectTimeout is too short then there is a chance the sending fails.
 
 		\~chinese
@@ -531,9 +531,9 @@ namespace Proud
 		*/
 		virtual bool IsDisconnectAsyncEnded() = 0;
 
-		/**
+		/** 
 		\~korean
-		[디버깅용] 전체 P2P 그룹의 상태를 덤프로 남긴다.
+		[디버깅용] 전체 P2P 그룹의 상태를 덤프로 남긴다. 
 
 		\~english
 		[Debugging] Leaves the status of entire P2P group as a dump
@@ -545,8 +545,8 @@ namespace Proud
 		\~
 		*/
 		//virtual String DumpStatus() = 0;
-
-		/**
+		
+		/** 
 		\~korean
 		수신된 RMI나 이벤트를 처리합니다.
 		가장 마지막에 FrameMove을 호출한 이후부터 지금까지 서버로부터 수신된 RMI나 INetClientEvent의 콜백 이벤트는 클라이언트 메모리에 누적되어 있습니다.
@@ -556,7 +556,7 @@ namespace Proud
 
 		\param maxWaitTimeMs 처리할 이벤트나 수신 메시지가 있을 때까지, 얼마나 오래 기다릴 것인지에 대한 값입니다. 0이면 기다리지 않고 즉시 리턴합니다.
 		게임 등 렌더링 루프 안에서는 0이 일반적이며, 렌더링 루프가 없는 일반 앱에서는 적당한 값 (가령 200ms)를 넣습니다.
-		\param outResult FrameMove 호출시 처리 결과 보고를 얻습니다. 생략 가능한 파라메터입니다.
+		\param outResult FrameMove 호출시 처리 결과 보고를 얻습니다. 생략 가능한 파라메터입니다. 
 
 		\~english
 		Handles received RMI or event
@@ -591,10 +591,10 @@ namespace Proud
 		/** No-throw function. Exception is stored to outError. Used for UE4, etc. */
 		virtual void FrameMove(int maxWaitTime, CFrameMoveResult* outResult, ErrorInfoPtr& outError) = 0;
 
-		/**
+		/** 
 		\~korean
 		이 client가 참여하고 있는 P2P group 중 하나인 groupHostID에 참여하고 있는
-		다른 peer들의 HostID list를 얻는다.
+		다른 peer들의 HostID list를 얻는다. 
 
 		\~english
 		Gets the HostID list of other peers participating groupHostID that is one of P2P groups that this client is participating
@@ -607,9 +607,9 @@ namespace Proud
 		*/
 		virtual void GetGroupMembers(HostID groupHostID, HostIDArray &output) = 0;
 
-		/**
+		/** 
 		\~korean
-		다른 peer에서 가지고 있을 서버 시간을 구한다.
+		다른 peer에서 가지고 있을 서버 시간을 구한다. 
 
 		\~english
 		Gets the server time that other peer has
@@ -621,10 +621,10 @@ namespace Proud
 		\~
 		*/
 		virtual int64_t GetIndirectServerTimeMs(HostID peerHostID) = 0;
-
-		/**
+		
+		/** 
 		\~korean
-		이 호스트의 local HostID를 구한다. HostID_None이면 서버에 연결 안됐다는 뜻.
+		이 호스트의 local HostID를 구한다. HostID_None이면 서버에 연결 안됐다는 뜻. 
 
 		\~english
 		Gets local HostID of this host. If HostID_None then means not connected to server
@@ -636,11 +636,11 @@ namespace Proud
 		\~
 		*/
 		virtual HostID GetLocalHostID() = 0;
-
-		/**
+		
+		/** 
 		\~korean
 		이 클라이언트가 속한 네트워크에 작동중인 인터넷 공유기 장치(NAT device)의
-		이름을 얻는다.
+		이름을 얻는다. 
 
 		\~english
 		Gets the name of Internet router device(NAT device) that is active at the network that this client is participating.
@@ -653,9 +653,9 @@ namespace Proud
 		*/
 		virtual String GetNatDeviceName() = 0;
 
-		/**
+		/** 
 		\~korean
-		이 호스트가 가입한 모든 P2P 그룹 리스트를 얻는다.
+		이 호스트가 가입한 모든 P2P 그룹 리스트를 얻는다. 
 
 		\~english
 		Gets the entire P2P group list that this host is participating
@@ -667,10 +667,10 @@ namespace Proud
 		\~
 		*/
 		virtual void GetLocalJoinedP2PGroups(HostIDArray &output) = 0;
-
-		/**
+		
+		/** 
 		\~korean
-		시작 이래 수집된 처리량 통계를 얻는다.
+		시작 이래 수집된 처리량 통계를 얻는다. 
 
 		\~english
 		Gets the statistics of process collected since beginning
@@ -683,10 +683,10 @@ namespace Proud
 		*/
 		virtual void GetStats(CNetClientStats &outVal) = 0;
 
-		/**
+		/** 
 		\~korean
 		P2P group의 서버 시간을 얻는다.
-		이는 groupHostID가 가리키는 P2P group의 모든 GetIndirectServerTime()값의 평균이다.
+		이는 groupHostID가 가리키는 P2P group의 모든 GetIndirectServerTime()값의 평균이다. 
 
 		\~english
 		Gets server time of P2P group
@@ -701,19 +701,19 @@ namespace Proud
 		*/
 		virtual int64_t GetP2PServerTimeMs(HostID groupHostID) = 0;
 
-		/**
+		/** 
 		\~korean
 		이 호스트가 타 Peer와의 통신을 위해 내부적으로 갖고 있는 UDP socket의 로컬 주소를 얻는다.
-		- \ref use_alternative_p2p  에서 사용되기도 한다.
+		- \ref use_alternative_p2p  에서 사용되기도 한다. 
 
 		\param remotePeerID 이 호스트와 P2P 통신을 하고 있는 타 Peer의 HostID.
 		\return CNetClient 내부에서 보유하고 있는 UDP socket의 포트번호 또는 (주소,포트번호). 사용자는 여기서 포트 번호를 가져다 쓰면 된다.
 		- P2P 그룹에 상대측 peer가 들어온지 얼마 안된 경우 이 값은 AddrPort.Unassigned일 수 있다. 왜냐하면 ProudNet은 성능 향상을 위해
-		UDP socket을 즉시 만들지 않기 때문이다. 따라서 이러한 경우 잠시 뒤에 다시 이 메서드를 호출해서 얻을 수 있다.
+		UDP socket을 즉시 만들지 않기 때문이다. 따라서 이러한 경우 잠시 뒤에 다시 이 메서드를 호출해서 얻을 수 있다. 
 
 		\~english
 		Gets the local address of UDP socket that this host has internally for communicating with other peer
-		- Also used in \ref use_alternative_p2p
+		- Also used in \ref use_alternative_p2p 
 
 		\param remotePeerID HostID of other peer that P2P communicates with this host
 		\return CNetClient Port number or (address, port number) of UDP socket that is possessed internally. User can use this as port number.
@@ -733,19 +733,19 @@ namespace Proud
 		*/
 		virtual AddrPort GetLocalUdpSocketAddr(HostID remotePeerID) = 0;
 
-		/**
+		/** 
 		\~korean
 		이 호스트가 remotePeerID가 가리키는 타 Peer와의 통신을 위해 홀펀칭된 정보를 얻는다.
-		- \ref use_alternative_p2p  에서 사용되기도 한다.
+		- \ref use_alternative_p2p  에서 사용되기도 한다. 		
 
 		\param remotePeerID 타 피어의 ID
 		\param outInfo 타 피어와의 통신을 위한 홀펀칭 정보가 채워질 곳
 		\return 홀펀칭된 Peer인 경우 true, 그 외의 경우 false를 리턴한다. 만약 false를 리턴한 경우 아직 홀펀칭되지 않은 peer인 경우에는 0.3~1초 간격으로
-		이 메서드를 지속적으로 호출하다 보면 true를 리턴할 때가 있다. 왜냐하면 홀펀칭이 성사되는 시간이 항상 다르기 때문이다.
+		이 메서드를 지속적으로 호출하다 보면 true를 리턴할 때가 있다. 왜냐하면 홀펀칭이 성사되는 시간이 항상 다르기 때문이다. 
 
 		\~english
 		Gets the hole-punched information for this host to communicate with other peer that remotePeerID points
-		- Also used in \ref use_alternative_p2p
+		- Also used in \ref use_alternative_p2p 		
 
 		\param remotePeerID ID of other peer
 		\param outInfo where the hole-punching information for communicating with other peer to be filled
@@ -765,9 +765,9 @@ namespace Proud
 		*/
 		virtual bool GetDirectP2PInfo(HostID remotePeerID, CDirectP2PInfo &outInfo) = 0;
 
-		/**
+		/** 
 		\~korean
-		연결된 서버의 주소를 구한다.
+		연결된 서버의 주소를 구한다. 
 
 		\~english
 		Gets the address of connected server
@@ -780,7 +780,7 @@ namespace Proud
 		*/
 		virtual AddrPort GetServerAddrPort() = 0;
 
-		/**
+		/** 
 		\~korean
 		이 객체에 연결된 peer 1개의 정보를 얻는다.
 		\param peerHostID 찾으려는 peer의 HostID
@@ -804,10 +804,10 @@ namespace Proud
 		*/
 		virtual bool GetPeerInfo(HostID peerHostID, CNetPeerInfo& output) = 0;
 
-		/**
+		/** 
 		\~korean
 		이 호스트에 연결된 다른 호스트(서버의 경우 클라이언트들, 클라이언트의 경우 피어들)들 각각에의 tag를 지정합니다. \ref host_tag  기능입니다.
-		- 자기 자신(서버 혹은 클라이언트)에 대한 tag도 지정할 수 있습니다.
+		- 자기 자신(서버 혹은 클라이언트)에 대한 tag도 지정할 수 있습니다. 
 
 		\~english
 		Desigantes tag to each of other hosts(client for server, peer for client) aht are connected to this host. A \ref host_tag function.
@@ -822,10 +822,10 @@ namespace Proud
 		*/
 		virtual bool SetHostTag(HostID hostID, void* hostTag) = 0;
 
-		/**
+		/** 
 		\~korean
 		서버의 현재 시간을 구한다. (초 단위)
-		이 값은 일정 시간마다 레이턴시도 고려되어 계산되는 서버의 시간이다.
+		이 값은 일정 시간마다 레이턴시도 고려되어 계산되는 서버의 시간이다. 
 
 		\~english
 		Gets current time of server (in second)
@@ -840,9 +840,9 @@ namespace Proud
 		*/
 		virtual int64_t GetServerTimeMs() = 0;
 
-		/**
+		/** 
 		\~korean
-		클라이언트와 서버와의 시간 차를 구한다.
+		클라이언트와 서버와의 시간 차를 구한다. 
 
 		\~english
 		Gets the time difference between client and server
@@ -855,12 +855,12 @@ namespace Proud
 		*/
 		virtual int64_t GetServerTimeDiffMs() = 0;
 
-		/**
+		/** 
 		\~korean
 		서버와의 소켓 연결 상태를 리턴합니다.
 		- 소켓의 연결 상태만 리턴합니다. 완전히 연결되었는지는 OnJoinServerComplete로 콜백됩니다.
 		\param output 서버와의 연결 상태가 채워지는 공간
-		\return 서버와의 연결 상태
+		\return 서버와의 연결 상태 
 
 		\~english
 		Returns connection status to server
@@ -880,8 +880,8 @@ namespace Proud
 
 
 		virtual void GetWorkerState(CClientWorkerInfo &output) = 0;
-
-		/**
+	
+		/** 
 		\~korean
 		서버와의 소켓 연결 여부를 리턴합니다.
 		- 서버와 소켓이 연결 되었는지의 여부만 리턴합니다.
@@ -897,17 +897,17 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		inline bool HasServerConnection()
+		inline bool HasServerConnection() 
 		{
 			CServerConnectionState stat;
 			return GetServerConnectionState(stat)==ConnectionState_Connected;
 		}
 
-		/**
+		/** 
 		\~korean
-		이벤트를 받을 수 있는 객체를 설정한다.
-		- 하나만 설정 가능하다.
-		- 이 메서드는 클라이언트가 서버에 연결을 시도하기 전에만 호출할 수 있다. 안그러면 exception이 throw된다.
+		이벤트를 받을 수 있는 객체를 설정한다. 
+		- 하나만 설정 가능하다. 
+		- 이 메서드는 클라이언트가 서버에 연결을 시도하기 전에만 호출할 수 있다. 안그러면 exception이 throw된다. 
 
 		\~english
 		Sets the object can receive event
@@ -927,17 +927,17 @@ namespace Proud
 		// rarely used for diagnostics.
 		virtual INetClientEvent* GetEventSink() = 0;
 
-		/**
+		/** 
 		\~korean
 		Remote peer의 마지막 레이턴시를 얻는다.
 		\param remoteHostID 찾으려는 remote peer의 HostID. HostID_Server를 지정하면 서버와의 레이턴시를 얻는다.
 		\param error 에러 여부를 리턴한다. 정상적인 경우 ErrorType_Ok, Ping을 얻지 못한 경우 ErrorType_ValueNotExist가 저장된다.
-		\return ping time을 초단위로 리턴한다. 단 없으면 -1을 리턴한다.
+		\return ping time을 초단위로 리턴한다. 단 없으면 -1을 리턴한다. 
 
 		\~english
 		Gets the last latency of Remote peer
 		\param remoteHostID HostID of remote peer to find. Gets the latency with server when set HostID_Server.
-		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received.
+		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received. 
 		\return returns ping time(in second). Returns -1 if there is none.
 
 		\~chinese
@@ -954,7 +954,7 @@ namespace Proud
 
 		\~
 		*/
-		inline double GetLastUnreliablePingSec(HostID remoteHostID, ErrorType* error = NULL)
+		inline double GetLastUnreliablePingSec(HostID remoteHostID, ErrorType* error = NULL) 
 		{
 			int ret=GetLastUnreliablePingMs(remoteHostID, error);
 			if(ret<0)
@@ -962,17 +962,17 @@ namespace Proud
 			else
 				return (double)(ret/1000);
 		}
-		/**
+		/** 
 		\~korean
 		Remote peer의 마지막 레이턴시를 얻는다.
 		\param remoteHostID 찾으려는 remote peer의 HostID. HostID_Server를 지정하면 서버와의 레이턴시를 얻는다.
 		\param error 에러 여부를 리턴한다. 정상적인 경우 ErrorType_Ok, Ping을 얻지 못한 경우 ErrorType_ValueNotExist가 저장된다.
-		\return ping time을 밀리초단위로 리턴한다. 단 없으면 -1을 리턴한다.
+		\return ping time을 밀리초단위로 리턴한다. 단 없으면 -1을 리턴한다. 
 
 		\~english
 		Gets the last latency of Remote peer
 		\param remoteHostID HostID of remote peer to find. Gets the latency with server when set HostID_Server.
-		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received.
+		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received. 
 		\return returns ping time(in millisecond). Returns -1 if there is none.
 
 		\~chinese
@@ -989,19 +989,19 @@ namespace Proud
 
 		\~
 		*/
-		virtual int GetLastUnreliablePingMs(HostID remoteHostID, ErrorType* error = NULL) = 0;
+		virtual int GetLastUnreliablePingMs(HostID remoteHostID, ErrorType* error = NULL) = 0;		
 
-		/**
+		/** 
 		\~korean
 		Remote peer의 마지막 레이턴시를 얻는다. GetLastUnreliablePing값은 Unreliable로 핑값을 구하는 반면 해당함수는 ReliableUdp로 측정한다.
 		\param remoteHostID 찾으려는 remote peer의 HostID. HostID_Server를 지정하면 서버와의 레이턴시를 얻는다.
 		\param error 에러 여부를 리턴한다. 정상적인 경우 ErrorType_Ok, Ping을 얻지 못한 경우 ErrorType_ValueNotExist가 저장된다.
 		\return ping time을 밀리초단위로 리턴한다. 단 없으면 -1을 리턴한다.
 
-		\~english
+		\~english 
 		Gets the last latency of Remote peer. GetLastUnreliablePing value is found by Unreliable but the relevant function is measured by ReliableUdp.
 		\param remoteHostID HostID of remote peer to find. Gets the latency with server when set HostID_Server.
-		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received.
+		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received. 
 		\return returns ping time(in millisecond). Returns -1 if there is none.
 
 		\~chinese
@@ -1020,17 +1020,17 @@ namespace Proud
 		*/
 		virtual int GetLastReliablePingMs(HostID remoteHostID, ErrorType* error = NULL) = 0;
 
-		/**
+		/** 
 		\~korean
 		Remote peer의 마지막 레이턴시를 얻는다. GetLastUnreliablePing값은 Unreliable로 핑값을 구하는 반면 해당함수는 ReliableUdp로 측정한다.
 		\param remoteHostID 찾으려는 remote peer의 HostID. HostID_Server를 지정하면 서버와의 레이턴시를 얻는다.
 		\param error 에러 여부를 리턴한다. 정상적인 경우 ErrorType_Ok, Ping을 얻지 못한 경우 ErrorType_ValueNotExist가 저장된다.
 		\return ping time을 초단위로 리턴한다. 단 없으면 -1을 리턴한다.
 
-		\~english
+		\~english 
 		Gets the last latency of Remote peer. GetLastUnreliablePing value is found by Unreliable but the relevant function is measured by ReliableUdp.
 		\param remoteHostID HostID of remote peer to find. Gets the latency with server when set HostID_Server.
-		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received.
+		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received. 
 		\return returns ping time(in second). Returns -1 if there is none.
 
 		\~chinese
@@ -1056,18 +1056,18 @@ namespace Proud
 				return double(ret)/1000;
 		}
 
-		/**
+		/** 
 		\~korean
 		Remote peer의 최근 레이턴시를 얻는다.
 		\param remoteHostID 찾으려는 remote peer의 HostID. HostID_Server를 지정하면 서버와의 레이턴시를 얻는다. \ref p2p_group 의 HostID를 넣으면 P2P 그룹 내
 		모든 멤버들의 평균 레이턴시를 얻는다.
 		\param error 에러 여부를 리턴한다. 정상적인 경우 ErrorType_Ok, Ping을 얻지 못한 경우 ErrorType_ValueNotExist가 저장된다.
-		\return ping time을 초단위로 리턴한다. 단 없으면 -1을 리턴한다.
+		\return ping time을 초단위로 리턴한다. 단 없으면 -1을 리턴한다. 
 
 		\~english
 		Gets the recent latency of Remote peer
 		\param remoteHostID HostID of remote peer to find. Gets the latency with server when set HostID_Server. Gets the average latency of all members of P2P group when set HostID of \ref p2p_group.
-		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received.
+		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received. 
 		\return returns ping time(in second). Returns -1 if there is none.
 
 		\~chinese
@@ -1084,7 +1084,7 @@ namespace Proud
 
 		\~
 		*/
-		inline double GetRecentUnreliablePingSec(HostID remoteHostID, ErrorType* error = NULL)
+		inline double GetRecentUnreliablePingSec(HostID remoteHostID, ErrorType* error = NULL) 
 		{
 			int ret = GetRecentUnreliablePingMs(remoteHostID, error);
 			if(ret<0)
@@ -1093,17 +1093,17 @@ namespace Proud
 				return (double)(ret/1000);
 		}
 
-		/**
+		/** 
 		\~korean
 		Remote peer의 최근 레이턴시를 얻는다.
 		\param remoteHostID 찾으려는 remote peer의 HostID. HostID_Server를 지정하면 서버와의 레이턴시를 얻는다.
 		\param error 에러 여부를 리턴한다. 정상적인 경우 ErrorType_Ok, Ping을 얻지 못한 경우 ErrorType_ValueNotExist가 저장된다.
-		\return ping time을 밀리초단위로 리턴한다. 단 없으면 -1을 리턴한다.
+		\return ping time을 밀리초단위로 리턴한다. 단 없으면 -1을 리턴한다. 
 
 		\~english
 		Gets the recent latency of Remote peer
 		\param remoteHostID HostID of remote peer to find. Gets the latency with server when set HostID_Server.
-		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received.
+		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received. 
 		\return returns ping time(in millisecond). Returns -1 if there is none.
 
 		\~chinese
@@ -1113,16 +1113,16 @@ namespace Proud
 		\return ping把time以毫秒单位返回。没有的话返回-1。
 
 		\~japanese
-		Remote peerの最近のレイテンシを得る。
+		Remote peerの最近のレイテンシを得る。 
 		\param remoteHostID 探そうとするremote peerのHostID. HostID_Serverを指定するとサーバとのレイテンシを得る。
 		\param error エラーがあるかないかをリターンする。正常的な場合はErrorType_Ok, Pingを得なかった場合にはErrorType_ValueNotExistが保存される。
 		\return ping timeをミリ秒単位でリターンする。ただし、 ping timeが測定されていなければ-1をリターンする。
 
 		\~
 		*/
-		virtual int GetRecentUnreliablePingMs(HostID remoteHostID, ErrorType* error = NULL) = 0;
-
-		/**
+		virtual int GetRecentUnreliablePingMs(HostID remoteHostID, ErrorType* error = NULL) = 0;		
+		
+		/** 
 		\~korean
 		Remote peer 의 최근 레이턴시를 얻는다. GetRecentUnreliablePing 값은 Unreliable로 핑값을 구하는 반면 해당함수는 ReliableUdp 로 측정한다.
 		\param remoteHostID 찾으려는 remote peer의 HostID. HostID_Server를 지정하면 서버와의 레이턴시를 얻는다.
@@ -1132,7 +1132,7 @@ namespace Proud
 		\~english
 		Gets the recent latency of Remote peer. GetRecentUnreliablePing value is found by Unreliable but the relevant function is measured by ReliableUdp.
 		\param remoteHostID HostID of remote peer to find. Gets the latency with server when set HostID_Server.
-		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received.
+		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received. 
 		\return returns ping time(in millisecond). Returns -1 if there is none.
 
 		\~chinese
@@ -1158,10 +1158,10 @@ namespace Proud
 		\param error 에러 여부를 리턴한다. 정상적인 경우 ErrorType_Ok, Ping을 얻지 못한 경우 ErrorType_ValueNotExist가 저장된다.
 		\return ping time을 초단위로 리턴한다. 단 없으면 -1을 리턴한다.
 
-		\~english
+		\~english 
 		Gets the recent latency of Remote peer. GetRecentUnreliablePing value is found by Unreliable but the relevant function is measured by ReliableUdp.
 		\param remoteHostID HostID of remote peer to find. Gets the latency with server when set HostID_Server.
-		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received.
+		\param error It returns whether an error occurs or not. In case of normal case, ErrorType_Ok will be saved, however, ErrorType_ValueNotExist will be saved in case Ping is not received. 
 		\return returns ping time(in second). Returns -1 if there is none.
 
 		\~chinese
@@ -1188,27 +1188,27 @@ namespace Proud
 				return double(ret)/1000;
 		}
 
-		/**
+		/** 
 		\~korean
 		내부적으로 갖고 있는 UDP 소켓을 닫아버리고 서버 및 P2P 통신을 bypass 상태로 강제 전환한다.
-		- \ref use_alternative_p2p  에서 사용된다.
-		- CNetClient는 P2P 통신을 하고 있는 Peer의 갯수만큼의 UDP 소켓을 갖고 있으며 각각의 UDP 소켓은 서로 다른 Peer와의 통신을
+		- \ref use_alternative_p2p  에서 사용된다. 
+		- CNetClient는 P2P 통신을 하고 있는 Peer의 갯수만큼의 UDP 소켓을 갖고 있으며 각각의 UDP 소켓은 서로 다른 Peer와의 통신을 
 		전담하고 있다. 이 메서드는 1개 Peer와의 통신만을 bypass 상태로 강제 전환한다.
 		- 이 메서드 호출 후 상대방도 direct P2P를 쓸 수 없게 되므로 상대방도 본 메서드를 호출해야 할 수도 있다.
 		- direct P2P가 이미 아닌 경우에도 이 메서드는 과거 홀펀칭되었던 정보를 채워준다.
-
+		
 		\param peerID 강제 bypass할 상대측 peer의 HostID
-		\param outDirectP2PInfo 강제 bypass된 peer와 이 CNetClient가 P2P 통신을 하기 위해 CNetClient가 내부적으로 갖고 있던 홀펀칭 정보가 채워질 곳.
-		\return 상대 피어가 존재하며 상대 피어와의 홀펀칭이 된 적이 있었거나 direct P2P를 유지하고 있었다면 true를 리턴한다.
+		\param outDirectP2PInfo 강제 bypass된 peer와 이 CNetClient가 P2P 통신을 하기 위해 CNetClient가 내부적으로 갖고 있던 홀펀칭 정보가 채워질 곳. 		
+		\return 상대 피어가 존재하며 상대 피어와의 홀펀칭이 된 적이 있었거나 direct P2P를 유지하고 있었다면 true를 리턴한다. 
 
 		\~english
 		Shuts UDP socket that is possessed internally then forcefully converts server and P2P communication to bypass state
-		- Used in \ref use_alternative_p2p
+		- Used in \ref use_alternative_p2p 
 		- CNetClient has the same number of UDP sockets as the number of peers that are P2P communiating with and each of UDP sockets manages the communication with each peer.
 		  This methos forcefully converts 1 communication with peer to bypass state.
 		- Since the opponent cannot use direct P2P after calling this method, the opponent may call this method as well.
 		- Also fills previously hole-punched info when not direct P2P
-
+		
 		\param peerID HostId of opponent peer that to be forcefully bypassed
 		\param outDirectP2PInfo where the hole-punching information that was possessed by CNetClient in order to perform P2P communication between this CNetClient and forcefully bypassed peer.
 		\return Returns true either if hole-punched with opponent peer while opponent peer exists OR sustained direct P2P.
@@ -1229,27 +1229,27 @@ namespace Proud
 		*/
 		virtual bool InvalidateUdpSocket(HostID peerID, CDirectP2PInfo &outDirectP2PInfo ) = 0;
 
-		/**
+		/** 
 		\~korean
-		InvalidateUdpSocket으로 제거된 UDP socket을 다시 만든다.
+		InvalidateUdpSocket으로 제거된 UDP socket을 다시 만든다. 
 		그리고 해당 상대측 peer와의 UDP 홀펀칭을 재개한다.
-		- \ref use_alternative_p2p  에서 사용된다.
+		- \ref use_alternative_p2p  에서 사용된다. 
 		- 이 메서드를 호출한다고 해서 즉시 UDP socket이 만들어지지는 않는다. 새로 만들어진 UDP 소켓의 주소를 얻으려면
 		잠시 후에 GetLocalUdpSocketAddr을 호출해서 얻어와야 한다.
 		- 이 메서드 호출 후 상대방도 direct P2P를 쓸 수 있어야 하므로 상대방도 본 메서드를 호출해야 할 수도 있다.
 
 		\param peerID 일전에 InvalidateUdpSocket이 시행되었던 피어의 ID.
-		\return 성공적으로 완료시 true. 해당 상대측 peer가 없으면 false.
+		\return 성공적으로 완료시 true. 해당 상대측 peer가 없으면 false. 
 
 		\~english
 		 Re-creates UDP socket removed by InvalidateUdpSocket
-		    And re-starts UDP hole-punching with opponent peer
+		    And re-starts UDP hole-punching with opponent peer 
 		- Used at \ref use_alternative_p2p
 		- Calling this method does not mean immediate UDP socket creation. To get the address of newly created UDP socket, must call GetLocalUdpSocketAddr and get the address after a while.
 		- Since the opponent cannot use direct P2P after calling this method, the opponent may call this method as well.
 
 		\param peerID ID of peer that InvalidateUdpSocket was executed previously.
-		\return true if successfully completed. False if there is no opponent peer.
+		\return true if successfully completed. False if there is no opponent peer. 
 
 		\~chinese
 		重新创建用InvalidateUdpSocket删除的UDP socket。
@@ -1273,10 +1273,10 @@ namespace Proud
 
 		virtual void TEST_SetPacketTruncatePercent(Proud::HostType hostType, int percent) = 0;
 
-		/**
+		/** 
 		\~korean
 		P2P간의 Reliable 메시징 시스템의 작동 통계를 얻는다.
-		- 성능 측정이나 디버깅 등을 위해 사용된다.
+		- 성능 측정이나 디버깅 등을 위해 사용된다. 
 
 		\~english
 		Gets operation statistics of reliable messaging system among P2P
@@ -1291,15 +1291,15 @@ namespace Proud
 		*/
 		virtual bool GetPeerReliableUdpStats(HostID peerID,ReliableUdpHostStats &output) = 0;
 
-		/**
+		/** 
 		\~korean
-		이 클라이언트가 공유기 뒤에 있는 클라이언트인가?
-		\return 판단할 수 없으면 false 리턴. 이때 output은 안채워진다.
-		\param output 공유기 뒤에 있는 클라이언트이면 true가 채워진다.
+		이 클라이언트가 공유기 뒤에 있는 클라이언트인가? 
+		\return 판단할 수 없으면 false 리턴. 이때 output은 안채워진다. 
+		\param output 공유기 뒤에 있는 클라이언트이면 true가 채워진다. 
 
 		\~english
-		Is this client behind a router?
-		\return returns false if cannot be verified. The output will not be filled at this time.
+		Is this client behind a router? 
+		\return returns false if cannot be verified. The output will not be filled at this time. 
 		\param output Fills true if the client is behind a router
 
 		\~chinese
@@ -1311,10 +1311,10 @@ namespace Proud
 		\~
 		*/
 		virtual bool IsLocalHostBehindNat(bool &output) = 0;
-
-		/**
+	
+		/** 
 		\~korean
-		엔진 프로토콜 버전을 얻는다. 이 값이 클라이언트에서 얻는 엔진 프로토콜 버전과 다르면 접속이 불허된다.
+		엔진 프로토콜 버전을 얻는다. 이 값이 클라이언트에서 얻는 엔진 프로토콜 버전과 다르면 접속이 불허된다. 
 
 		\~english
 		Gets the version of engine protocol. If this value differes to engine protocol version from client then the connection will not be accepted.
@@ -1327,9 +1327,9 @@ namespace Proud
 		*/
 		virtual int GetInternalVersion() = 0;
 
-		/**
+		/** 
 		\~korean
-		주고받을 수 있는 RMI 혹은 사용자 정의 메시지의 최대 크기다.
+		주고받을 수 있는 RMI 혹은 사용자 정의 메시지의 최대 크기다. 
 
 		\~english
 		The maximum size of RMI or user defined message
@@ -1342,10 +1342,10 @@ namespace Proud
 		*/
 		virtual int GetMessageMaxLength() = 0;
 
-		/**
+		/** 
 		\~korean
 		서버에서 인식된, 이 클라이언트의 네트워크 주소를 얻는다. 즉, 즉 공인 인터넷 주소(external addr)이다.
-		- 서버와 연결되어 있을때만 유효한 값을 리턴한다.
+		- 서버와 연결되어 있을때만 유효한 값을 리턴한다. 
 
 		\~english
 		Gets the network address of this client that is recognized by server. In other words, this is a public Internet address(external address).
@@ -1378,11 +1378,11 @@ namespace Proud
 		*/
 		virtual void GetUserWorkerThreadInfo(CFastArray<CThreadInfo> &output) = 0;
 
-		/**
+		/** 
 		\~korean
 		네트워킹 스레드의 정보를 얻습니다.
 		ProudNet은 \ref thread_pool 과 별개로 네트워크 I/O처리를 담당하는 스레드가 내장되어 있습니다. 이것의 정보를 얻습니다.
-		\param output 여기에 정보가 채워집니다.
+		\param output 여기에 정보가 채워집니다. 
 
 		\~english
 		Gets the information of networking thread
@@ -1399,14 +1399,14 @@ namespace Proud
 		*/
 		virtual void GetNetWorkerThreadInfo(CFastArray<CThreadInfo> &output) = 0;
 
-		/**
+		/** 
 		\~korean
 		ProudNet에 의해 만들어진 socket handle 들을 얻습니다. 이 기능은 클라이언트 보안 소프트웨어(가령 nProtect나 Ahnlab Hack Shield 등)에서 필요로 할 경우 유용합니다.
 		이 메서드를 통해 얻은 socket handle은 정보 획득 용도로만 사용하시고, I/O 처리를 수행하는 것은 금지합니다. 부작용이 있을 수 있기 때문입니다.
 
 		\param remoteHostID 소켓 정보를 얻을 peer의 HostID입니다. HostID_Server일 경우 서버와 연결된 소켓 정보를 얻습니다.
 		\param output 여기에 정보가 채워집니다.
-		\return remoteHostID 값이 유효한 경우 true입니다.
+		\return remoteHostID 값이 유효한 경우 true입니다. 
 
 		\~english
 		Gets socket handles that made by ProudNet. This function is useful when it need at security software(e.g. nProtect or Ahnlab Hack Shield)
@@ -1429,18 +1429,18 @@ namespace Proud
 		*/
 		virtual bool GetSocketInfo(HostID remoteHostID,CSocketInfo& output) = 0;
 
-		/**
+		/** 
 		\~korean
 		CNetClient을 사용하는 응용프로그램 상태를 CNetClient에게 전달합니다.
-		CNetClient를 렌더링 루프와 다른 스레드에서 실행시키는 게임의 경우 프레임 레이트를 CNetClient가 직접 산출할 수 없어서 사용자가 굳이 측정해야 합니다.
+		CNetClient를 렌더링 루프와 다른 스레드에서 실행시키는 게임의 경우 프레임 레이트를 CNetClient가 직접 산출할 수 없어서 사용자가 굳이 측정해야 합니다. 
 		- 아무때나 호출해도 성능에 영향을 거의 안줍니다.
-		- 이 메서드는 다양한 기능, 가령 \ref super_peer  기능 등에서 사용합니다.
+		- 이 메서드는 다양한 기능, 가령 \ref super_peer  기능 등에서 사용합니다. 
 
 		\~english
 		Passes the status of application program that uses CNetClient to CNetClient
 		User must measure the frame rate of the game that runs CNetClient in diffrent thread to rendering loop since it cannot be acquired directly by CNetClient.
-
-		- Does not affect performance even called at any time
+		
+		- Does not affect performance even called at any time 
 		- Various functions of this method can be used, e.g. \ref super_peer function.
 
 		\~chinese
@@ -1453,7 +1453,7 @@ namespace Proud
 		*/
 		virtual void SetApplicationHint(const CApplicationHint &hint) = 0;
 
-		/**
+		/** 
 		\~korean
 		사용자 정의 메시지를 전송합니다. 자세한 것은 \ref send_user_message 를 참고하십시오.
 		\param remotes 수신자 배열입니다. RMI와 마찬가지로, 클라이언트, 서버(HostID_Server), \ref p2p_group  등을 넣을 수 있습니다.
@@ -1482,7 +1482,7 @@ namespace Proud
 		*/
 		virtual bool SendUserMessage(const HostID* remotes, int remoteCount, const RmiContext &rmiContext, uint8_t* payload, int payloadLength) = 0;
 
-		/**
+		/** 
 		\~korean
 		사용자 정의 메시지를 전송합니다. 자세한 것은 \ref send_user_message 를 참고하십시오.
 		\param remote 수신자
@@ -1557,14 +1557,14 @@ namespace Proud
 #endif
 
 		/**
-		\~korean
+		\~korean 
 		너무 오랫동안 서버와 통신하지 못하면 연결을 해제하기 위한 타임 아웃 임계값(밀리초단위)를 지정한다.
 		- CNetClient.Connect 호출 전에만 사용할 수 있다. 그 이후부터 호출할 경우 무시된다.
 		- 무한으로 잡는 것은 추천하지 않는다. 비정상 연결 해제시 무한히 남는 연결로 자리잡기 때문이다. 그러느니 차라리 1시간을 거는 것이 낫다.
 		- OnJoinServerComplete가 뜬 이후에는 Server에서 셋팅한값이 대신 저장된다.
 		- 클라이언트에서 이값을 따로 지정할수 있게 한 이유는 서버에서 셋팅한 값이 오기전에 클라이언트에서 자체적으로 default값인 10초가 되면 끊어버리기때문이다.
-		- 기본값은 ProudNetConfig.DefaultNoPingTimeoutTime이다.
-		- 참고: \ref debug_pause_problem
+		- 기본값은 ProudNetConfig.DefaultNoPingTimeoutTime이다. 
+		- 참고: \ref debug_pause_problem 
 
 		\~english TODO:translate needed.
 
@@ -1576,7 +1576,7 @@ namespace Proud
 		- 在client可以另设置此值的理由是，等到服务器设置的值之前在client本身等到default值10秒的话会断开。
 		- 默认值是 ProudNetConfig.DefaultNoPingTimeoutTime%。
 		- 参考：\ref debug_pause_problem。
-
+		
 		\~japanese
 		\~
 		*/
@@ -1595,10 +1595,10 @@ namespace Proud
 #ifdef TEST_DISCONNECT_CLEANUP
 		virtual bool IsAllCleanup() = 0;
 #endif
-		/**
+		/** 
 		\~korean
 		사용자가 지정한 다른 P2P peer와의 통신을 강제로 relay로 되게 할지를 지정하는 함수입니다.
-
+		
 		이 기능이 요긴하게 쓰이는 경우는 다음과 같습니다.
 		- 클라이언트측의 P2P 통신량이 과다해서, 몇몇 P2P peer와의 통신은 relay로 전환하고자 할 경우
 		\param remotePeerID Relay 전환시킬 Peer 의 HostID값입니다.
@@ -1616,7 +1616,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		virtual ErrorType ForceP2PRelay(HostID remotePeerID, bool enable) = 0;
+		virtual ErrorType ForceP2PRelay(HostID remotePeerID, bool enable) = 0; 
 
 		/**
 		\~korean
@@ -1634,7 +1634,7 @@ namespace Proud
 		\param outputPercent  数据包的Loss率将以%单位填充，（即0~100）
 
 		\~japanese
-		\~
+		\~ 
 		*/
 		virtual ErrorType GetUnreliableMessagingLossRatioPercent(HostID remotePeerID, int *outputPercent) = 0;
 	};

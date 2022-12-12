@@ -4,7 +4,7 @@
 
 namespace Proud
 {
-	/** \~korean 상황 통계 정보입니다.
+	/** \~korean 상황 통계 정보입니다. 
 	\~english Status information.
 	\~chinese 状态统计信息。
 	\~japanese 状況の統計情報です。
@@ -46,7 +46,7 @@ namespace Proud
 		\~
 		*/
 		uint64_t m_totalTcpSendBytes;
-
+		
 		/**
 		\~korean
 		총 수신된 UDP 메시지의 갯수. RMI 뿐만 아니라 ProudNet 내부의 모든 패킷의 헤더까지 포함한다.
@@ -186,7 +186,7 @@ namespace Proud
 		\~
 		*/
 		__declspec(property(get = GetTotalSendBytes)) uint64_t m_totalSendBytes;
-
+		
 #endif
 
 		CNetCoreStats();

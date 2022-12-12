@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,12 +34,12 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once
+#pragma once 
 
 #include "HlaDef.h"
-#include "FastMap.h"
+#include "FastMap.h" 
 
-namespace Proud
+namespace Proud 
 {
 	class CHlaSessionHostImpl_C;
 	class CMessage;
@@ -71,7 +71,7 @@ namespace Proud
 	public:
 		CHlaSessionHostImpl_C* m_ownerHost;
 
-		CHlaEntityManagerBase_C()
+		CHlaEntityManagerBase_C() 
 		{
 			m_ownerHost = NULL;
 		}

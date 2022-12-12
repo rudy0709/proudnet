@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -39,4 +39,4 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #include "ProudNetCommon.h"
 #include "ConnectParam.h"
 #include "INetClientEvent.h"
-#include "NetClientInterface.h"
+#include "NetClientInterface.h" 

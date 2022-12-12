@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -48,8 +48,8 @@ namespace Proud
 
 	 \~english
 	 It is used for input & output of binary data at ODBC API.
-	 If the size of binary data is too big, this class will be used to omit unnecessary copy process in the process of data input & output.
-	 A user must possess binary data and this class refers to the data.
+	 If the size of binary data is too big, this class will be used to omit unnecessary copy process in the process of data input & output. 
+	 A user must possess binary data and this class refers to the data. 
 
 	 \~chinese
 	 在ODBC API输出入二进制数据时使用。
@@ -83,9 +83,9 @@ namespace Proud
 		 \param maxLength 이진 데이터가 저장되는 최대 크기
 
 		 \~english
-		 Constructor function. Please input the size & address of binary data that a user has.
+		 Constructor function. Please input the size & address of binary data that a user has. 
 		 \param pData Address of binary data.
-		 \param dataLength Current valid size of binary data.
+		 \param dataLength Current valid size of binary data. 
 		 \param maxLength Maximum size of binary data saving.
 
 		 \~chinese
@@ -109,7 +109,7 @@ namespace Proud
 		 설정된 데이터의 주소를 가져 옵니다.
 
 		 \~english
-		 Get the data address that has been set.
+		 Get the data address that has been set. 
 
 		 \~chinese
 		 获取已设定的数据地址。
@@ -126,7 +126,7 @@ namespace Proud
 		 설정된 데이터의 크기를 가져 옵니다.
 
 		 \~english
-		 Get the data size that has been set.
+		 Get the data size that has been set. 
 
 		 \~chinese
 		 获取已设定的数据大小。
@@ -145,7 +145,7 @@ namespace Proud
 
 		 \~english
 		 Readjust the size of data.
-		 If the length of data buffer changes when modifying data buffer that has been set by a constructor, you will be required to change the size by calling this function.
+		 If the length of data buffer changes when modifying data buffer that has been set by a constructor, you will be required to change the size by calling this function. 
 
 		 \~chinese
 		 重新调整数据大小。
@@ -164,7 +164,7 @@ namespace Proud
 		 설정된 데이터의 최대 크기를 얻습니다.
 
 		 \~english
-		 Obtain the maximum size of data.
+		 Obtain the maximum size of data. 
 
 		 \~chinese
 		 获取已设定数据的最大值。

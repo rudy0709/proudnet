@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -49,7 +49,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/**
+	/** 
 	\~korean
 	덤프 서버가 요구하는 delegate
 
@@ -67,7 +67,7 @@ namespace Proud
 	public:
 		virtual ~IDumpServerDelegate() {}
 
-		/**
+		/** 
 		\~korean
 		서버 실행 파라메터를 설정하는 메서드.
 		서버가 시작되는 순간 콜백된다. 사용자는 이 메서드를 통해 서버에게 서버 실행 옵션을 설정해야 한다.
@@ -100,7 +100,7 @@ namespace Proud
 		*/
 		virtual void OnStartServer(CStartServerParameter &refParam) = 0;
 
-		/**
+		/** 
 		\~korean
 		서버가 종료해야 하는 상황(유저의 요청 등)이면 이 함수가 true를 리턴하면 된다.
 
@@ -114,8 +114,8 @@ namespace Proud
 		\~
 		 */
 		virtual bool MustStopNow() = 0;
-
-		/**
+		
+		/** 
 		\~korean
 		Critical section 객체를 리턴한다. 개발자는 이 함수를 통해 이미 서버가 사용중인 critical section이나
 		별도로 준비한 critical section 객체를 공급해야 한다.
@@ -130,8 +130,8 @@ namespace Proud
 		\~
 		 */
 		virtual CriticalSection* GetCriticalSection() = 0;
-
-		/**
+		
+		/** 
 		\~korean
 		서버 시작이 완료됐음을 알리는 이벤트
 		\param err 서버 시작이 성공했으면 NULL이, 그렇지 않으면 ErrorInfo 객체가 들어있다.
@@ -148,18 +148,18 @@ namespace Proud
 		\~
 		 */
 		virtual void OnServerStartComplete(Proud::ErrorInfo *err) = 0;
-
-		/**
+		
+		/** 
 		\~korean
 		기록할 덤프 파일의 이름을 개발자가 이 함수를 통해 공급해야 합니다. 입력 파라메터를 근거로 만들어주면 좋습니다.
 		\param clientHostID 덤프 클라이언트의 HostID.
-		\param clientAddr 클라이언트의 외부 인터넷 주소
+		\param clientAddr 클라이언트의 외부 인터넷 주소 
 		\param dumpTime 덤프가 남는 시간
 
 		\~english
 		Developer must provide the name of dump file to be recorded through this function. It is ideal if it is based on input parameter.
 		\param clientHostID HostID of dump client
-		\param clientAddr external internet address of client
+		\param clientAddr external internet address of client 
 		\param dumpTime time that dump stays
 
 		\~chinese
@@ -173,7 +173,7 @@ namespace Proud
 		*/
 		virtual String GetDumpFilePath(Proud::HostID clientHostID, const Proud::AddrPort& clientAddr, CPnTime dumpTime) = 0;
 
-		/**
+		/** 
 		\~korean
 		일정 시간마다 호출된다.
 
@@ -189,7 +189,7 @@ namespace Proud
 		virtual void OnFrameMove() {}
 	};
 
-	/**
+	/** 
 	\~korean
 	덤프 서버
 
@@ -218,7 +218,7 @@ namespace Proud
 	{
 	public:
 		virtual ~CDumpServer(void) {}
-		/**
+		/** 
 		\~korean
 		이 메서드를 실행하면 덤프 서버가 활성화된다. 이 메서드는 서버가 작동을 중지하라는 요청이 IDumpServerDelegate에
 		의해 오기 전까지 리턴하지 않는다.
@@ -234,7 +234,7 @@ namespace Proud
 		 */
 		virtual void RunMainLoop() = 0;
 
-		/**
+		/** 
 		\~korean
 		CDumpServer 객체를 생성한다.
 		\param dg IDumpServerDelegate를 상속받은 이벤트 Callback을 받을 class 포인터

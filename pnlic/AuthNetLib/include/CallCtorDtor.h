@@ -1,4 +1,4 @@
-﻿#pragma once
+﻿#pragma once 
 
 /** 생성자, 파괴자를 명시적으로 호출하는 함수들.
 Container class를 정의할 때 주로 사용된다. */
@@ -82,7 +82,7 @@ static inline void CallConstructors(T* pElements, intptr_t nElements)
 	// 			iElement--;
 	// 			pElements[iElement].~T();
 	// 		}
-	//
+	// 
 	// 		throw;
 	// 	}
 }

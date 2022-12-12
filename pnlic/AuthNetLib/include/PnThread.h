@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once
+#pragma once 
 #include "BasicTypes.h"
 #include "Ptr.h"
 #include "Event.h"
@@ -52,7 +52,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 #pragma managed(push, off)
 #endif
 
-namespace Proud
+namespace Proud 
 {
 	class ThreadProcContext;
 
@@ -60,7 +60,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/**
+	/** 
 	\~korean
 	단순 스레드 Wrapper 클래스입니다.
 	- 이 인스턴스를 생성한 후 Start를 호출하면 스레드가 생성됩니다. 그리고 이 인스턴스가 파괴되면 생성되었던 스레드가 종료할 때까지 블러킹됩니다.
@@ -74,11 +74,11 @@ namespace Proud
 	\~english
 	Simple thread wrapper class
 	- After creating this instance, a thread will be created by calling Start. And if this instance is destructed then it will be blocked until created thread is terminated.
-	- This class has the same operating process as System.Threading.Thread class of .NET framework.
+	- This class has the same operating process as System.Threading.Thread class of .NET framework. 
 
 	General usage
 	- Creates a thread object and designates thread function as a parameter. The thread function is designated by constructor.
-	- Creating a thread object does not mean immediate thread execution. Start must be run.
+	- Creating a thread object does not mean immediate thread execution. Start must be run. 
 	- Either when calls Join or destructing the thread object, this waits until the running thread ends.
 
 	\~chinese
@@ -113,7 +113,7 @@ namespace Proud
 	volatile bool stopThread = false;
 	ThreadPtr th = ThreadPtr(new Thread([&]()
 	{
-		// note that thread function is defined exactly here
+		// note that thread function is defined exactly here 
 		// and even the variables out of the scope are
 		// used here, thankfully by lambda capture above.
 		while (!stopThread)
@@ -151,7 +151,7 @@ namespace Proud
 	public:
 		static bool m_dllProcessDetached_INTERNAL;
 
-		/**
+		/** 
 		\~korean
 		생성자
 		\param threadProc 이 인스턴스가 쥐고 있을 스레드의 메인 함수
@@ -181,7 +181,7 @@ namespace Proud
 		PROUD_API Thread(ThreadProc threadProc, void *ctx, bool neededJoin = true);
 
 	public:
-		/**
+		/** 
 		\~korean
 		파괴자
 		- 스레드가 미실행중이면 즉시 리턴하나, 스레드가 이미 실행중이면 스레드가 종료할 때까지 기다린다.
@@ -200,7 +200,7 @@ namespace Proud
 		*/
 		PROUD_API ~Thread();
 
-		/**
+		/** 
 		\~korean
 		스레드를 생성한다.
 		- 이미 생성한 상태면 예외가 발생한다.
@@ -219,7 +219,7 @@ namespace Proud
 		*/
 		PROUD_API void Start();
 
-		/**
+		/** 
 		\~korean
 		스레드가 종료할 때까지 기다린다.
 
@@ -235,7 +235,7 @@ namespace Proud
 		*/
 		PROUD_API void Join();
 
-		/**
+		/** 
 		\~korean
 		스레드 핸들
 
@@ -252,7 +252,7 @@ namespace Proud
 #if defined(_WIN32)
 		__declspec(property(get = GetHandle)) HANDLE Handle;
 #endif
-		/**
+		/** 
 		\~korean
 		스레드 핸들을 얻는다.
 
@@ -278,12 +278,12 @@ namespace Proud
 		}
 #endif
 
-		/**
+		/** 
 		\~korean
 		스레드 아이디
 
 		\~english
-		Thread ID
+		Thread ID 
 
 		\~chinese
 		获得线程ID。
@@ -296,7 +296,7 @@ namespace Proud
 		__declspec(property(get = GetID)) uint32_t ID;
 #endif
 
-		/**
+		/** 
 		\~korean
 		스레드 아이디를 얻는다
 
@@ -317,9 +317,9 @@ namespace Proud
 		}
 #endif
 
-		/**
+		/** 
 		\~korean
-		Static library로서의 ProudNet이 DLL에서 사용되는 경우
+		Static library로서의 ProudNet이 DLL에서 사용되는 경우 
 		DllMain의 Process detach case에서 이 메서드를 꼭 호출해야 한다.
 
 		\~english
@@ -368,7 +368,7 @@ namespace Proud
 #endif
 	};
 
-	/**
+	/** 
 	\~korean
 	\fn typedef RefCount<Thread> ThreadPtr;
 	Thread 객체의 smart pointer 클래스이다.

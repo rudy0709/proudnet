@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -66,19 +66,19 @@ namespace Proud
 	extern LONGLONG ToLongLong(const _variant_t &r);
 	extern ULONGLONG ToULongLong(const _variant_t &r);
 
-	/**
+	/** 
 	\~korean
 	variant.
 	_variant_t와 비슷한 역할을 하지만, UUID, int64 등의 처리 기능이 부가적으로 들어가 있다.
 	- 이 객체는 UUID를 bracket string으로 변환해서 가진다.
-	- 이 객체는 int64를 VariantChangeType()대신 자체 구현된 변환기를 가진다.
-	(VariantChangeType에서 64bit integer 지원은 Windows XP에서부터 지원하기 때문이다.)
+	- 이 객체는 int64를 VariantChangeType()대신 자체 구현된 변환기를 가진다. 
+	(VariantChangeType에서 64bit integer 지원은 Windows XP에서부터 지원하기 때문이다.) 
 
 	\~english
 	variant.
 	This module works similar to _variant_t, but additionally handles UUID, int64 and etc.
 	- This object has an UUID after converting it to braket string.
-	- This object has a custom converter of int64 instead of VariantChangeType().
+	- This object has a custom converter of int64 instead of VariantChangeType(). 
 	(Because VariantChangeType에서 64bit integer is already supported in Windows XP.)
 
 	\~chinese
@@ -96,8 +96,8 @@ namespace Proud
 	public:
 		_variant_t m_val;
 
-		// 아래 많은 constructor들은 _variant_t에서 따온 것이다. 필요한 경우
-		// 이러한 것들(constructor,operator=,extractor operator)를 만들도록 하자.
+		// 아래 많은 constructor들은 _variant_t에서 따온 것이다. 필요한 경우 
+		// 이러한 것들(constructor,operator=,extractor operator)를 만들도록 하자. 
 		inline CVariant() {}
 		inline CVariant(const _variant_t &src) { m_val=src; }
 		inline CVariant(VARENUM vartype){V_VT(&m_val) = vartype;}
@@ -124,9 +124,9 @@ namespace Proud
 		inline CVariant(const ByteArray& a){FromByteArray(a);}
 		inline CVariant(const ByteArrayPtr a){FromByteArray(a);}
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -139,9 +139,9 @@ namespace Proud
 		*/
 		inline operator char() const { ThrowIfNull(); return (long)m_val; }
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -154,9 +154,9 @@ namespace Proud
 		*/
 		inline operator short() const { ThrowIfNull(); return (long)m_val; }
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -169,9 +169,9 @@ namespace Proud
 		*/
 		inline operator int() const { ThrowIfNull(); return (long)m_val; }
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -184,9 +184,9 @@ namespace Proud
 		*/
 		inline operator long() const { ThrowIfNull(); return m_val; }
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -199,7 +199,7 @@ namespace Proud
 		*/
 		inline operator unsigned char() const { ThrowIfNull(); return m_val; }
 
-		/**
+		/** 
 		\~korean
 		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
 
@@ -214,9 +214,9 @@ namespace Proud
 		*/
 		inline operator unsigned short() const { ThrowIfNull(); return m_val; }
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -229,9 +229,9 @@ namespace Proud
 		*/
 		inline operator unsigned int() const { ThrowIfNull(); return m_val; }
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -244,9 +244,9 @@ namespace Proud
 		*/
 		inline operator unsigned long() const { ThrowIfNull(); return m_val; }
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -259,9 +259,9 @@ namespace Proud
 		*/
 		inline operator float() const { ThrowIfNull(); return m_val; }
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -276,7 +276,7 @@ namespace Proud
 
 		/**
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -289,9 +289,9 @@ namespace Proud
 		*/
 		inline operator String() const { ThrowIfNull(); return String((const TCHAR*)(_bstr_t)m_val); }
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -304,9 +304,9 @@ namespace Proud
 		*/
 		inline operator UUID() const { ThrowIfNull(); return Win32Guid::ToNative(Guid::GetFromString((_bstr_t)m_val)); }
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -319,9 +319,9 @@ namespace Proud
 		*/
 		inline operator Guid() const { ThrowIfNull(); return Guid::GetFromString((_bstr_t)m_val); }
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -332,11 +332,11 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		inline operator bool() const { ThrowIfNull(); return m_val; }
+		inline operator bool() const { ThrowIfNull(); return m_val; }	
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -347,15 +347,15 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		inline operator CPnTime() const
+		inline operator CPnTime() const 
 		{
 			ThrowIfNull();
-			return CPnTime::FromDATE(m_val);
+			return CPnTime::FromDATE(m_val);			
 		}
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -368,9 +368,9 @@ namespace Proud
 		*/
 		inline operator int64_t() const { ThrowIfNull(); return ToLongLong(m_val); } // Windows 2000 호환을 위해
 
-		/**
+		/** 
 		\~korean
-		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오.
+		리턴값 연산자입니다. 만약 이 객체가 null 값을 갖고 있으면 예외가 throw됩니다. 따라서 필요한 경우 IsNull()로 먼저 null인지 여부를 확인하십시오. 
 
 		\~english
 		This is a returned value operator, which throws an exception if it contains null values. So please confirm the value is null or not by IsNull() first.
@@ -385,9 +385,9 @@ namespace Proud
 		//inline operator ByteArray() const {return ToByteArray();}
 		inline operator ByteArrayPtr() const {return ToByteArrayPtr();}
 
-		/**
+		/** 
 		\~korean
-		값이 들어있는지 체크한다.
+		값이 들어있는지 체크한다. 
 
 		\~english
 		This method checks whether or not a value is included.
@@ -398,11 +398,11 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		inline bool IsNull() const { return m_val.vt == VT_NULL; }
+		inline bool IsNull() const { return m_val.vt == VT_NULL; } 
 
-		/**
+		/** 
 		\~koeran
-		이진 데이터 블럭 형태로 데이터를 리턴한다.
+		이진 데이터 블럭 형태로 데이터를 리턴한다. 
 
 		\~english
 		This method returns data in byte data block.
@@ -417,7 +417,7 @@ namespace Proud
 
 		/**
 		\~korean
-		이진 데이터 블럭 형태로 데이터를 리턴한다.
+		이진 데이터 블럭 형태로 데이터를 리턴한다. 
 
 		\~english
 		This method returns data in byte data block.
@@ -430,9 +430,9 @@ namespace Proud
 		*/
 		PROUD_API ByteArrayPtr ToByteArrayPtr() const;
 
-		/**
+		/** 
 		\~korean
-		이진 데이터 블럭을 입력받는다.
+		이진 데이터 블럭을 입력받는다. 
 
 		\~english
 		This method inputs data in byte data block.
@@ -445,9 +445,9 @@ namespace Proud
 		*/
 		PROUD_API void  FromByteArray(const ByteArray& input);
 
-		/**
+		/** 
 		\~korean
-		이진 데이터 블럭을 입력받는다.
+		이진 데이터 블럭을 입력받는다. 
 
 		\~english
 		This method inputs data in byte data block.

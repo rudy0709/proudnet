@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -50,8 +50,8 @@ namespace Proud
 	 what() 함수를 이용하여 상세 내용을 확인할 수 있습니다.
 
 	 \~english
-	 It is a class that deals with ODBC exception.
-	 You can check the detailed information by what() function.
+	 It is a class that deals with ODBC exception. 
+	 You can check the detailed information by what() function. 
 
 	 \~chinese
 	 处理ODBC异常的class。
@@ -102,8 +102,8 @@ namespace Proud
 	 2. Insert시 Primary Key가 중복된 데이터일 경우 발생(Primary Key Duplicate Error)
 
 	 \~english
-	 In case SqlErrorCode is SQL_SUCCESS_WITH_INFO, Warning Exception will occur.
-	 It does not matter if you ignore this exception, but it contains important information, so you should take extra caution.
+	 In case SqlErrorCode is SQL_SUCCESS_WITH_INFO, Warning Exception will occur. 
+	 It does not matter if you ignore this exception, but it contains important information, so you should take extra caution. 
 	 ex> Example of Warning Occurrence
 	 1. In case of MSSQL, when the database (schema) is changed, warning will occur.
 	 2. In case primary keys are duplicated when inserting, warning will occur. (Primary Key Duplicate Error)

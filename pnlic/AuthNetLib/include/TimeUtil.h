@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -55,7 +55,7 @@ namespace Proud
 #endif
 
 
-	struct TimerEventHandle { intptr_t m_internal; };
+	struct TimerEventHandle { intptr_t m_internal; }; 
 
 
 	/**  @} */

@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -47,10 +47,10 @@ namespace Proud
 	*  @{
 	*/
 
-	/**
+	/** 
 	\~korean
 	두 값 v1,v2의 v1->v2로의 내분값 ratio을 구한다.
-	ratio가 0에 가까울수록 v1에 가깝다.
+	ratio가 0에 가까울수록 v1에 가깝다. 
 
 	\~english
 	Get a ratio of interior division of v1 and v2 by v1 -> v2.
@@ -69,10 +69,10 @@ namespace Proud
 		return v1 + (v2 - v1) * ratio;
 	}
 
-	/**
+	/** 
 	\~korean
 	Vector 3D 클래스
-	- Vector3T 등이 있음에도 불구하고 별도 구현된 이유는, 플랫폼 비 종속을 위함이다.
+	- Vector3T 등이 있음에도 불구하고 별도 구현된 이유는, 플랫폼 비 종속을 위함이다. 
 	- 보다 높은 정확도를 위해(예: 우주공간 배경의 온라인 게임) FloatType을 쓰고 있다. 보다 낮은 용량을 필요로 하는 경우 Vector3T 대신
 	다른 객체 타입을 쓰는 것을 권장한다.
 	- 사칙 연산 연산자를 지원한다. 따라서 아래와 같은 코딩이 가능하다.
@@ -197,13 +197,13 @@ namespace Proud
 
 		// unary operators
 		inline Vector3T operator + () const
-		{
+		{			
 			return *this;
 		}
 
 		inline Vector3T operator - () const
 		{
-			return Vector3T(-x,-y,-z);
+			return Vector3T(-x,-y,-z);			
 		}
 
 		// binary operators
@@ -256,15 +256,15 @@ namespace Proud
 			return x != rhs.x || y != rhs.y || z != rhs.z;
 		}
 
-#if defined(_WIN32)
+#if defined(_WIN32)        
 		__declspec(property(get = GetLengthSq)) FloatType LengthSq;
 		__declspec(property(get = GetLength)) FloatType Length;
 #endif
 
-		/**
-		\~korean
-		Normal Vector를 구합니다.
-
+		/** 
+		\~korean 
+		Normal Vector를 구합니다.		
+		
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -279,10 +279,10 @@ namespace Proud
 			return (length==0) ? Vector3T(0,0,0) : (*this) / length;
 		}
 
-		/**
-		\~korean
-		길이의 제곱을 구합니다.
-
+		/** 
+		\~korean 
+		길이의 제곱을 구합니다.		
+		
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -296,10 +296,10 @@ namespace Proud
 			return x*x + y*y + z*z;
 		}
 
-		/**
-		\~korean
-		vector의 길이
-
+		/** 
+		\~korean 
+		vector의 길이		
+		
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -313,9 +313,9 @@ namespace Proud
 			return sqrt(x*x + y*y + z*z);
 		}
 
-		/**
-		\~korean
-		두 vector를 보간합니다.
+		/** 
+		\~korean 
+		두 vector를 보간합니다.  
 		- a + (b - a) * ratio
 
 		\~english TODO:translate needed.
@@ -333,14 +333,14 @@ namespace Proud
 			ret.x=ScalarLerp(a.x,b.x,ratio);
 			ret.y=ScalarLerp(a.y,b.y,ratio);
 			ret.z=ScalarLerp(a.z,b.z,ratio);
-
+			
 			return ret;
 		}
 
-		/**
-		\~korean
-		두 vector의 내적을 구합니다
-
+		/** 
+		\~korean 
+		두 vector의 내적을 구합니다 
+		
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -366,20 +366,20 @@ namespace Proud
 			return d.GetLengthSq();
 		}
 
-		/**
-		\~korean
+		/** 
+		\~korean 
 		벡터의 방향을 유지한 채 길이를 조정합니다.
 
-		\~english
+		\~english 
 		Sets the length of the vector to a specified length without changing the orientation.
 
-		\~chinese
+		\~chinese 
 		不改变方向的情况下，设置为指定的长度的向量长度。
 
 		\~japanese
 		\~
 		*/
-		inline void SetLength( FloatType length )
+		inline void SetLength( FloatType length ) 
 		{
 			Vector3T n = GetNormal();
 			n*=length;

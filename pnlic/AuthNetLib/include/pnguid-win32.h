@@ -1,8 +1,8 @@
-﻿#pragma once
+﻿#pragma once 
 
 #include "pnguid.h"
 
-#if defined(_WIN32)
+#if defined(_WIN32) 
 
 // 주의: UE4 project에서는 include하지 말 것! 빌드 오류난다.
 #pragma comment(lib,"rpcrt4.lib")

@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,28 +34,28 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once
+#pragma once 
 
 #include "./Exception.h"
 
 //#pragma pack(push,8)
 
-namespace Proud
+namespace Proud 
 {
 #if (_MSC_VER>=1400)
 #pragma managed(push, off)
 #endif
-
+	
 	extern const char* ConsistencyProblemText;
-
+	
 	/** \addtogroup util_group
 	*  @{
 	*/
 
-	/**
+	/** 
 	\~korean
 	double linked list 를 구성하는 node이다.
-	- CListOwner 에 붙는 경우에만 연결 관계를 구성할 수 있다.
+	- CListOwner 에 붙는 경우에만 연결 관계를 구성할 수 있다. 
 
 	\~english
 	node that consist double linked list
@@ -71,7 +71,7 @@ namespace Proud
 	template<typename T>
 	class CListNode
 	{
-	public:
+	public:	
 		class CListOwner
 		{
 			T* m_first;
@@ -169,7 +169,7 @@ namespace Proud
 			노드가 비었는지 확인한다. \return 비었으면 true, 비어있지 않으면 false 리턴
 
 			\~english TODO:translate needed.
-
+			
 			\~chinese
 			确认节点是否空。
 			\return 空的话true，不是空的话返回false。
@@ -381,7 +381,7 @@ namespace Proud
 		\~japanese
 		\~
 		*/
-		inline CListOwner* GetListOwner() const
+		inline CListOwner* GetListOwner() const 
 		{
 			return m_listOwner;
 		}

@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -57,7 +57,7 @@ namespace Proud
 			m_rand.InitializeSeed();
 		}
 
-		/**
+		/** 
 		\~korean
 		0~1 사이 난수 부동소수점 값을 생성합니다.
 
@@ -72,7 +72,7 @@ namespace Proud
 		*/
 		PROUD_API double NextDouble();
 
-		/**
+		/** 
 		\~korean
 		난수값을 생성합니다.
 		생성된 난수값은 0부터 maxVal까지 중 하나입니다.
@@ -90,7 +90,7 @@ namespace Proud
 		*/
 		PROUD_API int Next(int maxVal);
 
-		/**
+		/** 
 		\~korean
 		GUID 난수값을 생성합니다.
 

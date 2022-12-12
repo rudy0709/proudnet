@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once
+#pragma once 
 
 #include "Marshaler.h"
 
@@ -46,7 +46,7 @@ namespace Proud
 #pragma managed(push, off)
 #endif
 
-	/**
+	/** 
 	\~korean
 	DB cache server에서 유저가 정의한 Table 에 실제로 기록할 사건의 종류
 
@@ -63,11 +63,11 @@ namespace Proud
 	{
 		/**
 		\~korean
-		없음
-
+		없음 
+		
 		\~english
-		None
-
+		None 
+		
 		\~chinese
 		无
 
@@ -78,10 +78,10 @@ namespace Proud
 
 		/**
 		\~korean
-		\ref PropNode  추가
+		\ref PropNode  추가 
 
 		\~english
-		Add \ref PropNode
+		Add \ref PropNode 
 
 		\~chinese
 		添加\ref PropNode%。
@@ -91,13 +91,13 @@ namespace Proud
 		*/
 		DWPNPT_AddPropNode,
 
-		/**
+		/** 
 		\~korean
-		\ref PropNode  삭제
+		\ref PropNode  삭제 
 
 		\~english
-		Delete \ref PropNode
-
+		Delete \ref PropNode 
+		
 		\~chinese
 		删除\ref PropNode%。
 
@@ -108,8 +108,8 @@ namespace Proud
 
 		/**
 		\~korean
-		Request 에 대한 \ref PropNode 업데이트
-
+		Request 에 대한 \ref PropNode 업데이트 
+		
 		\~english TODO:Translate needed.
 		Update \ref PropNode.
 
@@ -133,13 +133,13 @@ namespace Proud
 		*/
 		DWPNPT_ModifyValue,
 
-		/**
-		\~korean
-		Request 에 대한 \ref PropNode 업데이트
-
+		/** 
+		\~korean 
+		Request 에 대한 \ref PropNode 업데이트 
+		
 		\~english TODO:Translate needed.
 		Update \ref PropNod.
-
+		
 		\~chinese TODO:Translate needed.
 		升级\ref PropNode%。
 
@@ -148,13 +148,13 @@ namespace Proud
 		*/
 		DWPNPT_RequestUpdatePropNodeList,
 
-		/**
+		/** 
 		\~korean
-		\ref PropNode   이동
+		\ref PropNode   이동 
 
-		\~english
-		Update \ref PropNod
-
+		\~english 
+		Update \ref PropNod 
+		
 		\~chinese
 		\ref PropNode%移动。
 		\~japanese

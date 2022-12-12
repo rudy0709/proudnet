@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -67,9 +67,9 @@ namespace Proud
 	class CReportStatus
 	{
 	public:
-		/**
+		/** 
 		\~korean
-		이값에 따라서 PNLicenseAgentConsole 에서 글자색이 달라집니다.
+		이값에 따라서 PNLicenseAgentConsole 에서 글자색이 달라집니다. 
 
 		\~english TODO:translate needed.
 
@@ -81,7 +81,7 @@ namespace Proud
 		*/
 		enum StatusType { StatusType_OK, StatusType_Warning, StatusType_Error };
 
-		/**
+		/** 
 		\~korean
 		AgentConsole 로 보낼 정보의 타입
 
@@ -95,7 +95,7 @@ namespace Proud
 		*/
 		StatusType m_statusType;
 
-		/**
+		/** 
 		\~korean
 		정보의 내용. 이 String이 비면  Data를 보내지 않습니다..
 
@@ -108,9 +108,9 @@ namespace Proud
 		\~
 		*/
 		String m_statusText;
-
+		
 		typedef CFastMap<String, String> KeyValueList;
-
+		
 		/**
 		\~korean
 		추가적으로 필요한 Data들의 정보 List
@@ -145,7 +145,7 @@ namespace Proud
 	class IAgentConnectorDelegate
 	{
 	public:
-		/**
+		/** 
 		\~korean
 		Agnet connect의 인증이 성공된 경우 callback됩니다.
 
@@ -159,7 +159,7 @@ namespace Proud
 		*/
 		virtual void OnAuthentication(ErrorInfo* errorinfo) = 0;
 
-		/**
+		/** 
 		\~korean
 		Server app을 종료시키라는 명령이 온경우 callback됩니다.
 
@@ -187,7 +187,7 @@ namespace Proud
 		*/
 		virtual void OnReportStatsCommand() = 0;
 
-		/**
+		/** 
 		\~korean
 		Agent를 사용자가 잘못된 방법으로 사용하였을 시에 호출됩니다.
 
@@ -221,7 +221,7 @@ namespace Proud
 
 		PROUD_API static CAgentConnector* Create(IAgentConnectorDelegate* dg);
 
-		/**
+		/** 
 		\~korean
 		Start 후 객체를 삭제하기 전까지 Agent와 계속 연결을 유지합니다.
 		- ServerAgent에 의하여 실행 된 것이 아닌 경우 Start되지 않습니다.
@@ -240,7 +240,7 @@ namespace Proud
 		/**
 		\~korean
 		일정 시간 혹은 IAgentConnectorDelegate::OnReportStatsCommand 가 왔을때 이 함수를 이용하여 CReportStatus 를 Agent로 보낼수 있습니다.
-		\return ServerAgent에 의하여 실행되지 않아 Start 되지 않았거나 reportStatus의 Data가 잘못되었을 시에 false
+		\return ServerAgent에 의하여 실행되지 않아 Start 되지 않았거나 reportStatus의 Data가 잘못되었을 시에 false 
 
 		\~english TODO:translate needed.
 
@@ -253,9 +253,9 @@ namespace Proud
 		*/
 		virtual bool SendReportStatus(CReportStatus& reportStatus) = 0;
 
-		/**
+		/** 
 		\~korean
-		Agent로 Log를 보내는 기능
+		Agent로 Log를 보내는 기능 
 		- 상세한 데이터가 아닌 간단한 로그를 보내고자 할 때 SendReportStatus를 사용하지 않고 EventLog를 통하여 간편이 이용하실 수 있습니다.
 		\return text가 비었거나 ServerAgent가 Start되지 못하였을 때 false
 
@@ -287,15 +287,15 @@ namespace Proud
 
 		/**
 		\~korean
-		FrameMove 내의 실시간 상태 정보 전송에 대한 Delay Time을 정합니다.
-		- 1/1000초 단위입니다.
+		FrameMove 내의 실시간 상태 정보 전송에 대한 Delay Time을 정합니다. 
+		- 1/1000초 단위입니다. 
 		- default 는 1000입니다.
 
 		\~english TODO:translate needed.
 
 		\~chinese
 		决定对FrameMove内的实时状态信息传送的Delay Time。
-		- 是1/1000秒单位。
+		- 是1/1000秒单位。 
 		- default是1000。
 
 

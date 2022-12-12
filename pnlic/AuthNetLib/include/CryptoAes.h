@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -244,13 +244,13 @@ namespace Proud
 		\~
 		*/
 		PROUD_API static bool Encrypt(
-			const CCryptoAesKey &key,
-			const uint8_t* const input,
-			int inputLength,
-			uint8_t *output,
-			int &outputLength,
-			uint8_t * initializationVector = NULL,
-			int initializationVectorLength = 0,
+			const CCryptoAesKey &key, 
+			const uint8_t* const input, 
+			int inputLength, 
+			uint8_t *output, 
+			int &outputLength, 
+			uint8_t * initializationVector = NULL, 
+			int initializationVectorLength = 0, 
 			EncryptMode encryptMode = ECB
 			);
 
@@ -292,12 +292,12 @@ namespace Proud
 		\~
 		*/
 		PROUD_API static bool Decrypt(
-			const CCryptoAesKey &key,
-			const uint8_t* const input,
-			int inputLength,
-			uint8_t *output,
-			int &outputLength,
-			uint8_t * initializationVector = NULL,
+			const CCryptoAesKey &key, 
+			const uint8_t* const input, 
+			int inputLength, 
+			uint8_t *output, 
+			int &outputLength, 
+			uint8_t * initializationVector = NULL, 
 			int initializationVectorLength = 0,
 			EncryptMode encryptMode = ECB
 			);
@@ -334,11 +334,11 @@ namespace Proud
 		\~
 		*/
 		PROUD_API static bool EncryptByteArray(
-			const CCryptoAesKey &key,
-			const ByteArray &input,
-			ByteArray &output,
-			uint8_t * initializationVector = NULL,
-			int initializationVectorLength = 0,
+			const CCryptoAesKey &key, 
+			const ByteArray &input, 
+			ByteArray &output, 
+			uint8_t * initializationVector = NULL, 
+			int initializationVectorLength = 0, 
 			EncryptMode encryptMode = ECB
 			);
 
@@ -375,9 +375,9 @@ namespace Proud
 		*/
 		PROUD_API static bool DecryptByteArray(
 			const CCryptoAesKey &key,
-			const ByteArray &input, ByteArray &output,
-			uint8_t * initializationVector = NULL,
-			int initializationVectorLength = 0,
+			const ByteArray &input, ByteArray &output, 
+			uint8_t * initializationVector = NULL, 
+			int initializationVectorLength = 0, 
 			EncryptMode encryptMode = ECB
 			);
 
@@ -416,12 +416,12 @@ namespace Proud
 		\~
 		*/
 		PROUD_API static bool EncryptMessage(
-			const CCryptoAesKey &key,
-			const CMessage &input,
-			CMessage &output,
-			int offset,
-			uint8_t * initializationVector = NULL,
-			int initializationVectorLength = 0,
+			const CCryptoAesKey &key, 
+			const CMessage &input, 
+			CMessage &output, 
+			int offset, 
+			uint8_t * initializationVector = NULL, 
+			int initializationVectorLength = 0, 
 			EncryptMode encryptMode = ECB
 			);
 
@@ -460,12 +460,12 @@ namespace Proud
 		\~
 		*/
 		PROUD_API static bool DecryptMessage(
-			const CCryptoAesKey &key,
-			const CMessage &input,
-			CMessage &output,
-			int offset,
-			uint8_t * initializationVector = NULL,
-			int initializationVectorLength = 0,
+			const CCryptoAesKey &key, 
+			const CMessage &input, 
+			CMessage &output, 
+			int offset, 
+			uint8_t * initializationVector = NULL, 
+			int initializationVectorLength = 0, 
 			EncryptMode encryptMode = ECB
 			);
 

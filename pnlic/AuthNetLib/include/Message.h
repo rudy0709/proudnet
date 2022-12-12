@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -68,7 +68,7 @@ namespace Proud
 
 	struct AddrPort;
 	struct RelayDest;
-
+	
 	// non-vc++ 호환 위해, 전방 선언을 했음. 구현은 이 함수 저 아래에.
 	template<typename T>
 	inline bool CMessage_RawRead(CMessage &a, T &b);
@@ -79,7 +79,7 @@ namespace Proud
 // 		buffer->AddRange((BYTE*)&value, sizeof(T));
 // 	}
 
-	/**
+	/** 
 	\~korean
 	메시지 클래스. 자세한 내용은 \ref message_class 를 참고.
 
@@ -94,7 +94,7 @@ namespace Proud
 	class CMessage
 	{
 		int m_readBitOffset;
-		int m_bitLengthInOneByte;
+		int m_bitLengthInOneByte; 
 
 		// 이 값이 true이면 read/write scalar가 비활성되어 무조건 int64로 기재되는 등,
 		// 패킷 구조는 사용자가 알 수 있도록 단순화되되 필요한 효율적인 기능들이 사라진다.
@@ -110,7 +110,7 @@ namespace Proud
 			int length;
 			if (a.ReadScalar(length) == false)
 				return false;
-
+			
 			// count가 해킹되어 말도 안되는 값이면 실패 처리하기
 			// 물론 모든 경우를 잡지는 못하지만 (sizeof elem 무용지물) 그래도 최소 1바이트는 쓸테니.
 			if (length<0 || length > a.GetLength() - a.GetReadOffset())
@@ -122,7 +122,7 @@ namespace Proud
 			{
 				return a.Read((uint8_t*)b.GetData(), sizeof(T) * length);
 			}
-			else
+			else 
 			{
 				for (int i = 0; i < length; i++)
 				{
@@ -158,11 +158,11 @@ namespace Proud
 		{
 			return m_msgBuffer.Equals(rhs.m_msgBuffer);
 		}
-		/**
+		/** 
 		\~korean
 		메시지로부터 데이터를 읽는다.
 		\param data 읽은 데이터가 저장될 곳
-		\param count data의 바이트 단위 크기
+		\param count data의 바이트 단위 크기 
 		\return count만큼 성공적으로 읽었으면 true.
 
 		\~english TODO:translate needed.
@@ -170,7 +170,7 @@ namespace Proud
 		\~chinese
 		从信息读取数据。
 		\param data 所读取的数据储存的位置。
-		\param count data的byte单位大小。
+		\param count data的byte单位大小。 
 		\return 读到最后的话true。
 
 		\~japanese
@@ -178,9 +178,9 @@ namespace Proud
 		*/
 		PROUD_API bool Read( uint8_t* data, int count );
 
-		PROUD_API bool CanRead( int count );
-
-		/**
+		PROUD_API bool CanRead( int count );		
+		
+		/** 
 		\~korean
 		메시지에 데이터를 기록한다.
 
@@ -207,7 +207,7 @@ namespace Proud
 		PROUD_API void CopyFromArrayAndResetReadOffset(const uint8_t* src, int srcLength);
 		//PROUD_API void ResetWritePointer();
 
-		/**
+		/** 
 		\~korean
 		읽기 지점을 강제 조정한다. 바이트 단위이다.
 
@@ -224,7 +224,7 @@ namespace Proud
 		// 사용자는 이 함수를 호출하지 말 것
 		PROUD_API void SetSimplePacketMode(bool isSimplePacketMode);
 
-		/**
+		/** 
 		\~korean
 		메시지의 현재 크기를 설정한다.
 
@@ -284,10 +284,10 @@ namespace Proud
 		}
 
 	public:
-		/**
+		/** 
 		\~korean
 		이 객체의 메모리 버퍼를 output이 length 크기만큼 읽어가는 양상으로 만들되,
-		output은 외부로서 이 객체의 버퍼를 참조하도록 만든다.
+		output은 외부로서 이 객체의 버퍼를 참조하도록 만든다. 
 		성능을 위해 사용되는 함수다.
 
 		\~english TODO:translate needed.
@@ -301,7 +301,7 @@ namespace Proud
 		*/
 		PROUD_API bool ReadWithShareBuffer(CMessage& output, int length);
 
-		/**
+		/** 
 		\~korean
 		메시지 객체에 데이터를 추가 기록한다.
 		bool 타입 뿐만 아니라 다양한 타입을 지원한다.
@@ -337,7 +337,7 @@ namespace Proud
 			Write((const uint8_t*)&b, sizeof(b));
 		}
 		/* Q: 왜 long type에 대해서는 Write & Read가 없나요?
-		A: long, unsigned long은 몇몇 컴파일러에서 크기가 서로 다릅니다.
+		A: long, unsigned long은 몇몇 컴파일러에서 크기가 서로 다릅니다. 
 		VC++ x64에서는 32bit이지만, 다른 컴파일러 중 하나는 x64에서 64bit로 처리됩니다.
 		이러면 네트워크로 주고받는 데이터 타입으로 부적절입니다.
 		대신 int64_t, uint64_t를 쓰시기 바랍니다. 아니면 (unsigned)int or (u)int32_t를 쓰시던지.
@@ -408,7 +408,7 @@ public:
 		PROUD_API bool Read(RmiID &b);
 		PROUD_API void Write(const AddrPort &b);
 		PROUD_API bool Read(AddrPort &b);
-
+		
 		bool Read(ByteArray &b)
 		{
 			return ReadArrayT<uint8_t, true, ByteArray>(*this,b);
@@ -433,7 +433,7 @@ public:
 		bool Read(CNetSettings &b);
 		void Write(const CNetSettings &b);
 
-		/**
+		/** 
 		\~korean
 		scalar compression 기법으로 값을 읽는다.
 
@@ -447,9 +447,9 @@ public:
 		\~
 		 */
 		PROUD_API bool ReadScalar(int64_t &a);
-		/**
+		/** 
 		\~korean
-		scalar compression 기법으로 값을 기록한다.
+		scalar compression 기법으로 값을 기록한다. 
 
 		\~english
 		Writes with scalar compression technique
@@ -471,7 +471,7 @@ public:
 		{
 			WriteScalar((int64_t)a);
 		}
-
+		
 		inline bool ReadScalar(int &a)
 		{
 			int64_t ba;
@@ -534,15 +534,15 @@ public:
 		//PROUD_API bool ReadFrameNumberArray(CFastArrayPtr<int,true> &b);
 		//PROUD_API void WriteFrameNumberArray(const int* arr, int count);
 
-		/**
+		/** 
 		\~korean
 		메시지 객체에 데이터를 추가 기록한다.
-		bool 타입 뿐만 아니라 다양한 타입을 지원한다.
-		\return 완전히 읽는데 성공하면 true
+		bool 타입 뿐만 아니라 다양한 타입을 지원한다. 
+		\return 완전히 읽는데 성공하면 true 
 
 		\~english
 		Additionally writes data to message object
-		Suuports various types including bool type
+		Suuports various types including bool type 
 		\return True if successful in thorough reading
 
 		\~chinese
@@ -624,9 +624,9 @@ public:
 // 		PROUD_API void WriteMessageContent(const CMessage &msg);
 // 		PROUD_API bool ReadMessageContent(CMessage &msg);
 
-		/**
+		/** 
 		\~korean
-		메시지의 길이를 얻는다.
+		메시지의 길이를 얻는다. 
 
 		\~english
 		Gets the length of message
@@ -642,12 +642,12 @@ public:
 			return (int)m_msgBuffer.GetCount();
 		}
 
-		/**
+		/** 
 		\~korean
 		메시지의 현재 읽기 지점을 구한다. 리턴값은 바이트 단위다.
 
 		\~english
-		Calculates current read point of message. The return value is in byte.
+		Calculates current read point of message. The return value is in byte. 
 
 		\~chinese
 		求信息的现在读取地点。返回值是byte单位。
@@ -707,7 +707,7 @@ public:
 
 		PROUD_API void ShareFromAndResetReadOffset(ByteArrayPtr data);
 
-		/**
+		/** 
 		\~korean
 		외부 버퍼를 사용하도록 선언한다.
 		\param buf 외부 버퍼 포인터
@@ -727,8 +727,8 @@ public:
 		\~
 		 */
 		PROUD_API void UseExternalBuffer(uint8_t* buf, int capacity);
-
-		/**
+		
+		/** 
 		\~korean
 		내부 버퍼를 사용하도록 선언한다.
 
@@ -743,11 +743,11 @@ public:
 		 */
 		PROUD_API void UseInternalBuffer();
 
-		/**
+		/** 
 		\~korean
 		사용하던 버퍼를 완전히 리셋하고, 새로 외부 또는 내부 버퍼를 사용하도록 선언한다.
 		- UseExternalBuffer, UseInternalBuffer를 재사용하려면 반드시 이것을 호출해야 한다.
-		이러한 메서드가 따로 있는 이유는 사용자가 실수하는 것을 방지하기 위해서다.
+		이러한 메서드가 따로 있는 이유는 사용자가 실수하는 것을 방지하기 위해서다. 
 		- 이 메서드 호출 후에는 read offset과 메시지 크기가 초기화된다.
 
 		\~english
@@ -840,7 +840,7 @@ public:
 		\~
 		*/
 		PROUD_API void WriteString(const Proud::StringW &str);
-
+		
 		/**
 		\~korean
 		문자열 넣기
@@ -873,7 +873,7 @@ public:
 		\~
 		*/
 		PROUD_API void WriteString(const std::wstring &str)
-		{
+		{	
 			WriteString(str.c_str());
 		}
 
@@ -906,7 +906,7 @@ public:
 		\~
 		*/
 		PROUD_API bool ReadString(Proud::StringW &str);
-
+		
 		/**
 		\~korean
 		문자열 꺼내기
@@ -936,7 +936,7 @@ public:
 		문자열 꺼내기
 
 		\~english
-		Read string
+		Read string 
 
 		\~chinese
 		导出字符串。
@@ -960,18 +960,18 @@ public:
 		PROUD_API void WriteStringA(const char* str);
 		PROUD_API void WriteStringW(const wchar_t* str);
 
-		/**
+		/** 
 		\~korean
 		bitCount 만큼의 비트 데이터를 기록한다.
 		- 만약 앞서 bit를 기록하던 중이라 bit offset > 0인 경우 사용 가능한 잔여 비트에 이어서 기록된다.
 		- 만약 bit offset > 0인 상태에서 Write()로 인해 byte 단위 쓰기를 할 경우 잔여 비트는 무시되고
-		새 바이트에서 쓰기가 재개된다. 즉 byte assign으로 조정된다.
+		새 바이트에서 쓰기가 재개된다. 즉 byte assign으로 조정된다. 
 		따라서 효과적인 비트 사용을 위해서 비트 필드과 비트가 아닌 필드를 끼리끼리 모아서 읽기/쓰기를 해야 한다.
 
 		\~english
 		Writes bit data as muuch of bitCount
 		- If bit offset > 0 due to prior bit writing then writes continuous to usable remaining bits.
-		- When writing byte unit due to Write() when bit offset > 0 then remaining bits will be ignored and the writing will be continued at a new byte. In other words, it will be modified to byte assign.
+		- When writing byte unit due to Write() when bit offset > 0 then remaining bits will be ignored and the writing will be continued at a new byte. In other words, it will be modified to byte assign. 
 		Therefore, to use bits effectively, it must collectively read/write those fields, not fields and bits.
 
 		\~chinese
@@ -985,20 +985,20 @@ public:
 		 */
 		PROUD_API void WriteBits(uint8_t* src,int srcBitLength);
 
-		/**
+		/** 
 		\~korean
 		bitCount만큼의 비트 데이터를 읽어들인다.
 		\return 읽는데 성공하면 true를 리턴한다. 읽을 bit가 모자라면 false를 리턴.
 		- 만약 앞서 bit를 읽던 중이라 bit offset > 0인 경우 사용 가능한 잔여 비트에 이어서 읽는다.
 		- 만약 bit offset>0인 상태에서 Read()로 인해 byte 단위 읽기를 할 경우 잔여 비트는 무시되고
-		새 바이트에서 읽기가 재개된다. 즉 byte assign으로 조정된다.
-		따라서 효과적인 비트 사용을 위해서 비트 필드과 비트가 아닌 필드를 끼리끼리 모아서 읽기/쓰기를 해야 한다.
+		새 바이트에서 읽기가 재개된다. 즉 byte assign으로 조정된다. 
+		따라서 효과적인 비트 사용을 위해서 비트 필드과 비트가 아닌 필드를 끼리끼리 모아서 읽기/쓰기를 해야 한다. 
 
 		\~english
 		Reads bit data as much of bitCount
 		\return Returns true if reading is successful. Returns false when there are not enough bits to read.
 		- If bit offset > 0 due to prior bit reading then reads continuous to usable remaining bits.
-		- When reading byte unit due to Read() when bit offset > 0 then remaining bits will be ignored and the reading will be continued at a new byte. In other words, it will be modified to byte assign.
+		- When reading byte unit due to Read() when bit offset > 0 then remaining bits will be ignored and the reading will be continued at a new byte. In other words, it will be modified to byte assign. 
 		Therefore, to use bits effectively, it must collectively read/write those fields, not fields and bits.
 
 		\~chinese
@@ -1043,10 +1043,10 @@ public:
 		int WriteBitsOfOneByte(const uint8_t* src, int srcBitLength, int srcBitOffset);
 		int ReadBitsOfOneByte(uint8_t* output, int outputBitLength, int outputBitOffset);
 		void ThrowBitOperationError(const char* where);
-
+	
 
 };
-
+	
 	//// 로컬 변수로 잠깐 쓸 경우 유용=>더 이상 안씀. UseInternalBuffer자체가 obj-pool기능으로 인해 relloc횟수가 점차 줄어드니까.
 	//class CSendingMessage: public CMessage
 	//{
@@ -1063,10 +1063,10 @@ public:
 	//};
 
 	// ------- 이건 더 이상 안쓴다. ProudNetConfig::MessageMaxLength를 런타임에서 수정할 수 있어야 하니까.
-	// class CSendingMessage: public CMessage
+	// class CSendingMessage: public CMessage 
 	// {
 	// 	BYTE m_stackBuffer[CNetConfig::MessageMaxLength];
-	//
+	// 
 	// public:
 	// 	CSendingMessage()
 	// 	{
@@ -1087,11 +1087,11 @@ public:
 		}
 	};
 
-	/*
+	/* 
 	\~korean
 	임시적으로 splitter test를 끄고자 할 때 이 객체를 로컬 변수로 둬서 쓰도록 한다.
 	- 주로 serialize 함수 내부에서 쓴다.
-	- CSendFragRefs에서 필요해서 넣은 클래스
+	- CSendFragRefs에서 필요해서 넣은 클래스 
 
 	\~english
 	To temporarily turn off splitter test, this object can be as a local variable.
@@ -1115,7 +1115,7 @@ public:
 		PROUD_API ~CMessageTestSplitterTemporaryDisabler();
 	};
 	/**  @} */
-
+	
 	template<typename T>
 	inline bool CMessage_RawRead(CMessage &a, T &b)
 	{
@@ -1126,7 +1126,7 @@ public:
 		b = t;
 		return true;
 	}
-
+	
 #if (_MSC_VER>=1400)
 #pragma managed(pop)
 #endif

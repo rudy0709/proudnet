@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -38,7 +38,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 #include "BasicTypes.h"
 #include "quicksort.h"
-#include "pnstdint.h"
+#include "pnstdint.h" 
 
 #if defined(_WIN32)
     #include <algorithm>
@@ -52,10 +52,10 @@ namespace Proud
 	*  @{
 	*/
 
-	/**
+	/** 
 	\~korean
 	두 값 v1,v2의 v1->v2로의 내분값 ratio을 구한다.
-	ratio가 0에 가까울수록 v1에 가깝다.
+	ratio가 0에 가까울수록 v1에 가깝다. 
 
 	\~english
 	Obtains a interior division ratio of two values of v1,v2, v1->v2.
@@ -93,12 +93,12 @@ namespace Proud
 		return (v1 + ((v2 - v1)*ratio1)/ratio2);
 	}
 
-	/**
+	/** 
 	\~korean
 	Round robin 슬롯 숫자 생성자.
 
 	\~english
-	Round robin slot number generator
+	Round robin slot number generator 
 
 	\~chinese
 	Round robin 插槽（slot）数字生成者。

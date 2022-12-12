@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -70,8 +70,8 @@ namespace Proud
 	public:
 	};
 
-	/**
-	\~korean
+	/** 
+	\~korean 
 	HostID 중복 없는 배열
 
 	\~english

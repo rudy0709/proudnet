@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -56,42 +56,42 @@ namespace Proud
 	*  @{
 	*/
 
-#if defined(_WIN32)
+#if defined(_WIN32)    
 
-	/**
+	/** 
 	\~korean
 	미니 덤프를 사용하기 위해 제공해야 하는 파라메터
 
-	\~english
-	It is a parameter that needs to be provided for using mini dump.
+	\~english 
+	It is a parameter that needs to be provided for using mini dump. 
 
-	\~chinese
+	\~chinese 
 	为了使用Mini dump而需提供的参数。
-
+	
 	\~japanese
 	ミニダンプを使用するために提供するパラメータ
 	*/
 	class CMiniDumpParameter
 	{
 	public:
-		/**
+		/** 
 		\~korean
 		미니 덤프가 생성할 파일 이름의 경로를 채워넣는다.
 
 		\~english
-		Please input the directory of file name that mini dump is going to create.
+		Please input the directory of file name that mini dump is going to create. 
 
-		\~chinese
+		\~chinese 
 		填充Mini dump创建的文件名的路径。
 
-		\~japanese
+		\~japanese 
 		ミニダンプが生成するファイル名の経路を入れる。
 		*/
 		Proud::String m_dumpFileName;
 
-		/**
+		/** 
 		\~korean
-		미니 덤프 타입을 지정한다.
+		미니 덤프 타입을 지정한다. 
 
 		\~english
 		Sets the type of mini dump
@@ -103,13 +103,13 @@ namespace Proud
 		ミニダンプタイプを指定する。
 		*/
 		MINIDUMP_TYPE m_miniDumpType;
-
+	
 		CMiniDumpParameter();
 	};
 
 	#define SmallMiniDumpType MiniDumpNormal // MiniDumpWithDataSegs가 가장 쓸만하다곤 하지만 6MB나 되니까 유저들이 잘 안보낸다.
 
-	/**
+	/** 
 	\~korean
 	미니 덤프 모듈
 
@@ -166,9 +166,9 @@ namespace Proud
 	*/
 	class CMiniDumper: protected CSingleton<CMiniDumper>
 	{
-		/**
+		/** 
 		\~korean
-		여러 스레드에서 덤프를 쌓으면 꼬인다. 따라서 이걸로 직렬화한다.
+		여러 스레드에서 덤프를 쌓으면 꼬인다. 따라서 이걸로 직렬화한다. 
 
 		\~english
 		Will cras if many threads stack dump. So must be serialized by using this.
@@ -181,9 +181,9 @@ namespace Proud
 		*/
 		CriticalSection m_filterWorking;
 
-		/**
+		/** 
 		\~korean
-		TopLevelFilter 실 작동을 1회로 제한하는 목적
+		TopLevelFilter 실 작동을 1회로 제한하는 목적 
 
 		\~english
 		To limit the real execution of TopLevelFilter by once.
@@ -197,7 +197,7 @@ namespace Proud
 		PROUDNET_VOLATILE_ALIGN LONG m_hitCount;
 
 		PROUD_API void SetUnhandledExceptionHandler();
-
+	
 		PROUD_API uint32_t CreateProcessAndWaitForExit(const TCHAR *args, MINIDUMP_TYPE miniDumpType, _EXCEPTION_POINTERS *pExceptionInfo = NULL);
 
 		static LONG WINAPI TopLevelFilter( _EXCEPTION_POINTERS *pExceptionInfo );
@@ -209,7 +209,7 @@ namespace Proud
 #endif
 
 	private:
-		/**
+		/** 
 		\~korean
 		미니 덤프를 사용하기 위한 파라메터
 
@@ -231,7 +231,7 @@ namespace Proud
 		/**
 		\~korean
 		초기화 함수입니다.
-		\param cmdLine 앱의 Command-Line argument의 인자를 넣어주시면 됩니다.
+		\param cmdLine 앱의 Command-Line argument의 인자를 넣어주시면 됩니다. 
 
 		ProudNet은 앱에서 오류 발생 시, 앱 자신을 새로운 프로세스로 실행합니다.
 		이 때, Startup 함수에서 인식할 수 있는 특수 구문을 Commad Line Argument에 추가하여 새로운 프로세스를 실행하게 됩니다.
@@ -262,14 +262,14 @@ namespace Proud
 					...
 					break;
 			}
-		}
+		} 
 		\endcode
 
 		\~english
 		It is an initialized function.
-		\param cmdLine Please insert Command-Line argument factor of application.
+		\param cmdLine Please insert Command-Line argument factor of application. 
 
-		When an error occurs in application, ProudNet executes the application with new process.
+		When an error occurs in application, ProudNet executes the application with new process. 
 		\code
 		void main(int argc, char* argv[])
 		{
@@ -279,28 +279,28 @@ namespace Proud
 			switch(CMiniDumper::Instance().Startup(parameter))
 			{
 				case MiniDumpAction_AlarmCrash:
-					// After dump file creation at a new process due to error occurrence, this value will return.
-					// Please proceed with works (such as sending created dump file by email & error window management) that need to be done right after dump file creation.
+					// After dump file creation at a new process due to error occurrence, this value will return. 
+					// Please proceed with works (such as sending created dump file by email & error window management) that need to be done right after dump file creation. 
 					...
 					break;
 
 				case MiniDumpAction_DoNothing:
-					// After dump file creation at a new process by user calling, this value will return.
-					// In this case, you should not do anything.
+					// After dump file creation at a new process by user calling, this value will return. 
+					// In this case, you should not do anything. 
 					break;
 
 				default: // MiniDumpAction_None
 					// Generally, this value returns when executing the application.
-					// At this time, you should proceed with the relevant works.
+					// At this time, you should proceed with the relevant works. 
 					...
 					break;
 			}
-		}
+		} 
 		\endcode
 
 		\~chinese
 		初始化函数。
-		\param cmdLine 输入App的Command-Line argument 参数即可。
+		\param cmdLine 输入App的Command-Line argument 参数即可。 
 
 		在App当中如果发生错误，ProudNet会用新的Process运行App。
 		此时将在Command-Line Argument中添加Startup函数可以认证的特殊语句后运行新的Process。.
@@ -329,12 +329,12 @@ namespace Proud
 					...
 					break;
 			}
-		}
+		} 
 		\endcode
 
 		\~japanese
 		初期化の関数です。
-		\param cmdLine App(Application)のCommand-Line argumentのパラメーターを入れてください。
+		\param cmdLine App(Application)のCommand-Line argumentのパラメーターを入れてください。 
 
 		ProudNetはAppでエラーが発生する際,App自身を新しいプロセス(Process)で実行します。
 		この際、Startup 関数で認識できる特殊構文を Commad Line Argumentに追加して新しいプロセスを実行します。
@@ -363,17 +363,17 @@ namespace Proud
 					...
 					break;
 			}
-		}
+		} 
 		\endcode
 		*/
 		PROUD_API MiniDumpAction Startup(const CMiniDumpParameter &parameter);
 
 		/***
 		\~korean
-		유저 호출에 의해 미니 덤프 파일을 생성한다. 단, 메모리 전체 덤프를 하므로 용량이 큰 파일이 생성된다.
+		유저 호출에 의해 미니 덤프 파일을 생성한다. 단, 메모리 전체 덤프를 하므로 용량이 큰 파일이 생성된다. 
 
 		\~english
-		Create mini dump file by user calling, however, the capacity of file becomes larger because the whole memory is dumped.
+		Create mini dump file by user calling, however, the capacity of file becomes larger because the whole memory is dumped. 
 
 		\~chinese
 		被用户呼叫生成微型转储文件。但是，因为进行内存全部转储，会生成容量大的文件。
@@ -388,7 +388,7 @@ namespace Proud
 		유저 호출에 의해 미니 덤프 파일을 생성한다.
 
 		\~english
-		Create mini dump file by user calling.
+		Create mini dump file by user calling. 
 
 		\~chinese
 		被用户呼叫生成微型转储文件。
@@ -398,7 +398,7 @@ namespace Proud
 		*/
 		PROUD_API void ManualMiniDump();
 
-		/**
+		/** 
 		\~korean
 		싱글톤 핸들. 사용자는 항상 이것으로 접근해야 한다.
 
@@ -417,10 +417,10 @@ namespace Proud
 			return __super::Instance();
 		}
 
-		/**
+		/** 
 		\~korean
 		이 함수를 호출한 시점에서의 프로세스 상태를 덤프 파일로 남긴다.
-		\param fileName 덤프 파일 이름. 확장자는 dmp로 지정할 것.
+		\param fileName 덤프 파일 이름. 확장자는 dmp로 지정할 것. 
 
 		\~english
 		Process status of calling this function as dump file
@@ -438,10 +438,10 @@ namespace Proud
 //		PROUD_API static void WriteDumpAtExceptionThrower(const TCHAR* fileName, bool fullDump = false);
 	};
 
-	/**
+	/** 
 	\~korean
 	CExceptionLogger 에서 필요로하는 delegate 객체이다. 개발자는 이 객체를 오버라이드한 후 CExceptionLogger 가
-	존재하는 동안 이 객체를 유지해야 한다.
+	존재하는 동안 이 객체를 유지해야 한다. 
 
 	\~english
 	Delegate object that is needed by CExceptionLogger. Developer must sustain this object while CExceptionLogger exists after overriding this object.
@@ -457,13 +457,13 @@ namespace Proud
 	class IExceptionLoggerDelegate
 	{
 	public:
-		/**
+		/** 
 		\~korean
-		Dump 파일들이 저장될 폴더를 리턴한다. 상대 경로 또는 절대 경로를 지정할 수 있다.
-		개발자는 이 메서드를 오버라이드해야 한다.
+		Dump 파일들이 저장될 폴더를 리턴한다. 상대 경로 또는 절대 경로를 지정할 수 있다. 
+		개발자는 이 메서드를 오버라이드해야 한다. 
 
 		\~english
-		Returns the folder where Dump files are to be stored. Either relative or absolute path can be designated.
+		Returns the folder where Dump files are to be stored. Either relative or absolute path can be designated. 
 		Developer must override this method.
 
 		\~chinese
@@ -476,18 +476,18 @@ namespace Proud
 		virtual String GetDumpDirectory()=0;
 	};
 
-	/**
+	/** 
 	\~korean
 	크래쉬 등 프로그램에서 예외가 발생할 경우 예외가 발생한 지점을 DMP 파일로서 로그를 남기고
 	계속해서 프로그램을 실행시키는 역할을 하는 객체
 	- 자세한 것은 \ref exception_logger 를 참고할 것
-	- Windows XP 또는 2003 Server 이상을 필요로 한다.
-	- Singleton 객체로만 사용할 수 있다. 자세한 것은 CSingleton 참고.
+	- Windows XP 또는 2003 Server 이상을 필요로 한다. 
+	- Singleton 객체로만 사용할 수 있다. 자세한 것은 CSingleton 참고. 
 
 	\~english
 	The object that records the point where exception occurred as DMP file when crash occurs then has a role to keep running the program
 	- Please refer to \ref exception_logger.
-	- Requires Windows XP or 2003 Server or later version
+	- Requires Windows XP or 2003 Server or later version 
 	- Can be only used as Singleton object. Please refer CSingleton.
 
 	\~chinese
@@ -506,7 +506,7 @@ namespace Proud
 	class CExceptionLogger:protected CSingleton<CExceptionLogger>
 	{
 		CriticalSection m_cs;
-
+		
 		// 덤프 파일이 저장될 디렉터리
 		String m_directory;
 		// 덤프 파일의 이름
@@ -521,13 +521,13 @@ namespace Proud
 		static LONG CALLBACK ExceptionLoggerProc(PEXCEPTION_POINTERS pExceptionInfo);
 
 	public:
-		/**
+		/** 
 		\~korean
-		본 로그 시스템을 준비한다.
-		\param dg 이 시스템이 필요로 하는 추가적인 기능을 제공할 delegate 객체의 포인터
+		본 로그 시스템을 준비한다. 
+		\param dg 이 시스템이 필요로 하는 추가적인 기능을 제공할 delegate 객체의 포인터 
 
 		\~english
-		Prepares this log system
+		Prepares this log system 
 		\param dg Pointer of the delegate object that will provide additional functions required by this system
 
 		\~chinese
@@ -539,10 +539,10 @@ namespace Proud
 		\param dg　このシステムが必要とする追加的な機能を提供する delegateオブジェクトのポインター
 		*/
 		void Init(IExceptionLoggerDelegate* dg, Proud::String dumpName = _PNT("dump"));
-
-
+		
+		
 		inline int GetDumpSerial(){ return m_dumpSerial; }
-
+		
 		PROUD_API static CExceptionLogger& Instance()
 		{
 			return __super::Instance();

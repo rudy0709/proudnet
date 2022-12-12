@@ -1,5 +1,5 @@
-﻿/*
-ProudNet v1
+﻿/* 
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -10,11 +10,11 @@ ProudNet v1
 ** 주의: 저작물에 관한 위의 명시를 제거하지 마십시오.
 
 
-This program is soley copyrighted by Nettention.
+This program is soley copyrighted by Nettention. 
 Any use, correction, and distribution of this program are subject to the terms and conditions of the License Agreement.
 Any violated use of this program is prohibited and will be cause of immediate termination according to the License Agreement.
 
-** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE.
+** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE. 
 
 
 此程序的版权归Nettention公司所有。
@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once
+#pragma once 
 
 #if defined(_WIN32)
 #include "BasicTypes.h"
@@ -43,7 +43,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 //#pragma pack(push,8)
 
-namespace Proud
+namespace Proud 
 {
 #if (_MSC_VER>=1400)
 #pragma managed(push, off)
@@ -52,14 +52,14 @@ namespace Proud
 	*  @{
 	*/
 
-	/**
+	/** 
 	\~korean
 	DB cache에 의해 로딩되는 테이블의 이름들입니다.
 
-	root node를 위한 테이블 이름과 child node를 위한 테이블 이름들을 넣으십시오.
+	root node를 위한 테이블 이름과 child node를 위한 테이블 이름들을 넣으십시오. 
 	child node를 위한 테이블 이름은 0개 이상이어야 합니다.
 	child node를 위한 테이블 이름들 중에는 root node를 위한 테이블 이름과 같은 것이 없어야 합니다.
-	\~english
+	\~english	
 	\~
 	*/
 	class CCachedTableName
@@ -71,7 +71,7 @@ namespace Proud
 		CFastArray<Proud::String> m_childTableNames;
 	};
 
-	/**
+	/** 
 	\~korean
 	CDbCacheServer2에서 콜백하는 이벤트나 개발자가 구현해야 하는 메서드를 콜백을 처리하는 delegate 객체
 
@@ -89,7 +89,7 @@ namespace Proud
 	public:
 		virtual ~IDbCacheServerDelegate2() {}
 
-		/**
+		/** 
 		\~korean
 		내부 에러 발생시 호출됩니다
 		\param errorInfo 에러에 대한 정보입니다. ErrorInfo::ToString()을 이용하시면 간편하게 자세한 문제의 정보를 보실 수 있습니다.
@@ -103,11 +103,11 @@ namespace Proud
 		\param errorInfo 对错误的信息。利用 ErrorInfo::ToString()%的话可以方便看出详细的信息。
 
 		\~japanese
-		\~
+		\~ 
 		*/
 		virtual void OnError(ErrorInfo *errorInfo) = 0;
 
-		/**
+		/** 
 		\~korean
 		내부 경고 발생시 호출됩니다. 에러보다는 낮은 수위의 문제를 보고함.
 		\param errorInfo 에러에 대한 정보입니다. ErrorInfo::ToString()을 이용하시면 간편하게 자세한 문제의 정보를 보실 수 있습니다.
@@ -125,7 +125,7 @@ namespace Proud
 		*/
 		virtual void OnWarning(ErrorInfo *errorInfo) = 0;
 
-		/**
+		/** 
 		\~korean
 		Proud.Exception으로 통합합니다.
 		- 일반적으로 유저 코드에서 나는 에러를 처리합니다.
@@ -152,16 +152,16 @@ namespace Proud
 		- 选择例外对象的类型以后可以接收void*。比如接收MFC CException%的时候使用。
 
 		\~japanese
-		\~
+		\~ 
 		*/
 		virtual void OnException(Exception &e) = 0;
 
 
-		/**
+		/** 
 		\~korean
 		DB cache server2에서 DBMS에 직접 기록하는 처리는 비동기로 실행된다. 이 메서드는 비동기로 기록하는 처리가
 		완료될 때마다 DB cache server의 내부 스레드로부터 콜백됩니다.
-		- Visual Studio 2005 이상에서는 override keyword 사용을 권장합니다.
+		- Visual Studio 2005 이상에서는 override keyword 사용을 권장합니다. 
 		\param type 완료된 DBMS 기록(PropNode)의 종류 (참고 \ref DbmsWritePropNodePendType)
 
 		\~english
@@ -173,14 +173,14 @@ namespace Proud
 		从DB cache server往DBMS直接记录的处理要以异步执行。每当异步记录的处理完成的时候此方法会从内部线程回调DB cache server。
 		- Visual Studio 2005以上建议使用override keyword。
 		\param type 完成的DBMS记录（PropNode）的种类（参考 \ref DbmsWritePropNodePendType）。
-
+		 
 		\~japanese
 		\~
 		 */
 		virtual void OnDbmsWriteDone(DbmsWritePropNodePendType type) {}
 	};
 
-	/**
+	/** 
 	\~korean
 	CDbCacheServer2가 서버 작동을 시작하기 위해 제공해야 하는 파라메터
 
@@ -196,7 +196,7 @@ namespace Proud
 	class CDbCacheServer2StartParameter
 	{
 	public:
-		/**
+		/** 
 		\~korean
 		서버의 주소. 자세한 것은 CStartServerParameter의 같은 이름의 멤버 참고
 
@@ -211,12 +211,12 @@ namespace Proud
 		 */
 		Proud::String m_serverIP;
 
-		/**
+		/** 
 		\~korean
 		클라이언트의 리스닝 소켓이 바인딩될 주소입니다.
 		- 초기값은 빈 문자열입니다.
 		- 통상적으로 빈 문자열을 지정하지만 클라이언트가 네트워크 인터페이스(NIC)를 2개 이상 가지는 경우,
-		그리고 그것들 중 하나만이 다른 CLanClient에서 오는 접속 요청을 받을 수 있는 경우 여기에 해당됩니다.
+		그리고 그것들 중 하나만이 다른 CLanClient에서 오는 접속 요청을 받을 수 있는 경우 여기에 해당됩니다. 
 		NIC에 지정된 IP 또는 호스트 이름을 지정해야 합니다. 호스트에 있는 NIC 주소 리스트를 얻으려면 Proud.GetLocalIPAddresses를 쓸 수 있습니다.
 		- 호스트 이름을 지정할 경우 클라이언트는 서버로 접속하기 위한 주소로 localhost를 입력할 경우 연결 실패를 할 수 있습니다. 이러한 경우
 		클라이언트는 서버로 접속하기 위해 서버 호스트의 주소를 명시적으로 입력해야 합니다.
@@ -242,13 +242,13 @@ namespace Proud
 		*/
 		String m_localNicAddr;
 
-		/**
+		/** 
 		\~korean
 		TCP 리스닝 포트.
 		자세한 것은 CStartServerParameter의 같은 이름의 멤버 참고
 
 		\~english
-		TCP listening port.
+		TCP listening port. 
 		Please refer the member of same name at CStartServerParameter for further details.
 
 		\~chinese
@@ -260,13 +260,13 @@ namespace Proud
 		 */
 		int m_tcpPort;
 
-		/**
+		/** 
 		\~korean
-		DBMS에 접속하기 위한 connection string.
+		DBMS에 접속하기 위한 connection string.		
 		- 문자열에 대해서는 CAdoConnection.Open 도움말 참고
 
 		\~english
-		Connection string to connect to DBMS.
+		Connection string to connect to DBMS.		
 		- Please refer CAdoConnection.Open help section for text strings
 
 		\~chinese
@@ -278,15 +278,15 @@ namespace Proud
 		*/
 		Proud::String m_DbmsConnectionString;
 
-		/**
+		/** 
 		\~korean
 		이 DB 서버에 접속할 수 있는 인증키
-		- 절대 이 값은 게임 클라이언트에 노출되어서는 안된다.
+		- 절대 이 값은 게임 클라이언트에 노출되어서는 안된다. 
 		이 값은 DB cache client(게임 서버 등)이 본 서버로 접속하기 위한 목적으로 사용된다.
 
 		\~english
 		The authentication key that can connect to this DB server
-		- This value MUST NOT be exposed to game clients.
+		- This value MUST NOT be exposed to game clients. 
 		  This value is used by DB cache client(e.g. game servers and etc.) to connect to main server.
 
 		\~chinese
@@ -299,7 +299,7 @@ namespace Proud
 		*/
 		Proud::String m_authenticationKey;
 
-		/**
+		/** 
 		\~korean
 		CDbCacheServer2가 필요로 하는 delegate 객체의 포인터
 		- 이 객체는 CDbCacheServer2 객체가 존재하는 한 계속 존재해야 합니다.
@@ -317,7 +317,7 @@ namespace Proud
 		*/
 		IDbCacheServerDelegate2* m_delegate;
 
-		/**
+		/** 
 		\~korean
 		DB cache에 의해 로딩,저장이 일어날 테이블들의 이름입니다.
 		Root table과 child table들의 이름을 여기에 넣으십시오.
@@ -338,10 +338,10 @@ namespace Proud
 		Input names of root and child tables here.
 		Refer to CCachedTable for details.
 		\~
-		 */
+		 */ 
 		CFastArray<CCachedTableName> m_tableNames;
 
-		/**
+		/** 
 		\~korean
 		DBCacheServer2에 비독점적 접근을 허용하는지에 대한 여부입니다. \ref dbc2_nonexclusive_overview 기능입니다.
 		- 기본적으로 false입니다.
@@ -361,7 +361,7 @@ namespace Proud
 		\~
 		*/
 		bool	m_allowNonExclusiveAccess;
-
+		
 		/**
 		\~korean
 		이 값이 null이 아니면, 외부 networker thread를 사용합니다.
@@ -382,7 +382,7 @@ namespace Proud
 		\~korean
 		이 값이 null이 아니면, 외부 user worker thread를 사용합니다.
 		Proud.CStartLanServerParameter.m_externalUserWorkerThreadPool와 같은 역할을 합니다.
-
+		
 		\~english TODO:translate needed.
 
 		\~chinese
@@ -399,17 +399,17 @@ namespace Proud
 		- 최소한 1은 지정 되어야 합니다.
 		- DB 처리는 내부적으로 device time을 가지기 때문에 충분히 많은 수를 두는 것이 좋습니다. (가령 100개)
 		- 초기값은 10입니다. 0을 지정하면 CPU 갯수로 지정됩니다.
-
+		
 		\~english It is the number of thread pools for DB processing.
 		- At least “1” should be set.
 		- DB processing has the internal device time, so it is recommended to have many threads. (ex. 100)
 		- Initial value is “10”. If setting “0”, it will be set as the number of CPUs.
-
+		
 		\~chinese 是为处理DB的线程池线程个数。
 		- 至少要指定为1.
 		- DB处理内部拥有 device time，因此建议存有足够的数量。（如100个）
 		- 初始值为10. 如果指定为0则将指定成CPU个数。
-
+		
 		\~japanese DB処理のためのスレッドプールのスレッドの個数です。
 		- 最小限１は指定されなければなりません。
 		- DB処理は内部的にdevice timeがかかるために十分な数を設定する方が良いです。（仮に100個）
@@ -464,12 +464,12 @@ namespace Proud
 		- true로 설정되면 RecursiveUpdate계열 요청을 처리 할 때 각 요청을 순서대로 하나씩 수행합니다.
 		- 성능에 악영향을 미치지만 Deadlock을 방지하기 위한 옵션입니다. 원인을 알 수 없는 Deadlock이 발생 할 때만 사용하는 것을 권장합니다.
 		- 기본값은 false입니다.
-
+		
 		\~english
 		- If set to 'true', each of the request for 'RecursiveUpdate' will be conducted in order.
 		- Although it can cause harm to its performance, this is an alternative for deadlock prevention. We recommend you to use only as an option when deadlock occurs with an unknown cause.
 		- The default value is ‘false’.
-
+		
 		\~chinese
 		- 设定为true的话,处理RecursiveUpdate系列的请求时,按照各请求的顺序一个个地履行。
 		- 虽然在性能上牵涉坏影响,但却是为防止Deadlock的一项配置。建议只在当无法了解原因的Deadlock发生时才使用。
@@ -501,12 +501,12 @@ namespace Proud
 		- デフォルト値はtrueです。
 		\~
 		*/
-		bool m_autoDeisolateData;
+		bool m_autoDeisolateData; 
 
 		CDbCacheServer2StartParameter();
 	};
 
-	/**
+	/** 
 	\~korean
 	\ref dbc2_server 입니다.
 
@@ -525,8 +525,8 @@ namespace Proud
 		CDbCacheServer2() {}
 	public:
 		virtual ~CDbCacheServer2() {}
-
-		/**
+		
+		/** 
 		\~korean
 		접속된 클라이언트 수를 리턴합니다.
 
@@ -541,12 +541,12 @@ namespace Proud
 		 */
 		virtual intptr_t GetCachingDataTreeCount() = 0;
 
-		/**
+		/** 
 		\~korean
 		DB cache 서버 인스턴스를 생성합니다.
 
 		\~english
-		Creates DB cache server instance
+		Creates DB cache server instance 
 
 		\~chinese
 		创建DB cache服务器实例。
@@ -556,7 +556,7 @@ namespace Proud
 		 */
 		PROUDSRV_API static CDbCacheServer2* New();
 
-		/**
+		/** 
 		\~korean
 		클라이언트로부터의 접속을 활성화하고, DBMS와의 실제 연결을 시작합니다.
 		\param params CDbCacheServer2를 시작하는데 필요한 설정값 (참고 \ref CDbCacheServer2StartParameter)
@@ -574,7 +574,7 @@ namespace Proud
 		 */
 		virtual void Start(CDbCacheServer2StartParameter &params) = 0;
 
-		/**
+		/** 
 		\~korean
 		클라이언트와의 접속을 모두 끊고, 하던 작업을 모두 처리후에 스레드를 종료 합니다.
 
@@ -589,9 +589,9 @@ namespace Proud
 		*/
 		virtual void Stop() = 0;
 
-		/**
+		/** 
 		\~korean
-		DB cache client2로부터 받은 데이터 추가/변경/제거 내용을 받은 후부터 DBMS에 기록할 때까지
+		DB cache client2로부터 받은 데이터 추가/변경/제거 내용을 받은 후부터 DBMS에 기록할 때까지 
 		대기하는 시간입니다.
 		- 너무 짧으면 DBMS에 걸리는 부하가 증가합니다.
 		- 너무 길면 DB cache server가 비정상 종료(예: 정전)할 경우 DBMS에 기록하지 못하고 메모리에
@@ -599,11 +599,11 @@ namespace Proud
 		\param val 밀리초 단위 시간
 
 		\~english TODO:translate needed
-		Waiting time from the moment receiving the info on data addition/modification/removal from DB cache client until actual writing to DBMS
+		Waiting time from the moment receiving the info on data addition/modification/removal from DB cache client until actual writing to DBMS  
 		- Parameter is in milliseconds.
 		- If this is set too short then work load to DBMS will increase.
 		- If this is set too long then it will increase the chance to lose the data in memory that was waiting to be written to DBMS in case that DB cache server meets abnormal termination. (e.g. power failure)
-		\param val
+		\param val 
 
 		\~chinese
 		从DB cache client2接收添加/修改/删除数据的内容后等待至往DBMS记录的时间。
@@ -616,9 +616,9 @@ namespace Proud
 		 */
 		virtual void SetDbmsWriteIntervalMs(int64_t val)=0;
 
-		/**
+		/** 
 		\~korean
-		DB cache client2에서 unload한 데이터가 DB cache server 메모리에서도 완전히 제거할
+		DB cache client2에서 unload한 데이터가 DB cache server 메모리에서도 완전히 제거할 
 		때까지 대기하는 시간입니다.
 		- 너무 짧으면 DBMS에 걸리는 부하가 증가합니다.
 		- 너무 길면 DB cache server2의 메모리 사용량이 커집니다.
@@ -640,7 +640,7 @@ namespace Proud
 		 */
 		virtual void SetUnloadedDataHibernateDurationMs(int64_t val)=0;
 
-		/**
+		/** 
 		\~korean
 		Proud.CNetServer.SetDefaultTimeoutTimeMs과 같은 역할을 합니다.
 
@@ -655,7 +655,7 @@ namespace Proud
 		 */
 		virtual void SetDefaultTimeoutTimeMs(int newValInMs) = 0;
 
-		/**
+		/** 
 		\~korean
 		Proud.CNetServer.SetDefaultTimeoutTimeSec과 같은 역할을 합니다.
 		\param val 초 단위 시간
@@ -674,7 +674,7 @@ namespace Proud
 		virtual void SetDefaultTimeoutTimeSec(double newValInSec) = 0;
 
 
-		/**
+		/** 
 		\~korean
 		이 DB cache server2가 열어 놓은 TCP 리스닝 소켓의 주소를 얻습니다.
 
@@ -687,16 +687,16 @@ namespace Proud
 		 */
 		virtual AddrPort GetTcpListenerLocalAddr() = 0;
 
-		/**
+		/** 
 		\~korean
 		이 DB cache Server2에 접속한 DB Cache Cleint2 들에 대한 AddrPort 값들을 얻는다.
-		- 이 메서드로 얻는 목록은 호출할 시점의 스냅샷일 뿐이다.
+		- 이 메서드로 얻는 목록은 호출할 시점의 스냅샷일 뿐이다. 
 		이 함수가 리턴된 후에도 클라이언트 목록의 내용이 실제 서버의 상태와 동일함을 보장하지는 않는다.
 		\param output AddrPort들의 목록이 채워질 곳
 
 		\~english TODO:translate needed.
 
-		\~chinese
+		\~chinese 
 		获得连接这个DB cache Server2的DB Cache Cleint2的AddrPort值。
 		- 用这个方法获得的目录只是呼叫时候的snapshot而已。
 		此函数返回以后也不能保障玩家目录的内容与实际服务器的状态是相同的。
@@ -706,7 +706,7 @@ namespace Proud
 		*/
 		virtual bool GetAllRemoteClientAddrPort(CFastArray<AddrPort> &ret) = 0;
 
-
+		
 		/**
 		\~korean
 		- 독점 로드 요청의 처리를 기다릴 제한 시간을 설정합니다.

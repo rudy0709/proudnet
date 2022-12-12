@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -34,7 +34,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 */
 
-#pragma once
+#pragma once 
 
 #include "Marshaler.h"
 #include <vector>
@@ -85,7 +85,7 @@ namespace Proud
 		{
             const K& key = i->first;
             const V& val = i->second;
-
+            
 			a+=_PNT("(");
 			AppendTextOut(a, key);
 			a+=_PNT(",");

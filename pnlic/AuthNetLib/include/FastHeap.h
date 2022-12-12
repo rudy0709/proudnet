@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -49,7 +49,7 @@ namespace Proud
 	*  @{
 	*/
 
-	/**
+	/** 
 	\~korean
 	빠른 속도로 heap alloc을 하지만 제한 사항이 있는 할당자 클래스.
 
@@ -104,7 +104,7 @@ namespace Proud
 
 		PROUD_API virtual ~CFastHeap();
 
-		/**
+		/** 
 		\~korean
 		메모리를 할당한다. 할당한 메모리는 Realloc이나 Free로 조정될 수 있다.
 		\param size 할당받을 메모리 크기
@@ -122,10 +122,10 @@ namespace Proud
 		*/
 		virtual void* Alloc(size_t size) = 0;
 
-		/**
+		/** 
 		\~korean
 		메모리를 재할당한다. 재할당한 메모리는 위치가 바뀔 수 있기 때문에 리턴되는 포인터 값을 반드시 참조할 것.
-		\param ptr 재할당할 메모리 포인터
+		\param ptr 재할당할 메모리 포인터 
 		\param size 재할당할 메모리 사이즈
 
 		\~english TODO:translate needed.
@@ -143,7 +143,7 @@ namespace Proud
 		*/
 		virtual void* Realloc(void* ptr, size_t size) = 0;
 
-		/**
+		/** 
 		\~korean
 		할당했던 메모리를 해제한다.
 		\param ptr 할당 받았던 메모리의 포인터
@@ -161,29 +161,29 @@ namespace Proud
 		*/
 		virtual void Free(void* ptr) = 0;
 
-		/**
+		/** 
 		\~korean
 		CFastHeap 객체를 생성한다.
 		\param AccelBlockSizeLimit 이 값보다 큰 크기의 메모리 블럭을 할당할 때마다 lookaside allocator 방식을
 		쓰지 않는 통상적인 메모리 블럭을 할당한다. 이 값이 클 수록 더 많은 메모리를 소모하지만 빠른 속도이 heap
-		할당 확률이 커진다. (그렇다고 지나치게 크면 page fault 비용으로 인한 성능 저하가 되레 발생한다.)
+		할당 확률이 커진다. (그렇다고 지나치게 크면 page fault 비용으로 인한 성능 저하가 되레 발생한다.) 
 		\param pHeap 만약 이 Fast Heap이 ProudNet에서 미리 생성한 전용 Heap이 아닌 다른 Heap을 사용하게 만들고자 한다면 여기에 CMemoryHeap 객체의 포인터를
 		넣어야 한다. 단, 이 클래스가 CMemoryHeap 을 자동 제거하지는 않는다.
-		NULL을 넣으면 ProudNet에서 미리 생성한 전용 Heap을 사용한다.
-		\param safeMode CLookasideAllocator.New() 참고
-		\param debugSafetyCheckCritSec 디버그용이다. safeMode가 false인 경우에만 유효하다.
-		이 fast heap을 접근할 때마다 debugSafetyCheckCritSec 가 가리키는 critical section이 현재 스레드에 의해 잠금 상태인지 체크하고,
-		잠금 상태가 아니면 에러를 발생시키는 알람을 한다.
+		NULL을 넣으면 ProudNet에서 미리 생성한 전용 Heap을 사용한다. 
+		\param safeMode CLookasideAllocator.New() 참고		
+		\param debugSafetyCheckCritSec 디버그용이다. safeMode가 false인 경우에만 유효하다. 
+		이 fast heap을 접근할 때마다 debugSafetyCheckCritSec 가 가리키는 critical section이 현재 스레드에 의해 잠금 상태인지 체크하고, 
+		잠금 상태가 아니면 에러를 발생시키는 알람을 한다. 
 
 		\~english
 		Creates CFastHeap object
 		\param AccelBlockSizeLimit Whenever allocating memory block bigger than this value, this allocates a usual memory block that does not follow lookaside allocator.
-		Bigger this value becomes, occupies more memory but also increased chance of high speed heap allocation probability. (But if it is too bug then it lowers performance due to page fault cost.)
-		\param pHeap In order to let this Fast Heap use other Heap that is not previously created by ProudNet, CMemoryHeap object pointer must be entered in here.
+		Bigger this value becomes, occupies more memory but also increased chance of high speed heap allocation probability. (But if it is too bug then it lowers performance due to page fault cost.) 
+		\param pHeap In order to let this Fast Heap use other Heap that is not previously created by ProudNet, CMemoryHeap object pointer must be entered in here. 
 		But, this class does not automatically remove CMemoryHeap.
 		If NULL is entered in here then uses previously created Heap by ProudNet.
-		\param safeMode Please refer CLookasideAllocator.New()
-		\param debugSafetyCheckCritSec for debugging use. Only valid when safeMode=false
+		\param safeMode Please refer CLookasideAllocator.New()		
+		\param debugSafetyCheckCritSec for debugging use. Only valid when safeMode=false 
 		Whenever access to this fast heap, must check if critical section pointed by debugSafetyCheckCritSec is in its locked status by current thread, if not locked then this alarms that error occurs.
 
 		\~chinese
@@ -200,7 +200,7 @@ namespace Proud
 		*/
 		PROUD_API static CFastHeap* New( size_t AccelBlockSizeLimit = DefaultAccelBlockSizeLimit , const CFastHeapSettings& settings = CFastHeapSettings());
 
-		/**
+		/** 
 		\~korean
 		block이 fast heap에 의해 만들어진 것이 아니면 에러창을 내거나 크래시가 발생한다.
 

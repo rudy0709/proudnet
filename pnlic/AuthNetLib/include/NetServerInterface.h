@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
 이 프로그램의 수정, 사용, 배포에 관련된 사항은 본 프로그램의 소유권자와의 계약을 따르며,
@@ -1447,7 +1447,7 @@ namespace Proud
 		\~english
 		The server starts. If the server does not start, Proud.Exception will throw.
 		Setting for the initiating the \param server. Able to indicate TCP listen port.
-
+		
 		\~chinese
 		开始启动服务器，如果无法启动则 Proud.Exception 将被 throw。
 		\param 服务器启动相关设置内容，指定 TCP listen port 等。
@@ -1458,7 +1458,7 @@ namespace Proud
 		\Param サーバを起動するための確立の内容です。 TCP listen port等を指定します。
 		*/
 		virtual void Start(CStartServerParameter &param) = 0;
-
+				
 		/**
 		\~korean
 		서버를 시작합시다. 서버 시작을 하지 못할 경우 outError에 에러 내용이 들어갑니다.
@@ -1467,7 +1467,7 @@ namespace Proud
 		\~english
 		The server starts. If the server does not start, error information goes in to outError.
 		For detail information please refer to Proud.CNetServer.Start(CStartServerParameter&).
-
+		
 		\~chinese
 		开始启动服务器，如果无法启动则错误内容将进入 outError。
 		详细内容请参考 Proud.CNetServer.Start(CStartServerParameter&)。

@@ -1,5 +1,5 @@
 ﻿/*
-ProudNet v1
+ProudNet v1.7
 
 
 이 프로그램의 저작권은 넷텐션에게 있습니다.
@@ -10,11 +10,11 @@ ProudNet v1
 ** 주의 : 저작물에 관한 위의 명시를 제거하지 마십시오.
 
 
-This program is soley copyrighted by Nettention.
+This program is soley copyrighted by Nettention. 
 Any use, correction, and distribution of this program are subject to the terms and conditions of the License Agreement.
 Any violated use of this program is prohibited and will be cause of immediate termination according to the License Agreement.
 
-** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE.
+** WARNING : PLEASE DO NOT REMOVE THE LEGAL NOTICE ABOVE. 
 
 
 此程序的版权归Nettention公司所有。
@@ -289,7 +289,7 @@ namespace Proud
 		// 배열 크기를 기록한다.
 		int64_t size = (int64_t)b.GetCount();
 		a.WriteScalar(size);
-
+		
 		// 각 배열 인자를 기록한다.
 		for ( INDEXTYPE i = 0; i < (INDEXTYPE)size; i++ )
 		{
@@ -324,7 +324,7 @@ namespace Proud
 	PROUD_API void AppendTextOut(String &a, const POINT &b);
 #endif
 
-
+	
 
 	template<typename elem>
 	inline void AppendTextOut(String &a, CFastArray<elem> &b)
@@ -410,7 +410,7 @@ namespace Proud
 
 	inline void AppendTextOut(String &a, const Vector3 &b)
 	{
-		String f;
+		String f;		
 		f.Format(_PNT("{x=%lf,y=%lf,z=%lf}"), b.x, b.y, b.z);
 		a+=f;
 	}
@@ -420,7 +420,7 @@ namespace Proud
 	{
 		int64_t length;
 		a.ReadScalar(length);
-
+		
 		// length가 해킹되어 말도 안되는 값이면 실패 처리하기
 		// 물론 모든 경우를 잡지는 못하지만 (sizeof elem 무용지물) 그래도 최소 1바이트는 쓸테니.
 		// 원소의 개수가 바이트 개수보다 많은 경우는 무시.
@@ -444,7 +444,7 @@ namespace Proud
 	{
 		int64_t length = (int64_t)b.GetCount();
 		a.WriteScalar(length);
-
+        
         typedef typename CFastMap<K,V>::const_iterator ConstIter;
 
 		for(ConstIter i=b.begin();i!=b.end();i++)
@@ -461,9 +461,9 @@ namespace Proud
 		String temp;
 		temp.Format(_PNT("FastMap(Size=%d){"), b.GetCount());
 		a += temp;
-
+        
          typedef typename CFastMap<K,V>::const_iterator ConstIter;
-
+        
 		for(ConstIter i=b.begin();i!=b.end();i++)
 		{
 			a+=_PNT("(");
@@ -474,13 +474,13 @@ namespace Proud
 		}
 		a+=_PNT("}");
 	}
-
+	
     template<typename elem>
     __forceinline CMessage& operator>>(CMessage &a, CFastList<elem> &b)
     {
 		int64_t length;
 		a.ReadScalar(length);
-
+        
 		// length가 해킹되어 말도 안되는 값이면 실패 처리하기
 		// 물론 모든 경우를 잡지는 못하지만 (sizeof elem 무용지물) 그래도 최소 1바이트는 쓸테니.
 		// 원소의 개수가 바이트 개수보다 많은 경우는 무시.
@@ -491,7 +491,7 @@ namespace Proud
 
         for(int64_t i=0;i<length;i++)
         {
-            elem e;
+            elem e; 
             a>>e;
             b.AddTail(e);
         }
@@ -503,7 +503,7 @@ namespace Proud
     {
 		int64_t length = (int64_t)b.GetCount();
 		a.WriteScalar(length);
-
+        
         typedef typename CFastList<elem>::const_iterator ConstIter;
 
         for(ConstIter i=b.begin();i!=b.end();i++)
@@ -521,7 +521,7 @@ namespace Proud
         a += x;
     }
 
-	/**
+	/** 
 	\~korean
 	사용자가 만든 marshaler 메서드가 정상적으로 작동하는지 테스트합니다.
 	디버깅 용도로 사용하세요.
@@ -531,7 +531,7 @@ namespace Proud
 	합니다.
 	\return 오류가 없으면 빈 문자열을, 있는 경우 오류 내용을 담아서 리턴합니다.
 
-	사용 예
+	사용 예	
 	\code
 		MyType a;
 		a = ...; // 뭔가를 담는다.
@@ -628,7 +628,7 @@ namespace Proud \
 		txt.Format(_PNT("%d"),(int)b); \
 		a+=txt; \
 	} \
-}
+} 
 
 #if defined(_WIN32) && defined(ATLASSERT)
     #include "MfcDependent.inl"
