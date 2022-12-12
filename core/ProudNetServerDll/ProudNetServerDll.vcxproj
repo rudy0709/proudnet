@@ -353,10 +353,10 @@
     <None Include="..\src\OdbcRecordset.cpp" />
     <None Include="..\src\OdbcRecordsetImpl.cpp" />
     <None Include="..\src\OdbcVariant.cpp" />
+    <None Include="..\src\P2P_S.cpp" />
     <None Include="..\src\P2PGroup_S.cpp" />
     <None Include="..\src\p2ppair.cpp" />
     <None Include="..\src\P2PPair_S.cpp" />
-    <None Include="..\src\P2P_S.cpp" />
     <None Include="..\src\PooledObjects_S.cpp" />
     <None Include="..\src\PropNode.cpp" />
     <None Include="..\src\ReaderWriterMonitor.cpp" />
@@ -421,8 +421,8 @@
     <None Include="..\src\stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\src\NetServerImpl.inl" />
     <None Include="..\src\NetServer_WebSocket.inl" />
+    <None Include="..\src\NetServerImpl.inl" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\UnityBuild\ServerUnityBuild001.cpp" />

@@ -389,7 +389,6 @@
     <None Include="..\src\PNString.cpp" />
     <None Include="..\src\PnThread.cpp" />
     <None Include="..\src\PnTime.cpp" />
-    <None Include="..\..\version\PNVersion.cpp" />
     <None Include="..\src\Poll_Reactor.cpp" />
     <None Include="..\src\PooledObjects.cpp" />
     <None Include="..\src\PooledObjects_C.cpp" />
@@ -453,6 +452,7 @@
     <None Include="..\src\VizMessageSummary.cpp" />
     <ClCompile Include="..\src\dllmain.cpp" />
     <ClCompile Include="..\src\stdafx.cpp" />
+    <None Include="..\..\version\PNVersion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\acrimpl.h" />
@@ -527,7 +527,6 @@
     <None Include="..\src\PNCrc.h" />
     <None Include="..\src\PnIconv.h" />
     <None Include="..\src\PNS3ETimer.h" />
-    <None Include="..\..\version\PNVersion.h" />
     <None Include="..\src\Poll_Reactor.h" />
     <None Include="..\src\PooledObjectAsLocalVar.h" />
     <None Include="..\src\PooledObjects.h" />
@@ -582,6 +581,7 @@
     <None Include="..\src\VizAgent.h" />
     <None Include="..\src\VizMessageSummary.h" />
     <None Include="..\src\stdafx.h" />
+    <None Include="..\..\version\PNVersion.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\Base64.inl" />

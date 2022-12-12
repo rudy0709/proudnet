@@ -213,6 +213,9 @@
     <None Include="..\src\WebSocket.cpp">
       <Filter>Source Files</Filter>
     </None>
+    <ClCompile Include="..\src\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\crypto.hpp">
@@ -380,9 +383,6 @@
     </ClCompile>
     <ClCompile Include="..\src\UnityBuild\ServerUnityBuild008.cpp">
       <Filter>Unity Build Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\stdafx.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
