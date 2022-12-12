@@ -2,818 +2,825 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{c00c4d1a-5b30-4be5-a3e0-638199bae667}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;</Extensions>
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{cef420d3-f709-4629-922d-3cd2b2c92761}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Open Source Libraries">
-      <UniqueIdentifier>{4f366df7-36e3-4745-af71-0737976879c6}</UniqueIdentifier>
+      <UniqueIdentifier>{da52a8c8-babc-4b53-abd6-4139533dcff7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Open Source Libraries\iconv">
-      <UniqueIdentifier>{fa4a34b1-0d31-4308-8ce1-032a64cb7847}</UniqueIdentifier>
+      <UniqueIdentifier>{ca9f53a2-13fc-423e-bb2f-5a5059b53391}</UniqueIdentifier>
     </Filter>
     <Filter Include="Open Source Libraries\libtom">
-      <UniqueIdentifier>{e7b795ba-b0df-47ac-937b-db10a3376a31}</UniqueIdentifier>
+      <UniqueIdentifier>{675e7053-773b-4eec-915e-ce7269f91811}</UniqueIdentifier>
     </Filter>
     <Filter Include="Open Source Libraries\libtom\crypto">
-      <UniqueIdentifier>{f40dab68-de7f-4381-b77a-34b51151f859}</UniqueIdentifier>
+      <UniqueIdentifier>{da3dad4a-51ad-4175-a319-a2332845b645}</UniqueIdentifier>
     </Filter>
     <Filter Include="Open Source Libraries\libtom\math">
-      <UniqueIdentifier>{cd2ee78f-f4da-4932-8606-86518bfe541f}</UniqueIdentifier>
+      <UniqueIdentifier>{9b489ac0-f008-4f0c-aeb2-d4b79cc43fe0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Open Source Libraries\zlib">
-      <UniqueIdentifier>{4e464532-cc61-44d2-83aa-ff030a7618eb}</UniqueIdentifier>
+      <UniqueIdentifier>{043813a4-60b5-452d-9bd5-abb9ee9fb2ed}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\src\acrimpl.cpp">
+    <ClCompile Include="..\src\acrimpl.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\acrimpl_c.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\acrimpl_c.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\AddrPort.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\AddrPort.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\AngleFollower.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\AngleFollower.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\AsyncWork.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\AsyncWork.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\atomic.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\atomic.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\BufferSegment.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\BufferSegment.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\CoInit.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\CoInit.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\ConnectParam.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\ConnectParam.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Crc.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Crc.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\CriticalSect.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\CriticalSect.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\CryptoAes.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\CryptoAes.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\CryptoFast.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\CryptoFast.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\CryptoRc4.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\CryptoRc4.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\CryptoRsa.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\CryptoRsa.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\CustomValueEventQueue.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\CustomValueEventQueue.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\DefaultStringEncoder.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\DefaultStringEncoder.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\DeviationDetector.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\DeviationDetector.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\DumpClient.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\DumpClient.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\DumpCommon.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\DumpCommon.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\EmergencyLogClient.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\EmergencyLogClient.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\EmergencyLogCommon.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\EmergencyLogCommon.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\EmergencyLogData.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\EmergencyLogData.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Enums.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Enums.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Epoll_Reactor.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Epoll_Reactor.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\ErrorInfo.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\ErrorInfo.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Event.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Event.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Exception.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Exception.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\ExternalBufferArray.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\ExternalBufferArray.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\FakeClrBase.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\FakeClrBase.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\FakeCLRRandom.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\FakeCLRRandom.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\FakeWinsock.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\FakeWinsock.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\FastArray.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\FastArray.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\FastArrayImpl.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\FastArrayImpl.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\FastArrayPtr.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\FastArrayPtr.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\FastHeap.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\FastHeap.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\FastHeapImpl.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\FastHeapImpl.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\FastHeapSettings.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\FastHeapSettings.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\FastSocket.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\FastSocket.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\FilterTag.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\FilterTag.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\FinalUserWorkItem.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\FinalUserWorkItem.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\GlobalTimerThread.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\GlobalTimerThread.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\HeartbeatWork.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\HeartbeatWork.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\HlaCritSec.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\HlaCritSec.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\HlaEntityImpl_C.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\HlaEntityImpl_C.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\HlaField.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\HlaField.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\HlaSessionHostImpl_C.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\HlaSessionHostImpl_C.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\IOCP.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\IOCP.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\IRmiHost.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\IRmiHost.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\IRMIProxy.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\IRMIProxy.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\IRMIStub.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\IRMIStub.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\ISendDest_C.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\ISendDest_C.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Kqueue_Reactor.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Kqueue_Reactor.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\LeanDynamicCast.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\LeanDynamicCast.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\LeanType.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\LeanType.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\ListNode.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\ListNode.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\LogWriterImpl.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\LogWriterImpl.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\LookasideAllocator.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\LookasideAllocator.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\LookasideAllocatorImpl.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\LookasideAllocatorImpl.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\LoopbackHost.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\LoopbackHost.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Marshaler.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Marshaler.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Message.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Message.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\MilisecTimerImpl.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\MilisecTimerImpl.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\MiniDumper.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\MiniDumper.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\mmmilisectimer.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\mmmilisectimer.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\mmtime64.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\mmtime64.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\NetClient.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\NetClient.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\NetClientConnect.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\NetClientConnect.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\NetClientManager.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\NetClientManager.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\NetClientSend.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\NetClientSend.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\NetClientStats.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\NetClientStats.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\NetConfig.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\NetConfig.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\NetCore.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\NetCore.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\NetCoreEvent.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\NetCoreEvent.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\NetCoreStats.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\NetCoreStats.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\NetPeerInfo.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\NetPeerInfo.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\NetSettings.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\NetSettings.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\NetUtil.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\NetUtil.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Networker_C.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Networker_C.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\NumUtil.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\NumUtil.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\P2P_C.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\P2P_C.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\P2PGroup.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\P2PGroup.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\P2PGroup_C.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\P2PGroup_C.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\PacketFrag.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\PacketFrag.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\pnguid.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\pnguid.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\PnIconv.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\PnIconv.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\pnmutex.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\pnmutex.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\PNPath.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\PNPath.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\PNS3ETimer.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\PNS3ETimer.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\PNString.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\PNString.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\PnThread.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\PnThread.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\PnTime.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\PnTime.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\..\..\version\PNVersion.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Poll_Reactor.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Poll_Reactor.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\PooledObjects.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\PooledObjects.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\PositionFollower.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\PositionFollower.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Ptr.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Ptr.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\PtrImpl.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\PtrImpl.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\qpcmilisectimer.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\qpcmilisectimer.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Quantizer.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Quantizer.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Random.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Random.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\ReliableUDP.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\ReliableUDP.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\ReliableUDPConfig.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\ReliableUDPConfig.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\ReliableUDPFrame.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\ReliableUDPFrame.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\ReliableUdpHelper.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\ReliableUdpHelper.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\ReliableUDPHost.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\ReliableUDPHost.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\RemoteBase.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\RemoteBase.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\RemotePeer.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\RemotePeer.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\RemotePeerRecycle_C.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\RemotePeerRecycle_C.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\RemoteServer.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\RemoteServer.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\ReportError.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\ReportError.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\RMIContext.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\RMIContext.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Semaphore.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Semaphore.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\SendBrake.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\SendBrake.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\SendData.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\SendData.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\SendMessage.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\SendMessage.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\SendReadyList.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\SendReadyList.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\SingletonImpl.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\SingletonImpl.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Socket.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Socket.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\SocketToHostsMap.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\SocketToHostsMap.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\SocketUtil.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\SocketUtil.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\stdafxclient.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\stdafxclient.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\stdafxcommon.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\stdafxcommon.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\StreamQueue.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\StreamQueue.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\StringEncorder.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\StringEncorder.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\strpool.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\strpool.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\SuperSocket.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\SuperSocket.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\SuperSocketProactor.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\SuperSocketProactor.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\SuperSocketReactor.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\SuperSocketReactor.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\SuperSocketSend.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\SuperSocketSend.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\SysTime.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\SysTime.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\sysutil.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\sysutil.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\TCPLayer.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\TCPLayer.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\TcpLayer_C.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\TcpLayer_C.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\ThreadPoolImpl.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\ThreadPoolImpl.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\ThreadUtil.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\ThreadUtil.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\TimeAlarm.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\TimeAlarm.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\TimeEventThreadPool.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\TimeEventThreadPool.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\TimeOfDayTimer.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\TimeOfDayTimer.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\TimerThread.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\TimerThread.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\TimeUtil.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\TimeUtil.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Tracer.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Tracer.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\UdpSocket_C.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\UdpSocket_C.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\UnreliableMessageLossMeasurer.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\UnreliableMessageLossMeasurer.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\Upnp.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\Upnp.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\URI.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\URI.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\UseCount.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\UseCount.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\UserTaskQueue.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\UserTaskQueue.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\UseZlib.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\UseZlib.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\variant-marshaler.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\variant-marshaler.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\VizAgent.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\VizAgent.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\VizMessageSummary.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\src\VizMessageSummary.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\stdafx.cpp">
       <Filter>Source Files</Filter>
-    </None>
+    </ClCompile>
+    <ClCompile Include="..\..\..\version\PNVersion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\src\acrimpl.h">
+    <ClInclude Include="..\src\acrimpl.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\acrimpl_c.h">
+    </ClInclude>
+    <ClInclude Include="..\src\acrimpl_c.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\AsyncWork.h">
+    </ClInclude>
+    <ClInclude Include="..\src\AsyncWork.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\BufferSegment.h">
+    </ClInclude>
+    <ClInclude Include="..\src\BufferSegment.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\CachedTimes.h">
+    </ClInclude>
+    <ClInclude Include="..\src\CachedTimes.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\CollUtil.h">
+    </ClInclude>
+    <ClInclude Include="..\src\CollUtil.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\CriticalSectImpl.h">
+    </ClInclude>
+    <ClInclude Include="..\src\CriticalSectImpl.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\CustomValueEventQueue.h">
+    </ClInclude>
+    <ClInclude Include="..\src\CustomValueEventQueue.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\DefaultStringEncoder.h">
+    </ClInclude>
+    <ClInclude Include="..\src\DefaultStringEncoder.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\DeviationDetector.h">
+    </ClInclude>
+    <ClInclude Include="..\src\DeviationDetector.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\DumpClient.h">
+    </ClInclude>
+    <ClInclude Include="..\src\DumpClient.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\EmergencyLogClient.h">
+    </ClInclude>
+    <ClInclude Include="..\src\EmergencyLogClient.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\EmergencyLogData.h">
+    </ClInclude>
+    <ClInclude Include="..\src\EmergencyLogData.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\enumimpl.h">
+    </ClInclude>
+    <ClInclude Include="..\src\enumimpl.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\Epoll_Reactor.h">
+    </ClInclude>
+    <ClInclude Include="..\src\Epoll_Reactor.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FakeWinsock.h">
+    </ClInclude>
+    <ClInclude Include="..\src\FakeWinsock.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FastArrayImpl.h">
+    </ClInclude>
+    <ClInclude Include="..\src\FastArrayImpl.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FastArrayPtrImpl.h">
+    </ClInclude>
+    <ClInclude Include="..\src\FastArrayPtrImpl.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FastHeapImpl.h">
+    </ClInclude>
+    <ClInclude Include="..\src\FastHeapImpl.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FastList2.h">
+    </ClInclude>
+    <ClInclude Include="..\src\FastList2.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FastMap2.h">
+    </ClInclude>
+    <ClInclude Include="..\src\FastMap2.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FastSocket.h">
+    </ClInclude>
+    <ClInclude Include="..\src\FastSocket.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FilterTag.h">
+    </ClInclude>
+    <ClInclude Include="..\src\FilterTag.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FinalUserWorkItem.h">
+    </ClInclude>
+    <ClInclude Include="..\src\FinalUserWorkItem.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FragHeader.h">
+    </ClInclude>
+    <ClInclude Include="..\src\FragHeader.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\FreeList.h">
+    </ClInclude>
+    <ClInclude Include="..\src\FreeList.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\Functors.h">
+    </ClInclude>
+    <ClInclude Include="..\src\Functors.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\GlobalTimerThread.h">
+    </ClInclude>
+    <ClInclude Include="..\src\GlobalTimerThread.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\HeartbeatWork.h">
+    </ClInclude>
+    <ClInclude Include="..\src\HeartbeatWork.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\HlaCritSec.h">
+    </ClInclude>
+    <ClInclude Include="..\src\HlaCritSec.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\HlaEntityImpl_C.h">
+    </ClInclude>
+    <ClInclude Include="..\src\HlaEntityImpl_C.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\HlaSessionHostImpl_C.h">
+    </ClInclude>
+    <ClInclude Include="..\src\HlaSessionHostImpl_C.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\IHostObject.h">
+    </ClInclude>
+    <ClInclude Include="..\src\IHostObject.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\IntraTracer.h">
+    </ClInclude>
+    <ClInclude Include="..\src\IntraTracer.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\IOCP.h">
+    </ClInclude>
+    <ClInclude Include="..\src\IOCP.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\ioevent.h">
+    </ClInclude>
+    <ClInclude Include="..\src\ioevent.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\ISendDest_C.h">
+    </ClInclude>
+    <ClInclude Include="..\src\ISendDest_C.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\Kqueue_Reactor.h">
+    </ClInclude>
+    <ClInclude Include="..\src\Kqueue_Reactor.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\LeanDynamicCast.h">
+    </ClInclude>
+    <ClInclude Include="..\src\LeanDynamicCast.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\LeanType.h">
+    </ClInclude>
+    <ClInclude Include="..\src\LeanType.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\LicenseType.h">
+    </ClInclude>
+    <ClInclude Include="..\src\LicenseType.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\LocalEvent.h">
+    </ClInclude>
+    <ClInclude Include="..\src\LocalEvent.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\LogWriterImpl.h">
+    </ClInclude>
+    <ClInclude Include="..\src\LogWriterImpl.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\LookasideAllocatorImpl.h">
+    </ClInclude>
+    <ClInclude Include="..\src\LookasideAllocatorImpl.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\LoopbackHost.h">
+    </ClInclude>
+    <ClInclude Include="..\src\LoopbackHost.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\LowContextSwitchingLoop.h">
+    </ClInclude>
+    <ClInclude Include="..\src\LowContextSwitchingLoop.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\MilisecTimerImpl.h">
+    </ClInclude>
+    <ClInclude Include="..\src\MilisecTimerImpl.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\mmmilisectimer.h">
+    </ClInclude>
+    <ClInclude Include="..\src\mmmilisectimer.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\mmtime64.h">
+    </ClInclude>
+    <ClInclude Include="..\src\mmtime64.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\NetClient.h">
+    </ClInclude>
+    <ClInclude Include="..\src\NetClient.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\NetClientManager.h">
+    </ClInclude>
+    <ClInclude Include="..\src\NetClientManager.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\NetCore.h">
+    </ClInclude>
+    <ClInclude Include="..\src\NetCore.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\NetSettings.h">
+    </ClInclude>
+    <ClInclude Include="..\src\NetSettings.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\NetUtil.h">
+    </ClInclude>
+    <ClInclude Include="..\src\NetUtil.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\Networker_C.h">
+    </ClInclude>
+    <ClInclude Include="..\src\Networker_C.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\NumUtil.h">
+    </ClInclude>
+    <ClInclude Include="..\src\NumUtil.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\P2PGroup_C.h">
+    </ClInclude>
+    <ClInclude Include="..\src\P2PGroup_C.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\PacketFrag.h">
+    </ClInclude>
+    <ClInclude Include="..\src\PacketFrag.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\PnIconv.h">
+    </ClInclude>
+    <ClInclude Include="..\src\PnIconv.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\PNS3ETimer.h">
+    </ClInclude>
+    <ClInclude Include="..\src\PNS3ETimer.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\..\..\version\PNVersion.h">
+    </ClInclude>
+    <ClInclude Include="..\src\Poll_Reactor.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\Poll_Reactor.h">
+    </ClInclude>
+    <ClInclude Include="..\src\PooledObjectAsLocalVar.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\PooledObjectAsLocalVar.h">
+    </ClInclude>
+    <ClInclude Include="..\src\PooledObjects.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\PooledObjects.h">
+    </ClInclude>
+    <ClInclude Include="..\src\PtrImpl.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\PtrImpl.h">
+    </ClInclude>
+    <ClInclude Include="..\src\qpcmilisectimer.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\qpcmilisectimer.h">
+    </ClInclude>
+    <ClInclude Include="..\src\quicksort.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\quicksort.h">
+    </ClInclude>
+    <ClInclude Include="..\src\Reactor.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\Reactor.h">
+    </ClInclude>
+    <ClInclude Include="..\src\Relayer.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\Relayer.h">
+    </ClInclude>
+    <ClInclude Include="..\src\ReliableUDP.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\ReliableUDP.h">
+    </ClInclude>
+    <ClInclude Include="..\src\ReliableUDPConfig.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\ReliableUDPConfig.h">
+    </ClInclude>
+    <ClInclude Include="..\src\ReliableUDPFrame.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\ReliableUDPFrame.h">
+    </ClInclude>
+    <ClInclude Include="..\src\ReliableUdpHelper.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\ReliableUdpHelper.h">
+    </ClInclude>
+    <ClInclude Include="..\src\ReliableUDPHost.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\ReliableUDPHost.h">
+    </ClInclude>
+    <ClInclude Include="..\src\RemoteBase.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\RemoteBase.h">
+    </ClInclude>
+    <ClInclude Include="..\src\RemotePeer.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\RemotePeer.h">
+    </ClInclude>
+    <ClInclude Include="..\src\RemoteServer.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\RemoteServer.h">
+    </ClInclude>
+    <ClInclude Include="..\src\ReportError.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\ReportError.h">
+    </ClInclude>
+    <ClInclude Include="..\src\ReusableLocalVar.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\ReusableLocalVar.h">
+    </ClInclude>
+    <ClInclude Include="..\src\RmiContextImpl.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\RmiContextImpl.h">
+    </ClInclude>
+    <ClInclude Include="..\src\RunOnScopeOut.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\RunOnScopeOut.h">
+    </ClInclude>
+    <ClInclude Include="..\src\SendBrake.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\SendBrake.h">
+    </ClInclude>
+    <ClInclude Include="..\src\SendDestInfo.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\SendDestInfo.h">
+    </ClInclude>
+    <ClInclude Include="..\src\SendFragRefs.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\SendFragRefs.h">
+    </ClInclude>
+    <ClInclude Include="..\src\SendMessage.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\SendMessage.h">
+    </ClInclude>
+    <ClInclude Include="..\src\SendOpt.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\SendOpt.h">
+    </ClInclude>
+    <ClInclude Include="..\src\SendReadyList.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\SendReadyList.h">
+    </ClInclude>
+    <ClInclude Include="..\src\Socket.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\Socket.h">
+    </ClInclude>
+    <ClInclude Include="..\src\SocketPtrAndSerial.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\SocketPtrAndSerial.h">
+    </ClInclude>
+    <ClInclude Include="..\src\SocketUtil.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\SocketUtil.h">
+    </ClInclude>
+    <ClInclude Include="..\src\SpinLock.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\SpinLock.h">
+    </ClInclude>
+    <ClInclude Include="..\src\STLUtil.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\STLUtil.h">
+    </ClInclude>
+    <ClInclude Include="..\src\StreamQueue.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\StreamQueue.h">
+    </ClInclude>
+    <ClInclude Include="..\src\SuperSocket.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\SuperSocket.h">
+    </ClInclude>
+    <ClInclude Include="..\src\TCPLayer.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\TCPLayer.h">
+    </ClInclude>
+    <ClInclude Include="..\src\ThreadPoolImpl.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\ThreadPoolImpl.h">
+    </ClInclude>
+    <ClInclude Include="..\src\TimeAlarm.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\TimeAlarm.h">
+    </ClInclude>
+    <ClInclude Include="..\src\TimeEventThreadPool.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\TimeEventThreadPool.h">
+    </ClInclude>
+    <ClInclude Include="..\src\TimeOfDayTimer.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\TimeOfDayTimer.h">
+    </ClInclude>
+    <ClInclude Include="..\src\UniqueID.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\UniqueID.h">
+    </ClInclude>
+    <ClInclude Include="..\src\UnreliableMessageLossMeasurer.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\UnreliableMessageLossMeasurer.h">
+    </ClInclude>
+    <ClInclude Include="..\src\Upnp.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\Upnp.h">
+    </ClInclude>
+    <ClInclude Include="..\src\URI.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\URI.h">
+    </ClInclude>
+    <ClInclude Include="..\src\UseCount.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\UseCount.h">
+    </ClInclude>
+    <ClInclude Include="..\src\UserTaskQueue.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\UserTaskQueue.h">
+    </ClInclude>
+    <ClInclude Include="..\src\UseZlib.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\UseZlib.h">
+    </ClInclude>
+    <ClInclude Include="..\src\VizAgent.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\VizAgent.h">
+    </ClInclude>
+    <ClInclude Include="..\src\VizMessageSummary.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\VizMessageSummary.h">
+    </ClInclude>
+    <ClInclude Include="..\src\stdafx.h">
       <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\src\stdafx.h">
+    </ClInclude>
+    <ClInclude Include="..\..\..\version\PNVersion.h">
       <Filter>Header Files</Filter>
-    </None>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\OpenSources\iconv-embed\iconv.c">

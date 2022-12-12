@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -7,6 +7,14 @@
     </ProjectConfiguration>
     <ProjectConfiguration Include="Debug_static_CRT|Win32">
       <Configuration>Debug_static_CRT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_static_CRT|Win32">
+      <Configuration>Release_static_CRT</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
@@ -17,14 +25,6 @@
       <Configuration>Debug_static_CRT</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release_static_CRT|Win32">
-      <Configuration>Release_static_CRT</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
@@ -34,110 +34,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\src\AgentConnector.h" />
-    <ClInclude Include="..\src\Base64.h" />
-    <ClInclude Include="..\src\dbcacheclient2blocked.h" />
-    <ClInclude Include="..\src\DbCacheClient2Impl.h" />
-    <ClInclude Include="..\src\DBCacheJob.h" />
-    <ClInclude Include="..\src\DbCacheObject.h" />
-    <ClInclude Include="..\src\DbCacheServer2Impl.h" />
-    <ClInclude Include="..\src\DbConfig.h" />
-    <ClInclude Include="..\src\DbLogWriterImpl.h" />
-    <ClInclude Include="..\src\DumpServer.h" />
-    <ClInclude Include="..\src\EmergencyLogServer.h" />
-    <ClInclude Include="..\src\FallbackableUdpLayer_S.h" />
-    <ClInclude Include="..\src\HlaEntityImpl_S.h" />
-    <ClInclude Include="..\src\HlaSessionHostImpl_S.h" />
-    <ClInclude Include="..\src\HlaSpaceImpl_S.h" />
-    <ClInclude Include="..\src\HostIDFactory.h" />
-    <ClInclude Include="..\src\IVizAgentDg.h" />
-    <ClInclude Include="..\src\dbloadeddata2_s.h" />
-    <ClInclude Include="..\src\NetServer.h" />
-    <ClInclude Include="..\src\OdbcCommandImpl.h" />
-    <ClInclude Include="..\src\OdbcConnectionImpl.h" />
-    <ClInclude Include="..\src\OdbcErrorCheck.h" />
-    <ClInclude Include="..\src\OdbcHandle.h" />
-    <ClInclude Include="..\src\OdbcRecordsetImpl.h" />
-    <ClInclude Include="..\src\P2PGroup_S.h" />
-    <ClInclude Include="..\src\P2PPair.h" />
-    <ClInclude Include="..\src\P2PPair_S.h" />
-    <ClInclude Include="..\src\RCPair.h" />
-    <ClInclude Include="..\src\ReaderWriterMonitorTester.h" />
-    <ClInclude Include="..\src\RemoteClient.h" />
-    <ClInclude Include="..\src\stdafx.h" />
-    <ClInclude Include="..\src\Tests.h" />
-    <ClInclude Include="..\src\TestUdpConnReset.h" />
-    <ClInclude Include="..\src\ThreadPoolImpl.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\src\acrimpl_s.cpp" />
-    <ClCompile Include="..\src\AdoWrap.cpp" />
-    <ClCompile Include="..\src\AgentConnector.cpp" />
-    <ClCompile Include="..\src\Base64.cpp" />
-    <ClCompile Include="..\src\DbCache2Isolate.cpp" />
-    <ClCompile Include="..\src\dbcacheclient2blocked.cpp" />
-    <ClCompile Include="..\src\DbCacheClient2Impl.cpp" />
-    <ClCompile Include="..\src\dbcacheclient2load.cpp" />
-    <ClCompile Include="..\src\DBCacheJob.cpp" />
-    <ClCompile Include="..\src\DbCacheObject.cpp" />
-    <ClCompile Include="..\src\DbCacheServer2Impl.cpp" />
-    <ClCompile Include="..\src\dbcacheserver2load.cpp" />
-    <ClCompile Include="..\src\DbConfig.cpp" />
-    <ClCompile Include="..\src\DbLoadedData.cpp" />
-    <ClCompile Include="..\src\DbLoadedData2.cpp" />
-    <ClCompile Include="..\src\DbLogWriter.cpp" />
-    <ClCompile Include="..\src\DbLogWriterImpl.cpp" />
-    <ClCompile Include="..\src\DumpServer.cpp" />
-    <ClCompile Include="..\src\EmergencyLogServer.cpp" />
-    <ClCompile Include="..\src\FallbackableUdpLayer_S.cpp" />
-    <ClCompile Include="..\src\HlaEntityImpl_S.cpp" />
-    <ClCompile Include="..\src\HlaSessionHostImpl_S.cpp" />
-    <ClCompile Include="..\src\HlaSpaceImpl_S.cpp" />
-    <ClCompile Include="..\src\HostIDFactory.cpp" />
-    <ClCompile Include="..\src\dbloadeddata2_s.cpp" />
-    <ClCompile Include="..\src\NetClientInfo.cpp" />
-    <ClCompile Include="..\src\NetServer.cpp" />
-    <ClCompile Include="..\src\NetServerAccept.cpp" />
-    <ClCompile Include="..\src\NetServerEvent.cpp" />
-    <ClCompile Include="..\src\NetServerStats.cpp" />
-    <ClCompile Include="..\src\NetworkerThread_S.cpp" />
-    <ClCompile Include="..\src\NTService.cpp" />
-    <ClCompile Include="..\src\OdbcByteData.cpp" />
-    <ClCompile Include="..\src\OdbcCommand.cpp" />
-    <ClCompile Include="..\src\OdbcCommandImpl.cpp" />
-    <ClCompile Include="..\src\OdbcConnection.cpp" />
-    <ClCompile Include="..\src\OdbcConnectionImpl.cpp" />
-    <ClCompile Include="..\src\OdbcErrorCheck.cpp" />
-    <ClCompile Include="..\src\OdbcException.cpp" />
-    <ClCompile Include="..\src\OdbcHandle.cpp" />
-    <ClCompile Include="..\src\OdbcRecordset.cpp" />
-    <ClCompile Include="..\src\OdbcRecordsetImpl.cpp" />
-    <ClCompile Include="..\src\OdbcVariant.cpp" />
-    <ClCompile Include="..\src\P2PGroup_S.cpp" />
-    <ClCompile Include="..\src\P2PPair.cpp" />
-    <ClCompile Include="..\src\P2PPair_S.cpp" />
-    <ClCompile Include="..\src\P2P_S.cpp" />
-    <ClCompile Include="..\src\pnguid-win32.cpp" />
-    <ClCompile Include="..\src\PropNode.cpp" />
-    <ClCompile Include="..\src\ReaderWriterMonitor.cpp" />
-    <ClCompile Include="..\src\ReaderWriterMonitorTester.cpp" />
-    <ClCompile Include="..\src\RemoteClient.cpp" />
-    <ClCompile Include="..\src\ServerParam.cpp" />
-    <ClCompile Include="..\src\NetServerStartup.cpp" />
-    <ClCompile Include="..\src\stdafxserver.cpp" />
-    <ClCompile Include="..\src\SuperPeer_S.cpp" />
-    <ClCompile Include="..\src\Tests.cpp" />
-    <ClCompile Include="..\src\TestUdpConnReset.cpp" />
-    <ClCompile Include="..\src\Variant.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProudNetPidl\ProudNetPidl.vcxproj">
-      <Project>{51ad545d-cdd6-4671-a373-4b57f56796f1}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E29D13E6-F388-44BD-8D07-590D2501B6A1}</ProjectGuid>
+    <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Proud</RootNamespace>
     <ProjectName>AuthNetServer</ProjectName>
@@ -146,81 +45,48 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'" Label="PropertySheets">
+  <ImportGroup Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -234,22 +100,22 @@
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>AuthNetServer</TargetName>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>AuthNetServer</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
-    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
-    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>AuthNetServer</TargetName>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>AuthNetServer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <TargetName>AuthNetServer</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
+    <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
+    <TargetName>AuthNetServer</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
     <TargetName>AuthNetServer</TargetName>
@@ -266,19 +132,17 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
@@ -286,84 +150,38 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-    </ClCompile>
-    <Lib>
-      <TargetMachine>MachineX64</TargetMachine>
-    </Lib>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
-    <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;_DEBUG;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-    </ClCompile>
-    <Lib>
-      <TargetMachine>MachineX64</TargetMachine>
-    </Lib>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>true</OmitFramePointers>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
       <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
@@ -371,49 +189,77 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>true</OmitFramePointers>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
       <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Lib>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Lib>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>true</OmitFramePointers>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
       <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>
@@ -421,29 +267,128 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>_EXCEPTIONALLY_;WIN32;_WINDOWS;NDEBUG;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <OpenMPSupport>true</OpenMPSupport>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <SDLCheck>true</SDLCheck>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>true</OmitFramePointers>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
       <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\acrimpl_s.cpp" />
+    <ClCompile Include="..\src\AdoWrap.cpp" />
+    <ClCompile Include="..\src\AgentConnector.cpp" />
+    <ClCompile Include="..\src\Base64.cpp" />
+    <ClCompile Include="..\src\DbCache2Isolate.cpp" />
+    <ClCompile Include="..\src\dbcacheclient2blocked.cpp" />
+    <ClCompile Include="..\src\DbCacheClient2Impl.cpp" />
+    <ClCompile Include="..\src\dbcacheclient2load.cpp" />
+    <ClCompile Include="..\src\DBCacheJob.cpp" />
+    <ClCompile Include="..\src\DbCacheObject.cpp" />
+    <ClCompile Include="..\src\DbCacheServer2Impl.cpp" />
+    <ClCompile Include="..\src\dbcacheserver2load.cpp" />
+    <ClCompile Include="..\src\DbConfig.cpp" />
+    <ClCompile Include="..\src\DbLoadedData.cpp" />
+    <ClCompile Include="..\src\DbLoadedData2.cpp" />
+    <ClCompile Include="..\src\dbloadeddata2_s.cpp" />
+    <ClCompile Include="..\src\DbLogWriter.cpp" />
+    <ClCompile Include="..\src\DbLogWriterImpl.cpp" />
+    <ClCompile Include="..\src\DumpServer.cpp" />
+    <ClCompile Include="..\src\EmergencyLogServer.cpp" />
+    <ClCompile Include="..\src\FallbackableUdpLayer_S.cpp" />
+    <ClCompile Include="..\src\HlaEntityImpl_S.cpp" />
+    <ClCompile Include="..\src\HlaSessionHostImpl_S.cpp" />
+    <ClCompile Include="..\src\HlaSpaceImpl_S.cpp" />
+    <ClCompile Include="..\src\HostIDFactory.cpp" />
+    <ClCompile Include="..\src\NetClientInfo.cpp" />
+    <ClCompile Include="..\src\NetServer.cpp" />
+    <ClCompile Include="..\src\NetServerAccept.cpp" />
+    <ClCompile Include="..\src\NetServerEvent.cpp" />
+    <ClCompile Include="..\src\NetServerStartup.cpp" />
+    <ClCompile Include="..\src\NetServerStats.cpp" />
+    <ClCompile Include="..\src\NetworkerThread_S.cpp" />
+    <ClCompile Include="..\src\NTService.cpp" />
+    <ClCompile Include="..\src\OdbcByteData.cpp" />
+    <ClCompile Include="..\src\OdbcCommand.cpp" />
+    <ClCompile Include="..\src\OdbcCommandImpl.cpp" />
+    <ClCompile Include="..\src\OdbcConnection.cpp" />
+    <ClCompile Include="..\src\OdbcConnectionImpl.cpp" />
+    <ClCompile Include="..\src\OdbcErrorCheck.cpp" />
+    <ClCompile Include="..\src\OdbcException.cpp" />
+    <ClCompile Include="..\src\OdbcHandle.cpp" />
+    <ClCompile Include="..\src\OdbcRecordset.cpp" />
+    <ClCompile Include="..\src\OdbcRecordsetImpl.cpp" />
+    <ClCompile Include="..\src\OdbcVariant.cpp" />
+    <ClCompile Include="..\src\P2P_S.cpp" />
+    <ClCompile Include="..\src\P2PGroup_S.cpp" />
+    <ClCompile Include="..\src\P2PPair.cpp" />
+    <ClCompile Include="..\src\P2PPair_S.cpp" />
+    <ClCompile Include="..\src\pnguid-win32.cpp" />
+    <ClCompile Include="..\src\PropNode.cpp" />
+    <ClCompile Include="..\src\ReaderWriterMonitor.cpp" />
+    <ClCompile Include="..\src\ReaderWriterMonitorTester.cpp" />
+    <ClCompile Include="..\src\RemoteClient.cpp" />
+    <ClCompile Include="..\src\ServerParam.cpp" />
+    <ClCompile Include="..\src\stdafxserver.cpp" />
+    <ClCompile Include="..\src\SuperPeer_S.cpp" />
+    <ClCompile Include="..\src\Tests.cpp" />
+    <ClCompile Include="..\src\TestUdpConnReset.cpp" />
+    <ClCompile Include="..\src\Variant.cpp" />
+    <ClCompile Include="..\src\stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\AgentConnector.h" />
+    <ClInclude Include="..\src\Base64.h" />
+    <ClInclude Include="..\src\dbcacheclient2blocked.h" />
+    <ClInclude Include="..\src\DbCacheClient2Impl.h" />
+    <ClInclude Include="..\src\DBCacheJob.h" />
+    <ClInclude Include="..\src\DbCacheObject.h" />
+    <ClInclude Include="..\src\DbCacheServer2Impl.h" />
+    <ClInclude Include="..\src\DbConfig.h" />
+    <ClInclude Include="..\src\dbloadeddata2_s.h" />
+    <ClInclude Include="..\src\DbLogWriterImpl.h" />
+    <ClInclude Include="..\src\DumpServer.h" />
+    <ClInclude Include="..\src\EmergencyLogServer.h" />
+    <ClInclude Include="..\src\FallbackableUdpLayer_S.h" />
+    <ClInclude Include="..\src\HlaEntityImpl_S.h" />
+    <ClInclude Include="..\src\HlaSessionHostImpl_S.h" />
+    <ClInclude Include="..\src\HlaSpaceImpl_S.h" />
+    <ClInclude Include="..\src\HostIDFactory.h" />
+    <ClInclude Include="..\src\IVizAgentDg.h" />
+    <ClInclude Include="..\src\NetServer.h" />
+    <ClInclude Include="..\src\OdbcCommandImpl.h" />
+    <ClInclude Include="..\src\OdbcConnectionImpl.h" />
+    <ClInclude Include="..\src\OdbcErrorCheck.h" />
+    <ClInclude Include="..\src\OdbcHandle.h" />
+    <ClInclude Include="..\src\OdbcRecordsetImpl.h" />
+    <ClInclude Include="..\src\P2PGroup_S.h" />
+    <ClInclude Include="..\src\P2PPair.h" />
+    <ClInclude Include="..\src\P2PPair_S.h" />
+    <ClInclude Include="..\src\RCPair.h" />
+    <ClInclude Include="..\src\ReaderWriterMonitorTester.h" />
+    <ClInclude Include="..\src\RemoteClient.h" />
+    <ClInclude Include="..\src\Tests.h" />
+    <ClInclude Include="..\src\TestUdpConnReset.h" />
+    <ClInclude Include="..\src\ThreadPoolImpl.h" />
+    <ClInclude Include="..\src\stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProudNetPidl\ProudNetPidl.vcxproj">
+      <Project>{51ad545d-cdd6-4671-a373-4b57f56796f1}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
