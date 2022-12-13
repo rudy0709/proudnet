@@ -145,7 +145,7 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Lib>
-      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -165,7 +165,7 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Lib>
-      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -188,7 +188,7 @@
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
-      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -211,7 +211,7 @@
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
-      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -231,7 +231,7 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Lib>
-      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -251,7 +251,7 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Lib>
-      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -274,7 +274,7 @@
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
-      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -297,7 +297,7 @@
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
-      <AdditionalLibraryDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>

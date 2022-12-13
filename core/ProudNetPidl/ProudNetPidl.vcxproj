@@ -45,26 +45,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -97,30 +97,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="Shared">
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'" Label="PropertySheets">
+  <ImportGroup Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -418,33 +395,6 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
     </CustomBuild>
-    <CustomBuild Include="ErrorType.yaml">
-      <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(Identity) ...</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compiling %(Identity) ...</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">Compiling %(Identity) ...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
-    </CustomBuild>
     <CustomBuild Include="NetC2C.pidl">
       <FileType>Document</FileType>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -552,6 +502,33 @@
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="ErrorType.yaml">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(Identity) ...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compiling %(Identity) ...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">Compiling %(Identity) ...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
     </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

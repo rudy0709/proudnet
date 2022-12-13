@@ -14,7 +14,7 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="PIDL">
-      <UniqueIdentifier>{cc22d094-0a69-4139-a15b-b64440362b83}</UniqueIdentifier>
+      <UniqueIdentifier>{ad87742a-a648-4e91-a25c-13f368363736}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

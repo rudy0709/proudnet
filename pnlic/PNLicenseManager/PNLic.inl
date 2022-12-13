@@ -8,7 +8,7 @@
 #include "../PNLicenseManager/Edgegap.inl"
 
 #if defined(__linux__)
-#include "linux/PNLicenseHiddenImage.inl"
+#include "PNLicenseHiddenImage.inl"
 #else
 #include "PNLicenseHiddenImage.inl"
 #endif
