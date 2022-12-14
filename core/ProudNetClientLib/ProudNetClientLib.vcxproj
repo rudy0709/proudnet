@@ -1076,11 +1076,6 @@
   <ItemGroup>
     <Natvis Include="..\src\ProudNet.natvis" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProudNetPidl\ProudNetPidl.vcxproj">
-      <Project>{90a8b9fe-5e62-4af4-bbd0-65dc5cc6dcda}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

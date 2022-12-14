@@ -220,6 +220,7 @@ popd
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <DebugInformationFormat />
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\LicAuthLib\PNLicAuthClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthClient.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -260,6 +261,7 @@ popd
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <DebugInformationFormat />
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\LicAuthLib\PNLicAuthClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthClient.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -374,6 +376,7 @@ popd
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <DebugInformationFormat />
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\LicAuthLib\PNLicAuthClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthClient.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -407,12 +410,14 @@ popd
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <DebugInformationFormat />
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\LicAuthLib\PNLicAuthClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthClient.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>

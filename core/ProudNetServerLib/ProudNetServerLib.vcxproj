@@ -145,7 +145,7 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -165,7 +165,7 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -188,7 +188,7 @@
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -211,7 +211,7 @@
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -231,7 +231,7 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -251,7 +251,7 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -274,7 +274,7 @@
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -297,7 +297,7 @@
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
@@ -428,11 +428,6 @@
     <ClCompile Include="..\src\UnityBuild\ServerUnityBuild006.cpp" />
     <ClCompile Include="..\src\UnityBuild\ServerUnityBuild007.cpp" />
     <ClCompile Include="..\src\UnityBuild\ServerUnityBuild008.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProudNetClientLib\ProudNetClientLib.vcxproj">
-      <Project>{11f32acb-e192-31b7-be6b-3f130264aaa0}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

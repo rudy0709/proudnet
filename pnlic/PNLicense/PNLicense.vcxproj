@@ -175,6 +175,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
@@ -196,6 +197,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
@@ -255,6 +257,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>
@@ -276,6 +279,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>

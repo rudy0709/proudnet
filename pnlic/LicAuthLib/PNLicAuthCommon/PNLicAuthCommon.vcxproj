@@ -172,7 +172,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <Optimization />
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
@@ -193,7 +193,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <Optimization />
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
@@ -250,7 +250,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <Optimization />
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>
@@ -271,7 +271,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <Optimization />
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>
