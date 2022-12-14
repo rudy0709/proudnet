@@ -146,6 +146,10 @@
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
     <ClCompile>
@@ -164,6 +168,10 @@
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -185,6 +193,10 @@
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
     <ClCompile>
@@ -206,6 +218,10 @@
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -224,6 +240,10 @@
     <Link>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
     <ClCompile>
@@ -242,6 +262,10 @@
     <Link>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -263,6 +287,10 @@
     <Link>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
     <ClCompile>
@@ -284,6 +312,10 @@
     <Link>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="..\src\acrimpl.cpp" />
