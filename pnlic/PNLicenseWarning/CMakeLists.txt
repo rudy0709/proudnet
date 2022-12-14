@@ -32,7 +32,7 @@ add_compile_options(
     -W -Wall -Wextra
 #        -Wno-unused-parameter -Wno-unknown-pragmas
 #        -Wno-comment -Wno-extra -Wno-ignored-qualifiers
-    -O2
+#    -O2
     -std=c++11
 )
 

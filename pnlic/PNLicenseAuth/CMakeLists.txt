@@ -33,8 +33,8 @@ add_definitions(
 add_compile_options(
     -fPIC
     -W -Wall -Wextra
-    -O2
-    -std=c++11
+#    -O2
+-std=c++11
 )
 
 # link

@@ -138,6 +138,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
@@ -158,6 +159,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
@@ -176,10 +178,12 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
@@ -198,12 +202,13 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <TargetMachine>MachineX86</TargetMachine>
       <AdditionalDependencies>..\..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -223,6 +228,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
@@ -243,6 +249,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
@@ -261,10 +268,12 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
@@ -283,12 +292,13 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <TargetMachine>MachineX64</TargetMachine>
       <AdditionalDependencies>..\..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

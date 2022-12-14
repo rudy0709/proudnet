@@ -145,7 +145,7 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\LicAuthLib\PNLicAuthClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthClient.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
@@ -159,11 +159,11 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)%proj_name%.exe"
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
@@ -182,7 +182,7 @@ popd
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\LicAuthLib\PNLicAuthClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthClient.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
@@ -196,11 +196,11 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)%proj_name%.exe"
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -219,9 +219,10 @@ popd
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\LicAuthLib\PNLicAuthClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthClient.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
@@ -235,11 +236,11 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)%proj_name%.exe"
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
@@ -258,6 +259,7 @@ popd
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\LicAuthLib\PNLicAuthClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthClient.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -272,13 +274,13 @@ if exist "$(TargetDir)%proj_name%.exe" (
     del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
-echo ... pushd .\
-echo ... cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-echo ... start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)%proj_name%.exe"
-echo ... popd
+pushd .\
+cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)%proj_name%.exe"
+popd
 
-echo ... @rem .exe 파일에 디지털 서명을 추가합니다.
-echo ... "%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"</Command>
+@rem .exe 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -297,7 +299,7 @@ echo ... "%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\LicAuthLib\PNLicAuthClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthClient.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
@@ -311,11 +313,11 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)%proj_name%.exe"
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
@@ -334,7 +336,7 @@ popd
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\LicAuthLib\PNLicAuthClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthClient.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
@@ -348,11 +350,11 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)%proj_name%.exe"
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -371,45 +373,7 @@ popd
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <TargetMachine>MachineX64</TargetMachine>
-      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
-    </Link>
-    <PostBuildEvent>
-      <Command>set proj_name=PNLicenseAuth
-
-@rem .exe 파일을 난독화합니다.
-if exist "$(TargetDir)%proj_name%.exe" (
-    del /f /q "$(TargetDir)%proj_name%.exe"
-)
-
-pushd .\
-cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetDir)$(TargetName)$(TargetExt) /outputfile $(TargetDir)%proj_name%.exe
-popd
-
-@rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_CONSOLE;PROUDSRCCOPY;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\LicAuthLib\PNLicAuthClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthClient.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -424,13 +388,52 @@ if exist "$(TargetDir)%proj_name%.exe" (
     del /f /q "$(TargetDir)%proj_name%.exe"
 )
 
-echo ... pushd .\
-echo ... cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-echo ... start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)%proj_name%.exe"
-echo ... popd
+pushd .\
+cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)%proj_name%.exe"
+popd
 
-echo ... @rem .exe 파일에 디지털 서명을 추가합니다.
-echo ... "%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"</Command>
+@rem .exe 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_CONSOLE;PROUDSRCCOPY;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\LicAuthLib\PNLicAuthClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthClient.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TargetMachine>MachineX64</TargetMachine>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+    </Link>
+    <PostBuildEvent>
+      <Command>set proj_name=PNLicenseAuth
+
+@rem .exe 파일을 난독화합니다.
+if exist "$(TargetDir)%proj_name%.exe" (
+    del /f /q "$(TargetDir)%proj_name%.exe"
+)
+
+pushd .\
+cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)%proj_name%.exe"
+popd
+
+@rem .exe 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

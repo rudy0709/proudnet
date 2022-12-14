@@ -145,13 +145,14 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
       <Command>SETLOCAL ENABLEDELAYEDEXPANSION
 set proj_name=PNLicenseHidden
+
 @rem ImageGen.exe 파일 유무를 체크합니다.
 set imagegen_path=""
 
@@ -176,11 +177,11 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetPath)" /outputfile "$(TargetDir)%proj_name%.exe"
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
@@ -209,13 +210,14 @@ if exist %inl_path% (
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
       <Command>SETLOCAL ENABLEDELAYEDEXPANSION
 set proj_name=PNLicenseHidden
+
 @rem ImageGen.exe 파일 유무를 체크합니다.
 set imagegen_path=""
 
@@ -240,11 +242,11 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetPath)" /outputfile "$(TargetDir)%proj_name%.exe"
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
@@ -273,16 +275,18 @@ if exist %inl_path% (
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
       <DebugInformationFormat />
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
       <Command>SETLOCAL ENABLEDELAYEDEXPANSION
 set proj_name=PNLicenseHidden
+
 @rem ImageGen.exe 파일 유무를 체크합니다.
 set imagegen_path=""
 
@@ -307,11 +311,11 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetPath)" /outputfile "$(TargetDir)%proj_name%.exe"
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
@@ -340,6 +344,7 @@ if exist %inl_path% (
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
       <DebugInformationFormat />
     </ClCompile>
     <Link>
@@ -350,6 +355,7 @@ if exist %inl_path% (
     <PostBuildEvent>
       <Command>SETLOCAL ENABLEDELAYEDEXPANSION
 set proj_name=PNLicenseHidden
+
 @rem ImageGen.exe 파일 유무를 체크합니다.
 set imagegen_path=""
 
@@ -374,11 +380,11 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetPath)" /outputfile "$(TargetDir)%proj_name%.exe"
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
@@ -407,13 +413,14 @@ if exist %inl_path% (
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
       <Command>SETLOCAL ENABLEDELAYEDEXPANSION
 set proj_name=PNLicenseHidden
+
 @rem ImageGen.exe 파일 유무를 체크합니다.
 set imagegen_path=""
 
@@ -438,11 +445,11 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetPath)" /outputfile "$(TargetDir)%proj_name%.exe"
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
@@ -471,13 +478,14 @@ if exist %inl_path% (
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
       <Command>SETLOCAL ENABLEDELAYEDEXPANSION
 set proj_name=PNLicenseHidden
+
 @rem ImageGen.exe 파일 유무를 체크합니다.
 set imagegen_path=""
 
@@ -502,11 +510,11 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetPath)" /outputfile "$(TargetDir)%proj_name%.exe"
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
@@ -535,16 +543,18 @@ if exist %inl_path% (
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
       <DebugInformationFormat />
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
     </Link>
     <PostBuildEvent>
       <Command>SETLOCAL ENABLEDELAYEDEXPANSION
 set proj_name=PNLicenseHidden
+
 @rem ImageGen.exe 파일 유무를 체크합니다.
 set imagegen_path=""
 
@@ -569,11 +579,11 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetPath)" /outputfile "$(TargetDir)%proj_name%.exe"
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
@@ -602,6 +612,7 @@ if exist %inl_path% (
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
       <DebugInformationFormat />
     </ClCompile>
     <Link>
@@ -612,6 +623,7 @@ if exist %inl_path% (
     <PostBuildEvent>
       <Command>SETLOCAL ENABLEDELAYEDEXPANSION
 set proj_name=PNLicenseHidden
+
 @rem ImageGen.exe 파일 유무를 체크합니다.
 set imagegen_path=""
 
@@ -636,11 +648,11 @@ if exist "$(TargetDir)%proj_name%.exe" (
 
 pushd .\
 cd "$(ProjectDir)..\..\utils\CodeVirtualizer"
-start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile $(TargetPath) /outputfile $(TargetDir)%proj_name%.exe
+start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetPath)" /outputfile "$(TargetDir)%proj_name%.exe"
 popd
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)%proj_name%.exe
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)%proj_name%.exe"
 
 @rem .exe 파일을 .inl 파일로 변환합니다.
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
