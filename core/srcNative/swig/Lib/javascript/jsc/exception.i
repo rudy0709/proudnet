@@ -1,1 +1,0 @@
-﻿%include <typemaps/exception.swg>
