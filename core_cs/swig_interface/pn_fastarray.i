@@ -70,7 +70,7 @@
 %ignore Proud::CFastArray::Add; 
 %ignore Proud::FastArray_In_Type; 
 
-%include "../../include/FastArray.h"
+%include "../../core_cpp/include/FastArray.h"
 
 %template(IntArray) Proud::CFastArray<int>;
 %template(AddrPortArray) Proud::CFastArray<Proud::AddrPort,true,false,intptr_t>;

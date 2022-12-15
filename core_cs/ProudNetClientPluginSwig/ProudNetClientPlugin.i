@@ -27,6 +27,6 @@ A: 예전에는 그랬으나, msbuild 내부에서 모종의 빌드 불필요 �
 #include "ProudNetClientPlugin.h"
 %}
 
-%include "../PrivateSwigInterface/ProudNetClient.i"
+%include "../swig_interface/ProudNetClient.i"
 %include "NativeType.h"
 %include "ProudNetClientPlugin.h"
