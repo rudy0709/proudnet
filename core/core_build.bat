@@ -1,15 +1,26 @@
 @echo off
+SETLOCAL ENABLEDELAYEDEXPANSION
 
-set projects=all pidl client server
+set project_list=all pidl client server
+set msbuild_target=
+set msbuild_config_cpp=
+set msbuild_platform_cpp=
+set msbuild_config_cs=
+set msbuild_platform_cs=
+set msbuild_project=
 
 :main
 	@rem 사용법을 출력해야 할 지를 검사합니다.
-	call :check_comandline_params %1 %2
+	call :check_comandline_params %1 %2 %3 %4
 	if "%errorlevel%" == "1" (
 		@rem 사용법을 출력합니다.
 		echo Usage:
-		echo     core_build.bat clean ^<all ^| pidl ^| client ^| server^>
-		echo     core_build.bat build ^<all ^| pidl ^| client ^| server^>
+		echo     pnlic_build.bat clean ^<configuration^> ^<platform^> ^<project^>
+		echo     pnlic_build.bat build ^<configuration^> ^<platform^> ^<project^>
+		echo Options:
+		echo     configuration : Debug ^| Debug_static_CRT ^| Release ^| Release_static_CRT
+		echo          platform : Win32 ^| x64
+		echo           project : all ^| pidl ^| client ^| server
 		exit /b
 	)
 
@@ -18,20 +29,62 @@ set projects=all pidl client server
 	call :check_environment_variable
 
 	@rem   (2) ProudNetPidl 프로젝트 빌드
-	call :build_library_pidl %1 %2
+	call :build_library_pidl
 
 	@rem   (3) ProudNetClient 프로젝트 빌드
-	call :build_library_client %1 %2
+	call :build_library_client
 
-	@rem   (3) ProudNetServer 프로젝트 빌드
-	call :build_library_server %1 %2
+	@rem   (4 ProudNetServer 프로젝트 빌드
+	call :build_library_server
 exit /b
 
+:build_library_pidl
+	if not "%msbuild_project%" == "all" (
+		if not "%msbuild_project%" == "pidl" (
+			exit /b
+		)
+	)
+
+	@rem ProudNetPidl 프로젝트를 빌드/클린합니다.
+	call :compile_command ".\ProudNetPidl" "ProudNetPidl.vcxproj"
+exit /b
+
+:build_library_client
+	if not "%msbuild_project%" == "all" (
+		if not "%msbuild_project%" == "client" (
+			exit /b
+		)
+	)
+
+	@rem ProudNetClient 프로젝트들을 빌드/클린합니다.
+	call :compile_command ".\ProudNetClientLib" "ProudNetClientLib.vcxproj"
+	call :compile_command ".\ProudNetClientDll" "ProudNetClientDll.vcxproj"
+exit /b
+
+:build_library_server
+	if not "%msbuild_project%" == "all" (
+		if not "%msbuild_project%" == "server" (
+			exit /b
+		)
+	)
+
+	@rem ProudNetServer 프로젝트들을 빌드/클린합니다.
+	call :compile_command ".\ProudNetServerLib" "ProudNetServerLib.vcxproj"
+	call :compile_command ".\ProudNetServerDll" "ProudNetServerDll.vcxproj"
+exit /b
+
+@rem 공통 로직...
 :check_environment_variable
 	@rem 환경변수가 등록되어 있는 지를 체크합니다.
 	if "%PN_BUILD_PATH%" == "" (
 		@rem 예시 : C:\Program Files\Microsoft Visual Studio\2022\Professional\Msbuild\Current\Bin\MSBuild.exe
 		echo ^>^>^>^> Error : Register the PN_BUILD_PATH environment variable before executing the batch file.
+		exit /b
+	)
+
+	if "%PN_OBFUSCATION_TOOL_PATH%" == "" (
+		@rem 예시 : C:\Program Files (x86)\Gapotchenko\Eazfuscator.NET\Eazfuscator.NET.exe
+		echo ^>^>^>^> Error : Register the PN_OBFUSCATION_TOOL_PATH environment variable before executing the batch file.
 		exit /b
 	)
 
@@ -41,103 +94,99 @@ exit /b
 		exit /b
 	)
 
-	echo ^>^>^>^> Environment-Variable^(PN_BUILD_PATH^) = "%PN_BUILD_PATH%"
-	echo ^>^>^>^> Environment-Variable^(PN_SIGN_TOOL_PATH^) = "%PN_SIGN_TOOL_PATH%"
+	echo ^>^>^>^> Env-Var = ^{
+	echo ^>^>^>^>              "PN_BUILD_PATH" : "%PN_BUILD_PATH%",
+	echo ^>^>^>^>   "PN_OBFUSCATION_TOOL_PATH" : "%PN_OBFUSCATION_TOOL_PATH%",
+	echo ^>^>^>^>           "PN_SIGN_TOOL_PATH": "%PN_SIGN_TOOL_PATH%"
+	echo ^>^>^>^> ^}
 	echo ^>^>^>^>
-exit /b
-
-:build_library_pidl
-	if not "%2" == "all" (
-		if not "%2" == "pidl" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
-		@rem ProudNetPidl 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\ProudNetPidl\ProudNetPidl.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\ProudNetPidl\bin\
-		rd /s /q .\ProudNetPidl\obj\
-	) else if "%1" == "build" (
-		@rem ProudNetPidl 프로젝트를 빌드합니다.
-		call :compile_command ".\ProudNetPidl\ProudNetPidl.vcxproj" build Release_static_CRT x64
-	)
-exit /b
-
-:build_library_client %1 %2
-	if not "%2" == "all" (
-		if not "%2" == "client" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
-		@rem ProudNetClientLib 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\ProudNetClientLib\ProudNetClientLib.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\ProudNetClientLib\bin\
-		rd /s /q .\ProudNetClientLib\obj\
-
-		@rem ProudNetClientDll 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\ProudNetClientDll\ProudNetClientDll.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\ProudNetClientDll\bin\
-		rd /s /q .\ProudNetClientDll\obj\
-	) else if "%1" == "build" (
-		@rem ProudNetClientLib 프로젝트를 빌드합니다.
-		call :compile_command ".\ProudNetClientLib\ProudNetClientLib.vcxproj" build Release_static_CRT x64
-
-		@rem ProudNetClientDll 프로젝트를 빌드합니다.
-		call :compile_command ".\ProudNetClientDll\ProudNetClientDll.vcxproj" build Release_static_CRT x64
-	)
-exit /b
-
-:build_library_server %1 %2
-	if not "%2" == "all" (
-		if not "%2" == "server" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
-		@rem ProudNetServerLib 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\ProudNetServerLib\ProudNetServerLib.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\ProudNetServerLib\bin\
-		rd /s /q .\ProudNetServerLib\obj\
-
-		@rem ProudNetServerDll 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\ProudNetServerDll\ProudNetServerDll.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\ProudNetServerDll\bin\
-		rd /s /q .\ProudNetServerDll\obj\
-	) else if "%1" == "build" (
-		@rem ProudNetServerLib 프로젝트를 빌드합니다.
-		call :compile_command ".\ProudNetServerLib\ProudNetServerLib.vcxproj" build Release_static_CRT x64
-
-		@rem ProudNetServerDll 프로젝트를 빌드합니다.
-		call :compile_command ".\ProudNetServerDll\ProudNetServerDll.vcxproj" build Release_static_CRT x64
-	)
-exit /b
-
-:compile_command
-	set vs_version=17
-
-	echo ^>^>^>^> CommandLine : "%PN_BUILD_PATH%" %1 "/t:%2" "/p:Configuration=%3;Platform=%4;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
-	echo ^>^>^>^>
-	echo ^>^>^>^> --------------------------------------------------
-	"%PN_BUILD_PATH%" %1 "/t:%2" "/p:Configuration=%3;Platform=%4;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
-	echo ^>^>^>^> --------------------------------------------------
 exit /b
 
 :check_comandline_params
-	if not "%1" == "clean" (
-		if not "%1" == "build" (
-			exit /b 1
+	@rem 첫번째 인자값의 유효성을 검사합니다.
+	set target_list=clean build
+	for %%i in (%target_list%) do (
+		if "%1" == "%%i" (
+			set msbuild_target=%%i
 		)
 	)
 
-	for %%p in (%projects%) do (
-		if "%2" == "%%p" (
-			exit /b 0
+	if "%msbuild_target%" == "" (
+		echo ^>^>^>^> Error : 1st^(Build Target^) argument is invalid.
+		exit /b 1
+	)
+
+	@rem 두번째 인자값의 유효성을 검사합니다.
+	set config_list=Debug Debug_static_CRT Release Release_static_CRT
+	for %%i in (%config_list%) do (
+		if "%2" == "%%i" (
+			set msbuild_config_cpp=%%i
 		)
 	)
-exit /b 1
 
-call :main %1 %2
+	if "%msbuild_config_cpp%" == "" (
+		echo ^>^>^>^> Error : 2nd^(Build Configuration^) argument is invalid.
+		exit /b 1
+	)
+
+	@rem 세번째 인자값의 유효성을 검사합니다.
+	set platform_list=Win32 x64
+	for %%i in (%platform_list%) do (
+		if "%3" == "%%i" (
+			set msbuild_platform_cpp=%%i
+		)
+	)
+
+	if "%msbuild_platform_cpp%" == "" (
+		echo ^>^>^>^> Error : 3rd^(Build Platform^) argument is invalid.
+		exit /b 1
+	)
+
+	@rem 세번째 인자값의 유효성을 검사합니다.
+	for %%i in (%project_list%) do (
+		if "%4" == "%%i" (
+			set msbuild_project=%%i
+		)
+	)
+
+	if "%msbuild_project%" == "" (
+		echo ^>^>^>^> Error : 4th^(Build Project^) argument is invalid.
+		exit /b 1
+	)
+
+	if not "%msbuild_config_cpp:Release=%" == "%msbuild_config_cpp%" (
+		set msbuild_config_cs=Release
+	) else (
+		set msbuild_config_cs=Debug
+	)
+	set msbuild_platform_cs=AnyCPU
+exit /b 0
+
+:compile_command
+	set param1=%~1
+	set param2=%~2
+	set vs_version=17
+
+	set msbuild_config=
+	set msbuild_platform=
+	if not "%param2:vcxproj=%" == "%param2%" (
+		set msbuild_config=!msbuild_config_cpp!
+		set msbuild_platform=!msbuild_platform_cpp!
+	) else if not "%param2:csproj=%" == "%param2%" (
+		set msbuild_config=!msbuild_config_cs!
+		set msbuild_platform=!msbuild_platform_cs!
+	)
+
+	echo ^>^>^>^> CommandLine : "%PN_BUILD_PATH%" "%param1%\%param2%" "/t:%msbuild_target%" "/p:Configuration=%msbuild_config%;Platform=%msbuild_platforms%;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
+	echo ^>^>^>^>
+	echo ^>^>^>^> --------------------------------------------------
+	"%PN_BUILD_PATH%" "%param1%\%param2%" "/t:%msbuild_target%" "/p:Configuration=%msbuild_config%;Platform=%msbuild_platforms%;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
+	echo ^>^>^>^> --------------------------------------------------
+
+	if "%msbuild_target%" == "clean" (
+		rd /s /q "%param1%\bin\"
+		rd /s /q "%param1%\obj\"
+	)
+exit /b
+
+call :main

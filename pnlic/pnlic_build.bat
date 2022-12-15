@@ -1,15 +1,26 @@
 @echo off
+SETLOCAL ENABLEDELAYEDEXPANSION
 
-set projects=all pidl authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidden pnlic_auth watermark
+set project_list=all pidl authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidden pnlic_auth watermark
+set msbuild_target=
+set msbuild_config_cpp=
+set msbuild_platform_cpp=
+set msbuild_config_cs=
+set msbuild_platform_cs=
+set msbuild_project=
 
 :main
 	@rem 사용법을 출력해야 할 지를 검사합니다.
-	call :check_comandline_params %1 %2
+	call :check_comandline_params %1 %2 %3 %4
 	if "%errorlevel%" == "1" (
 		@rem 사용법을 출력합니다.
 		echo Usage:
-		echo     pnlic_build.bat clean ^<all ^| pidl ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark^>
-		echo     pnlic_build.bat build ^<all ^| pidl ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark^>
+		echo     pnlic_build.bat clean ^<configuration^> ^<platform^> ^<project^>
+		echo     pnlic_build.bat build ^<configuration^> ^<platform^> ^<project^>
+		echo Options:
+		echo     configuration : Debug ^| Debug_static_CRT ^| Release ^| Release_static_CRT
+		echo          platform : Win32 ^| x64
+		echo           project : all ^| pidl ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark
 		exit /b
 	)
 
@@ -18,21 +29,185 @@ set projects=all pidl authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidden
 	call :check_environment_variable
 
 	@rem   (2) Tool 빌드
-	call :build_library_pidl %1 %2
+	call :build_library_pidl
 
-	@rem   (3) 공용 Library 빌드 (PNLicAuthServer.exe도 포함)
-	call :build_library_authnet_lib %1 %2
-	call :build_library_lic_auth_lib %1 %2
-	call :build_library_pnlic_lib %1 %2
+	@rem   (3) Library 빌드 (PNLicAuthServer.exe도 포함)
+	call :build_library_authnet_lib
+	call :build_library_lic_auth_lib
+	call :build_library_pnlic_lib
 
 	@rem   (4) PNLicense 관련 .exe 빌드
-	call :build_library_pnlic_warn %1 %2
-	call :build_library_pnlic_hidden %1 %2
-	call :build_library_pnlic_auth %1 %2
+	call :build_library_pnlic_warn
+	call :build_library_pnlic_hidden
+	call :build_library_pnlic_auth
 
 	@rem   (5) Watermark 관련 .lib/.dll 빌드
-	call :build_library_watermark %1 %2
+	call :build_library_watermark
 exit /b
+
+:build_library_pidl
+	if not "%msbuild_project%" == "all" (
+		if not "%msbuild_project%" == "pidl" (
+			exit /b
+		)
+	)
+
+	@rem PIDL 컴파일러 프로젝트를 빌드/클린합니다.
+	call :compile_command ".\Pidl" "1) Pidl.csproj"
+exit /b
+
+:build_library_authnet_lib
+	if not "%msbuild_project%" == "all" (
+		if not "%msbuild_project%" == "authnet_lib" (
+			exit /b
+		)
+	)
+
+	@rem pnlic 전용의 ProudNet 프로젝트들을 빌드/클린합니다.
+	call :compile_command ".\AuthNetLib\ProudNetPidl" "ProudNetPidl.vcxproj"
+	call :compile_command ".\AuthNetLib\ProudNetClient" "ProudNetClient.vcxproj"
+	call :compile_command ".\AuthNetLib\ProudNetServer" "ProudNetServer.vcxproj"
+exit /b
+
+:build_library_lic_auth_lib
+	if not "%msbuild_project%" == "all" (
+		if not "%msbuild_project%" == "lic_auth_lib" (
+			exit /b
+		)
+	)
+
+	@rem PNLicAuth 프로젝트들을 빌드/클린합니다.
+	call :compile_command ".\LicAuthLib\PNLicAuthCommon" "PNLicAuthCommon.vcxproj"
+	call :compile_command ".\LicAuthLib\PNLicAuthClient" "PNLicAuthClient.vcxproj"
+	call :compile_command ".\LicAuthLib\PNLicAuthServer" "PNLicAuthServer.vcxproj"
+exit /b
+
+:build_library_pnlic_lib
+	if not "%msbuild_project%" == "all" (
+		if not "%msbuild_project%" == "pnlic_lib" (
+			exit /b
+		)
+	)
+
+	@rem PNLicense 프로젝트들을 빌드/클린합니다.
+	call :compile_command ".\PNLicenseSdk" "PNLicenseSdk.vcxproj"
+	call :compile_command ".\PNLicense" "PNLicense.vcxproj"
+exit /b
+
+:build_library_pnlic_warn
+	if not "%msbuild_project%" == "all" (
+		if not "%msbuild_project%" == "pnlic_warn" (
+			exit /b
+		)
+	)
+
+	@rem PNLicenseWarning 프로젝트를 빌드/클린합니다.
+	call :compile_command ".\PNLicenseWarning" "PNLicenseWarning.vcxproj"
+
+	if "%msbuild_target%" == "clean" (
+		del /f ".\PNLicenseManager\PNLicenseWarningImage.inl"
+	)
+exit /b
+
+:build_library_pnlic_hidden
+	if not "%msbuild_project%" == "all" (
+		if not "%msbuild_project%" == "pnlic_hidden" (
+			exit /b
+		)
+	)
+
+	@rem PNLicenseHidden 프로젝트를 빌드/클린합니다.
+	call :compile_command ".\PNLicenseHidden" "PNLicenseHidden.vcxproj"
+
+	if "%msbuild_target%" == "clean" (
+		del /f ".\PNLicenseManager\PNLicenseHiddenImage.inl"
+	)
+exit /b
+
+:build_library_pnlic_auth
+	if not "%msbuild_project%" == "all" (
+		if not "%msbuild_project%" == "pnlic_auth" (
+			exit /b
+		)
+	)
+
+	@rem PNLicenseAuth, PNLicenseAuthGui 프로젝트를 빌드/클린합니다.
+	call :compile_command ".\PNLicenseAuth" "PNLicenseAuth.vcxproj"
+	call :compile_command ".\PNLicenseAuthGui" "13) PNLicenseAuthGui.csproj"
+exit /b
+
+:build_library_watermark
+	if not "%msbuild_project%" == "all" (
+		if not "%msbuild_project%" == "watermark" (
+			exit /b
+		)
+	)
+
+	@rem Watermark 프로젝트들을 빌드/클린합니다.
+	call :compile_command ".\Watermark\WatermarkLib" "WatermarkLib.vcxproj"
+	call :compile_command ".\Watermark\WatermarkDll" "WatermarkDll.vcxproj"
+exit /b
+
+@rem 공통 로직...
+:check_comandline_params
+	@rem 첫번째 인자값의 유효성을 검사합니다.
+	set target_list=clean build
+	for %%i in (%target_list%) do (
+		if "%1" == "%%i" (
+			set msbuild_target=%%i
+		)
+	)
+
+	if "%msbuild_target%" == "" (
+		echo ^>^>^>^> Error : 1st^(Build Target^) argument is invalid.
+		exit /b 1
+	)
+
+	@rem 두번째 인자값의 유효성을 검사합니다.
+	set config_list=Debug Debug_static_CRT Release Release_static_CRT
+	for %%i in (%config_list%) do (
+		if "%2" == "%%i" (
+			set msbuild_config_cpp=%%i
+		)
+	)
+
+	if "%msbuild_config_cpp%" == "" (
+		echo ^>^>^>^> Error : 2nd^(Build Configuration^) argument is invalid.
+		exit /b 1
+	)
+
+	@rem 세번째 인자값의 유효성을 검사합니다.
+	set platform_list=Win32 x64
+	for %%i in (%platform_list%) do (
+		if "%3" == "%%i" (
+			set msbuild_platform_cpp=%%i
+		)
+	)
+
+	if "%msbuild_platform_cpp%" == "" (
+		echo ^>^>^>^> Error : 3rd^(Build Platform^) argument is invalid.
+		exit /b 1
+	)
+
+	@rem 세번째 인자값의 유효성을 검사합니다.
+	for %%i in (%project_list%) do (
+		if "%4" == "%%i" (
+			set msbuild_project=%%i
+		)
+	)
+
+	if "%msbuild_project%" == "" (
+		echo ^>^>^>^> Error : 4th^(Build Project^) argument is invalid.
+		exit /b 1
+	)
+
+	if not "%msbuild_config_cpp:Release=%" == "%msbuild_config_cpp%" (
+		set msbuild_config_cs=Release
+	) else (
+		set msbuild_config_cs=Debug
+	)
+	set msbuild_platform_cs=AnyCPU
+exit /b 0
 
 :check_environment_variable
 	@rem 환경변수가 등록되어 있는 지를 체크합니다.
@@ -42,249 +217,51 @@ exit /b
 		exit /b
 	)
 
+	if "%PN_OBFUSCATION_TOOL_PATH%" == "" (
+		@rem 예시 : C:\Program Files (x86)\Gapotchenko\Eazfuscator.NET\Eazfuscator.NET.exe
+		echo ^>^>^>^> Error : Register the PN_OBFUSCATION_TOOL_PATH environment variable before executing the batch file.
+		exit /b
+	)
+
 	if "%PN_SIGN_TOOL_PATH%" == "" (
 		@rem 예시 : C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe
 		echo ^>^>^>^> Error : Register the PN_SIGN_TOOL_PATH environment variable before executing the batch file.
 		exit /b
 	)
 
-	echo ^>^>^>^> Environment-Variable^(PN_BUILD_PATH^) = "%PN_BUILD_PATH%"
-	echo ^>^>^>^> Environment-Variable^(PN_SIGN_TOOL_PATH^) = "%PN_SIGN_TOOL_PATH%"
+	echo ^>^>^>^> Env-Var = ^{
+	echo ^>^>^>^>              "PN_BUILD_PATH" : "%PN_BUILD_PATH%",
+	echo ^>^>^>^>   "PN_OBFUSCATION_TOOL_PATH" : "%PN_OBFUSCATION_TOOL_PATH%",
+	echo ^>^>^>^>           "PN_SIGN_TOOL_PATH": "%PN_SIGN_TOOL_PATH%"
+	echo ^>^>^>^> ^}
 	echo ^>^>^>^>
-exit /b
-
-:build_library_pidl
-	if not "%2" == "all" (
-		if not "%2" == "pidl" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
-		@rem PIDL 컴파일러 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\Pidl\1) Pidl.csproj" clean Release AnyCPU
-		rd /s /q .\Pidl\bin\
-		rd /s /q .\Pidl\obj\
-	) else if "%1" == "build" (
-		@rem PIDL 컴파일러 프로젝트를 빌드합니다.
-		call :compile_command ".\Pidl\1) Pidl.csproj" build Release AnyCPU
-	)
-exit /b
-
-:build_library_authnet_lib
-	if not "%2" == "all" (
-		if not "%2" == "authnet_lib" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
-		@rem AuthNet PIDL 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\AuthNetLib\ProudNetPidl\ProudNetPidl.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\AuthNetLib\ProudNetPidl\bin\
-		rd /s /q .\AuthNetLib\ProudNetPidl\obj\
-
-		@rem AuthNet 클라이언트 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\AuthNetLib\ProudNetClient\ProudNetClient.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\AuthNetLib\ProudNetClient\bin\
-		rd /s /q .\AuthNetLib\ProudNetClient\obj\
-
-		@rem AuthNet 서버 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\AuthNetLib\ProudNetServer\ProudNetServer.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\AuthNetLib\ProudNetServer\bin\
-		rd /s /q .\AuthNetLib\ProudNetServer\obj\
-	) else if "%1" == "build" (
-		@rem AuthNet PIDL 프로젝트를 빌드합니다.
-		call :compile_command ".\AuthNetLib\ProudNetPidl\ProudNetPidl.vcxproj" build Release_static_CRT x64
-
-		@rem AuthNet 클라이언트 프로젝트를 빌드합니다.
-		call :compile_command ".\AuthNetLib\ProudNetClient\ProudNetClient.vcxproj" build Release_static_CRT x64
-
-		@rem AuthNet 서버 프로젝트를 빌드합니다.
-		call :compile_command ".\AuthNetLib\ProudNetServer\ProudNetServer.vcxproj" build Release_static_CRT x64
-	)
-exit /b
-
-:build_library_lic_auth_lib
-	if not "%2" == "all" (
-		if not "%2" == "lic_auth_lib" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
-		@rem PNLicAuthCommon 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\LicAuthLib\PNLicAuthCommon\PNLicAuthCommon.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\LicAuthLib\PNLicAuthCommon\bin\
-		rd /s /q .\LicAuthLib\PNLicAuthCommon\obj\
-
-		@rem PNLicAuthClient 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\LicAuthLib\PNLicAuthClient\PNLicAuthClient.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\LicAuthLib\PNLicAuthClient\bin\
-		rd /s /q .\LicAuthLib\PNLicAuthClient\obj\
-
-		@rem PNLicAuthServer 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\LicAuthLib\PNLicAuthServer\PNLicAuthServer.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\LicAuthLib\PNLicAuthServer\bin\
-		rd /s /q .\LicAuthLib\PNLicAuthServer\obj\
-	) else if "%1" == "build" (
-		@rem PNLicAuthCommon 프로젝트를 빌드합니다.
-		call :compile_command ".\LicAuthLib\PNLicAuthCommon\PNLicAuthCommon.vcxproj" build Release_static_CRT x64
-
-		@rem PNLicAuthClient 프로젝트를 빌드합니다.
-		call :compile_command ".\LicAuthLib\PNLicAuthClient\PNLicAuthClient.vcxproj" build Release_static_CRT x64
-
-		@rem PNLicAuthServer 프로젝트를 빌드합니다.
-		call :compile_command ".\LicAuthLib\PNLicAuthServer\PNLicAuthServer.vcxproj" build Release_static_CRT x64
-	)
-exit /b
-
-:build_library_pnlic_lib
-	if not "%2" == "all" (
-		if not "%2" == "pnlic_lib" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
-		@rem PNLicenseManager 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\PNLicenseManager\PNLicenseManager.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\PNLicenseManager\bin\
-		rd /s /q .\PNLicenseManager\obj\
-
-		@rem PNLicenseSdk 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\PNLicenseSdk\PNLicenseSdk.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\PNLicenseSdk\bin\
-		rd /s /q .\PNLicenseSdk\obj\
-
-		@rem PNLicense 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\PNLicense\PNLicense.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\PNLicense\bin\
-		rd /s /q .\PNLicense\obj\
-	) else if "%1" == "build" (
-		@rem PNLicenseManager 프로젝트를 빌드합니다.
-		call :compile_command ".\PNLicenseManager\PNLicenseManager.vcxproj" build Release_static_CRT x64
-
-		@rem PNLicenseSdk 프로젝트를 빌드합니다.
-		call :compile_command ".\PNLicenseSdk\PNLicenseSdk.vcxproj" build Release_static_CRT x64
-
-		@rem PNLicense 프로젝트를 빌드합니다.
-		call :compile_command ".\PNLicense\PNLicense.vcxproj" build Release_static_CRT x64
-	)
-exit /b
-
-:build_library_pnlic_warn
-	if not "%2" == "all" (
-		if not "%2" == "pnlic_warn" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
-		@rem PNLicenseWarning 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\PNLicenseWarning\PNLicenseWarning.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\PNLicenseWarning\bin\
-		rd /s /q .\PNLicenseWarning\obj\
-		del /f .\PNLicenseManager\PNLicenseWarningImage.inl
-	) else if "%1" == "build" (
-		@rem PNLicenseWarning 프로젝트를 빌드합니다.
-		call :compile_command ".\PNLicenseWarning\PNLicenseWarning.vcxproj" build Release_static_CRT x64
-	)
-exit /b
-
-:build_library_pnlic_hidden
-	if not "%2" == "all" (
-		if not "%2" == "pnlic_hidden" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
-		@rem PNLicenseHidden 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\PNLicenseHidden\PNLicenseHidden.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\PNLicenseHidden\bin\
-		rd /s /q .\PNLicenseHidden\obj\
-		del /f .\PNLicenseManager\PNLicenseHiddenImage.inl
-	) else if "%1" == "build" (
-		@rem PNLicenseHidden 프로젝트를 빌드합니다.
-		call :compile_command ".\PNLicenseHidden\PNLicenseHidden.vcxproj" build Release_static_CRT x64
-	)
-exit /b
-
-:build_library_pnlic_auth
-	if not "%2" == "all" (
-		if not "%2" == "pnlic_auth" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
-		@rem PNLicenseAuth 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\PNLicenseAuth\PNLicenseAuth.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\PNLicenseAuth\bin\
-		rd /s /q .\PNLicenseAuth\obj\
-
-		@rem PNLicenseAuthGui 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\PNLicenseAuthGui\13) PNLicenseAuthGui.csproj" clean Release AnyCPU
-		rd /s /q .\PNLicenseAuthGui\bin\
-		rd /s /q .\PNLicenseAuthGui\obj\
-	) else if "%1" == "build" (
-		@rem PNLicenseAuth 프로젝트를 빌드합니다.
-		call :compile_command ".\PNLicenseAuth\PNLicenseAuth.vcxproj" build Release_static_CRT x64
-
-		@rem PNLicenseAuthGui 프로젝트를 빌드합니다.
-		call :compile_command ".\PNLicenseAuthGui\13) PNLicenseAuthGui.csproj" build Release AnyCPU
-	)
-exit /b
-
-:build_library_watermark
-	if not "%2" == "all" (
-		if not "%2" == "watermark" (
-			exit /b
-		)
-	)
-
-	if "%1" == "clean" (
-		@rem WatermarkLib 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\Watermark\WatermarkLib\WatermarkLib.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\Watermark\WatermarkLib\bin\
-		rd /s /q .\Watermark\WatermarkLib\obj\
-
-		@rem WatermarkDll 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\Watermark\WatermarkDll\WatermarkDll.vcxproj" clean Release_static_CRT x64
-		rd /s /q .\Watermark\WatermarkDll\bin\
-		rd /s /q .\Watermark\WatermarkDll\obj\
-	) else if "%1" == "build" (
-		@rem WatermarkLib 프로젝트를 빌드합니다.
-		call :compile_command ".\Watermark\WatermarkLib\WatermarkLib.vcxproj" build Release_static_CRT x64
-
-		@rem WatermarkDll 프로젝트를 빌드합니다.
-		call :compile_command ".\Watermark\WatermarkDll\WatermarkDll.vcxproj" build Release_static_CRT x64
-	)
 exit /b
 
 :compile_command
+	set param1=%~1
+	set param2=%~2
 	set vs_version=17
 
-	echo ^>^>^>^> CommandLine : "%PN_BUILD_PATH%" %1 "/t:%2" "/p:Configuration=%3;Platform=%4;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
+	set msbuild_config=
+	set msbuild_platform=
+	if not "%param2:vcxproj=%" == "%param2%" (
+		set msbuild_config=!msbuild_config_cpp!
+		set msbuild_platform=!msbuild_platform_cpp!
+	) else if not "%param2:csproj=%" == "%param2%" (
+		set msbuild_config=!msbuild_config_cs!
+		set msbuild_platform=!msbuild_platform_cs!
+	)
+
+	echo ^>^>^>^> CommandLine : "%PN_BUILD_PATH%" "%param1%\%param2%" "/t:%msbuild_target%" "/p:Configuration=%msbuild_config%;Platform=%msbuild_platforms%;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
 	echo ^>^>^>^>
 	echo ^>^>^>^> --------------------------------------------------
-	"%PN_BUILD_PATH%" %1 "/t:%2" "/p:Configuration=%3;Platform=%4;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
+	"%PN_BUILD_PATH%" "%param1%\%param2%" "/t:%msbuild_target%" "/p:Configuration=%msbuild_config%;Platform=%msbuild_platforms%;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
 	echo ^>^>^>^> --------------------------------------------------
+
+	if "%msbuild_target%" == "clean" (
+		rd /s /q "%param1%\bin\"
+		rd /s /q "%param1%\obj\"
+	)
 exit /b
 
-:check_comandline_params
-	if not "%1" == "clean" (
-		if not "%1" == "build" (
-			exit /b 1
-		)
-	)
-
-	for %%p in (%projects%) do (
-		if "%2" == "%%p" (
-			exit /b 0
-		)
-	)
-exit /b 1
-
-call :main %1 %2
+call :main
