@@ -51,4 +51,5 @@ utils/CodeVirtualizer/ProtectProudNet.bat
 utils/CodeVirtualizer/ProtectionFinishes.wav
 utils/CodeVirtualizer/ProudNet.cv
 utils/CodeVirtualizer/Virtualizer.ini
+utils/Swig/
 utils/nuget.exe
