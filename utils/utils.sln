@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CodeVirtualizer", "CodeVirtualizer\CodeVirtualizer.vcxproj", "{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1) ImageGen", "ImageGen\ImageGen.vcxproj", "{8C2A2EB8-C3DF-4EFA-B753-A15DD44665E2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageGen", "ImageGen\ImageGen.vcxproj", "{8C2A2EB8-C3DF-4EFA-B753-A15DD44665E2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pidl", "Pidl\Pidl.csproj", "{CF24B0EC-9DAB-4235-81FF-F89BDFB4F640}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2) Pidl", "Pidl\2) Pidl.csproj", "{CF24B0EC-9DAB-4235-81FF-F89BDFB4F640}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,30 +23,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Debug_static_CRT|Any CPU.ActiveCfg = Debug_static_CRT|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Debug_static_CRT|Any CPU.Build.0 = Debug_static_CRT|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Debug_static_CRT|x64.ActiveCfg = Debug_static_CRT|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Debug_static_CRT|x64.Build.0 = Debug_static_CRT|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Debug_static_CRT|x86.ActiveCfg = Debug_static_CRT|Win32
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Debug_static_CRT|x86.Build.0 = Debug_static_CRT|Win32
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Debug|Any CPU.Build.0 = Debug|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Debug|x64.ActiveCfg = Debug|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Debug|x64.Build.0 = Debug|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Debug|x86.ActiveCfg = Debug|Win32
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Debug|x86.Build.0 = Debug|Win32
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Release_static_CRT|Any CPU.ActiveCfg = Release_static_CRT|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Release_static_CRT|Any CPU.Build.0 = Release_static_CRT|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Release_static_CRT|x64.ActiveCfg = Release_static_CRT|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Release_static_CRT|x64.Build.0 = Release_static_CRT|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Release_static_CRT|x86.ActiveCfg = Release_static_CRT|Win32
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Release_static_CRT|x86.Build.0 = Release_static_CRT|Win32
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Release|Any CPU.ActiveCfg = Release|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Release|Any CPU.Build.0 = Release|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Release|x64.ActiveCfg = Release|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Release|x64.Build.0 = Release|x64
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Release|x86.ActiveCfg = Release|Win32
-		{A2E45CE0-FC12-4C14-BF1C-2745307FBF9C}.Release|x86.Build.0 = Release|Win32
 		{8C2A2EB8-C3DF-4EFA-B753-A15DD44665E2}.Debug_static_CRT|Any CPU.ActiveCfg = Debug_static_CRT|x64
 		{8C2A2EB8-C3DF-4EFA-B753-A15DD44665E2}.Debug_static_CRT|Any CPU.Build.0 = Debug_static_CRT|x64
 		{8C2A2EB8-C3DF-4EFA-B753-A15DD44665E2}.Debug_static_CRT|x64.ActiveCfg = Debug_static_CRT|x64

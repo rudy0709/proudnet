@@ -13,8 +13,6 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -264,7 +262,6 @@
       <LastGenOutput>UCStub.cs</LastGenOutput>
       <CustomToolNamespace>PIDL</CustomToolNamespace>
     </Content>
-    <Content Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -285,7 +282,7 @@ copy /y $(TargetPath) $(TargetDir)PIDL.exe
 @rem 실행파일을 난독화합니다.
 "%25PN_OBFUSCATION_TOOL_PATH%25" $(TargetDir)PIDL.exe
 
-@rem 난독화된 실행파일에 디지털 서며을 추가합니다.
+@rem 난독화된 실행파일에 디지털 서명을 추가합니다.
 "%25PN_SIGN_TOOL_PATH%25" sign /f $(ProjectDir)..\codeSign/202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PIDL.exe</PostBuildEvent>
   </PropertyGroup>
 </Project>
