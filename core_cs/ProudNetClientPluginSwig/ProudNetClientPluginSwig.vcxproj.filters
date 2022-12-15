@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{20b9540f-50ec-47f2-890e-28ee7e9492e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\ProudNet">
+      <UniqueIdentifier>{654588e6-1df5-43df-9048-899155311641}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\swig_interface\pn_acr.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_addrport.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_bytearray.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_disconnectargs.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_enum.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_errorinfo.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_exception.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_fastarray.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_functiontype.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_guid.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_hostidarray.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_hostidset.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_int.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_irmihost.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_messagesummary.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_netclient.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_netclientevent.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_netclientinfo.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_netconfig.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_netconnectionparam.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_netcoreevent.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_netpeerinfo.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_netserver.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_netserverevent.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_netstatus.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_receivedmessage.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_rmicontext.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_rmiproxy.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_rmistub.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_serverparameter.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_socketinfo.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_string.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\pn_threadpool.i">
+      <Filter>Interface\ProudNet</Filter>
+    </None>
+    <None Include="..\swig_interface\ProudCatchAllException.i">
+      <Filter>Interface</Filter>
+    </None>
+    <None Include="..\swig_interface\ProudNetClient.i">
+      <Filter>Interface</Filter>
+    </None>
+    <None Include="..\swig_interface\ProudNetClientCPlusIncludes.i">
+      <Filter>Interface</Filter>
+    </None>
+    <None Include="..\swig_interface\ProudNetTypeMaps.i">
+      <Filter>Interface</Filter>
+    </None>
+    <None Include="..\swig_interface\ProudReName.i">
+      <Filter>Interface</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ProudNetClientPlugin.i" />
+  </ItemGroup>
+</Project>
