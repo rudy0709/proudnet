@@ -200,7 +200,7 @@
       <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>MaxSpeed</Optimization>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat />
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\ProudNetClientDll\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -229,7 +229,7 @@
       <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>MaxSpeed</Optimization>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat />
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\ProudNetClientDll\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -310,7 +310,7 @@
       <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>MaxSpeed</Optimization>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat />
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\ProudNetClientDll\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -339,7 +339,7 @@
       <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>MaxSpeed</Optimization>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat />
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\ProudNetClientDll\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\ProudNetClient.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
