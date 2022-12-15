@@ -38,7 +38,8 @@
     <ProjectGuid>{BB904D7E-618E-4757-BE6F-D726F21B9481}</ProjectGuid>
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ProudNetServerLib</RootNamespace>
+    <RootNamespace>ProudNet</RootNamespace>
+    <ProjectName>3) ProudNetServerLib</ProjectName>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -143,6 +144,7 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -163,6 +165,7 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -185,6 +188,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MaxSpeed</Optimization>
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
@@ -208,6 +212,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MaxSpeed</Optimization>
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
@@ -229,6 +234,7 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -249,6 +255,7 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -271,6 +278,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MaxSpeed</Optimization>
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
@@ -294,6 +302,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\include;..\OpenSources\standalone-asio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MaxSpeed</Optimization>
       <DebugInformationFormat />
     </ClCompile>
     <Lib>

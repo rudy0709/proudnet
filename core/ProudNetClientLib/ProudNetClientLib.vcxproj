@@ -38,7 +38,8 @@
     <ProjectGuid>{11F32ACB-E192-31B7-BE6B-3F130264AAA0}</ProjectGuid>
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ProudNetClientLib</RootNamespace>
+    <RootNamespace>ProudNet</RootNamespace>
+    <ProjectName>2) ProudNetClientLib</ProjectName>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -142,6 +143,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <Optimization>Disabled</Optimization>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
@@ -160,6 +162,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <Optimization>Disabled</Optimization>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
@@ -180,6 +183,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
@@ -201,6 +205,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
@@ -220,6 +225,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <Optimization>Disabled</Optimization>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>
@@ -238,6 +244,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <Optimization>Disabled</Optimization>
+      <DebugInformationFormat />
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>
@@ -258,6 +265,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
       <DebugInformationFormat />
     </ClCompile>
     <Lib>
@@ -279,6 +287,7 @@
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
       <DebugInformationFormat />
     </ClCompile>
     <Lib>

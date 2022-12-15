@@ -62,12 +62,12 @@ exit /b
 
 	if "%1" == "clean" (
 		@rem PIDL 컴파일러 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\Pidl\Pidl.csproj" clean Release AnyCPU
+		call :compile_command ".\Pidl\1) Pidl.csproj" clean Release AnyCPU
 		rd /s /q .\Pidl\bin\
 		rd /s /q .\Pidl\obj\
 	) else if "%1" == "build" (
 		@rem PIDL 컴파일러 프로젝트를 빌드합니다.
-		call :compile_command ".\Pidl\Pidl.csproj" build Release AnyCPU
+		call :compile_command ".\Pidl\1) Pidl.csproj" build Release AnyCPU
 	)
 exit /b
 
@@ -225,7 +225,7 @@ exit /b
 		rd /s /q .\PNLicenseAuth\obj\
 
 		@rem PNLicenseAuthGui 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		call :compile_command ".\PNLicenseAuthGui\PNLicenseAuthGui.csproj" clean Release AnyCPU
+		call :compile_command ".\PNLicenseAuthGui\13) PNLicenseAuthGui.csproj" clean Release AnyCPU
 		rd /s /q .\PNLicenseAuthGui\bin\
 		rd /s /q .\PNLicenseAuthGui\obj\
 	) else if "%1" == "build" (
@@ -233,7 +233,7 @@ exit /b
 		call :compile_command ".\PNLicenseAuth\PNLicenseAuth.vcxproj" build Release_static_CRT x64
 
 		@rem PNLicenseAuthGui 프로젝트를 빌드합니다.
-		call :compile_command ".\PNLicenseAuthGui\PNLicenseAuthGui.csproj" build Release AnyCPU
+		call :compile_command ".\PNLicenseAuthGui\13) PNLicenseAuthGui.csproj" build Release AnyCPU
 	)
 exit /b
 

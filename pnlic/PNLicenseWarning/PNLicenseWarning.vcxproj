@@ -38,7 +38,8 @@
     <ProjectGuid>{C5594060-BB61-4F44-87EB-AC06CB2A6B04}</ProjectGuid>
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>PNLicenseWarning</RootNamespace>
+    <RootNamespace>PNLicense</RootNamespace>
+    <ProjectName>10) PNLicenseWarning</ProjectName>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -92,42 +93,42 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>$(ProjectName)_UnProtect</TargetName>
+    <TargetName>PNLicenseWarning_UnProtect</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>$(ProjectName)_UnProtect</TargetName>
+    <TargetName>PNLicenseWarning_UnProtect</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>$(ProjectName)_UnProtect</TargetName>
+    <TargetName>PNLicenseWarning_UnProtect</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>$(ProjectName)_UnProtect</TargetName>
+    <TargetName>PNLicenseWarning_UnProtect</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>$(ProjectName)_UnProtect</TargetName>
+    <TargetName>PNLicenseWarning_UnProtect</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>$(ProjectName)_UnProtect</TargetName>
+    <TargetName>PNLicenseWarning_UnProtect</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>$(ProjectName)_UnProtect</TargetName>
+    <TargetName>PNLicenseWarning_UnProtect</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>$(ProjectName)_UnProtect</TargetName>
+    <TargetName>PNLicenseWarning_UnProtect</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -143,6 +144,8 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib</AdditionalDependencies>
@@ -187,8 +190,8 @@ popd
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
-set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+      <Command>@rem PNLicenseWarningImage.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
 if exist %inl_path% (
     del /f %inl_path%
 )</Command>
@@ -208,6 +211,8 @@ if exist %inl_path% (
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib</AdditionalDependencies>
@@ -252,8 +257,8 @@ popd
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
-set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+      <Command>@rem PNLicenseWarningImage.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
 if exist %inl_path% (
     del /f %inl_path%
 )</Command>
@@ -275,8 +280,9 @@ if exist %inl_path% (
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
-      <Optimization>Disabled</Optimization>
-      <DebugInformationFormat />
+      <Optimization />
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib</AdditionalDependencies>
@@ -321,8 +327,8 @@ popd
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
-set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+      <Command>@rem PNLicenseWarningImage.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
 if exist %inl_path% (
     del /f %inl_path%
 )</Command>
@@ -344,8 +350,9 @@ if exist %inl_path% (
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
-      <Optimization>Disabled</Optimization>
-      <DebugInformationFormat />
+      <Optimization />
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib</AdditionalDependencies>
@@ -390,8 +397,8 @@ popd
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
-set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+      <Command>@rem PNLicenseWarningImage.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
 if exist %inl_path% (
     del /f %inl_path%
 )</Command>
@@ -411,6 +418,8 @@ if exist %inl_path% (
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib</AdditionalDependencies>
@@ -455,8 +464,8 @@ popd
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
-set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+      <Command>@rem PNLicenseWarningImage.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
 if exist %inl_path% (
     del /f %inl_path%
 )</Command>
@@ -476,6 +485,8 @@ if exist %inl_path% (
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib</AdditionalDependencies>
@@ -520,8 +531,8 @@ popd
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
-set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+      <Command>@rem PNLicenseWarningImage.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
 if exist %inl_path% (
     del /f %inl_path%
 )</Command>
@@ -543,8 +554,9 @@ if exist %inl_path% (
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
-      <Optimization>Disabled</Optimization>
-      <DebugInformationFormat />
+      <Optimization />
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib</AdditionalDependencies>
@@ -589,8 +601,8 @@ popd
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
-set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+      <Command>@rem PNLicenseWarningImage.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
 if exist %inl_path% (
     del /f %inl_path%
 )</Command>
@@ -612,8 +624,9 @@ if exist %inl_path% (
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>../../utils/CodeVirtualizer/Include/C/</AdditionalIncludeDirectories>
-      <Optimization>Disabled</Optimization>
-      <DebugInformationFormat />
+      <Optimization />
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <AdditionalDependencies>..\..\utils\CodeVirtualizer\Lib\COFF\VirtualizerSDK$(PlatformArchitecture).lib;..\AuthNetLib\ProudNetClient\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetClient.lib;..\AuthNetLib\ProudNetServer\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\AuthNetServer.lib;..\LicAuthLib\PNLicAuthCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicAuthCommon.lib;..\PNLicenseSdk\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\PNLicenseSdk.lib</AdditionalDependencies>
@@ -658,8 +671,8 @@ popd
 "%imagegen_path%" --bin2inl "$(TargetDir)%proj_name%.exe" "$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>@rem PNLicenseWarning.inl 파일을 삭제합니다.
-set inl_path="$(ProjectDir)..\PNLicenseManager\PNLicenseWarningImage.inl"
+      <Command>@rem PNLicenseWarningImage.inl 파일을 삭제합니다.
+set inl_path="$(ProjectDir)..\PNLicenseManager\%proj_name%Image.inl"
 if exist %inl_path% (
     del /f %inl_path%
 )</Command>

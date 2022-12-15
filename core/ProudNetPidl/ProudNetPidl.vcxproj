@@ -38,7 +38,8 @@
     <ProjectGuid>{90a8b9fe-5e62-4af4-bbd0-65dc5cc6dcda}</ProjectGuid>
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ProudNetPidl</RootNamespace>
+    <RootNamespace>ProudNet</RootNamespace>
+    <ProjectName>1) ProudNetPidl</ProjectName>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

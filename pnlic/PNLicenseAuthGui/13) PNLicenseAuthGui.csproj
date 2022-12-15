@@ -160,8 +160,8 @@ if "%25pnlicenseauth_path%25" == "" (
 )
 
 @rem .exe 파일에 디지털 서명을 추가합니다.
-copy /y $(TargetPath) $(ProjectName)$(TargetExt)
-"%25PN_SIGN_TOOL_PATH%25" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)$(ProjectName)$(TargetExt)
+copy /y $(TargetPath) $(RootNameSpace)$(TargetExt)
+"%25PN_SIGN_TOOL_PATH%25" sign /f $(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)$(RootNameSpace)$(TargetExt)
 
 @rem PNLicenseAuthGui.exe 실행 시에 필요한 PNLicenseAuth.exe 파일을 복사합니다.
 copy /y "%25pnlicenseauth_path%25" $(TargetDir)</PostBuildEvent>
