@@ -4,6 +4,8 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1) ProudNetClientPluginSwig", "ProudNetClientPluginSwig\ProudNetClientPluginSwig.vcxproj", "{125D8102-08D7-47DD-97A9-D94811073AE1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2) ProudNetServerPluginSwig", "ProudNetServerPluginSwig\ProudNetServerPluginSwig.vcxproj", "{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_static_CRT|x64 = Debug_static_CRT|x64
@@ -32,6 +34,22 @@ Global
 		{125D8102-08D7-47DD-97A9-D94811073AE1}.Release|x64.Build.0 = Release|x64
 		{125D8102-08D7-47DD-97A9-D94811073AE1}.Release|x86.ActiveCfg = Release|Win32
 		{125D8102-08D7-47DD-97A9-D94811073AE1}.Release|x86.Build.0 = Release|Win32
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Debug_static_CRT|x64.ActiveCfg = Debug_static_CRT|x64
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Debug_static_CRT|x64.Build.0 = Debug_static_CRT|x64
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Debug_static_CRT|x86.ActiveCfg = Debug_static_CRT|Win32
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Debug_static_CRT|x86.Build.0 = Debug_static_CRT|Win32
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Debug|x64.ActiveCfg = Debug|x64
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Debug|x64.Build.0 = Debug|x64
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Debug|x86.ActiveCfg = Debug|Win32
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Debug|x86.Build.0 = Debug|Win32
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Release_static_CRT|x64.ActiveCfg = Release_static_CRT|x64
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Release_static_CRT|x64.Build.0 = Release_static_CRT|x64
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Release_static_CRT|x86.ActiveCfg = Release_static_CRT|Win32
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Release_static_CRT|x86.Build.0 = Release_static_CRT|Win32
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Release|x64.ActiveCfg = Release|x64
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Release|x64.Build.0 = Release|x64
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Release|x86.ActiveCfg = Release|Win32
+		{A5A2F2C9-0E96-473A-9852-6ACE8722AB49}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
