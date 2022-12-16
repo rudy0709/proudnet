@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{f2ec57e1-81f7-4076-b7fa-e2aa36b8bd88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProudNetWrap">
+      <UniqueIdentifier>{42b902ae-d0ef-414e-89e9-bf879fb295f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ba38ce61-61ca-4240-8e1a-bbc896a99e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SWIG Files">
+      <UniqueIdentifier>{82013c25-6059-406f-8acb-1b7f6d279482}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ProudNetServerPlugin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NativeType.h">
+      <Filter>ProudNetWrap</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="IncludeNetServerSwig.cpp">
+      <Filter>SWIG Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProudNetServerPlugin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
