@@ -1,7 +1,7 @@
 @echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 
-set project_list=all image_gen pidl_compiler
+set project_list=all pidl_compiler image_gen
 set msbuild_target=
 set msbuild_config_cpp=
 set msbuild_platform_cpp=
@@ -20,7 +20,7 @@ set msbuild_project=
 		echo Options:
 		echo     configuration : Debug ^| Debug_static_CRT ^| Release ^| Release_static_CRT
 		echo          platform : Win32 ^| x64
-		echo           project : all ^| pidl ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark
+		echo           project : all ^| pidl_compiler ^| image_gen
 		exit /b
 	)
 
@@ -28,39 +28,22 @@ set msbuild_project=
 	@rem   (1) 환경변수 체크
 	call :check_environment_variable
 
-	@rem   (2) ImageGen 프로젝트 빌드
-	call :build_project_image_gen
-
-	@rem   (3) Pidl 컴파일러 프로젝트 빌드
+	@rem   (2) Pidl 컴파일러 프로젝트 빌드
 	call :build_project_pidl_compiler
+
+	@rem   (3) ImageGen 프로젝트 빌드
+	call :build_project_image_gen
 exit /b
 
-:check_environment_variable
-	@rem 환경변수가 등록되어 있는 지를 체크합니다.
-	if "%PN_BUILD_PATH%" == "" (
-		@rem 예시 : C:\Program Files\Microsoft Visual Studio\2022\Professional\Msbuild\Current\Bin\MSBuild.exe
-		echo ^>^>^>^> Error : Register the PN_BUILD_PATH environment variable before executing the batch file.
-		exit /b
+:build_project_pidl_compiler
+	if not "%msbuild_project%" == "all" (
+		if not "%msbuild_project%" == "pidl_compiler" (
+			exit /b
+		)
 	)
 
-	if "%PN_OBFUSCATION_TOOL_PATH%" == "" (
-		@rem 예시 : C:\Program Files (x86)\Gapotchenko\Eazfuscator.NET\Eazfuscator.NET.exe
-		echo ^>^>^>^> Error : Register the PN_OBFUSCATION_TOOL_PATH environment variable before executing the batch file.
-		exit /b
-	)
-
-	if "%PN_SIGN_TOOL_PATH%" == "" (
-		@rem 예시 : C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe
-		echo ^>^>^>^> Error : Register the PN_SIGN_TOOL_PATH environment variable before executing the batch file.
-		exit /b
-	)
-
-	echo ^>^>^>^> Env-Var = ^{
-	echo ^>^>^>^>              "PN_BUILD_PATH" : "%PN_BUILD_PATH%",
-	echo ^>^>^>^>   "PN_OBFUSCATION_TOOL_PATH" : "%PN_OBFUSCATION_TOOL_PATH%",
-	echo ^>^>^>^>           "PN_SIGN_TOOL_PATH": "%PN_SIGN_TOOL_PATH%"
-	echo ^>^>^>^> ^}
-	echo ^>^>^>^>
+	@rem PIDL 컴파일러 프로젝트를 빌드/클린합니다.
+	call :compile_command ".\Pidl" "1) Pidl.csproj"
 exit /b
 
 :build_project_image_gen
@@ -72,17 +55,6 @@ exit /b
 
 	@rem ImageGen 프로젝트들을 빌드/클린합니다.
 	call :compile_command ".\ImageGen" "ImageGen.vcxproj"
-exit /b
-
-:build_project_pidl_compiler
-	if not "%msbuild_project%" == "all" (
-		if not "%msbuild_project%" == "pidl_compiler" (
-			exit /b
-		)
-	)
-
-	@rem PIDL 컴파일러 프로젝트를 빌드/클린합니다.
-	call :compile_command ".\Pidl" "2) Pidl.csproj"
 exit /b
 
 @rem 공통 로직...

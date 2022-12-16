@@ -74,34 +74,6 @@ exit /b
 exit /b
 
 @rem 공통 로직...
-:check_environment_variable
-	@rem 환경변수가 등록되어 있는 지를 체크합니다.
-	if "%PN_BUILD_PATH%" == "" (
-		@rem 예시 : C:\Program Files\Microsoft Visual Studio\2022\Professional\Msbuild\Current\Bin\MSBuild.exe
-		echo ^>^>^>^> Error : Register the PN_BUILD_PATH environment variable before executing the batch file.
-		exit /b
-	)
-
-	if "%PN_OBFUSCATION_TOOL_PATH%" == "" (
-		@rem 예시 : C:\Program Files (x86)\Gapotchenko\Eazfuscator.NET\Eazfuscator.NET.exe
-		echo ^>^>^>^> Error : Register the PN_OBFUSCATION_TOOL_PATH environment variable before executing the batch file.
-		exit /b
-	)
-
-	if "%PN_SIGN_TOOL_PATH%" == "" (
-		@rem 예시 : C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe
-		echo ^>^>^>^> Error : Register the PN_SIGN_TOOL_PATH environment variable before executing the batch file.
-		exit /b
-	)
-
-	echo ^>^>^>^> Env-Var = ^{
-	echo ^>^>^>^>              "PN_BUILD_PATH" : "%PN_BUILD_PATH%",
-	echo ^>^>^>^>   "PN_OBFUSCATION_TOOL_PATH" : "%PN_OBFUSCATION_TOOL_PATH%",
-	echo ^>^>^>^>           "PN_SIGN_TOOL_PATH": "%PN_SIGN_TOOL_PATH%"
-	echo ^>^>^>^> ^}
-	echo ^>^>^>^>
-exit /b
-
 :check_comandline_params
 	@rem 첫번째 인자값의 유효성을 검사합니다.
 	set target_list=clean build
@@ -161,6 +133,34 @@ exit /b
 	)
 	set msbuild_platform_cs=AnyCPU
 exit /b 0
+
+:check_environment_variable
+	@rem 환경변수가 등록되어 있는 지를 체크합니다.
+	if "%PN_BUILD_PATH%" == "" (
+		@rem 예시 : C:\Program Files\Microsoft Visual Studio\2022\Professional\Msbuild\Current\Bin\MSBuild.exe
+		echo ^>^>^>^> Error : Register the PN_BUILD_PATH environment variable before executing the batch file.
+		exit /b
+	)
+
+	if "%PN_OBFUSCATION_TOOL_PATH%" == "" (
+		@rem 예시 : C:\Program Files (x86)\Gapotchenko\Eazfuscator.NET\Eazfuscator.NET.exe
+		echo ^>^>^>^> Error : Register the PN_OBFUSCATION_TOOL_PATH environment variable before executing the batch file.
+		exit /b
+	)
+
+	if "%PN_SIGN_TOOL_PATH%" == "" (
+		@rem 예시 : C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe
+		echo ^>^>^>^> Error : Register the PN_SIGN_TOOL_PATH environment variable before executing the batch file.
+		exit /b
+	)
+
+	echo ^>^>^>^> Env-Var = ^{
+	echo ^>^>^>^>              "PN_BUILD_PATH" : "%PN_BUILD_PATH%",
+	echo ^>^>^>^>   "PN_OBFUSCATION_TOOL_PATH" : "%PN_OBFUSCATION_TOOL_PATH%",
+	echo ^>^>^>^>           "PN_SIGN_TOOL_PATH": "%PN_SIGN_TOOL_PATH%"
+	echo ^>^>^>^> ^}
+	echo ^>^>^>^>
+exit /b
 
 :compile_command
 	set param1=%~1
