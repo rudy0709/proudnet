@@ -1,33 +1,39 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{f2ec57e1-81f7-4076-b7fa-e2aa36b8bd88}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ProudNetWrap">
-      <UniqueIdentifier>{42b902ae-d0ef-414e-89e9-bf879fb295f3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{ba38ce61-61ca-4240-8e1a-bbc896a99e0a}</UniqueIdentifier>
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
     <Filter Include="SWIG Files">
-      <UniqueIdentifier>{82013c25-6059-406f-8acb-1b7f6d279482}</UniqueIdentifier>
+      <UniqueIdentifier>{3d6c7600-17eb-40f5-8061-7f6b8a91aa92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ProudNetWrap">
+      <UniqueIdentifier>{459aeac6-4f32-4fce-8951-1b941e6d9ae5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ProudNetServerPlugin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ProudNetServerPlugin.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NativeType.h">
-      <Filter>ProudNetWrap</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IncludeNetServerSwig.cpp">
       <Filter>SWIG Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProudNetServerPlugin.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NativeType.h">
+      <Filter>ProudNetWrap</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
