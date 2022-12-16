@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{60EBBE75-A813-4D65-9404-FFA5A2166657}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Nettention.Proud</RootNamespace>
     <AssemblyName>ProudNetClientPlugin-webgl</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +26,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,76 +35,72 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\..\PrivateCSharpSource\Common\CompactScalarValue.cs">
-      <Link>NetCommon\CompactScalarValue.cs</Link>
-    </Compile>
-    <Compile Include="..\..\PrivateCSharpSource\Common\FastArray.cs">
-      <Link>NetCommon\FastArray.cs</Link>
-    </Compile>
-    <Compile Include="..\..\PrivateCSharpSource\Common\HostIDArray.cs">
-      <Link>NetCommon\HostIDArray.cs</Link>
-    </Compile>
-    <Compile Include="..\..\PrivateCSharpSource\Common\Marshaler.cs">
-      <Link>NetCommon\Marshaler.cs</Link>
-    </Compile>
-    <Compile Include="..\..\PrivateCSharpSource\Common\Message.cs">
-      <Link>NetCommon\Message.cs</Link>
-    </Compile>
-    <Compile Include="..\..\PrivateCSharpSource\Common\NamedAddrPort.cs">
-      <Link>NetCommon\NamedAddrPort.cs</Link>
-    </Compile>
-    <Compile Include="..\..\PrivateCSharpSource\Common\PreciseCurrentTime.cs">
-      <Link>NetCommon\PreciseCurrentTime.cs</Link>
-    </Compile>
-    <Compile Include="..\..\PrivateCSharpSource\Common\RmiContext.cs">
-      <Link>NetCommon\RmiContext.cs</Link>
-    </Compile>
-    <Compile Include="..\..\PrivateCSharpSource\Common\Sysutil.cs">
-      <Link>NetCommon\Sysutil.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProudNetClientPlugin\CompressMode.cs">
-      <Link>NetClient\Pinvoke\CompressMode.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProudNetClientPlugin\ConnectionState.cs">
-      <Link>NetClient\Pinvoke\ConnectionState.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProudNetClientPlugin\DirectP2PStartCondition.cs">
-      <Link>NetClient\Pinvoke\DirectP2PStartCondition.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProudNetClientPlugin\EncryptMode.cs">
-      <Link>NetClient\Pinvoke\EncryptMode.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProudNetClientPlugin\ErrorType.cs">
-      <Link>NetClient\Pinvoke\ErrorType.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProudNetClientPlugin\FallbackMethod.cs">
-      <Link>NetClient\Pinvoke\FallbackMethod.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProudNetClientPlugin\HostID.cs">
-      <Link>NetClient\Pinvoke\HostID.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProudNetClientPlugin\MessagePriority.cs">
-      <Link>NetClient\Pinvoke\MessagePriority.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProudNetClientPlugin\MessageReliability.cs">
-      <Link>NetClient\Pinvoke\MessageReliability.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProudNetClientPlugin\RmiID.cs">
-      <Link>NetClient\Pinvoke\RmiID.cs</Link>
-    </Compile>
     <Compile Include="Misc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="..\src\Common\CompactScalarValue.cs">
+      <Link>NetCommon\CompactScalarValue.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\FastArray.cs">
+      <Link>NetCommon\FastArray.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\HostIDArray.cs">
+      <Link>NetCommon\HostIDArray.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\Marshaler.cs">
+      <Link>NetCommon\Marshaler.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\Message.cs">
+      <Link>NetCommon\Message.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\NamedAddrPort.cs">
+      <Link>NetCommon\NamedAddrPort.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\PreciseCurrentTime.cs">
+      <Link>NetCommon\PreciseCurrentTime.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\RmiContext.cs">
+      <Link>NetCommon\RmiContext.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\Sysutil.cs">
+      <Link>NetCommon\Sysutil.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\src\NetClient\PInvoke\CompressMode.cs">
+      <Link>NetClient\Pinvoke\CompressMode.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ConnectionState.cs">
+      <Link>NetClient\Pinvoke\ConnectionState.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\DirectP2PStartCondition.cs">
+      <Link>NetClient\Pinvoke\DirectP2PStartCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\EncryptMode.cs">
+      <Link>NetClient\Pinvoke\EncryptMode.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ErrorType.cs">
+      <Link>NetClient\Pinvoke\ErrorType.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\FallbackMethod.cs">
+      <Link>NetClient\Pinvoke\FallbackMethod.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\HostID.cs">
+      <Link>NetClient\Pinvoke\HostID.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\MessagePriority.cs">
+      <Link>NetClient\Pinvoke\MessagePriority.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\MessageReliability.cs">
+      <Link>NetClient\Pinvoke\MessageReliability.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\RmiID.cs">
+      <Link>NetClient\Pinvoke\RmiID.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
