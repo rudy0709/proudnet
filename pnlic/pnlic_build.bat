@@ -52,6 +52,38 @@ exit /b
 		)
 	)
 
+	@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
+	@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+	if not exist "..\utils\" (
+		mkdir "..\utils\"
+	)
+	if not exist "..\utils\nuget.exe" (
+		powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
+	)
+
+	@rem NuGet 패키지를 다운로드 받습니다.
+	set pkg_flag=F
+
+	if not exist ".\packages\Antlr4.4.6.6\" (
+		set pkg_flag=T
+	)
+	if not exist ".\packages\Antlr4.CodeGenerator.4.6.6\" (
+		set pkg_flag=T
+	)
+	if not exist ".\packages\Antlr4.Runtime.4.6.6\" (
+		set pkg_flag=T
+	)
+	if not exist ".\packages\YamlDotNet.12.0.2\" (
+		set pkg_flag=T
+	)
+
+	if "%pkg_flag%" == "T" (
+		pushd .\
+		cd .\Pidl\
+		"..\..\utils\nuget.exe" restore -PackagesDirectory ..\packages\
+		popd
+	)
+
 	@rem PIDL 컴파일러 프로젝트를 빌드/클린합니다.
 	call :compile_command ".\Pidl" "1) Pidl.csproj"
 exit /b
