@@ -121,12 +121,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProudDotNetClient\5%29 ProudDotNetClient.csproj">
-      <Project>{3d67a396-9a2f-4ccc-a329-2683717a3be0}</Project>
-      <Name>5%29 ProudDotNetClient</Name>
-    </ProjectReference>
+    <Reference Include="ProudDotNetClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ProudDotNetClient\bin\$(ConfigurationName)\ProudDotNetClient.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
