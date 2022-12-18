@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B283B9AA-5323-425E-B023-FFADE1A6C1FD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Nettention.Proud</RootNamespace>
+    <AssemblyName>ProudDotNetClientUnity</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_ENGINE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;UNITY_ENGINE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="NetClient\Native\NativeInternalNetClient.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\src\Common\CompactScalarValue.cs">
+      <Link>NetCommon\CompactScalarValue.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\FastArray.cs">
+      <Link>NetCommon\FastArray.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\HostIDArray.cs">
+      <Link>NetCommon\HostIDArray.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\Marshaler.cs">
+      <Link>NetCommon\Marshaler.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\Message.cs">
+      <Link>NetCommon\Message.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\MessageSummary.cs">
+      <Link>NetCommon\MessageSummary.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\PreciseCurrentTime.cs">
+      <Link>NetCommon\PreciseCurrentTime.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\ReceivedMessage.cs">
+      <Link>NetCommon\ReceivedMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\RmiContext.cs">
+      <Link>NetCommon\RmiContext.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Common\Sysutil.cs">
+      <Link>NetCommon\Sysutil.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\src\NetClient\IRmiHost.cs">
+      <Link>NetClient\IRmiHost.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\Native\NativeConvert.cs">
+      <Link>NetClient\Native\NativeConvert.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\Native\NativeInternal.cs">
+      <Link>NetClient\Native\NativeInternal.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\Native\NativeInternalNetClientEvent.cs">
+      <Link>NetClient\Native\NativeInternalNetClientEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\Native\NativeInternalProxy.cs">
+      <Link>NetClient\Native\NativeInternalProxy.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\Native\NativeInternalStub.cs">
+      <Link>NetClient\Native\NativeInternalStub.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\NetClient.cs">
+      <Link>NetClient\NetClient.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\NetUtil.cs">
+      <Link>NetClient\NetUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\ProudDelegate.cs">
+      <Link>NetClient\ProudDelegate.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\RmiProxy.cs">
+      <Link>NetClient\RmiProxy.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\RmiStub.cs">
+      <Link>NetClient\RmiStub.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\ThreadPool.cs">
+      <Link>NetClient\ThreadPool.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\src\NetClient\PInvoke\AddrPort.cs">
+      <Link>NetClient\PInvoke\AddrPort.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ApplicationHint.cs">
+      <Link>NetClient\PInvoke\ApplicationHint.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ClientWorkerInfo.cs">
+      <Link>NetClient\PInvoke\ClientWorkerInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\CompressMode.cs">
+      <Link>NetClient\PInvoke\CompressMode.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ConnectionState.cs">
+      <Link>NetClient\PInvoke\ConnectionState.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\DirectP2PInfo.cs">
+      <Link>NetClient\PInvoke\DirectP2PInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\DirectP2PStartCondition.cs">
+      <Link>NetClient\PInvoke\DirectP2PStartCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\DisconnectArgs.cs">
+      <Link>NetClient\PInvoke\DisconnectArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\EncryptLevel.cs">
+      <Link>NetClient\PInvoke\EncryptLevel.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\EncryptMode.cs">
+      <Link>NetClient\PInvoke\EncryptMode.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ErrorInfo.cs">
+      <Link>NetClient\PInvoke\ErrorInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ErrorReaction.cs">
+      <Link>NetClient\PInvoke\ErrorReaction.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ErrorType.cs">
+      <Link>NetClient\PInvoke\ErrorType.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ExceptionType.cs">
+      <Link>NetClient\PInvoke\ExceptionType.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\FallbackMethod.cs">
+      <Link>NetClient\PInvoke\FallbackMethod.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\FastEncryptLevel.cs">
+      <Link>NetClient\PInvoke\FastEncryptLevel.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\FrameMoveResult.cs">
+      <Link>NetClient\PInvoke\FrameMoveResult.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\GrowPolicy.cs">
+      <Link>NetClient\PInvoke\GrowPolicy.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\Guid.cs">
+      <Link>NetClient\PInvoke\Guid.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\HackType.cs">
+      <Link>NetClient\PInvoke\HackType.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\HostID.cs">
+      <Link>NetClient\PInvoke\HostID.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\HostIDGenerationPolicy.cs">
+      <Link>NetClient\PInvoke\HostIDGenerationPolicy.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\HostType.cs">
+      <Link>NetClient\PInvoke\HostType.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\IntArray.cs">
+      <Link>NetClient\PInvoke\IntArray.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\LogCategory.cs">
+      <Link>NetClient\PInvoke\LogCategory.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\MessagePriority.cs">
+      <Link>NetClient\PInvoke\MessagePriority.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\MessageReliability.cs">
+      <Link>NetClient\PInvoke\MessageReliability.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NamedAddrPort.cs">
+      <Link>NetClient\PInvoke\NamedAddrPort.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NativeByteArray.cs">
+      <Link>NetClient\PInvoke\NativeByteArray.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NativeException.cs">
+      <Link>NetClient\PInvoke\NativeException.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NativeHostIDArray.cs">
+      <Link>NetClient\PInvoke\NativeHostIDArray.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NativeNetClient.cs">
+      <Link>NetClient\PInvoke\NativeNetClient.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NativeNetUtil.cs">
+      <Link>NetClient\PInvoke\NativeNetUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NativeReceivedMessage.cs">
+      <Link>NetClient\PInvoke\NativeReceivedMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NativeRmiContext.cs">
+      <Link>NetClient\PInvoke\NativeRmiContext.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NativeThreadPool.cs">
+      <Link>NetClient\PInvoke\NativeThreadPool.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NetClientConfig.cs">
+      <Link>NetClient\PInvoke\NetClientConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NetClientStats.cs">
+      <Link>NetClient\PInvoke\NetClientStats.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NetConnectionParam.cs">
+      <Link>NetClient\PInvoke\NetConnectionParam.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NetCoreStats.cs">
+      <Link>NetClient\PInvoke\NetCoreStats.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\NetPeerInfo.cs">
+      <Link>NetClient\PInvoke\NetPeerInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ProudNetClientPlugin.cs">
+      <Link>NetClient\PInvoke\ProudNetClientPlugin.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ProudNetClientPluginPINVOKE.cs">
+      <Link>NetClient\PInvoke\ProudNetClientPluginPINVOKE.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ReliableUdpHostStats.cs">
+      <Link>NetClient\PInvoke\ReliableUdpHostStats.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\RemoteOfflineEventArgs.cs">
+      <Link>NetClient\PInvoke\RemoteOfflineEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\RemoteOnlineEventArgs.cs">
+      <Link>NetClient\PInvoke\RemoteOnlineEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\RmiID.cs">
+      <Link>NetClient\PInvoke\RmiID.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\RoundTripLatencyTestResult.cs">
+      <Link>NetClient\PInvoke\RoundTripLatencyTestResult.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ServerConnectionState.cs">
+      <Link>NetClient\PInvoke\ServerConnectionState.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\SocketInfo.cs">
+      <Link>NetClient\PInvoke\SocketInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\StartRoundTripLatencyTestParameter.cs">
+      <Link>NetClient\PInvoke\StartRoundTripLatencyTestParameter.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ThreadModel.cs">
+      <Link>NetClient\PInvoke\ThreadModel.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ValueCompareType.cs">
+      <Link>NetClient\PInvoke\ValueCompareType.cs</Link>
+    </Compile>
+    <Compile Include="..\src\NetClient\PInvoke\ValueOperType.cs">
+      <Link>NetClient\PInvoke\ValueOperType.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\utils\UnityDll\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
