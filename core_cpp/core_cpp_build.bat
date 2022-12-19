@@ -85,6 +85,7 @@ exit /b
 
 	if "%msbuild_target%" == "" (
 		echo ^>^>^>^> Error : 1st^(Build Target^) argument is invalid.
+		echo ^>^>^>^>
 		exit /b 1
 	)
 
@@ -98,6 +99,7 @@ exit /b
 
 	if "%msbuild_config_cpp%" == "" (
 		echo ^>^>^>^> Error : 2nd^(Build Configuration^) argument is invalid.
+		echo ^>^>^>^>
 		exit /b 1
 	)
 
@@ -111,6 +113,7 @@ exit /b
 
 	if "%msbuild_platform_cpp%" == "" (
 		echo ^>^>^>^> Error : 3rd^(Build Platform^) argument is invalid.
+		echo ^>^>^>^>
 		exit /b 1
 	)
 
@@ -123,6 +126,7 @@ exit /b
 
 	if "%msbuild_project%" == "" (
 		echo ^>^>^>^> Error : 4th^(Build Project^) argument is invalid.
+		echo ^>^>^>^>
 		exit /b 1
 	)
 
@@ -139,18 +143,21 @@ exit /b 0
 	if "%PN_BUILD_PATH%" == "" (
 		@rem 예시 : C:\Program Files\Microsoft Visual Studio\2022\Professional\Msbuild\Current\Bin\MSBuild.exe
 		echo ^>^>^>^> Error : Register the PN_BUILD_PATH environment variable before executing the batch file.
+		echo ^>^>^>^>
 		exit /b
 	)
 
 	if "%PN_OBFUSCATION_TOOL_PATH%" == "" (
 		@rem 예시 : C:\Program Files (x86)\Gapotchenko\Eazfuscator.NET\Eazfuscator.NET.exe
 		echo ^>^>^>^> Error : Register the PN_OBFUSCATION_TOOL_PATH environment variable before executing the batch file.
+		echo ^>^>^>^>
 		exit /b
 	)
 
 	if "%PN_SIGN_TOOL_PATH%" == "" (
 		@rem 예시 : C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe
 		echo ^>^>^>^> Error : Register the PN_SIGN_TOOL_PATH environment variable before executing the batch file.
+		echo ^>^>^>^>
 		exit /b
 	)
 
