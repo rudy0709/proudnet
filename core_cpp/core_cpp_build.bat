@@ -177,10 +177,10 @@ exit /b
 		set msbuild_platform=!msbuild_platform_cs!
 	)
 
-	echo ^>^>^>^> CommandLine : "%PN_BUILD_PATH%" "%param1%\%param2%" "/t:%msbuild_target%" "/p:Configuration=%msbuild_config%;Platform=%msbuild_platforms%;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
+	echo ^>^>^>^> CommandLine : "%PN_BUILD_PATH%" "%param1%\%param2%" "/t:%msbuild_target%" "/p:Configuration=%msbuild_config%;Platform=%msbuild_platform%;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
 	echo ^>^>^>^>
 	echo ^>^>^>^> --------------------------------------------------
-	"%PN_BUILD_PATH%" "%param1%\%param2%" "/t:%msbuild_target%" "/p:Configuration=%msbuild_config%;Platform=%msbuild_platforms%;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
+	"%PN_BUILD_PATH%" "%param1%\%param2%" "/t:%msbuild_target%" "/p:Configuration=%msbuild_config%;Platform=%msbuild_platform%;VisualStudioVersion=%vs_version%;BuildProjectReferences=false" /m
 	echo ^>^>^>^> --------------------------------------------------
 
 	if "%msbuild_target%" == "clean" (
