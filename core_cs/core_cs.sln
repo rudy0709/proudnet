@@ -10,13 +10,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3) ProudNetClientPlugin", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "4) ProudNetServerPlugin", "ProudNetServerPlugin\ProudNetServerPlugin.vcxproj", "{DCA84AC3-EA14-4E36-9E3C-6C68DB66E06F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5) ProudDotNetClient", "ProudDotNetClient\5) ProudDotNetClient.csproj", "{3D67A396-9A2F-4CCC-A329-2683717A3BE0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6) ProudDotNetClient", "ProudDotNetClient\6) ProudDotNetClient.csproj", "{3D67A396-9A2F-4CCC-A329-2683717A3BE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6) ProudDotNetServer", "ProudDotNetServer\6) ProudDotNetServer.csproj", "{15A263A2-6120-42E2-8E8F-7A2EEAFBC37C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7) ProudDotNetServer", "ProudDotNetServer\7) ProudDotNetServer.csproj", "{15A263A2-6120-42E2-8E8F-7A2EEAFBC37C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7) ProudDotNetClientUnity", "ProudDotNetClient\7) ProudDotNetClientUnity.csproj", "{B283B9AA-5323-425E-B023-FFADE1A6C1FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8) ProudDotNetClientUnity", "ProudDotNetClient\8) ProudDotNetClientUnity.csproj", "{B283B9AA-5323-425E-B023-FFADE1A6C1FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8) ProudNetClientPlugin-webgl", "ProudNetClientPlugin-webgl\8) ProudNetClientPlugin-webgl.csproj", "{60EBBE75-A813-4D65-9404-FFA5A2166657}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5) ProudNetClientPlugin-webgl", "ProudNetClientPlugin-webgl\5) ProudNetClientPlugin-webgl.csproj", "{60EBBE75-A813-4D65-9404-FFA5A2166657}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{8EC6D0EB-C672-4E15-9388-BE495EE881B3}"
 EndProject
