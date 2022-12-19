@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.props" Condition="Exists('..\packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -347,6 +347,19 @@ if not exist "%25util_path%25\swig.exe" (
     powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/Swig-v0.0.0.zip', '%25util_path%25\Swig-v0.0.0.zip')"
     powershell "(Expand-Archive -Path %25util_path%25\Swig-v0.0.0.zip -DestinationPath %25util_path%25)"
     del /f /q "%25util_path%25\Swig-v0.0.0.zip"
+)
+
+@rem Unity DLL을 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\UnityDll
+
+if not exist "%25util_path%25" (
+    mkdir "%25util_path%25"
+)
+
+if not exist "%25util_path%25\UnityEngine.dll" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/UnityDll-v0.0.0.zip', '%25util_path%25\UnityDll-v0.0.0.zip')"
+    powershell "(Expand-Archive -Path %25util_path%25\UnityDll-v0.0.0.zip -DestinationPath %25util_path%25)"
+    del /f /q "%25util_path%25\UnityDll-v0.0.0.zip"
 )</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
