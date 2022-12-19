@@ -44,9 +44,9 @@ namespace SimpleCSharp
 
         [marshaler=SimpleCSharp.CMyMarshaler] global C2C 3000  // client-to-client RMI, First message ID = 3000
         {
-	        P2PChat([in] System.String a,[in] int b, [in] float c);
-	
-        	P2PChat2([in] SimpleCSharp.MyClass a);
+            P2PChat([in] System.String a,[in] int b, [in] float c);
+    
+            P2PChat2([in] SimpleCSharp.MyClass a);
         }     
      */
     public class CMyMarshaler : Nettention.Proud.Marshaler
