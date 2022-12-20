@@ -47,6 +47,21 @@ exit /b
 
 	@rem ProudNetPidl 프로젝트를 빌드/클린합니다.
 	call :compile_command ".\ProudNetPidl" "ProudNetPidl.vcxproj"
+
+	if "%msbuild_target%" == "clean" (
+		del /f /s /q ".\include\ErrorType*.h"
+		del /f /s /a ".src\ErrorType.inl"
+		del /f /s /q ".\src\AgentC2S_*.*"
+		del /f /s /q ".\src\AgentS2C_*.*"
+		del /f /s /q ".\src\DB_*.*"
+		del /f /s /q ".\src\DumpC2S_*.*"
+		del /f /s /q ".\src\DumpS2C_*.*"
+		del /f /s /q ".\src\EmergencyC2S_*.*"
+		del /f /s /q ".\src\NetC2C_*.*"
+		del /f /s /q ".\src\NetC2S_*.*"
+		del /f /s /q ".\src\NetS2C_*.*"
+		del /f /s /q ".\src\Viz_*.*"
+	)
 exit /b
 
 :build_library_client
