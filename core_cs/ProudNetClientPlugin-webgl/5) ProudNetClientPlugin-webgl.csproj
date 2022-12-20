@@ -103,4 +103,8 @@
     <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>@rem .dll 파일에 디지털 서명을 추가합니다.
+"%25PN_SIGN_TOOL_PATH%25" sign /f "$(ProjectDir)..\..\utils\codeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

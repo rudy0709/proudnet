@@ -162,7 +162,10 @@ if exist "$(TargetDir)InstallHelper.dll" (
 pushd .\
 cd "$(ProjectDir)..\..\..\utils\CodeVirtualizer"
 start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)InstallHelper.dll"
-popd</Command>
+popd
+
+@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\..\utils\codeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)InstallHelper.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
@@ -197,7 +200,10 @@ if exist "$(TargetDir)InstallHelper.dll" (
 pushd .\
 cd "$(ProjectDir)..\..\..\utils\CodeVirtualizer"
 start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)InstallHelper.dll"
-popd</Command>
+popd
+
+@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\..\utils\codeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)InstallHelper.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -235,7 +241,10 @@ if exist "$(TargetDir)InstallHelper.dll" (
 pushd .\
 cd "$(ProjectDir)..\..\..\utils\CodeVirtualizer"
 start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)InstallHelper.dll"
-popd</Command>
+popd
+
+@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\..\utils\codeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)InstallHelper.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
@@ -273,7 +282,10 @@ if exist "$(TargetDir)InstallHelper.dll" (
 pushd .\
 cd "$(ProjectDir)..\..\..\utils\CodeVirtualizer"
 start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)InstallHelper.dll"
-popd</Command>
+popd
+
+@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\..\utils\codeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)InstallHelper.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -308,7 +320,10 @@ if exist "$(TargetDir)InstallHelper.dll" (
 pushd .\
 cd "$(ProjectDir)..\..\..\utils\CodeVirtualizer"
 start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)InstallHelper.dll"
-popd</Command>
+popd
+
+@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\..\utils\codeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)InstallHelper.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
@@ -343,7 +358,10 @@ if exist "$(TargetDir)InstallHelper.dll" (
 pushd .\
 cd "$(ProjectDir)..\..\..\utils\CodeVirtualizer"
 start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)InstallHelper.dll"
-popd</Command>
+popd
+
+@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\..\utils\codeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)InstallHelper.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -381,7 +399,10 @@ if exist "$(TargetDir)InstallHelper.dll" (
 pushd .\
 cd "$(ProjectDir)..\..\..\utils\CodeVirtualizer"
 start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)InstallHelper.dll"
-popd</Command>
+popd
+
+@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\..\utils\codeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)InstallHelper.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
@@ -419,7 +440,10 @@ if exist "$(TargetDir)InstallHelper.dll" (
 pushd .\
 cd "$(ProjectDir)..\..\..\utils\CodeVirtualizer"
 start /w Virtualizer.exe /protect .\ProudNet.cv /inputfile "$(TargetDir)$(TargetName)$(TargetExt)" /outputfile "$(TargetDir)InstallHelper.dll"
-popd</Command>
+popd
+
+@rem .dll 파일에 디지털 서명을 추가합니다.
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\..\utils\codeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetDir)InstallHelper.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
