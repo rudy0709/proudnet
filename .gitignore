@@ -53,3 +53,5 @@ utils/CodeVirtualizer/ProudNet.cv
 utils/CodeVirtualizer/Virtualizer.ini
 utils/Swig/
 utils/nuget.exe
+pnlic/PNLicenseManager/PNLicenseHiddenImage.inl
+pnlic/PNLicenseManager/PNLicenseWarningImage.inl

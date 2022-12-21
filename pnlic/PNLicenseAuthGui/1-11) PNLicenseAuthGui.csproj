@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E6CC3173-9303-4644-A8E0-D9BAE0CA7CCF}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>PNLicenseAuthGui</RootNamespace>
     <AssemblyName>PNLicenseAuthGui_UnCodeSign</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
@@ -46,6 +46,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>key.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="LicenseKeyForm.resx">

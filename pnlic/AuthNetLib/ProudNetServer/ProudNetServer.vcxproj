@@ -39,7 +39,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>AuthNetLib</RootNamespace>
-    <ProjectName>4) AuthNetServer</ProjectName>
+    <ProjectName>1-4) AuthNetServer</ProjectName>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

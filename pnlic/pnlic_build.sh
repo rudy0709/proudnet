@@ -38,10 +38,12 @@ func_main() {
 	func_build_project_lic_auth_lib
 	func_build_project_pnlic_lib
 
-	#   (4) PNLicense 관련 .exe 빌드
+	#   (4) PNLicense 실행파일 빌드
+	func_build_project_pnlic_auth
+
+	#   (5) PNLicense 이미지 빌드 - core/ProudNetServer LIB/DLL 프로젝트에서 활용
 	func_build_project_pnlic_warn
 	func_build_project_pnlic_hidden
-	func_build_project_pnlic_auth
 }
 
 func_build_project_pidl() {
@@ -97,6 +99,18 @@ func_build_project_pnlic_lib() {
 	func_compile_command "./PNLicense"
 }
 
+func_build_project_pnlic_auth() {
+	if [ ${msbuild_project} != "all" ]; then
+		if [ ${msbuild_project} != "pnlic_auth" ]; then
+			return
+		fi
+	fi
+
+	# PNLicenseAuth, PNLicenseAuthGui 프로젝트를 빌드/클린합니다.
+	func_compile_command "./PNLicenseAuth"
+	#func_compile_command "./PNLicenseAuthGui"				# 리눅스 환경에선 빌드하지 않음
+}
+
 func_build_project_pnlic_warn() {
 	if [ ${msbuild_project} != "all" ]; then
 		if [ ${msbuild_project} != "pnlic_warn" ]; then
@@ -125,18 +139,6 @@ func_build_project_pnlic_hidden() {
 	if [ ${msbuild_target} == "clean" ]; then
 		rm -f "./PNLicenseManager/PNLicenseHiddenImage.inl"
 	fi
-}
-
-func_build_project_pnlic_auth() {
-	if [ ${msbuild_project} != "all" ]; then
-		if [ ${msbuild_project} != "pnlic_auth" ]; then
-			return
-		fi
-	fi
-
-	# PNLicenseAuth, PNLicenseAuthGui 프로젝트를 빌드/클린합니다.
-	func_compile_command "./PNLicenseAuth"
-	#func_compile_command "./PNLicenseAuthGui"				# 리눅스 환경에선 빌드하지 않음
 }
 
 # 공통 로직...

@@ -28,7 +28,7 @@ set msbuild_project=
 	@rem   (1) 환경변수 체크
 	call :check_environment_variable
 
-	@rem   (2) Tool 빌드
+	@rem   (2) Pidl 프로젝트 빌드
 	call :build_project_pidl
 
 	@rem   (3) Library 빌드 (PNLicAuthServer.exe도 포함)
@@ -36,12 +36,14 @@ set msbuild_project=
 	call :build_project_lic_auth_lib
 	call :build_project_pnlic_lib
 
-	@rem   (4) PNLicense 관련 .exe 빌드
-	call :build_project_pnlic_warn
-	call :build_project_pnlic_hidden
+	@rem   (4) PNLicense 실행파일 빌드
 	call :build_project_pnlic_auth
 
-	@rem   (5) Watermark 관련 .lib/.dll 빌드
+	@rem   (5) PNLicense 이미지 빌드 - core/ProudNetServer LIB/DLL 프로젝트에서 활용
+	call :build_project_pnlic_warn
+	call :build_project_pnlic_hidden
+
+	@rem   (6) Watermark 빌드 - 패키징 시에 활용
 	call :build_project_watermark
 exit /b
 
@@ -85,7 +87,7 @@ exit /b
 	)
 
 	@rem PIDL 컴파일러 프로젝트를 빌드/클린합니다.
-	call :compile_command ".\Pidl" "1) Pidl.csproj"
+	call :compile_command ".\Pidl" "1-1) Pidl.csproj"
 exit /b
 
 :build_project_authnet_lib
@@ -126,6 +128,18 @@ exit /b
 	call :compile_command ".\PNLicense" "PNLicense.vcxproj"
 exit /b
 
+:build_project_pnlic_auth
+	if not "%msbuild_project%" == "all" (
+		if not "%msbuild_project%" == "pnlic_auth" (
+			exit /b
+		)
+	)
+
+	@rem PNLicenseAuth, PNLicenseAuthGui 프로젝트를 빌드/클린합니다.
+	call :compile_command ".\PNLicenseAuth" "PNLicenseAuth.vcxproj"
+	call :compile_command ".\PNLicenseAuthGui" "1-11) PNLicenseAuthGui.csproj"
+exit /b
+
 :build_project_pnlic_warn
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "pnlic_warn" (
@@ -154,18 +168,6 @@ exit /b
 	if "%msbuild_target%" == "clean" (
 		del /f ".\PNLicenseManager\PNLicenseHiddenImage.inl"
 	)
-exit /b
-
-:build_project_pnlic_auth
-	if not "%msbuild_project%" == "all" (
-		if not "%msbuild_project%" == "pnlic_auth" (
-			exit /b
-		)
-	)
-
-	@rem PNLicenseAuth, PNLicenseAuthGui 프로젝트를 빌드/클린합니다.
-	call :compile_command ".\PNLicenseAuth" "PNLicenseAuth.vcxproj"
-	call :compile_command ".\PNLicenseAuthGui" "13) PNLicenseAuthGui.csproj"
 exit /b
 
 :build_project_watermark
