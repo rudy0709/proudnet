@@ -1,7 +1,7 @@
 @echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 
-set project_list=all pidl_compiler image_gen
+set project_list=all pidl image_gen
 set msbuild_target=
 set msbuild_config_cpp=
 set msbuild_platform_cpp=
@@ -20,7 +20,7 @@ set msbuild_project=
 		echo Options:
 		echo     configuration : Debug ^| Debug_static_CRT ^| Release ^| Release_static_CRT
 		echo          platform : Win32 ^| x64
-		echo           project : all ^| pidl_compiler ^| image_gen
+		echo           project : all ^| pidl ^| image_gen
 		exit /b
 	)
 
@@ -29,15 +29,15 @@ set msbuild_project=
 	call :check_environment_variable
 
 	@rem   (2) Pidl 컴파일러 프로젝트 빌드
-	call :build_project_pidl_compiler
+	call :build_project_pidl
 
 	@rem   (3) ImageGen 프로젝트 빌드
 	call :build_project_image_gen
 exit /b
 
-:build_project_pidl_compiler
+:build_project_pidl
 	if not "%msbuild_project%" == "all" (
-		if not "%msbuild_project%" == "pidl_compiler" (
+		if not "%msbuild_project%" == "pidl" (
 			exit /b
 		)
 	)
@@ -101,7 +101,7 @@ exit /b
 		exit /b 1
 	)
 
-	@rem 세번째 인자값의 유효성을 검사합니다.
+	@rem 네번째 인자값의 유효성을 검사합니다.
 	for %%i in (%project_list%) do (
 		if "%4" == "%%i" (
 			set msbuild_project=%%i

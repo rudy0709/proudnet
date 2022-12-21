@@ -29,19 +29,19 @@ set msbuild_project=
 	call :check_environment_variable
 
 	@rem   (2) SWIG 프로젝트 빌드
-	call :build_library_swig
+	call :build_project_swig
 
 	@rem   (3) 클라이언트/서버/WebGL 용의 Plugin 프로젝트 빌드
-	call :build_library_plugin
+	call :build_project_plugin
 
 	@rem   (4) 닷넷 용의 클라이언트/서버 프로젝트 빌드
-	call :build_library_dotnet
+	call :build_project_dotnet
 	
 	@rem   (5) 샘플 프로젝트 빌드
 	call :build_sample_app
 exit /b
 
-:build_library_swig
+:build_project_swig
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "swig" (
 			exit /b
@@ -58,7 +58,7 @@ exit /b
 	)
 exit /b
 
-:build_library_plugin
+:build_project_plugin
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "plugin" (
 			exit /b
@@ -71,7 +71,7 @@ exit /b
 	call :compile_command ".\ProudNetClientPlugin-webgl" "5) ProudNetClientPlugin-webgl.csproj"
 exit /b
 
-:build_library_dotnet
+:build_project_dotnet
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "dotnet" (
 			exit /b
@@ -140,7 +140,7 @@ exit /b
 		exit /b 1
 	)
 
-	@rem 세번째 인자값의 유효성을 검사합니다.
+	@rem 네번째 인자값의 유효성을 검사합니다.
 	for %%i in (%project_list%) do (
 		if "%4" == "%%i" (
 			set msbuild_project=%%i

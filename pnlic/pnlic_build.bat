@@ -29,23 +29,23 @@ set msbuild_project=
 	call :check_environment_variable
 
 	@rem   (2) Tool 빌드
-	call :build_library_pidl
+	call :build_project_pidl
 
 	@rem   (3) Library 빌드 (PNLicAuthServer.exe도 포함)
-	call :build_library_authnet_lib
-	call :build_library_lic_auth_lib
-	call :build_library_pnlic_lib
+	call :build_project_authnet_lib
+	call :build_project_lic_auth_lib
+	call :build_project_pnlic_lib
 
 	@rem   (4) PNLicense 관련 .exe 빌드
-	call :build_library_pnlic_warn
-	call :build_library_pnlic_hidden
-	call :build_library_pnlic_auth
+	call :build_project_pnlic_warn
+	call :build_project_pnlic_hidden
+	call :build_project_pnlic_auth
 
 	@rem   (5) Watermark 관련 .lib/.dll 빌드
-	call :build_library_watermark
+	call :build_project_watermark
 exit /b
 
-:build_library_pidl
+:build_project_pidl
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "pidl" (
 			exit /b
@@ -88,7 +88,7 @@ exit /b
 	call :compile_command ".\Pidl" "1) Pidl.csproj"
 exit /b
 
-:build_library_authnet_lib
+:build_project_authnet_lib
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "authnet_lib" (
 			exit /b
@@ -101,7 +101,7 @@ exit /b
 	call :compile_command ".\AuthNetLib\ProudNetServer" "ProudNetServer.vcxproj"
 exit /b
 
-:build_library_lic_auth_lib
+:build_project_lic_auth_lib
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "lic_auth_lib" (
 			exit /b
@@ -114,7 +114,7 @@ exit /b
 	call :compile_command ".\LicAuthLib\PNLicAuthServer" "PNLicAuthServer.vcxproj"
 exit /b
 
-:build_library_pnlic_lib
+:build_project_pnlic_lib
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "pnlic_lib" (
 			exit /b
@@ -126,7 +126,7 @@ exit /b
 	call :compile_command ".\PNLicense" "PNLicense.vcxproj"
 exit /b
 
-:build_library_pnlic_warn
+:build_project_pnlic_warn
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "pnlic_warn" (
 			exit /b
@@ -141,7 +141,7 @@ exit /b
 	)
 exit /b
 
-:build_library_pnlic_hidden
+:build_project_pnlic_hidden
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "pnlic_hidden" (
 			exit /b
@@ -156,7 +156,7 @@ exit /b
 	)
 exit /b
 
-:build_library_pnlic_auth
+:build_project_pnlic_auth
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "pnlic_auth" (
 			exit /b
@@ -168,7 +168,7 @@ exit /b
 	call :compile_command ".\PNLicenseAuthGui" "13) PNLicenseAuthGui.csproj"
 exit /b
 
-:build_library_watermark
+:build_project_watermark
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "watermark" (
 			exit /b
@@ -224,7 +224,7 @@ exit /b
 		exit /b 1
 	)
 
-	@rem 세번째 인자값의 유효성을 검사합니다.
+	@rem 네번째 인자값의 유효성을 검사합니다.
 	for %%i in (%project_list%) do (
 		if "%4" == "%%i" (
 			set msbuild_project=%%i

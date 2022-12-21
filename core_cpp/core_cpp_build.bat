@@ -29,16 +29,16 @@ set msbuild_project=
 	call :check_environment_variable
 
 	@rem   (2) ProudNetPidl 프로젝트 빌드
-	call :build_library_pidl
+	call :build_project_pidl
 
 	@rem   (3) ProudNetClient 프로젝트 빌드
-	call :build_library_client
+	call :build_project_client
 
 	@rem   (4 ProudNetServer 프로젝트 빌드
-	call :build_library_server
+	call :build_project_server
 exit /b
 
-:build_library_pidl
+:build_project_pidl
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "pidl" (
 			exit /b
@@ -64,7 +64,7 @@ exit /b
 	)
 exit /b
 
-:build_library_client
+:build_project_client
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "client" (
 			exit /b
@@ -76,7 +76,7 @@ exit /b
 	call :compile_command ".\ProudNetClientDll" "ProudNetClientDll.vcxproj"
 exit /b
 
-:build_library_server
+:build_project_server
 	if not "%msbuild_project%" == "all" (
 		if not "%msbuild_project%" == "server" (
 			exit /b
@@ -132,7 +132,7 @@ exit /b
 		exit /b 1
 	)
 
-	@rem 세번째 인자값의 유효성을 검사합니다.
+	@rem 네번째 인자값의 유효성을 검사합니다.
 	for %%i in (%project_list%) do (
 		if "%4" == "%%i" (
 			set msbuild_project=%%i

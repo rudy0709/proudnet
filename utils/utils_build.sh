@@ -1,18 +1,28 @@
 #!/bin/bash
 
-projects=(all code-virtualizer image-gen pidl-compiler)
+project_list=(all pidl image_gen)
+msbuild_target=
+msbuild_config_cpp=
+msbuild_platform_cpp=
+msbuild_config_cs=
+msbuild_platform_cs=
+msbuild_project=
 
 func_main() {
 	# 사용법을 출력해야 할 지를 검사합니다.
-	func_check_comandline_params $1 $2
+	func_check_comandline_params $1 $2 $3 $4
 	if [ $? == 1 ]; then
 		# 파일 경로에서 파일명만 뽑아냅니다.
 		filename="$(basename $0)"
 
 		# 사용법을 출력합니다.
 		echo "Usage:"
-		echo "    ${filename} clean <all | code-virtualizer | image-gen | pidl-compiler>"
-		echo "    ${filename} build <all | code-virtualizer | image-gen | pidl-compiler>"
+		echo "    ${filename} clean <configuration> <platform> <project>"
+		echo "    ${filename} build <configuration> <platform> <project>"
+		echo "Options:"
+		echo "    configuration : Debug | Release"
+		echo "         platform : x64"
+		echo "          project : all | pidl | image_gen"
 		return
 	fi
 
@@ -20,14 +30,108 @@ func_main() {
 	#   (1) 환경변수 체크
 	func_check_environment_variable
 
-	#   (2) CodeVirtualizer 프로젝트 빌드
-	func_build_project_code_virtualizer $1 $2
+	#   (2) Pidl 컴파일러 프로젝트 빌드
+	func_build_project_pidl
 
 	#   (3) ImageGen 프로젝트 빌드
-	func_build_project_image_gen $1 $2
+	func_build_project_image_gen
+}
 
-	##   (4) Pidl 컴파일러 프로젝트 빌드
-	func_build_project_pidl_compiler $1 $2
+func_build_project_pidl() {
+	if [ ${msbuild_project} != "all" ]; then
+		if [ ${msbuild_project} != "pidl" ]; then
+			return
+		fi
+	fi
+
+	# PIDL 컴파일러 프로젝트를 빌드/클린합니다.
+	#func_compile_command "./Pidl"
+	echo ">>>> 'PIDL 컴파일러' =================================================="
+	echo ">>>> 윈도우 환경에서 생성된 .pidl 파일의 결과물을 사용하기 때문에 'PIDL 컴파일러' 프로젝트를 빌드하지 않습니다."
+	echo ">>>> 'PIDL 컴파일러' =================================================="
+	echo ""
+}
+
+func_build_project_image_gen() {
+	if [ ${msbuild_project} != "all" ]; then
+		if [ ${msbuild_project} != "image_gen" ]; then
+			return
+		fi
+	fi
+
+	# ImageGen 프로젝트들을 빌드/클린합니다.
+	func_compile_command "./ImageGen"
+}
+
+# 공통 로직...
+func_check_comandline_params() {
+	# 첫번째 인자값의 유효성을 검사합니다.
+	target_list=(clean build)
+	for i in ${target_list[@]}
+	do
+		if [ "$1" == "$i" ]; then
+			msbuild_target="$i"
+		fi
+	done
+
+	if [ "${msbuild_target}" == "" ]; then
+		echo ">>>> Error : 1st(Build Target) argument is invalid."
+		echo ">>>>"
+		return 1
+	fi
+
+	# 두번째 인자값의 유효성을 검사합니다.
+	config_list=(Debug Release)
+	for i in ${config_list[@]}
+	do
+		if [ "$2" == "$i" ]; then
+			msbuild_config_cpp="$i"
+		fi
+	done
+
+	if [ "${msbuild_config_cpp}" == "" ]; then
+		echo ">>>> Error : 2nd(Build Configuration) argument is invalid."
+		echo ">>>>"
+		return 1
+	fi
+
+	# 세번째 인자값의 유효성을 검사합니다.
+	platform_list=(x64)
+	for i in ${platform_list[@]}
+	do
+		if [ "$3" == "$i" ]; then
+			msbuild_platform_cpp="$i"
+		fi
+	done
+
+	if [ "${msbuild_platform_cpp}" == "" ]; then
+		echo ">>>> Error : 3rd(Build Platform) argument is invalid."
+		echo ">>>>"
+		return 1
+	fi
+
+	# 네번째 인자값의 유효성을 검사합니다.
+	for i in ${project_list[@]}
+	do
+		if [ "$4" == "$i" ]; then
+			msbuild_project="$i"
+		fi
+	done
+
+	if [ "${msbuild_project}" == "" ]; then
+		echo ">>>> Error : 4th(Build Project) argument is invalid."
+		echo ">>>>"
+		return 1
+	fi
+
+	if [[ $msbuild_config_cpp =~ "Release" ]]; then
+		msbuild_config_cs=Release
+	else
+		msbuild_config_cs=Debug
+	fi
+	msbuild_platform_cs=AnyCPU
+
+	return 0
 }
 
 func_check_environment_variable() {
@@ -35,101 +139,67 @@ func_check_environment_variable() {
 	if [ "${PN_BUILD_GCC_PATH}" == "" ]; then
 		# 예시 : /usr/bin/gcc
 		echo ">>>> Error : Register the PN_BUILD_GCC_PATH environment variable before executing the batch file."
+		echo ">>>>"
 		return
 	fi
 
 	if [ "${PN_BUILD_GPP_PATH}" == "" ]; then
 		# 예시 : /usr/bin/g++
 		echo ">>>> Error : Register the PN_BUILD_GPP_PATH environment variable before executing the batch file."
+		echo ">>>>"
 		return
 	fi
 
 	if [ "${CMAKE_MODULE_PATH}" == "" ]; then
 		# 예시 : /usr/local/cmake-3.25.0/bin/cmake
 		echo ">>>> Error : Register the CMAKE_MODULE_PATH environment variable before executing the batch file."
+		echo ">>>>"
 		return
 	fi
 
-	echo ">>>> Environment-Variable(PN_BUILD_GCC_PATH) = ${PN_BUILD_GCC_PATH}"
-	echo ">>>> Environment-Variable(PN_BUILD_GPP_PATH) = ${PN_BUILD_GPP_PATH}"
-	echo ">>>> Environment-Variable(CMAKE_MODULE_PATH) = ${CMAKE_MODULE_PATH}"
+	echo ">>>> Env-Var = {"
+	echo ">>>>   'PN_BUILD_GCC_PATH' : '${PN_BUILD_GCC_PATH}',"
+	echo ">>>>   'PN_BUILD_GPP_PATH' : '${PN_BUILD_GPP_PATH}',"
+	echo ">>>>   'CMAKE_MODULE_PATH' : '${CMAKE_MODULE_PATH}'"
+	echo ">>>> }"
 	echo ">>>>"
 }
 
-func_build_project_code_virtualizer() {
-	if [ "$2" != "all" ]; then
-		if [ "$2" != "code-virtualizer" ]; then
-			return
-		fi
-	fi
-
-	func_compile_command "CodeVirtualizer" $1
-}
-
-func_build_project_image_gen() {
-	if [ "$2" != "all" ]; then
-		if [ "$2" != "image-gen" ]; then
-			return
-		fi
-	fi
-
-	func_compile_command "ImageGen" $1
-}
-
-func_build_project_pidl_compiler() {
-	if [ "$2" != "all" ]; then
-		if [ "$2" != "pidl-compiler" ]; then
-			return
-		fi
-	fi
-
-	#func_compile_command "Pidl" $1
-	echo ">>>> 'PIDL 컴파일러' =================================================="
-	echo ">>>> 윈도우 환경에서 생성된 .pidl 파일의 결과물을 사용하기 때문에 'PIDL 컴파일러' 프로젝트를 빌드하지 않습니다."
-	echo ">>>> 'PIDL 컴파일러' =================================================="
-	echo ""
-}
-
 func_compile_command() {
-	echo ">>>> $1 =================================================="
+	param1=$1
 
-	if [ "$2" == "clean" ]; then
-		# 프로젝트의 빌드 시에 만들어진 폴더 및 파일들을 삭제합니다.
-		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build $1/build/ --config Release --target clean"
-		echo ">>>> CommandLine : rm -rf $1/build/"
-		echo ">>>>"
-		echo ">>>> --------------------------------------------------"
-		${CMAKE_MODULE_PATH} --build $1/build/ --config Release --target clean
-		rm -rf $1/build/
-	elif [ "$2" == "build" ]; then
-		# 프로젝트를 빌드합니다.
-		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S$1 -B$1/build/ $1/"
-		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build $1/build/ --config Release --target all"
-		echo ">>>>"
-		echo ">>>> --------------------------------------------------"
-		${CMAKE_MODULE_PATH} -G "Unix Makefiles" -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S$1 -B$1/build/ $1/
-		${CMAKE_MODULE_PATH} --build $1/build/ --config Release --target all
+	msbuild_config=
+	msbuild_platform=
+	if [[ $msbuild_config_cpp =~ "vcxproj" ]]; then
+		msbuild_config=${msbuild_config_cpp}
+		msbuild_platform=${msbuild_platform_cpp}
+	elif [[ $msbuild_config_cpp =~ "csproj" ]]; then
+		msbuild_config=${msbuild_config_cs}
+		msbuild_platform=${msbuild_platform_cs}
 	fi
 
-	echo ">>>> $1 =================================================="
+	echo ">>>> ${param1} =================================================="
+
+	if [ ${msbuild_target} == "clean" ]; then
+		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build ${param1}/build/ --config ${msbuild_config_cpp} --target clean"
+		echo ">>>> CommandLine : rm -rf ${param1}/build/"
+		echo ">>>>"
+		echo ">>>> --------------------------------------------------"
+
+		${CMAKE_MODULE_PATH} --build ${param1}/build/ --config ${msbuild_config_cpp} --target clean
+		rm -rf ${param1}/build/
+	elif [ ${msbuild_target} == "build" ]; then
+		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE:STRING=${msbuild_config_cpp} -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S${param1} -B${param1}/build/ ${param1}/"
+		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build ${param1}/build/ --config ${msbuild_config_cpp} --target all"
+		echo ">>>>"
+		echo ">>>> --------------------------------------------------"
+
+		${CMAKE_MODULE_PATH} -G "Unix Makefiles" -DCMAKE_BUILD_TYPE:STRING=${msbuild_config_cpp} -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S${param1} -B${param1}/build/ ${param1}/
+		${CMAKE_MODULE_PATH} --build ${param1}/build/ --config ${msbuild_config_cpp} --target all
+	fi
+
+	echo ">>>> ${param1} =================================================="
 	echo ""
 }
 
-func_check_comandline_params() {
-	if [ "$1" != "clean" ]; then
-		if [ "$1" != "build" ]; then
-			return 1
-		fi
-	fi
-
-	for prj in ${projects[@]}
-	do
-		if [ "$2" == "$prj" ]; then
-			return 0
-		fi
-	done
-
-	return 1
-}
-
-func_main $1 $2
+func_main $1 $2 $3 $4
