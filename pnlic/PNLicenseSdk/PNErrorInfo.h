@@ -28,7 +28,7 @@ enum PNLicErrorCode
 	RSADecryptionError,
 	RegistryFileNotExists,
 
-	// 40001~ 49999 : PNLicenseSDK 오류 
+	// 40001~ 49999 : PNLicenseSdk 오류 
 	InvalidLicenseInfo = 40001,
 	InvalidLicenseKey,
 	NotInstalledLicenseKey,

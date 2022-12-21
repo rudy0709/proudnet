@@ -18,13 +18,13 @@
 #include <fcntl.h>
 
 #include "PNLicInformer.h"
-#include "../PNLicenseSDK/PNLicenseSDK.h"
+#include "../PNLicenseSdk/PNLicenseSdk.h"
 #include "../PNLicenseManager/PNTypes.h"
 
 #include "VirtualizerSDK.h"  // .../utils/CodeVirtualizer/Include/C/
 
 #include "../PNLicenseManager/LicenseType.h"
 
-#pragma comment(lib, "PNLicenseSDK")
+#pragma comment(lib, "PNLicenseSdk")
 using namespace Proud;
 

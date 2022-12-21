@@ -307,7 +307,7 @@
     <ClCompile Include="PNFileSecureAttribute.cpp" />
     <ClCompile Include="PNFileSystem.cpp" />
     <ClCompile Include="PNLicenseInfo.cpp" />
-    <ClCompile Include="PNLicenseSDK.cpp" />
+    <ClCompile Include="PNLicenseSdk.cpp" />
     <ClCompile Include="PNRegistry.cpp" />
     <ClCompile Include="PNSecure.cpp" />
     <ClCompile Include="PNTime.cpp" />
@@ -320,7 +320,7 @@
     <ClInclude Include="PNFileSystem.h" />
     <ClInclude Include="PNExport.h" />
     <ClInclude Include="PNLicenseInfo.h" />
-    <ClInclude Include="PNLicenseSDK.h" />
+    <ClInclude Include="PNLicenseSdk.h" />
     <ClInclude Include="PNRegistry.h" />
     <ClInclude Include="PNRegistryInfo.h" />
     <ClInclude Include="PNSecure.h" />

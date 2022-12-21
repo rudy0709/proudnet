@@ -1,5 +1,5 @@
 ﻿#include "stdafx.h"
-#include "PNLicenseSDK.h"
+#include "PNLicenseSdk.h"
 
 CPNRegistry g_registry;
 

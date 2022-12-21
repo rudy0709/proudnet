@@ -12,7 +12,7 @@
 #include "../PNLicenseManager/LicenseMessage.inl"
 #include "PNLicenseWarning.h"
 
-#pragma comment(lib, "PNLicenseSDK")
+#pragma comment(lib, "PNLicenseSdk")
 using namespace std;
 
 #if defined(__linux__)

@@ -21,7 +21,7 @@
 #include <pthread.h>
 #endif
 
-#include "../PNLicenseSDK/PNSecure.h"
+#include "../PNLicenseSdk/PNSecure.h"
 #include "PNTypes.h"
 
 namespace Proud

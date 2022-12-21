@@ -3,11 +3,11 @@
 #include <time.h>
 #include <sys/stat.h>
 
-#include "../PNLicenseSDK/PNLicenseSDK.h"
+#include "../PNLicenseSdk/PNLicenseSdk.h"
 #include "../LicAuthLib/PNLicAuthCommon/Vars.h"
 #include "../LicAuthLib/PNLicAuthClient/PNLicAuthClient.h"
 
-#pragma comment(lib, "PNLicenseSDK")
+#pragma comment(lib, "PNLicenseSdk")
 extern const char* g_pnVersionText;
 
 using namespace std;

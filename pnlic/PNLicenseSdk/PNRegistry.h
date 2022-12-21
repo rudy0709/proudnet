@@ -23,7 +23,7 @@
 #include "PNFileSystem.h"
 #include "PNLicenseInfo.h"
 #include "PNRegistryInfo.h"
-#include "PNLicenseSDK.h"
+#include "PNLicenseSdk.h"
 
 #include "../AuthNetLib/include/CryptoAes.h"
 #include "../AuthNetLib/OpenSources/libtom/crypto/headers/tomcrypt.h"

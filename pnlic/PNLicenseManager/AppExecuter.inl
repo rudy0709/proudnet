@@ -3,7 +3,7 @@
 #include <thread>
 #include <cassert>
 #include "RunLicenseApp.h"
-#include "../PNLicenseSDK/PNSecure.cpp"
+#include "../PNLicenseSdk/PNSecure.cpp"
 #include "../PNLicenseManager/MemoryHopper.inl"
 
 // 프라우드넷 퍼스널 버전 서버가 최대한 접속 허용할 수 있는 클라이언트의 갯수

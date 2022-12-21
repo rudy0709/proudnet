@@ -27,7 +27,7 @@
     <ClCompile Include="PNLicenseInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PNLicenseSDK.cpp">
+    <ClCompile Include="PNLicenseSdk.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PNRegistry.cpp">
@@ -62,7 +62,7 @@
     <ClInclude Include="PNLicenseInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PNLicenseSDK.h">
+    <ClInclude Include="PNLicenseSdk.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PNRegistry.h">

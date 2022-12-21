@@ -5,7 +5,7 @@ typedef unsigned char BYTE;
 
 #include "../AuthNetLib/include/ProudNetClient.h"
 #include "../PNLicenseManager/LicenseMessage.h"
-#include "../PNLicenseSDK/PNLicenseSDK.h"
+#include "../PNLicenseSdk/PNLicenseSdk.h"
 
 #include "../LicAuthLib/PNLicAuthClient/CPUID.h"
 #include "../LicAuthLib/PNLicAuthCommon/Vars.h"

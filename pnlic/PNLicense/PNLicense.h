@@ -1,7 +1,7 @@
 ﻿#pragma once
 
-#include "../PNLicenseSDK/PNLicenseSDK.h"
-#pragma comment(lib, "PNLicenseSDK")
+#include "../PNLicenseSdk/PNLicenseSdk.h"
+#pragma comment(lib, "PNLicenseSdk")
 
 class CPNLicense
 {

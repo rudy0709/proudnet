@@ -8,7 +8,7 @@ file(GLOB SOURCES
     ./PNFileSecureAttribute.cpp
     ./PNFileSystem.cpp
     ./PNLicenseInfo.cpp
-    ./PNLicenseSDK.cpp
+    ./PNLicenseSdk.cpp
     ./PNRegistry.cpp
     ./PNSecure.cpp
     ./PNTime.cpp
@@ -22,7 +22,7 @@ file(GLOB HEADERS
     ./PNFileSecureAttribute.h
     ./PNFileSystem.h
     ./PNLicenseInfo.h
-    ./PNLicenseSDK.h
+    ./PNLicenseSdk.h
     ./PNRegistry.h
     ./PNRegistryInfo.h
     ./PNSecure.h
