@@ -34,19 +34,19 @@ add_definitions(
 add_compile_options(
     -fPIC
     -W -Wall -Wextra
-#    -O2
+    -O2
     -std=c++11
 )
 
 # link
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
-#set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_NAME ${PROJECT_NAME}_UnProtect)
 target_link_libraries(${PROJECT_NAME}
     -lpthread
-    ${CMAKE_SOURCE_DIR}/../PNLicenseSDK/build/libPNLicenseSdk.a
+    ${CMAKE_SOURCE_DIR}/../PNLicenseSdk/build/libPNLicenseSdk.a
     ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetServer/build/libAuthNetServer.a
     ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetClient/build/libAuthNetClient.a
 )
+set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_NAME ${PROJECT_NAME}_UnProtect)
 
 # event
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
@@ -54,5 +54,8 @@ add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
 )
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_SOURCE_DIR}/../../utils/ImageGen/build/ImageGen --bin2inl ${CMAKE_SOURCE_DIR}/build/${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/../PNLicenseManager/${PROJECT_NAME}Image.inl
+    COMMAND echo "윈도우 환경에서 ${PROJECT_NAME}_UnProtect 파일을 난독화해야 합니다."
+    COMMAND echo "난독화된 ${PROJECT_NAME} 파일을 .inl 파일로 변환합니다."
+    COMMAND echo "아래 명령을 실행해 주세요."
+    COMMAND echo "  ${CMAKE_SOURCE_DIR}/../../utils/ImageGen/build/ImageGen --bin2inl ${CMAKE_SOURCE_DIR}/build/${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/../PNLicenseManager/${PROJECT_NAME}Image.inl"
 )

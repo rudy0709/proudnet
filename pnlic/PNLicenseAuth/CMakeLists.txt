@@ -33,17 +33,24 @@ add_definitions(
 add_compile_options(
     -fPIC
     -W -Wall -Wextra
-#    -O2
+    -O2
     -std=c++11
 )
 
 # link
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+
 target_link_libraries(${PROJECT_NAME}
     -lpthread
     ${CMAKE_SOURCE_DIR}/../LicAuthLib/PNLicAuthClient/build/libPNLicAuthClient.a
     ${CMAKE_SOURCE_DIR}/../LicAuthLib/PNLicAuthCommon/build/libPNLicAuthCommon.a
-    ${CMAKE_SOURCE_DIR}/../PNLicenseSDK/build/libPNLicenseSdk.a
+    ${CMAKE_SOURCE_DIR}/../PNLicenseSdk/build/libPNLicenseSdk.a
     ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetServer/build/libAuthNetServer.a
     ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetClient/build/libAuthNetClient.a
+)
+#set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_NAME ${PROJECT_NAME}_UnProtect)
+
+# event
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND echo "윈도우 환경에서 ${PROJECT_NAME} 파일을 난독화해야 합니다."
 )
