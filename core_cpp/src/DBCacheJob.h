@@ -3,7 +3,7 @@
 #include "../include/Singleton.h"
 #include "../include/FastArray.h"
 #include "../include/IRMIProxy.h"
-#include "../include/IRmiStub.h"
+#include "../include/IRMIStub.h"
 #include "FastList2.h"
 #include "../include/PNSemaphore.h"
 

@@ -2,8 +2,8 @@
 
 #include "../include/NetServerInterface.h"
 #include "../include/INetServerEvent.h"
-#include "../include/fastlist.h"
-#include "../include/dbcacheserver2.h"
+#include "../include/FastList.h"
+#include "../include/DbCacheServer2.h"
 #include "../include/DbLoadedData2.h"
 #include "../include/ThreadUtil.h"
 #include "../include/MilisecTimer.h"

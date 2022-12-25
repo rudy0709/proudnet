@@ -34,7 +34,7 @@ set msbuild_project=
 	@rem   (3) ProudNetClient 프로젝트 빌드
 	call :build_project_client
 
-	@rem   (4 ProudNetServer 프로젝트 빌드
+	@rem   (4) ProudNetServer 프로젝트 빌드
 	call :build_project_server
 exit /b
 
