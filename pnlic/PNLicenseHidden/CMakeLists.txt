@@ -40,13 +40,18 @@ add_compile_options(
 
 # link
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    COMPILE_DEFINITIONS  $<$<CONFIG:DEBUG>:DEBUG _DEBUG> $<$<CONFIG:RELEASE>:NDEBUG>
+    RUNTIME_OUTPUT_NAME ${PROJECT_NAME}_UnProtect
+)
+
 target_link_libraries(${PROJECT_NAME}
     -lpthread
     ${CMAKE_SOURCE_DIR}/../PNLicenseSdk/build/libPNLicenseSdk.a
     ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetServer/build/libAuthNetServer.a
     ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetClient/build/libAuthNetClient.a
 )
-set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_NAME ${PROJECT_NAME}_UnProtect)
 
 # event
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD

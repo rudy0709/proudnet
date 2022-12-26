@@ -1,6 +1,6 @@
 #!/bin/bash
 
-project_list=(all pidl authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidden pnlic_auth)
+project_list=(all pidl authnet_lib lic_auth_lib pnlic_lib pnlic_auth pnlic_warn pnlic_hidden)
 msbuild_target=
 msbuild_config_cpp=
 msbuild_platform_cpp=
@@ -22,7 +22,7 @@ func_main() {
 		echo "Options:"
 		echo "    configuration : Debug | Release"
 		echo "         platform : x64"
-		echo "          project : all | pidl | authnet_lib | lic_auth_lib | pnlic_lib | pnlic_warn | pnlic_hidden | pnlic_auth"
+		echo "          project : all | pidl | authnet_lib | lic_auth_lib | pnlic_lib | pnlic_auth | pnlic_warn | pnlic_hidden"
 		return
 	fi
 
@@ -44,6 +44,16 @@ func_main() {
 	#   (5) PNLicense 이미지 빌드 - core/ProudNetServer LIB/DLL 프로젝트에서 활용
 	func_build_project_pnlic_warn
 	func_build_project_pnlic_hidden
+
+	if [ ${msbuild_target} == "build" ]; then
+		echo ">>>> --------------------------------------------------"
+		echo ">>>> 다음의 과정을 수작업으로 처리해야만 core_cpp 프로젝트들을 빌드할 수 있습니다."
+		echo ">>>> 1) PNLicenseWarning_UnProtect 파일을 난독화합니다."
+		echo ">>>> 2) PNLicenseWarningImage.inl 파일을 생성하여 PNLicenseHidden 프로젝트를 빌드합니다."
+		echo ">>>> 3) PNLicenseHidden_UnProtect 파일을 난독화합니다."
+		echo ">>>> 4) PNLicenseHiddenImage.inl 파일을 생성합니다."
+		echo ">>>> --------------------------------------------------"
+	fi
 }
 
 func_build_project_pidl() {

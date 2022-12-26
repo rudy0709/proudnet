@@ -1,7 +1,7 @@
 @echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 
-set project_list=all pidl authnet_lib lic_auth_lib pnlic_lib pnlic_warn pnlic_hidden pnlic_auth watermark
+set project_list=all pidl authnet_lib lic_auth_lib pnlic_lib pnlic_auth pnlic_warn pnlic_hidden watermark
 set msbuild_target=
 set msbuild_config_cpp=
 set msbuild_platform_cpp=
@@ -20,7 +20,7 @@ set msbuild_project=
 		echo Options:
 		echo     configuration : Debug ^| Debug_static_CRT ^| Release ^| Release_static_CRT
 		echo          platform : Win32 ^| x64
-		echo           project : all ^| pidl ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_warn ^| pnlic_hidden ^| pnlic_auth ^| watermark
+		echo           project : all ^| pidl ^| authnet_lib ^| lic_auth_lib ^| pnlic_lib ^| pnlic_auth  ^| pnlic_warn ^| pnlic_hidden ^| watermark
 		exit /b
 	)
 

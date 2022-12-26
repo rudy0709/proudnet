@@ -764,6 +764,11 @@ add_compile_options(
 
 # link
 add_library(${PROJECT_NAME} STATIC ${OPEN_SRCS_ICONV} ${OPEN_SRCS_LIBTOM_CRYPTO} ${OPEN_SRCS_LIBTOM_MATH} ${OPEN_SRCS_ZLIB} ${SRCS_LINUX} ${HEADERS} ${SOURCES})
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    COMPILE_DEFINITIONS  $<$<CONFIG:DEBUG>:DEBUG _DEBUG> $<$<CONFIG:RELEASE>:NDEBUG>
+)
+
 target_link_libraries(${PROJECT_NAME}
     -lpthread
 )

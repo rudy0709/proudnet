@@ -29,6 +29,11 @@ add_compile_options(
 
 # link
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    COMPILE_DEFINITIONS  $<$<CONFIG:DEBUG>:DEBUG _DEBUG> $<$<CONFIG:RELEASE>:NDEBUG>
+)
+
 target_link_libraries(${PROJECT_NAME}
     -lpthread
 )
