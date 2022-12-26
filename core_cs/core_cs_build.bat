@@ -91,7 +91,7 @@ exit /b
 		)
 	)
 
-	@rem ProudDotNetClient, ProudDotNetServer 프로젝트를 빌드/클린합니다.
+	@rem SimpleClient, SimpleServer 프로젝트를 빌드/클린합니다.
 	call :compile_command ".\SimpleClient" "SimpleClient.csproj"
 	call :compile_command ".\SimpleServer" "SimpleServer.csproj"
 exit /b
