@@ -158,7 +158,7 @@ file(GLOB SOURCES
     ../src/VizMessageSummary.cpp
 )
 
-file(GLOB_RECURSE HEADERS
+file(GLOB HEADERS
     ../src/acrimpl.h
     ../src/acrimpl_c.h
     ../src/AsyncWork.h

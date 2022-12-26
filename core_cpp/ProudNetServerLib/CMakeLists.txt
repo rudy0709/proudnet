@@ -72,7 +72,7 @@ file(GLOB SOURCES
     ../src/stdafx.cpp
 )
 
-file(GLOB_RECURSE HEADERS
+file(GLOB HEADERS
     ../src/crypto.hpp
     ../src/dbcacheclient2blocked.h
     ../src/DbCacheClient2Impl.h
