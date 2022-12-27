@@ -44,16 +44,6 @@ func_main() {
 	#   (5) PNLicense 이미지 빌드 - core/ProudNetServer LIB/DLL 프로젝트에서 활용
 	func_build_project_pnlic_warn
 	func_build_project_pnlic_hidden
-
-	if [ ${msbuild_target} == "build" ]; then
-		echo ">>>> --------------------------------------------------"
-		echo ">>>> 다음의 과정을 수작업으로 처리해야만 core_cpp 프로젝트들을 빌드할 수 있습니다."
-		echo ">>>> 1) PNLicenseWarning_UnProtect 파일을 난독화합니다."
-		echo ">>>> 2) PNLicenseWarningImage.inl 파일을 생성하여 PNLicenseHidden 프로젝트를 빌드합니다."
-		echo ">>>> 3) PNLicenseHidden_UnProtect 파일을 난독화합니다."
-		echo ">>>> 4) PNLicenseHiddenImage.inl 파일을 생성합니다."
-		echo ">>>> --------------------------------------------------"
-	fi
 }
 
 func_build_project_pidl() {
@@ -269,21 +259,21 @@ func_compile_command() {
 	echo ">>>> ${param1} =================================================="
 
 	if [ ${msbuild_target} == "clean" ]; then
-		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build ${param1}/build/ --config ${msbuild_config_cpp} --target clean"
-		echo ">>>> CommandLine : rm -rf ${param1}/build/"
+		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build ${param1}/build/${msbuild_config_cpp}/ --config ${msbuild_config_cpp} --target clean"
+		echo ">>>> CommandLine : rm -rf ${param1}/build/${msbuild_config_cpp}/"
 		echo ">>>>"
 		echo ">>>> --------------------------------------------------"
 
-		${CMAKE_MODULE_PATH} --build ${param1}/build/ --config ${msbuild_config_cpp} --target clean
-		rm -rf ${param1}/build/
+		${CMAKE_MODULE_PATH} --build ${param1}/build/${msbuild_config_cpp}/ --config ${msbuild_config_cpp} --target clean
+		rm -rf ${param1}/build/${msbuild_config_cpp}/
 	elif [ ${msbuild_target} == "build" ]; then
-		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE:STRING=${msbuild_config_cpp} -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S${param1} -B${param1}/build/ ${param1}/"
-		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build ${param1}/build/ --config ${msbuild_config_cpp} --target all"
+		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE:STRING=${msbuild_config_cpp} -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S${param1} -B${param1}/build/${msbuild_config_cpp}/ ${param1}/"
+		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build ${param1}/build/${msbuild_config_cpp}/ --config ${msbuild_config_cpp} --target all"
 		echo ">>>>"
 		echo ">>>> --------------------------------------------------"
 
-		${CMAKE_MODULE_PATH} -G "Unix Makefiles" -DCMAKE_BUILD_TYPE:STRING=${msbuild_config_cpp} -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S${param1} -B${param1}/build/ ${param1}/
-		${CMAKE_MODULE_PATH} --build ${param1}/build/ --config ${msbuild_config_cpp} --target all
+		${CMAKE_MODULE_PATH} -G "Unix Makefiles" -DCMAKE_BUILD_TYPE:STRING=${msbuild_config_cpp} -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S${param1} -B${param1}/build/${msbuild_config_cpp}/ ${param1}/
+		${CMAKE_MODULE_PATH} --build ${param1}/build/${msbuild_config_cpp}/ --config ${msbuild_config_cpp} --target all
 	fi
 
 	echo ">>>> ${param1} =================================================="

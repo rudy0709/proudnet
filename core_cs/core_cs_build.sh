@@ -50,8 +50,10 @@ func_build_project_swig() {
 		fi
 	fi
 
-	echo ">>>> 리눅스 환경에선 ProudNetClientPluginSwig, ProudNetServerPluginSwig C# 프로젝트를 빌드하지 않습니다."
-	echo ">>>>"
+	echo ">>>> 'SWIG 프로젝트' =================================================="
+	echo ">>>> 'ProudNetClientPluginSwig', 'ProudNetServerPluginSwig' C# 프로젝트를 빌드하지 않습니다."
+	echo ">>>> 'SWIG 프로젝트' =================================================="
+	echo ""
 }
 
 func_build_project_plugin() {
@@ -74,8 +76,10 @@ func_build_project_dotnet() {
 		fi
 	fi
 
-	echo ">>>> 리눅스 환경에선 ProudDotNetClient, ProudDotNetServer C# 프로젝트를 빌드하지 않습니다."
-	echo ">>>>"
+	echo ">>>> '.NET 프로젝트' =================================================="
+	echo ">>>> 'ProudDotNetClient', 'ProudDotNetServer' C# 프로젝트를 빌드하지 않습니다."
+	echo ">>>> '.NET 프로젝트' =================================================="
+	echo ""
 }
 
 func_build_sample_app() {
@@ -85,8 +89,10 @@ func_build_sample_app() {
 		fi
 	fi
 
-	echo ">>>> 리눅스 환경에선 SimpleClient, SimpleServer C# 프로젝트를 빌드하지 않습니다."
-	echo ">>>>"
+	echo ">>>> '샘플 프로젝트' =================================================="
+	echo ">>>> 'SimpleClient', 'SimpleServer' C# 프로젝트를 빌드하지 않습니다."
+	echo ">>>> '샘플 프로젝트' =================================================="
+	echo ""
 }
 
 # 공통 로직...
@@ -207,21 +213,21 @@ func_compile_command() {
 	echo ">>>> ${param1} =================================================="
 
 	if [ ${msbuild_target} == "clean" ]; then
-		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build ${param1}/build/ --config ${msbuild_config_cpp} --target clean"
-		echo ">>>> CommandLine : rm -rf ${param1}/build/"
+		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build ${param1}/build/${msbuild_config_cpp}/ --config ${msbuild_config_cpp} --target clean"
+		echo ">>>> CommandLine : rm -rf ${param1}/build/${msbuild_config_cpp}/"
 		echo ">>>>"
 		echo ">>>> --------------------------------------------------"
 
-		${CMAKE_MODULE_PATH} --build ${param1}/build/ --config ${msbuild_config_cpp} --target clean
-		rm -rf ${param1}/build/
+		${CMAKE_MODULE_PATH} --build ${param1}/build/${msbuild_config_cpp}/ --config ${msbuild_config_cpp} --target clean
+		rm -rf ${param1}/build/${msbuild_config_cpp}/
 	elif [ ${msbuild_target} == "build" ]; then
-		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE:STRING=${msbuild_config_cpp} -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S${param1} -B${param1}/build/ ${param1}/"
-		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build ${param1}/build/ --config ${msbuild_config_cpp} --target all"
+		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE:STRING=${msbuild_config_cpp} -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S${param1} -B${param1}/build/${msbuild_config_cpp}/ ${param1}/"
+		echo ">>>> CommandLine : ${CMAKE_MODULE_PATH} --build ${param1}/build/${msbuild_config_cpp}/ --config ${msbuild_config_cpp} --target all"
 		echo ">>>>"
 		echo ">>>> --------------------------------------------------"
 
-		${CMAKE_MODULE_PATH} -G "Unix Makefiles" -DCMAKE_BUILD_TYPE:STRING=${msbuild_config_cpp} -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S${param1} -B${param1}/build/ ${param1}/
-		${CMAKE_MODULE_PATH} --build ${param1}/build/ --config ${msbuild_config_cpp} --target all
+		${CMAKE_MODULE_PATH} -G "Unix Makefiles" -DCMAKE_BUILD_TYPE:STRING=${msbuild_config_cpp} -DCMAKE_C_COMPILER:FILEPATH=${PN_BUILD_GCC_PATH} -DCMAKE_CXX_COMPILER:FILEPATH=${PN_BUILD_GPP_PATH} -S${param1} -B${param1}/build/${msbuild_config_cpp}/ ${param1}/
+		${CMAKE_MODULE_PATH} --build ${param1}/build/${msbuild_config_cpp}/ --config ${msbuild_config_cpp} --target all
 	fi
 
 	echo ">>>> ${param1} =================================================="
