@@ -38,7 +38,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 )
 
 target_link_libraries(${PROJECT_NAME}
-    ${CMAKE_SOURCE_DIR}/../../../core_cpp/ProudNetClientLib/build/libProudNetClient.a
-    ${CMAKE_SOURCE_DIR}/../Common/build/libSimpleCommon.a
+    ${CMAKE_SOURCE_DIR}/../../../core_cpp/ProudNetClientLib/build/${CMAKE_BUILD_TYPE}/libProudNetClient.a
+    ${CMAKE_SOURCE_DIR}/../Common/build/${CMAKE_BUILD_TYPE}/libSimpleCommon.a
     -lpthread
 )

@@ -48,9 +48,9 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 target_link_libraries(${PROJECT_NAME}
     -lpthread
-    ${CMAKE_SOURCE_DIR}/../PNLicenseSdk/build/libPNLicenseSdk.a
-    ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetServer/build/libAuthNetServer.a
-    ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetClient/build/libAuthNetClient.a
+    ${CMAKE_SOURCE_DIR}/../PNLicenseSdk/build/${CMAKE_BUILD_TYPE}/libPNLicenseSdk.a
+    ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetServer/build/${CMAKE_BUILD_TYPE}/libAuthNetServer.a
+    ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetClient/build/${CMAKE_BUILD_TYPE}/libAuthNetClient.a
 )
 
 # event
@@ -59,8 +59,10 @@ add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
 )
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND echo "윈도우 환경에서 ${PROJECT_NAME}_UnProtect 파일을 난독화해야 합니다."
-    COMMAND echo "난독화된 ${PROJECT_NAME} 파일을 .inl 파일로 변환합니다."
-    COMMAND echo "아래 명령을 실행해 주세요."
-    COMMAND echo "  ${CMAKE_SOURCE_DIR}/../../utils/ImageGen/build/ImageGen --bin2inl ${CMAKE_SOURCE_DIR}/build/${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/../PNLicenseManager/${PROJECT_NAME}Image.inl"
+    COMMAND echo ">>>> --------------------------------------------------"
+    COMMAND echo ">>>> 다음의 과정을 수작업으로 처리해야만 core_cpp 프로젝트들을 빌드할 수 있습니다."
+    COMMAND echo ">>>> 1) 윈도우 환경에서 ${PROJECT_NAME}_UnProtect 파일을 난독화"
+    COMMAND echo ">>>> 2) 난독화된 ${PROJECT_NAME} 파일을 .inl 파일로 변환"
+    COMMAND echo ">>>>    ${CMAKE_SOURCE_DIR}/../../utils/ImageGen/build/${CMAKE_BUILD_TYPE}/ImageGen --bin2inl ${CMAKE_SOURCE_DIR}/build/${CMAKE_BUILD_TYPE}/${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/../PNLicenseManager/${PROJECT_NAME}Image.inl"
+    COMMAND echo ">>>> --------------------------------------------------"
 )

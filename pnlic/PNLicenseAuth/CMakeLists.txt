@@ -46,11 +46,11 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 target_link_libraries(${PROJECT_NAME}
     -lpthread
-    ${CMAKE_SOURCE_DIR}/../LicAuthLib/PNLicAuthClient/build/libPNLicAuthClient.a
-    ${CMAKE_SOURCE_DIR}/../LicAuthLib/PNLicAuthCommon/build/libPNLicAuthCommon.a
-    ${CMAKE_SOURCE_DIR}/../PNLicenseSdk/build/libPNLicenseSdk.a
-    ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetServer/build/libAuthNetServer.a
-    ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetClient/build/libAuthNetClient.a
+    ${CMAKE_SOURCE_DIR}/../LicAuthLib/PNLicAuthClient/build/${CMAKE_BUILD_TYPE}/libPNLicAuthClient.a
+    ${CMAKE_SOURCE_DIR}/../LicAuthLib/PNLicAuthCommon/build/${CMAKE_BUILD_TYPE}/libPNLicAuthCommon.a
+    ${CMAKE_SOURCE_DIR}/../PNLicenseSdk/build/${CMAKE_BUILD_TYPE}/libPNLicenseSdk.a
+    ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetServer/build/${CMAKE_BUILD_TYPE}/libAuthNetServer.a
+    ${CMAKE_SOURCE_DIR}/../AuthNetLib/ProudNetClient/build/${CMAKE_BUILD_TYPE}/libAuthNetClient.a
 )
 
 # event

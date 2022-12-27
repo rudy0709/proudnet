@@ -48,6 +48,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 )
 
 target_link_libraries(${PROJECT_NAME}
-    ${CMAKE_SOURCE_DIR}/../../core_cpp/ProudNetClientDll/build/libProudNetClient.so
+    ${CMAKE_SOURCE_DIR}/../../core_cpp/ProudNetClientDll/build/${CMAKE_BUILD_TYPE}/libProudNetClient.so
     -lpthread
 )

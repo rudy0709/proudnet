@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(ProudNetClientPlugin)
+project(ProudNetServerPlugin)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -46,10 +46,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 )
 
 target_link_libraries(${PROJECT_NAME}
-#222-    ${CMAKE_SOURCE_DIR}/../../core_cpp/ProudNetClientDll/build/libProudNetClient.so
-    ${CMAKE_SOURCE_DIR}/../../core_cpp/ProudNetServerDll/build/libProudNetServer.so
-    -lssl
-    -lcrypto
-    -lodbc
+    ${CMAKE_SOURCE_DIR}/../../core_cpp/ProudNetServerDll/build/${CMAKE_BUILD_TYPE}/libProudNetServer.so
     -lpthread
 )
