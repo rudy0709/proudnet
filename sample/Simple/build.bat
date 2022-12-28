@@ -1,9 +1,4 @@
 @echo off
-SETLOCAL ENABLEDELAYEDEXPANSION
-
-call :compile_command ".\Common" "SimpleCommon.vcxproj"
-call :compile_command ".\Client" "SimpleClient.vcxproj"
-call :compile_command ".\Server" "SimpleServer.vcxproj"
 
 set project_name=
 set msbuild_config=Release
