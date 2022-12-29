@@ -22,8 +22,10 @@ add_definitions(
     -D__x86_64__
     -D__linux__
     -D_LINUX
+    #-DWINDOWSPLUGIN_EXPORTS
     -D_NO_NTTNTRACE
-    -DPRIVATE
+    #-D_USRDLL
+    #-DUSE_PROUDNET_DLL
     -DUSE_OPENSSL
 )
 

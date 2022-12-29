@@ -746,9 +746,8 @@ add_definitions(
     -D__x86_64__
     -D__linux__
     -D_LINUX
-    -D_LIB
-    -D_NO_NTTNTRACE
     -DPROUD_STATIC_LIB
+    -D_NO_NTTNTRACE
     -DPROUDSRCCOPY
 )
 

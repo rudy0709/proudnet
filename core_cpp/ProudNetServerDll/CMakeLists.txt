@@ -142,10 +142,12 @@ add_definitions(
     -D__x86_64__
     -D__linux__
     -D_LINUX
+    #-DPROUDNETSERVER_EXPORTS
     -D_NO_NTTNTRACE
-    -DPROUD_STATIC_LIB
     -DPRIVATE
     -DASIO_STANDALONE
+    #-D_USRDLL
+    #-DUSE_PROUDNET_DLL
     -DUSE_OPENSSL
 )
 

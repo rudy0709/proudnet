@@ -690,8 +690,10 @@ add_definitions(
     -D__x86_64__
     -D__linux__
     -D_LINUX
+    #-DPROUDNETCLIENT_EXPORTS
     -D_NO_NTTNTRACE
     -DPRIVATE
+    #-D_USRDLL
 )
 
 add_compile_options(
