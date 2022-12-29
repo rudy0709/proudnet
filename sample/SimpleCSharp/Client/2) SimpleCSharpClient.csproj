@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>SimpleCSharpClient</PackageId>
+    <Authors>SimpleCSharpClient</Authors>
+    <Company>Nettention</Company>
+    <Product>SimpleCSharpClient</Product>
+    <AssemblyName>SimpleCSharpClient</AssemblyName>
+    <RootNamespace>SimpleCSharpClient</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Common\Simple_common.cs" Link="RMI\Simple_common.cs" />
+    <Compile Include="..\Common\Simple_proxy.cs" Link="RMI\Simple_proxy.cs" />
+    <Compile Include="..\Common\Simple_stub.cs" Link="RMI\Simple_stub.cs" />
+    <Compile Include="..\Common\Vars.cs" Link="Vars.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="RMI\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ProudDotNetClient">
+      <HintPath>..\..\..\core_cs\ProudDotNetClient\bin\Release\ProudDotNetClient.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

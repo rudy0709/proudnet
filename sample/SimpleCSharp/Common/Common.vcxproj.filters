@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PIDL Files">
+      <UniqueIdentifier>{4d242b4a-d152-4609-a9c7-f8e2c6ccf86e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Simple.PIDL">
+      <Filter>PIDL Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>
