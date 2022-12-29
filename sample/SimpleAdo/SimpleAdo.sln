@@ -9,7 +9,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2) Simple-MssqlImage", "Sim
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3) Simple-MssqlXml", "Simple-MssqlXml\Simple-MssqlXml.vcxproj", "{9AD2E6F3-4DB6-45E5-9CC6-066BA1F6D385}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Simple-Mysql", "Simple-Mysql\Simple-Mysql.vcxproj", "{5A06DE9E-1C40-427F-B181-05592E3EDEB0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "4) Simple-Mysql", "Simple-Mysql\Simple-Mysql.vcxproj", "{5A06DE9E-1C40-427F-B181-05592E3EDEB0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5) Simple-Odbc", "Simple-Odbc\Simple-Odbc.vcxproj", "{4B60AE45-D9F2-4E45-A05F-16FA03CA4FF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,14 @@ Global
 		{5A06DE9E-1C40-427F-B181-05592E3EDEB0}.Release|x64.Build.0 = Release|x64
 		{5A06DE9E-1C40-427F-B181-05592E3EDEB0}.Release|x86.ActiveCfg = Release|Win32
 		{5A06DE9E-1C40-427F-B181-05592E3EDEB0}.Release|x86.Build.0 = Release|Win32
+		{4B60AE45-D9F2-4E45-A05F-16FA03CA4FF2}.Debug|x64.ActiveCfg = Debug|x64
+		{4B60AE45-D9F2-4E45-A05F-16FA03CA4FF2}.Debug|x64.Build.0 = Debug|x64
+		{4B60AE45-D9F2-4E45-A05F-16FA03CA4FF2}.Debug|x86.ActiveCfg = Debug|Win32
+		{4B60AE45-D9F2-4E45-A05F-16FA03CA4FF2}.Debug|x86.Build.0 = Debug|Win32
+		{4B60AE45-D9F2-4E45-A05F-16FA03CA4FF2}.Release|x64.ActiveCfg = Release|x64
+		{4B60AE45-D9F2-4E45-A05F-16FA03CA4FF2}.Release|x64.Build.0 = Release|x64
+		{4B60AE45-D9F2-4E45-A05F-16FA03CA4FF2}.Release|x86.ActiveCfg = Release|Win32
+		{4B60AE45-D9F2-4E45-A05F-16FA03CA4FF2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
