@@ -31,7 +31,7 @@ void DBConnect(CAdoConnection& conn)
 {
 	try
 	{
-		conn.Open(L"Driver={MySQL ODBC 5.3 Unicode Driver}; Server=localhost; port=3306; Database=proudado_test; User ID=root; Password=234234;", MySql);
+		conn.Open(L"Driver={MySQL ODBC 5.3 Unicode Driver}; Server=localhost; port=3306; Database=proudado_test; User ID=tester; Password=12345;", MySql);
 		wprintf(L"DB Connect Succeed!!\n");
 
 	}
