@@ -1,4 +1,4 @@
-﻿USE [ProudAdo-Test]
+USE [ProudAdo-Test]
 
 CREATE TABLE [dbo].[UserData] (
     [UserID]   NVARCHAR (50) NOT NULL,

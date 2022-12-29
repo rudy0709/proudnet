@@ -1,6 +1,6 @@
 /*
-MYSQL¿¡´Â MSSQL°ú ´Þ¸® ÇÁ·Î½ÃÀú³»¿¡¼­ ¸®ÅÏ°ªÀ» °¡Áú ¼ö ¾ø½À´Ï´Ù. µû¶ó¼­ MSSQL¿¡ ÀÖ´Â checkPassword.sql¿¡
-ÇØ´çÇÏ´Â ºÎºÐÀº TableÀ» ÀÐ¾îµé¿© ¼­¹ö¿¡¼­ ÇÏ½ÉÀ» ±ÇÀåÇØ µå¸³´Ï´Ù.
+MYSQLì—ëŠ” MSSQLê³¼ ë‹¬ë¦¬ í”„ë¡œì‹œì €ë‚´ì—ì„œ ë¦¬í„´ê°’ì„ ê°€ì§ˆ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ë”°ë¼ì„œ MSSQLì— ìžˆëŠ” checkPassword.sqlì—
+í•´ë‹¹í•˜ëŠ” ë¶€ë¶„ì€ Tableì„ ì½ì–´ë“¤ì—¬ ì„œë²„ì—ì„œ í•˜ì‹¬ì„ ê¶Œìž¥í•´ ë“œë¦½ë‹ˆë‹¤.
 */
 
 
@@ -54,17 +54,3 @@ CREATE TABLE `Item`(
 		
 		PRIMARY KEY(`UUID`)
 		);
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		

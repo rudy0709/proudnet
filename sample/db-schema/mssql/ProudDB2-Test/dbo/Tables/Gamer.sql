@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Gamer] (
+CREATE TABLE [dbo].[Gamer] (
     [UUID]             UNIQUEIDENTIFIER NOT NULL,
     [GamerID]          VARCHAR (50)     NOT NULL,
     [OwnerUUID]        UNIQUEIDENTIFIER NULL,

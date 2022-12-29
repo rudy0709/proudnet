@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[DbLog] (
+CREATE TABLE [dbo].[DbLog] (
     [Index]          BIGINT         IDENTITY (1, 1) NOT NULL,
     [LoggerName]     NVARCHAR (256) NULL,
     [LogText]        NVARCHAR (256) NULL,

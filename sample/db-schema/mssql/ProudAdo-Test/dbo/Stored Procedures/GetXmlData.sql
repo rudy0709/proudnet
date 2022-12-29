@@ -1,4 +1,4 @@
-﻿USE [ProudAdo-Test]
+USE [ProudAdo-Test]
 
 SET ANSI_NULLS ON
 GO

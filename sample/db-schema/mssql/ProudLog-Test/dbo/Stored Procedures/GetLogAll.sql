@@ -1,7 +1,3 @@
-﻿
-
-
-
 
 -- =============================================
 -- Author:		<Author,,Name>
@@ -20,9 +16,3 @@ BEGIN
 	select * from DbLog
 	return 0;
 END
-
-
-
-
-
-
