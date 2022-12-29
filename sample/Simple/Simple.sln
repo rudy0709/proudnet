@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleCommon", "Common\SimpleCommon.vcxproj", "{F3D60BB0-CB79-41FF-9FB4-DEBA508197D1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1) SimpleCommon", "Common\SimpleCommon.vcxproj", "{F3D60BB0-CB79-41FF-9FB4-DEBA508197D1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleClient", "Client\SimpleClient.vcxproj", "{066F0E79-8505-45E8-96A3-7BD4823268F8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2) SimpleClient", "Client\SimpleClient.vcxproj", "{066F0E79-8505-45E8-96A3-7BD4823268F8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleServer", "Server\SimpleServer.vcxproj", "{67290ABA-A103-4369-9602-89BF3CD86105}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3) SimpleServer", "Server\SimpleServer.vcxproj", "{67290ABA-A103-4369-9602-89BF3CD86105}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
