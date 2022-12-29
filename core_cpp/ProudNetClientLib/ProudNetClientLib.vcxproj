@@ -134,7 +134,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_UNICODE;UNICODE;_LIB;PROUD_STATIC_LIB;_NO_NTTNTRACE;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -153,7 +153,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_UNICODE;UNICODE;_LIB;PROUD_STATIC_LIB;_NO_NTTNTRACE;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -174,7 +174,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_UNICODE;UNICODE;_LIB;PROUD_STATIC_LIB;_NO_NTTNTRACE;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -196,7 +196,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_UNICODE;UNICODE;_LIB;PROUD_STATIC_LIB;_NO_NTTNTRACE;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -216,7 +216,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_UNICODE;UNICODE;_LIB;PROUD_STATIC_LIB;_NO_NTTNTRACE;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -235,7 +235,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_UNICODE;UNICODE;_LIB;PROUD_STATIC_LIB;_NO_NTTNTRACE;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -256,7 +256,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_UNICODE;UNICODE;_LIB;PROUD_STATIC_LIB;_NO_NTTNTRACE;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -278,7 +278,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_LIB;PROUD_STATIC_LIB;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_UNICODE;UNICODE;_LIB;PROUD_STATIC_LIB;_NO_NTTNTRACE;PRIVATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>

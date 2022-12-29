@@ -134,7 +134,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_CONSOLE;;PROUDSRCCOPY;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_CONSOLE;_NO_NTTNTRACE;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -173,7 +173,7 @@ popd
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_CONSOLE;;PROUDSRCCOPY;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;WIN32;_WINDOWS;_CONSOLE;_NO_NTTNTRACE;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -214,7 +214,7 @@ popd
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_CONSOLE;PROUDSRCCOPY;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_CONSOLE;_NO_NTTNTRACE;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -256,7 +256,7 @@ popd
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_NO_NTTNTRACE;_CONSOLE;PROUDSRCCOPY;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_CONSOLE;_NO_NTTNTRACE;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -296,7 +296,7 @@ popd
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_CONSOLE;;PROUDSRCCOPY;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_CONSOLE;_NO_NTTNTRACE;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -335,7 +335,7 @@ popd
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_CONSOLE;;PROUDSRCCOPY;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_CONSOLE;_NO_NTTNTRACE;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -376,7 +376,7 @@ popd
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_CONSOLE;PROUDSRCCOPY;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_CONSOLE;_NO_NTTNTRACE;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -418,7 +418,7 @@ popd
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_NO_NTTNTRACE;_CONSOLE;PROUDSRCCOPY;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_EXCEPTIONALLY_;WIN32;_WINDOWS;_CONSOLE;_NO_NTTNTRACE;PROUDSRCCOPY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
