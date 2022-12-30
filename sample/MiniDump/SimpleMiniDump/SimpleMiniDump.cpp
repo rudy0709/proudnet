@@ -59,7 +59,7 @@ void ManualMiniDump()
 	CMiniDumper::GetSharedPtr()->ManualMiniDump();
 }
 
-void main(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
 	int nRetCode = 0;
 	int *data = 0;
@@ -78,11 +78,11 @@ void main(int argc, char* argv[])
 		// 오류 발생으로 새로운 프로세스에서 덤프 파일을 생성한 후, 이 값이 return이 됩니다.            
 		// 생성된 덤프 파일을 메일로 보내거나 에러 창을 보이는 등 유저가 덤프 파일 생성 후, 처리해야할 작업을 처리해주시면 됩니다. 
 		//myDumpClient->Start(L"localhost", 200004, L"./mydump.DMP");
-		return;
+		return 1;
 	case MiniDumpAction_DoNothing:
 		// 유저 호출로 새로운 프로세스에서 덤프 파일을 생성한 후, 이 값이 반환됩니다.            
 		// 이 경우에는 아무것도 하지 말아야합니다. 
-		return;
+		return 1;
 	default:
 		// MiniDumpAction_None            
 		// 일반적으로 앱 실행 시, 이 값이 반환됩니다.            
@@ -112,5 +112,7 @@ void main(int argc, char* argv[])
 			break;
 		}
 	}
+
+	return 0;
 }
 
