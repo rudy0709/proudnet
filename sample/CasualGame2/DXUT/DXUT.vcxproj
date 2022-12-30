@@ -19,35 +19,37 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="Simple.PIDL">
-      <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(Identity) ...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compiling %(Identity) ...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h;%(Outputs)</Outputs>
-    </CustomBuild>
+    <ClCompile Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUT.cpp" />
+    <ClCompile Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTenum.cpp" />
+    <ClCompile Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTgui.cpp" />
+    <ClCompile Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTMesh.cpp" />
+    <ClCompile Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTmisc.cpp" />
+    <ClCompile Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTRes.cpp" />
+    <ClCompile Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTSettingsDlg.cpp" />
+    <ClCompile Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTsound.cpp" />
+    <ClCompile Include="..\..\..\utils\DirectX.bak\SampleCommon\stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Vars.cpp" />
+    <ClInclude Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUT.h" />
+    <ClInclude Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTenum.h" />
+    <ClInclude Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTgui.h" />
+    <ClInclude Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTMesh.h" />
+    <ClInclude Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTmisc.h" />
+    <ClInclude Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTRes.h" />
+    <ClInclude Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTSettingsDlg.h" />
+    <ClInclude Include="..\..\..\utils\DirectX.bak\SampleCommon\DXUTsound.h" />
+    <ClInclude Include="..\..\..\utils\DirectX.bak\SampleCommon\stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Vars.h" />
+    <Image Include="..\..\..\utils\DirectX.bak\SampleCommon\directx.ico" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f3d60bb0-cb79-41ff-9fb4-deba508197d1}</ProjectGuid>
-    <RootNamespace>SimpleCommon</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
-    <ProjectName>1) SimpleCommon</ProjectName>
+    <ProjectGuid>{552c873b-556e-4994-a4e0-1f816bed25a6}</ProjectGuid>
+    <RootNamespace>DXUT</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>1) DXUT</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -95,34 +97,34 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>DXUT</TargetName>
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>SimpleCommon</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>DXUT</TargetName>
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>SimpleCommon</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>DXUT</TargetName>
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>SimpleCommon</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>DXUT</TargetName>
     <OutDir>bin\$(Configuration)-x86_$(PlatformArchitecture)\</OutDir>
     <IntDir>obj\$(Configuration)-x86_$(PlatformArchitecture)\</IntDir>
-    <TargetName>SimpleCommon</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\core_cpp\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/Zc:strictStrings- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -136,11 +138,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\core_cpp\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/Zc:strictStrings- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -154,11 +156,11 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\core_cpp\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/Zc:strictStrings- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -172,11 +174,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\core_cpp\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/Zc:strictStrings- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>
