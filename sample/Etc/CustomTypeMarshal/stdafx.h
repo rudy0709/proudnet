@@ -9,5 +9,5 @@
 #include <iostream>
 #include <tchar.h>
 
-#include "ProudNetCommon.h"
+#include "ProudNet/ProudNetCommon.h"
 using namespace Proud;

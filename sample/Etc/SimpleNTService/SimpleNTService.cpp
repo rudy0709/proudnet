@@ -1,6 +1,6 @@
 ﻿#include "stdafx.h"
 #include "SimpleNTService.h"
-#include "NTService.h"
+#include "ProudNet/NTService.h"
 #include "conio.h"
 
 using namespace Proud;
