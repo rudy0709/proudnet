@@ -323,43 +323,96 @@ echo #### "'PIDLLexer', 'PIDLParser' 형식 또는 네임스페이스 이름을 
 echo #### 새로 설치된 Antlr4*, YamlDotNet 패키지를 참조하지 못했다는 것입니다. ####
 echo #### Build 명령을 몇번 반복하거나 VisualStudio를 재실행하면 정상적으로 빌드됩니다. ####
 
+set s3_url=https://proudnet-utils.s3.us-east-1.amazonaws.com
+
 @rem CodeVirtualizer 난독화 도구를 다운로드 받아 설치합니다.
 set util_path=$(ProjectDir)..\CodeVirtualizer
+set rep_filepath=Virtualizer.exe
+set zip_filename=CodeVirtualizer-v2.2.2.zip
 
 if not exist "%25util_path%25" (
     mkdir "%25util_path%25"
 )
 
-if not exist "%25util_path%25\Virtualizer.exe" (
-    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/CodeVirtualizer-v2.2.2.zip', '%25util_path%25\CodeVirtualizer-v2.2.2.zip')"
-    powershell "(Expand-Archive -Path %25util_path%25\CodeVirtualizer-v2.2.2.zip -DestinationPath %25util_path%25)"
-    del /f /q "%25util_path%25\CodeVirtualizer-v2.2.2.zip"
+if not exist "%25util_path%25\%25rep_filepath%25" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('%25s3_url%25/%25zip_filename%25', '%25util_path%25\%25zip_filename%25')"
+    powershell "(Expand-Archive -Path %25util_path%25\%25zip_filename%25 -DestinationPath %25util_path%25)"
+    del /f /q "%25util_path%25\%25zip_filename%25"
+)
+
+@rem DirectX 관련 파일들을 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\DirectX
+set rep_filepath=Dll\x86_64\d3dx9_31.dll
+set zip_filename=DirectX-v9.x.zip
+
+if not exist "%25util_path%25" (
+    mkdir "%25util_path%25"
+)
+
+if not exist "%25util_path%25\%25rep_filepath%25" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('%25s3_url%25/%25zip_filename%25', '%25util_path%25\%25zip_filename%25')"
+    powershell "(Expand-Archive -Path %25util_path%25\%25zip_filename%25 -DestinationPath %25util_path%25)"
+    del /f /q "%25util_path%25\%25zip_filename%25"
+)
+
+@rem NuGet 패키지 관리 파일을 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\NuGet
+set rep_filepath=nuget.exe
+set zip_filename=NuGet-v6.4.0.zip
+
+if not exist "%25util_path%25" (
+    mkdir "%25util_path%25"
+)
+
+if not exist "%25util_path%25\%25rep_filepath%25" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('%25s3_url%25/%25zip_filename%25', '%25util_path%25\%25zip_filename%25')"
+    powershell "(Expand-Archive -Path %25util_path%25\%25zip_filename%25 -DestinationPath %25util_path%25)"
+    del /f /q "%25util_path%25\%25zip_filename%25"
+)
+
+@rem OpenSSL 관련 파일들을 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\OpenSSL
+set rep_filepath=x86_64\libssl-1_1-x64.dll
+set zip_filename=OpenSSL-v1.1.0.zip
+
+if not exist "%25util_path%25" (
+    mkdir "%25util_path%25"
+)
+
+if not exist "%25util_path%25\%25rep_filepath%25" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('%25s3_url%25/%25zip_filename%25', '%25util_path%25\%25zip_filename%25')"
+    powershell "(Expand-Archive -Path %25util_path%25\%25zip_filename%25 -DestinationPath %25util_path%25)"
+    del /f /q "%25util_path%25\%25zip_filename%25"
 )
 
 @rem Swig 오픈소스를 다운로드 받아 설치합니다.
 set util_path=$(ProjectDir)..\Swig
+set rep_filepath=swig.exe
+set zip_filename=Swig-v0.0.0.zip
 
 if not exist "%25util_path%25" (
     mkdir "%25util_path%25"
 )
 
-if not exist "%25util_path%25\swig.exe" (
-    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/Swig-v0.0.0.zip', '%25util_path%25\Swig-v0.0.0.zip')"
-    powershell "(Expand-Archive -Path %25util_path%25\Swig-v0.0.0.zip -DestinationPath %25util_path%25)"
-    del /f /q "%25util_path%25\Swig-v0.0.0.zip"
+if not exist "%25util_path%25\%25rep_filepath%25" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('%25s3_url%25/%25zip_filename%25', '%25util_path%25\%25zip_filename%25')"
+    powershell "(Expand-Archive -Path %25util_path%25\%25zip_filename%25 -DestinationPath %25util_path%25)"
+    del /f /q "%25util_path%25\%25zip_filename%25"
 )
 
-@rem Unity DLL을 다운로드 받아 설치합니다.
-set util_path=$(ProjectDir)..\UnityDll
+@rem Unity 관련 파일들을 다운로드 받아 설치합니다.
+set util_path=$(ProjectDir)..\Unity
+set rep_filepath=Dll\UnityEngine.dll
+set zip_filename=Unity.z-v0.0.0.zip
 
 if not exist "%25util_path%25" (
     mkdir "%25util_path%25"
 )
 
-if not exist "%25util_path%25\UnityEngine.dll" (
-    powershell "(new-Object System.Net.WebClient).DownloadFile('https://proudnet-utils.s3.us-east-1.amazonaws.com/UnityDll-v0.0.0.zip', '%25util_path%25\UnityDll-v0.0.0.zip')"
-    powershell "(Expand-Archive -Path %25util_path%25\UnityDll-v0.0.0.zip -DestinationPath %25util_path%25)"
-    del /f /q "%25util_path%25\UnityDll-v0.0.0.zip"
+if not exist "%25util_path%25\%25rep_filepath%25" (
+    powershell "(new-Object System.Net.WebClient).DownloadFile('%25s3_url%25/%25zip_filename%25', '%25util_path%25\%25zip_filename%25')"
+    powershell "(Expand-Archive -Path %25util_path%25\%25zip_filename%25 -DestinationPath %25util_path%25)"
+    del /f /q "%25util_path%25\%25zip_filename%25"
 )</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
