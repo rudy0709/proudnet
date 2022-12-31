@@ -3,10 +3,10 @@
 
 #include "stdafx.h"
 
-#include "ProudNetCommon.h"
+#include "ProudNet/ProudNetCommon.h"
 
-#include "CoInit.h"
-#include "AdoWrap.h"
+#include "ProudNet/CoInit.h"
+#include "ProudNet/AdoWrap.h"
 
 using namespace Proud;
 

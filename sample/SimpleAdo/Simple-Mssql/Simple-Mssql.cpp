@@ -2,9 +2,9 @@
 //
 
 #include "stdafx.h"
-#include "AdoWrap.h"
-#include "ProudNetServer.h"
-#include "CoInit.h"
+#include "ProudNet/AdoWrap.h"
+#include "ProudNet/ProudNetServer.h"
+#include "ProudNet/CoInit.h"
 
 using namespace Proud;
 // DB에 연결한다.

@@ -16,8 +16,8 @@
 //////////////////////////////////////////////////////////////////////////
 
 #include <map>
-#include "ProudNetCommon.h"
-#include "ProudDB.h"
+#include "ProudNet/ProudNetCommon.h"
+#include "ProudNet/ProudDB.h"
 using namespace Proud;
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);

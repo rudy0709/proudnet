@@ -6,8 +6,8 @@
 #include <tchar.h>
 #endif
 
-#include "BasicTypes.h"
-#include "OdbcWrap.h"
+#include "ProudNet/BasicTypes.h"
+#include "ProudNet/OdbcWrap.h"
 
 using namespace Proud;
 using namespace std;
