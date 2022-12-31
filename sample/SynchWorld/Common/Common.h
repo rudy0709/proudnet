@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "ProudNetCommon.h"
+#include "ProudNet/ProudNetCommon.h"
 
 
 /** Synchworld support Action Script Version link mode and pure C++ mode.

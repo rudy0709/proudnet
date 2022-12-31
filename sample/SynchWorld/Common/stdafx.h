@@ -21,5 +21,5 @@
 #endif
 
 // It includes later.
-#include "ProudNetCommon.h"
+#include "ProudNet/ProudNetCommon.h"
 using namespace Proud;

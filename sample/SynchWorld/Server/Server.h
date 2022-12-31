@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "ProudNetServer.h"
+#include "ProudNet/ProudNetServer.h"
 
 #include "../Common/Common.h"
 #include "../Common/SynchWorldC2S_stub.h"

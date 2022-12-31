@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "Vector3D.h"
-#include "Message.h"
+#include "ProudNet/Message.h"
 
 template <typename FloatType>
 inline Proud::CMessage& operator>>(Proud::CMessage& a, Vector3T<FloatType>& b)

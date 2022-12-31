@@ -36,7 +36,7 @@ Any violated use of this program is prohibited and will be cause of immediate te
 
 #pragma once
 
-#include "BasicTypes.h"
+#include "ProudNet/BasicTypes.h"
 
 #ifdef _MSC_VER
 #pragma pack(push,8)

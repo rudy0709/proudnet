@@ -56,9 +56,9 @@
 #define SAFE_RELEASE(p)      { if(p) { (p)->Release(); (p)=NULL; } }
 #endif
 
-#include "DirectX.bak/include/d3dx9.h"
+#include "DirectX/include/d3dx9.h"
 // 이걸 나중에 포함시켜야 한다.
-#include "ProudNetClient.h"
+#include "ProudNet/ProudNetClient.h"
 #include "../../Common/PositionFollower.h"
 #include "../../Common/AngleFollower.h"
 #include "../../Common/Vector3DMarshaler.h"

@@ -9,17 +9,17 @@
 #ifdef _WIN64
 //#define DEBUG_VS   // Uncomment this line to debug vertex shaders
 //#define DEBUG_PS   // Uncomment this line to debug pixel shaders
-#pragma comment(lib,"x64/d3d9.lib")
-#pragma comment(lib,"x64/d3dx9.lib")
-#pragma comment(lib,"x64/d3dx10.lib")
-#pragma comment(lib,"x64/dxerr.lib")
-#pragma comment(lib,"x64/dxguid.lib")
+#pragma comment(lib,"x86_64/d3d9.lib")
+#pragma comment(lib,"x86_64/d3dx9.lib")
+#pragma comment(lib,"x86_64/d3dx10.lib")
+#pragma comment(lib,"x86_64/dxerr.lib")
+#pragma comment(lib,"x86_64/dxguid.lib")
 #elif _WIN32
-#pragma comment(lib,"x86/d3d9.lib")
-#pragma comment(lib,"x86/d3dx9.lib")
-#pragma comment(lib,"x86/d3dx10.lib")
-#pragma comment(lib,"x86/dxerr.lib")
-#pragma comment(lib,"x86/dxguid.lib")
+#pragma comment(lib,"x86_32/d3d9.lib")
+#pragma comment(lib,"x86_32/d3dx9.lib")
+#pragma comment(lib,"x86_32/d3dx10.lib")
+#pragma comment(lib,"x86_32/dxerr.lib")
+#pragma comment(lib,"x86_32/dxguid.lib")
 #endif
 
 #pragma comment(lib,"imm32.lib")

@@ -133,12 +133,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_UNICODE;UNICODE;_AFXDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\..\..\core_cpp\include;$(ProjectDir)..\..\..\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\include\;..\..\..\utils\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\utils\DirectX.bak\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(ProjectDir)..\DXUT\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\DXUT.lib;$(ProjectDir)..\Common\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\SynchWorldCommon.lib;$(ProjectDir)..\..\..\core_cpp\ProudNetClientLib\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\utils\DirectX\Lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\..\..\utils\DirectX\SampleCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\DXUT.lib;..\Common\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\SynchWorldCommon.lib;..\..\..\lib\x86_$(PlatformArchitecture)\v140\$(ConfigurationName)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -160,14 +160,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_UNICODE;UNICODE;_AFXDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\..\..\core_cpp\include;$(ProjectDir)..\..\..\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\include\;..\..\..\utils\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\utils\DirectX.bak\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(ProjectDir)..\DXUT\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\DXUT.lib;$(ProjectDir)..\Common\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\SynchWorldCommon.lib;$(ProjectDir)..\..\..\core_cpp\ProudNetClientLib\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\utils\DirectX\Lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\..\..\utils\DirectX\SampleCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\DXUT.lib;..\Common\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\SynchWorldCommon.lib;..\..\..\lib\x86_$(PlatformArchitecture)\v140\$(ConfigurationName)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -187,12 +187,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_UNICODE;UNICODE;_AFXDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\..\..\core_cpp\include;$(ProjectDir)..\..\..\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\include\;..\..\..\utils\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\utils\DirectX.bak\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(ProjectDir)..\DXUT\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\DXUT.lib;$(ProjectDir)..\Common\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\SynchWorldCommon.lib;$(ProjectDir)..\..\..\core_cpp\ProudNetClientLib\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\utils\DirectX\Lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\..\..\utils\DirectX\SampleCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\DXUT.lib;..\Common\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\SynchWorldCommon.lib;..\..\..\lib\x86_$(PlatformArchitecture)\v140\$(ConfigurationName)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -214,14 +214,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_UNICODE;UNICODE;_AFXDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\..\..\core_cpp\include;$(ProjectDir)..\..\..\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\include\;..\..\..\utils\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\utils\DirectX.bak\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(ProjectDir)..\DXUT\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\DXUT.lib;$(ProjectDir)..\Common\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\SynchWorldCommon.lib;$(ProjectDir)..\..\..\core_cpp\ProudNetClientLib\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\utils\DirectX\Lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\..\..\utils\DirectX\SampleCommon\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\DXUT.lib;..\Common\bin\$(ConfigurationName)-x86_$(PlatformArchitecture)\SynchWorldCommon.lib;..\..\..\lib\x86_$(PlatformArchitecture)\v140\$(ConfigurationName)\ProudNetClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>

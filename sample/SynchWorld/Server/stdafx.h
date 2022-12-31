@@ -18,7 +18,7 @@
 #include <iostream>
 
 // It has to include later.
-#include "ProudNetServer.h"
+#include "ProudNet/ProudNetServer.h"
 #include "../../Common/PositionFollower.h"
 #include "../../Common/AngleFollower.h"
 #include "../../Common/Vector3DMarshaler.h"
