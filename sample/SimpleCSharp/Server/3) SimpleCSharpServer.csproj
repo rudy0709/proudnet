@@ -24,11 +24,15 @@
 
   <ItemGroup>
     <Reference Include="ProudDotNetClient">
-      <HintPath>..\..\..\core_cs\ProudDotNetServer\bin\Release\ProudDotNetClient.dll</HintPath>
+      <HintPath>..\..\..\lib\DotNet\ProudDotNetClient.dll</HintPath>
     </Reference>
     <Reference Include="ProudDotNetServer">
-      <HintPath>..\..\..\core_cs\ProudDotNetServer\bin\Release\ProudDotNetServer.dll</HintPath>
+      <HintPath>..\..\..\lib\DotNet\ProudDotNetServer.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy ..\..\..\lib\DotNet\x86_64\ProudNetClientPlugin.dll $(TargetDir)&#xD;&#xA;copy ..\..\..\lib\DotNet\x86_64\ProudNetServerPlugin.dll $(TargetDir)&#xD;&#xA;copy ..\..\..\lib\x86_64\dll\Release\ProudNetClient.dll $(TargetDir)&#xD;&#xA;copy ..\..\..\lib\x86_64\dll\Release\ProudNetServer.dll $(TargetDir)" />
+  </Target>
 
 </Project>
