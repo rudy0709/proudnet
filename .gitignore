@@ -40,18 +40,12 @@ obj/
 out/
 packages/
 tmp/
-utils/CodeVirtualizer/Examples/
-utils/CodeVirtualizer/Lib/
-utils/CodeVirtualizer/languages/
-utils/CodeVirtualizer/CVlicense*
-utils/CodeVirtualizer/CVlog.txt
-utils/CodeVirtualizer/Code Virtualizer Help.chm
-utils/CodeVirtualizer/LICENSE.TXT
-utils/CodeVirtualizer/ProtectProudNet.bat
-utils/CodeVirtualizer/ProtectionFinishes.wav
-utils/CodeVirtualizer/ProudNet.cv
-utils/CodeVirtualizer/Virtualizer.ini
-utils/Swig/
-utils/nuget.exe
 pnlic/PNLicenseManager/PNLicenseHiddenImage.inl
 pnlic/PNLicenseManager/PNLicenseWarningImage.inl
+utils/CodeVirtualizer/
+!utils/CodeVirtualizer/ProudNet.cv
+utils/DirectX/
+utils/NuGet/
+utils/OpenSSL/
+utils/Swig/
+utils/Unity/
