@@ -14,8 +14,8 @@
 #include <afx.h>
 #include <afxwin.h>         // MFC core and standard compose factor.
 
-#include "DirectX.bak/Include/d3dx9.h"
-#include "ProudNetCommon.h"
+#include "DirectX/Include/d3dx9.h"
+#include "ProudNet/ProudNetCommon.h"
 
 
 using namespace Proud;

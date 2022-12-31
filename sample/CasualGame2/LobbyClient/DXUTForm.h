@@ -1,13 +1,13 @@
 ﻿#pragma once
 
-#include "DirectX.bak/SampleCommon/DXUT.h"
-#include "DirectX.bak/SampleCommon/DXUTmisc.h"
-#include "DirectX.bak/SampleCommon/DXUTenum.h"
-#include "DirectX.bak/SampleCommon/DXUTmesh.h"
-#include "DirectX.bak/SampleCommon/DXUTgui.h"
-#include "DirectX.bak/SampleCommon/DXUTsettingsDlg.h"
-#include "DirectX.bak/SampleCommon/DXUTSound.h"
-#include "DirectX.bak/SampleCommon/DXUTRes.h"
+#include "DirectX/SampleCommon/DXUT.h"
+#include "DirectX/SampleCommon/DXUTmisc.h"
+#include "DirectX/SampleCommon/DXUTenum.h"
+#include "DirectX/SampleCommon/DXUTmesh.h"
+#include "DirectX/SampleCommon/DXUTgui.h"
+#include "DirectX/SampleCommon/DXUTsettingsDlg.h"
+#include "DirectX/SampleCommon/DXUTSound.h"
+#include "DirectX/SampleCommon/DXUTRes.h"
 
 enum
 {

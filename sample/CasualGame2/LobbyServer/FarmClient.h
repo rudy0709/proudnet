@@ -3,8 +3,8 @@
 #include "farmcommon.h"
 #include "../LobbyCommon/farm_proxy.h"
 #include "../LobbyCommon/farm_stub.h"
-#include "DbLogWriter.h"
-#include "ProudNetClient.h"
+#include "ProudNet/DbLogWriter.h"
+#include "ProudNet/ProudNetClient.h"
 
 
 class CFarmClientInfo;

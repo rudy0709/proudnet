@@ -5,7 +5,7 @@
 #include "../LobbyCommon/vars.h"
 #include "ServerBase.h"
 #include "farmclient.h"
-#include "AdoWrap.h"
+#include "ProudNet/AdoWrap.h"
 
 
 /**

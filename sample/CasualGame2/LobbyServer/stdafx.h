@@ -62,9 +62,9 @@
 #include <afxcmn.h>			// MFC support about Windows public control
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
-#include "DirectX.bak/Include/d3dx9.h"
-#include "ProudNetServer.h"
-#include "ProudDB.h"
+#include "DirectX/Include/d3dx9.h"
+#include "ProudNet/ProudNetServer.h"
+#include "ProudNet/ProudDB.h"
 #include "../../Common/PositionFollower.h"
 #include "../../Common/AngleFollower.h"
 

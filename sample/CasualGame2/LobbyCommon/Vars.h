@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "d3dxmarshal.inl"
+#include "ProudNet/d3dxmarshal.inl"
 
 
 enum CasualGameErrorType
