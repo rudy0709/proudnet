@@ -15,4 +15,4 @@
 #include <afxwin.h>         // MFC core and standard compose factor
 
 // TODO: Additional required header refer from here for program.
-#include "ProudNetCommon.h"
+#include "ProudNet/ProudNetCommon.h"

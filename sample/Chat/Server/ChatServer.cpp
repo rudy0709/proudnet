@@ -5,7 +5,7 @@
 #include "stdafx.h"
 #include "ChatServer.h"
 #include "ChatServerDlg.h"
-#include "Tracer.h"
+#include "ProudNet/Tracer.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
