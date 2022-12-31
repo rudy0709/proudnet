@@ -1,6 +1,6 @@
 ﻿#include "stdafx.h"
 
-#include "ProudNetServer.h"
+#include "ProudNet/ProudNetServer.h"
 
 using namespace std;
 using namespace Proud;

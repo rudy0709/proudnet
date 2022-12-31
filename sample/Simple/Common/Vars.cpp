@@ -2,7 +2,7 @@
 
 #include <new>
 
-#include "ProudNetClient.h"
+#include "ProudNet/ProudNetClient.h"
 #include "Vars.h"
 
 using namespace std;
