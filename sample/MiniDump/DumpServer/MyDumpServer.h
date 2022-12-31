@@ -1,7 +1,7 @@
 ﻿#pragma once
 
-#include "ProudNetServer.h"
-#include "DumpServer.h"
+#include "ProudNet/ProudNetServer.h"
+#include "ProudNet/DumpServer.h"
 
 using namespace Proud;
 

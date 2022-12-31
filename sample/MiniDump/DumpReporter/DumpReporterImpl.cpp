@@ -2,7 +2,7 @@
 #include <atlpath.h>
 #include ".\dumpreporterimpl.h"
 #include ".\dumpreporterdlg.h"
-#include "DumpCommon.h"
+#include "ProudNet/DumpCommon.h"
 
 using namespace Proud;
 

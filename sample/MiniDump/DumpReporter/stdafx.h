@@ -63,6 +63,6 @@
 
 #include <atlbase.h>
 
-#include "MiniDumper.h"
+#include "ProudNet/MiniDumper.h"
 
 using namespace Proud;

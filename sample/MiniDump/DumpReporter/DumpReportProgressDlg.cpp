@@ -4,7 +4,7 @@
 
 #include "stdafx.h"
 #include "DumpReportProgressDlg.h"
-#include "Exception.h"
+#include "ProudNet/Exception.h"
 #include "DumpReporterImpl.h"
 
 #include <WinInet.h>

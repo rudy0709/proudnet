@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include <afxinet.h>
-#include "DumpClient.h"
+#include "ProudNet/DumpClient.h"
 #include "resource.h"
 
 using namespace Proud;

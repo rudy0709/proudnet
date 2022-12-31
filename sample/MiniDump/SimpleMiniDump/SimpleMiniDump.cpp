@@ -3,8 +3,8 @@
 
 #include "stdafx.h"
 #include <atlpath.h>
-#include "MiniDumper.h"
-#include "DumpCommon.h"
+#include "ProudNet/MiniDumper.h"
+#include "ProudNet/DumpCommon.h"
 
 using namespace Proud;
 
