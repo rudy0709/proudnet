@@ -297,13 +297,14 @@ copy /y $(TargetPath) $(TargetDir)PIDL.exe
 @rem 난독화된 실행파일에 디지털 서명을 추가합니다.
 "%25PN_SIGN_TOOL_PATH%25" sign /f $(ProjectDir)..\codeSign\202108_proudDigital.pfx /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v $(TargetDir)PIDL.exe
 
-@rem 난독화된 실행파일을 공용 폴더로 복사합니다.
+@rem 두 실행파일을 공용 폴더로 복사합니다.
 set folder_path=$(ProjectDir)..\ProudNet
 if not exist "%25folder_path%25" (
     mkdir "%25folder_path%25"
 )
 
-copy /y $(TargetDir)PIDL.exe "%25folder_path%25"</PostBuildEvent>
+copy /y $(TargetDir)PIDL.exe "%25folder_path%25"
+copy /y $(TargetPath) "%25folder_path%25"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>SETLOCAL ENABLEDELAYEDEXPANSION

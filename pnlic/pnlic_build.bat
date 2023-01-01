@@ -54,37 +54,8 @@ exit /b
 		)
 	)
 
-	@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다.
-	@rem 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
-	if not exist "..\utils\" (
-		mkdir "..\utils\"
-	)
-	if not exist "..\utils\nuget.exe" (
-		powershell "(new-Object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/latest/nuget.exe', '%util_path%\nuget.exe')"
-	)
-
-	@rem NuGet 패키지를 다운로드 받습니다.
-	set pkg_flag=F
-
-	if not exist ".\packages\Antlr4.4.6.6\" (
-		set pkg_flag=T
-	)
-	if not exist ".\packages\Antlr4.CodeGenerator.4.6.6\" (
-		set pkg_flag=T
-	)
-	if not exist ".\packages\Antlr4.Runtime.4.6.6\" (
-		set pkg_flag=T
-	)
-	if not exist ".\packages\YamlDotNet.12.0.2\" (
-		set pkg_flag=T
-	)
-
-	if "%pkg_flag%" == "T" (
-		pushd .\
-		cd .\Pidl\
-		"..\..\utils\nuget.exe" restore -PackagesDirectory ..\packages\
-		popd
-	)
+	@rem NuGet 패키지 매니저를 다운로드 받아 설치합니다. - 현재(2022.11.01) 기준으로 v6.3.1이 최신 버전입니다.
+	call :download_nuget
 
 	@rem PIDL 컴파일러 프로젝트를 빌드/클린합니다.
 	call :compile_command ".\Pidl" "1-1) Pidl.csproj"
@@ -180,6 +151,47 @@ exit /b
 	@rem Watermark 프로젝트들을 빌드/클린합니다.
 	call :compile_command ".\Watermark\WatermarkLib" "WatermarkLib.vcxproj"
 	call :compile_command ".\Watermark\WatermarkDll" "WatermarkDll.vcxproj"
+exit /b
+
+:download_nuget
+	@rem NuGet 패키지 관리 파일을 다운로드 받아 설치합니다.
+	set nuget_folder=..\utils\NuGet
+	set nuget_filename=nuget.exe
+	set s3_url=https://proudnet-utils.s3.us-east-1.amazonaws.com
+	set zip_filename=NuGet-v6.4.0.zip
+
+	if not exist "%nuget_folder%" (
+		mkdir "%nuget_folder%"
+	)
+
+	if not exist "%nuget_folder%\%nuget_filename%" (
+		powershell "(new-Object System.Net.WebClient).DownloadFile('%s3_url%/%zip_filename%', '%nuget_folder%\%zip_filename%')"
+		powershell "(Expand-Archive -Path %nuget_folder%\%zip_filename% -DestinationPath %nuget_folder%)"
+		del /f /q "%nuget_folder%\%zip_filename%"
+	)
+
+	@rem NuGet 패키지를 다운로드 받습니다.
+	set pkg_flag=F
+
+	if not exist ".\packages\Antlr4.4.6.6\" (
+		set pkg_flag=T
+	)
+	if not exist ".\packages\Antlr4.CodeGenerator.4.6.6\" (
+		set pkg_flag=T
+	)
+	if not exist ".\packages\Antlr4.Runtime.4.6.6\" (
+		set pkg_flag=T
+	)
+	if not exist ".\packages\YamlDotNet.12.0.2\" (
+		set pkg_flag=T
+	)
+
+	if "%pkg_flag%" == "T" (
+		pushd .\
+		cd .\Pidl\
+		"..\..\utils\NuGet\nuget.exe" restore -PackagesDirectory ..\packages\
+		popd
+	)
 exit /b
 
 @rem 공통 로직...
