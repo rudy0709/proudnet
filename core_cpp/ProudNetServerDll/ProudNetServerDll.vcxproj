@@ -153,7 +153,17 @@
     </Link>
     <PostBuildEvent>
       <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"
+
+@rem .dll 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\dll\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetDir)$(TargetName).dll" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).lib" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).pdb" "%folder_path%"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
@@ -179,7 +189,17 @@
     </Link>
     <PostBuildEvent>
       <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"
+
+@rem .dll 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\dll\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetDir)$(TargetName).dll" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).lib" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).pdb" "%folder_path%"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -208,7 +228,17 @@
     </Link>
     <PostBuildEvent>
       <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"
+
+@rem .dll 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\dll\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetDir)$(TargetName).dll" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).lib" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).pdb" "%folder_path%"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
@@ -237,7 +267,17 @@
     </Link>
     <PostBuildEvent>
       <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"
+
+@rem .dll 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\dll\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetDir)$(TargetName).dll" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).lib" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).pdb" "%folder_path%"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -263,7 +303,17 @@
     </Link>
     <PostBuildEvent>
       <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"
+
+@rem .dll 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\dll\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetDir)$(TargetName).dll" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).lib" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).pdb" "%folder_path%"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
@@ -289,7 +339,17 @@
     </Link>
     <PostBuildEvent>
       <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"
+
+@rem .dll 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\dll\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetDir)$(TargetName).dll" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).lib" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).pdb" "%folder_path%"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -318,7 +378,17 @@
     </Link>
     <PostBuildEvent>
       <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"
+
+@rem .dll 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\dll\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetDir)$(TargetName).dll" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).lib" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).pdb" "%folder_path%"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
@@ -347,7 +417,17 @@
     </Link>
     <PostBuildEvent>
       <Command>@rem .dll 파일에 디지털 서명을 추가합니다.
-"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</Command>
+"%PN_SIGN_TOOL_PATH%" sign /f "$(ProjectDir)..\..\utils\CodeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"
+
+@rem .dll 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\dll\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetDir)$(TargetName).dll" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).lib" "%folder_path%"
+copy /y "$(TargetDir)$(TargetName).pdb" "%folder_path%"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

@@ -303,8 +303,11 @@ if not exist "%25folder_path%25" (
     mkdir "%25folder_path%25"
 )
 
-copy /y $(TargetDir)PIDL.exe "%25folder_path%25"
-copy /y $(TargetPath) "%25folder_path%25"</PostBuildEvent>
+copy /y "$(TargetDir)PIDL.exe" "%25folder_path%25"
+
+@rem copy /y "$(TargetPath)" "%25folder_path%25"
+@rem copy /y "$(TargetDir)Antlr4.Runtime.dll" "%25folder_path%25"
+@rem copy /y "$(TargetDir)YamlDotNet.dll" "%25folder_path%25"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>SETLOCAL ENABLEDELAYEDEXPANSION

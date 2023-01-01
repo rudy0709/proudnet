@@ -197,10 +197,10 @@
   <ItemGroup>
     <CustomBuild Include="AgentC2S.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -209,10 +209,10 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -224,10 +224,10 @@
     </CustomBuild>
     <CustomBuild Include="AgentS2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -236,10 +236,10 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -251,10 +251,10 @@
     </CustomBuild>
     <CustomBuild Include="DB.PIDL">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -263,10 +263,10 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -278,10 +278,10 @@
     </CustomBuild>
     <CustomBuild Include="DumpC2S.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -290,10 +290,10 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -305,10 +305,10 @@
     </CustomBuild>
     <CustomBuild Include="DumpS2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -317,10 +317,10 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -332,10 +332,10 @@
     </CustomBuild>
     <CustomBuild Include="EmergencyC2S.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -344,10 +344,10 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -359,10 +359,10 @@
     </CustomBuild>
     <CustomBuild Include="EmergencyS2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -371,10 +371,10 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -386,10 +386,10 @@
     </CustomBuild>
     <CustomBuild Include="NetC2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -398,10 +398,10 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -413,10 +413,10 @@
     </CustomBuild>
     <CustomBuild Include="NetC2S.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -425,10 +425,10 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -440,10 +440,10 @@
     </CustomBuild>
     <CustomBuild Include="NetS2C.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -452,10 +452,10 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -467,10 +467,10 @@
     </CustomBuild>
     <CustomBuild Include="Viz.pidl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -479,10 +479,10 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(FileName)_common.cpp;%(FileName)_common.h;%(FileName)_proxy.cpp;%(FileName)_proxy.h;%(FileName)_stub.cpp;%(FileName)_stub.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -494,10 +494,10 @@
     </CustomBuild>
     <CustomBuild Include="ErrorType.yaml">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
@@ -506,10 +506,10 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Debug\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">%(Filename).inl;%(Filename).h;%(Filename)OldSpec.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Pidl\bin\Release\PIDL_UnProtect.exe" "%(FullPath)" -outdir $(ProjectDir)..\src\ -incdir $(ProjectDir)..\include\</Command>

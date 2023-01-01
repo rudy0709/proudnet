@@ -150,6 +150,15 @@
       <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
+    <PostBuildEvent>
+      <Command>@rem .lib 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\$(PlatformToolset)\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetPath)" "%folder_path%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">
     <ClCompile>
@@ -171,6 +180,15 @@
       <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
+    <PostBuildEvent>
+      <Command>@rem .lib 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\$(PlatformToolset)\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetPath)" "%folder_path%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -195,6 +213,15 @@
       <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
+    <PostBuildEvent>
+      <Command>@rem .lib 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\$(PlatformToolset)\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetPath)" "%folder_path%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">
     <ClCompile>
@@ -219,6 +246,15 @@
       <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
+    <PostBuildEvent>
+      <Command>@rem .lib 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\$(PlatformToolset)\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetPath)" "%folder_path%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -240,6 +276,15 @@
       <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
+    <PostBuildEvent>
+      <Command>@rem .lib 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\$(PlatformToolset)\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetPath)" "%folder_path%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">
     <ClCompile>
@@ -261,6 +306,15 @@
       <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
+    <PostBuildEvent>
+      <Command>@rem .lib 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\$(PlatformToolset)\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetPath)" "%folder_path%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -285,6 +339,15 @@
       <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
+    <PostBuildEvent>
+      <Command>@rem .lib 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\$(PlatformToolset)\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetPath)" "%folder_path%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">
     <ClCompile>
@@ -309,6 +372,15 @@
       <AdditionalDependencies>..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libcrypto.lib;..\OpenSources\openssl-v1.1.1d\x86_$(PlatformArchitecture)\lib\libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
+    <PostBuildEvent>
+      <Command>@rem .lib 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\x86_$(PlatformArchitecture)\$(PlatformToolset)\$(Configuration)\
+if not exist "%folder_path%" (
+    mkdir "%folder_path%"
+)
+
+copy /y "$(TargetPath)" "%folder_path%"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="..\src\acrimpl_s.cpp" />
