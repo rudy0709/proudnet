@@ -21,16 +21,16 @@
   <ItemGroup>
     <CustomBuild Include="Simple.PIDL">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)..\..\..\utils\Pidl\bin\$(ConfigurationName)\PIDL.exe -cs "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"..\..\..\utils\ProudNet\PIDL.exe" -cs "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FileName)_proxy.cs;%(FileName)_stub.cs;%(FileName)_common.cs;%(Outputs)</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)..\..\..\utils\Pidl\bin\$(ConfigurationName)\PIDL.exe -cs "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"..\..\..\utils\ProudNet\PIDL.exe" -cs "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(FileName)_proxy.cs;%(FileName)_stub.cs;%(FileName)_common.cs;%(Outputs)</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)..\..\..\utils\Pidl\bin\$(ConfigurationName)\PIDL.exe -cs "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"..\..\..\utils\ProudNet\PIDL.exe" -cs "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FileName)_proxy.cs;%(FileName)_stub.cs;%(FileName)_common.cs;%(Outputs)</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)..\..\..\utils\Pidl\bin\$(ConfigurationName)\PIDL.exe -cs "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"..\..\..\utils\ProudNet\PIDL.exe" -cs "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(FileName)_proxy.cs;%(FileName)_stub.cs;%(FileName)_common.cs;%(Outputs)</Outputs>
     </CustomBuild>
