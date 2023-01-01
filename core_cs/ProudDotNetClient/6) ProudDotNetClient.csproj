@@ -281,6 +281,15 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>@rem .dll 파일에 디지털 서명을 추가합니다.
-"%25PN_SIGN_TOOL_PATH%25" sign /f "$(ProjectDir)..\..\utils\codeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"</PostBuildEvent>
+"%25PN_SIGN_TOOL_PATH%25" sign /f "$(ProjectDir)..\..\utils\codeSign\202108_proudDigital.pfx" /t http://timestamp.comodoca.com/authenticode /p OHOSZN /v "$(TargetPath)"
+
+@rem .dll 파일을 공용폴더로 복사합니다.
+set folder_path=$(ProjectDir)..\..\lib\DotNet\
+if not exist "%25folder_path%25" (
+    mkdir "%25folder_path%25"
+)
+
+copy /y "$(TargetDir)$(TargetName).dll" "%25folder_path%25"
+copy /y "$(TargetDir)$(TargetName).pdb" "%25folder_path%25"</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -235,28 +235,28 @@
     <None Include="..\swig_interface\ProudReName.i" />
     <CustomBuild Include="ProudNetClientPlugin.i">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)..\..\utils\Swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">intentional_never_existing_output_file_for_always_running_this_command.txt</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|Win32'">intentional_never_existing_output_file_for_always_running_this_command.txt</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)..\..\utils\Swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">intentional_never_existing_output_file_for_always_running_this_command.txt</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">"$(ProjectDir)..\..\utils\Swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|Win32'">intentional_never_existing_output_file_for_always_running_this_command.txt</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\..\utils\Swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">intentional_never_existing_output_file_for_always_running_this_command.txt</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">"$(ProjectDir)..\..\utils\Swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_static_CRT|x64'">intentional_never_existing_output_file_for_always_running_this_command.txt</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\..\utils\Swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">intentional_never_existing_output_file_for_always_running_this_command.txt</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">"$(ProjectDir)..\..\utils\swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">"$(ProjectDir)..\..\utils\Swig\swig.exe" -c++ -csharp -namespace Nettention.Proud -outdir "$(ProjectDir)..\src\NetClient\PInvoke" %(Identity)</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">Compiling %(Identity) ...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_static_CRT|x64'">intentional_never_existing_output_file_for_always_running_this_command.txt</Outputs>
     </CustomBuild>
