@@ -175,3 +175,9 @@ target_link_libraries(${PROJECT_NAME}
     -lodbc
     -lpthread
 )
+
+# event
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND mkdir -p "${CMAKE_SOURCE_DIR}/../../lib/x86_64-linux/${CMAKE_BUILD_TYPE}/"
+    COMMAND cp -f "${CMAKE_SOURCE_DIR}/build/${CMAKE_BUILD_TYPE}/lib${PROJECT_NAME}.so" "${CMAKE_SOURCE_DIR}/../../lib/x86_64-linux/${CMAKE_BUILD_TYPE}/"
+)

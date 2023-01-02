@@ -12,7 +12,7 @@ file(GLOB HEADERS
 )
 
 include_directories(
-    ${CMAKE_SOURCE_DIR}/../../../core_cpp/include
+    ${CMAKE_SOURCE_DIR}/../../../include/
 )
 
 # options

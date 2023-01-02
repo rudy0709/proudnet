@@ -13,7 +13,7 @@ file(GLOB HEADERS
 )
 
 include_directories(
-    ${CMAKE_SOURCE_DIR}/../../../core_cpp/include
+    ${CMAKE_SOURCE_DIR}/../../../include/
 )
 
 # options
@@ -38,7 +38,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 )
 
 target_link_libraries(${PROJECT_NAME}
-    ${CMAKE_SOURCE_DIR}/../../../core_cpp/ProudNetClientLib/build/${CMAKE_BUILD_TYPE}/libProudNetClient.a
+    ${CMAKE_SOURCE_DIR}/../../../lib/x86_64-linux/${CMAKE_BUILD_TYPE}/libProudNetClient.a
     ${CMAKE_SOURCE_DIR}/../Common/build/${CMAKE_BUILD_TYPE}/libSimpleCommon.a
     -lpthread
 )

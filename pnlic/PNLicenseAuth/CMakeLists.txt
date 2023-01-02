@@ -54,5 +54,6 @@ target_link_libraries(${PROJECT_NAME}
 
 # event
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND echo "윈도우 환경에서 ${PROJECT_NAME}_UnProtect 파일을 난독화해야 합니다."
+    COMMAND mkdir -p "${CMAKE_SOURCE_DIR}/../../utils/ProudNet/"
+    COMMAND cp -f "${CMAKE_SOURCE_DIR}/build/${CMAKE_BUILD_TYPE}/${PROJECT_NAME}_UnProtect" "${CMAKE_SOURCE_DIR}/../../utils/ProudNet/${PROJECT_NAME}"
 )

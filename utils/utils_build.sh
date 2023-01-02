@@ -50,6 +50,13 @@ func_build_project_pidl() {
 	echo ">>>> 윈도우 환경에서 생성된 .pidl 파일의 결과물을 사용하기 때문에 'PIDL 컴파일러' 프로젝트를 빌드하지 않습니다."
 	echo ">>>> 'PIDL 컴파일러' =================================================="
 	echo ""
+	
+	# utils 패키지를 다운로드/설치합니다.
+	func_download_from_s3 "./CodeVirtualizer" "Virtualizer.exe" "CodeVirtualizer-v2.2.2.zip"	# CodeVirtualizer 난독화 도구
+	func_download_from_s3 "./DirectX" "Dll/x86_64/d3dx9_31.dll" "DirectX-v9.x.zip"				# DirectX
+	func_download_from_s3 "./OpenSSL" "x86_64/libssl-1_1-x64.dll" "OpenSSL-v1.1.0.zip"			# OpenSSL
+	func_download_from_s3 "./Swig" "swig.exe" "Swig-v0.0.0.zip"									# Swig 오픈소스
+	func_download_from_s3 "./Unity" "Dll/UnityEngine.dll" "Unity-v0.0.0.zip"					# Unity
 }
 
 func_build_project_image_gen() {
@@ -61,6 +68,23 @@ func_build_project_image_gen() {
 
 	# ImageGen 프로젝트들을 빌드/클린합니다.
 	func_compile_command "./ImageGen"
+}
+
+func_download_from_s3() {
+	s3_url="https://proudnet-utils.s3.us-east-1.amazonaws.com"
+	folder_path="$1"
+	rep_filename="$2"
+	zip_filename="$3"
+
+	if [ ! -d "${folder_path}" ]; then
+		mkdir -p "${folder_path}"
+	fi
+
+	if [ ! -e "${folder_path}/${rep_filename}" ]; then
+		wget -O "${folder_path}/${zip_filename}" "${s3_url}/${zip_filename}"
+		unzip -d "${folder_path}" "${folder_path}/${zip_filename}"
+		rm -f "${folder_path}/${zip_filename}"
+	fi
 }
 
 # 공통 로직...
