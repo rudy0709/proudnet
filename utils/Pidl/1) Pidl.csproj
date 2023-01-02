@@ -400,7 +400,7 @@ if not exist "%25util_path%25\%25rep_filepath%25" (
 @rem Unity 관련 파일들을 다운로드 받아 설치합니다.
 set util_path=$(ProjectDir)..\Unity
 set rep_filepath=Dll\UnityEngine.dll
-set zip_filename=Unity.z-v0.0.0.zip
+set zip_filename=Unity-v0.0.0.zip
 
 if not exist "%25util_path%25" (
     mkdir "%25util_path%25"
