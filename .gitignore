@@ -44,7 +44,7 @@ pnlic/PNLicenseManager/PNLicenseHiddenImage.inl
 pnlic/PNLicenseManager/PNLicenseWarningImage.inl
 
 # ...
-#include/
+include/
 lib/
 utils/CodeVirtualizer/
 !utils/CodeVirtualizer/ProudNet.cv
