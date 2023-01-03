@@ -46,6 +46,7 @@ pnlic/PNLicenseManager/PNLicenseWarningImage.inl
 # ...
 include/
 lib/
+utils/AndroidNDK/
 utils/CodeVirtualizer/
 !utils/CodeVirtualizer/ProudNet.cv
 utils/DirectX/
