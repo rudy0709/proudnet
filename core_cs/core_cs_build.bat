@@ -15,8 +15,8 @@ set msbuild_project=
 	if "%errorlevel%" == "1" (
 		@rem 사용법을 출력합니다.
 		echo Usage:
-		echo     pnlic_build.bat clean ^<configuration^> ^<platform^> ^<project^>
-		echo     pnlic_build.bat build ^<configuration^> ^<platform^> ^<project^>
+		echo     core_cs_build.bat clean ^<configuration^> ^<platform^> ^<project^>
+		echo     core_cs_build.bat build ^<configuration^> ^<platform^> ^<project^>
 		echo Options:
 		echo     configuration : Debug ^| Debug_static_CRT ^| Release ^| Release_static_CRT
 		echo          platform : Win32 ^| x64
