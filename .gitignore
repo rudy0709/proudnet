@@ -44,14 +44,7 @@ pnlic/PNLicenseManager/PNLicenseHiddenImage.inl
 pnlic/PNLicenseManager/PNLicenseWarningImage.inl
 
 # ...
+bin/
 include/
 lib/
-utils/AndroidNDK/
-utils/CodeVirtualizer/
-!utils/CodeVirtualizer/ProudNet.cv
-utils/DirectX/
-utils/NuGet/
-utils/OpenSSL/
-utils/ProudNet/
-utils/Swig/
-utils/Unity/
+third_party/
