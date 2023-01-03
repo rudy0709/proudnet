@@ -1,13 +1,10 @@
 # Temporary files
 *.iml
+local.properties
+gen-libs/build.gradle
 .cxx/
 .google/
 .gradle/
+.idea/
 build/
 libs/
-
-#222-
-#local.properties
-#proudnetlib/build.gradle
-#.idea/
-#ndk/
