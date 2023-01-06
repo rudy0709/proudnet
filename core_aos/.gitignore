@@ -7,4 +7,3 @@ gen-libs/build.gradle
 .gradle/
 .idea/
 build/
-libs/
