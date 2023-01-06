@@ -92,6 +92,11 @@ exit /b 0
 		exit /b
 	)
 
+	for /f "tokens=3 delims= " %%v in ('java -version 2^>^&1 ^| find "version"') do (
+		set java_version=%%v
+	)
+
+	echo ^>^>^>^> Java version : %java_version%
 	echo ^>^>^>^> Env-Var = ^{
 	echo ^>^>^>^>   "ANDROID_SDK_HOME" : "%ANDROID_SDK_HOME%",
 	echo ^>^>^>^>          "CLASSPATH" : "%CLASSPATH%",
